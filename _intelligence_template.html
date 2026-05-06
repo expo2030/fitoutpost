@@ -84,7 +84,7 @@
 
   .util-link:hover { color: #D4C4BA; }
 
-  /* ══════════════════════════════════════════════════════════════════════════
+    /* ══════════════════════════════════════════════════════════════════════════
      TIER 2 — MASTHEAD (salmon background, FOP logo + search)
   ══════════════════════════════════════════════════════════════════════════ */
   #masthead {
@@ -853,7 +853,7 @@
 </head>
 <body>
 
-<!-- ═══════════════════════ MASTHEAD ══════════════════════════════════════════ -->
+<!-- ═══════════════════════ MASTHEAD ═════════════════════════════════════════ -->
 <header id="masthead" role="banner">
   <div id="masthead-inner">
 
@@ -868,23 +868,32 @@
 
     <div id="masthead-divider"></div>
 
+    <!-- Search -->
+    <div id="search-wrap">
+      <svg id="search-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round" style="color:var(--warm-gray)">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input id="search" type="search" placeholder="Search articles, countries, sources…" autocomplete="off" />
+    </div>
+
     <!-- Right -->
     <div id="masthead-right">
       <div id="masthead-updated">
-        <strong id="meta-count">—</strong> datapoints<br>
-        <span style="font-size:10px;color:var(--mid-gray)">Updated <span id="meta-updated">—</span></span>
+        Updated <span id="meta-updated">—</span>
       </div>
-      <span id="server-badge-wrap"></span>
+      
       <div class="mh-util-sep"></div>
       <a href="contact.html" class="mh-util-link">Contact</a>
       <button class="mh-tip-btn"
         onclick="document.getElementById('tip-modal').classList.add('open')"
         aria-label="Have a tip?">Have a tip?</button>
-      <div class="mh-util-sep"></div>
-      <a class="masthead-nav-link masthead-nav-link--cta" href="register.html">Register free →</a>
+      <div class="mh-util-sep"></div><a class="masthead-nav-link" href="register.html" id="reg-btn" style="background:var(--claret);border-color:var(--claret);color:#fff;font-weight:600;padding:6px 18px;" id="masthead-reg">Register free →</a>
     </div>
 
   </div>
+<button id="masthead-search-btn" title="Search (/ or Ctrl+K)" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
 </header>
 
 <!-- ═══════════════════════ PRODUCT NAV ══════════════════════════════════════ -->

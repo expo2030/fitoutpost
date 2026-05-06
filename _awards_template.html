@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>/* ══════════════════════════════════════════════════════════════════════════
+  <style>  /* ══════════════════════════════════════════════════════════════════════════
      TIER 2 — MASTHEAD (salmon background, FOP logo + search)
   ══════════════════════════════════════════════════════════════════════════ */
   #masthead {
@@ -222,162 +222,7 @@
     flex-shrink: 0;
   }
 
-  
-
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --salmon:      #FFF1E5;
-    --salmon-dk:   #F2DFCE;
-    --salmon-md:   #FAE8D6;
-    --white:       #FFFFFF;
-    --black:       #1a1a1a;
-    --black-mid:   #262626;
-    --claret:      #990033;
-    --claret-lt:   #CC0044;
-    --teal:        #0D7680;
-    --amber:       #E8820C;
-    --warm-gray:   #66605A;
-    --mid-gray:    #9A948E;
-    --card-bg:     #FFFFFF;
-    --body-bg:     #FAF5F0;
-    --border:      #D8C9A8;
-    --border-dk:   #BBA898;
-    --serif:  'Playfair Display', 'EB Garamond', Georgia, serif;
-    --sans:   Inter, system-ui, sans-serif;
-  }
-  body { background: var(--salmon); color: var(--black); font-family: var(--garamond); font-size: 17px; line-height: 1.6; }
-
-  /* ── Masthead ──────────────────────────────────────────────── */
-  #masthead { background: var(--salmon); border-bottom: 2px solid var(--black); position: sticky; top: 0; z-index: 200; }
-  #masthead-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
-  #masthead-logo { font-family: var(--serif); font-size: 22px; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -.3px; }
-  #masthead-logo span { color: var(--claret); }
-  #masthead-nav { display: flex; gap: 0; }
-  .mh-link { color: #c8beb2; font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: .5px; text-transform: uppercase; text-decoration: none; padding: 16px 14px; display: block; transition: color .15s; }
-  .mh-link:hover, .mh-link.active { color: #fff; }
-  .mh-link.active { border-bottom: 2px solid var(--claret); }
-
-  /* ── Page hero ─────────────────────────────────────────────── */
-  #page-hero { background: var(--black); color: #fff; padding: 28px 0 24px; border-bottom: 1px solid #333; }
-  #page-hero-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
-  #page-hero-eyebrow { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--claret); margin-bottom: 8px; }
-  #page-hero h1 { font-family: var(--serif); font-size: clamp(26px,3.5vw,42px); font-weight: 800; line-height: 1.1; margin-bottom: 10px; }
-  #page-hero-sub { font-family: var(--sans); font-size: 13px; color: #B8A89A; }
-
-  /* ── Filter bar ────────────────────────────────────────────── */
-  #filter-bar { background: #fff; border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 40; }
-  #filter-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 12px; min-height: 44px; flex-wrap: wrap; }
-  .filter-tab { font-family: var(--sans); font-size: 12px; font-weight: 500; padding: 4px 14px; border: 1px solid var(--rule); border-radius: 20px; cursor: pointer; background: #fff; color: #555; transition: all .15s; white-space: nowrap; }
-  .filter-tab:hover { border-color: var(--claret); color: var(--claret); }
-  .filter-tab.active { background: var(--claret); color: #fff; border-color: var(--claret); }
-  #award-count { font-family: var(--sans); font-size: 12px; color: var(--warm-gray); margin-left: auto; white-space: nowrap; }
-
-  /* ── Main grid ─────────────────────────────────────────────── */
-  #main { max-width: 1320px; margin: 0 auto; padding: 28px 24px 80px; }
-  #awards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
-
-  /* ── Award card ────────────────────────────────────────────── */
-  .award-card {
-    background: #fff;
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    padding: 18px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    transition: box-shadow .15s;
-    position: relative;
-  }
-  .award-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--claret); border-radius: 2px 0 0 2px; }
-  .award-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
-  .award-card-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .award-badge { font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 2px 8px; border-radius: 10px; background: #f2e8e8; color: var(--claret); }
-  .award-geo { font-family: var(--sans); font-size: 11px; color: var(--warm-gray); }
-  .award-date { font-family: var(--sans); font-size: 11px; color: var(--warm-gray); margin-left: auto; }
-  .award-headline { font-family: var(--garamond); font-size: 16px; line-height: 1.35; color: var(--black); font-weight: 400; }
-  .award-source { font-family: var(--sans); font-size: 11px; color: var(--warm-gray); }
-  .award-link { display: inline-block; font-family: var(--sans); font-size: 11px; font-weight: 600; color: var(--claret); text-decoration: none; margin-top: 4px; }
-  .award-link:hover { text-decoration: underline; }
-
-  /* ── Empty / loading ───────────────────────────────────────── */
-  #loading, #empty-state { text-align: center; padding: 80px 20px; color: var(--warm-gray); font-family: var(--sans); font-size: 14px; }
-  .spinner { width: 32px; height: 32px; border: 3px solid var(--rule); border-top-color: var(--claret); border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 16px; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* ── Footer ────────────────────────────────────────────────── */
-  #footer { background: var(--black); color: #8a7f72; font-family: var(--sans); font-size: 12px; padding: 24px; text-align: center; border-top: 2px solid var(--claret); }
-  #footer a { color: #c8beb2; text-decoration: none; }
-  #footer a:hover { color: #fff; }
-
-  @media (max-width: 680px) {
-    #awards-grid { grid-template-columns: 1fr; }
-    #masthead-nav .mh-link { padding: 12px 8px; font-size: 10px; }
-  }
-  
-  /* ─── Contact + Tip links in masthead ──────────────────────────────────── */
-  .mh-util-link {
-    font-size: 11px;
-    color: var(--warm-gray);
-    transition: color .15s;
-    white-space: nowrap;
-  }
-  .mh-util-link:hover { color: var(--black); }
-  .mh-tip-btn {
-    background: none;
-    border: none;
-    font-family: var(--sans);
-    font-size: 11px;
-    color: var(--warm-gray);
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: color .15s;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-  }
-  .mh-tip-btn:hover { color: var(--black); }
-  .mh-util-sep {
-    width: 1px;
-    height: 14px;
-    background: var(--border-dk);
-    flex-shrink: 0;
-  }
-
-
-  /* ── Section banner ──────────────────────────────────────────────────────────────── */
-  #section-banner {
-    background: var(--black);
-    border-bottom: 2px solid var(--claret);
-    padding: 12px 0;
-  }
-  #section-banner-inner {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  #section-label {
-    font-family: var(--sans);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--claret);
-    flex-shrink: 0;
-  }
-  #section-sub {
-    font-size: 12.5px;
-    color: #B8A89A;
-  }
-
-
-
-/* ══════════════════════════════════════════════════════════════════════════
+  /* ══════════════════════════════════════════════════════════════════════════
      TIER 3 — PRODUCT NAV (News / AlphaEdge / …)
   ══════════════════════════════════════════════════════════════════════════ */
   #product-nav {
@@ -539,7 +384,7 @@
 </head>
 <body>
 
-<!-- ═══ MASTHEAD ═══════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════ MASTHEAD ═════════════════════════════════════════ -->
 <header id="masthead" role="banner">
   <div id="masthead-inner">
 
@@ -554,18 +399,32 @@
 
     <div id="masthead-divider"></div>
 
+    <!-- Search -->
+    <div id="search-wrap">
+      <svg id="search-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round" style="color:var(--warm-gray)">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input id="search" type="search" placeholder="Search articles, countries, sources…" autocomplete="off" />
+    </div>
+
     <!-- Right -->
     <div id="masthead-right">
+      <div id="masthead-updated">
+        Updated <span id="meta-updated">—</span>
+      </div>
+      
       <div class="mh-util-sep"></div>
       <a href="contact.html" class="mh-util-link">Contact</a>
       <button class="mh-tip-btn"
         onclick="document.getElementById('tip-modal').classList.add('open')"
         aria-label="Have a tip?">Have a tip?</button>
-      <div class="mh-util-sep"></div>
-      <a class="masthead-nav-link masthead-nav-link--cta" href="register.html">Register free →</a>
+      <div class="mh-util-sep"></div><a class="masthead-nav-link" href="register.html" id="reg-btn" style="background:var(--claret);border-color:var(--claret);color:#fff;font-weight:600;padding:6px 18px;" id="masthead-reg">Register free →</a>
     </div>
 
   </div>
+<button id="masthead-search-btn" title="Search (/ or Ctrl+K)" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
 </header>
 <!-- ╔═══ PRODUCT NAV ═══════════════════════════════════════════════════════════ -->
 <nav id="product-nav" role="navigation" aria-label="Sections">

@@ -47,7 +47,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <!-- Data slot: build.py writes the JSON here -->
   <!--BETAEDGE-DATA-SLOT-->
-  <style>/* ══════════════════════════════════════════════════════════════════════════
+  <style>  /* ══════════════════════════════════════════════════════════════════════════
      TIER 2 — MASTHEAD (salmon background, FOP logo + search)
   ══════════════════════════════════════════════════════════════════════════ */
   #masthead {
@@ -236,492 +236,7 @@
     flex-shrink: 0;
   }
 
-  
-
-
-  /* ─── Reset ─────────────────────────────────────────────────────────────── */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --salmon:      #FFF1E5;
-    --salmon-dk:   #F2DFCE;
-    --salmon-md:   #FAE8D6;
-    --white:       #FFFFFF;
-    --black:       #1a1a1a;
-    --black-mid:   #262626;
-    --claret:      #990033;
-    --claret-lt:   #CC0044;
-    --teal:        #0D7680;
-    --amber:       #E8820C;
-    --warm-gray:   #66605A;
-    --mid-gray:    #9A948E;
-    --card-bg:     #FFFFFF;
-    --body-bg:     #FAF5F0;
-    --border:      #D8C9A8;
-    --border-dk:   #BBA898;
-    --serif:  'Playfair Display', 'EB Garamond', Georgia, serif;
-    --sans:   Inter, system-ui, sans-serif;
-  }
-  html  { scroll-behavior: smooth; font-size: 16px; }
-  body  { font-family: var(--sans); background: var(--salmon); color: var(--black);
-          min-height: 100vh; -webkit-font-smoothing: antialiased; }
-  a { color: inherit; text-decoration: none; }
-  a:hover { color: var(--claret); }
-
-  /* ─── Utility bar ───────────────────────────────────────────────────────── */
-  #utility-bar {
-    background: #1a1a1a; color: rgba(255,255,255,.7);
-    font-size: 11.5px; letter-spacing: .3px; padding: 0 24px;
-  }
-  #utility-inner {
-    max-width: 1320px; margin: 0 auto; height: 34px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  #utility-left  { display: flex; align-items: center; gap: 20px; }
-  #utility-right { display: flex; align-items: center; gap: 20px; }
-  #utility-date  { color: #9A8A80; }
-  .util-link { color: #9A8A80; transition: color .15s; }
-  .util-link:hover { color: #D4C4BA; }
-
-  /* ─── Masthead ───────────────────────────────────────────────────────────── */
-  #masthead {
-    background: var(--salmon); border-bottom: 2px solid var(--black);
-    position: sticky; top: 0; z-index: 200;
-  }
-  #masthead-inner {
-    max-width: 1320px; margin: 0 auto; padding: 0 24px;
-    height: 72px; display: flex; align-items: center; gap: 24px;
-  }
-  #fop-logo { display: flex; align-items: center; gap: 14px; flex-shrink: 0;
-              cursor: default; user-select: none; text-decoration: none; }
-  #fop-logo:hover { color: inherit; }
-  #fop-box  { width: 52px; height: 52px; background: var(--black);
-              display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  #fop-box span { font-family: var(--serif); font-weight: 800; font-size: 24px;
-                  letter-spacing: 1px; color: #fff; line-height: 1; }
-  #fop-wordmark { display: flex; flex-direction: column; line-height: 1.2; }
-  #fop-wordmark strong { font-family: var(--serif); font-weight: 700; font-size: 20px;
-                         letter-spacing: .2px; color: var(--black); }
-  #fop-wordmark em { font-style: normal; font-size: 10px; letter-spacing: 1.4px;
-                     text-transform: uppercase; color: var(--warm-gray);
-                     font-weight: 500; display: block; margin-top: 2px; }
-  #be-badge { font-family: var(--serif); font-style: italic; font-size: 17px;
-               font-weight: 700; color: var(--claret); padding-left: 16px;
-               border-left: 1px solid var(--border); }
-  #mh-right { margin-left: auto; flex-shrink: 0; }
-  .mh-cta { font-size: 12.5px; font-weight: 600; padding: 6px 18px;
-             background: var(--claret); color: #fff; border: 1px solid var(--claret);
-             transition: background .15s; }
-  .mh-cta:hover { background: var(--claret-lt); }
-
-  /* ─── Product nav ────────────────────────────────────────────────────────── */
-  #product-nav { background: var(--black); position: sticky; top: 72px; z-index: 195; }
-  #product-nav-inner {
-    max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex;
-  }
-  .pnav-link {
-    display: inline-block; padding: 0 20px; height: 38px; line-height: 38px;
-    font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.65);
-    border-right: 1px solid rgba(255,255,255,.1); transition: color .15s, background .15s;
-  }
-  .pnav-link:first-child { border-left: 1px solid rgba(255,255,255,.1); }
-  .pnav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
-  .pnav-link.active { color: #fff; background: var(--claret); border-color: var(--claret); }
-  .pnav-link.active + .pnav-link { border-left-color: var(--claret); }
-
-  /* ─── Page header ────────────────────────────────────────────────────────── */
-  #be-header { background: var(--black); color: #fff; padding: 40px 24px 32px; }
-  #be-hdr-inner {
-    max-width: 1320px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end;
-  }
-  #be-title {
-    font-family: var(--serif); font-size: 46px; font-weight: 800;
-    font-style: italic; line-height: 1; letter-spacing: -1px;
-  }
-  #be-title .greek { color: var(--claret); }
-  #be-tagline { font-size: 14px; color: rgba(255,255,255,.55); margin-top: 8px;
-                max-width: 520px; line-height: 1.6; }
-  #be-meta { text-align: right; font-size: 11px; color: rgba(255,255,255,.4); line-height: 1.8; }
-  #be-meta strong { color: rgba(255,255,255,.7); font-size: 22px; display: block;
-                     font-family: var(--serif); }
-
-  /* ─── Content grid ───────────────────────────────────────────────────────── */
-  #content-area {
-    max-width: 1320px; margin: 0 auto; padding: 32px 24px 80px;
-    display: grid; grid-template-columns: 1fr 360px; gap: 32px;
-  }
-  @media (max-width: 900px) { #content-area { grid-template-columns: 1fr; } }
-
-  /* ─── Poll cards ─────────────────────────────────────────────────────────── */
-  #polls-col h3 {
-    font-family: var(--serif); font-size: 13px; text-transform: uppercase;
-    letter-spacing: 1px; color: var(--warm-gray); margin-bottom: 16px;
-    padding-bottom: 10px; border-bottom: 1px solid var(--border);
-  }
-  .poll-card {
-    background: var(--card-bg); border: 1px solid var(--border);
-    padding: 26px 28px; margin-bottom: 20px; transition: border-color .15s;
-  }
-  .poll-card:hover { border-color: var(--black); }
-  .poll-cat {
-    font-size: 10px; font-weight: 700; letter-spacing: .8px;
-    text-transform: uppercase; color: var(--claret); margin-bottom: 8px;
-  }
-  .poll-q { font-family: var(--serif); font-size: 20px; font-weight: 700;
-             line-height: 1.35; margin-bottom: 18px; }
-  .poll-option { margin-bottom: 12px; }
-  .poll-option-label {
-    display: flex; justify-content: space-between;
-    align-items: center; font-size: 13.5px; margin-bottom: 5px;
-  }
-  .poll-option-name { font-weight: 500; }
-  .poll-option-pct { font-weight: 700; font-size: 15px; color: var(--claret); }
-  .poll-bar-track { height: 10px; background: #eee; border-radius: 5px; overflow: hidden; }
-  .poll-bar-fill { height: 100%; background: var(--claret); border-radius: 5px; transition: width .5s; }
-  .poll-footer {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-lt);
-  }
-  .poll-votes  { font-size: 12px; color: var(--mid-gray); }
-  .poll-deadline { font-size: 12px; color: var(--mid-gray); }
-  .btn-vote {
-    padding: 9px 22px; background: var(--claret); color: #fff; border: none;
-    font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--sans);
-    transition: background .15s;
-  }
-  .btn-vote:hover { background: var(--claret-lt); }
-  .voted-badge  { font-size: 12px; font-weight: 600; color: #155724; background: #d4edda; padding: 6px 12px; }
-  .closed-badge { font-size: 12px; color: var(--mid-gray); padding: 6px 12px; background: #eee; }
-  .server-badge { font-size: 12px; color: var(--mid-gray); padding: 6px 12px;
-                   background: #f8f4f0; border: 1px solid var(--border); font-style: italic; }
-
-  /* ─── Side panel ─────────────────────────────────────────────────────────── */
-  #side-col h3 {
-    font-family: var(--serif); font-size: 13px; text-transform: uppercase;
-    letter-spacing: 1px; color: var(--warm-gray); margin-bottom: 16px;
-    padding-bottom: 10px; border-bottom: 1px solid var(--border);
-  }
-  .how-it-works { background: var(--card-bg); border: 1px solid var(--border); padding: 22px 24px; margin-bottom: 20px; }
-  .how-step { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
-  .step-num { width: 28px; height: 28px; background: var(--black); color: #fff;
-               font-size: 12px; font-weight: 700; display: flex; align-items: center;
-               justify-content: center; flex-shrink: 0; border-radius: 50%; }
-  .step-text { font-size: 13px; line-height: 1.55; color: var(--warm-gray); }
-  .step-text strong { color: var(--black); }
-  .disclaimer {
-    background: var(--salmon); border: 1px solid var(--border);
-    padding: 18px 22px; font-size: 12px; color: var(--warm-gray); line-height: 1.65;
-    margin-bottom: 20px;
-  }
-  .disclaimer strong { color: var(--black); }
-  .server-notice {
-    background: #fff8f3; border: 1px solid var(--border); border-left: 3px solid var(--claret);
-    padding: 16px 18px; font-size: 12.5px; color: var(--warm-gray); line-height: 1.6;
-    display: none;
-  }
-  .server-notice strong { color: var(--black); display: block; margin-bottom: 4px; }
-  .server-notice code { background: #eee; padding: 1px 5px; font-size: 11px; }
-
-  /* ─── Modal ──────────────────────────────────────────────────────────────── */
-  .modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55);
-                     z-index: 1000; align-items: center; justify-content: center; }
-  .modal-backdrop.open { display: flex; }
-  .modal { background: #fff; border: 1px solid var(--border); padding: 32px 36px;
-            max-width: 480px; width: 90%; max-height: 90vh; overflow-y: auto; }
-  .modal h2 { font-family: var(--serif); font-size: 22px; margin-bottom: 6px; }
-  .modal .m-sub { font-size: 13px; color: var(--warm-gray); margin-bottom: 24px; line-height: 1.5; }
-  .mfield { margin-bottom: 16px; }
-  .mfield label { display: block; font-size: 11px; font-weight: 600; letter-spacing: .8px;
-                   text-transform: uppercase; color: var(--warm-gray); margin-bottom: 5px; }
-  .mfield input { width: 100%; padding: 10px 12px; font-size: 14px;
-                   border: 1px solid var(--border); outline: none; font-family: var(--sans);
-                   transition: border-color .15s; }
-  .mfield input:focus { border-color: var(--black); }
-  .mfield-check { display: flex; gap: 10px; align-items: flex-start; margin-top: 4px; }
-  .mfield-check input[type=checkbox] { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; cursor: pointer; }
-  .mfield-check label { font-size: 12.5px; color: var(--warm-gray); line-height: 1.5;
-                          font-weight: 400; text-transform: none; letter-spacing: 0; }
-  .m-selected-option { background: var(--salmon); border: 1px solid var(--border);
-                        padding: 12px 16px; margin-bottom: 20px; font-size: 14px; }
-  .m-selected-option strong { display: block; font-size: 11px; text-transform: uppercase;
-                                letter-spacing: .5px; color: var(--claret); margin-bottom: 4px; }
-  .m-status { font-size: 13px; padding: 10px 14px; margin-top: 12px; display: none; }
-  .m-status.ok  { background: #d4edda; color: #155724; }
-  .m-status.err { background: #f8d7da; color: #721c24; }
-  .modal-actions { display: flex; gap: 12px; margin-top: 24px; }
-  .mbtn { padding: 11px 24px; font-size: 14px; font-weight: 600; cursor: pointer;
-           border: none; font-family: var(--sans); transition: background .15s; }
-  .mbtn-primary { background: var(--black); color: #fff; }
-  .mbtn-primary:hover { background: #333; }
-  .mbtn-outline { background: transparent; color: var(--black); border: 1px solid var(--border); }
-  .mbtn-outline:hover { border-color: var(--black); }
-
-  /* ─── Empty / loading states ─────────────────────────────────────────────── */
-  .loading     { text-align: center; padding: 80px 24px; color: var(--warm-gray);
-                  font-family: var(--serif); font-size: 18px; font-style: italic; }
-  .empty-polls { text-align: center; padding: 60px 24px; color: var(--warm-gray);
-                  font-size: 14px; line-height: 1.7; }
-
-  /* ─── Footer ─────────────────────────────────────────────────────────────── */
-  #footer-inner a { color: rgba(255,255,255,.4); margin-left: 16px; }
-  #footer-inner a:hover { color: #fff; }
-  
-  /* ── Have a tip? modal ───────────────────────────────────────────────────── */
-  #tip-modal {
-    display: none; position: fixed; inset: 0; z-index: 9000;
-    align-items: center; justify-content: center;
-  }
-  #tip-modal.open { display: flex; }
-  #tip-modal-backdrop {
-    position: absolute; inset: 0;
-    background: rgba(0,0,0,.65); backdrop-filter: blur(2px);
-  }
-  #tip-modal-card {
-    position: relative; z-index: 1;
-    background: #fff; max-width: 520px; width: calc(100% - 48px);
-    padding: 48px 40px 40px; text-align: center;
-    border-top: 4px solid var(--claret,#990033);
-    box-shadow: 0 24px 64px rgba(0,0,0,.35);
-    animation: tipIn .2s ease;
-  }
-  @keyframes tipIn {
-    from { opacity:0; transform:translateY(-12px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
-  #tip-modal-close {
-    position: absolute; top: 14px; right: 16px;
-    background: none; border: none; cursor: pointer;
-    font-size: 22px; color: #999; line-height: 1; padding: 4px 8px;
-    font-family: sans-serif; transition: color .15s;
-  }
-  #tip-modal-close:hover { color: var(--claret,#990033); }
-  #tip-modal-icon {
-    width: 64px; height: 64px;
-    background: var(--claret,#990033);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 24px;
-  }
-  #tip-modal-headline {
-    font-family: var(--serif,'Playfair Display',Georgia,serif);
-    font-size: 28px; font-weight: 800; font-style: italic;
-    color: var(--black,#1a1a1a); margin-bottom: 18px;
-    letter-spacing: -.3px; line-height: 1.2;
-  }
-  #tip-modal-body {
-    font-size: 15px; line-height: 1.7;
-    color: var(--warm-gray,#66605A); margin-bottom: 28px;
-  }
-  #tip-modal-email {
-    display: inline-block;
-    font-size: 17px; font-weight: 700;
-    color: var(--claret,#990033);
-    border-bottom: 2px solid var(--claret,#990033);
-    padding-bottom: 2px; margin-bottom: 24px;
-    transition: color .15s;
-    text-decoration: none;
-  }
-  #tip-modal-email:hover { color: #CC0044; border-color: #CC0044; }
-  #tip-modal-note {
-    font-size: 11.5px; color: #aaa; line-height: 1.6;
-    padding-top: 20px; border-top: 1px solid #eee;
-  }
-  
-  /* ─── Have a tip? — utility bar button ───────────────────────────────────── */
-  .tip-util-btn {
-    font-size: 11px; font-weight: 600; letter-spacing: .3px;
-    color: var(--claret,#990033); background: none; border: none;
-    cursor: pointer; padding: 0; display: flex; align-items: center; gap: 5px;
-    font-family: var(--sans,Inter,sans-serif); transition: opacity .15s;
-    line-height: 1;
-  }
-  .tip-util-btn:hover { opacity: .7; }
-  
-    #ad-banner-cta { font-size: 15px; }
-    #ad-banner-label { display: none; }
-  }
-  
-  /* ─── Full footer ────────────────────────────────────────────────────────── */
-  #footer {
-    background: var(--black,#1a1a1a);
-    color: #A09890;
-    margin-top: 80px;
-  }
-  #footer-main {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 48px 24px 40px;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 48px;
-    border-bottom: 1px solid #2e2e2e;
-  }
-  #footer-brand .footer-logo-wrap {
-    display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
-  }
-  #footer-fop-box {
-    width: 40px; height: 40px; background: #fff;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  #footer-fop-box span {
-    font-family: var(--serif,"Playfair Display",Georgia,serif);
-    font-weight: 800; font-size: 18px; letter-spacing: 0.5px; color: #1a1a1a;
-  }
-  #footer-fop-wordmark { display: flex; flex-direction: column; }
-  #footer-fop-name {
-    font-family: var(--serif,"Playfair Display",Georgia,serif);
-    font-weight: 700; font-size: 16px; color: #E8D8C8; line-height: 1.2;
-  }
-  #footer-fop-tagline {
-    font-family: var(--sans,Inter,sans-serif); font-size: 9px; font-weight: 600;
-    letter-spacing: 1.6px; text-transform: uppercase; color: #7a6e68; margin-top: 3px;
-  }
-  #footer-brand p {
-    font-size: 12.5px; line-height: 1.75; color: #A09890;
-    max-width: 300px; margin-bottom: 14px;
-  }
-  #footer-brand .footer-disclaimer {
-    font-size: 11px; line-height: 1.7; color: #7a706a;
-    max-width: 300px; font-style: italic;
-  }
-  .footer-col h4 {
-    font-family: var(--sans,Inter,sans-serif); font-size: 10px; font-weight: 700;
-    letter-spacing: 1.2px; text-transform: uppercase; color: #B8A8A0;
-    margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #2e2e2e;
-  }
-  .footer-col ul {
-    list-style: none; display: flex; flex-direction: column; gap: 8px;
-  }
-  .footer-col ul li a { font-size: 12.5px; color: #A09890; transition: color .15s; }
-  .footer-col ul li a:hover { color: #E8D8C8; }
-  #footer-bottom {
-    max-width: 1320px; margin: 0 auto; padding: 18px 24px;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 12px;
-  }
-  #footer-copyright { font-size: 11.5px; color: #7a706a; }
-  #footer-legal-links { display: flex; align-items: center; gap: 20px; }
-  #footer-legal-links a { font-size: 11.5px; color: #7a706a; transition: color .15s; }
-  #footer-legal-links a:hover { color: #9A8A80; }
-  @media (max-width: 1100px) {
-    #footer-main { grid-template-columns: 2fr 1fr 1fr; }
-    #footer-legal { display: none; }
-  }
-  @media (max-width: 760px) {
-    #footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
-    #footer-brand { grid-column: 1 / -1; }
-  }
-  @media (max-width: 480px) {
-    #footer-main { grid-template-columns: 1fr; }
-  }
-  
-  /* ─── Marketing banner — photo strip ─────────────────────────────────────── */
-  #ad-banner {
-    position: relative;
-    height: 240px;
-    overflow: hidden;
-    background: #111;         /* fallback while image loads */
-  }
-  #ad-banner-img {
-    position: absolute; inset: 0;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    transition: opacity .4s ease;
-    opacity: 0;               /* fades in once loaded */
-  }
-  #ad-banner-img.loaded { opacity: 1; }
-  #ad-banner-badge {
-    position: absolute; top: 12px; left: 16px;
-    font-size: 9px; font-weight: 700; letter-spacing: 1.2px;
-    text-transform: uppercase; color: rgba(255,255,255,.6);
-    background: rgba(0,0,0,.35); padding: 3px 7px;
-    pointer-events: none;
-  }
-  #ad-banner-overlay {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 10px 20px;
-    background: linear-gradient(transparent, rgba(0,0,0,.45));
-    display: flex; align-items: flex-end; justify-content: flex-end;
-  }
-  #ad-banner-overlay a {
-    font-size: 11px; font-weight: 600; letter-spacing: .3px;
-    color: rgba(255,255,255,.85); transition: color .15s;
-  }
-  #ad-banner-overlay a:hover { color: #fff; }
-  @media (max-width: 760px) {
-    #ad-banner { height: 160px; }
-  }
-  /* ─── Utility bar — Advertise link ──────────────────────────────────────── */
-  .util-ad-link {
-    font-size: 10px; font-weight: 500; color: var(--claret,#990033);
-    opacity: .8; letter-spacing: .2px; transition: opacity .15s;
-    white-space: nowrap;
-  }
-  .util-ad-link:hover { opacity: 1; }
-  
-  /* ─── Contact + Tip links in masthead ──────────────────────────────────── */
-  .mh-util-link {
-    font-size: 11px;
-    color: var(--warm-gray);
-    transition: color .15s;
-    white-space: nowrap;
-  }
-  .mh-util-link:hover { color: var(--black); }
-  .mh-tip-btn {
-    background: none;
-    border: none;
-    font-family: var(--sans);
-    font-size: 11px;
-    color: var(--warm-gray);
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: color .15s;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-  }
-  .mh-tip-btn:hover { color: var(--black); }
-  .mh-util-sep {
-    width: 1px;
-    height: 14px;
-    background: var(--border-dk);
-    flex-shrink: 0;
-  }
-
-
-  /* ── Section banner ──────────────────────────────────────────────────────────────── */
-  #section-banner {
-    background: var(--black);
-    border-bottom: 2px solid var(--claret);
-    padding: 12px 0;
-  }
-  #section-banner-inner {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  #section-label {
-    font-family: var(--sans);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--claret);
-    flex-shrink: 0;
-  }
-  #section-sub {
-    font-size: 12.5px;
-    color: #B8A89A;
-  }
-
-
-
-/* ══════════════════════════════════════════════════════════════════════════
+  /* ══════════════════════════════════════════════════════════════════════════
      TIER 3 — PRODUCT NAV (News / AlphaEdge / …)
   ══════════════════════════════════════════════════════════════════════════ */
   #product-nav {
@@ -892,6 +407,7 @@
 <body>
 
 
+<!-- ═══════════════════════ MASTHEAD ═════════════════════════════════════════ -->
 <header id="masthead" role="banner">
   <div id="masthead-inner">
 
@@ -906,18 +422,32 @@
 
     <div id="masthead-divider"></div>
 
+    <!-- Search -->
+    <div id="search-wrap">
+      <svg id="search-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round" style="color:var(--warm-gray)">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input id="search" type="search" placeholder="Search articles, countries, sources…" autocomplete="off" />
+    </div>
+
     <!-- Right -->
     <div id="masthead-right">
+      <div id="masthead-updated">
+        Updated <span id="meta-updated">—</span>
+      </div>
+      
       <div class="mh-util-sep"></div>
       <a href="contact.html" class="mh-util-link">Contact</a>
       <button class="mh-tip-btn"
         onclick="document.getElementById('tip-modal').classList.add('open')"
         aria-label="Have a tip?">Have a tip?</button>
-      <div class="mh-util-sep"></div>
-      <a class="masthead-nav-link masthead-nav-link--cta" href="register.html">Register free →</a>
+      <div class="mh-util-sep"></div><a class="masthead-nav-link" href="register.html" id="reg-btn" style="background:var(--claret);border-color:var(--claret);color:#fff;font-weight:600;padding:6px 18px;" id="masthead-reg">Register free →</a>
     </div>
 
   </div>
+<button id="masthead-search-btn" title="Search (/ or Ctrl+K)" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
 </header>
 
 <!-- ╔═══ PRODUCT NAV ═══════════════════════════════════════════════════════════ -->
