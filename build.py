@@ -469,7 +469,6 @@ def build_sitemap() -> None:
         "intelligence.html": ("0.8", "weekly"),
         "weekly.html":       ("0.8", "weekly"),
         "awards.html":       ("0.7", "weekly"),
-        "timeline.html":     ("0.7", "monthly"),
         "alphaedge.html":    ("0.6", "weekly"),
         "betaedge.html":     ("0.6", "weekly"),
         "gammaedge.html":    ("0.6", "monthly"),
@@ -485,7 +484,7 @@ def build_sitemap() -> None:
     urls = []
 
     # Root HTML pages (exclude private/build files)
-    EXCLUDE = {"credentials.html", "site.html", "companies.html"}
+    EXCLUDE = {"credentials.html", "site.html", "companies.html", "timeline.html"}
     for p in sorted(BASE.glob("*.html")):
         if p.name.startswith("_") or p.name in EXCLUDE:
             continue
@@ -591,9 +590,6 @@ if __name__ == "__main__":
         build_pipeline()
     elif "--awards" in args:
         build_awards()
-    elif "--timeline" in args:
-        import subprocess, sys as _sys
-        subprocess.run([_sys.executable, str(BASE / "build_timeline.py")], check=False)
     elif "--news" in args:
         build()
     else:
@@ -606,7 +602,5 @@ if __name__ == "__main__":
         build_tenders()
         build_pipeline()
         build_awards()
-        import subprocess as _sp, sys as _sys2
-        _sp.run([_sys2.executable, str(BASE / "build_timeline.py")], check=False)
         build_companies_site()
         build_sitemap()
