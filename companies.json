@@ -2219,7 +2219,7 @@
       "type": "General Contractor / Fit-Out",
       "parent": null,
       "founded": 1906,
-      "hq": "Edmonton, Canada",
+      "hq": "Edmonton, Alberta, Canada",
       "country": "Canada",
       "continent": "Americas",
       "locations": [
@@ -2227,40 +2227,41 @@
         "Toronto",
         "Vancouver",
         "Calgary",
-        "Denver",
-        "Phoenix",
-        "Orlando",
+        "Ottawa",
         "Honolulu",
-        "Sydney"
+        "Denver",
+        "Minneapolis"
       ],
       "services": [
-        "Construction Management",
-        "Interior Fit-Out",
-        "Design-Build",
-        "Civil Construction"
+        "Office Fit-Out",
+        "Tenant Improvement",
+        "Commercial Interiors",
+        "Industrial",
+        "Civil"
       ],
       "sectors": [
-        "Offices & Workplace",
-        "Hospitals & Healthcare",
-        "Retail",
-        "Industrial & Logistics",
-        "Higher Education"
+        "Office",
+        "Energy",
+        "Industrial",
+        "Healthcare"
       ],
-      "description": "One of North America's largest employee-owned construction companies, delivering interior fit-out and construction across Canada, USA and Australia for over 120 years.",
-      "revenue_cad_bn": 8.5,
-      "revenue_year": 2024,
-      "employees": "9,000+",
+      "description": "PCL Construction is a major employee-owned contractor with substantial interior fit-out capabilities across Canada and the US. Strong energy sector client base in Alberta with growing corporate interiors practice in Toronto and Vancouver.",
+      "notable_projects": [
+        "Downtown Edmonton office fit-outs",
+        "Calgary energy sector HQ projects"
+      ],
+      "revenue_gbp_m": 3800,
+      "revenue_year": 2023,
+      "employees": 8000,
       "website": "https://www.pcl.com",
-      "contact": {
-        "phone": "+1 780 733 5000",
-        "email": "info@pcl.com",
-        "linkedin": "https://www.linkedin.com/company/pcl-construction"
-      },
+      "contact": "info@pcl.com",
       "listed": false,
       "tags": [
-        "Employee-owned",
-        "120+ years",
-        "North America & Australia"
+        "fit-out",
+        "office",
+        "canada",
+        "edmonton",
+        "general-contractor"
       ]
     },
     {
@@ -7649,47 +7650,53 @@
     {
       "id": "dpr-construction",
       "name": "DPR Construction",
-      "type": "specialist contractor",
+      "type": "General Contractor / Fit-Out",
       "parent": null,
       "founded": 1990,
-      "hq": "Redwood City, California",
-      "country": "US",
+      "hq": "Redwood City, California, United States",
+      "country": "United States",
       "continent": "Americas",
       "locations": [
-        "Redwood City",
         "San Francisco",
-        "Austin",
+        "Los Angeles",
+        "Seattle",
         "Phoenix",
-        "Baltimore"
+        "Austin",
+        "Boston",
+        "Washington DC"
       ],
       "services": [
-        "commercial fit-out",
-        "design and build",
-        "technical construction",
-        "renovation"
+        "Office Fit-Out",
+        "Tenant Improvement",
+        "Life Sciences",
+        "Technology Campus",
+        "Healthcare"
       ],
       "sectors": [
-        "life sciences",
-        "commercial",
-        "healthcare",
-        "advanced technology",
-        "higher education"
+        "Technology",
+        "Life Sciences",
+        "Healthcare",
+        "Office"
       ],
-      "description": "DPR Construction is a national US commercial contractor known for high-quality technical fit-out in life sciences, healthcare, and advanced technology sectors. The firm has a strong track record in laboratory, cleanroom, and corporate campus fit-out.",
-      "notable_projects": [],
-      "employees": "11000+",
+      "description": "DPR Construction is a leading US contractor known for complex technical fit-outs serving the technology and life sciences sectors. Strong presence in Silicon Valley and the Bay Area, with significant experience fitting out hyperscaler campuses and biotech labs.",
+      "notable_projects": [
+        "Apple Campus fit-out work",
+        "Bay Area tech campus interiors",
+        "Biotech R&D facilities"
+      ],
+      "revenue_gbp_m": 3500,
+      "revenue_year": 2023,
+      "employees": 9000,
       "website": "https://www.dpr.com",
-      "contact": {
-        "phone": null,
-        "email": null,
-        "linkedin": "https://www.linkedin.com/company/dpr-construction/"
-      },
+      "contact": "info@dpr.com",
       "listed": false,
       "tags": [
         "fit-out",
-        "life sciences",
-        "technical",
-        "USA"
+        "office",
+        "technology",
+        "life-sciences",
+        "california",
+        "us"
       ]
     },
     {
@@ -8462,8 +8469,757 @@
         "joinery manufacturer",
         "retail specialist"
       ]
+    },
+    {
+      "id": "structure-tone",
+      "name": "Structure Tone",
+      "type": "Fit-Out Contractor",
+      "parent": "Structure Tone Organization",
+      "founded": 1971,
+      "hq": "New York City, United States",
+      "country": "United States",
+      "continent": "Americas",
+      "locations": [
+        "New York",
+        "Boston",
+        "Washington DC",
+        "Dallas",
+        "Atlanta",
+        "London",
+        "Dublin",
+        "Sydney"
+      ],
+      "services": [
+        "Office Fit-Out",
+        "Category B Fit-Out",
+        "Tenant Improvement",
+        "Historic Renovation",
+        "Life Sciences Fit-Out"
+      ],
+      "sectors": [
+        "Office",
+        "Life Sciences",
+        "Financial Services",
+        "Media & Entertainment"
+      ],
+      "description": "Structure Tone is one of North America's leading interior construction firms with a strong presence in New York, Boston, and Washington DC. Specialises in complex occupied-building fit-outs for financial services and media occupiers.",
+      "notable_projects": [
+        "JPMorgan Chase HQ, NYC",
+        "Condé Nast at One World Trade Center",
+        "Goldman Sachs London"
+      ],
+      "revenue_gbp_m": 1200,
+      "revenue_year": 2023,
+      "employees": 2500,
+      "website": "https://www.structuretone.com",
+      "contact": "info@structuretone.com",
+      "listed": false,
+      "tags": [
+        "fit-out",
+        "office",
+        "new-york",
+        "tenant-improvement",
+        "us"
+      ]
+    },
+    {
+      "id": "pavarini-mcgovern",
+      "name": "Pavarini McGovern",
+      "type": "Fit-Out Contractor",
+      "parent": "Structure Tone Organization",
+      "founded": 1885,
+      "hq": "New York City, United States",
+      "country": "United States",
+      "continent": "Americas",
+      "locations": [
+        "New York",
+        "New Jersey",
+        "Connecticut"
+      ],
+      "services": [
+        "Office Fit-Out",
+        "Tenant Improvement",
+        "Renovation",
+        "Interior Construction"
+      ],
+      "sectors": [
+        "Office",
+        "Financial Services",
+        "Legal",
+        "Hospitality"
+      ],
+      "description": "One of New York City's oldest and most established interior construction firms. Pavarini McGovern specialises in high-end commercial fit-out across Manhattan, with deep experience in occupied renovations in landmark buildings.",
+      "notable_projects": [
+        "Rockefeller Center offices",
+        "Wall Street financial sector projects"
+      ],
+      "revenue_gbp_m": 650,
+      "revenue_year": 2023,
+      "employees": 800,
+      "website": "https://www.pavarinimcgovern.com",
+      "contact": "info@pavarinimcgovern.com",
+      "listed": false,
+      "tags": [
+        "fit-out",
+        "office",
+        "new-york",
+        "tenant-improvement",
+        "us"
+      ]
+    },
+    {
+      "id": "henegan-construction",
+      "name": "Henegan Construction",
+      "type": "Fit-Out Contractor",
+      "parent": null,
+      "founded": 1963,
+      "hq": "New York City, United States",
+      "country": "United States",
+      "continent": "Americas",
+      "locations": [
+        "New York"
+      ],
+      "services": [
+        "Interior Construction",
+        "Office Fit-Out",
+        "Tenant Improvement",
+        "Lobby Renovation"
+      ],
+      "sectors": [
+        "Office",
+        "Financial Services",
+        "Legal",
+        "Media"
+      ],
+      "description": "Henegan Construction is a leading NYC interior construction firm focused on tenant improvement and commercial fit-out. Known for complex high-rise office projects for financial services and legal sector occupiers throughout Manhattan.",
+      "notable_projects": [
+        "Major NYC financial district offices",
+        "Media company interiors"
+      ],
+      "revenue_gbp_m": 400,
+      "revenue_year": 2023,
+      "employees": 500,
+      "website": "https://www.heneganconstruction.com",
+      "contact": "info@heneganconstruction.com",
+      "listed": false,
+      "tags": [
+        "fit-out",
+        "office",
+        "new-york",
+        "tenant-improvement",
+        "us"
+      ]
+    },
+    {
+      "id": "pepper-construction",
+      "name": "Pepper Construction",
+      "type": "General Contractor / Fit-Out",
+      "parent": null,
+      "founded": 1927,
+      "hq": "Chicago, United States",
+      "country": "United States",
+      "continent": "Americas",
+      "locations": [
+        "Chicago",
+        "Indianapolis",
+        "Nashville",
+        "Ohio"
+      ],
+      "services": [
+        "Office Fit-Out",
+        "Tenant Improvement",
+        "Interior Renovation",
+        "Life Sciences",
+        "Data Centre Fit-Out"
+      ],
+      "sectors": [
+        "Office",
+        "Healthcare",
+        "Life Sciences",
+        "Industrial"
+      ],
+      "description": "Pepper Construction is a leading Midwest contractor with strong office fit-out and tenant improvement capabilities. Based in Chicago, the firm serves corporate occupiers across Illinois, Indiana, and Ohio with a reputation for complex occupied-building work.",
+      "notable_projects": [
+        "Chicago CBD office fit-outs",
+        "Midwest corporate HQ projects"
+      ],
+      "revenue_gbp_m": 950,
+      "revenue_year": 2023,
+      "employees": 1400,
+      "website": "https://www.pepperconstruction.com",
+      "contact": "info@pepperconstruction.com",
+      "listed": false,
+      "tags": [
+        "fit-out",
+        "office",
+        "chicago",
+        "midwest",
+        "us"
+      ]
+    },
+    {
+      "id": "swinerton-builders",
+      "name": "Swinerton",
+      "type": "General Contractor / Fit-Out",
+      "parent": null,
+      "founded": 1888,
+      "hq": "San Francisco, California, United States",
+      "country": "United States",
+      "continent": "Americas",
+      "locations": [
+        "San Francisco",
+        "Los Angeles",
+        "Seattle",
+        "Denver",
+        "Dallas",
+        "Atlanta"
+      ],
+      "services": [
+        "Office Fit-Out",
+        "Tenant Improvement",
+        "Commercial Interior",
+        "Retail Fit-Out"
+      ],
+      "sectors": [
+        "Office",
+        "Retail",
+        "Technology",
+        "Financial Services"
+      ],
+      "description": "Swinerton is a major US contractor with strong tenant improvement and office fit-out capabilities across the West Coast and Sun Belt. Significant experience serving tech sector occupiers in the Bay Area and Pacific Northwest.",
+      "notable_projects": [
+        "San Francisco Bay Area tech offices",
+        "Pacific Northwest corporate interiors"
+      ],
+      "revenue_gbp_m": 2800,
+      "revenue_year": 2023,
+      "employees": 5500,
+      "website": "https://www.swinerton.com",
+      "contact": "info@swinerton.com",
+      "listed": false,
+      "tags": [
+        "fit-out",
+        "office",
+        "california",
+        "west-coast",
+        "us"
+      ]
+    },
+    {
+      "id": "ellisdon",
+      "name": "EllisDon",
+      "type": "General Contractor / Fit-Out",
+      "parent": null,
+      "founded": 1951,
+      "hq": "Mississauga, Ontario, Canada",
+      "country": "Canada",
+      "continent": "Americas",
+      "locations": [
+        "Toronto",
+        "Vancouver",
+        "Ottawa",
+        "Calgary",
+        "Edmonton",
+        "Montreal",
+        "Halifax"
+      ],
+      "services": [
+        "Office Fit-Out",
+        "Tenant Improvement",
+        "Commercial Interiors",
+        "Healthcare",
+        "Institutional"
+      ],
+      "sectors": [
+        "Office",
+        "Healthcare",
+        "Institutional",
+        "Retail"
+      ],
+      "description": "EllisDon is one of Canada's largest general contractors with a major commercial interiors and fit-out practice. The firm serves corporate, government, and institutional clients across all major Canadian cities and has built a strong reputation in complex occupied-building renovations.",
+      "notable_projects": [
+        "Bay Adelaide Centre fit-outs, Toronto",
+        "Federal government office projects"
+      ],
+      "revenue_gbp_m": 2200,
+      "revenue_year": 2023,
+      "employees": 4000,
+      "website": "https://www.ellisdon.com",
+      "contact": "info@ellisdon.com",
+      "listed": false,
+      "tags": [
+        "fit-out",
+        "office",
+        "canada",
+        "toronto",
+        "general-contractor"
+      ]
+    },
+    {
+      "id": "meta-engenharia",
+      "name": "Meta Engenharia",
+      "type": "Fit-Out Contractor",
+      "parent": null,
+      "founded": 1985,
+      "hq": "São Paulo, Brazil",
+      "country": "Brazil",
+      "continent": "Americas",
+      "locations": [
+        "São Paulo",
+        "Rio de Janeiro",
+        "Brasília",
+        "Belo Horizonte"
+      ],
+      "services": [
+        "Office Fit-Out",
+        "Corporate Interiors",
+        "Retail Fit-Out",
+        "Hospitality"
+      ],
+      "sectors": [
+        "Office",
+        "Retail",
+        "Financial Services",
+        "Hospitality"
+      ],
+      "description": "Meta Engenharia is one of Brazil's leading interior fit-out contractors, specialising in corporate office and retail environments. The firm serves multinational and domestic clients across Brazil's major commercial centres, with strong experience in Faria Lima and Paulista Avenue projects.",
+      "notable_projects": [
+        "São Paulo Faria Lima office fit-outs",
+        "Brazilian retail chain rollouts"
+      ],
+      "revenue_gbp_m": 180,
+      "revenue_year": 2023,
+      "employees": 1200,
+      "website": "https://www.metaengenharia.com.br",
+      "contact": "contato@metaengenharia.com.br",
+      "listed": false,
+      "tags": [
+        "fit-out",
+        "office",
+        "brazil",
+        "sao-paulo",
+        "interior-construction"
+      ]
+    },
+    {
+      "id": "gyptec-brasil",
+      "name": "Gyptec Brasil",
+      "type": "Interior Systems Contractor",
+      "parent": null,
+      "founded": 1997,
+      "hq": "São Paulo, Brazil",
+      "country": "Brazil",
+      "continent": "Americas",
+      "locations": [
+        "São Paulo",
+        "Rio de Janeiro",
+        "Curitiba",
+        "Fortaleza"
+      ],
+      "services": [
+        "Drywall Systems",
+        "Ceiling Systems",
+        "Office Partition Fit-Out",
+        "Commercial Interiors"
+      ],
+      "sectors": [
+        "Office",
+        "Retail",
+        "Healthcare",
+        "Hospitality"
+      ],
+      "description": "Gyptec Brasil is a leading Brazilian interior systems contractor specialising in drylining, suspended ceilings, and office partitioning. Serves the corporate fit-out market with proprietary system solutions and nationwide installation capability.",
+      "notable_projects": [
+        "São Paulo commercial developments",
+        "Rio de Janeiro corporate interiors"
+      ],
+      "revenue_gbp_m": 95,
+      "revenue_year": 2023,
+      "employees": 650,
+      "website": "https://www.gyptec.com.br",
+      "contact": "contato@gyptec.com.br",
+      "listed": false,
+      "tags": [
+        "fit-out",
+        "drylining",
+        "brazil",
+        "sao-paulo",
+        "interior-systems"
+      ]
+    },
+    {
+      "id": "dka-interiores",
+      "name": "DKA Interiores",
+      "type": "Design & Fit-Out",
+      "parent": null,
+      "founded": 2003,
+      "hq": "São Paulo, Brazil",
+      "country": "Brazil",
+      "continent": "Americas",
+      "locations": [
+        "São Paulo",
+        "Rio de Janeiro"
+      ],
+      "services": [
+        "Interior Design",
+        "Office Fit-Out",
+        "Workplace Consultancy",
+        "Project Management"
+      ],
+      "sectors": [
+        "Office",
+        "Technology",
+        "Financial Services",
+        "Retail"
+      ],
+      "description": "DKA Interiores is a Brazilian design-and-build firm specialising in corporate workplaces and commercial interiors. Known for agile workspace projects serving technology and financial services clients in São Paulo's premium office districts.",
+      "notable_projects": [
+        "Tech sector agile offices, Faria Lima",
+        "Financial services workplaces, Paulista"
+      ],
+      "revenue_gbp_m": 45,
+      "revenue_year": 2023,
+      "employees": 220,
+      "website": "https://www.dkainteriores.com.br",
+      "contact": "contato@dkainteriores.com.br",
+      "listed": false,
+      "tags": [
+        "fit-out",
+        "design-and-build",
+        "brazil",
+        "sao-paulo",
+        "workplace"
+      ]
+    },
+    {
+      "id": "jsa-arquitectura",
+      "name": "JSa Arquitectura",
+      "type": "Design & Fit-Out",
+      "parent": null,
+      "founded": 1998,
+      "hq": "Mexico City, Mexico",
+      "country": "Mexico",
+      "continent": "Americas",
+      "locations": [
+        "Mexico City",
+        "Monterrey"
+      ],
+      "services": [
+        "Interior Design",
+        "Office Fit-Out",
+        "Workplace Strategy",
+        "Commercial Interiors"
+      ],
+      "sectors": [
+        "Office",
+        "Technology",
+        "Financial Services",
+        "Retail"
+      ],
+      "description": "JSa Arquitectura (Javier Sanchez Arquitectura) is a leading Mexican architecture and interior design practice with a strong corporate fit-out capability. Active in Santa Fe, Polanco, and Reforma corridors serving multinational and domestic corporate clients.",
+      "notable_projects": [
+        "Multinational HQ fit-outs, Santa Fe",
+        "Reforma corridor corporate interiors"
+      ],
+      "revenue_gbp_m": 35,
+      "revenue_year": 2023,
+      "employees": 180,
+      "website": "https://www.jsa.com.mx",
+      "contact": "info@jsa.com.mx",
+      "listed": false,
+      "tags": [
+        "fit-out",
+        "design-and-build",
+        "mexico",
+        "mexico-city",
+        "interior-design"
+      ]
+    },
+    {
+      "id": "lga-construccion",
+      "name": "LGA Construcción",
+      "type": "Fit-Out Contractor",
+      "parent": null,
+      "founded": 2001,
+      "hq": "Mexico City, Mexico",
+      "country": "Mexico",
+      "continent": "Americas",
+      "locations": [
+        "Mexico City",
+        "Monterrey",
+        "Guadalajara"
+      ],
+      "services": [
+        "Office Fit-Out",
+        "Commercial Interiors",
+        "Retail Fit-Out",
+        "Tenant Improvement"
+      ],
+      "sectors": [
+        "Office",
+        "Retail",
+        "Hospitality",
+        "Financial Services"
+      ],
+      "description": "LGA Construcción is a major Mexican interior fit-out contractor serving corporate and retail clients across Mexico's principal commercial centres. Strong near-shoring project pipeline driven by US manufacturing relocations to Monterrey and Guadalajara.",
+      "notable_projects": [
+        "Mexico City CBD office fit-outs",
+        "Monterrey near-shoring corporate projects"
+      ],
+      "revenue_gbp_m": 120,
+      "revenue_year": 2023,
+      "employees": 850,
+      "website": "https://www.lga.mx",
+      "contact": "info@lga.mx",
+      "listed": false,
+      "tags": [
+        "fit-out",
+        "office",
+        "mexico",
+        "mexico-city",
+        "monterrey"
+      ]
+    },
+    {
+      "id": "taisei-interior",
+      "name": "Taisei Corporation (Interior Division)",
+      "type": "General Contractor / Fit-Out",
+      "parent": "Taisei Corporation",
+      "founded": 1873,
+      "hq": "Tokyo, Japan",
+      "country": "Japan",
+      "continent": "Asia Pacific",
+      "locations": [
+        "Tokyo",
+        "Osaka",
+        "Nagoya",
+        "Fukuoka",
+        "Singapore",
+        "New York"
+      ],
+      "services": [
+        "Office Fit-Out",
+        "Commercial Interior",
+        "Hospitality",
+        "Retail",
+        "Laboratory"
+      ],
+      "sectors": [
+        "Office",
+        "Hospitality",
+        "Retail",
+        "Life Sciences"
+      ],
+      "description": "Taisei Corporation's interior division delivers high-specification office and commercial fit-out across Japan's major business centres. One of Japan's 'Big Six' general contractors, Taisei brings exceptional quality standards and seismic engineering expertise to corporate interior projects.",
+      "notable_projects": [
+        "Marunouchi office district fit-outs",
+        "Tokyo Grade S tower interiors"
+      ],
+      "revenue_gbp_m": 3200,
+      "revenue_year": 2023,
+      "employees": 8500,
+      "website": "https://www.taisei.co.jp/english/",
+      "contact": "info@taisei.co.jp",
+      "listed": true,
+      "tags": [
+        "fit-out",
+        "office",
+        "japan",
+        "tokyo",
+        "general-contractor"
+      ]
+    },
+    {
+      "id": "kajima-interior",
+      "name": "Kajima Corporation (Interior Works)",
+      "type": "General Contractor / Fit-Out",
+      "parent": "Kajima Corporation",
+      "founded": 1840,
+      "hq": "Tokyo, Japan",
+      "country": "Japan",
+      "continent": "Asia Pacific",
+      "locations": [
+        "Tokyo",
+        "Osaka",
+        "Nagoya",
+        "Singapore",
+        "Bangkok",
+        "London"
+      ],
+      "services": [
+        "Office Fit-Out",
+        "Corporate Interiors",
+        "Hospitality",
+        "Retail",
+        "Data Centre"
+      ],
+      "sectors": [
+        "Office",
+        "Hospitality",
+        "Technology",
+        "Retail"
+      ],
+      "description": "Kajima Corporation is among Japan's most distinguished general contractors with a dedicated interior works business. International reach across Southeast Asia and Europe. Known for meticulous quality, precision programme management, and advanced digital construction techniques.",
+      "notable_projects": [
+        "Tokyo Grade A office fit-outs",
+        "International corporate campuses"
+      ],
+      "revenue_gbp_m": 5100,
+      "revenue_year": 2023,
+      "employees": 11000,
+      "website": "https://www.kajima.co.jp/english/",
+      "contact": "info@kajima.co.jp",
+      "listed": true,
+      "tags": [
+        "fit-out",
+        "office",
+        "japan",
+        "tokyo",
+        "general-contractor"
+      ]
+    },
+    {
+      "id": "samsung-ct-interiors",
+      "name": "Samsung C&T (Building & Interior)",
+      "type": "General Contractor / Fit-Out",
+      "parent": "Samsung Group",
+      "founded": 1938,
+      "hq": "Seoul, South Korea",
+      "country": "South Korea",
+      "continent": "Asia Pacific",
+      "locations": [
+        "Seoul",
+        "Busan",
+        "Singapore",
+        "Dubai",
+        "Atlanta"
+      ],
+      "services": [
+        "Office Fit-Out",
+        "Corporate Interiors",
+        "Hospitality",
+        "Retail",
+        "Smart Building"
+      ],
+      "sectors": [
+        "Office",
+        "Technology",
+        "Hospitality",
+        "Retail"
+      ],
+      "description": "Samsung C&T's building and interior division delivers high-specification office and commercial fit-out across South Korea and internationally. Brings Samsung Group smart building technology integration as a differentiator; strong in Gangnam and Yeouido premium office districts.",
+      "notable_projects": [
+        "Samsung Electronics HQ interiors",
+        "Gangnam Grade A office fit-outs"
+      ],
+      "revenue_gbp_m": 8200,
+      "revenue_year": 2023,
+      "employees": 15000,
+      "website": "https://www.samsungcnt.com/eng/",
+      "contact": "info@samsungcnt.com",
+      "listed": true,
+      "tags": [
+        "fit-out",
+        "office",
+        "south-korea",
+        "seoul",
+        "general-contractor"
+      ]
+    },
+    {
+      "id": "hyundai-ec-interiors",
+      "name": "Hyundai E&C (Interior Works)",
+      "type": "General Contractor / Fit-Out",
+      "parent": "Hyundai Motor Group",
+      "founded": 1947,
+      "hq": "Seoul, South Korea",
+      "country": "South Korea",
+      "continent": "Asia Pacific",
+      "locations": [
+        "Seoul",
+        "Incheon",
+        "Busan",
+        "Riyadh",
+        "Singapore",
+        "Kuwait"
+      ],
+      "services": [
+        "Office Fit-Out",
+        "Commercial Interiors",
+        "Hospitality",
+        "Mixed-Use Development"
+      ],
+      "sectors": [
+        "Office",
+        "Hospitality",
+        "Government",
+        "Mixed-Use"
+      ],
+      "description": "Hyundai Engineering & Construction's interior works division delivers corporate and commercial fit-out across South Korea and the Middle East. Strong government and large-scale corporate project capability; active in Saudi Arabia's NEOM and Vision 2030 workplace projects.",
+      "notable_projects": [
+        "Seoul business district offices",
+        "Saudi Arabia commercial interiors"
+      ],
+      "revenue_gbp_m": 6800,
+      "revenue_year": 2023,
+      "employees": 12000,
+      "website": "https://www.hdec.kr/en/",
+      "contact": "info@hdec.kr",
+      "listed": true,
+      "tags": [
+        "fit-out",
+        "office",
+        "south-korea",
+        "seoul",
+        "general-contractor"
+      ]
+    },
+    {
+      "id": "kolon-global",
+      "name": "Kolon Global",
+      "type": "Fit-Out Contractor",
+      "parent": "Kolon Group",
+      "founded": 1957,
+      "hq": "Seoul, South Korea",
+      "country": "South Korea",
+      "continent": "Asia Pacific",
+      "locations": [
+        "Seoul",
+        "Busan",
+        "Daegu"
+      ],
+      "services": [
+        "Office Fit-Out",
+        "Interior Construction",
+        "Retail Fit-Out",
+        "Hospitality"
+      ],
+      "sectors": [
+        "Office",
+        "Retail",
+        "Hospitality",
+        "Residential"
+      ],
+      "description": "Kolon Global is South Korea's specialist interior fit-out and construction firm within the Kolon conglomerate. Known for high-quality commercial interior projects in Seoul's Mapo, Yeouido, and Gangnam business districts.",
+      "notable_projects": [
+        "Seoul corporate interior projects",
+        "Korean retail chain fit-outs"
+      ],
+      "revenue_gbp_m": 950,
+      "revenue_year": 2023,
+      "employees": 2200,
+      "website": "https://www.kolonglobal.com",
+      "contact": "info@kolonglobal.com",
+      "listed": true,
+      "tags": [
+        "fit-out",
+        "office",
+        "south-korea",
+        "seoul",
+        "interior-construction"
+      ]
     }
   ],
-  "total_companies": 171,
-  "last_updated": "2026-05-05"
+  "total_companies": 187,
+  "last_updated": "2026-05-06"
 }

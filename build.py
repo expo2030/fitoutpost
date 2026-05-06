@@ -340,7 +340,7 @@ AW_DATA_SLOT  = "<!--AWARDS-DATA-SLOT-->"
 AW_SLOT_ID    = "awards-data"
 
 AWARD_KEYWORDS = [
-    "awarded", "award", "wins contract", "win contract", "won contract",
+    "awarded", "wins contract", "win contract", "won contract",
     "secures contract", "secured contract", "appointed contractor",
     "appoints contractor", "signs contract", "signed contract",
     "contract signed", "contract win", "fit-out contract",
@@ -348,7 +348,22 @@ AWARD_KEYWORDS = [
     "appointed to deliver", "appointed to fit", "appointed to refurbish",
     "construction contract", "fitout contract", "bags contract",
     "clinches contract", "lands contract", "lands deal",
-    "wins deal", "wins project", "selected as", "appointed as",
+    "wins deal", "wins project", "selected as contractor", "appointed as contractor",
+    "awarded the contract", "awarded contract", "awarded fit-out",
+    "main contractor appointed", "contractor selected", "contractor appointed",
+]
+
+# Negative keywords — if any of these appear in the text, exclude the article
+# These fire on the common false-positive "award-winning design" pattern
+AWARD_NEGATIVE_KEYWORDS = [
+    "award-winning", "award winning", "award-nominated",
+    "design award", "awards ceremony", "award scheme",
+    "awards programme", "awards program", "shortlisted for",
+    "shortlisted at", "finalist at", "winner of the",
+    "won the award", "won an award", "receives award",
+    "received award", "prize winner", "prize-winning",
+    "accolade", "recognition award", "industry award",
+    "best workplace award", "design awards 2", "interior design award",
 ]
 
 def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.json") -> None:
@@ -368,8 +383,10 @@ def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.js
         for a in news.get("articles", []):
             text = ((a.get("headline") or a.get("title") or "") + " " +
                     (a.get("description") or a.get("summary") or "")).lower()
-            if a.get("signal_type", "").lower() == "award" or \
-               any(kw in text for kw in AWARD_KEYWORDS):
+            is_award_signal = a.get("signal_type", "").lower() == "award"
+            has_award_kw    = any(kw in text for kw in AWARD_KEYWORDS)
+            has_neg_kw      = any(kw in text for kw in AWARD_NEGATIVE_KEYWORDS)
+            if (is_award_signal or has_award_kw) and not has_neg_kw:
                 awards.append({
                     "id":           a.get("id", ""),
                     "headline":     a.get("headline") or a.get("title", ""),
@@ -391,7 +408,9 @@ def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.js
         for a in pl.get("items", []):
             text = ((a.get("headline") or a.get("title") or "") + " " +
                     (a.get("description") or a.get("summary") or "")).lower()
-            if any(kw in text for kw in AWARD_KEYWORDS):
+            has_award_kw = any(kw in text for kw in AWARD_KEYWORDS)
+            has_neg_kw   = any(kw in text for kw in AWARD_NEGATIVE_KEYWORDS)
+            if has_award_kw and not has_neg_kw:
                 awards.append({
                     "id":           a.get("id", ""),
                     "headline":     a.get("headline") or a.get("title", ""),
