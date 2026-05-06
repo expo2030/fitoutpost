@@ -5,6 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tenders — FitOut Post</title>
   <meta name="description" content="Global fit-out tenders, bids and RFPs. Office, retail, hospitality and commercial interior works contracts from TED EU, UK Find a Tender, SAM.gov and 20+ procurement portals worldwide." />
+  <!-- ── SEO: Open Graph ──────────────────────────────────────── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FitOut Post" />
+  <meta property="og:title" content="Fit-Out Tenders — FitOut Post" />
+  <meta property="og:description" content="Global fit-out tenders, bids and RFPs. Office, retail, hospitality and commercial interior works contracts from TED EU, UK Find a Tender and procurement portals worldwide." />
+  <meta property="og:url" content="https://fitoutpost.com/tenders.html" />
+  <meta property="og:image" content="https://fitoutpost.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@fitoutpost" />
+  <meta name="twitter:title" content="Fit-Out Tenders — FitOut Post" />
+  <meta name="twitter:description" content="Global fit-out tenders, bids and RFPs. Office, retail, hospitality and commercial interior works contracts from TED EU, UK Find a Tender and procurement portals worldwide." />
+  <meta name="twitter:image" content="https://fitoutpost.com/og-image.png" />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://fitoutpost.com/tenders.html" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://fitoutpost.com/favicon.svg" />
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "FitOut Post",
+    "url": "https://fitoutpost.com",
+    "description": "Global fit-out tenders, bids and RFPs. Office, retail, hospitality and commercial interior works contracts from TED EU, UK Find a Tender and procurement portals worldwide.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://fitoutpost.com/?q={{search_term_string}}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -643,6 +680,14 @@
     .paywall-tiers { grid-template-columns: 1fr; }
   }
   </style>
+  <!-- Google Analytics 4 — replace G-FITOUTPOST1 with your real Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FITOUTPOST1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FITOUTPOST1', {anonymize_ip: true});
+  </script>
 </head>
 <body>
 
@@ -678,7 +723,8 @@
       <a class="masthead-nav-link" href="intelligence.html">Intelligence</a>
       <a class="masthead-nav-link" href="companies_site.html">Companies</a>
       <a class="masthead-nav-link masthead-nav-link--cta" href="#paywall-cta">Subscribe</a>
-    </nav>
+    <button id="masthead-search-btn" title="Search (/ or Ctrl+K)" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
+  </nav>
   </div>
 </header>
 
@@ -1371,5 +1417,6 @@ document.getElementById('unlock-modal-overlay').addEventListener('click', functi
 </script>
 
 <script src="cookie-consent.js"></script>
+<script src="search.js"></script>
 </body>
 </html>

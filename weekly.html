@@ -5,6 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weekly Roundup — FitOut Post</title>
   <meta name="description" content="Every Monday: all fit-out industry news from the previous week, listed by market." />
+  <!-- ── SEO: Open Graph ──────────────────────────────────────── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FitOut Post" />
+  <meta property="og:title" content="Weekly Roundup — FitOut Post" />
+  <meta property="og:description" content="Every Monday: all fit-out industry news from the previous week, curated by market and sector." />
+  <meta property="og:url" content="https://fitoutpost.com/weekly.html" />
+  <meta property="og:image" content="https://fitoutpost.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@fitoutpost" />
+  <meta name="twitter:title" content="Weekly Roundup — FitOut Post" />
+  <meta name="twitter:description" content="Every Monday: all fit-out industry news from the previous week, curated by market and sector." />
+  <meta name="twitter:image" content="https://fitoutpost.com/og-image.png" />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://fitoutpost.com/weekly.html" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://fitoutpost.com/favicon.svg" />
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "FitOut Post",
+    "url": "https://fitoutpost.com",
+    "description": "Every Monday: all fit-out industry news from the previous week, curated by market and sector.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://fitoutpost.com/?q={{search_term_string}}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -420,6 +457,14 @@
   }
   .util-ad-link:hover { opacity: 1; }
   </style>
+  <!-- Google Analytics 4 — replace G-FITOUTPOST1 with your real Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FITOUTPOST1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FITOUTPOST1', {anonymize_ip: true});
+  </script>
 </head>
 <body>
 
@@ -458,6 +503,7 @@
       <a href="companies_site.html" class="mh-cta">Companies directory</a>
     </div>
   </div>
+<button id="masthead-search-btn" title="Search (/ or Ctrl+K)" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
 </header>
 
 <nav id="product-nav" role="navigation" aria-label="Sections">
@@ -583,6 +629,11 @@ if (slot && slot.textContent.trim()) {
   try { DATA = JSON.parse(slot.textContent); } catch (e) { console.error("Weekly data parse error:", e.message); }
 }
 
+/* ─── Member gate ────────────────────────────────────────────────────────── */
+function isRegistered() {
+  try { return !!JSON.parse(localStorage.getItem('fop_member') || 'null'); } catch(e) { return false; }
+}
+
 /* ─── Helpers ────────────────────────────────────────────────────────────── */
 function esc(s) {
   return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;")
@@ -631,8 +682,8 @@ function renderWeek(weekIndex) {
       </div>
     </div>`;
 
-  // Continent groups
-  const groups = (w.groups || []).map(g => {
+  // ── Build continent group HTML ────────────────────────────────────────────
+  function renderGroup(g) {
     const rows = g.articles.map(a => `
       <div class="article-row">
         <span class="art-date">${esc(a.date_display)}</span>
@@ -640,7 +691,6 @@ function renderWeek(weekIndex) {
         <span class="art-headline">${esc(a.headline)}</span>
         <a class="art-link" href="${esc(a.url)}" target="_blank" rel="noopener">→ Read</a>
       </div>`).join("");
-
     return `
       <div class="continent-block">
         <div class="continent-header">
@@ -649,13 +699,48 @@ function renderWeek(weekIndex) {
         </div>
         ${rows}
       </div>`;
-  }).join("");
+  }
 
-  container.innerHTML = `
-    <div class="fax-transmission">
-      ${faxHeader}
-      ${groups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No articles found for this week.</div>'}
-    </div>`;
+  const allGroups = w.groups || [];
+  const registered = isRegistered();
+
+  if (registered || allGroups.length === 0) {
+    // Full content for members
+    const groups = allGroups.map(renderGroup).join("");
+    container.innerHTML = `
+      <div class="fax-transmission">
+        ${faxHeader}
+        ${groups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No articles found for this week.</div>'}
+      </div>`;
+  } else {
+    // Teaser: first continent group visible, rest blurred + register gate
+    const teaser = renderGroup(allGroups[0]);
+    const locked = allGroups.slice(1).map(renderGroup).join("");
+    const remaining = allGroups.slice(1).reduce((s,g) => s + g.articles.length, 0);
+    container.innerHTML = `
+      <div class="fax-transmission">
+        ${faxHeader}
+        ${teaser}
+        <div style="position:relative;">
+          <div style="filter:blur(4px);pointer-events:none;user-select:none;opacity:.55;">${locked}</div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:10;">
+            <div style="background:#fff;border:1px solid #d8c9a8;border-radius:4px;padding:32px 40px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.12);max-width:420px;">
+              <div style="font-size:28px;margin-bottom:8px;">📋</div>
+              <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#1a1a1a;margin-bottom:8px;">
+                ${remaining} more articles this week
+              </div>
+              <p style="font-size:14px;color:#555;margin-bottom:20px;line-height:1.5;">
+                Register free to read the full weekly roundup — every market, every week.
+              </p>
+              <a href="register.html" style="display:inline-block;background:#990033;color:#fff;font-family:Inter,sans-serif;font-size:14px;font-weight:600;padding:12px 28px;border-radius:2px;text-decoration:none;letter-spacing:.03em;">
+                Register free →
+              </a>
+              <div style="margin-top:12px;font-size:12px;color:#8a7f72;">Already registered? <a href="register.html" style="color:#990033;">Sign in here</a></div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
 }
 
 /* ─── Init ───────────────────────────────────────────────────────────────── */
@@ -702,5 +787,6 @@ document.addEventListener('keydown', e => {
 </script>
 <script></script>
 <script src="cookie-consent.js"></script>
+<script src="search.js"></script>
 </body>
 </html>

@@ -5,6 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FitOut Post — Global Fit-Out Industry News</title>
   <meta name="description" content="The world's fit-out industry news aggregator. Covering fitout, fit-out and interior construction projects across every continent." />
+  <!-- ── SEO: Open Graph ──────────────────────────────────────── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FitOut Post" />
+  <meta property="og:title" content="FitOut Post — Global Fit-Out Industry News" />
+  <meta property="og:description" content="The world's fit-out industry news aggregator. Covering fitout, fit-out and interior construction projects across every continent." />
+  <meta property="og:url" content="https://fitoutpost.com/" />
+  <meta property="og:image" content="https://fitoutpost.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@fitoutpost" />
+  <meta name="twitter:title" content="FitOut Post — Global Fit-Out Industry News" />
+  <meta name="twitter:description" content="The world's fit-out industry news aggregator. Covering fitout, fit-out and interior construction projects across every continent." />
+  <meta name="twitter:image" content="https://fitoutpost.com/og-image.png" />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://fitoutpost.com/" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://fitoutpost.com/favicon.svg" />
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "FitOut Post",
+    "url": "https://fitoutpost.com",
+    "description": "The world's fit-out industry news aggregator. Covering fitout, fit-out and interior construction projects across every continent.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://fitoutpost.com/?q={{search_term_string}}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -914,12 +951,20 @@
   }
   .util-ad-link:hover { opacity: 1; }
   </style>
+  <!-- Google Analytics 4 — replace G-FITOUTPOST1 with your real Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FITOUTPOST1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FITOUTPOST1', {anonymize_ip: true});
+  </script>
 </head>
 <body>
 
 <!-- ═══════════════════════ UTILITY BAR ══════════════════════════════════════ -->
 <!-- Build stamp (injected by build.py — visible before JS loads) -->
-<div id="build-stamp" style="display:none">2026-05-06T07:08:27Z</div>
+<div id="build-stamp" style="display:none">2026-05-06T09:21:42Z</div>
 <div id="utility-bar">
   <div id="utility-inner">
     <div id="utility-left">
@@ -977,6 +1022,7 @@
     </div>
 
   </div>
+<button id="masthead-search-btn" title="Search (/ or Ctrl+K)" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
 </header>
 
 <!-- ═══════════════════════ PRODUCT NAV ══════════════════════════════════════ -->
@@ -1011,6 +1057,16 @@
     <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;" id="hero-cta">
       <a href="register.html" style="display:inline-block;background:var(--claret);color:#fff;padding:10px 24px;font-size:13px;font-weight:600;letter-spacing:0.3px;white-space:nowrap;transition:background .15s;" onmouseover="this.style.background='#CC0044'" onmouseout="this.style.background='var(--claret)'">Register free →</a>
       <span style="font-size:11px;color:#9A8A80;max-width:140px;line-height:1.5;">Free. No credit card. Unsubscribe anytime.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ LATEST SIGNALS STRIP ═════════════════════════════ -->
+<div id="latest-signals-wrap" style="background:var(--salmon-dk);border-bottom:1px solid #D8C9A8;">
+  <div style="max-width:1320px;margin:0 auto;padding:10px 24px;">
+    <div style="display:flex;align-items:center;gap:12px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:4px;" id="latest-signals-scroll">
+      <span style="font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--claret);flex-shrink:0;white-space:nowrap;">Latest →</span>
+      <div id="latest-signals-cards" style="display:flex;gap:10px;flex-shrink:0;"></div>
     </div>
   </div>
 </div>
@@ -1517,6 +1573,34 @@ async function loadNews() {
     document.getElementById("content").style.display = "block";
     render();
 
+    // ── Latest Signals strip ─────────────────────────────────────────────────
+    (function buildSignalStrip() {
+      const strip = document.getElementById("latest-signals-cards");
+      if (!strip || !ALL_ARTICLES.length) return;
+      const top = ALL_ARTICLES.slice(0, 8);
+      const sigColor = { News:"#2a5f8f", Award:"#5a6e1f", Tender:"#7a3f6e", Pipeline:"#8a4a00", Progress:"#2a6f5f" };
+      strip.innerHTML = top.map(a => {
+        const sig = (a.signal_type || "News").replace(/^./, c => c.toUpperCase());
+        const col = sigColor[sig] || "#555";
+        const headline = (a.headline || a.title || "").substring(0,60) + ((a.headline||"").length>60?"…":"");
+        const country = a.country || a.geo_country || "";
+        return `<a href="${a.url||"#"}" target="_blank" rel="noopener" style="
+            display:flex;flex-direction:column;gap:4px;
+            background:#fff;border:1px solid #D8C9A8;border-radius:2px;
+            padding:8px 12px;min-width:220px;max-width:260px;flex-shrink:0;
+            text-decoration:none;color:inherit;
+            box-shadow:0 1px 3px rgba(0,0,0,.06);transition:box-shadow .15s;"
+            onmouseover="this.style.boxShadow='0 2px 8px rgba(0,0,0,.12)'"
+            onmouseout="this.style.boxShadow='0 1px 3px rgba(0,0,0,.06)'">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;">
+            <span style="font-family:Inter,sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:${col};background:${col}18;padding:1px 6px;border-radius:10px;">${sig}</span>
+            ${country ? `<span style="font-family:Inter,sans-serif;font-size:9px;color:#8a7f72;letter-spacing:.03em;">${country}</span>` : ""}
+          </div>
+          <span style="font-family:'EB Garamond',Georgia,serif;font-size:13px;line-height:1.35;color:#1a1a1a;">${headline}</span>
+        </a>`;
+      }).join("");
+    })();
+
   } catch (err) {
     document.getElementById("loading").style.display     = "none";
     document.getElementById("error-state").style.display = "block";
@@ -1556,5 +1640,6 @@ document.addEventListener('keydown', e => {
 </script>
 <script></script>
 <script src="cookie-consent.js"></script>
+<script src="search.js"></script>
 </body>
 </html>
