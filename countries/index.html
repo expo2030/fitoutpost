@@ -13,33 +13,100 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9ECWT6671C',{anonymize_ip:true});</script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-  *{box-sizing:border-box;margin:0;padding:0;}
-  :root{--salmon:#FFF1E5;--black:#1a1a1a;--claret:#990033;--rule:#D8C9A8;--serif:'Playfair Display',Georgia,serif;--sans:Inter,system-ui,sans-serif;}
-  body{background:var(--salmon);color:var(--black);font-family:var(--sans);}
-  #masthead{background:var(--black);border-bottom:3px solid var(--claret);}
-  #masthead-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;min-height:52px;}
-  #masthead-logo{font-family:var(--serif);font-size:22px;font-weight:800;color:#fff;text-decoration:none;}
-  #masthead-logo span{color:var(--claret);}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --salmon:#FFF1E5;--salmon-dk:#F2DFCE;--white:#FFFFFF;--black:#1a1a1a;--black-mid:#262626;
+    --claret:#990033;--claret-lt:#CC0044;--warm-gray:#66605A;--mid-gray:#9A948E;
+    --border:#D8C9A8;--border-dk:#BBA898;
+    --serif:'Playfair Display','EB Garamond',Georgia,serif;--sans:Inter,system-ui,sans-serif;
+  }
+  body{background:var(--salmon);color:var(--black);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}a:hover{color:var(--claret);}
+  #masthead{background:var(--salmon);border-bottom:2px solid var(--black);position:sticky;top:0;z-index:200;}
+  #masthead-inner{max-width:1320px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;gap:24px;}
+  #fop-logo{display:flex;align-items:center;gap:14px;flex-shrink:0;cursor:default;user-select:none;text-decoration:none;}
+  #fop-logo:hover{color:inherit;}
+  #fop-box{width:52px;height:52px;background:var(--black);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  #fop-box span{font-family:var(--serif);font-weight:800;font-size:24px;letter-spacing:1px;color:#fff;line-height:1;}
+  #fop-wordmark{display:flex;flex-direction:column;line-height:1.2;}
+  #fop-wordmark strong{font-family:var(--serif);font-weight:700;font-size:20px;color:var(--black);}
+  #fop-wordmark em{font-style:normal;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--warm-gray);font-weight:500;margin-top:2px;}
+  #masthead-divider{width:1px;height:32px;background:var(--border-dk);flex-shrink:0;margin:0 4px;}
+  #search-wrap{position:relative;flex:1;max-width:360px;}
+  #search{width:100%;background:rgba(255,255,255,.6);border:1px solid var(--border);color:var(--black);font-family:var(--sans);font-size:13px;padding:8px 12px 8px 36px;outline:none;transition:background .2s,border-color .2s;}
+  #search:focus{background:#fff;border-color:var(--black);}
+  #search::placeholder{color:var(--mid-gray);}
+  #search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);opacity:.45;pointer-events:none;}
+  #masthead-right{margin-left:auto;display:flex;align-items:center;gap:16px;flex-shrink:0;}
+  .masthead-nav-link{font-size:12.5px;font-weight:500;color:var(--black);padding:6px 14px;border:1px solid var(--border-dk);transition:background .15s,border-color .15s,color .15s;white-space:nowrap;}
+  .masthead-nav-link:hover{background:var(--black);border-color:var(--black);color:#fff;}
+  .mh-util-link{font-size:11px;color:var(--warm-gray);transition:color .15s;white-space:nowrap;}
+  .mh-util-link:hover{color:var(--black);}
+  .mh-util-sep{width:1px;height:14px;background:var(--border-dk);flex-shrink:0;}
+  #product-nav{background:var(--black);position:sticky;top:72px;z-index:195;}
+  #product-nav-inner{max-width:1320px;margin:0 auto;padding:0 24px;display:flex;gap:0;}
+  .pnav-link{display:inline-block;padding:0 20px;height:38px;line-height:38px;font-size:12.5px;font-weight:500;color:rgba(255,255,255,.65);letter-spacing:.3px;border-right:1px solid rgba(255,255,255,.1);transition:color .15s,background .15s;white-space:nowrap;}
+  .pnav-link:first-child{border-left:1px solid rgba(255,255,255,.1);}
+  .pnav-link:hover{color:#fff;background:rgba(255,255,255,.08);}
+  .pnav-link.active{color:#fff;background:var(--claret);border-color:var(--claret);}
   #hero{background:var(--black);color:#fff;padding:32px 24px;}
-  #hero-inner{max-width:1200px;margin:0 auto;}
+  #hero-inner{max-width:1320px;margin:0 auto;}
   .eyebrow{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--claret);margin-bottom:8px;}
   h1{font-family:var(--serif);font-size:36px;font-weight:800;line-height:1.1;margin-bottom:8px;}
   .sub{font-size:13px;color:#B8A89A;font-family:var(--sans);}
-  #main{max-width:1200px;margin:0 auto;padding:32px 24px 80px;}
+  #main{max-width:1320px;margin:0 auto;padding:32px 24px 80px;}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;}
-  .ccard{background:#fff;border:1px solid var(--rule);border-radius:3px;padding:18px 16px;display:flex;flex-direction:column;gap:4px;text-decoration:none;color:inherit;transition:box-shadow .15s;border-left:3px solid var(--claret);}
+  .ccard{background:#fff;border:1px solid var(--border);border-radius:3px;padding:18px 16px;display:flex;flex-direction:column;gap:4px;text-decoration:none;color:inherit;transition:box-shadow .15s;border-left:3px solid var(--claret);}
   .ccard:hover{box-shadow:0 4px 16px rgba(0,0,0,.1);}
   .ccard-flag{font-size:32px;line-height:1;}
   .ccard-name{font-family:var(--serif);font-size:16px;font-weight:700;margin-top:4px;}
-  .ccard-cont{font-size:11px;color:#8a7f72;font-family:var(--sans);}
+  .ccard-cont{font-size:11px;color:var(--warm-gray);font-family:var(--sans);}
   #footer{background:var(--black);color:#8a7f72;font-family:var(--sans);font-size:12px;padding:24px;text-align:center;border-top:2px solid var(--claret);}
   #footer a{color:#c8beb2;}
   </style>
 </head>
 <body>
-<header id="masthead"><div id="masthead-inner">
-  <a href="../index.html" id="masthead-logo">FitOut<span>Post</span></a>
-</div></header>
+<header id="masthead" role="banner">
+  <div id="masthead-inner">
+    <a href="../home.html" id="fop-logo">
+      <div id="fop-box"><span>FO</span><span style="color:var(--claret)">P</span></div>
+      <div id="fop-wordmark">
+        <strong>Fit&nbsp;Out <span style="color:var(--claret)">Post</span></strong>
+        <em>Global Industry Intelligence</em>
+      </div>
+    </a>
+    <div id="masthead-divider"></div>
+    <div id="search-wrap">
+      <svg id="search-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round" style="color:var(--warm-gray)">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input id="search" type="search" placeholder="Search articles, countries, sources…" autocomplete="off" />
+    </div>
+    <div id="masthead-right">
+      <div class="mh-util-sep"></div>
+      <a href="../contact.html" class="mh-util-link">Contact</a>
+      <div class="mh-util-sep"></div>
+      <a class="masthead-nav-link" href="../register.html" style="background:var(--claret);border-color:var(--claret);color:#fff;font-weight:600;padding:6px 18px;">Register free →</a>
+    </div>
+  </div>
+<button id="masthead-search-btn" title="Search (/ or Ctrl+K)" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
+</header>
+<nav id="product-nav" role="navigation" aria-label="Sections">
+  <div id="product-nav-inner">
+    <a class="pnav-link" href="../home.html">Home</a>
+    <a class="pnav-link" href="../index.html">News</a>
+    <a class="pnav-link" href="../weekly.html">Weekly</a>
+    <a class="pnav-link" href="../intelligence.html">Intelligence</a>
+    <a class="pnav-link" href="../tenders.html">Tenders</a>
+    <a class="pnav-link" href="../pipeline.html">Pipeline</a>
+    <a class="pnav-link" href="../companies_site.html">Companies</a>
+    <a class="pnav-link active" href="index.html">Countries</a>
+    <a class="pnav-link" href="../events.html">Events</a>
+    <a class="pnav-link" href="../awards.html">Awards</a>
+  </div>
+</nav>
 <div id="hero"><div id="hero-inner">
   <div class="eyebrow">Country Intelligence</div>
   <h1>Market Dossiers</h1>
