@@ -36,23 +36,30 @@
   <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --salmon:    #FFF1E5;
-    --salmon-dk: #F2DFCE;
-    --white:     #FFFFFF;
-    --black:     #1a1a1a;
-    --claret:    #990033;
-    --claret-lt: #CC0044;
-    --warm-gray: #8a7f72;
-    --rule:      #D8C9A8;
-    --serif:     'Playfair Display', Georgia, serif;
-    --garamond:  'EB Garamond', Georgia, serif;
-    --sans:      Inter, system-ui, sans-serif;
+    --salmon:      #FFF1E5;
+    --salmon-dk:   #F2DFCE;
+    --salmon-md:   #FAE8D6;
+    --white:       #FFFFFF;
+    --black:       #1a1a1a;
+    --black-mid:   #262626;
+    --claret:      #990033;
+    --claret-lt:   #CC0044;
+    --teal:        #0D7680;
+    --amber:       #E8820C;
+    --warm-gray:   #66605A;
+    --mid-gray:    #9A948E;
+    --card-bg:     #FFFFFF;
+    --body-bg:     #FAF5F0;
+    --border:      #D8C9A8;
+    --border-dk:   #BBA898;
+    --serif:  'Playfair Display', 'EB Garamond', Georgia, serif;
+    --sans:   Inter, system-ui, sans-serif;
   }
   body { background: var(--salmon); color: var(--black); font-family: var(--garamond); font-size: 17px; line-height: 1.6; }
 
   /* ── Masthead ──────────────────────────────────────────────── */
-  #masthead { background: var(--black); border-bottom: 3px solid var(--claret); }
-  #masthead-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 52px; }
+  #masthead { background: var(--salmon); border-bottom: 3px solid var(--claret); }
+  #masthead-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
   #masthead-logo { font-family: var(--serif); font-size: 22px; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -.3px; }
   #masthead-logo span { color: var(--claret); }
   #masthead-nav { display: flex; gap: 0; }
@@ -148,6 +155,35 @@
     flex-shrink: 0;
   }
 
+
+  /* ── Section banner ──────────────────────────────────────────────────────────────── */
+  #section-banner {
+    background: var(--black);
+    border-bottom: 2px solid var(--claret);
+    padding: 12px 0;
+  }
+  #section-banner-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  #section-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--claret);
+    flex-shrink: 0;
+  }
+  #section-sub {
+    font-size: 12.5px;
+    color: #B8A89A;
+  }
+
 </style>
 </head>
 <body>
@@ -155,22 +191,25 @@
 <!-- ═══ MASTHEAD ═══════════════════════════════════════════════════════════ -->
 <header id="masthead" role="banner">
   <div id="masthead-inner">
-    <a href="home.html" id="masthead-logo">Fit&nbsp;Out&nbsp;<span>Post</span></a>
-    <nav id="masthead-nav" role="navigation" aria-label="Main navigation">
-      <a href="home.html" class="mh-link">Home</a>
-      <a href="index.html" class="mh-link">News</a>
-      <a href="pipeline.html" class="mh-link">Pipeline</a>
-      <a href="awards.html" class="mh-link active">Awards</a>
-      <a href="tenders.html" class="mh-link">Tenders</a>
-      <a href="intelligence.html" class="mh-link">Intelligence</a>
-      <a href="companies_site.html" class="mh-link">Directory</a>
-      <a href="countries/index.html" class="mh-link">Countries</a>
-      <a href="weekly.html" class="mh-link">Weekly</a>
-      <a href="contact.html" style="font-size:11px;color:#9A8A80;margin:0 8px;transition:color .15s;" onmouseover="this.style.color='#D4C4BA'" onmouseout="this.style.color='#9A8A80'">Contact</a>
-      <button onclick="document.getElementById('tip-modal').classList.add('open')" style="background:none;border:none;font-family:inherit;font-size:11px;color:#9A8A80;cursor:pointer;padding:0;transition:color .15s;" onmouseover="this.style.color='#D4C4BA'" onmouseout="this.style.color='#9A8A80'">Have a tip?</button>
-    <button id="masthead-search-btn" title="Search (/ or Ctrl+K)" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
-  </nav>
+    <a href="home.html" id="fop-logo">
+      <div id="fop-box"><span>FO</span><span style="color:var(--claret)">P</span></div>
+      <div id="fop-wordmark">
+        <strong>Fit Out <span style="color:var(--claret)">Post</span></strong>
+        <em>Global Industry Intelligence</em>
+      </div>
+    </a>
+    <div id="masthead-divider"></div>
+    <div id="masthead-right">
+      <div class="mh-util-sep"></div>
+      <a href="contact.html" class="mh-util-link">Contact</a>
+      <button class="mh-tip-btn"
+        onclick="document.getElementById('tip-modal').classList.add('open')"
+        aria-label="Have a tip?">Have a tip?</button>
+      <div class="mh-util-sep"></div>
+      <a class="masthead-nav-link" href="register.html" style="background:var(--claret);border-color:var(--claret);color:#fff;font-weight:600;padding:6px 18px;">Register free →</a>
+    </div>
   </div>
+<button id="masthead-search-btn" title="Search" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
 </header>
 
 <!-- ═══ PAGE HERO ══════════════════════════════════════════════════════════ -->

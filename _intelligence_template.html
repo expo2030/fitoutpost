@@ -60,16 +60,15 @@
     --claret:      #990033;
     --claret-lt:   #CC0044;
     --teal:        #0D7680;
+    --amber:       #E8820C;
     --warm-gray:   #66605A;
     --mid-gray:    #9A948E;
-    --border:      #D9CBC0;
-    --border-lt:   #EDE3DA;
-    --border-dk:   #B8A99A;
     --card-bg:     #FFFFFF;
-    --card-hover:  #FFF8F3;
-    --serif:       "Playfair Display", Georgia, "Times New Roman", serif;
-    --serif-body:  "EB Garamond", Georgia, "Times New Roman", serif;
-    --sans:        "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --body-bg:     #FAF5F0;
+    --border:      #D8C9A8;
+    --border-dk:   #BBA898;
+    --serif:  'Playfair Display', 'EB Garamond', Georgia, serif;
+    --sans:   Inter, system-ui, sans-serif;
   }
   html  { scroll-behavior: smooth; font-size: 16px; }
   body  {
@@ -604,7 +603,36 @@
     white-space: nowrap;
   }
   .util-ad-link:hover { opacity: 1; }
-  </style>
+  
+  /* ── Section banner ──────────────────────────────────────────────────────────────── */
+  #section-banner {
+    background: var(--black);
+    border-bottom: 2px solid var(--claret);
+    padding: 12px 0;
+  }
+  #section-banner-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  #section-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--claret);
+    flex-shrink: 0;
+  }
+  #section-sub {
+    font-size: 12.5px;
+    color: #B8A89A;
+  }
+
+</style>
   <!-- Google Analytics 4 (G-9ECWT6671C) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ECWT6671C"></script>
   <script>
@@ -662,6 +690,14 @@
     <a class="pnav-link" href="gammaedge.html"><span style="font-size:1.1em">γ</span> Edge</a>
   </div>
 </nav>
+
+<!-- ╔═══ SECTION BANNER ═════════════════════════════════════════════════════════ -->
+<div id="section-banner">
+  <div id="section-banner-inner">
+    <span id="section-label">Intelligence</span>
+    <span id="section-sub">Fit-out cost benchmarks by market</span>
+  </div>
+</div>
   <span id="ad-banner-badge">Advertisement</span>
   <div id="ad-banner-overlay">
     <a href="contact.html">Advertise with FitOut Post</a>

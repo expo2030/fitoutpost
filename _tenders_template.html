@@ -60,18 +60,15 @@
     --claret:      #990033;
     --claret-lt:   #CC0044;
     --teal:        #0D7680;
+    --amber:       #E8820C;
     --warm-gray:   #66605A;
     --mid-gray:    #9A948E;
-    --border:      #D9CBC0;
-    --border-lt:   #EDE3DA;
-    --border-dk:   #B8A99A;
     --card-bg:     #FFFFFF;
-    --card-hover:  #FFF8F3;
-    --serif:       "Playfair Display", Georgia, "Times New Roman", serif;
-    --serif-body:  "EB Garamond", Georgia, "Times New Roman", serif;
-    --sans:        "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-    --gold:        #C6A84B;
-    --amber:       #E8820C;
+    --body-bg:     #FAF5F0;
+    --border:      #D8C9A8;
+    --border-dk:   #BBA898;
+    --serif:  'Playfair Display', 'EB Garamond', Georgia, serif;
+    --sans:   Inter, system-ui, sans-serif;
   }
   html  { scroll-behavior: smooth; font-size: 16px; }
   body  {
@@ -101,8 +98,7 @@
     background: var(--salmon); border-bottom: 2px solid var(--black);
     padding: 0 24px; position: sticky; top: 0; z-index: 100;
   }
-  #masthead-inner {
-    max-width: 1320px; margin: 0 auto; height: 56px;
+  zpx;
     display: flex; align-items: center; justify-content: space-between;
   }
   #site-title {
@@ -692,7 +688,36 @@
     .tender-title { font-size: 15px; }
     .paywall-tiers { grid-template-columns: 1fr; }
   }
-  </style>
+  
+  /* ── Section banner ──────────────────────────────────────────────────────────────── */
+  #section-banner {
+    background: var(--black);
+    border-bottom: 2px solid var(--claret);
+    padding: 12px 0;
+  }
+  #section-banner-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  #section-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--claret);
+    flex-shrink: 0;
+  }
+  #section-sub {
+    font-size: 12.5px;
+    color: #B8A89A;
+  }
+
+</style>
   <!-- Google Analytics 4 (G-9ECWT6671C) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ECWT6671C"></script>
   <script>
@@ -709,8 +734,14 @@
 <!-- ══ Masthead ════════════════════════════════════════════════════════════════ -->
 <header id="masthead">
   <div id="masthead-inner">
-    <a href="index.html" id="site-title">FitOut <span>Post</span></a>
-    <span id="masthead-tagline">Global Fit-Out Industry News &amp; Intelligence</span>
+    <a href="home.html" id="fop-logo">
+      <div id="fop-box"><span>FO</span><span style="color:var(--claret)">P</span></div>
+      <div id="fop-wordmark">
+        <strong>Fit Out <span style="color:var(--claret)">Post</span></strong>
+        <em>Global Industry Intelligence</em>
+      </div>
+    </a>
+    <div id="masthead-divider"></div>
     <nav class="masthead-nav" aria-label="Site">
       <a class="masthead-nav-link" href="index.html">News</a>
       <a class="masthead-nav-link" href="intelligence.html">Intelligence</a>
@@ -722,6 +753,14 @@
       <a class="masthead-nav-link masthead-nav-link--cta" href="#paywall-cta">Subscribe</a>
     <button id="masthead-search-btn" title="Search (/ or Ctrl+K)" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
   </nav>
+
+<!-- ╔═══ SECTION BANNER ═════════════════════════════════════════════════════════ -->
+<div id="section-banner">
+  <div id="section-banner-inner">
+    <span id="section-label">Tenders</span>
+    <span id="section-sub">Live fit-out procurement tenders worldwide</span>
+  </div>
+</div>
   </div>
 </header>
 
