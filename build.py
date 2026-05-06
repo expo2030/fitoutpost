@@ -330,6 +330,105 @@ def build_pipeline(data_path: str = "pipeline.json") -> None:
     print(f"✅  pipeline.html — {n} project(s){upd_note}, {now}, {sz:.0f} KB")
 
 
+AW_TEMPLATE   = BASE / "_awards_template.html"
+AW_OUTPUT     = BASE / "awards.html"
+AW_DATA_SLOT  = "<!--AWARDS-DATA-SLOT-->"
+AW_SLOT_ID    = "awards-data"
+
+AWARD_KEYWORDS = [
+    "awarded", "award", "wins contract", "win contract", "won contract",
+    "secures contract", "secured contract", "appointed contractor",
+    "appoints contractor", "signs contract", "signed contract",
+    "contract signed", "contract win", "fit-out contract",
+    "interior contract", "design-and-build contract",
+    "appointed to deliver", "appointed to fit", "appointed to refurbish",
+    "construction contract", "fitout contract", "bags contract",
+    "clinches contract", "lands contract", "lands deal",
+    "wins deal", "wins project", "selected as", "appointed as",
+]
+
+def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.json") -> None:
+    """Build awards.html by extracting contract award signals from news + pipeline data."""
+    import re as _re
+
+    if not AW_TEMPLATE.exists():
+        print(f"❌  Template {AW_TEMPLATE.name} not found.")
+        return
+
+    awards = []
+
+    # ── Extract from news.json ────────────────────────────────────────────────
+    news_file = BASE / news_path
+    if news_file.exists():
+        news = json.loads(news_file.read_text(encoding="utf-8"))
+        for a in news.get("articles", []):
+            text = ((a.get("headline") or a.get("title") or "") + " " +
+                    (a.get("description") or a.get("summary") or "")).lower()
+            if a.get("signal_type", "").lower() == "award" or \
+               any(kw in text for kw in AWARD_KEYWORDS):
+                awards.append({
+                    "id":           a.get("id", ""),
+                    "headline":     a.get("headline") or a.get("title", ""),
+                    "url":          a.get("url", ""),
+                    "source":       a.get("source", ""),
+                    "pub_date":     a.get("pub_date", ""),
+                    "date_display": a.get("date_display", ""),
+                    "country":      a.get("country") or a.get("geo_country", ""),
+                    "continent":    a.get("continent") or a.get("geo_continent", ""),
+                    "sector":       a.get("sector", ""),
+                    "signal_type":  "Award",
+                    "_source":      "news",
+                })
+
+    # ── Extract from pipeline.json ────────────────────────────────────────────
+    pipeline_file = BASE / pipeline_path
+    if pipeline_file.exists():
+        pl = json.loads(pipeline_file.read_text(encoding="utf-8"))
+        for a in pl.get("items", []):
+            text = ((a.get("headline") or a.get("title") or "") + " " +
+                    (a.get("description") or a.get("summary") or "")).lower()
+            if any(kw in text for kw in AWARD_KEYWORDS):
+                awards.append({
+                    "id":           a.get("id", ""),
+                    "headline":     a.get("headline") or a.get("title", ""),
+                    "url":          a.get("url", ""),
+                    "source":       a.get("source", ""),
+                    "pub_date":     a.get("pub_date", ""),
+                    "date_display": a.get("date_display", ""),
+                    "country":      a.get("country") or a.get("geo_country", ""),
+                    "continent":    a.get("continent") or a.get("geo_continent", ""),
+                    "sector":       a.get("sector", ""),
+                    "signal_type":  "Award",
+                    "_source":      "pipeline",
+                })
+
+    # Deduplicate by URL
+    seen = set()
+    unique = []
+    for a in awards:
+        key = a.get("url") or a.get("id")
+        if key and key not in seen:
+            seen.add(key)
+            unique.append(a)
+
+    # Sort by pub_date descending
+    unique.sort(key=lambda x: x.get("pub_date", ""), reverse=True)
+
+    data = {
+        "total_awards": len(unique),
+        "generated": datetime.now(timezone.utc).isoformat(),
+        "awards": unique,
+    }
+
+    tmpl  = AW_TEMPLATE.read_text(encoding="utf-8")
+    built = _embed_json(tmpl, data, AW_DATA_SLOT, AW_SLOT_ID)
+    AW_OUTPUT.write_text(built, encoding="utf-8")
+
+    sz  = AW_OUTPUT.stat().st_size / 1024
+    now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
+    print(f"✅  awards.html — {len(unique)} award signals, {now}, {sz:.0f} KB")
+
+
 def build_companies_site(data_path: str = "companies.json") -> None:
     """Rebuild the embedded companies data in companies_site.html."""
     import re as _re
@@ -405,6 +504,11 @@ if __name__ == "__main__":
         build_tenders()
     elif "--pipeline" in args:
         build_pipeline()
+    elif "--awards" in args:
+        build_awards()
+    elif "--timeline" in args:
+        import subprocess, sys as _sys
+        subprocess.run([_sys.executable, str(BASE / "build_timeline.py")], check=False)
     elif "--news" in args:
         build()
     else:
@@ -416,4 +520,7 @@ if __name__ == "__main__":
         build_intelligence()
         build_tenders()
         build_pipeline()
+        build_awards()
+        import subprocess as _sp, sys as _sys2
+        _sp.run([_sys2.executable, str(BASE / "build_timeline.py")], check=False)
         build_companies_site()
