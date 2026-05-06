@@ -98,7 +98,7 @@
   ══════════════════════════════════════════════════════════════════════════ */
   #masthead {
     background: var(--salmon); border-bottom: 2px solid var(--black);
-    padding: 0 24px; position: sticky; top: 0; z-index: 100;
+    position: sticky; top: 0; z-index: 200;
   }
   zpx;
     display: flex; align-items: center; justify-content: space-between;
@@ -563,7 +563,7 @@
      TIP MODAL (shared across tabs)
   ══════════════════════════════════════════════════════════════════════════ */
   #tip-modal-overlay {
-    position: fixed; inset: 0; z-index: 1000;
+    position: fixed; inset: 0; z-index: 2000;
     background: rgba(0,0,0,.55); display: none; align-items: center; justify-content: center;
   }
   #tip-modal-overlay.open { display: flex; }
@@ -595,7 +595,7 @@
      UNLOCK MODAL
   ══════════════════════════════════════════════════════════════════════════ */
   #unlock-modal-overlay {
-    position: fixed; inset: 0; z-index: 1001;
+    position: fixed; inset: 0; z-index: 2001;
     background: rgba(0,0,0,.6); display: none; align-items: center; justify-content: center;
   }
   #unlock-modal-overlay.open { display: flex; }
@@ -744,18 +744,19 @@
       </div>
     </a>
     <div id="masthead-divider"></div>
-    <nav class="masthead-nav" aria-label="Site">
-      <a class="masthead-nav-link" href="index.html">News</a>
-      <a class="masthead-nav-link" href="intelligence.html">Intelligence</a>
-      <a class="masthead-nav-link" href="companies_site.html">Companies</a>
-      <a href="contact.html" class="mh-util-link" style="font-size:11px;color:var(--warm-gray,#9A8A80);">Contact</a>
+    <div id="masthead-right">
+      <div class="mh-util-sep"></div>
+      <a href="contact.html" class="mh-util-link">Contact</a>
       <button class="mh-tip-btn"
         onclick="document.getElementById('tip-modal-overlay').classList.add('open')"
-        aria-label="Have a tip?" style="font-size:11px;color:var(--warm-gray,#9A8A80);">Have a tip?</button>
-      <a class="masthead-nav-link masthead-nav-link--cta" href="#paywall-cta">Subscribe</a>
-    <button id="masthead-search-btn" title="Search (/ or Ctrl+K)" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
-  </nav>
+        aria-label="Have a tip?">Have a tip?</button>
+      <div class="mh-util-sep"></div>
+      <a class="masthead-nav-link" href="register.html" style="background:var(--claret);border-color:var(--claret);color:#fff;font-weight:600;padding:6px 18px;">Register free →</a>
+    </div>
 
+
+  </div>
+</header>
 <!-- ╔═══ SECTION BANNER ═════════════════════════════════════════════════════════ -->
 <div id="section-banner">
   <div id="section-banner-inner">
@@ -763,8 +764,6 @@
     <span id="section-sub">Live fit-out procurement tenders worldwide</span>
   </div>
 </div>
-  </div>
-</header>
 
 <!-- ══ Product nav ════════════════════════════════════════════════════════════ -->
 <nav id="product-nav" role="navigation" aria-label="Sections">

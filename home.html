@@ -68,8 +68,8 @@
   /* ── Masthead ────────────────────────────────────────────────────── */
   #masthead {
     background: var(--salmon);
-    border-bottom: 1px solid var(--border-dk);
-    position: sticky; top: 0; z-index: 100;
+    border-bottom: 2px solid var(--black);
+    position: sticky; top: 0; z-index: 200;
   }
   #masthead-inner {
     max-width: 1320px; margin: 0 auto;
@@ -386,7 +386,7 @@
         onclick="document.getElementById('tip-modal').classList.add('open')"
         aria-label="Have a tip?">Have a tip?</button>
       <div class="mh-util-sep"></div>
-      <a class="mh-cta" href="register.html">Register free →</a>
+      <a class="masthead-nav-link" href="register.html" style="background:var(--claret);border-color:var(--claret);color:#fff;font-weight:600;padding:6px 18px;">Register free →</a>
     </div>
   </div>
 </header>

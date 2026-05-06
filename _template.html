@@ -934,7 +934,13 @@
     white-space: nowrap;
   }
   .util-ad-link:hover { opacity: 1; }
-  </style>
+  
+  /* ─── Section Banner ─── */
+  #section-banner { background: var(--black); border-bottom: 2px solid var(--claret); padding: 12px 0; }
+  #section-banner-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 16px; }
+  #section-label { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--claret); flex-shrink: 0; }
+  #section-sub { font-size: 12.5px; color: #B8A89A; }
+</style>
   <!-- Google Analytics 4 (G-9ECWT6671C) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ECWT6671C"></script>
   <script>
@@ -1011,6 +1017,13 @@
   </div>
 </nav>
 
+<!-- ╔═══ SECTION BANNER ═════════════════════════════════════════════════════════ -->
+<div id="section-banner">
+  <div id="section-banner-inner">
+    <span id="section-label">News</span>
+    <span id="section-sub">Global fit-out industry signals</span>
+  </div>
+</div>
 <!-- ═══════════════════════ HERO BANNER ══════════════════════════════════════ -->
 <div id="hero-banner" style="background:var(--black);color:#fff;padding:20px 0;border-bottom:2px solid var(--claret);">
   <div style="max-width:1320px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">

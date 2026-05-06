@@ -58,7 +58,7 @@
   body { background: var(--salmon); color: var(--black); font-family: var(--garamond); font-size: 17px; line-height: 1.6; }
 
   /* ── Masthead ──────────────────────────────────────────────── */
-  #masthead { background: var(--salmon); border-bottom: 3px solid var(--claret); }
+  #masthead { background: var(--salmon); border-bottom: 2px solid var(--black); position: sticky; top: 0; z-index: 200; }
   #masthead-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
   #masthead-logo { font-family: var(--serif); font-size: 22px; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -.3px; }
   #masthead-logo span { color: var(--claret); }
@@ -211,6 +211,30 @@
   </div>
 <button id="masthead-search-btn" title="Search" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
 </header>
+<!-- ╔═══ PRODUCT NAV ═══════════════════════════════════════════════════════════ -->
+<nav id="product-nav" role="navigation" aria-label="Product sections">
+  <div id="pnav-inner">
+    <a href="home.html"            class="pnav-link">Home</a>
+    <a href="index.html"           class="pnav-link">News</a>
+    <a href="weekly.html"          class="pnav-link">Weekly</a>
+    <a href="intelligence.html"    class="pnav-link">Intelligence</a>
+    <a href="tenders.html"         class="pnav-link">Tenders</a>
+    <a href="pipeline.html"        class="pnav-link">Pipeline</a>
+    <a href="companies_site.html"  class="pnav-link">Companies</a>
+    <a href="countries/index.html" class="pnav-link">Countries</a>
+    <a href="events.html"          class="pnav-link">Events</a>
+    <a href="alphaedge.html"       class="pnav-link">α Edge</a>
+    <a href="betaedge.html"        class="pnav-link">β Edge</a>
+    <a href="gammaedge.html"       class="pnav-link">γ Edge</a>
+  </div>
+</nav>
+<!-- ╔═══ SECTION BANNER ═════════════════════════════════════════════════════════ -->
+<div id="section-banner">
+  <div id="section-banner-inner">
+    <span id="section-label">Awards</span>
+    <span id="section-sub">Global fit-out contract award signals</span>
+  </div>
+</div>
 
 <!-- ═══ PAGE HERO ══════════════════════════════════════════════════════════ -->
 <div id="page-hero">
