@@ -158,8 +158,8 @@ def build_page(country, news, pipeline, tenders):
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://fitoutpost.com/countries/{cc}.html" />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FITOUTPOST1"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-FITOUTPOST1',{{anonymize_ip:true}});</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ECWT6671C"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-9ECWT6671C',{{anonymize_ip:true}});</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=EB+Garamond:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -304,8 +304,8 @@ def build_index():
   <meta property="og:title" content="Country Intelligence — FitOut Post" />
   <link rel="canonical" href="https://fitoutpost.com/countries/" />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FITOUTPOST1"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-FITOUTPOST1',{{anonymize_ip:true}});</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ECWT6671C"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-9ECWT6671C',{{anonymize_ip:true}});</script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
   *{{box-sizing:border-box;margin:0;padding:0;}}
