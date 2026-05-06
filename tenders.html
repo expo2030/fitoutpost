@@ -86,23 +86,6 @@
   a { color: inherit; text-decoration: none; }
   a:hover { color: var(--claret); }
 
-  /* ══════════════════════════════════════════════════════════════════════════
-     TIER 1 — UTILITY BAR
-  ══════════════════════════════════════════════════════════════════════════ */
-  #utility-bar {
-    background: var(--black); color: #9A8A80;
-    font-family: var(--sans); font-size: 11px;
-    letter-spacing: 0.3px; border-bottom: 1px solid #333; padding: 0 24px;
-  }
-  #utility-inner {
-    max-width: 1320px; margin: 0 auto; height: 34px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  #utility-left  { display: flex; align-items: center; gap: 20px; }
-  #utility-date  { color: #9A8A80; }
-  #utility-edition { color: #7a706a; padding-left: 20px; border-left: 1px solid #3a3a3a; }
-  #utility-right { display: flex; align-items: center; gap: 20px; }
-  .util-link { color: #9A8A80; transition: color .15s; }
   .util-link:hover { color: #D4C4BA; }
   .tip-util-btn {
     display: flex; align-items: center; gap: 5px;
@@ -146,6 +129,38 @@
     padding: 6px 14px; border-radius: 3px; font-weight: 600;
   }
   .masthead-nav-link--cta:hover { background: var(--claret-lt) !important; color: #fff; }
+
+  
+  /* ─── Contact + Tip links in masthead ──────────────────────────────────── */
+  .mh-util-link {
+    font-size: 11px;
+    color: var(--warm-gray);
+    transition: color .15s;
+    white-space: nowrap;
+  }
+  .mh-util-link:hover { color: var(--black); }
+  .mh-tip-btn {
+    background: none;
+    border: none;
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--warm-gray);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color .15s;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .mh-tip-btn:hover { color: var(--black); }
+  .mh-util-sep {
+    width: 1px;
+    height: 14px;
+    background: var(--border-dk);
+    flex-shrink: 0;
+  }
 
   /* ══════════════════════════════════════════════════════════════════════════
      TIER 3 — PRODUCT NAV
@@ -692,26 +707,6 @@
 <body>
 
 <!-- ══ Utility bar ════════════════════════════════════════════════════════════ -->
-<div id="utility-bar">
-  <div id="utility-inner">
-    <div id="utility-left">
-      <span id="utility-date"></span>
-      <span id="utility-edition">Global Fit-Out Procurement</span>
-    </div>
-    <div id="utility-right">
-      <a href="contact.html" class="util-link">Contact</a>
-      <a href="contact.html" class="util-link" style="font-size:10px;font-weight:500;color:#990033;opacity:.8;">Advertise with us</a>
-      <button class="tip-util-btn"
-        onclick="document.getElementById('tip-modal-overlay').classList.add('open')"
-        aria-label="Submit a tender tip">
-        <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
-          <path d="M2 2h12v9H9l-3 3v-3H2V2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-        </svg>
-        Submit a tender
-      </button>
-    </div>
-  </div>
-</div>
 
 <!-- ══ Masthead ════════════════════════════════════════════════════════════════ -->
 <header id="masthead">
@@ -722,6 +717,10 @@
       <a class="masthead-nav-link" href="index.html">News</a>
       <a class="masthead-nav-link" href="intelligence.html">Intelligence</a>
       <a class="masthead-nav-link" href="companies_site.html">Companies</a>
+      <a href="contact.html" class="mh-util-link" style="font-size:11px;color:var(--warm-gray,#9A8A80);">Contact</a>
+      <button class="mh-tip-btn"
+        onclick="document.getElementById('tip-modal-overlay').classList.add('open')"
+        aria-label="Have a tip?" style="font-size:11px;color:var(--warm-gray,#9A8A80);">Have a tip?</button>
       <a class="masthead-nav-link masthead-nav-link--cta" href="#paywall-cta">Subscribe</a>
     <button id="masthead-search-btn" title="Search (/ or Ctrl+K)" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
   </nav>

@@ -470,7 +470,39 @@
     white-space: nowrap;
   }
   .util-ad-link:hover { opacity: 1; }
-  </style>
+  
+  /* ─── Contact + Tip links in masthead ──────────────────────────────────── */
+  .mh-util-link {
+    font-size: 11px;
+    color: var(--warm-gray);
+    transition: color .15s;
+    white-space: nowrap;
+  }
+  .mh-util-link:hover { color: var(--black); }
+  .mh-tip-btn {
+    background: none;
+    border: none;
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--warm-gray);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color .15s;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .mh-tip-btn:hover { color: var(--black); }
+  .mh-util-sep {
+    width: 1px;
+    height: 14px;
+    background: var(--border-dk);
+    flex-shrink: 0;
+  }
+
+</style>
   <!-- Google Analytics 4 (G-9ECWT6671C) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ECWT6671C"></script>
   <script>
@@ -483,30 +515,6 @@
 <body>
 
 <!-- ══ Utility bar ════════════════════════════════════════════════════════════ -->
-<div id="utility-bar">
-  <div id="utility-inner">
-    <div id="utility-left">
-      <span id="utility-date"></span>
-      <span id="utility-edition">Global Edition</span>
-    </div>
-    <div id="utility-right">
-      <span id="utility-count"></span>
-      <a href="companies_site.html" class="util-link">Companies</a>
-      <a href="contact.html" class="util-link">Contact</a>
-    
-      <button class="tip-util-btn"
-        onclick="document.getElementById('tip-modal').classList.add('open')"
-        aria-label="Have a tip? Contact the FitOut Post editorial team">
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-             style="flex-shrink:0">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        </svg>
-        Have a tip?
-      </button>
-    </div>
-  </div>
-</div>
 
 <!-- ══ Masthead ═══════════════════════════════════════════════════════════════ -->
 <header id="masthead" role="banner">
@@ -521,6 +529,12 @@
     <div id="masthead-divider"></div>
     <div id="ge-badge"><span style="font-size:1.1em">γ</span> Edge — Games with an edge</div>
     <div id="masthead-right">
+      <div class="mh-util-sep"></div>
+      <a href="contact.html" class="mh-util-link">Contact</a>
+      <button class="mh-tip-btn"
+        onclick="document.getElementById('tip-modal').classList.add('open')"
+        aria-label="Have a tip?">Have a tip?</button>
+      <div class="mh-util-sep"></div>
       <a href="companies_site.html" class="masthead-nav-link masthead-nav-link--cta">Companies directory</a>
     </div>
   </div>

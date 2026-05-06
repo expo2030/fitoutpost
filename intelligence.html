@@ -85,31 +85,6 @@
   a { color: inherit; text-decoration: none; }
   a:hover { color: var(--claret); }
 
-  /* ══════════════════════════════════════════════════════════════════════════
-     TIER 1 — UTILITY BAR
-  ══════════════════════════════════════════════════════════════════════════ */
-  #utility-bar {
-    background: var(--black);
-    color: #9A8A80;
-    font-family: var(--sans);
-    font-size: 11px;
-    letter-spacing: 0.3px;
-    border-bottom: 1px solid #333;
-    padding: 0 24px;
-  }
-  #utility-inner {
-    max-width: 1320px;
-    margin: 0 auto;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  #utility-left  { display: flex; align-items: center; gap: 20px; }
-  #utility-date  { color: #9A8A80; }
-  #utility-edition { color: #7a706a; padding-left: 20px; border-left: 1px solid #3a3a3a; }
-  #utility-right { display: flex; align-items: center; gap: 20px; }
-  .util-link { color: #9A8A80; transition: color .15s; }
   .util-link:hover { color: #D4C4BA; }
 
   /* ══════════════════════════════════════════════════════════════════════════
@@ -171,6 +146,38 @@
     font-weight: 600; padding: 6px 18px; letter-spacing: 0.2px;
   }
   .masthead-nav-link--cta:hover { background: var(--claret-lt); border-color: var(--claret-lt); color: #fff; }
+
+  
+  /* ─── Contact + Tip links in masthead ──────────────────────────────────── */
+  .mh-util-link {
+    font-size: 11px;
+    color: var(--warm-gray);
+    transition: color .15s;
+    white-space: nowrap;
+  }
+  .mh-util-link:hover { color: var(--black); }
+  .mh-tip-btn {
+    background: none;
+    border: none;
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--warm-gray);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color .15s;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .mh-tip-btn:hover { color: var(--black); }
+  .mh-util-sep {
+    width: 1px;
+    height: 14px;
+    background: var(--border-dk);
+    flex-shrink: 0;
+  }
 
   /* ══════════════════════════════════════════════════════════════════════════
      TIER 3 — PRODUCT NAV
@@ -611,32 +618,6 @@
 </head>
 <body>
 
-<!-- ═══════════════════════ UTILITY BAR ══════════════════════════════════════ -->
-<div id="utility-bar">
-  <div id="utility-inner">
-    <div id="utility-left">
-      <span id="utility-date"></span>
-      <span id="utility-edition">Global Edition</span>
-    </div>
-    <div id="utility-right">
-      <span id="utility-count"></span>
-      <a href="companies_site.html" class="util-link">Companies</a>
-      <a href="contact.html" class="util-link">Contact</a>
-    
-      <button class="tip-util-btn"
-        onclick="document.getElementById('tip-modal').classList.add('open')"
-        aria-label="Have a tip? Contact the FitOut Post editorial team">
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-             style="flex-shrink:0">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        </svg>
-        Have a tip?
-      </button>
-    </div>
-  </div>
-</div>
-
 <!-- ═══════════════════════ MASTHEAD ══════════════════════════════════════════ -->
 <header id="masthead" role="banner">
   <div id="masthead-inner">
@@ -654,6 +635,12 @@
         <span style="font-size:10px;color:var(--mid-gray)">Updated <span id="meta-updated">—</span></span>
       </div>
       <span id="server-badge-wrap"></span>
+      <div class="mh-util-sep"></div>
+      <a href="contact.html" class="mh-util-link">Contact</a>
+      <button class="mh-tip-btn"
+        onclick="document.getElementById('tip-modal').classList.add('open')"
+        aria-label="Have a tip?">Have a tip?</button>
+      <div class="mh-util-sep"></div>
       <a href="companies_site.html" class="masthead-nav-link masthead-nav-link--cta">Companies directory</a>
     </div>
   </div>
