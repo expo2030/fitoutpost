@@ -895,10 +895,50 @@ RSS_FEEDS: list[str] = [
     _gnews('"McCarthy Building" fit-out OR interiors'),
     _gnews('"Gilbane" fit-out OR interiors'),
     _gnews('"Suffolk Construction" fit-out OR interiors'),
+    # US — city-level market queries (high-volume markets)
+    _gnews('"office fit-out" OR "office fitout" "New York"',        "en", "US"),
+    _gnews('"office fit-out" OR "office fitout" Chicago',           "en", "US"),
+    _gnews('"office fit-out" OR "office fitout" "Los Angeles"',     "en", "US"),
+    _gnews('"tenant improvement" "New York" commercial',            "en", "US"),
+    _gnews('"tenant improvement" Chicago commercial',               "en", "US"),
+    _gnews('"tenant improvement" "San Francisco" commercial',       "en", "US"),
+    _gnews('"spec suite" commercial construction',                  "en", "US"),
+    _gnews('"vanilla box" OR "grey box" commercial interior',       "en", "US"),
+    _gnews('"white box" commercial interior construction',          "en", "US"),
+    _gnews('"office build-out" OR "office buildout" commercial',    "en", "US"),
+    _gnews('"commercial interior" construction "United States"',    "en", "US"),
+    _gnews('"leasehold improvement" construction commercial',       "en", "US"),
+    _gnews('"workplace design" "New York" OR Chicago OR "San Francisco"', "en", "US"),
+    _gnews('"interior construction" commercial office',             "en", "US"),
+    _gnews('"office restack" OR "office consolidation" commercial', "en", "US"),
+    _gnews('"workplace transformation" United States',              "en", "US"),
+    _gnews('"design-build" interior commercial United States',      "en", "US"),
+    # Canada
+    _gnews('"fit-out" OR "fitout" Toronto commercial',              "en", "CA"),
+    _gnews('"fit-out" OR "fitout" Vancouver commercial',            "en", "CA"),
+    _gnews('"tenant improvement" Toronto OR Vancouver OR Calgary',  "en", "CA"),
+    _gnews('"commercial interior" construction Canada',             "en", "CA"),
+    # Brazil
+    _gnews('"fit out" OR "fitout" corporativo Brazil',             "pt", "BR"),
+    _gnews('reforma escritório comercial "São Paulo"',             "pt", "BR"),
+    _gnews('"interiores comerciais" construção',                   "pt", "BR"),
+    _gnews('"escritório corporativo" reforma OR construção',       "pt", "BR"),
+    # Mexico
+    _gnews('"fit out" OR "fitout" oficinas Mexico',               "es", "MX"),
+    _gnews('"interiores comerciales" construcción Mexico',        "es", "MX"),
+    _gnews('"remodelación de oficinas" comercial Mexico',         "es", "MX"),
+    # Japan
+    _gnews('"オフィス内装" OR "フィットアウト" 工事',             "ja", "JP"),
+    _gnews('"内装工事" オフィス 商業',                            "ja", "JP"),
+    # South Korea
+    _gnews('"인테리어" "피트아웃" OR "사무실 인테리어" 공사',      "ko", "KR"),
     # Singapore / Hong Kong
     _gnews('"DP Architects" fit-out OR interiors'),
     _gnews('"Surbana Jurong" fit-out OR interiors'),
     _gnews('"Hip Hing" fit-out OR construction'),
+    _gnews('"fit-out" OR "fitout" Singapore commercial',            "en", "SG"),
+    _gnews('"interior fit-out" Hong Kong commercial',               "en", "HK"),
+    _gnews('"fit-out" "data centre" OR "data center" Singapore OR Asia'),
 ]
 
 # ─────────────────────────────────────────────────────────────────────────────

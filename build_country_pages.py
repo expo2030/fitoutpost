@@ -28,6 +28,14 @@ COUNTRIES = [
     {"code": "ie",  "name": "Ireland",               "flag": "🇮🇪", "continent": "Europe"},
     {"code": "qa",  "name": "Qatar",                 "flag": "🇶🇦", "continent": "Middle East"},
     {"code": "za",  "name": "South Africa",          "flag": "🇿🇦", "continent": "Africa"},
+    {"code": "jp",  "name": "Japan",                 "flag": "🇯🇵", "continent": "Asia Pacific"},
+    {"code": "br",  "name": "Brazil",                "flag": "🇧🇷", "continent": "Americas"},
+    {"code": "mx",  "name": "Mexico",                "flag": "🇲🇽", "continent": "Americas"},
+    {"code": "kr",  "name": "South Korea",           "flag": "🇰🇷", "continent": "Asia Pacific"},
+    {"code": "th",  "name": "Thailand",              "flag": "🇹🇭", "continent": "Asia Pacific"},
+    {"code": "ng",  "name": "Nigeria",               "flag": "🇳🇬", "continent": "Africa"},
+    {"code": "ca",  "name": "Canada",                "flag": "🇨🇦", "continent": "Americas"},
+    {"code": "it",  "name": "Italy",                 "flag": "🇮🇹", "continent": "Europe"},
 ]
 
 def match_country(obj, country_name):
@@ -55,6 +63,14 @@ def match_country(obj, country_name):
         "ireland": ["irish", "dublin"],
         "qatar": ["qatari", "doha"],
         "south africa": ["cape town", "johannesburg"],
+        "japan": ["japanese", "tokyo", "osaka", "yokohama", "kyoto"],
+        "brazil": ["brazilian", "são paulo", "sao paulo", "rio de janeiro", "brasilia"],
+        "mexico": ["mexican", "ciudad de mexico", "mexico city", "guadalajara", "monterrey"],
+        "south korea": ["korean", "seoul", "busan", "incheon"],
+        "thailand": ["thai", "bangkok", "phuket", "chiang mai"],
+        "nigeria": ["nigerian", "lagos", "abuja"],
+        "canada": ["canadian", "toronto", "vancouver", "montreal", "calgary"],
+        "italy": ["italian", "milan", "rome", "milano", "florence", "turin"],
     }
     patterns += alternates.get(country_name.lower(), [])
     return any(p in haystack for p in patterns)

@@ -322,7 +322,11 @@ def build_pipeline(data_path: str = "pipeline.json") -> None:
 
     n = data.get("total", len(data.get("projects", [])))
 
-    built = _embed_json(tmpl, data, PL_DATA_SLOT, PL_SLOT_ID)
+    # ── Performance: do NOT inline 5,000+ signals into the HTML ──────────────
+    # The template already has a fetch("pipeline.json") fallback; use it.
+    # We inject an empty <script> so the slot resolves but textContent is blank.
+    empty_slot = f'<script type="application/json" id="{PL_SLOT_ID}"></script>'
+    built = tmpl.replace(PL_DATA_SLOT, empty_slot, 1)
     PL_OUTPUT.write_text(built, encoding="utf-8")
     sz  = PL_OUTPUT.stat().st_size / 1024
     now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
@@ -429,6 +433,68 @@ def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.js
     print(f"✅  awards.html — {len(unique)} award signals, {now}, {sz:.0f} KB")
 
 
+def build_sitemap() -> None:
+    """Auto-generate sitemap.xml from all HTML pages in the site root and countries/."""
+    BASE_URL = "https://fitoutpost.com"
+    today    = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    # Priority / changefreq rules
+    RULES = {
+        "index.html":        ("1.0", "daily"),
+        "home.html":         ("0.9", "daily"),
+        "news.html":         ("0.9", "daily"),
+        "tenders.html":      ("0.9", "daily"),
+        "pipeline.html":     ("0.9", "daily"),
+        "events.html":       ("0.8", "monthly"),
+        "companies_site.html": ("0.8", "weekly"),
+        "intelligence.html": ("0.8", "weekly"),
+        "weekly.html":       ("0.8", "weekly"),
+        "awards.html":       ("0.7", "weekly"),
+        "timeline.html":     ("0.7", "monthly"),
+        "alphaedge.html":    ("0.6", "weekly"),
+        "betaedge.html":     ("0.6", "weekly"),
+        "gammaedge.html":    ("0.6", "monthly"),
+        "about.html":        ("0.5", "monthly"),
+        "contact.html":      ("0.5", "monthly"),
+        "register.html":     ("0.5", "monthly"),
+        "pricing.html":      ("0.5", "monthly"),
+        "advertise.html":    ("0.4", "monthly"),
+        "api.html":          ("0.4", "monthly"),
+        "legal.html":        ("0.3", "yearly"),
+    }
+
+    urls = []
+
+    # Root HTML pages (exclude private/build files)
+    EXCLUDE = {"credentials.html", "site.html", "companies.html"}
+    for p in sorted(BASE.glob("*.html")):
+        if p.name.startswith("_") or p.name in EXCLUDE:
+            continue
+        priority, changefreq = RULES.get(p.name, ("0.5", "monthly"))
+        urls.append((f"{BASE_URL}/{p.name}", today, changefreq, priority))
+
+    # Country pages
+    countries_dir = BASE / "countries"
+    if countries_dir.exists():
+        for p in sorted(countries_dir.glob("*.html")):
+            urls.append((f"{BASE_URL}/countries/{p.name}", today, "weekly", "0.6"))
+
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>']
+    lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+    for loc, lastmod, changefreq, priority in urls:
+        lines.append(f"  <url>")
+        lines.append(f"    <loc>{loc}</loc>")
+        lines.append(f"    <lastmod>{lastmod}</lastmod>")
+        lines.append(f"    <changefreq>{changefreq}</changefreq>")
+        lines.append(f"    <priority>{priority}</priority>")
+        lines.append(f"  </url>")
+    lines.append("</urlset>")
+
+    sitemap_path = BASE / "sitemap.xml"
+    sitemap_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"✅  sitemap.xml — {len(urls)} URLs")
+
+
 def build_companies_site(data_path: str = "companies.json") -> None:
     """Rebuild the embedded companies data in companies_site.html."""
     import re as _re
@@ -524,3 +590,4 @@ if __name__ == "__main__":
         import subprocess as _sp, sys as _sys2
         _sp.run([_sys2.executable, str(BASE / "build_timeline.py")], check=False)
         build_companies_site()
+        build_sitemap()
