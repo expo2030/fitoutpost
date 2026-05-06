@@ -33,7 +33,198 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
+  <style>/* ══════════════════════════════════════════════════════════════════════════
+     TIER 2 — MASTHEAD (salmon background, FOP logo + search)
+  ══════════════════════════════════════════════════════════════════════════ */
+  #masthead {
+    background: var(--salmon);
+    border-bottom: 2px solid var(--black);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+  #masthead-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  /* ─── FOP Logo ──────────────────────────────────────────────────────────── */
+  #fop-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+    cursor: default;
+    user-select: none;
+    text-decoration: none;
+  }
+  #fop-logo:hover { color: inherit; }
+  #fop-box {
+    width: 52px;
+    height: 52px;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  #fop-box span {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #fff;
+    line-height: 1;
+  }
+  #fop-wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  #fop-wordmark strong {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.2px;
+    color: var(--black);
+  }
+  #fop-wordmark em {
+    font-style: normal;
+    font-size: 10px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  /* ─── Masthead search ───────────────────────────────────────────────────── */
+  #masthead-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--border-dk);
+    flex-shrink: 0;
+    margin: 0 4px;
+  }
+  #search-wrap {
+    position: relative;
+    flex: 1;
+    max-width: 360px;
+  }
+  #search {
+    width: 100%;
+    background: rgba(255,255,255,.6);
+    border: 1px solid var(--border);
+    color: var(--black);
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 8px 12px 8px 36px;
+    outline: none;
+    transition: background .2s, border-color .2s;
+  }
+  #search:focus {
+    background: #fff;
+    border-color: var(--black);
+  }
+  #search::placeholder { color: var(--mid-gray); }
+  #search-icon {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .45;
+    pointer-events: none;
+  }
+
+  /* ─── Masthead right ────────────────────────────────────────────────────── */
+  #masthead-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+  #masthead-updated {
+    font-size: 11px;
+    color: var(--warm-gray);
+    text-align: right;
+    line-height: 1.6;
+  }
+  #masthead-updated strong { color: var(--black); font-weight: 600; }
+  .masthead-nav-link {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--black);
+    padding: 6px 14px;
+    border: 1px solid var(--border-dk);
+    transition: background .15s, border-color .15s, color .15s;
+    white-space: nowrap;
+  }
+  .masthead-nav-link:hover {
+    background: var(--black);
+    border-color: var(--black);
+    color: #fff;
+  }
+  .masthead-nav-link.active {
+    background: var(--black);
+    border-color: var(--black);
+    color: #fff;
+  }
+  /* Companies Directory — FT-style red CTA */
+  .masthead-nav-link--cta {
+    background: var(--claret);
+    border-color: var(--claret);
+    color: #fff;
+    font-weight: 600;
+    padding: 6px 18px;
+    letter-spacing: 0.2px;
+  }
+  .masthead-nav-link--cta:hover {
+    background: var(--claret-lt);
+    border-color: var(--claret-lt);
+    color: #fff;
+  }
+
+  
+  /* ─── Contact + Tip links in masthead ──────────────────────────────────── */
+  .mh-util-link {
+    font-size: 11px;
+    color: var(--warm-gray);
+    transition: color .15s;
+    white-space: nowrap;
+  }
+  .mh-util-link:hover { color: var(--black); }
+  .mh-tip-btn {
+    background: none;
+    border: none;
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--warm-gray);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color .15s;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .mh-tip-btn:hover { color: var(--black); }
+  .mh-util-sep {
+    width: 1px;
+    height: 14px;
+    background: var(--border-dk);
+    flex-shrink: 0;
+  }
+
+  
+
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --salmon:      #FFF1E5;
@@ -184,21 +375,186 @@
     color: #B8A89A;
   }
 
-</style>
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+     TIER 3 — PRODUCT NAV (News / AlphaEdge / …)
+  ══════════════════════════════════════════════════════════════════════════ */
+  #product-nav {
+    background: var(--black);
+    position: sticky;
+    top: 72px;
+    z-index: 195;
+  }
+  #product-nav-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 0;
+  }
+  .pnav-link {
+    display: inline-block;
+    padding: 0 20px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,.65);
+    letter-spacing: .3px;
+    border-right: 1px solid rgba(255,255,255,.1);
+    transition: color .15s, background .15s;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .pnav-link:first-child { border-left: 1px solid rgba(255,255,255,.1); }
+  .pnav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
+  .pnav-link.active { color: #fff; background: var(--claret); border-color: var(--claret); }
+  .pnav-link.active + .pnav-link { border-left-color: var(--claret); }
+
+  
+
+/* ══════════════════════════════════════════════════════════════════════════
+     FOOTER — multi-column FT style
+  ══════════════════════════════════════════════════════════════════════════ */
+  #footer {
+    background: var(--black);
+    color: #A09890;
+    margin-top: 80px;
+  }
+  #footer-main {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 48px 24px 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    border-bottom: 1px solid #2e2e2e;
+  }
+  #footer-brand .footer-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  #footer-fop-box {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  #footer-fop-box span {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    color: var(--black);
+  }
+  #footer-fop-wordmark { display: flex; flex-direction: column; }
+  #footer-fop-name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 16px;
+    color: #E8D8C8;
+    line-height: 1.2;
+  }
+  #footer-fop-tagline {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #7a6e68;
+    margin-top: 3px;
+  }
+  #footer-brand p {
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: #A09890;
+    max-width: 300px;
+    margin-bottom: 14px;
+  }
+  #footer-brand .footer-disclaimer {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #7a706a;
+    max-width: 300px;
+    font-style: italic;
+  }
+
+  .footer-col h4 {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #B8A8A0;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2e2e2e;
+  }
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-col ul li a {
+    font-size: 12.5px;
+    color: #A09890;
+    transition: color .15s;
+  }
+  .footer-col ul li a:hover { color: #E8D8C8; }
+
+  #footer-bottom {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  #footer-copyright {
+    font-size: 11.5px;
+    color: #7a706a;
+  }
+  #footer-legal-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  #footer-legal-links a {
+    font-size: 11.5px;
+    color: #7a706a;
+    transition: color .15s;
+  }
+  #footer-legal-links a:hover { color: #9A8A80; }
+
+  </style>
 </head>
 <body>
 
 <!-- ═══ MASTHEAD ═══════════════════════════════════════════════════════════ -->
 <header id="masthead" role="banner">
   <div id="masthead-inner">
+
+    <!-- FOP Logo -->
     <a href="home.html" id="fop-logo">
       <div id="fop-box"><span>FO</span><span style="color:var(--claret)">P</span></div>
       <div id="fop-wordmark">
-        <strong>Fit Out <span style="color:var(--claret)">Post</span></strong>
+        <strong>Fit&nbsp;Out <span style="color:var(--claret)">Post</span></strong>
         <em>Global Industry Intelligence</em>
       </div>
     </a>
+
     <div id="masthead-divider"></div>
+
+    <!-- Right -->
     <div id="masthead-right">
       <div class="mh-util-sep"></div>
       <a href="contact.html" class="mh-util-link">Contact</a>
@@ -206,26 +562,26 @@
         onclick="document.getElementById('tip-modal').classList.add('open')"
         aria-label="Have a tip?">Have a tip?</button>
       <div class="mh-util-sep"></div>
-      <a class="masthead-nav-link" href="register.html" style="background:var(--claret);border-color:var(--claret);color:#fff;font-weight:600;padding:6px 18px;">Register free →</a>
+      <a class="masthead-nav-link masthead-nav-link--cta" href="register.html">Register free →</a>
     </div>
+
   </div>
-<button id="masthead-search-btn" title="Search" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
 </header>
 <!-- ╔═══ PRODUCT NAV ═══════════════════════════════════════════════════════════ -->
-<nav id="product-nav" role="navigation" aria-label="Product sections">
-  <div id="pnav-inner">
-    <a href="home.html"            class="pnav-link">Home</a>
-    <a href="index.html"           class="pnav-link">News</a>
-    <a href="weekly.html"          class="pnav-link">Weekly</a>
-    <a href="intelligence.html"    class="pnav-link">Intelligence</a>
-    <a href="tenders.html"         class="pnav-link">Tenders</a>
-    <a href="pipeline.html"        class="pnav-link">Pipeline</a>
-    <a href="companies_site.html"  class="pnav-link">Companies</a>
-    <a href="countries/index.html" class="pnav-link">Countries</a>
-    <a href="events.html"          class="pnav-link">Events</a>
-    <a href="alphaedge.html"       class="pnav-link">α Edge</a>
-    <a href="betaedge.html"        class="pnav-link">β Edge</a>
-    <a href="gammaedge.html"       class="pnav-link">γ Edge</a>
+<nav id="product-nav" role="navigation" aria-label="Sections">
+  <div id="product-nav-inner">
+    <a class="pnav-link" href="home.html">Home</a>
+    <a class="pnav-link" href="index.html">News</a>
+    <a class="pnav-link" href="weekly.html">Weekly</a>
+    <a class="pnav-link" href="intelligence.html">Intelligence</a>
+    <a class="pnav-link" href="tenders.html">Tenders</a>
+    <a class="pnav-link" href="pipeline.html">Pipeline</a>
+    <a class="pnav-link" href="companies_site.html">Companies</a>
+    <a class="pnav-link" href="countries/index.html">Countries</a>
+    <a class="pnav-link" href="events.html">Events</a>
+    <a class="pnav-link" href="alphaedge.html"><span style="font-size:1.1em">α</span> Edge</a>
+    <a class="pnav-link" href="betaedge.html"><span style="font-size:1.1em">β</span> Edge</a>
+    <a class="pnav-link" href="gammaedge.html"><span style="font-size:1.1em">γ</span> Edge</a>
   </div>
 </nav>
 <!-- ╔═══ SECTION BANNER ═════════════════════════════════════════════════════════ -->
@@ -273,11 +629,86 @@
 </div>
 
 <!-- ═══ FOOTER ══════════════════════════════════════════════════════════════ -->
-<footer id="footer">
-  <p>© <span id="footer-year"></span> FitOut Post · Independent industry intelligence ·
-    <a href="index.html">News</a> · <a href="tenders.html">Tenders</a> · <a href="pipeline.html">Pipeline</a> ·
-    <a href="contact.html">Contact</a> · <a href="legal.html">Legal</a>
-  </p>
+<footer id="footer" role="contentinfo">
+
+  <div id="footer-main">
+
+    <!-- Brand column -->
+    <div id="footer-brand">
+      <div class="footer-logo-wrap">
+        <div id="footer-fop-box"><span>FO</span><span style="color:var(--claret)">P</span></div>
+        <div id="footer-fop-wordmark">
+          <div id="footer-fop-name">Fit&nbsp;Out <span style="color:var(--claret)">Post</span></div>
+          <div id="footer-fop-tagline">Global Industry Intelligence</div>
+        </div>
+      </div>
+      <p>
+        An independent aggregator of global fit-out and interior construction news.
+        Articles are drawn from industry publications, company announcements, and
+        newswires across more than 50 countries. Updated daily.
+      </p>
+      <p class="footer-disclaimer">
+        FitOut Post is not affiliated with any company featured in its coverage.
+        Article links open the original source. Content is for reference only.
+      </p>
+    </div>
+
+    <!-- Navigate column -->
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="index.html" data-tab="All">All regions</a></li>
+        <li><a href="index.html" data-tab="Europe">Europe</a></li>
+        <li><a href="index.html" data-tab="Middle East">Middle East</a></li>
+        <li><a href="index.html" data-tab="Asia Pacific">Asia Pacific</a></li>
+        <li><a href="index.html" data-tab="Americas">Americas</a></li>
+        <li><a href="index.html" data-tab="Oceania">Oceania</a></li>
+      </ul>
+    </div>
+
+    <!-- Directory column -->
+    <div class="footer-col" id="footer-legal">
+      <h4>Directory</h4>
+      <ul>
+        <li><a href="companies_site.html">All companies</a></li>
+        <li><a href="companies_site.html?sector=office">Offices</a></li>
+        <li><a href="companies_site.html?sector=hospitality">Hospitality</a></li>
+        <li><a href="companies_site.html?sector=retail">Retail</a></li>
+        <li><a href="companies_site.html?sector=fb">Food and beverage</a></li>
+        <li><a href="companies_site.html?sector=leisure">Sports and entertainment</a></li>
+        <li><a href="companies_site.html?sector=Museums">Exhibitions and museums</a></li>
+        <li><a href="companies_site.html?sector=datacentre">Data centres</a></li>
+        <li><a href="companies_site.html?sector=healthcare">Healthcare</a></li>
+        <li><a href="companies_site.html?sector=lab">Life sciences</a></li>
+      </ul>
+    </div>
+
+    <!-- About column -->
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="legal.html#terms">Terms of use</a></li>
+        <li><a href="legal.html#privacy">Privacy policy</a></li>
+        <li><a href="legal.html#cookies">Cookie policy</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div id="footer-bottom">
+    <div id="footer-copyright">
+      © <span id="footer-year"></span> FitOut Post. An independent publication. All rights reserved.
+      <span id="footer-build" style="margin-left:12px;opacity:.45;font-size:10px"></span>
+    </div>
+    <div id="footer-legal-links">
+      <a href="legal.html#terms">Terms of use</a>
+      <a href="legal.html#privacy">Privacy policy</a>
+      <a href="legal.html#cookies">Cookie policy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
 </footer>
 
 <script>

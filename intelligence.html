@@ -87,7 +87,7 @@
   .util-link:hover { color: #D4C4BA; }
 
   /* ══════════════════════════════════════════════════════════════════════════
-     TIER 2 — MASTHEAD
+     TIER 2 — MASTHEAD (salmon background, FOP logo + search)
   ══════════════════════════════════════════════════════════════════════════ */
   #masthead {
     background: var(--salmon);
@@ -105,46 +105,143 @@
     align-items: center;
     gap: 24px;
   }
+
+  /* ─── FOP Logo ──────────────────────────────────────────────────────────── */
   #fop-logo {
-    display: flex; align-items: center; gap: 14px;
-    flex-shrink: 0; cursor: default; user-select: none; text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+    cursor: default;
+    user-select: none;
+    text-decoration: none;
   }
   #fop-logo:hover { color: inherit; }
   #fop-box {
-    width: 52px; height: 52px;
+    width: 52px;
+    height: 52px;
     background: var(--black);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
   #fop-box span {
-    font-family: var(--serif); font-weight: 800; font-size: 24px;
-    letter-spacing: 1px; color: #fff; line-height: 1;
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #fff;
+    line-height: 1;
   }
-  #fop-wordmark { display: flex; flex-direction: column; line-height: 1.2; }
+  #fop-wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
   #fop-wordmark strong {
-    font-family: var(--serif); font-weight: 700; font-size: 20px;
-    letter-spacing: 0.2px; color: var(--black);
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.2px;
+    color: var(--black);
   }
   #fop-wordmark em {
-    font-style: normal; font-size: 10px; letter-spacing: 1.4px;
-    text-transform: uppercase; color: var(--warm-gray); font-weight: 500; margin-top: 2px;
+    font-style: normal;
+    font-size: 10px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 500;
+    margin-top: 2px;
   }
-  #masthead-divider { width: 1px; height: 32px; background: var(--border-dk); flex-shrink: 0; margin: 0 4px; }
+
+  /* ─── Masthead search ───────────────────────────────────────────────────── */
+  #masthead-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--border-dk);
+    flex-shrink: 0;
+    margin: 0 4px;
+  }
+  #search-wrap {
+    position: relative;
+    flex: 1;
+    max-width: 360px;
+  }
+  #search {
+    width: 100%;
+    background: rgba(255,255,255,.6);
+    border: 1px solid var(--border);
+    color: var(--black);
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 8px 12px 8px 36px;
+    outline: none;
+    transition: background .2s, border-color .2s;
+  }
+  #search:focus {
+    background: #fff;
+    border-color: var(--black);
+  }
+  #search::placeholder { color: var(--mid-gray); }
+  #search-icon {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .45;
+    pointer-events: none;
+  }
+
+  /* ─── Masthead right ────────────────────────────────────────────────────── */
   #masthead-right {
-    margin-left: auto; display: flex; align-items: center; gap: 16px; flex-shrink: 0;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
   }
-  #masthead-updated { font-size: 11px; color: var(--warm-gray); text-align: right; line-height: 1.6; }
+  #masthead-updated {
+    font-size: 11px;
+    color: var(--warm-gray);
+    text-align: right;
+    line-height: 1.6;
+  }
   #masthead-updated strong { color: var(--black); font-weight: 600; }
   .masthead-nav-link {
-    font-size: 12.5px; font-weight: 500; color: var(--black);
-    padding: 6px 14px; border: 1px solid var(--border-dk);
-    transition: background .15s, border-color .15s, color .15s; white-space: nowrap;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--black);
+    padding: 6px 14px;
+    border: 1px solid var(--border-dk);
+    transition: background .15s, border-color .15s, color .15s;
+    white-space: nowrap;
   }
-  .masthead-nav-link:hover { background: var(--black); border-color: var(--black); color: #fff; }
+  .masthead-nav-link:hover {
+    background: var(--black);
+    border-color: var(--black);
+    color: #fff;
+  }
+  .masthead-nav-link.active {
+    background: var(--black);
+    border-color: var(--black);
+    color: #fff;
+  }
+  /* Companies Directory — FT-style red CTA */
   .masthead-nav-link--cta {
-    background: var(--claret); border-color: var(--claret); color: #fff;
-    font-weight: 600; padding: 6px 18px; letter-spacing: 0.2px;
+    background: var(--claret);
+    border-color: var(--claret);
+    color: #fff;
+    font-weight: 600;
+    padding: 6px 18px;
+    letter-spacing: 0.2px;
   }
-  .masthead-nav-link--cta:hover { background: var(--claret-lt); border-color: var(--claret-lt); color: #fff; }
+  .masthead-nav-link--cta:hover {
+    background: var(--claret-lt);
+    border-color: var(--claret-lt);
+    color: #fff;
+  }
 
   
   /* ─── Contact + Tip links in masthead ──────────────────────────────────── */
@@ -179,24 +276,43 @@
   }
 
   /* ══════════════════════════════════════════════════════════════════════════
-     TIER 3 — PRODUCT NAV
+     TIER 3 — PRODUCT NAV (News / AlphaEdge / …)
   ══════════════════════════════════════════════════════════════════════════ */
-  #product-nav { background: var(--black); position: sticky; top: 72px; z-index: 195; }
+  #product-nav {
+    background: var(--black);
+    position: sticky;
+    top: 72px;
+    z-index: 195;
+  }
   #product-nav-inner {
-    max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; gap: 0;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 0;
   }
   .pnav-link {
-    display: inline-block; padding: 0 20px; height: 38px; line-height: 38px;
-    font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.65);
-    letter-spacing: .3px; border-right: 1px solid rgba(255,255,255,.1);
-    transition: color .15s, background .15s; white-space: nowrap; cursor: pointer;
+    display: inline-block;
+    padding: 0 20px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,.65);
+    letter-spacing: .3px;
+    border-right: 1px solid rgba(255,255,255,.1);
+    transition: color .15s, background .15s;
+    white-space: nowrap;
+    cursor: pointer;
   }
   .pnav-link:first-child { border-left: 1px solid rgba(255,255,255,.1); }
   .pnav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
   .pnav-link.active { color: #fff; background: var(--claret); border-color: var(--claret); }
   .pnav-link.active + .pnav-link { border-left-color: var(--claret); }
 
-  /* ══════════════════════════════════════════════════════════════════════════
+  
+
+/* ══════════════════════════════════════════════════════════════════════════
      TIER 4 — SECTION NAV (continent tabs)
   ══════════════════════════════════════════════════════════════════════════ */
   #nav-bar {
@@ -428,44 +544,137 @@
     font-size: 11px; color: var(--mid-gray); font-weight: 500; letter-spacing: 0.3px;
   }
 
-  /* ══════════════════════════════════════════════════════════════════════════
-     FOOTER
+  /* ─── Section Banner ─── */
+  #section-banner { background: var(--black); border-bottom: 2px solid var(--claret); padding: 12px 0; }
+  #section-banner-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 16px; }
+  #section-label { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--claret); flex-shrink: 0; }
+  #section-sub { font-size: 12.5px; color: #B8A89A; }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+     FOOTER — multi-column FT style
   ══════════════════════════════════════════════════════════════════════════ */
-  #footer { background: var(--black); color: #A09890; margin-top: 80px; }
+  #footer {
+    background: var(--black);
+    color: #A09890;
+    margin-top: 80px;
+  }
   #footer-main {
-    max-width: 1320px; margin: 0 auto; padding: 48px 24px 40px;
-    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 48px 24px 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
     border-bottom: 1px solid #2e2e2e;
   }
-  #footer-brand .footer-logo-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  #footer-brand .footer-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
   #footer-fop-box {
-    width: 40px; height: 40px; background: #fff;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
-  #footer-fop-box span { font-family: var(--serif); font-weight: 800; font-size: 18px; color: var(--black); }
+  #footer-fop-box span {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    color: var(--black);
+  }
   #footer-fop-wordmark { display: flex; flex-direction: column; }
-  #footer-fop-name { font-family: var(--serif); font-weight: 700; font-size: 16px; color: #E8D8C8; line-height: 1.2; }
-  #footer-fop-tagline { font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: #7a6e68; margin-top: 3px; }
-  #footer-brand p { font-size: 12.5px; line-height: 1.75; color: #A09890; max-width: 300px; margin-bottom: 14px; }
-  #footer-brand .footer-disclaimer { font-size: 11px; line-height: 1.7; color: #7a706a; max-width: 300px; font-style: italic; }
+  #footer-fop-name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 16px;
+    color: #E8D8C8;
+    line-height: 1.2;
+  }
+  #footer-fop-tagline {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #7a6e68;
+    margin-top: 3px;
+  }
+  #footer-brand p {
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: #A09890;
+    max-width: 300px;
+    margin-bottom: 14px;
+  }
+  #footer-brand .footer-disclaimer {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #7a706a;
+    max-width: 300px;
+    font-style: italic;
+  }
+
   .footer-col h4 {
-    font-family: var(--sans); font-size: 10px; font-weight: 700;
-    letter-spacing: 1.2px; text-transform: uppercase; color: #B8A8A0;
-    margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #2e2e2e;
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #B8A8A0;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2e2e2e;
   }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .footer-col ul li a { font-size: 12.5px; color: #A09890; transition: color .15s; }
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-col ul li a {
+    font-size: 12.5px;
+    color: #A09890;
+    transition: color .15s;
+  }
   .footer-col ul li a:hover { color: #E8D8C8; }
+
   #footer-bottom {
-    max-width: 1320px; margin: 0 auto; padding: 18px 24px;
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
   }
-  #footer-copyright { font-size: 11.5px; color: #7a706a; }
-  #footer-legal-links { display: flex; align-items: center; gap: 20px; }
-  #footer-legal-links a { font-size: 11.5px; color: #7a706a; transition: color .15s; }
+  #footer-copyright {
+    font-size: 11.5px;
+    color: #7a706a;
+  }
+  #footer-legal-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  #footer-legal-links a {
+    font-size: 11.5px;
+    color: #7a706a;
+    transition: color .15s;
+  }
   #footer-legal-links a:hover { color: #9A8A80; }
 
-  /* ══════════════════════════════════════════════════════════════════════════
+  
+
+/* ══════════════════════════════════════════════════════════════════════════
      RESPONSIVE
   ══════════════════════════════════════════════════════════════════════════ */
   @media (max-width: 1100px) { #footer-main { grid-template-columns: 2fr 1fr 1fr; } #footer-legal { display: none; } }
@@ -649,6 +858,8 @@
 <!-- ═══════════════════════ MASTHEAD ══════════════════════════════════════════ -->
 <header id="masthead" role="banner">
   <div id="masthead-inner">
+
+    <!-- FOP Logo -->
     <a href="home.html" id="fop-logo">
       <div id="fop-box"><span>FO</span><span style="color:var(--claret)">P</span></div>
       <div id="fop-wordmark">
@@ -656,7 +867,10 @@
         <em>Global Industry Intelligence</em>
       </div>
     </a>
+
     <div id="masthead-divider"></div>
+
+    <!-- Right -->
     <div id="masthead-right">
       <div id="masthead-updated">
         <strong id="meta-count">—</strong> datapoints<br>
@@ -669,13 +883,14 @@
         onclick="document.getElementById('tip-modal').classList.add('open')"
         aria-label="Have a tip?">Have a tip?</button>
       <div class="mh-util-sep"></div>
-      <a class="masthead-nav-link" href="register.html" style="background:var(--claret);border-color:var(--claret);color:#fff;font-weight:600;padding:6px 18px;">Register free →</a>
+      <a class="masthead-nav-link masthead-nav-link--cta" href="register.html">Register free →</a>
     </div>
+
   </div>
-<button id="masthead-search-btn" title="Search (/ or Ctrl+K)" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
 </header>
 
 <!-- ═══════════════════════ PRODUCT NAV ══════════════════════════════════════ -->
+<!-- ╔═══ PRODUCT NAV ═══════════════════════════════════════════════════════════ -->
 <nav id="product-nav" role="navigation" aria-label="Sections">
   <div id="product-nav-inner">
     <a class="pnav-link" href="home.html">Home</a>
@@ -785,7 +1000,10 @@
 <!-- ═══════════════════════ FOOTER ═══════════════════════════════════════════ -->
 
 <footer id="footer" role="contentinfo">
+
   <div id="footer-main">
+
+    <!-- Brand column -->
     <div id="footer-brand">
       <div class="footer-logo-wrap">
         <div id="footer-fop-box"><span>FO</span><span style="color:var(--claret)">P</span></div>
@@ -796,37 +1014,46 @@
       </div>
       <p>
         An independent aggregator of global fit-out and interior construction news.
-        Cost data is sourced from published industry reports. Exchange rates are
-        approximate at the date of data entry.
+        Articles are drawn from industry publications, company announcements, and
+        newswires across more than 50 countries. Updated daily.
       </p>
       <p class="footer-disclaimer">
-        FitOut Post is not affiliated with any firm featured in its coverage.
-        Cost benchmarks are indicative only and should not be used as the sole
-        basis for budgeting decisions. Always consult a qualified cost consultant.
+        FitOut Post is not affiliated with any company featured in its coverage.
+        Article links open the original source. Content is for reference only.
       </p>
     </div>
+
+    <!-- Navigate column -->
     <div class="footer-col">
       <h4>Regions</h4>
       <ul>
-        <li><a href="intelligence.html">All markets</a></li>
-        <li><a href="intelligence.html" onclick="selectContinent('Europe');return false;">Europe</a></li>
-        <li><a href="intelligence.html" onclick="selectContinent('Middle East');return false;">Middle East</a></li>
-        <li><a href="intelligence.html" onclick="selectContinent('Asia Pacific');return false;">Asia Pacific</a></li>
-        <li><a href="intelligence.html" onclick="selectContinent('Americas');return false;">Americas</a></li>
-        <li><a href="intelligence.html" onclick="selectContinent('Africa');return false;">Africa</a></li>
+        <li><a href="index.html" data-tab="All">All regions</a></li>
+        <li><a href="index.html" data-tab="Europe">Europe</a></li>
+        <li><a href="index.html" data-tab="Middle East">Middle East</a></li>
+        <li><a href="index.html" data-tab="Asia Pacific">Asia Pacific</a></li>
+        <li><a href="index.html" data-tab="Americas">Americas</a></li>
+        <li><a href="index.html" data-tab="Oceania">Oceania</a></li>
       </ul>
     </div>
+
+    <!-- Directory column -->
     <div class="footer-col" id="footer-legal">
-      <h4>Intelligence</h4>
+      <h4>Directory</h4>
       <ul>
-        <li><a href="index.html">News</a></li>
-        <li><a href="weekly.html">Weekly Roundup</a></li>
-        <li><a href="alphaedge.html">α Edge — Curated reads</a></li>
-        <li><a href="betaedge.html">β Edge — Industry polls</a></li>
-        <li><a href="gammaedge.html">γ Edge — Games</a></li>
-        <li><a href="companies_site.html">Companies directory</a></li>
+        <li><a href="companies_site.html">All companies</a></li>
+        <li><a href="companies_site.html?sector=office">Offices</a></li>
+        <li><a href="companies_site.html?sector=hospitality">Hospitality</a></li>
+        <li><a href="companies_site.html?sector=retail">Retail</a></li>
+        <li><a href="companies_site.html?sector=fb">Food and beverage</a></li>
+        <li><a href="companies_site.html?sector=leisure">Sports and entertainment</a></li>
+        <li><a href="companies_site.html?sector=Museums">Exhibitions and museums</a></li>
+        <li><a href="companies_site.html?sector=datacentre">Data centres</a></li>
+        <li><a href="companies_site.html?sector=healthcare">Healthcare</a></li>
+        <li><a href="companies_site.html?sector=lab">Life sciences</a></li>
       </ul>
     </div>
+
+    <!-- About column -->
     <div class="footer-col">
       <h4>About</h4>
       <ul>
@@ -836,17 +1063,22 @@
         <li><a href="legal.html#cookies">Cookie policy</a></li>
       </ul>
     </div>
+
   </div>
+
   <div id="footer-bottom">
     <div id="footer-copyright">
       © <span id="footer-year"></span> FitOut Post. An independent publication. All rights reserved.
+      <span id="footer-build" style="margin-left:12px;opacity:.45;font-size:10px"></span>
     </div>
     <div id="footer-legal-links">
       <a href="legal.html#terms">Terms of use</a>
       <a href="legal.html#privacy">Privacy policy</a>
       <a href="legal.html#cookies">Cookie policy</a>
+      <a href="contact.html">Contact</a>
     </div>
   </div>
+
 </footer>
 
 <script>
