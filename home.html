@@ -230,10 +230,6 @@
   }
   .section-card:hover { background: #FFF8F2; }
   .section-card:hover .card-arrow { opacity: 1; transform: translateX(0); }
-  .card-icon {
-    font-size: 26px; margin-bottom: 14px; line-height: 1;
-    display: block;
-  }
   .card-label {
     font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
     font-weight: 600; color: var(--mid-gray); margin-bottom: 6px;
@@ -267,17 +263,6 @@
   .section-card:hover .card-accent { background: var(--claret); }
 
   /* colour variants for card top border */
-  .section-card[data-color="news"] .card-icon { color: #2a5f8f; }
-  .section-card[data-color="weekly"] .card-icon { color: #5a4a8a; }
-  .section-card[data-color="intel"] .card-icon { color: #1a6a4a; }
-  .section-card[data-color="tenders"] .card-icon { color: #8a3a00; }
-  .section-card[data-color="pipeline"] .card-icon { color: #4a6a1a; }
-  .section-card[data-color="companies"] .card-icon { color: #4a4a4a; }
-  .section-card[data-color="awards"] .card-icon { color: #7a6a00; }
-  .section-card[data-color="countries"] .card-icon { color: #2a5a8a; }
-  .section-card[data-color="alpha"] .card-icon { color: #6a2a6a; }
-  .section-card[data-color="beta"] .card-icon { color: #2a6a5a; }
-  .section-card[data-color="gamma"] .card-icon { color: #8a4a00; }
 
   .card-arrow {
     opacity: 0; transform: translateX(-4px);
@@ -448,7 +433,6 @@
 
     <!-- News -->
     <a class="section-card" href="index.html" data-color="news">
-      <span class="card-icon">📰</span>
       <span class="card-label">Daily</span>
       <div class="card-title">News Feed</div>
       <p class="card-desc">527 articles from 200+ global sources. Fit-out, interior construction and workplace news across every continent — updated daily.</p>
@@ -458,7 +442,6 @@
 
     <!-- Weekly -->
     <a class="section-card" href="weekly.html" data-color="weekly">
-      <span class="card-icon">📋</span>
       <span class="card-label">Every week</span>
       <div class="card-title">Weekly Roundup</div>
       <p class="card-desc">Curated digest of the week's most significant stories, deals and project announcements — organised by region. Full content for registered members.</p>
@@ -468,7 +451,6 @@
 
     <!-- Intelligence -->
     <a class="section-card" href="intelligence.html" data-color="intel">
-      <span class="card-icon">📊</span>
       <span class="card-label">Benchmarks</span>
       <div class="card-title">Intelligence</div>
       <p class="card-desc">83 $/m² fit-out cost datapoints sourced from CBRE, JLL, Cushman & Wakefield, Knight Frank and AECOM. Sector and market breakdowns.</p>
@@ -478,7 +460,6 @@
 
     <!-- Tenders -->
     <a class="section-card" href="tenders.html" data-color="tenders">
-      <span class="card-icon">📄</span>
       <span class="card-label">Procurement</span>
       <div class="card-title">Tenders</div>
       <p class="card-desc">200+ live fit-out tenders from TED EU and global procurement feeds. Filter by region, value, deadline. Full tender details for members.</p>
@@ -489,7 +470,6 @@
 
     <!-- Pipeline -->
     <a class="section-card" href="pipeline.html" data-color="pipeline">
-      <span class="card-icon">🏗️</span>
       <span class="card-label">Projects</span>
       <div class="card-title">Pipeline</div>
       <p class="card-desc">5,895 fit-out and interior construction project signals. Announcements, appointments, groundbreakings and completions across all sectors.</p>
@@ -499,7 +479,6 @@
 
     <!-- Companies -->
     <a class="section-card" href="companies_site.html" data-color="companies">
-      <span class="card-icon">🏢</span>
       <span class="card-label">Directory</span>
       <div class="card-title">Companies</div>
       <p class="card-desc">171 fit-out contractors, designers and specialists across 50+ countries. Searchable by region, sector and company type.</p>
@@ -509,7 +488,6 @@
 
     <!-- Awards -->
     <a class="section-card" href="awards.html" data-color="awards">
-      <span class="card-icon">🏆</span>
       <span class="card-label">Contracts</span>
       <div class="card-title">Awards</div>
       <p class="card-desc">29 contract award signals extracted from news and pipeline data. Who won what, where, and when — filterable by region.</p>
@@ -520,7 +498,6 @@
 
     <!-- Countries -->
     <a class="section-card" href="countries/index.html" data-color="countries">
-      <span class="card-icon">🌍</span>
       <span class="card-label">Market intelligence</span>
       <div class="card-title">Countries</div>
       <p class="card-desc">15 country dossier pages: UAE, UK, US, Germany, Australia, India, Singapore, France, Spain, Saudi Arabia, Netherlands, Hong Kong, Ireland, Qatar, South Africa.</p>
@@ -530,7 +507,6 @@
 
     <!-- Alpha Edge -->
     <a class="section-card" href="alphaedge.html" data-color="alpha">
-      <span class="card-icon">α</span>
       <span class="card-label">Curated reading</span>
       <div class="card-title">α Edge</div>
       <p class="card-desc">Editor-curated long reads, reports and analysis from across the fit-out and interiors world. Selected for depth and strategic value.</p>
@@ -540,7 +516,6 @@
 
     <!-- Beta Edge -->
     <a class="section-card" href="betaedge.html" data-color="beta">
-      <span class="card-icon">β</span>
       <span class="card-label">Industry polling</span>
       <div class="card-title">β Edge</div>
       <p class="card-desc">Anonymous polls on current industry topics. Share your view on market conditions, project trends and sector challenges.</p>
@@ -550,7 +525,6 @@
 
     <!-- Gamma Edge -->
     <a class="section-card" href="gammaedge.html" data-color="gamma">
-      <span class="card-icon">γ</span>
       <span class="card-label">For the industry</span>
       <div class="card-title">γ Edge</div>
       <p class="card-desc">15 curated games, puzzles and interactive tools with an industry edge. A different way to engage with the fit-out world.</p>
