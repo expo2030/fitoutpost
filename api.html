@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API — FitOut Post</title>
+  <meta name="description" content="FitOut Post REST API — read-only JSON endpoints for Pro members. Access global fit-out news, tenders and pipeline data programmatically." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --salmon: #FFF1E5; --salmon-dk: #F2DFCE; --white: #FFFFFF;
+    --black: #1a1a1a; --claret: #990033; --claret-lt: #CC0044;
+    --teal: #0D7680; --warm-gray: #66605A; --mid-gray: #9A948E;
+    --border: #D9CBC0; --border-lt: #EDE3DA; --border-dk: #B8A99A;
+    --serif: "Playfair Display", Georgia, serif;
+    --serif-body: "EB Garamond", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    --code-bg: #0F1117; --code-fg: #E2E8F0;
+    --gold: #B8860B;
+  }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body { font-family: var(--sans); background: var(--salmon); color: var(--black); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--claret); }
+
+  /* Utility bar */
+  #utility-bar { background: var(--black); color: #9A8A80; font-size: 11px; letter-spacing: 0.3px; border-bottom: 1px solid #333; padding: 0 24px; }
+  #utility-inner { max-width: 1320px; margin: 0 auto; height: 34px; display: flex; align-items: center; justify-content: space-between; }
+  #utility-left { display: flex; align-items: center; gap: 20px; }
+  #utility-right { display: flex; align-items: center; gap: 16px; }
+  .util-link { color: #9A8A80; transition: color .15s; }
+  .util-link:hover { color: #D4C4BA; }
+
+  /* Masthead */
+  #masthead { background: var(--salmon); border-bottom: 2px solid var(--black); }
+  #masthead-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; height: 72px; display: flex; align-items: center; gap: 24px; }
+  #fop-logo { display: flex; align-items: center; gap: 14px; flex-shrink: 0; text-decoration: none; }
+  #fop-logo:hover { color: inherit; }
+  #fop-box { width: 52px; height: 52px; background: var(--black); display: flex; align-items: center; justify-content: center; }
+  #fop-box span { font-family: var(--serif); font-weight: 800; font-size: 24px; letter-spacing: 1px; color: #fff; line-height: 1; }
+  #fop-wordmark { display: flex; flex-direction: column; line-height: 1.2; }
+  #fop-wordmark strong { font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--black); }
+  #fop-wordmark em { font-style: normal; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; margin-top: 2px; }
+  #masthead-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+  .masthead-nav-link { font-size: 12.5px; font-weight: 500; color: var(--black); padding: 6px 14px; border: 1px solid var(--border-dk); transition: background .15s, border-color .15s, color .15s; white-space: nowrap; }
+  .masthead-nav-link:hover { background: var(--black); border-color: var(--black); color: #fff; }
+  .masthead-nav-link--cta { background: var(--claret); border-color: var(--claret); color: #fff; font-weight: 600; padding: 6px 18px; }
+  .masthead-nav-link--cta:hover { background: var(--claret-lt); border-color: var(--claret-lt); color: #fff; }
+
+  /* Product nav */
+  #product-nav { background: var(--black); }
+  #product-nav-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; }
+  .pnav-link { display: inline-block; padding: 0 20px; height: 38px; line-height: 38px; font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.65); border-right: 1px solid rgba(255,255,255,.1); transition: color .15s, background .15s; white-space: nowrap; }
+  .pnav-link:first-child { border-left: 1px solid rgba(255,255,255,.1); }
+  .pnav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
+  .pnav-link.active { color: #fff; background: var(--claret); border-color: var(--claret); }
+
+  /* Layout */
+  #page { max-width: 1320px; margin: 0 auto; padding: 0 24px 100px; }
+  .api-layout { display: grid; grid-template-columns: 220px 1fr; gap: 60px; padding-top: 48px; }
+
+  /* Sidebar nav */
+  .api-sidebar { position: sticky; top: 24px; align-self: start; }
+  .api-sidebar-title { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; color: var(--mid-gray); margin-bottom: 14px; }
+  .api-nav { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+  .api-nav a { display: block; padding: 7px 12px; font-size: 13px; color: var(--warm-gray); border-left: 2px solid transparent; transition: color .15s, border-color .15s; }
+  .api-nav a:hover { color: var(--black); border-color: var(--border-dk); }
+  .api-nav a.active { color: var(--claret); border-color: var(--claret); font-weight: 500; }
+  .api-nav-group { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--mid-gray); padding: 14px 12px 4px; font-weight: 600; }
+
+  /* Hero */
+  .api-hero { border-bottom: 2px solid var(--black); padding: 0 0 40px; margin-bottom: 52px; }
+  .api-hero-kicker { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--claret); font-weight: 600; margin-bottom: 12px; }
+  .api-hero h1 { font-family: var(--serif); font-size: 44px; font-weight: 700; line-height: 1.1; margin-bottom: 16px; }
+  .api-hero-sub { font-family: var(--serif-body); font-size: 19px; line-height: 1.7; color: var(--warm-gray); margin-bottom: 24px; max-width: 640px; }
+  .api-pro-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; padding: 6px 14px; }
+
+  /* Sections */
+  .api-section { margin-bottom: 64px; scroll-margin-top: 24px; }
+  .api-section h2 { font-family: var(--serif); font-size: 28px; font-weight: 700; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .api-section h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin-bottom: 10px; margin-top: 32px; }
+  .api-section p { font-family: var(--serif-body); font-size: 17px; line-height: 1.75; color: var(--warm-gray); margin-bottom: 16px; }
+  .api-section ul { list-style: none; margin-bottom: 20px; }
+  .api-section ul li { font-family: var(--serif-body); font-size: 16px; line-height: 1.6; color: var(--warm-gray); padding: 5px 0 5px 20px; position: relative; }
+  .api-section ul li::before { content: '→'; position: absolute; left: 0; color: var(--claret); font-size: 13px; }
+
+  /* Code blocks */
+  .code-block { background: var(--code-bg); color: var(--code-fg); padding: 24px 28px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 13px; line-height: 1.7; overflow-x: auto; margin: 20px 0; position: relative; }
+  .code-block .cb-lang { position: absolute; top: 10px; right: 14px; font-size: 10px; letter-spacing: 0.8px; text-transform: uppercase; color: #4A5568; }
+  .code-copy { position: absolute; top: 10px; right: 60px; font-size: 11px; background: #333; color: #aaa; border: none; padding: 3px 10px; cursor: pointer; font-family: inherit; }
+  .code-copy:hover { background: #444; color: #fff; }
+  .kw { color: #F687B3; }
+  .str { color: #68D391; }
+  .num { color: #F6AD55; }
+  .cmt { color: #718096; font-style: italic; }
+  .key { color: #90CDF4; }
+  .punc { color: #E2E8F0; }
+
+  /* Endpoint table */
+  .endpoint-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 20px 0 32px; }
+  .endpoint-table th { padding: 10px 16px; font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 600; background: var(--black); color: #9A8A80; text-align: left; }
+  .endpoint-table td { padding: 12px 16px; border-bottom: 1px solid var(--border-lt); vertical-align: top; }
+  .endpoint-table tr:last-child td { border-bottom: none; }
+  .method { font-family: monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 2px 8px; }
+  .method-get { background: #2D7D46; color: #fff; }
+  .endpoint-path { font-family: monospace; font-size: 13px; color: var(--teal); }
+  .rate-badge { font-size: 11px; font-weight: 600; background: var(--salmon-dk); color: var(--warm-gray); padding: 3px 10px; border: 1px solid var(--border); white-space: nowrap; }
+
+  /* Response field table */
+  .field-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0; }
+  .field-table th { padding: 8px 14px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; background: var(--salmon-dk); color: var(--warm-gray); font-weight: 600; text-align: left; border-bottom: 1px solid var(--border); }
+  .field-table td { padding: 10px 14px; border-bottom: 1px solid var(--border-lt); vertical-align: top; }
+  .field-table td:first-child { font-family: monospace; font-size: 12.5px; color: var(--teal); }
+  .field-table td:nth-child(2) { font-family: monospace; font-size: 11.5px; color: var(--gold); }
+  .field-table td:nth-child(3) { color: var(--warm-gray); font-size: 13px; }
+
+  /* Alert box */
+  .api-alert { border-left: 4px solid var(--gold); background: #FFF8E8; padding: 16px 20px; margin: 20px 0; }
+  .api-alert p { font-size: 14px; color: var(--warm-gray); margin: 0; }
+  .api-alert strong { color: var(--black); }
+  .api-alert-info { border-color: var(--teal); background: #F0FAFA; }
+  .api-alert-err { border-color: var(--claret); background: #FFF5F7; }
+
+  /* Auth box */
+  .auth-box { background: var(--black); color: #D4C4BA; padding: 28px 32px; margin: 20px 0; }
+  .auth-box h4 { font-family: var(--serif); font-size: 18px; color: #fff; margin-bottom: 10px; }
+  .auth-box p { font-size: 13px; color: #9A8A80; line-height: 1.6; margin-bottom: 10px; }
+  .auth-box code { font-family: monospace; font-size: 12.5px; background: #333; color: #F687B3; padding: 2px 8px; }
+
+  /* CTA */
+  .api-cta { background: var(--claret); color: #fff; padding: 52px 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin-bottom: 80px; }
+  .api-cta-text h2 { font-family: var(--serif); font-size: 30px; margin-bottom: 8px; }
+  .api-cta-text p { font-family: var(--serif-body); font-size: 17px; color: rgba(255,255,255,.8); }
+  .api-cta-btn { display: inline-block; padding: 13px 32px; background: #fff; color: var(--claret); font-size: 13px; font-weight: 600; white-space: nowrap; border: 2px solid #fff; transition: background .15s, color .15s; }
+  .api-cta-btn:hover { background: transparent; color: #fff; }
+
+  /* Footer */
+  footer { background: var(--black); color: #9A8A80; font-size: 12px; padding: 32px 24px; text-align: center; border-top: 2px solid var(--claret); }
+  footer a { color: #9A8A80; }
+  footer a:hover { color: #D4C4BA; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 12px; }
+
+  @media (max-width: 900px) {
+    .api-layout { grid-template-columns: 1fr; }
+    .api-sidebar { display: none; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- Utility bar -->
+<div id="utility-bar">
+  <div id="utility-inner">
+    <div id="utility-left">
+      <span>Global fit-out intelligence</span>
+      <a href="about.html" class="util-link">About</a>
+      <a href="advertise.html" class="util-link">Advertise</a>
+    </div>
+    <div id="utility-right">
+      <a href="register.html" class="util-link">Sign in</a>
+      <span>|</span>
+      <a href="pricing.html" class="util-link" style="color:#D4C4BA;font-weight:600;">Go Pro</a>
+    </div>
+  </div>
+</div>
+
+<!-- Masthead -->
+<header id="masthead">
+  <div id="masthead-inner">
+    <a href="index.html" id="fop-logo">
+      <div id="fop-box"><span>FP</span></div>
+      <div id="fop-wordmark">
+        <strong>FitOut Post</strong>
+        <em>Global Intelligence</em>
+      </div>
+    </a>
+    <nav id="masthead-right">
+      <a class="masthead-nav-link" href="advertise.html">Advertise</a>
+      <a class="masthead-nav-link" href="pricing.html">Pricing</a>
+      <a class="masthead-nav-link masthead-nav-link--cta" href="register.html">Register free →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Product nav -->
+<nav id="product-nav">
+  <div id="product-nav-inner">
+    <a class="pnav-link" href="index.html">News</a>
+    <a class="pnav-link" href="tenders.html">Tenders</a>
+    <a class="pnav-link" href="pipeline.html">Pipeline</a>
+    <a class="pnav-link" href="intelligence.html">Intelligence</a>
+    <a class="pnav-link" href="companies_site.html">Companies</a>
+    <a class="pnav-link" href="weekly.html">Weekly</a>
+    <a class="pnav-link active" href="api.html" style="margin-left:auto;">API</a>
+  </div>
+</nav>
+
+<!-- Page -->
+<div id="page">
+  <div class="api-layout">
+
+    <!-- Sidebar -->
+    <aside class="api-sidebar">
+      <div class="api-sidebar-title">API Docs</div>
+      <ul class="api-nav">
+        <li><a href="#overview" class="active">Overview</a></li>
+        <li><a href="#authentication">Authentication</a></li>
+        <li><a href="#rate-limits">Rate limits</a></li>
+        <div class="api-nav-group">Endpoints</div>
+        <li><a href="#news">GET /api/news.json</a></li>
+        <li><a href="#tenders">GET /api/tenders.json</a></li>
+        <li><a href="#pipeline">GET /api/pipeline.json</a></li>
+        <li><a href="#companies">GET /api/companies.json</a></li>
+        <div class="api-nav-group">Reference</div>
+        <li><a href="#errors">Error codes</a></li>
+        <li><a href="#changelog">Changelog</a></li>
+        <li><a href="#sdks">SDKs &amp; examples</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main content -->
+    <main>
+
+      <!-- Hero -->
+      <div class="api-hero">
+        <div class="api-hero-kicker">Developer API</div>
+        <h1>FitOut Post REST API</h1>
+        <p class="api-hero-sub">Read-only JSON endpoints delivering daily-refreshed global fit-out intelligence — news, tenders, pipeline projects and company data. Available to Pro members.</p>
+        <span class="api-pro-badge">⚡ Pro feature — <a href="pricing.html" style="color:#fff;text-decoration:underline">upgrade to access</a></span>
+      </div>
+
+      <!-- Overview -->
+      <div class="api-section" id="overview">
+        <h2>Overview</h2>
+        <p>The FitOut Post API provides programmatic access to the same data that powers the platform — updated daily at 06:00 UTC by the automated fetch pipeline. All endpoints return JSON and require a Bearer token in the Authorization header.</p>
+        <p>The API is intentionally simple: no pagination parameters, no complex query DSL. Each endpoint returns the complete dataset for that day. Filter client-side or integrate the raw feed into your own pipeline.</p>
+
+        <h3>Base URL</h3>
+        <div class="code-block">
+          <span class="cb-lang">HTTP</span>
+          <span class="str">https://fitoutpost.com/api/</span>
+        </div>
+
+        <h3>Available endpoints</h3>
+        <table class="endpoint-table">
+          <thead>
+            <tr><th>Method</th><th>Endpoint</th><th>Description</th><th>Updated</th><th>Rate limit</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="method method-get">GET</span></td>
+              <td><span class="endpoint-path">/api/news.json</span></td>
+              <td>All news articles, current feed</td>
+              <td>Daily 06:00 UTC</td>
+              <td><span class="rate-badge">100 req/day</span></td>
+            </tr>
+            <tr>
+              <td><span class="method method-get">GET</span></td>
+              <td><span class="endpoint-path">/api/tenders.json</span></td>
+              <td>Active tender listings worldwide</td>
+              <td>Daily 06:00 UTC</td>
+              <td><span class="rate-badge">100 req/day</span></td>
+            </tr>
+            <tr>
+              <td><span class="method method-get">GET</span></td>
+              <td><span class="endpoint-path">/api/pipeline.json</span></td>
+              <td>Pipeline / project announcements</td>
+              <td>Daily 06:00 UTC</td>
+              <td><span class="rate-badge">50 req/day</span></td>
+            </tr>
+            <tr>
+              <td><span class="method method-get">GET</span></td>
+              <td><span class="endpoint-path">/api/companies.json</span></td>
+              <td>Company directory (171+ firms)</td>
+              <td>Weekly</td>
+              <td><span class="rate-badge">20 req/day</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="api-alert api-alert-info">
+          <p><strong>Static JSON on GitHub Pages.</strong> The API is served as static files via GitHub Pages — no server-side query processing. All filtering, sorting and searching must be done client-side after fetching the payload.</p>
+        </div>
+      </div>
+
+      <!-- Authentication -->
+      <div class="api-section" id="authentication">
+        <h2>Authentication</h2>
+        <p>All API requests must include your Pro API key in the <code style="font-family:monospace;background:var(--salmon-dk);padding:2px 6px;font-size:13px;">Authorization</code> header.</p>
+
+        <div class="auth-box">
+          <h4>Your API key</h4>
+          <p>Find your API key in your <strong>account settings</strong> after upgrading to Pro. API keys are prefixed <code>fop_live_</code> for production.</p>
+          <p>Keep your key private — do not expose it in client-side JavaScript or public repositories.</p>
+        </div>
+
+        <h3>Request example</h3>
+        <div class="code-block">
+          <span class="cb-lang">cURL</span>
+<button class="code-copy" onclick="copyCode(this)">Copy</button>
+<span class="cmt"># Fetch today's news feed</span>
+<span class="kw">curl</span> -H <span class="str">"Authorization: Bearer fop_live_YOUR_API_KEY"</span> \
+     -H <span class="str">"Accept: application/json"</span> \
+     https://fitoutpost.com/api/news.json
+        </div>
+
+        <div class="code-block">
+          <span class="cb-lang">Python</span>
+<button class="code-copy" onclick="copyCode(this)">Copy</button>
+<span class="kw">import</span> requests
+
+API_KEY <span class="punc">=</span> <span class="str">"fop_live_YOUR_API_KEY"</span>
+headers <span class="punc">= {</span>
+    <span class="str">"Authorization"</span><span class="punc">:</span> <span class="kw">f</span><span class="str">"Bearer {API_KEY}"</span><span class="punc">,</span>
+    <span class="str">"Accept"</span><span class="punc">:</span> <span class="str">"application/json"</span>
+<span class="punc">}</span>
+
+res <span class="punc">=</span> requests.get(<span class="str">"https://fitoutpost.com/api/news.json"</span>, headers<span class="punc">=</span>headers)
+articles <span class="punc">=</span> res.json()
+<span class="kw">print</span>(<span class="kw">f</span><span class="str">"{len(articles)} articles fetched"</span>)
+        </div>
+
+        <div class="code-block">
+          <span class="cb-lang">JavaScript</span>
+<button class="code-copy" onclick="copyCode(this)">Copy</button>
+<span class="kw">const</span> API_KEY <span class="punc">=</span> <span class="str">'fop_live_YOUR_API_KEY'</span><span class="punc">;</span>
+
+<span class="kw">const</span> res <span class="punc">=</span> <span class="kw">await</span> fetch(<span class="str">'https://fitoutpost.com/api/news.json'</span><span class="punc">, {</span>
+  headers<span class="punc">: {</span> <span class="str">'Authorization'</span><span class="punc">:</span> <span class="kw">`Bearer ${API_KEY}`</span> <span class="punc">}</span>
+<span class="punc">});</span>
+<span class="kw">const</span> articles <span class="punc">=</span> <span class="kw">await</span> res.json()<span class="punc">;</span>
+        </div>
+      </div>
+
+      <!-- Rate limits -->
+      <div class="api-section" id="rate-limits">
+        <h2>Rate limits</h2>
+        <p>Rate limits are applied per API key per calendar day (UTC). Since the data is static and refreshed once daily, there is no need to poll more frequently than once per day per endpoint.</p>
+
+        <table class="field-table">
+          <thead><tr><th>Plan</th><th>Limit</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Pro Monthly</td><td>100 req/day</td><td>Per endpoint</td></tr>
+            <tr><td>Pro Annual</td><td>200 req/day</td><td>Per endpoint</td></tr>
+            <tr><td>Enterprise</td><td>Unlimited</td><td>Custom SLA available</td></tr>
+          </tbody>
+        </table>
+
+        <div class="api-alert">
+          <p><strong>Recommended pattern:</strong> Fetch once per day at 07:00 UTC (one hour after the daily build), cache the result in your own database, and serve from cache for the rest of the day.</p>
+        </div>
+      </div>
+
+      <!-- /api/news.json -->
+      <div class="api-section" id="news">
+        <h2>GET /api/news.json</h2>
+        <p>Returns an array of all news articles in the current daily feed. Covers 190+ countries, sourced from 300+ RSS feeds and web scrapers. Refreshed daily at 06:00 UTC.</p>
+
+        <h3>Response schema</h3>
+        <table class="field-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>title</td><td>string</td><td>Article headline</td></tr>
+            <tr><td>link</td><td>string</td><td>Source URL</td></tr>
+            <tr><td>description</td><td>string</td><td>Article excerpt / summary</td></tr>
+            <tr><td>pubDate</td><td>string (ISO 8601)</td><td>Publication date-time</td></tr>
+            <tr><td>source</td><td>string</td><td>Publication name</td></tr>
+            <tr><td>country</td><td>string</td><td>Country name (ISO common name)</td></tr>
+            <tr><td>continent</td><td>string</td><td>One of: Europe · Middle East · Americas · Asia-Pacific · Africa</td></tr>
+            <tr><td>signal</td><td>string</td><td>Classified signal type: award · tender · pipeline · progress · news</td></tr>
+            <tr><td>fetched_at</td><td>string (ISO 8601)</td><td>When FitOut Post fetched this article</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Example response</h3>
+        <div class="code-block">
+          <span class="cb-lang">JSON</span>
+<button class="code-copy" onclick="copyCode(this)">Copy</button>
+<span class="punc">[</span>
+  <span class="punc">{</span>
+    <span class="key">"title"</span><span class="punc">:</span> <span class="str">"ISG wins £42M fit-out contract for Canary Wharf HQ"</span><span class="punc">,</span>
+    <span class="key">"link"</span><span class="punc">:</span>  <span class="str">"https://www.constructionnews.co.uk/..."</span><span class="punc">,</span>
+    <span class="key">"description"</span><span class="punc">:</span> <span class="str">"ISG has been appointed to deliver the..."</span><span class="punc">,</span>
+    <span class="key">"pubDate"</span><span class="punc">:</span>     <span class="str">"2026-05-06T08:14:00Z"</span><span class="punc">,</span>
+    <span class="key">"source"</span><span class="punc">:</span>     <span class="str">"Construction News"</span><span class="punc">,</span>
+    <span class="key">"country"</span><span class="punc">:</span>    <span class="str">"United Kingdom"</span><span class="punc">,</span>
+    <span class="key">"continent"</span><span class="punc">:</span>  <span class="str">"Europe"</span><span class="punc">,</span>
+    <span class="key">"signal"</span><span class="punc">:</span>     <span class="str">"progress"</span><span class="punc">,</span>
+    <span class="key">"fetched_at"</span><span class="punc">:</span> <span class="str">"2026-05-06T06:02:14Z"</span>
+  <span class="punc">},</span>
+  <span class="cmt">// ... more articles</span>
+<span class="punc">]</span>
+        </div>
+      </div>
+
+      <!-- /api/tenders.json -->
+      <div class="api-section" id="tenders">
+        <h2>GET /api/tenders.json</h2>
+        <p>Returns all active tender listings. Sources include TED/OJEU (Europe), Saudi Etimad, UAE Tejouri, Australian AusTender, US SAM.gov, and regional procurement portals across 60+ countries.</p>
+
+        <h3>Response schema</h3>
+        <table class="field-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>title</td><td>string</td><td>Tender / contract title</td></tr>
+            <tr><td>contracting_authority</td><td>string</td><td>Issuing body / client</td></tr>
+            <tr><td>country</td><td>string</td><td>Country of tender</td></tr>
+            <tr><td>continent</td><td>string</td><td>Geographic region</td></tr>
+            <tr><td>deadline</td><td>string (ISO 8601)</td><td>Submission deadline (null if unknown)</td></tr>
+            <tr><td>value_eur</td><td>number | null</td><td>Estimated contract value in EUR (null if undisclosed)</td></tr>
+            <tr><td>cpv_codes</td><td>string[]</td><td>EU CPV procurement codes (empty for non-EU)</td></tr>
+            <tr><td>source_url</td><td>string</td><td>Direct link to tender notice</td></tr>
+            <tr><td>source</td><td>string</td><td>Procurement platform (TED, SAM.gov, Etimad, etc.)</td></tr>
+            <tr><td>published</td><td>string (ISO 8601)</td><td>Notice publication date</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- /api/pipeline.json -->
+      <div class="api-section" id="pipeline">
+        <h2>GET /api/pipeline.json</h2>
+        <p>Returns announced pipeline projects — developments at planning, design or pre-tender stage. Useful for early market intelligence before tenders are issued.</p>
+
+        <h3>Response schema</h3>
+        <table class="field-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>title</td><td>string</td><td>Project title</td></tr>
+            <tr><td>developer</td><td>string</td><td>Developer / client name</td></tr>
+            <tr><td>country</td><td>string</td><td>Country</td></tr>
+            <tr><td>continent</td><td>string</td><td>Region</td></tr>
+            <tr><td>sector</td><td>string</td><td>Office · Retail · Hospitality · Healthcare · Education · Mixed-use</td></tr>
+            <tr><td>gfa_m2</td><td>number | null</td><td>Gross floor area in m² (null if undisclosed)</td></tr>
+            <tr><td>value_usd</td><td>number | null</td><td>Estimated project value in USD</td></tr>
+            <tr><td>stage</td><td>string</td><td>planning · design · pre-tender · tender · construction</td></tr>
+            <tr><td>expected_completion</td><td>string</td><td>Year or quarter (e.g. "2027 Q4")</td></tr>
+            <tr><td>source_url</td><td>string</td><td>Source article URL</td></tr>
+            <tr><td>pubDate</td><td>string</td><td>When announced</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- /api/companies.json -->
+      <div class="api-section" id="companies">
+        <h2>GET /api/companies.json</h2>
+        <p>Returns the FitOut Post company directory — 171+ fit-out contractors and developers with profile data. Updated weekly.</p>
+
+        <h3>Response schema</h3>
+        <table class="field-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>name</td><td>string</td><td>Company name</td></tr>
+            <tr><td>country</td><td>string</td><td>HQ country</td></tr>
+            <tr><td>continent</td><td>string</td><td>Region</td></tr>
+            <tr><td>sectors</td><td>string[]</td><td>Sectors of activity</td></tr>
+            <tr><td>website</td><td>string</td><td>Company website URL</td></tr>
+            <tr><td>description</td><td>string</td><td>Short company description</td></tr>
+            <tr><td>feed_url</td><td>string</td><td>RSS feed monitored by FitOut Post</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Error codes -->
+      <div class="api-section" id="errors">
+        <h2>Error codes</h2>
+        <table class="field-table">
+          <thead><tr><th>HTTP status</th><th>Code</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td>401</td><td>UNAUTHORIZED</td><td>Missing or invalid API key</td></tr>
+            <tr><td>403</td><td>FORBIDDEN</td><td>API key valid but Pro plan not active</td></tr>
+            <tr><td>429</td><td>RATE_LIMITED</td><td>Daily request limit exceeded</td></tr>
+            <tr><td>404</td><td>NOT_FOUND</td><td>Endpoint does not exist</td></tr>
+            <tr><td>503</td><td>BUILDING</td><td>Daily build in progress — retry after 10 minutes</td></tr>
+          </tbody>
+        </table>
+        <div class="api-alert api-alert-err">
+          <p><strong>503 during build window.</strong> The daily build runs 06:00–06:15 UTC. If you fetch during this window, static files may be temporarily unavailable. Recommend scheduling fetches for 07:00 UTC or later.</p>
+        </div>
+      </div>
+
+      <!-- Changelog -->
+      <div class="api-section" id="changelog">
+        <h2>Changelog</h2>
+        <h3>v1.0 — May 2026</h3>
+        <ul>
+          <li>Initial API release with /api/news.json, /api/tenders.json, /api/pipeline.json</li>
+          <li>/api/companies.json added (weekly refresh)</li>
+          <li>Signal type field added to news articles</li>
+          <li>continent field standardised across all endpoints</li>
+        </ul>
+      </div>
+
+      <!-- SDKs -->
+      <div class="api-section" id="sdks">
+        <h2>SDKs &amp; examples</h2>
+        <p>Official SDKs are on the roadmap. In the meantime, the following community examples demonstrate typical integration patterns.</p>
+
+        <h3>Python — daily fetch and filter</h3>
+        <div class="code-block">
+          <span class="cb-lang">Python</span>
+<button class="code-copy" onclick="copyCode(this)">Copy</button>
+<span class="kw">import</span> requests, json
+
+API_KEY <span class="punc">=</span> <span class="str">"fop_live_YOUR_KEY"</span>
+HEADERS <span class="punc">= {</span><span class="str">"Authorization"</span><span class="punc">:</span> <span class="kw">f</span><span class="str">"Bearer {API_KEY}"</span><span class="punc">}</span>
+
+<span class="cmt"># Fetch and filter tenders for the UK</span>
+tenders <span class="punc">=</span> requests.get(<span class="str">"https://fitoutpost.com/api/tenders.json"</span>, headers<span class="punc">=</span>HEADERS).json()
+uk_tenders <span class="punc">= [</span>t <span class="kw">for</span> t <span class="kw">in</span> tenders <span class="kw">if</span> t[<span class="str">"country"</span>] <span class="punc">==</span> <span class="str">"United Kingdom"</span><span class="punc">]</span>
+<span class="kw">print</span>(<span class="kw">f</span><span class="str">"{len(uk_tenders)} UK tenders today"</span>)
+
+<span class="cmt"># Fetch news with 'award' signal</span>
+news <span class="punc">=</span> requests.get(<span class="str">"https://fitoutpost.com/api/news.json"</span>, headers<span class="punc">=</span>HEADERS).json()
+awards <span class="punc">= [</span>a <span class="kw">for</span> a <span class="kw">in</span> news <span class="kw">if</span> a.get(<span class="str">"signal"</span>) <span class="punc">==</span> <span class="str">"award"</span><span class="punc">]</span>
+<span class="kw">print</span>(<span class="kw">f</span><span class="str">"{len(awards)} contract awards in today's feed"</span>)
+        </div>
+
+        <h3>Node.js — keyword filter</h3>
+        <div class="code-block">
+          <span class="cb-lang">JavaScript</span>
+<button class="code-copy" onclick="copyCode(this)">Copy</button>
+<span class="kw">const</span> FOP_KEY <span class="punc">=</span> <span class="str">'fop_live_YOUR_KEY'</span><span class="punc">;</span>
+<span class="kw">const</span> KEYWORD <span class="punc">=</span> <span class="str">'Dubai office'</span><span class="punc">;</span>
+
+<span class="kw">const</span> news <span class="punc">=</span> <span class="kw">await</span> fetch(<span class="str">'https://fitoutpost.com/api/news.json'</span><span class="punc">, {</span>
+  headers<span class="punc">: {</span> Authorization<span class="punc">:</span> <span class="kw">`Bearer ${FOP_KEY}`</span> <span class="punc">}</span>
+<span class="punc">}).</span>then(r <span class="punc">=></span> r.json())<span class="punc">;</span>
+
+<span class="kw">const</span> matches <span class="punc">=</span> news.filter(a <span class="punc">=></span>
+  (a.title <span class="punc">+</span> <span class="str">' '</span> <span class="punc">+</span> a.description).toLowerCase()
+    .includes(KEYWORD.toLowerCase())
+)<span class="punc">;</span>
+
+console.log(<span class="kw">`${matches.length} articles matching "${KEYWORD}"`</span>)<span class="punc">;</span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="api-cta">
+        <div class="api-cta-text">
+          <h2>Ready to integrate?</h2>
+          <p>Upgrade to Pro and get your API key in minutes.</p>
+        </div>
+        <a href="pricing.html" class="api-cta-btn">Get API access →</a>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html">News</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="pipeline.html">Pipeline</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
+    <a href="advertise.html">Advertise</a>
+    <a href="register.html">Register</a>
+    <a href="legal.html">Legal</a>
+  </div>
+  <div>© 2025 FitOut Post · <a href="mailto:intelligence@fitoutpost.com">intelligence@fitoutpost.com</a></div>
+</footer>
+
+<script>
+// Sidebar active link on scroll
+const sections = document.querySelectorAll('.api-section');
+const navLinks = document.querySelectorAll('.api-nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+// Copy code buttons
+function copyCode(btn) {
+  const block = btn.closest('.code-block');
+  const text = block.innerText
+    .replace(/^(JSON|Python|cURL|JavaScript|HTTP)\n/, '')
+    .replace(/^Copy\n/, '')
+    .trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 1800);
+  });
+}
+</script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>

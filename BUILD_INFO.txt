@@ -1,0 +1,12 @@
+FitOut Post — Build Receipt
+===========================
+Built    : Built 06 May 2026 07:08 UTC
+Articles : 527
+Source   : news.json
+Outputs  : index.html, site.html, alphaedge.html, betaedge.html
+
+If index.html shows no articles, confirm you are opening
+THIS folder's index.html (not a browser bookmark to an old copy).
+
+Diagnostic: open check.html in the same folder first.
+Admin (αEdge + βEdge): python admin.py

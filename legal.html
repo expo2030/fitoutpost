@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal — FitOut Post</title>
+  <meta name="description" content="Terms of use, privacy policy, and cookie policy for FitOut Post." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --salmon:    #FFF1E5;
+    --white:     #FFFFFF;
+    --black:     #1a1a1a;
+    --claret:    #990033;
+    --warm-gray: #66605A;
+    --mid-gray:  #9A948E;
+    --border:    #D9CBC0;
+    --border-lt: #EDE3DA;
+    --serif:     "Playfair Display", Georgia, serif;
+    --serif-body:"EB Garamond", Georgia, serif;
+    --sans:      "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  html { scroll-behavior: smooth; scroll-padding-top: 120px; }
+  body {
+    font-family: var(--sans);
+    background: var(--salmon);
+    color: var(--black);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--claret); }
+
+  /* ── Utility bar ─────────────────────────────────────────────────────────── */
+  #utility-bar {
+    background: var(--black); color: #9A8A80;
+    font-family: var(--sans); font-size: 11px;
+    padding: 0 24px; border-bottom: 1px solid #333;
+  }
+  #utility-inner {
+    max-width: 1320px; margin: 0 auto; height: 34px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  #utility-left { display: flex; align-items: center; gap: 20px; }
+  #utility-edition { padding-left: 20px; border-left: 1px solid #3a3a3a; color: #7a706a; }
+  #utility-right { display: flex; align-items: center; gap: 20px; }
+  .util-link { color: #9A8A80; transition: color .15s; }
+  .util-link:hover { color: #D4C4BA; }
+
+  /* ── Masthead ─────────────────────────────────────────────────────────────── */
+  #masthead { background: var(--salmon); border-bottom: 2px solid var(--black); }
+  #masthead-inner {
+    max-width: 1320px; margin: 0 auto; padding: 0 24px;
+    height: 72px; display: flex; align-items: center; gap: 24px;
+  }
+  #fop-logo {
+    display: flex; align-items: center; gap: 14px;
+    flex-shrink: 0; text-decoration: none;
+  }
+  #fop-logo:hover { color: inherit; }
+  #fop-box { width: 52px; height: 52px; background: var(--black); display: flex; align-items: center; justify-content: center; }
+  #fop-box span { font-family: var(--serif); font-weight: 800; font-size: 24px; letter-spacing: 1px; color: #fff; line-height: 1; }
+  #fop-wordmark { display: flex; flex-direction: column; line-height: 1.2; }
+  #fop-wordmark strong { font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--black); }
+  #fop-wordmark em { font-style: normal; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; margin-top: 2px; }
+  #masthead-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+  .masthead-nav-link { font-size: 12.5px; font-weight: 500; color: var(--black); padding: 6px 14px; border: 1px solid var(--border); transition: background .15s, border-color .15s; }
+  .masthead-nav-link:hover, .masthead-nav-link.active { background: var(--black); border-color: var(--black); color: #fff; }
+
+  /* ── Page header ──────────────────────────────────────────────────────────── */
+  #page-header { background: var(--white); border-bottom: 1px solid var(--border); padding: 48px 24px 40px; }
+  #page-header-inner { max-width: 1320px; margin: 0 auto; }
+  #page-header .section-label { font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--claret); margin-bottom: 10px; display: block; }
+  #page-header h1 { font-family: var(--serif); font-size: 42px; font-weight: 700; color: var(--black); margin-bottom: 16px; }
+  #page-header .page-lead { font-size: 16px; line-height: 1.65; color: var(--warm-gray); max-width: 680px; }
+
+  /* ── Layout ───────────────────────────────────────────────────────────────── */
+  #main {
+    max-width: 1320px; margin: 0 auto; padding: 60px 24px 100px;
+    display: grid; grid-template-columns: 3fr 1fr; gap: 80px; align-items: start;
+  }
+
+  /* ── Legal section ─────────────────────────────────────────────────────────── */
+  .legal-section {
+    margin-bottom: 72px;
+    scroll-margin-top: 130px;
+  }
+  .legal-section-header {
+    border-top: 3px solid var(--black);
+    padding-top: 20px;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .legal-section-header h2 {
+    font-family: var(--serif); font-size: 30px; font-weight: 700; color: var(--black);
+  }
+  .legal-effective {
+    font-size: 12px; color: var(--mid-gray); font-weight: 500; letter-spacing: 0.2px;
+  }
+
+  /* ── Prose ────────────────────────────────────────────────────────────────── */
+  .legal-body h3 {
+    font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--black);
+    margin-top: 32px; margin-bottom: 12px;
+  }
+  .legal-body p {
+    font-family: var(--serif-body); font-size: 16px; line-height: 1.75;
+    color: #3a3632; margin-bottom: 16px;
+  }
+  .legal-body ul {
+    margin: 0 0 16px 24px; list-style: disc;
+  }
+  .legal-body ul li {
+    font-family: var(--serif-body); font-size: 16px; line-height: 1.75;
+    color: #3a3632; margin-bottom: 6px;
+  }
+  .legal-body a { color: var(--claret); font-weight: 500; }
+  .legal-body a:hover { color: #CC0044; }
+  .legal-body strong { font-weight: 700; color: var(--black); }
+
+  /* Cookie table */
+  .cookie-table { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 13.5px; }
+  .cookie-table th {
+    font-family: var(--sans); font-size: 10px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; color: var(--warm-gray);
+    padding: 10px 14px; text-align: left;
+    border-bottom: 2px solid var(--black); background: #faf4ee;
+  }
+  .cookie-table td { padding: 10px 14px; border-bottom: 1px solid var(--border-lt); vertical-align: top; color: #3a3632; font-family: var(--serif-body); font-size: 15px; line-height: 1.55; }
+  .cookie-table tr:last-child td { border-bottom: none; }
+  .cookie-name { font-weight: 700; color: var(--black); font-family: var(--sans); font-size: 12.5px; }
+
+  /* ── Sidebar / contents ───────────────────────────────────────────────────── */
+  #sidebar { position: sticky; top: 100px; }
+  .sidebar-block { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--black); padding: 24px 20px 20px; margin-bottom: 20px; }
+  .sidebar-block h3 { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--black); margin-bottom: 14px; }
+  .sidebar-nav { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  .sidebar-nav li a {
+    display: block; font-size: 13px; color: var(--warm-gray);
+    padding: 8px 0; border-bottom: 1px solid var(--border-lt);
+    transition: color .15s;
+  }
+  .sidebar-nav li:last-child a { border-bottom: none; }
+  .sidebar-nav li a:hover { color: var(--black); }
+  .sidebar-block p { font-size: 12.5px; line-height: 1.7; color: var(--warm-gray); }
+  .sidebar-block p + p { margin-top: 10px; }
+  .sidebar-block a.sidebar-email { color: var(--claret); font-weight: 500; font-size: 12.5px; }
+
+  /* ── Footer ───────────────────────────────────────────────────────────────── */
+  #footer { background: var(--black); color: #A09890; }
+  #footer-main { max-width: 1320px; margin: 0 auto; padding: 48px 24px 40px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; border-bottom: 1px solid #2e2e2e; }
+  #footer-brand .footer-logo-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  #footer-fop-box { width: 40px; height: 40px; background: #fff; display: flex; align-items: center; justify-content: center; }
+  #footer-fop-box span { font-family: var(--serif); font-weight: 800; font-size: 18px; color: var(--black); }
+  #footer-fop-wordmark { display: flex; flex-direction: column; }
+  #footer-fop-name { font-family: var(--serif); font-weight: 700; font-size: 16px; color: #E8D8C8; line-height: 1.2; }
+  #footer-fop-tagline { font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: #7a6e68; margin-top: 3px; }
+  #footer-brand p { font-size: 12.5px; line-height: 1.75; color: #A09890; max-width: 300px; }
+  .footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #B8A8A0; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #2e2e2e; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul li a { font-size: 12.5px; color: #A09890; transition: color .15s; }
+  .footer-col ul li a:hover { color: #E8D8C8; }
+  #footer-bottom { max-width: 1320px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  #footer-copyright { font-size: 11.5px; color: #7a706a; }
+  #footer-legal-links { display: flex; align-items: center; gap: 20px; }
+  #footer-legal-links a { font-size: 11.5px; color: #7a706a; transition: color .15s; }
+  #footer-legal-links a:hover { color: #B8A8A0; }
+
+  /* ── Responsive ───────────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    #main { grid-template-columns: 1fr; gap: 48px; }
+    #sidebar { position: static; }
+    #footer-main { grid-template-columns: 2fr 1fr 1fr; }
+  }
+  @media (max-width: 760px) {
+    #utility-bar { display: none; }
+    #masthead-inner { height: 60px; }
+    #fop-wordmark { display: none; }
+    #page-header h1 { font-size: 30px; }
+    #footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+    #footer-brand { grid-column: 1 / -1; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- ── Utility bar ─────────────────────────────────────────────────────────── -->
+<div id="utility-bar">
+  <div id="utility-inner">
+    <div id="utility-left">
+      <span id="utility-date"></span>
+      <span id="utility-edition">Global Edition</span>
+    </div>
+    <div id="utility-right">
+      <a href="site.html" class="util-link">News</a>
+      <a href="companies_site.html" class="util-link">Companies</a>
+      <a href="contact.html" class="util-link">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── Masthead ────────────────────────────────────────────────────────────── -->
+<header id="masthead" role="banner">
+  <div id="masthead-inner">
+    <a href="site.html" id="fop-logo">
+      <div id="fop-box"><span>FOP</span></div>
+      <div id="fop-wordmark">
+        <strong>FitOut Post</strong>
+        <em>Global Industry Intelligence</em>
+      </div>
+    </a>
+    <div id="masthead-right">
+      <a href="site.html" class="masthead-nav-link">News</a>
+      <a href="companies_site.html" class="masthead-nav-link">Companies</a>
+      <a href="contact.html" class="masthead-nav-link">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── Page header ─────────────────────────────────────────────────────────── -->
+<div id="page-header">
+  <div id="page-header-inner">
+    <span class="section-label">FitOut Post</span>
+    <h1>Legal</h1>
+    <p class="page-lead">
+      Terms of use, privacy policy, and cookie policy for the FitOut Post platform.
+      These documents were last reviewed in April 2026.
+    </p>
+  </div>
+</div>
+
+<!-- ── Main ────────────────────────────────────────────────────────────────── -->
+<main id="main">
+
+  <div id="legal-body">
+
+    <!-- ═══════ TERMS OF USE ═══════ -->
+    <section id="terms" class="legal-section">
+      <div class="legal-section-header">
+        <h2>Terms of use</h2>
+        <span class="legal-effective">Effective April 2026</span>
+      </div>
+      <div class="legal-body">
+
+        <h3>1. The platform</h3>
+        <p>
+          FitOut Post (the "platform") is an independent, privately operated news aggregator
+          covering the global fit-out and interior construction industry. By accessing or using
+          the platform at fitoutpost.com, you accept these terms. If you do not accept them,
+          discontinue use immediately.
+        </p>
+        <p>
+          FitOut Post is not affiliated with any fit-out contractor, client, supplier, or
+          trade body featured in its coverage. References to third-party names, brands, and
+          marks appear for journalistic reference purposes only.
+        </p>
+
+        <h3>2. Nature of the content</h3>
+        <p>
+          All content is provided for reference only and on an "as is" basis. Articles are
+          aggregated automatically from publicly available sources including trade press,
+          company announcements, and newswires. FitOut Post does not verify the accuracy or
+          completeness of aggregated material.
+        </p>
+        <p>
+          You should independently verify information before making any business, investment,
+          or legal decision based on content found on this platform.
+        </p>
+
+        <h3>3. No reliance</h3>
+        <p>
+          We make no warranty — express or implied — as to the accuracy, timeliness, or
+          fitness for purpose of any content. Information may be incomplete, inaccurate, or
+          outdated. We accept no responsibility for decisions made in reliance on material
+          published here.
+        </p>
+
+        <h3>4. Limitation of liability</h3>
+        <p>
+          To the fullest extent permitted by law, FitOut Post disclaims all liability for
+          direct, indirect, consequential, or incidental loss or damage arising from your use
+          of the platform, including but not limited to business loss or decisions taken on
+          the basis of published content. We accept no responsibility for service interruptions
+          or failure to index specific articles.
+        </p>
+
+        <h3>5. Intellectual property</h3>
+        <p>
+          The platform's design, structure, and any original editorial commentary are protected
+          by copyright. Aggregated third-party content remains the property of its original
+          publisher. Links to source articles are provided to direct you to those publishers;
+          we do not claim copyright in their work.
+        </p>
+
+        <h3>6. Third-party links and sources</h3>
+        <p>
+          The platform links to external websites operated by third parties. Those links do
+          not constitute an endorsement of, or responsibility for, the content, accuracy, or
+          practices of those sites. You access them at your own risk.
+        </p>
+
+        <h3>7. Permitted use</h3>
+        <p>You may not:</p>
+        <ul>
+          <li>scrape, crawl, or systematically extract content from the platform without written permission;</li>
+          <li>mirror or reproduce the platform or its structure;</li>
+          <li>represent aggregated material as your own original work; or</li>
+          <li>use the platform in any way that disrupts its operation or harms other users.</li>
+        </ul>
+        <p>We reserve the right to suspend or restrict access at any time without notice.</p>
+
+        <h3>8. Privacy</h3>
+        <p>
+          We handle any personal data you share with us in accordance with our
+          <a href="#privacy">privacy policy</a>. We do not sell personal data to third parties.
+        </p>
+
+        <h3>9. Changes to these terms</h3>
+        <p>
+          We may update these terms at any time. Continued use of the platform after changes
+          are posted constitutes acceptance of the revised terms.
+        </p>
+
+        <h3>10. Governing law</h3>
+        <p>
+          These terms are governed by applicable law. Any dispute arising from your use of
+          the platform is subject to the jurisdiction of the competent courts.
+        </p>
+
+        <h3>11. Contact</h3>
+        <p>
+          Direct questions about these terms to <a href="contact.html">our editorial team</a>
+          or write to <a href="mailto:legal@fitoutpost.com">legal@fitoutpost.com</a>.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ═══════ PRIVACY POLICY ═══════ -->
+    <section id="privacy" class="legal-section">
+      <div class="legal-section-header">
+        <h2>Privacy policy</h2>
+        <span class="legal-effective">Effective April 2026</span>
+      </div>
+      <div class="legal-body">
+
+        <h3>1. Who we are</h3>
+        <p>
+          FitOut Post is the data controller responsible for personal information collected
+          through this platform. We can be reached at
+          <a href="mailto:privacy@fitoutpost.com">privacy@fitoutpost.com</a>.
+        </p>
+
+        <h3>2. What we collect</h3>
+        <p>We may collect the following information:</p>
+        <ul>
+          <li><strong>Contact form submissions</strong> — name, email address, and the message you send us.</li>
+          <li><strong>Usage data</strong> — IP address, browser type, pages visited, and time on site, collected automatically via server logs and analytics tools.</li>
+          <li><strong>Cookies</strong> — small files placed on your device as described in our <a href="#cookies">cookie policy</a>.</li>
+        </ul>
+        <p>
+          FitOut Post is a read-only platform. We do not operate user accounts or require
+          registration to access the news feed or company directory.
+        </p>
+
+        <h3>3. Legal basis for processing (GDPR)</h3>
+        <p>
+          Where the General Data Protection Regulation (EU) 2016/679 applies, we process
+          personal data on the following lawful bases:
+        </p>
+        <ul>
+          <li><strong>Legitimate interests</strong> — for analytics and platform security.</li>
+          <li><strong>Consent</strong> — for analytics cookies, which you may decline via your browser settings.</li>
+          <li><strong>Contract</strong> — where you have contacted us directly and we need to reply.</li>
+        </ul>
+
+        <h3>4. How we use your information</h3>
+        <p>We use collected information to:</p>
+        <ul>
+          <li>respond to enquiries sent via our contact form;</li>
+          <li>monitor and improve the performance and security of the platform; and</li>
+          <li>produce aggregated, anonymised usage statistics.</li>
+        </ul>
+        <p>We do not use your personal data for automated decision-making or profiling.</p>
+
+        <h3>5. Retention</h3>
+        <p>
+          Contact form submissions are retained for up to 12 months, after which they are
+          deleted. Usage and analytics data is retained for up to 14 months in anonymised form.
+        </p>
+
+        <h3>6. Your rights</h3>
+        <p>
+          If you are in the European Economic Area or United Kingdom, you have the right to:
+        </p>
+        <ul>
+          <li>access the personal data we hold about you;</li>
+          <li>correct inaccurate data;</li>
+          <li>request deletion of your data;</li>
+          <li>restrict or object to processing;</li>
+          <li>data portability where technically feasible; and</li>
+          <li>withdraw consent at any time without affecting the lawfulness of prior processing.</li>
+        </ul>
+        <p>
+          To exercise any of these rights, contact
+          <a href="mailto:privacy@fitoutpost.com">privacy@fitoutpost.com</a>.
+          You also have the right to lodge a complaint with your local data protection authority.
+        </p>
+
+        <h3>7. Third parties</h3>
+        <p>
+          We use Google Analytics to understand how the platform is used. Google processes
+          usage data on our behalf under its own privacy terms. IP anonymisation is enabled.
+          We do not sell personal data to any third party.
+        </p>
+
+        <h3>8. Security</h3>
+        <p>
+          We apply technical and organisational measures to protect personal data against
+          unauthorised access, loss, or misuse. No data transmission over the internet is
+          entirely secure, however, and we cannot guarantee absolute security.
+        </p>
+
+        <h3>9. Changes to this policy</h3>
+        <p>
+          We will post any changes to this policy on this page. Material changes will be
+          flagged at the top of the document.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ═══════ COOKIE POLICY ═══════ -->
+    <section id="cookies" class="legal-section">
+      <div class="legal-section-header">
+        <h2>Cookie policy</h2>
+        <span class="legal-effective">Effective April 2026</span>
+      </div>
+      <div class="legal-body">
+
+        <h3>What are cookies?</h3>
+        <p>
+          Cookies are small text files that a website places on your device when you visit.
+          They help the site work correctly and give the operator information about how
+          visitors use the platform.
+        </p>
+
+        <h3>Cookies we use</h3>
+
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Name</th>
+              <th>Purpose</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Strictly necessary</td>
+              <td><span class="cookie-name">session</span></td>
+              <td>Maintains your current session on the platform. Required for basic functionality.</td>
+              <td>Session</td>
+            </tr>
+            <tr>
+              <td>Analytics</td>
+              <td><span class="cookie-name">_ga, _ga_*</span></td>
+              <td>Google Analytics 4. Records anonymised information about pages visited and time spent. IP anonymisation is enabled. Tracking ID: G-XXXXXXXX.</td>
+              <td>Up to 14 months</td>
+            </tr>
+            <tr>
+              <td>Functionality</td>
+              <td><span class="cookie-name">fop_prefs</span></td>
+              <td>Remembers your region and filter preferences so they persist between visits.</td>
+              <td>12 months</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Third-party services</h3>
+        <p>
+          The platform loads fonts from Google Fonts. This may cause Google to set its own
+          cookies on your device. Those cookies are governed by
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's privacy policy</a>.
+        </p>
+
+        <h3>How to control cookies</h3>
+        <p>
+          You can manage or delete cookies through your browser settings. Instructions for
+          the most common browsers:
+        </p>
+        <ul>
+          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+          <li><a href="https://support.mozilla.org/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+          <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
+          <li><a href="https://support.microsoft.com/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+        </ul>
+        <p>
+          Disabling analytics cookies will not affect your ability to use the platform.
+          Disabling strictly necessary cookies may prevent some features from working correctly.
+        </p>
+
+        <h3>Your rights</h3>
+        <p>
+          If you are in the European Economic Area or United Kingdom, you have the right to
+          access, correct, delete, and port data held about you. Contact us at
+          <a href="mailto:privacy@fitoutpost.com">privacy@fitoutpost.com</a> to exercise
+          these rights.
+        </p>
+
+        <h3>Changes to this policy</h3>
+        <p>
+          We will update this page when we change how we use cookies. We will not add new
+          non-essential cookies without updating this policy first.
+        </p>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ── Sidebar ─────────────────────────────────────────────────────────────── -->
+  <aside id="sidebar">
+    <div class="sidebar-block">
+      <h3>On this page</h3>
+      <ul class="sidebar-nav">
+        <li><a href="#terms">Terms of use</a></li>
+        <li><a href="#privacy">Privacy policy</a></li>
+        <li><a href="#cookies">Cookie policy</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-block">
+      <h3>Questions?</h3>
+      <p>If anything on this page is unclear, or to exercise your data rights, write to us directly.</p>
+      <p><a href="mailto:legal@fitoutpost.com" class="sidebar-email">legal@fitoutpost.com</a></p>
+      <p style="margin-top:14px"><a href="contact.html">See all contact options →</a></p>
+    </div>
+    <div class="sidebar-block">
+      <h3>Last reviewed</h3>
+      <p>April 2026. These policies will be reviewed annually or following any material change to the platform.</p>
+    </div>
+  </aside>
+
+</main>
+
+<!-- ── Footer ─────────────────────────────────────────────────────────────── -->
+<footer id="footer" role="contentinfo">
+  <div id="footer-main">
+    <div id="footer-brand">
+      <div class="footer-logo-wrap">
+        <div id="footer-fop-box"><span>FOP</span></div>
+        <div id="footer-fop-wordmark">
+          <div id="footer-fop-name">FitOut Post</div>
+          <div id="footer-fop-tagline">Global Industry Intelligence</div>
+        </div>
+      </div>
+      <p>An independent aggregator of global fit-out and interior construction news. Updated daily.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="site.html">All regions</a></li>
+        <li><a href="site.html">Europe</a></li>
+        <li><a href="site.html">Middle East</a></li>
+        <li><a href="site.html">Asia Pacific</a></li>
+        <li><a href="site.html">Americas</a></li>
+        <li><a href="site.html">Oceania</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Directory</h4>
+      <ul>
+        <li><a href="companies_site.html">All companies</a></li>
+        <li><a href="companies_site.html?sector=office">Offices</a></li>
+        <li><a href="companies_site.html?sector=hospitality">Hospitality</a></li>
+        <li><a href="companies_site.html?sector=fb">Food and beverage</a></li>
+        <li><a href="companies_site.html?sector=leisure">Sports and entertainment</a></li>
+        <li><a href="companies_site.html?sector=datacentre">Data centres</a></li>
+        <li><a href="companies_site.html?sector=healthcare">Healthcare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="legal.html#terms">Terms of use</a></li>
+        <li><a href="legal.html#privacy">Privacy policy</a></li>
+        <li><a href="legal.html#cookies">Cookie policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="footer-bottom">
+    <div id="footer-copyright">© <span id="footer-year"></span> FitOut Post. An independent publication. All rights reserved.</div>
+    <div id="footer-legal-links">
+      <a href="legal.html#terms">Terms of use</a>
+      <a href="legal.html#privacy">Privacy policy</a>
+      <a href="legal.html#cookies">Cookie policy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("utility-date").textContent = new Date().toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+  document.getElementById("footer-year").textContent  = new Date().getFullYear();
+</script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>

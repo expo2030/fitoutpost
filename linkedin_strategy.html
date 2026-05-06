@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinkedIn Content Strategy — FitOut Post</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --salmon: #FFF1E5; --salmon-dk: #F2DFCE;
+    --black: #1a1a1a; --claret: #990033; --claret-lt: #CC0044;
+    --teal: #0D7680; --warm-gray: #66605A; --mid-gray: #9A948E;
+    --border: #D9CBC0; --border-lt: #EDE3DA; --border-dk: #B8A99A;
+    --serif: "Playfair Display", Georgia, serif;
+    --serif-body: "EB Garamond", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    --gold: #B8860B; --linkedin: #0A66C2;
+  }
+  html { font-size: 16px; }
+  body { font-family: var(--sans); background: var(--salmon); color: var(--black); -webkit-font-smoothing: antialiased; }
+
+  /* Header */
+  .doc-header { background: var(--black); color: #fff; padding: 40px 60px; border-bottom: 4px solid var(--linkedin); }
+  .doc-header-kicker { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #9A8A80; margin-bottom: 12px; }
+  .doc-header h1 { font-family: var(--serif); font-size: 40px; font-weight: 700; margin-bottom: 10px; }
+  .doc-header-meta { font-size: 13px; color: #9A8A80; display: flex; gap: 24px; flex-wrap: wrap; }
+  .doc-header-meta strong { color: #D4C4BA; }
+
+  /* Layout */
+  .doc-layout { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 200px 1fr; gap: 60px; padding: 48px 24px 100px; }
+
+  /* TOC sidebar */
+  .toc { position: sticky; top: 24px; align-self: start; }
+  .toc-title { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; color: var(--mid-gray); margin-bottom: 14px; }
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+  .toc-list a { display: block; padding: 6px 10px; font-size: 12.5px; color: var(--warm-gray); border-left: 2px solid transparent; transition: color .15s, border-color .15s; }
+  .toc-list a:hover { color: var(--black); border-color: var(--border-dk); }
+
+  /* Sections */
+  .doc-section { margin-bottom: 60px; scroll-margin-top: 24px; }
+  .doc-section h2 { font-family: var(--serif); font-size: 28px; font-weight: 700; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--black); }
+  .doc-section h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin-bottom: 10px; margin-top: 32px; color: var(--black); }
+  .doc-section p { font-family: var(--serif-body); font-size: 17px; line-height: 1.75; color: var(--warm-gray); margin-bottom: 14px; }
+  .doc-section ul, .doc-section ol { margin-left: 20px; margin-bottom: 16px; }
+  .doc-section li { font-family: var(--serif-body); font-size: 16px; line-height: 1.7; color: var(--warm-gray); margin-bottom: 6px; }
+
+  /* KPI / metric cards */
+  .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--border); margin: 24px 0; }
+  .metric-card { background: var(--salmon); padding: 24px 20px; }
+  .metric-num { font-family: var(--serif); font-size: 32px; font-weight: 700; color: var(--linkedin); line-height: 1; margin-bottom: 6px; }
+  .metric-label { font-size: 11px; letter-spacing: 0.5px; color: var(--warm-gray); text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
+  .metric-sub { font-size: 12px; color: var(--mid-gray); }
+
+  /* Content type cards */
+  .content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  .content-card { background: #fff; border: 1px solid var(--border); padding: 24px; }
+  .content-card-type { font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; color: var(--claret); margin-bottom: 8px; }
+  .content-card h4 { font-family: var(--serif); font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .content-card p { font-size: 13px; line-height: 1.6; color: var(--warm-gray); margin-bottom: 12px; }
+  .content-card-freq { font-size: 11px; font-weight: 600; color: var(--teal); background: #F0FAFA; padding: 4px 10px; display: inline-block; }
+
+  /* Weekly schedule table */
+  .schedule-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 20px 0; }
+  .schedule-table th { padding: 11px 16px; background: var(--black); color: #D4C4BA; font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; text-align: left; }
+  .schedule-table td { padding: 12px 16px; border-bottom: 1px solid var(--border-lt); vertical-align: top; }
+  .schedule-table tr:hover td { background: var(--salmon-dk); }
+  .day-badge { font-size: 11px; font-weight: 700; background: var(--linkedin); color: #fff; padding: 2px 8px; white-space: nowrap; display: inline-block; }
+  .day-badge.rest { background: var(--border-dk); color: var(--warm-gray); }
+
+  /* Hashtag cloud */
+  .hashtag-cloud { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+  .hashtag { font-size: 12.5px; font-weight: 600; color: var(--linkedin); background: #EAF2FB; padding: 5px 12px; border: 1px solid #C8DCF0; }
+
+  /* Post template boxes */
+  .post-template { background: var(--black); color: #D4C4BA; padding: 24px 28px; margin: 20px 0; position: relative; font-family: var(--serif-body); font-size: 16px; line-height: 1.75; }
+  .post-template::before { content: attr(data-type); position: absolute; top: -1px; left: 0; background: var(--linkedin); color: #fff; font-family: var(--sans); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; padding: 3px 12px; }
+  .post-template .hook { color: #fff; font-weight: 700; }
+  .post-template .placeholder { color: var(--gold); font-style: italic; }
+
+  /* KPI table */
+  .kpi-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 16px 0; }
+  .kpi-table th { padding: 10px 16px; background: var(--salmon-dk); font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 600; text-align: left; border-bottom: 1px solid var(--border); }
+  .kpi-table td { padding: 11px 16px; border-bottom: 1px solid var(--border-lt); }
+  .kpi-table tr:last-child td { border-bottom: none; }
+  .target-badge { font-size: 12px; font-weight: 700; background: var(--salmon-dk); color: var(--warm-gray); padding: 2px 10px; border: 1px solid var(--border); }
+
+  /* Info box */
+  .info-box { border-left: 4px solid var(--linkedin); background: #EAF2FB; padding: 16px 20px; margin: 20px 0; }
+  .info-box p { font-size: 14px; color: var(--warm-gray); margin: 0; }
+  .warn-box { border-left: 4px solid var(--gold); background: #FFF8E8; padding: 16px 20px; margin: 20px 0; }
+  .warn-box p { font-size: 14px; color: var(--warm-gray); margin: 0; }
+
+  /* Print link */
+  .doc-actions { display: flex; gap: 12px; margin: 24px 0 0; }
+  .doc-btn { padding: 9px 20px; font-size: 12.5px; font-weight: 600; border: 1px solid var(--border-dk); background: transparent; color: var(--warm-gray); cursor: pointer; font-family: var(--sans); transition: background .15s; }
+  .doc-btn:hover { background: var(--black); color: #fff; border-color: var(--black); }
+  .doc-btn-primary { background: var(--linkedin); color: #fff; border-color: var(--linkedin); }
+  .doc-btn-primary:hover { background: #0853A8; border-color: #0853A8; }
+
+  @media (max-width: 800px) {
+    .doc-layout { grid-template-columns: 1fr; }
+    .toc { display: none; }
+    .doc-header { padding: 32px 24px; }
+    .metric-grid { grid-template-columns: 1fr 1fr; }
+    .content-grid { grid-template-columns: 1fr; }
+  }
+  @media print {
+    .toc { display: none; }
+    body { background: #fff; }
+    .doc-header { background: #000; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="doc-header">
+  <div class="doc-header-kicker">Internal strategy document</div>
+  <h1>FitOut Post — LinkedIn Content Strategy</h1>
+  <div class="doc-header-meta">
+    <span><strong>Version:</strong> 1.0 — May 2026</span>
+    <span><strong>Owner:</strong> Editorial team</span>
+    <span><strong>Review:</strong> Quarterly</span>
+    <span><strong>Status:</strong> Active</span>
+  </div>
+  <div class="doc-actions" style="margin-top:20px;">
+    <button class="doc-btn doc-btn-primary" onclick="window.print()">🖨 Print / PDF</button>
+    <a href="index.html" class="doc-btn" style="text-decoration:none;">← Back to platform</a>
+  </div>
+</div>
+
+<!-- Layout -->
+<div class="doc-layout">
+
+  <!-- TOC -->
+  <aside class="toc">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#objective">Objective</a></li>
+      <li><a href="#audience">Target audience</a></li>
+      <li><a href="#targets">Engagement targets</a></li>
+      <li><a href="#content-types">Content types</a></li>
+      <li><a href="#schedule">Weekly schedule</a></li>
+      <li><a href="#templates">Post templates</a></li>
+      <li><a href="#hashtags">Hashtag library</a></li>
+      <li><a href="#editorial-calendar">Editorial calendar</a></li>
+      <li><a href="#kpis">KPIs &amp; reporting</a></li>
+      <li><a href="#guidelines">Brand guidelines</a></li>
+      <li><a href="#workflow">Publication workflow</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main -->
+  <main>
+
+    <!-- Objective -->
+    <div class="doc-section" id="objective">
+      <h2>Objective</h2>
+      <p>LinkedIn is FitOut Post's primary channel for building professional authority, driving platform registrations, and establishing the FitOut Post brand as the definitive intelligence source for the global interior fit-out industry.</p>
+      <p>The LinkedIn strategy operates at three levels: <strong>awareness</strong> (reach new audiences in fit-out, construction, design and development), <strong>authority</strong> (publish intelligence-led content that establishes expertise), and <strong>conversion</strong> (drive registrations and Pro upgrades via targeted CTAs).</p>
+
+      <div class="info-box">
+        <p><strong>Primary goal for Year 1:</strong> Reach 5,000 followers and generate 200+ platform registrations directly attributable to LinkedIn activity.</p>
+      </div>
+    </div>
+
+    <!-- Target audience -->
+    <div class="doc-section" id="audience">
+      <h2>Target audience</h2>
+      <p>FitOut Post LinkedIn content targets six primary personas across the fit-out value chain:</p>
+
+      <div class="content-grid" style="grid-template-columns: 1fr 1fr; margin-top: 20px;">
+        <div class="content-card">
+          <div class="content-card-type">Persona 1</div>
+          <h4>Fit-out contractor / BD lead</h4>
+          <p>Tracks tender opportunities, monitors competitors, researches developers. Reads FitOut Post for pipeline and tender intelligence. Decision on subscriptions typically sits with BD director.</p>
+        </div>
+        <div class="content-card">
+          <div class="content-card-type">Persona 2</div>
+          <h4>Developer / project manager</h4>
+          <p>Interested in market rates, contractor shortlists, sector benchmarks. Reads for cost intelligence and to understand who is active in their geography.</p>
+        </div>
+        <div class="content-card">
+          <div class="content-card-type">Persona 3</div>
+          <h4>Interior architect / designer</h4>
+          <p>Tracks award announcements, project spotlights, sector trends. Shares design-forward content. Strong amplifier persona — high engagement rate.</p>
+        </div>
+        <div class="content-card">
+          <div class="content-card-type">Persona 4</div>
+          <h4>Specification / materials supplier</h4>
+          <p>Monitors pipeline for upcoming projects. Interested in contractor directory. Potential advertiser. Reads for early-stage project intelligence.</p>
+        </div>
+        <div class="content-card">
+          <div class="content-card-type">Persona 5</div>
+          <h4>Real estate / workplace consultant</h4>
+          <p>Reads for €/m² benchmarks, market reports, sector analysis. High-value audience for intelligence content. Likely to share research-backed posts.</p>
+        </div>
+        <div class="content-card">
+          <div class="content-card-type">Persona 6</div>
+          <h4>Industry journalist / analyst</h4>
+          <p>Potential amplifier and citation source. Secondary target — content that earns press coverage serves the backlink strategy simultaneously.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Targets -->
+    <div class="doc-section" id="targets">
+      <h2>Engagement targets</h2>
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-label">Followers — 6 months</div>
+          <div class="metric-num">2,500</div>
+          <div class="metric-sub">Target: 5,000 at 12 months</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Avg impressions / post</div>
+          <div class="metric-num">1,200</div>
+          <div class="metric-sub">Target: 3,000+ at 12 months</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Engagement rate</div>
+          <div class="metric-num">3.5%</div>
+          <div class="metric-sub">Industry avg: 2–3% — aim above</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Registrations via LinkedIn</div>
+          <div class="metric-num">200</div>
+          <div class="metric-sub">Year 1 target — UTM tracked</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content types -->
+    <div class="doc-section" id="content-types">
+      <h2>Content types</h2>
+      <p>Seven content formats, each serving a distinct purpose in the awareness–authority–conversion funnel. Mix all seven throughout the week; never run three consecutive posts of the same type.</p>
+
+      <div class="content-grid">
+        <div class="content-card">
+          <div class="content-card-type">Format 1</div>
+          <h4>Market Intelligence Brief</h4>
+          <p>A data-led insight from the FitOut Post feed: a trend spotted across multiple regions, a cost benchmark, a sector shift. Lead with the number. 150–200 words. No fluff.</p>
+          <span class="content-card-freq">3× per week</span>
+        </div>
+        <div class="content-card">
+          <div class="content-card-type">Format 2</div>
+          <h4>Tender Spotlight</h4>
+          <p>Highlight a significant live tender — value, location, deadline, CPV scope. Drive readers to the Tenders page. Good for demonstrating the breadth of the live feed.</p>
+          <span class="content-card-freq">2× per week</span>
+        </div>
+        <div class="content-card">
+          <div class="content-card-type">Format 3</div>
+          <h4>Project Award / Win</h4>
+          <p>Celebrate a major contract award or project milestone. Tag the contractor if they have a LinkedIn presence. Generates amplification via shares from the winning company.</p>
+          <span class="content-card-freq">1× per week</span>
+        </div>
+        <div class="content-card">
+          <div class="content-card-type">Format 4</div>
+          <h4>Regional Roundup</h4>
+          <p>Monthly deep-dive into a specific region (GCC, DACH, APAC, etc.). 3–5 bullets of key developments. Drives engagement from regionally-focused followers.</p>
+          <span class="content-card-freq">1× per month</span>
+        </div>
+        <div class="content-card">
+          <div class="content-card-type">Format 5</div>
+          <h4>Industry Opinion / Hot Take</h4>
+          <p>A short, direct opinion on an industry trend. Slightly provocative angle. Generates comments. End with a question to the audience. Highest engagement format.</p>
+          <span class="content-card-freq">1× per week</span>
+        </div>
+        <div class="content-card">
+          <div class="content-card-type">Format 6</div>
+          <h4>Platform Feature Highlight</h4>
+          <p>Showcases a FitOut Post product feature — signal badges, the intelligence layer, pipeline data, etc. Educational tone. Always ends with a free registration CTA.</p>
+          <span class="content-card-freq">1× per week</span>
+        </div>
+        <div class="content-card">
+          <div class="content-card-type">Format 7</div>
+          <h4>Weekly Digest Teaser</h4>
+          <p>Every Monday: headline 3 stories from the Weekly Roundup. Drive readers to the Weekly tab or newsletter subscription. Reinforces the FitOut Post as a curated source.</p>
+          <span class="content-card-freq">Every Monday</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weekly schedule -->
+    <div class="doc-section" id="schedule">
+      <h2>Weekly posting schedule</h2>
+      <p>Post Monday to Friday. Best posting times on LinkedIn for B2B: <strong>07:30–08:30</strong> and <strong>12:00–13:00</strong> local time. Schedule for 08:00 CET to cover the largest overlap of European, Middle Eastern and Asian morning audiences.</p>
+
+      <table class="schedule-table">
+        <thead>
+          <tr><th>Day</th><th>Time (CET)</th><th>Format</th><th>Content brief</th><th>CTA</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="day-badge">Monday</span></td>
+            <td>08:00</td>
+            <td>Weekly Digest Teaser</td>
+            <td>Top 3 stories from this week's feed. Hook: "This week in global fit-out…"</td>
+            <td>Read the full weekly roundup →</td>
+          </tr>
+          <tr>
+            <td><span class="day-badge">Tuesday</span></td>
+            <td>08:00</td>
+            <td>Market Intelligence Brief</td>
+            <td>Data point from the platform — cost benchmark, volume stat, regional trend</td>
+            <td>See the full intelligence layer →</td>
+          </tr>
+          <tr>
+            <td><span class="day-badge">Wednesday</span></td>
+            <td>08:00</td>
+            <td>Tender Spotlight</td>
+            <td>Most significant tender from this week's live feed — value, location, deadline</td>
+            <td>Browse all live tenders →</td>
+          </tr>
+          <tr>
+            <td><span class="day-badge">Thursday</span></td>
+            <td>08:00</td>
+            <td>Industry Opinion / Award</td>
+            <td>Alternate: hot take on a trend (odd weeks) / major contract award (even weeks)</td>
+            <td>Register free to track more →</td>
+          </tr>
+          <tr>
+            <td><span class="day-badge">Friday</span></td>
+            <td>08:00</td>
+            <td>Platform Feature / Project Spotlight</td>
+            <td>Alternate: feature highlight (odd weeks) / notable pipeline project (even weeks)</td>
+            <td>Register free → or Explore pipeline →</td>
+          </tr>
+          <tr>
+            <td><span class="day-badge rest">Saturday</span></td>
+            <td>—</td>
+            <td>Rest</td>
+            <td>No scheduled posts. Engage with comments from the week.</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><span class="day-badge rest">Sunday</span></td>
+            <td>—</td>
+            <td>Rest</td>
+            <td>No scheduled posts.</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Post templates -->
+    <div class="doc-section" id="templates">
+      <h2>Post templates</h2>
+      <p>Use these as structural starting points, not word-for-word scripts. Every post must feel sourced, current, and specific — never generic.</p>
+
+      <div class="post-template" data-type="Market Intelligence Brief">
+<span class="hook">€[X]/m² for [sector] fit-out in [region].</span>
+
+That's the current benchmark we're tracking across [N] projects in [region name].
+
+What's driving the shift:
+→ [reason 1 — be specific, cite a project or trend]
+→ [reason 2]
+→ [reason 3]
+
+This matters if you're pricing work in [region] right now. Rates have moved [up/down] [X]% since [timeframe].
+
+[Optional: comparison to another region]
+
+Free intelligence on FitOut Post →
+<span class="placeholder">[link to intelligence.html]</span>
+
+#FitOutPost #FitOut #[RegionHashtag] #InteriorFitOut #ConstructionIntelligence
+      </div>
+
+      <div class="post-template" data-type="Tender Spotlight">
+<span class="hook">Live: [Tender title] — [Country]</span>
+
+A significant fit-out opportunity just published:
+
+📋 <strong>Scope:</strong> [brief scope description]
+💰 <strong>Value:</strong> €[X]M estimated
+⏰ <strong>Deadline:</strong> [date]
+🏢 <strong>Client:</strong> [contracting authority]
+
+[1–2 sentences of context — why this tender matters, what project it's for]
+
+Full detail and source documents available to FitOut Post Pro members.
+
+Browse all live tenders → <span class="placeholder">[link to tenders.html]</span>
+
+#FitOutTender #[CountryHashtag] #ContractOpportunity #FitOut #ConstructionTender
+      </div>
+
+      <div class="post-template" data-type="Industry Opinion / Hot Take">
+<span class="hook">[Provocative statement about a trend]. Here's why.</span>
+
+[1–2 sentences expanding on the claim with evidence]
+
+The data we track at FitOut Post suggests:
+→ [observation 1]
+→ [observation 2]
+→ [observation 3]
+
+[1 sentence conclusion or prediction]
+
+Where do you see this going? Drop your view below.
+
+[Optional CTA to platform]
+
+#FitOut #WorkplaceDesign #InteriorConstruction #[SectorHashtag] #ConstructionTrends
+      </div>
+
+      <div class="post-template" data-type="Weekly Digest Teaser">
+<span class="hook">This week in global fit-out:</span>
+
+📌 [Story 1 headline — one line]
+📌 [Story 2 headline — one line]
+📌 [Story 3 headline — one line]
+
+[1–2 sentences on the theme connecting these stories, if any]
+
+Full weekly roundup → <span class="placeholder">[link to weekly.html]</span>
+Subscribe for free to get it in your inbox every Monday.
+
+#FitOutPost #WeeklyIntelligence #FitOut #GlobalConstruction
+      </div>
+    </div>
+
+    <!-- Hashtag library -->
+    <div class="doc-section" id="hashtags">
+      <h2>Hashtag library</h2>
+      <p>Use 4–6 hashtags per post. Always include <code style="font-family:monospace;font-size:13px;background:var(--salmon-dk);padding:2px 6px;">#FitOutPost</code> as a brand tag. Rotate thematic and regional tags. Avoid hashtags with fewer than 5,000 followers — they get no algorithmic boost.</p>
+
+      <h3>Brand (always include one)</h3>
+      <div class="hashtag-cloud">
+        <span class="hashtag">#FitOutPost</span>
+        <span class="hashtag">#FitOutIntelligence</span>
+        <span class="hashtag">#GlobalFitOut</span>
+      </div>
+
+      <h3>Industry — broad (3–5k+ reach)</h3>
+      <div class="hashtag-cloud">
+        <span class="hashtag">#FitOut</span>
+        <span class="hashtag">#InteriorFitOut</span>
+        <span class="hashtag">#FitOutContractor</span>
+        <span class="hashtag">#WorkplaceDesign</span>
+        <span class="hashtag">#InteriorConstruction</span>
+        <span class="hashtag">#OfficeDesign</span>
+        <span class="hashtag">#OfficeInteriors</span>
+        <span class="hashtag">#CommercialInteriors</span>
+        <span class="hashtag">#ConstructionIntelligence</span>
+        <span class="hashtag">#BuildingIntelligence</span>
+      </div>
+
+      <h3>Sector</h3>
+      <div class="hashtag-cloud">
+        <span class="hashtag">#HospitalityDesign</span>
+        <span class="hashtag">#RetailDesign</span>
+        <span class="hashtag">#HealthcareDesign</span>
+        <span class="hashtag">#LuxuryInteriors</span>
+        <span class="hashtag">#MuseumDesign</span>
+        <span class="hashtag">#ExhibitionDesign</span>
+        <span class="hashtag">#EducationDesign</span>
+        <span class="hashtag">#MixedUse</span>
+      </div>
+
+      <h3>Regional</h3>
+      <div class="hashtag-cloud">
+        <span class="hashtag">#GCCConstruction</span>
+        <span class="hashtag">#DubaiConstruction</span>
+        <span class="hashtag">#SaudiConstruction</span>
+        <span class="hashtag">#Vision2030</span>
+        <span class="hashtag">#UKConstruction</span>
+        <span class="hashtag">#EuropeanConstruction</span>
+        <span class="hashtag">#DACHConstruction</span>
+        <span class="hashtag">#APACConstruction</span>
+        <span class="hashtag">#AfricaConstruction</span>
+        <span class="hashtag">#LatAmConstruction</span>
+      </div>
+
+      <h3>Procurement / tenders</h3>
+      <div class="hashtag-cloud">
+        <span class="hashtag">#ContractOpportunity</span>
+        <span class="hashtag">#ConstructionTender</span>
+        <span class="hashtag">#FitOutTender</span>
+        <span class="hashtag">#Procurement</span>
+        <span class="hashtag">#BidAlert</span>
+        <span class="hashtag">#ContractAward</span>
+      </div>
+
+      <div class="warn-box">
+        <p><strong>Avoid:</strong> Generic hashtags with millions of posts (#Construction, #Design, #Architecture) — the FitOut Post content will be buried. Stay specific and niche where possible.</p>
+      </div>
+    </div>
+
+    <!-- Editorial calendar -->
+    <div class="doc-section" id="editorial-calendar">
+      <h2>Editorial calendar — recurring themes</h2>
+      <p>Beyond the weekly schedule, align monthly content to industry events, reporting cycles and seasonal patterns.</p>
+
+      <table class="kpi-table">
+        <thead><tr><th>Month</th><th>Theme focus</th><th>Key triggers</th></tr></thead>
+        <tbody>
+          <tr><td>January</td><td>Year-in-review, market outlook</td><td>Annual reports, MIPIM prep, budget announcements</td></tr>
+          <tr><td>February</td><td>GCC / Saudi market spotlight</td><td>Big 5, Vision 2030 project announcements</td></tr>
+          <tr><td>March</td><td>European pipeline</td><td>MIPIM (Cannes), spring pipeline announcements</td></tr>
+          <tr><td>April</td><td>Hospitality / hotel fit-out</td><td>ITB Berlin aftermath, summer hotel openings</td></tr>
+          <tr><td>May</td><td>UK market</td><td>Post-election budget cycle, Clerkenwell Design Week</td></tr>
+          <tr><td>June</td><td>Sustainability in fit-out</td><td>BREEAM / LEED season, ESG reporting</td></tr>
+          <tr><td>July</td><td>APAC market spotlight</td><td>Singapore, Hong Kong, Australia pipeline</td></tr>
+          <tr><td>August</td><td>Quiet — retrospective / archive content</td><td>Summer slowdown in Europe</td></tr>
+          <tr><td>September</td><td>Retail / luxury fit-out</td><td>Fashion weeks, Q4 retail fitout surge</td></tr>
+          <tr><td>October</td><td>Africa market spotlight</td><td>AfricaCom, South Africa / Nigeria pipeline</td></tr>
+          <tr><td>November</td><td>Tenders roundup, year-end</td><td>TED annual spike, pre-Christmas contracts</td></tr>
+          <tr><td>December</td><td>Intelligence report, awards season</td><td>Industry award ceremonies, annual stats</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- KPIs -->
+    <div class="doc-section" id="kpis">
+      <h2>KPIs &amp; reporting</h2>
+      <p>Review LinkedIn analytics monthly. The primary metrics are follower growth rate, average impressions per post, engagement rate, and click-through rate on CTA posts.</p>
+
+      <table class="kpi-table">
+        <thead><tr><th>Metric</th><th>Source</th><th>Month 3</th><th>Month 6</th><th>Month 12</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Followers</td><td>LinkedIn Analytics</td>
+            <td><span class="target-badge">750</span></td>
+            <td><span class="target-badge">2,500</span></td>
+            <td><span class="target-badge">5,000</span></td>
+          </tr>
+          <tr>
+            <td>Avg impressions / post</td><td>LinkedIn Analytics</td>
+            <td><span class="target-badge">600</span></td>
+            <td><span class="target-badge">1,200</span></td>
+            <td><span class="target-badge">3,000</span></td>
+          </tr>
+          <tr>
+            <td>Engagement rate</td><td>LinkedIn Analytics</td>
+            <td><span class="target-badge">2.5%</span></td>
+            <td><span class="target-badge">3.0%</span></td>
+            <td><span class="target-badge">3.5%</span></td>
+          </tr>
+          <tr>
+            <td>Platform registrations from LinkedIn</td><td>UTM + members.json</td>
+            <td><span class="target-badge">30</span></td>
+            <td><span class="target-badge">100</span></td>
+            <td><span class="target-badge">200</span></td>
+          </tr>
+          <tr>
+            <td>Pro upgrades from LinkedIn</td><td>UTM + Stripe</td>
+            <td><span class="target-badge">2</span></td>
+            <td><span class="target-badge">10</span></td>
+            <td><span class="target-badge">30</span></td>
+          </tr>
+          <tr>
+            <td>Posts published / month</td><td>Manual count</td>
+            <td><span class="target-badge">20</span></td>
+            <td><span class="target-badge">20</span></td>
+            <td><span class="target-badge">20</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <p><strong>UTM tracking:</strong> All LinkedIn CTAs must use UTM parameters: <code style="font-family:monospace;font-size:12px;">?utm_source=linkedin&amp;utm_medium=social&amp;utm_campaign=organic</code>. Add post type as <code>utm_content</code> (e.g. tender_spotlight, intelligence_brief).</p>
+      </div>
+    </div>
+
+    <!-- Brand guidelines -->
+    <div class="doc-section" id="guidelines">
+      <h2>Brand voice guidelines</h2>
+      <p>FitOut Post LinkedIn content must consistently reflect the platform's editorial voice: <strong>precise, global, authoritative, never breathless</strong>. The Financial Times, not a trade magazine.</p>
+
+      <h3>Do</h3>
+      <ul>
+        <li>Lead with the data point or fact, not with "We are excited to share…"</li>
+        <li>Use specific numbers: €/m², contract values, project GFA, timeline dates</li>
+        <li>Name countries, cities and contracting parties directly — be specific</li>
+        <li>Write short paragraphs. One idea per paragraph.</li>
+        <li>End posts with a direct, single CTA. One link.</li>
+        <li>Use bullet arrows (→) for lists — it matches the platform aesthetic</li>
+        <li>Write in the active voice: "ISG wins £42M contract" not "Contract won by ISG"</li>
+      </ul>
+
+      <h3>Do not</h3>
+      <ul>
+        <li>Use excited language: "thrilled", "delighted", "proud to announce", "exciting news"</li>
+        <li>Post vague trend statements without data to back them up</li>
+        <li>Use more than 6 hashtags</li>
+        <li>Include multiple CTAs in one post</li>
+        <li>Post the same content type on consecutive days</li>
+        <li>Write posts longer than 250 words — LinkedIn penalises long posts</li>
+        <li>Use AI-sounding language: "In the ever-evolving landscape of…"</li>
+      </ul>
+    </div>
+
+    <!-- Workflow -->
+    <div class="doc-section" id="workflow">
+      <h2>Publication workflow</h2>
+      <p>FitOut Post runs a lean editorial operation. The daily fetch pipeline (06:00 UTC) provides raw material for all LinkedIn content. Use this workflow:</p>
+
+      <ol style="margin-left:20px;margin-top:16px;">
+        <li style="margin-bottom:16px;"><strong>Monday AM — Weekly content plan.</strong> Review the week's feed for the strongest 5 stories. Assign format type (Brief, Tender, Award, etc.) to each. Queue drafts in your scheduling tool (Buffer / LinkedIn native).</li>
+        <li style="margin-bottom:16px;"><strong>Before each post — check current news.</strong> Confirm the story you're posting about is still live / relevant. Fit-out project news can move fast.</li>
+        <li style="margin-bottom:16px;"><strong>Draft review.</strong> Every draft must pass the "FT check": would this feel appropriate in a Financial Times email briefing? If not, rewrite.</li>
+        <li style="margin-bottom:16px;"><strong>Hashtag selection.</strong> Choose 4–6 from the library. Always include #FitOutPost. Rotate regional tags weekly.</li>
+        <li style="margin-bottom:16px;"><strong>UTM tagging.</strong> Apply UTM parameters to every link. Use the standard structure: <code style="font-family:monospace;font-size:12px;background:var(--salmon-dk);padding:1px 6px;">?utm_source=linkedin&amp;utm_medium=social&amp;utm_campaign=organic&amp;utm_content=[format]</code></li>
+        <li style="margin-bottom:16px;"><strong>Schedule.</strong> Queue for 08:00 CET. Use LinkedIn's native scheduler or Buffer.</li>
+        <li style="margin-bottom:16px;"><strong>Engage.</strong> Within 60 minutes of posting, reply to every comment. The LinkedIn algorithm rewards early engagement signals heavily.</li>
+        <li><strong>Monthly review.</strong> Pull analytics. Compare top 3 posts by engagement to bottom 3. Adjust format mix accordingly.</li>
+      </ol>
+    </div>
+
+  </main>
+</div>
+
+<script>
+// Print date on load
+document.querySelectorAll('[data-print-date]').forEach(el => {
+  el.textContent = new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+});
+</script>
+</body>
+</html>

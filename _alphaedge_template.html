@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>α Edge — FitOut Post</title>
+  <meta name="description" content="Curated reading on the global fit-out industry. Selected articles with editorial commentary from FitOut Post." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Data slot: build.py writes the JSON here; no script execution needed -->
+  <!--ALPHAEDGE-DATA-SLOT-->
+  <style>
+  /* ─── Reset ─────────────────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --salmon:      #FFF1E5;
+    --salmon-dk:   #F2DFCE;
+    --salmon-md:   #FAE8D6;
+    --white:       #FFFFFF;
+    --black:       #1a1a1a;
+    --black-mid:   #262626;
+    --claret:      #990033;
+    --claret-lt:   #CC0044;
+    --teal:        #0D7680;
+    --warm-gray:   #66605A;
+    --mid-gray:    #9A948E;
+    --border:      #D9CBC0;
+    --border-lt:   #EDE3DA;
+    --border-dk:   #B8A99A;
+    --serif:  'Playfair Display', 'EB Garamond', Georgia, serif;
+    --sans:   'Inter', 'Segoe UI', system-ui, sans-serif;
+    --body-bg: #FAF5F0;
+  }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body { font-family: var(--sans); font-weight: 400; color: var(--black);
+         background: var(--body-bg); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--claret); }
+
+  /* ─── Utility bar ───────────────────────────────────────────────────────── */
+  #utility-bar {
+    background: #1a1a1a;
+    color: rgba(255,255,255,.7);
+    font-size: 11.5px;
+    letter-spacing: .3px;
+    padding: 0 24px;
+  }
+  #utility-inner {
+    max-width: 1320px; margin: 0 auto; height: 34px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  #utility-left  { display:flex; align-items:center; gap:20px; }
+  #utility-right { display:flex; align-items:center; gap:20px; }
+  #utility-date  { color:#9A8A80; }
+  #utility-edition { color:#7a706a; padding-left:20px; border-left:1px solid #3a3a3a; }
+  .util-link { color:#9A8A80; transition:color .15s; }
+  .util-link:hover { color:#D4C4BA; }
+
+  /* ─── Masthead ───────────────────────────────────────────────────────────── */
+  #masthead {
+    background: var(--salmon); border-bottom: 2px solid var(--black);
+    position: sticky; top: 0; z-index: 200;
+  }
+  #masthead-inner {
+    max-width: 1320px; margin: 0 auto; padding: 0 24px;
+    height: 72px; display: flex; align-items: center; gap: 24px;
+  }
+  #fop-logo { display:flex; align-items:center; gap:14px;
+              flex-shrink:0; cursor:default; user-select:none; text-decoration:none; }
+  #fop-logo:hover { color:inherit; }
+  #fop-box  { width:52px; height:52px; background:var(--black);
+              display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  #fop-box span { font-family:var(--serif); font-weight:800; font-size:24px;
+                  letter-spacing:1px; color:#fff; line-height:1; }
+  #fop-wordmark { display:flex; flex-direction:column; line-height:1.2; }
+  #fop-wordmark strong { font-family:var(--serif); font-weight:700; font-size:20px;
+                         letter-spacing:.2px; color:var(--black); }
+  #fop-wordmark em { font-style:normal; font-size:10px; letter-spacing:1.4px;
+                     text-transform:uppercase; color:var(--warm-gray);
+                     font-weight:500; margin-top:2px; }
+  #masthead-divider { width:1px; height:32px; background:var(--border-dk);
+                      flex-shrink:0; margin:0 4px; }
+  #masthead-right { margin-left:auto; display:flex; align-items:center;
+                    gap:16px; flex-shrink:0; }
+  .masthead-nav-link { font-size:12.5px; font-weight:500; color:var(--black);
+                       padding:6px 14px; border:1px solid var(--border-dk);
+                       transition:background .15s, border-color .15s, color .15s;
+                       white-space:nowrap; }
+  .masthead-nav-link:hover { background:var(--black); border-color:var(--black); color:#fff; }
+  .masthead-nav-link--cta { background:var(--claret); border-color:var(--claret);
+                             color:#fff; font-weight:600; padding:6px 18px; }
+  .masthead-nav-link--cta:hover { background:var(--claret-lt); border-color:var(--claret-lt); }
+  #ae-badge {
+    font-family: var(--serif); font-style: italic;
+    font-size: 17px; font-weight: 700; color: var(--claret);
+    padding-left: 16px; border-left: 1px solid var(--border-dk);
+    letter-spacing: .2px;
+  }
+
+  /* ─── Product nav ────────────────────────────────────────────────────────── */
+  #product-nav { background:var(--black); position:sticky; top:72px; z-index:195; }
+  #product-nav-inner { max-width:1320px; margin:0 auto; padding:0 24px;
+                       display:flex; gap:0; }
+  .pnav-link {
+    display:inline-block; padding:0 20px; height:38px; line-height:38px;
+    font-size:12.5px; font-weight:500; color:rgba(255,255,255,.65);
+    letter-spacing:.3px; border-right:1px solid rgba(255,255,255,.1);
+    transition:color .15s, background .15s; white-space:nowrap; cursor:pointer;
+  }
+  .pnav-link:first-child { border-left:1px solid rgba(255,255,255,.1); }
+  .pnav-link:hover { color:#fff; background:rgba(255,255,255,.08); }
+  .pnav-link.active { color:#fff; background:var(--claret); border-color:var(--claret); }
+
+  /* ─── Page header ────────────────────────────────────────────────────────── */
+  #ae-header {
+    background: var(--black); color: #fff; padding: 40px 24px 32px;
+    border-bottom: 1px solid #333;
+  }
+  #ae-header-inner { max-width: 1320px; margin: 0 auto;
+                     display: grid; grid-template-columns: 1fr auto; gap: 32px;
+                     align-items: end; }
+  #ae-title { font-family: var(--serif); font-size: 46px; font-weight: 800;
+              font-style: italic; line-height: 1.0; letter-spacing: -1px;
+              color: #fff; margin-bottom: 8px; }
+  #ae-title span { color: var(--claret); }
+  #ae-tagline { font-size: 14px; color: rgba(255,255,255,.55); max-width: 520px;
+                line-height: 1.6; }
+  #ae-meta { text-align: right; font-size: 11px; color: rgba(255,255,255,.4);
+             line-height: 1.8; }
+  #ae-meta strong { color: rgba(255,255,255,.7); font-size: 22px;
+                    display: block; font-family: var(--serif); }
+
+  /* ─── Sub-bar ────────────────────────────────────────────────────────────── */
+  #sub-bar { background: var(--salmon-md); border-bottom: 1px solid var(--border);
+             padding: 0 24px; }
+  #sub-inner { max-width: 1320px; margin: 0 auto; height: 44px;
+               display: flex; align-items: center; justify-content: space-between; }
+  #ae-source-filter { display: flex; gap: 10px; align-items: center; }
+  #ae-source-filter label { font-size: 11.5px; color: var(--warm-gray); font-weight: 500; }
+  #source-select {
+    font-size: 12.5px; padding: 5px 10px; border: 1px solid var(--border-dk);
+    background: var(--white); color: var(--black); cursor: pointer;
+    outline: none; appearance: none; min-width: 160px;
+  }
+  #ae-search-wrap { position: relative; }
+  #ae-search {
+    padding: 7px 12px 7px 34px; border: 1px solid var(--border-dk); width: 220px;
+    font-size: 13px; outline: none; background: var(--white);
+    transition: border-color .15s; font-family: var(--sans);
+  }
+  #ae-search:focus { border-color: var(--black); }
+  #ae-search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+                    color: var(--warm-gray); }
+
+  /* ─── Loading / Error ────────────────────────────────────────────────────── */
+  #loading, #error-state {
+    text-align: center; padding: 100px 24px;
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+  }
+  #loading .spinner {
+    width: 36px; height: 36px; border: 3px solid var(--border);
+    border-top-color: var(--claret); border-radius: 50%;
+    animation: spin .8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  #loading p { font-family: var(--serif); font-size: 18px; font-style: italic;
+               color: var(--warm-gray); }
+  #error-state h2 { font-family: var(--serif); font-size: 24px; margin-bottom: 14px; }
+  #error-state p  { font-size: 14px; margin-bottom: 20px; }
+
+  /* ─── Content area ───────────────────────────────────────────────────────── */
+  #content { display: none; }
+  #ae-content-inner { max-width: 1320px; margin: 0 auto; padding: 32px 24px 64px; }
+
+  /* ─── Article cards ──────────────────────────────────────────────────────── */
+  .ae-card {
+    background: var(--white); border: 1px solid var(--border);
+    margin-bottom: 20px; padding: 28px 32px;
+    transition: border-color .15s; cursor: pointer;
+  }
+  .ae-card:hover { border-color: var(--black); }
+  .ae-card-top { display: flex; align-items: flex-start;
+                 justify-content: space-between; gap: 20px; margin-bottom: 10px; }
+  .ae-card-meta { display: flex; align-items: center; gap: 14px;
+                  font-size: 11px; color: var(--warm-gray); flex-shrink: 0; }
+  .ae-source { font-weight: 700; color: var(--claret); font-size: 11.5px;
+               letter-spacing: .3px; text-transform: uppercase; }
+  .ae-pub-date { color: var(--mid-gray); }
+  .ae-accessed { color: var(--mid-gray); }
+  .ae-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .ae-tag { background: var(--salmon); border: 1px solid var(--border);
+             font-size: 10px; padding: 2px 8px; color: var(--warm-gray); }
+  .ae-card-title {
+    font-family: var(--serif); font-size: 21px; font-weight: 700;
+    line-height: 1.3; margin-bottom: 10px; color: var(--black);
+  }
+  .ae-card:hover .ae-card-title { color: var(--claret); }
+  .ae-card-summary {
+    font-size: 14px; line-height: 1.7; color: var(--warm-gray);
+    margin-bottom: 12px;
+  }
+  .ae-curator-note {
+    font-size: 13.5px; line-height: 1.7; color: var(--black-mid);
+    border-left: 3px solid var(--claret); padding-left: 14px;
+    margin: 14px 0; font-style: italic;
+  }
+  .ae-curator-note::before {
+    content: "Editor's note: ";
+    font-style: normal; font-weight: 600; color: var(--claret);
+    font-size: 11px; text-transform: uppercase; letter-spacing: .5px;
+    display: block; margin-bottom: 4px;
+  }
+  .ae-card-footer { display: flex; align-items: center; justify-content: space-between;
+                    margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border-lt); }
+  .ae-card-dates { font-size: 11px; color: var(--mid-gray); }
+  .ae-read-link {
+    font-size: 12.5px; font-weight: 600; color: var(--claret);
+    padding: 7px 18px; border: 1.5px solid var(--claret);
+    transition: background .15s, color .15s;
+    white-space: nowrap;
+  }
+  .ae-read-link:hover { background: var(--claret); color: #fff; }
+
+  .ae-empty { text-align: center; padding: 80px 24px; color: var(--warm-gray);
+              font-family: var(--serif); font-size: 18px; font-style: italic; }
+
+  /* ─── Footer ─────────────────────────────────────────────────────────────── */
+
+  /* ─── Responsive ─────────────────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    #ae-header-inner { grid-template-columns: 1fr; }
+    #ae-meta { text-align: left; }
+    #ae-title { font-size: 34px; }
+    #sub-inner { flex-direction: column; gap: 10px; height: auto; padding: 12px 0; }
+    .ae-card { padding: 20px; }
+    .ae-card-title { font-size: 18px; }
+    #ae-search { width: 100%; }
+  }
+  
+  /* ── Have a tip? modal ───────────────────────────────────────────────────── */
+  #tip-modal {
+    display: none; position: fixed; inset: 0; z-index: 9000;
+    align-items: center; justify-content: center;
+  }
+  #tip-modal.open { display: flex; }
+  #tip-modal-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.65); backdrop-filter: blur(2px);
+  }
+  #tip-modal-card {
+    position: relative; z-index: 1;
+    background: #fff; max-width: 520px; width: calc(100% - 48px);
+    padding: 48px 40px 40px; text-align: center;
+    border-top: 4px solid var(--claret,#990033);
+    box-shadow: 0 24px 64px rgba(0,0,0,.35);
+    animation: tipIn .2s ease;
+  }
+  @keyframes tipIn {
+    from { opacity:0; transform:translateY(-12px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  #tip-modal-close {
+    position: absolute; top: 14px; right: 16px;
+    background: none; border: none; cursor: pointer;
+    font-size: 22px; color: #999; line-height: 1; padding: 4px 8px;
+    font-family: sans-serif; transition: color .15s;
+  }
+  #tip-modal-close:hover { color: var(--claret,#990033); }
+  #tip-modal-icon {
+    width: 64px; height: 64px;
+    background: var(--claret,#990033);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+  }
+  #tip-modal-headline {
+    font-family: var(--serif,'Playfair Display',Georgia,serif);
+    font-size: 28px; font-weight: 800; font-style: italic;
+    color: var(--black,#1a1a1a); margin-bottom: 18px;
+    letter-spacing: -.3px; line-height: 1.2;
+  }
+  #tip-modal-body {
+    font-size: 15px; line-height: 1.7;
+    color: var(--warm-gray,#66605A); margin-bottom: 28px;
+  }
+  #tip-modal-email {
+    display: inline-block;
+    font-size: 17px; font-weight: 700;
+    color: var(--claret,#990033);
+    border-bottom: 2px solid var(--claret,#990033);
+    padding-bottom: 2px; margin-bottom: 24px;
+    transition: color .15s;
+    text-decoration: none;
+  }
+  #tip-modal-email:hover { color: #CC0044; border-color: #CC0044; }
+  #tip-modal-note {
+    font-size: 11.5px; color: #aaa; line-height: 1.6;
+    padding-top: 20px; border-top: 1px solid #eee;
+  }
+  
+  /* ─── Have a tip? — utility bar button ───────────────────────────────────── */
+  .tip-util-btn {
+    font-size: 11px; font-weight: 600; letter-spacing: .3px;
+    color: var(--claret,#990033); background: none; border: none;
+    cursor: pointer; padding: 0; display: flex; align-items: center; gap: 5px;
+    font-family: var(--sans,Inter,sans-serif); transition: opacity .15s;
+    line-height: 1;
+  }
+  .tip-util-btn:hover { opacity: .7; }
+  
+    #ad-banner-cta { font-size: 15px; }
+    #ad-banner-label { display: none; }
+  }
+  
+  /* ─── Full footer ────────────────────────────────────────────────────────── */
+  #footer {
+    background: var(--black,#1a1a1a);
+    color: #A09890;
+    margin-top: 80px;
+  }
+  #footer-main {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 48px 24px 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    border-bottom: 1px solid #2e2e2e;
+  }
+  #footer-brand .footer-logo-wrap {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+  }
+  #footer-fop-box {
+    width: 40px; height: 40px; background: #fff;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  #footer-fop-box span {
+    font-family: var(--serif,"Playfair Display",Georgia,serif);
+    font-weight: 800; font-size: 18px; letter-spacing: 0.5px; color: #1a1a1a;
+  }
+  #footer-fop-wordmark { display: flex; flex-direction: column; }
+  #footer-fop-name {
+    font-family: var(--serif,"Playfair Display",Georgia,serif);
+    font-weight: 700; font-size: 16px; color: #E8D8C8; line-height: 1.2;
+  }
+  #footer-fop-tagline {
+    font-family: var(--sans,Inter,sans-serif); font-size: 9px; font-weight: 600;
+    letter-spacing: 1.6px; text-transform: uppercase; color: #7a6e68; margin-top: 3px;
+  }
+  #footer-brand p {
+    font-size: 12.5px; line-height: 1.75; color: #A09890;
+    max-width: 300px; margin-bottom: 14px;
+  }
+  #footer-brand .footer-disclaimer {
+    font-size: 11px; line-height: 1.7; color: #7a706a;
+    max-width: 300px; font-style: italic;
+  }
+  .footer-col h4 {
+    font-family: var(--sans,Inter,sans-serif); font-size: 10px; font-weight: 700;
+    letter-spacing: 1.2px; text-transform: uppercase; color: #B8A8A0;
+    margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #2e2e2e;
+  }
+  .footer-col ul {
+    list-style: none; display: flex; flex-direction: column; gap: 8px;
+  }
+  .footer-col ul li a { font-size: 12.5px; color: #A09890; transition: color .15s; }
+  .footer-col ul li a:hover { color: #E8D8C8; }
+  #footer-bottom {
+    max-width: 1320px; margin: 0 auto; padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  #footer-copyright { font-size: 11.5px; color: #7a706a; }
+  #footer-legal-links { display: flex; align-items: center; gap: 20px; }
+  #footer-legal-links a { font-size: 11.5px; color: #7a706a; transition: color .15s; }
+  #footer-legal-links a:hover { color: #9A8A80; }
+  @media (max-width: 1100px) {
+    #footer-main { grid-template-columns: 2fr 1fr 1fr; }
+    #footer-legal { display: none; }
+  }
+  @media (max-width: 760px) {
+    #footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+    #footer-brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 480px) {
+    #footer-main { grid-template-columns: 1fr; }
+  }
+  
+  /* ─── Marketing banner — photo strip ─────────────────────────────────────── */
+  #ad-banner {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+    background: #111;         /* fallback while image loads */
+  }
+  #ad-banner-img {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: opacity .4s ease;
+    opacity: 0;               /* fades in once loaded */
+  }
+  #ad-banner-img.loaded { opacity: 1; }
+  #ad-banner-badge {
+    position: absolute; top: 12px; left: 16px;
+    font-size: 9px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: rgba(255,255,255,.6);
+    background: rgba(0,0,0,.35); padding: 3px 7px;
+    pointer-events: none;
+  }
+  #ad-banner-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 10px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,.45));
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  #ad-banner-overlay a {
+    font-size: 11px; font-weight: 600; letter-spacing: .3px;
+    color: rgba(255,255,255,.85); transition: color .15s;
+  }
+  #ad-banner-overlay a:hover { color: #fff; }
+  @media (max-width: 760px) {
+    #ad-banner { height: 160px; }
+  }
+  /* ─── Utility bar — Advertise link ──────────────────────────────────────── */
+  .util-ad-link {
+    font-size: 10px; font-weight: 500; color: var(--claret,#990033);
+    opacity: .8; letter-spacing: .2px; transition: opacity .15s;
+    white-space: nowrap;
+  }
+  .util-ad-link:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<!-- ══ Utility bar ════════════════════════════════════════════════════════════ -->
+<div id="utility-bar">
+  <div id="utility-inner">
+    <div id="utility-left">
+      <span id="utility-date"></span>
+      <span id="utility-edition">Global Edition</span>
+    </div>
+    <div id="utility-right">
+      <span id="utility-count"></span>
+      <a href="companies_site.html" class="util-link">Companies</a>
+      <a href="contact.html" class="util-link">Contact</a>
+    
+      <button class="tip-util-btn"
+        onclick="document.getElementById('tip-modal').classList.add('open')"
+        aria-label="Have a tip? Contact the FitOut Post editorial team">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+             style="flex-shrink:0">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Have a tip?
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Masthead ═══════════════════════════════════════════════════════════════ -->
+<header id="masthead" role="banner">
+  <div id="masthead-inner">
+    <a href="index.html" id="fop-logo">
+      <div id="fop-box"><span>FOP</span></div>
+      <div id="fop-wordmark">
+        <strong>FitOut Post</strong>
+        <em>Global Industry Intelligence</em>
+      </div>
+    </a>
+    <div id="masthead-divider"></div>
+    <div id="ae-badge"><span style="font-size:1.1em">α</span> Edge — News with an edge</div>
+    <div id="masthead-right">
+      <a href="companies_site.html" class="masthead-nav-link masthead-nav-link--cta">Companies directory</a>
+    </div>
+  </div>
+</header>
+
+<!-- ══ Product nav ════════════════════════════════════════════════════════════ -->
+<nav id="product-nav" role="navigation" aria-label="Sections">
+  <div id="product-nav-inner">
+    <a class="pnav-link" href="index.html">News</a>
+    <a class="pnav-link" href="weekly.html">Weekly</a>
+    <a class="pnav-link" href="intelligence.html">Intelligence</a>
+    <a class="pnav-link" href="tenders.html">Tenders</a>
+    <a class="pnav-link" href="pipeline.html">Pipeline</a>
+    <a class="pnav-link" href="companies_site.html">Companies</a>
+    <a class="pnav-link active" href="alphaedge.html"><span style="font-size:1.1em">α</span> Edge</a>
+    <a class="pnav-link" href="betaedge.html"><span style="font-size:1.1em">β</span> Edge</a>
+    <a class="pnav-link" href="gammaedge.html"><span style="font-size:1.1em">γ</span> Edge</a>
+  </div>
+</nav>
+  <span id="ad-banner-badge">Advertisement</span>
+  <div id="ad-banner-overlay">
+    <a href="contact.html">Advertise with FitOut Post</a>
+  </div>
+</div>
+</div>
+
+<!-- ══ Page header ════════════════════════════════════════════════════════════ -->
+<div id="ae-header">
+  <div id="ae-header-inner">
+    <div>
+      <div id="ae-title"><span>α</span> Edge</div>
+      <div id="ae-tagline">News with an edge</div>
+    </div>
+    <div id="ae-meta">
+      <strong id="ae-count">—</strong>
+      articles curated<br>
+      Updated <span id="ae-updated">—</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Sub-bar ════════════════════════════════════════════════════════════════ -->
+<div id="sub-bar">
+  <div id="sub-inner">
+    <div id="ae-source-filter">
+      <label for="source-select">Filter by source</label>
+      <select id="source-select">
+        <option value="">All sources</option>
+      </select>
+    </div>
+    <div id="ae-search-wrap">
+      <svg id="ae-search-icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13"
+           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input id="ae-search" type="search"
+             placeholder="Search AlphaEdge…" autocomplete="off">
+    </div>
+  </div>
+</div>
+
+<!-- ══ Loading ════════════════════════════════════════════════════════════════ -->
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Loading curated articles…</p>
+</div>
+
+<!-- ══ Error state ════════════════════════════════════════════════════════════ -->
+<div id="error-state" style="display:none">
+  <h2>No articles yet</h2>
+  <p>Run the AlphaEdge admin to add your first curated article:</p>
+  <code>python admin.py</code>
+</div>
+
+<!-- ══ Content ════════════════════════════════════════════════════════════════ -->
+<div id="content">
+  <div id="ae-content-inner">
+    <div id="articles-container"></div>
+  </div>
+</div>
+
+<!-- ══ Footer ════════════════════════════════════════════════════════════════ -->
+
+
+<footer id="footer" role="contentinfo">
+  <div id="footer-main">
+    <!-- Brand column -->
+    <div id="footer-brand">
+      <div class="footer-logo-wrap">
+        <div id="footer-fop-box"><span>FOP</span></div>
+        <div id="footer-fop-wordmark">
+          <div id="footer-fop-name">FitOut Post</div>
+          <div id="footer-fop-tagline">Global Industry Intelligence</div>
+        </div>
+      </div>
+      <p>An independent aggregator of global fit-out and interior construction news.
+         Articles are drawn from industry publications, company announcements, and
+         newswires across more than 50 countries. Updated daily.</p>
+      <p class="footer-disclaimer">FitOut Post is not affiliated with any company featured
+         in its coverage. Article links open the original source. Content is for reference only.</p>
+    </div>
+    <!-- Regions column -->
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="index.html" data-tab="All">All regions</a></li>
+        <li><a href="index.html" data-tab="Europe">Europe</a></li>
+        <li><a href="index.html" data-tab="Middle East">Middle East</a></li>
+        <li><a href="index.html" data-tab="Asia Pacific">Asia Pacific</a></li>
+        <li><a href="index.html" data-tab="Americas">Americas</a></li>
+        <li><a href="index.html" data-tab="Oceania">Oceania</a></li>
+      </ul>
+    </div>
+    <!-- Directory column -->
+    <div class="footer-col" id="footer-legal">
+      <h4>Directory</h4>
+      <ul>
+        <li><a href="companies_site.html">All companies</a></li>
+        <li><a href="companies_site.html?sector=office">Offices</a></li>
+        <li><a href="companies_site.html?sector=hospitality">Hospitality</a></li>
+        <li><a href="companies_site.html?sector=retail">Retail</a></li>
+        <li><a href="companies_site.html?sector=fb">Food and beverage</a></li>
+        <li><a href="companies_site.html?sector=leisure">Sports and entertainment</a></li>
+        <li><a href="companies_site.html?sector=Museums">Exhibitions and museums</a></li>
+        <li><a href="companies_site.html?sector=datacentre">Data centres</a></li>
+        <li><a href="companies_site.html?sector=healthcare">Healthcare</a></li>
+        <li><a href="companies_site.html?sector=lab">Life sciences</a></li>
+      </ul>
+    </div>
+    <!-- About column -->
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="legal.html#terms">Terms of use</a></li>
+        <li><a href="legal.html#privacy">Privacy policy</a></li>
+        <li><a href="legal.html#cookies">Cookie policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="footer-bottom">
+    <div id="footer-copyright">
+      © <span id="footer-year"></span> FitOut Post. An independent publication. All rights reserved.
+    </div>
+    <div id="footer-legal-links">
+      <a href="legal.html#terms">Terms of use</a>
+      <a href="legal.html#privacy">Privacy policy</a>
+      <a href="legal.html#cookies">Cookie policy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ JavaScript ════════════════════════════════════════════════════════════ -->
+<script>
+"use strict";
+
+let ALL_ARTICLES  = [];
+let filterSource  = "";
+let searchQuery   = "";
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+function esc(s) {
+  return String(s || "")
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function fmtDate(iso) {
+  if (!iso) return "—";
+  try {
+    return new Date(iso).toLocaleDateString("en-GB", {
+      day:"numeric", month:"long", year:"numeric"
+    });
+  } catch { return iso; }
+}
+
+function timeAgo(iso) {
+  if (!iso) return "";
+  try {
+    const diff = Math.floor((Date.now() - new Date(iso)) / 1000);
+    if (diff < 3600)   return Math.floor(diff/60)    + "m ago";
+    if (diff < 86400)  return Math.floor(diff/3600)  + "h ago";
+    if (diff < 604800) return Math.floor(diff/86400) + "d ago";
+    return fmtDate(iso);
+  } catch { return ""; }
+}
+
+// ── Card HTML ──────────────────────────────────────────────────────────────
+function cardHtml(a) {
+  const tags = (a.tags||[]).length
+    ? `<div class="ae-tags">${a.tags.map(t=>`<span class="ae-tag">${esc(t)}</span>`).join("")}</div>`
+    : "";
+  const note = a.curator_note
+    ? `<div class="ae-curator-note">${esc(a.curator_note)}</div>` : "";
+  const rel  = timeAgo(a.published);
+  return `
+<div class="ae-card" onclick="window.open('${esc(a.url)}','_blank','noopener,noreferrer')">
+  <div class="ae-card-top">
+    <div class="ae-card-meta">
+      <span class="ae-source">${esc(a.source||"")}</span>
+      ${rel ? `<span class="ae-pub-date">${rel}</span>` : ""}
+      ${tags}
+    </div>
+  </div>
+  <h2 class="ae-card-title">${esc(a.title)}</h2>
+  <p class="ae-card-summary">${esc(a.summary||"")}</p>
+  ${note}
+  <div class="ae-card-footer">
+    <div class="ae-card-dates">
+      Published ${fmtDate(a.published)} &nbsp;·&nbsp; Accessed ${fmtDate(a.accessed_at)}
+    </div>
+    <a class="ae-read-link" href="${esc(a.url)}" target="_blank" rel="noopener noreferrer"
+       onclick="event.stopPropagation()">Read full article →</a>
+  </div>
+</div>`;
+}
+
+// ── Render ─────────────────────────────────────────────────────────────────
+function render() {
+  const q = searchQuery.trim().toLowerCase();
+  let filtered = ALL_ARTICLES.filter(a => {
+    if (filterSource && a.source !== filterSource) return false;
+    if (q) {
+      const hay = ((a.title||"") + " " + (a.summary||"") + " " +
+                   (a.curator_note||"") + " " + (a.source||"")).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  // Newest first
+  filtered.sort((a,b) => (b.published||"").localeCompare(a.published||""));
+
+  const container = document.getElementById("articles-container");
+  if (filtered.length === 0) {
+    container.innerHTML =
+      `<div class="ae-empty">${q ? `No articles match "${esc(q)}"` : "No articles yet."}</div>`;
+    return;
+  }
+  container.innerHTML = filtered.map(cardHtml).join("");
+}
+
+// ── Controls ───────────────────────────────────────────────────────────────
+document.getElementById("source-select").addEventListener("change", e => {
+  filterSource = e.target.value;
+  render();
+});
+document.getElementById("ae-search").addEventListener("input", e => {
+  searchQuery = e.target.value;
+  render();
+});
+
+// ── Data loader ────────────────────────────────────────────────────────────
+async function loadData() {
+  try {
+    let data;
+    const slot = document.getElementById("alphaedge-data");
+    if (slot && slot.textContent.trim()) {
+      data = JSON.parse(slot.textContent);
+    } else {
+      const r = await fetch("alphaedge.json?" + Date.now());
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      data = await r.json();
+    }
+
+    ALL_ARTICLES = data.articles || [];
+
+    // Populate source filter
+    const sources = [...new Set(ALL_ARTICLES.map(a => a.source).filter(Boolean))].sort();
+    const sel = document.getElementById("source-select");
+    sources.forEach(s => {
+      const o = document.createElement("option");
+      o.value = s; o.textContent = s;
+      sel.appendChild(o);
+    });
+
+    // Update header counts
+    document.getElementById("ae-count").textContent = ALL_ARTICLES.length.toLocaleString();
+    document.getElementById("utility-count").textContent =
+      ALL_ARTICLES.length + " articles";
+    if (data.last_updated) {
+      document.getElementById("ae-updated").textContent =
+        new Date(data.last_updated).toLocaleDateString("en-GB", {
+          day:"numeric", month:"long", year:"numeric"
+        });
+    }
+
+    document.getElementById("loading").style.display = "none";
+    if (ALL_ARTICLES.length === 0) {
+      document.getElementById("error-state").style.display = "flex";
+    } else {
+      document.getElementById("content").style.display = "block";
+      render();
+    }
+
+  } catch (err) {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("error-state").style.display = "flex";
+    console.error("AlphaEdge:", err.message);
+  }
+}
+
+// ── Dates ──────────────────────────────────────────────────────────────────
+document.getElementById("utility-date").textContent = new Date().toLocaleDateString("en-GB", {
+  weekday:"long", day:"numeric", month:"long", year:"numeric"
+});
+document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+loadData();
+
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
+<!-- ══ Tip modal ═════════════════════════════════════════════════════════════ -->
+<div id="tip-modal" role="dialog" aria-modal="true" aria-labelledby="tip-modal-headline">
+  <div id="tip-modal-backdrop"
+       onclick="document.getElementById('tip-modal').classList.remove('open')"></div>
+  <div id="tip-modal-card">
+    <button id="tip-modal-close"
+            onclick="document.getElementById('tip-modal').classList.remove('open')"
+            aria-label="Close">×</button>
+    <div id="tip-modal-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+           fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+    </div>
+    <div id="tip-modal-headline">Have a tip?</div>
+    <p id="tip-modal-body">Do you have important information you would like to share with the FitOut Post?</p>
+    <a href="mailto:info@fitoutpost.com" id="tip-modal-email">info@fitoutpost.com</a>
+    <p id="tip-modal-note">All communications are treated with strict confidentiality.<br>Our editorial team reads every message.</p>
+  </div>
+</div>
+
+<script>
+// Have a tip? — close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('tip-modal').classList.remove('open');
+});
+</script>
+<script></script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>

@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intelligence — FitOut Post</title>
+  <meta name="description" content="Global fit-out cost data: $/m² benchmarks from CBRE, JLL, Cushman &amp; Wakefield, Knight Frank and 30+ sources. Organised by continent and country." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!--INTELLIGENCE-DATA-SLOT-->
+
+  <style>
+  /* ─── Reset ──────────────────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --salmon:      #FFF1E5;
+    --salmon-dk:   #F2DFCE;
+    --salmon-md:   #FAE8D6;
+    --white:       #FFFFFF;
+    --black:       #1a1a1a;
+    --black-mid:   #262626;
+    --claret:      #990033;
+    --claret-lt:   #CC0044;
+    --teal:        #0D7680;
+    --warm-gray:   #66605A;
+    --mid-gray:    #9A948E;
+    --border:      #D9CBC0;
+    --border-lt:   #EDE3DA;
+    --border-dk:   #B8A99A;
+    --card-bg:     #FFFFFF;
+    --card-hover:  #FFF8F3;
+    --serif:       "Playfair Display", Georgia, "Times New Roman", serif;
+    --serif-body:  "EB Garamond", Georgia, "Times New Roman", serif;
+    --sans:        "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  html  { scroll-behavior: smooth; font-size: 16px; }
+  body  {
+    font-family: var(--sans);
+    background: var(--salmon);
+    color: var(--black);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--claret); }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     TIER 1 — UTILITY BAR
+  ══════════════════════════════════════════════════════════════════════════ */
+  #utility-bar {
+    background: var(--black);
+    color: #9A8A80;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid #333;
+    padding: 0 24px;
+  }
+  #utility-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #utility-left  { display: flex; align-items: center; gap: 20px; }
+  #utility-date  { color: #9A8A80; }
+  #utility-edition { color: #7a706a; padding-left: 20px; border-left: 1px solid #3a3a3a; }
+  #utility-right { display: flex; align-items: center; gap: 20px; }
+  .util-link { color: #9A8A80; transition: color .15s; }
+  .util-link:hover { color: #D4C4BA; }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     TIER 2 — MASTHEAD
+  ══════════════════════════════════════════════════════════════════════════ */
+  #masthead {
+    background: var(--salmon);
+    border-bottom: 2px solid var(--black);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+  #masthead-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  #fop-logo {
+    display: flex; align-items: center; gap: 14px;
+    flex-shrink: 0; cursor: default; user-select: none; text-decoration: none;
+  }
+  #fop-logo:hover { color: inherit; }
+  #fop-box {
+    width: 52px; height: 52px;
+    background: var(--black);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  #fop-box span {
+    font-family: var(--serif); font-weight: 800; font-size: 24px;
+    letter-spacing: 1px; color: #fff; line-height: 1;
+  }
+  #fop-wordmark { display: flex; flex-direction: column; line-height: 1.2; }
+  #fop-wordmark strong {
+    font-family: var(--serif); font-weight: 700; font-size: 20px;
+    letter-spacing: 0.2px; color: var(--black);
+  }
+  #fop-wordmark em {
+    font-style: normal; font-size: 10px; letter-spacing: 1.4px;
+    text-transform: uppercase; color: var(--warm-gray); font-weight: 500; margin-top: 2px;
+  }
+  #masthead-divider { width: 1px; height: 32px; background: var(--border-dk); flex-shrink: 0; margin: 0 4px; }
+  #masthead-right {
+    margin-left: auto; display: flex; align-items: center; gap: 16px; flex-shrink: 0;
+  }
+  #masthead-updated { font-size: 11px; color: var(--warm-gray); text-align: right; line-height: 1.6; }
+  #masthead-updated strong { color: var(--black); font-weight: 600; }
+  .masthead-nav-link {
+    font-size: 12.5px; font-weight: 500; color: var(--black);
+    padding: 6px 14px; border: 1px solid var(--border-dk);
+    transition: background .15s, border-color .15s, color .15s; white-space: nowrap;
+  }
+  .masthead-nav-link:hover { background: var(--black); border-color: var(--black); color: #fff; }
+  .masthead-nav-link--cta {
+    background: var(--claret); border-color: var(--claret); color: #fff;
+    font-weight: 600; padding: 6px 18px; letter-spacing: 0.2px;
+  }
+  .masthead-nav-link--cta:hover { background: var(--claret-lt); border-color: var(--claret-lt); color: #fff; }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     TIER 3 — PRODUCT NAV
+  ══════════════════════════════════════════════════════════════════════════ */
+  #product-nav { background: var(--black); position: sticky; top: 72px; z-index: 195; }
+  #product-nav-inner {
+    max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; gap: 0;
+  }
+  .pnav-link {
+    display: inline-block; padding: 0 20px; height: 38px; line-height: 38px;
+    font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.65);
+    letter-spacing: .3px; border-right: 1px solid rgba(255,255,255,.1);
+    transition: color .15s, background .15s; white-space: nowrap; cursor: pointer;
+  }
+  .pnav-link:first-child { border-left: 1px solid rgba(255,255,255,.1); }
+  .pnav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
+  .pnav-link.active { color: #fff; background: var(--claret); border-color: var(--claret); }
+  .pnav-link.active + .pnav-link { border-left-color: var(--claret); }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     TIER 4 — SECTION NAV (continent tabs)
+  ══════════════════════════════════════════════════════════════════════════ */
+  #nav-bar {
+    background: var(--white); border-bottom: 1px solid var(--border);
+    position: sticky; top: 110px; z-index: 190; overflow-x: auto; scrollbar-width: none;
+  }
+  #nav-bar::-webkit-scrollbar { display: none; }
+  #nav-tabs {
+    max-width: 1320px; margin: 0 auto; padding: 0 24px;
+    display: flex; gap: 0; align-items: stretch;
+  }
+  .tab {
+    font-family: var(--sans); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.5px; color: var(--warm-gray); padding: 12px 16px;
+    border-bottom: 3px solid transparent; cursor: pointer; white-space: nowrap;
+    transition: color .15s, border-color .15s; user-select: none;
+  }
+  .tab:hover { color: var(--black); border-bottom-color: var(--border-dk); }
+  .tab.active { color: var(--black); border-bottom-color: var(--claret); font-weight: 600; }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     SUB-BAR (filter controls)
+  ══════════════════════════════════════════════════════════════════════════ */
+  #sub-bar { background: var(--salmon-md); border-bottom: 1px solid var(--border); padding: 0 24px; }
+  #sub-inner {
+    max-width: 1320px; margin: 0 auto;
+    display: flex; align-items: center; height: 44px; gap: 16px; flex-wrap: wrap;
+  }
+  #sub-stats { font-size: 12px; color: var(--warm-gray); letter-spacing: 0.1px; }
+  #sub-stats strong { color: var(--black); font-weight: 600; }
+  #sub-right { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--warm-gray); }
+  .sub-select {
+    border: 1px solid var(--border); background: #fff;
+    padding: 4px 8px; font-family: var(--sans); font-size: 12px;
+    color: var(--black); cursor: pointer; outline: none;
+  }
+  .sub-select:focus { border-color: var(--black); }
+  .sub-input {
+    border: 1px solid var(--border); background: #fff;
+    padding: 4px 10px; font-family: var(--sans); font-size: 12px;
+    color: var(--black); outline: none; width: 160px;
+  }
+  .sub-input:focus { border-color: var(--black); }
+  .sub-input::placeholder { color: var(--mid-gray); }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     PERIOD PILLS
+  ══════════════════════════════════════════════════════════════════════════ */
+  #period-bar {
+    background: var(--white); border-bottom: 1px solid var(--border-lt);
+    padding: 0 24px;
+  }
+  #period-inner {
+    max-width: 1320px; margin: 0 auto; height: 38px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  #period-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--mid-gray); white-space: nowrap; flex-shrink: 0;
+  }
+  #period-pills { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+  #period-pills::-webkit-scrollbar { display: none; }
+  .period-pill {
+    background: transparent; border: 1px solid var(--border);
+    color: var(--warm-gray); font-family: var(--sans); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.3px; padding: 4px 12px; cursor: pointer; white-space: nowrap;
+    transition: all .15s;
+  }
+  .period-pill:hover { border-color: var(--black); color: var(--black); }
+  .period-pill.active { background: var(--black); border-color: var(--black); color: #fff; }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     MAIN CONTENT
+  ══════════════════════════════════════════════════════════════════════════ */
+  #main { max-width: 1320px; margin: 0 auto; padding: 32px 24px 100px; }
+
+  /* ─── Summary cards strip ────────────────────────────────────────────────── */
+  #summary-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .sum-card {
+    background: var(--card-bg); padding: 18px 20px;
+    border-top: 3px solid var(--claret);
+    cursor: pointer; transition: background .18s;
+  }
+  .sum-card:hover { background: var(--card-hover); }
+  .sum-card-region {
+    font-size: 10px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--claret); margin-bottom: 8px;
+  }
+  .sum-card-range {
+    font-family: var(--serif); font-size: 20px; font-weight: 700;
+    color: var(--black); line-height: 1.2; margin-bottom: 4px;
+  }
+  .sum-card-unit { font-size: 10px; color: var(--mid-gray); letter-spacing: 0.3px; }
+  .sum-card-count { font-size: 10px; color: var(--mid-gray); margin-top: 8px; }
+
+  /* Continent colours for summary cards */
+  .sum-card[data-c="Europe"]       { border-top-color: #0D7680; }
+  .sum-card[data-c="Europe"] .sum-card-region { color: #0D7680; }
+  .sum-card[data-c="Middle East"]  { border-top-color: #D4690A; }
+  .sum-card[data-c="Middle East"] .sum-card-region { color: #D4690A; }
+  .sum-card[data-c="Asia Pacific"] { border-top-color: #7B5EA7; }
+  .sum-card[data-c="Asia Pacific"] .sum-card-region { color: #7B5EA7; }
+  .sum-card[data-c="Americas"]     { border-top-color: #2E7D32; }
+  .sum-card[data-c="Americas"] .sum-card-region { color: #2E7D32; }
+  .sum-card[data-c="Africa"]       { border-top-color: #990033; }
+  .sum-card[data-c="Africa"] .sum-card-region { color: #990033; }
+  .sum-card[data-c="Oceania"]      { border-top-color: #006064; }
+  .sum-card[data-c="Oceania"] .sum-card-region { color: #006064; }
+  .sum-card[data-c="Global"]       { border-top-color: #1A237E; }
+  .sum-card[data-c="Global"] .sum-card-region { color: #1A237E; }
+
+  /* ─── Data table ─────────────────────────────────────────────────────────── */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); background: var(--white); }
+  .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .data-table thead th {
+    background: var(--black); color: rgba(255,255,255,.75);
+    font-family: var(--sans); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.8px; text-transform: uppercase;
+    padding: 11px 14px; text-align: left; white-space: nowrap;
+    position: sticky; top: 0; z-index: 1;
+    cursor: pointer; user-select: none;
+    border-right: 1px solid rgba(255,255,255,.08);
+    transition: background .15s;
+  }
+  .data-table thead th:hover { background: #2a2a2a; color: #fff; }
+  .data-table thead th.sorted-asc::after  { content: " ↑"; color: var(--claret); }
+  .data-table thead th.sorted-desc::after { content: " ↓"; color: var(--claret); }
+  .data-table thead th:last-child { border-right: none; }
+
+  .data-table tbody td {
+    padding: 12px 14px; border-bottom: 1px solid var(--border-lt);
+    vertical-align: top; transition: background .12s;
+  }
+  .data-table tbody tr:last-child td { border-bottom: none; }
+  .data-table tbody tr:hover td { background: var(--card-hover); }
+
+  .td-city {
+    font-family: var(--serif); font-size: 15px; font-weight: 700;
+    color: var(--black); line-height: 1.3;
+  }
+  .td-country {
+    font-size: 11px; color: var(--mid-gray); margin-top: 2px; font-weight: 400;
+  }
+  .td-continent-badge {
+    display: inline-block; font-size: 9px; font-weight: 600; letter-spacing: 0.5px;
+    text-transform: uppercase; color: var(--warm-gray);
+    border: 1px solid var(--border); padding: 1px 5px; margin-top: 4px;
+  }
+  .td-type {
+    font-size: 11px; font-weight: 500; color: var(--warm-gray);
+    background: var(--salmon-md); padding: 3px 7px; display: inline-block;
+    border: 1px solid var(--border-lt); white-space: nowrap;
+  }
+  .td-cost-usd {
+    font-family: var(--serif); font-size: 17px; font-weight: 700;
+    color: var(--black); white-space: nowrap; line-height: 1.2;
+  }
+  .td-cost-orig {
+    font-size: 10px; color: var(--mid-gray); margin-top: 3px; white-space: nowrap;
+  }
+  .cost-green { color: #2E7D32; }
+  .cost-amber { color: #D4690A; }
+  .cost-red   { color: var(--claret); }
+  .td-source-name {
+    font-size: 12px; font-weight: 600; color: var(--black); margin-bottom: 3px;
+  }
+  .td-report-link {
+    font-size: 11px; color: var(--claret); line-height: 1.4;
+  }
+  .td-report-link a { color: var(--claret); transition: color .15s; }
+  .td-report-link a:hover { color: var(--claret-lt); }
+  .td-summary {
+    font-family: var(--serif-body); font-size: 14px; line-height: 1.55;
+    color: var(--warm-gray); max-width: 340px;
+  }
+  .td-date { font-size: 11px; color: var(--mid-gray); white-space: nowrap; }
+
+  /* ─── Empty / loading states ─────────────────────────────────────────────── */
+  .intel-empty {
+    text-align: center; padding: 80px 24px;
+    border: 1px solid var(--border); background: var(--white);
+  }
+  .intel-empty-title {
+    font-family: var(--serif); font-size: 22px; font-style: italic;
+    color: var(--warm-gray); margin-bottom: 12px;
+  }
+  .intel-empty-body { font-size: 13px; color: var(--mid-gray); line-height: 1.7; }
+  .intel-empty-body code {
+    background: var(--salmon-md); border: 1px solid var(--border);
+    padding: 2px 6px; font-family: "SFMono-Regular", "Fira Mono", monospace;
+    font-size: 12px; color: var(--black);
+  }
+
+  /* ─── Server badge ───────────────────────────────────────────────────────── */
+  .server-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: var(--sans); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.3px; padding: 3px 10px;
+    border: 1px solid; vertical-align: middle;
+  }
+  .server-badge.live   { background: #d4edda; color: #155724; border-color: #c3e6cb; }
+  .server-badge.offline{ background: var(--salmon-md); color: var(--warm-gray); border-color: var(--border); }
+  .server-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .server-badge.live .server-dot { background: #28a745; animation: pulse 1.5s infinite; }
+  .server-badge.offline .server-dot { background: var(--mid-gray); }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  /* ─── Section heading ────────────────────────────────────────────────────── */
+  .intel-section-head {
+    display: flex; align-items: baseline; gap: 12px;
+    padding-bottom: 10px; margin-bottom: 24px;
+    border-bottom: 1px solid var(--black); position: relative;
+  }
+  .intel-section-head::before {
+    content: ""; position: absolute; bottom: -1px; left: 0;
+    width: 60px; height: 3px; background: var(--claret);
+  }
+  .intel-section-title {
+    font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--black);
+  }
+  .intel-section-count {
+    font-size: 11px; color: var(--mid-gray); font-weight: 500; letter-spacing: 0.3px;
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     FOOTER
+  ══════════════════════════════════════════════════════════════════════════ */
+  #footer { background: var(--black); color: #A09890; margin-top: 80px; }
+  #footer-main {
+    max-width: 1320px; margin: 0 auto; padding: 48px 24px 40px;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+    border-bottom: 1px solid #2e2e2e;
+  }
+  #footer-brand .footer-logo-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  #footer-fop-box {
+    width: 40px; height: 40px; background: #fff;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  #footer-fop-box span { font-family: var(--serif); font-weight: 800; font-size: 18px; color: var(--black); }
+  #footer-fop-wordmark { display: flex; flex-direction: column; }
+  #footer-fop-name { font-family: var(--serif); font-weight: 700; font-size: 16px; color: #E8D8C8; line-height: 1.2; }
+  #footer-fop-tagline { font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: #7a6e68; margin-top: 3px; }
+  #footer-brand p { font-size: 12.5px; line-height: 1.75; color: #A09890; max-width: 300px; margin-bottom: 14px; }
+  #footer-brand .footer-disclaimer { font-size: 11px; line-height: 1.7; color: #7a706a; max-width: 300px; font-style: italic; }
+  .footer-col h4 {
+    font-family: var(--sans); font-size: 10px; font-weight: 700;
+    letter-spacing: 1.2px; text-transform: uppercase; color: #B8A8A0;
+    margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #2e2e2e;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul li a { font-size: 12.5px; color: #A09890; transition: color .15s; }
+  .footer-col ul li a:hover { color: #E8D8C8; }
+  #footer-bottom {
+    max-width: 1320px; margin: 0 auto; padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  #footer-copyright { font-size: 11.5px; color: #7a706a; }
+  #footer-legal-links { display: flex; align-items: center; gap: 20px; }
+  #footer-legal-links a { font-size: 11.5px; color: #7a706a; transition: color .15s; }
+  #footer-legal-links a:hover { color: #9A8A80; }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════════════════════════════════════════ */
+  @media (max-width: 1100px) { #footer-main { grid-template-columns: 2fr 1fr 1fr; } #footer-legal { display: none; } }
+  @media (max-width: 860px)  { #summary-strip { grid-template-columns: repeat(3,1fr); } }
+  @media (max-width: 640px)  {
+    #summary-strip { grid-template-columns: repeat(2,1fr); }
+    .td-summary { display: none; }
+    #utility-bar { display: none; }
+    #masthead-inner { gap: 12px; height: 60px; }
+    #fop-wordmark, #masthead-divider { display: none; }
+    #nav-bar { top: 60px; }
+    #main { padding: 20px 16px 60px; }
+    #footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+    #footer-brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 480px) {
+    #summary-strip { grid-template-columns: 1fr; }
+    #footer-main { grid-template-columns: 1fr; }
+    .tab { font-size: 11px; padding: 10px 12px; }
+  }
+  
+  /* ── Have a tip? modal ───────────────────────────────────────────────────── */
+  #tip-modal {
+    display: none; position: fixed; inset: 0; z-index: 9000;
+    align-items: center; justify-content: center;
+  }
+  #tip-modal.open { display: flex; }
+  #tip-modal-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.65); backdrop-filter: blur(2px);
+  }
+  #tip-modal-card {
+    position: relative; z-index: 1;
+    background: #fff; max-width: 520px; width: calc(100% - 48px);
+    padding: 48px 40px 40px; text-align: center;
+    border-top: 4px solid var(--claret,#990033);
+    box-shadow: 0 24px 64px rgba(0,0,0,.35);
+    animation: tipIn .2s ease;
+  }
+  @keyframes tipIn {
+    from { opacity:0; transform:translateY(-12px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  #tip-modal-close {
+    position: absolute; top: 14px; right: 16px;
+    background: none; border: none; cursor: pointer;
+    font-size: 22px; color: #999; line-height: 1; padding: 4px 8px;
+    font-family: sans-serif; transition: color .15s;
+  }
+  #tip-modal-close:hover { color: var(--claret,#990033); }
+  #tip-modal-icon {
+    width: 64px; height: 64px;
+    background: var(--claret,#990033);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+  }
+  #tip-modal-headline {
+    font-family: var(--serif,'Playfair Display',Georgia,serif);
+    font-size: 28px; font-weight: 800; font-style: italic;
+    color: var(--black,#1a1a1a); margin-bottom: 18px;
+    letter-spacing: -.3px; line-height: 1.2;
+  }
+  #tip-modal-body {
+    font-size: 15px; line-height: 1.7;
+    color: var(--warm-gray,#66605A); margin-bottom: 28px;
+  }
+  #tip-modal-email {
+    display: inline-block;
+    font-size: 17px; font-weight: 700;
+    color: var(--claret,#990033);
+    border-bottom: 2px solid var(--claret,#990033);
+    padding-bottom: 2px; margin-bottom: 24px;
+    transition: color .15s;
+    text-decoration: none;
+  }
+  #tip-modal-email:hover { color: #CC0044; border-color: #CC0044; }
+  #tip-modal-note {
+    font-size: 11.5px; color: #aaa; line-height: 1.6;
+    padding-top: 20px; border-top: 1px solid #eee;
+  }
+  
+  /* ─── Have a tip? — utility bar button ───────────────────────────────────── */
+  .tip-util-btn {
+    font-size: 11px; font-weight: 600; letter-spacing: .3px;
+    color: var(--claret,#990033); background: none; border: none;
+    cursor: pointer; padding: 0; display: flex; align-items: center; gap: 5px;
+    font-family: var(--sans,Inter,sans-serif); transition: opacity .15s;
+    line-height: 1;
+  }
+  .tip-util-btn:hover { opacity: .7; }
+  
+    #ad-banner-cta { font-size: 15px; }
+    #ad-banner-label { display: none; }
+  }
+  
+  /* ─── Marketing banner — photo strip ─────────────────────────────────────── */
+  #ad-banner {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+    background: #111;         /* fallback while image loads */
+  }
+  #ad-banner-img {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: opacity .4s ease;
+    opacity: 0;               /* fades in once loaded */
+  }
+  #ad-banner-img.loaded { opacity: 1; }
+  #ad-banner-badge {
+    position: absolute; top: 12px; left: 16px;
+    font-size: 9px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: rgba(255,255,255,.6);
+    background: rgba(0,0,0,.35); padding: 3px 7px;
+    pointer-events: none;
+  }
+  #ad-banner-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 10px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,.45));
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  #ad-banner-overlay a {
+    font-size: 11px; font-weight: 600; letter-spacing: .3px;
+    color: rgba(255,255,255,.85); transition: color .15s;
+  }
+  #ad-banner-overlay a:hover { color: #fff; }
+  @media (max-width: 760px) {
+    #ad-banner { height: 160px; }
+  }
+  /* ─── Utility bar — Advertise link ──────────────────────────────────────── */
+  .util-ad-link {
+    font-size: 10px; font-weight: 500; color: var(--claret,#990033);
+    opacity: .8; letter-spacing: .2px; transition: opacity .15s;
+    white-space: nowrap;
+  }
+  .util-ad-link:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════ UTILITY BAR ══════════════════════════════════════ -->
+<div id="utility-bar">
+  <div id="utility-inner">
+    <div id="utility-left">
+      <span id="utility-date"></span>
+      <span id="utility-edition">Global Edition</span>
+    </div>
+    <div id="utility-right">
+      <span id="utility-count"></span>
+      <a href="companies_site.html" class="util-link">Companies</a>
+      <a href="contact.html" class="util-link">Contact</a>
+    
+      <button class="tip-util-btn"
+        onclick="document.getElementById('tip-modal').classList.add('open')"
+        aria-label="Have a tip? Contact the FitOut Post editorial team">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+             style="flex-shrink:0">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Have a tip?
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ MASTHEAD ══════════════════════════════════════════ -->
+<header id="masthead" role="banner">
+  <div id="masthead-inner">
+    <a href="index.html" id="fop-logo">
+      <div id="fop-box"><span>FOP</span></div>
+      <div id="fop-wordmark">
+        <strong>FitOut Post</strong>
+        <em>Global Industry Intelligence</em>
+      </div>
+    </a>
+    <div id="masthead-divider"></div>
+    <div id="masthead-right">
+      <div id="masthead-updated">
+        <strong id="meta-count">—</strong> datapoints<br>
+        <span style="font-size:10px;color:var(--mid-gray)">Updated <span id="meta-updated">—</span></span>
+      </div>
+      <span id="server-badge-wrap"></span>
+      <a href="companies_site.html" class="masthead-nav-link masthead-nav-link--cta">Companies directory</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════ PRODUCT NAV ══════════════════════════════════════ -->
+<nav id="product-nav" role="navigation" aria-label="Sections">
+  <div id="product-nav-inner">
+    <a class="pnav-link" href="index.html">News</a>
+    <a class="pnav-link" href="weekly.html">Weekly</a>
+    <a class="pnav-link active" href="intelligence.html">Intelligence</a>
+    <a class="pnav-link" href="tenders.html">Tenders</a>
+    <a class="pnav-link" href="pipeline.html">Pipeline</a>
+    <a class="pnav-link" href="companies_site.html">Companies</a>
+    <a class="pnav-link" href="alphaedge.html"><span style="font-size:1.1em">α</span> Edge</a>
+    <a class="pnav-link" href="betaedge.html"><span style="font-size:1.1em">β</span> Edge</a>
+    <a class="pnav-link" href="gammaedge.html"><span style="font-size:1.1em">γ</span> Edge</a>
+  </div>
+</nav>
+  <span id="ad-banner-badge">Advertisement</span>
+  <div id="ad-banner-overlay">
+    <a href="contact.html">Advertise with FitOut Post</a>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════ CONTINENT TABS ════════════════════════════════════ -->
+<nav id="nav-bar" role="navigation" aria-label="Regions">
+  <div id="nav-tabs">
+    <!-- dynamically populated -->
+  </div>
+</nav>
+
+<!-- ═══════════════════════ PERIOD BAR ═══════════════════════════════════════ -->
+<div id="period-bar">
+  <div id="period-inner">
+    <span id="period-label">Period</span>
+    <div id="period-pills"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ SUB-BAR ══════════════════════════════════════════ -->
+<div id="sub-bar">
+  <div id="sub-inner">
+    <div id="sub-stats">
+      Showing <strong id="stat-shown">—</strong> datapoints
+      from <strong id="stat-sources">—</strong> sources
+      across <strong id="stat-markets">—</strong> markets
+    </div>
+    <div id="sub-right">
+      <select class="sub-select" id="filter-type" onchange="applyFilters()" title="Fit-out type">
+        <option value="">All fit-out types</option>
+        <option>Office Cat A</option>
+        <option>Office Cat B</option>
+        <option>Retail</option>
+        <option>Hotel / Hospitality</option>
+        <option>Healthcare</option>
+        <option>Industrial / Warehouse</option>
+        <option>Data Centre</option>
+        <option>Residential</option>
+        <option>Mixed / Other</option>
+      </select>
+      <select class="sub-select" id="filter-source" onchange="applyFilters()" title="Source">
+        <option value="">All sources</option>
+      </select>
+      <input class="sub-input" id="filter-search" placeholder="Search city or country…" oninput="applyFilters()" type="search" />
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ MAIN ══════════════════════════════════════════════ -->
+<main id="main">
+
+  <!-- Summary cards -->
+  <div id="summary-strip"></div>
+
+  <!-- Section heading -->
+  <div class="intel-section-head">
+    <span class="intel-section-title">Cost Benchmarks</span>
+    <span class="intel-section-count" id="section-count"></span>
+  </div>
+
+  <!-- Data table -->
+  <div class="table-wrap">
+    <table class="data-table" id="data-table">
+      <thead>
+        <tr>
+          <th onclick="sortTable('geo')"    title="Sort by market">Market</th>
+          <th onclick="sortTable('type')"   title="Sort by fit-out type">Fit-Out Type</th>
+          <th onclick="sortTable('cost')"   title="Sort by cost">Cost (USD/m²)</th>
+          <th onclick="sortTable('source')" title="Sort by source">Source</th>
+          <th>Summary</th>
+          <th onclick="sortTable('date')"   title="Sort by date">Published</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </div>
+
+</main>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════════════════════════ -->
+
+<footer id="footer" role="contentinfo">
+  <div id="footer-main">
+    <div id="footer-brand">
+      <div class="footer-logo-wrap">
+        <div id="footer-fop-box"><span>FOP</span></div>
+        <div id="footer-fop-wordmark">
+          <div id="footer-fop-name">FitOut Post</div>
+          <div id="footer-fop-tagline">Global Industry Intelligence</div>
+        </div>
+      </div>
+      <p>
+        An independent aggregator of global fit-out and interior construction news.
+        Cost data is sourced from published industry reports. Exchange rates are
+        approximate at the date of data entry.
+      </p>
+      <p class="footer-disclaimer">
+        FitOut Post is not affiliated with any firm featured in its coverage.
+        Cost benchmarks are indicative only and should not be used as the sole
+        basis for budgeting decisions. Always consult a qualified cost consultant.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="intelligence.html">All markets</a></li>
+        <li><a href="intelligence.html" onclick="selectContinent('Europe');return false;">Europe</a></li>
+        <li><a href="intelligence.html" onclick="selectContinent('Middle East');return false;">Middle East</a></li>
+        <li><a href="intelligence.html" onclick="selectContinent('Asia Pacific');return false;">Asia Pacific</a></li>
+        <li><a href="intelligence.html" onclick="selectContinent('Americas');return false;">Americas</a></li>
+        <li><a href="intelligence.html" onclick="selectContinent('Africa');return false;">Africa</a></li>
+      </ul>
+    </div>
+    <div class="footer-col" id="footer-legal">
+      <h4>Intelligence</h4>
+      <ul>
+        <li><a href="index.html">News</a></li>
+        <li><a href="weekly.html">Weekly Roundup</a></li>
+        <li><a href="alphaedge.html">α Edge — Curated reads</a></li>
+        <li><a href="betaedge.html">β Edge — Industry polls</a></li>
+        <li><a href="gammaedge.html">γ Edge — Games</a></li>
+        <li><a href="companies_site.html">Companies directory</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="legal.html#terms">Terms of use</a></li>
+        <li><a href="legal.html#privacy">Privacy policy</a></li>
+        <li><a href="legal.html#cookies">Cookie policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="footer-bottom">
+    <div id="footer-copyright">
+      © <span id="footer-year"></span> FitOut Post. An independent publication. All rights reserved.
+    </div>
+    <div id="footer-legal-links">
+      <a href="legal.html#terms">Terms of use</a>
+      <a href="legal.html#privacy">Privacy policy</a>
+      <a href="legal.html#cookies">Cookie policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+//  Load embedded data
+// ─────────────────────────────────────────────────────────────────────────────
+const EMBEDDED = (function() {
+  const el = document.getElementById('intelligence-data');
+  if (!el) return { last_updated:'', total_datapoints:0, periods:[] };
+  try { return JSON.parse(el.textContent); }
+  catch(e) { console.error('intelligence-data parse error', e); return { last_updated:'', total_datapoints:0, periods:[] }; }
+})();
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  State
+// ─────────────────────────────────────────────────────────────────────────────
+let DATA            = EMBEDDED;
+let activePeriod    = '';
+let activeContinent = 'All';
+let sortField       = 'date';
+let sortDir         = -1;   // default: newest first
+let filteredDPs     = [];
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  Utility: date banner + footer year
+// ─────────────────────────────────────────────────────────────────────────────
+(function() {
+  const d = new Date();
+  const months = ['January','February','March','April','May','June',
+                  'July','August','September','October','November','December'];
+  const dEl = document.getElementById('utility-date');
+  if (dEl) dEl.textContent = d.toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+  const fyEl = document.getElementById('footer-year');
+  if (fyEl) fyEl.textContent = d.getFullYear();
+})();
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  Server probe (non-blocking — merges live data if admin is running)
+// ─────────────────────────────────────────────────────────────────────────────
+async function probeServer() {
+  const wrap = document.getElementById('server-badge-wrap');
+  try {
+    const r = await fetch('http://localhost:5050/api/intelligence/datapoints',
+      { signal: AbortSignal.timeout(1500) });
+    if (r.ok) {
+      const live = await r.json();
+      if (live && live.periods && live.periods.length) DATA = live;
+      wrap.innerHTML = '<span class="server-badge live"><span class="server-dot"></span>Live</span>';
+    } else throw new Error();
+  } catch(e) {
+    wrap.innerHTML = '<span class="server-badge offline"><span class="server-dot"></span>Snapshot</span>';
+  }
+  boot();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  Continent order
+// ─────────────────────────────────────────────────────────────────────────────
+const CONTINENTS_ORDER = ['All','Europe','Middle East','Asia Pacific','Americas','Africa','Oceania','Global'];
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  Data helpers
+// ─────────────────────────────────────────────────────────────────────────────
+function getAllDatapoints() {
+  let all = [];
+  for (const p of DATA.periods || []) all = all.concat(p.datapoints || []);
+  return all;
+}
+function getPeriodDatapoints(periodId) {
+  if (!periodId) return getAllDatapoints();
+  const p = (DATA.periods || []).find(x => x.id === periodId);
+  return p ? (p.datapoints || []) : [];
+}
+function formatCost(low, high) {
+  if (!low && !high) return '—';
+  const fmt = n => '$' + Number(n).toLocaleString('en-US');
+  if (!high || low === high) return fmt(low);
+  return fmt(low) + ' – ' + fmt(high);
+}
+function costColorClass(mid) {
+  if (!mid) return '';
+  if (mid < 1000) return 'cost-green';
+  if (mid < 2500) return 'cost-amber';
+  return 'cost-red';
+}
+function formatDate(s) {
+  if (!s) return '—';
+  const d = new Date(s);
+  if (isNaN(d)) return s;
+  return d.toLocaleDateString('en-GB', { year:'numeric', month:'short' });
+}
+function esc(s) {
+  return String(s||'')
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  Period pills
+// ─────────────────────────────────────────────────────────────────────────────
+function buildPeriodPills() {
+  const wrap = document.getElementById('period-pills');
+  wrap.innerHTML = '';
+  const periods = DATA.periods || [];
+  if (!periods.length) return;
+
+  const allBtn = document.createElement('button');
+  allBtn.className = 'period-pill' + (activePeriod === '' ? ' active' : '');
+  allBtn.textContent = 'All time';
+  allBtn.onclick = () => selectPeriod('');
+  wrap.appendChild(allBtn);
+
+  for (const p of [...periods].reverse()) {
+    const btn = document.createElement('button');
+    btn.className = 'period-pill' + (activePeriod === p.id ? ' active' : '');
+    btn.textContent = p.label || p.id;
+    btn.onclick = () => selectPeriod(p.id);
+    wrap.appendChild(btn);
+  }
+}
+function selectPeriod(id) {
+  activePeriod = id;
+  document.querySelectorAll('.period-pill').forEach(b => b.classList.toggle('active', b.textContent === (id ? (DATA.periods.find(p=>p.id===id)||{}).label||id : 'All time')));
+  buildContinentTabs();
+  buildSummaryCards();
+  populateSourceFilter();
+  applyFilters();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  Continent tabs
+// ─────────────────────────────────────────────────────────────────────────────
+function buildContinentTabs() {
+  const wrap = document.getElementById('nav-tabs');
+  const dps  = getPeriodDatapoints(activePeriod);
+  const present = new Set(dps.map(d => d.continent || 'Global'));
+  wrap.innerHTML = '';
+  for (const c of CONTINENTS_ORDER) {
+    if (c !== 'All' && !present.has(c)) continue;
+    const cnt = c === 'All' ? dps.length : dps.filter(d => (d.continent||'Global') === c).length;
+    const div = document.createElement('div');
+    div.className = 'tab' + (activeContinent === c ? ' active' : '');
+    div.dataset.c = c;
+    div.textContent = c + (cnt ? ' (' + cnt + ')' : '');
+    div.onclick = () => selectContinent(c);
+    wrap.appendChild(div);
+  }
+}
+function selectContinent(c) {
+  activeContinent = c;
+  document.querySelectorAll('#nav-tabs .tab').forEach(b => b.classList.toggle('active', b.dataset.c === c));
+  applyFilters();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  Summary cards
+// ─────────────────────────────────────────────────────────────────────────────
+function buildSummaryCards() {
+  const strip = document.getElementById('summary-strip');
+  const dps   = getPeriodDatapoints(activePeriod);
+  if (!dps.length) { strip.innerHTML = ''; return; }
+
+  const byCont = {};
+  for (const dp of dps) {
+    const c = dp.continent || 'Global';
+    if (!byCont[c]) byCont[c] = [];
+    byCont[c].push(dp);
+  }
+  strip.innerHTML = '';
+  for (const c of CONTINENTS_ORDER) {
+    if (c === 'All' || !byCont[c]) continue;
+    const arr   = byCont[c];
+    const lows  = arr.map(d => d.cost_usd_m2_low).filter(Boolean);
+    const highs = arr.map(d => d.cost_usd_m2_high || d.cost_usd_m2_low).filter(Boolean);
+    if (!lows.length) continue;
+    const minV = Math.min(...lows), maxV = Math.max(...highs);
+    const card = document.createElement('div');
+    card.className = 'sum-card';
+    card.dataset.c = c;
+    card.innerHTML =
+      '<div class="sum-card-region">' + esc(c) + '</div>' +
+      '<div class="sum-card-range">$' + Number(minV).toLocaleString('en-US') + '–$' + Number(maxV).toLocaleString('en-US') + '</div>' +
+      '<div class="sum-card-unit">USD / m²</div>' +
+      '<div class="sum-card-count">' + arr.length + ' datapoint' + (arr.length!==1?'s':'') + '</div>';
+    card.onclick = () => selectContinent(c);
+    strip.appendChild(card);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  Source filter population
+// ─────────────────────────────────────────────────────────────────────────────
+function populateSourceFilter() {
+  const sel = document.getElementById('filter-source');
+  const cur = sel.value;
+  const sources = [...new Set(getPeriodDatapoints(activePeriod).map(d => d.source).filter(Boolean))].sort();
+  sel.innerHTML = '<option value="">All sources</option>';
+  for (const s of sources) {
+    const opt = document.createElement('option');
+    opt.value = s; opt.textContent = s;
+    if (s === cur) opt.selected = true;
+    sel.appendChild(opt);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  Filter + sort + render
+// ─────────────────────────────────────────────────────────────────────────────
+function applyFilters() {
+  let dps = getPeriodDatapoints(activePeriod);
+
+  if (activeContinent !== 'All')
+    dps = dps.filter(d => (d.continent||'Global') === activeContinent);
+
+  const fType = document.getElementById('filter-type').value;
+  if (fType) dps = dps.filter(d => (d.fit_out_type||'').toLowerCase().includes(fType.toLowerCase()));
+
+  const fSrc = document.getElementById('filter-source').value;
+  if (fSrc) dps = dps.filter(d => d.source === fSrc);
+
+  const fSearch = document.getElementById('filter-search').value.toLowerCase().trim();
+  if (fSearch) {
+    dps = dps.filter(d =>
+      (d.city||'').toLowerCase().includes(fSearch) ||
+      (d.country||'').toLowerCase().includes(fSearch) ||
+      (d.source||'').toLowerCase().includes(fSearch) ||
+      (d.report_title||'').toLowerCase().includes(fSearch)
+    );
+  }
+
+  filteredDPs = sortDPs(dps);
+  renderTable(filteredDPs);
+  updateSubStats(filteredDPs);
+}
+
+function updateSubStats(dps) {
+  document.getElementById('stat-shown').textContent = dps.length;
+  document.getElementById('stat-sources').textContent = new Set(dps.map(d=>d.source).filter(Boolean)).size;
+  document.getElementById('stat-markets').textContent = new Set(dps.map(d=>(d.city||d.country)).filter(Boolean)).size;
+  const scEl = document.getElementById('section-count');
+  if (scEl) scEl.textContent = dps.length + ' datapoint' + (dps.length!==1?'s':'');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  Sort
+// ─────────────────────────────────────────────────────────────────────────────
+function sortTable(field) {
+  if (sortField === field) sortDir = -sortDir;
+  else { sortField = field; sortDir = (field === 'cost' || field === 'date') ? -1 : 1; }
+  document.querySelectorAll('.data-table thead th').forEach(th => {
+    th.classList.remove('sorted-asc','sorted-desc');
+  });
+  const fieldMap = { geo:0, type:1, cost:2, source:3, date:5 };
+  const idx = fieldMap[field];
+  if (idx !== undefined) {
+    const ths = document.querySelectorAll('.data-table thead th');
+    ths[idx].classList.add(sortDir === 1 ? 'sorted-asc' : 'sorted-desc');
+  }
+  filteredDPs = sortDPs(filteredDPs);
+  renderTable(filteredDPs);
+}
+function sortDPs(dps) {
+  return [...dps].sort((a, b) => {
+    let av, bv;
+    switch(sortField) {
+      case 'geo':
+        av = ((a.country||'')+(a.city||'')).toLowerCase();
+        bv = ((b.country||'')+(b.city||'')).toLowerCase();
+        break;
+      case 'type':
+        av = (a.fit_out_type||'').toLowerCase();
+        bv = (b.fit_out_type||'').toLowerCase();
+        break;
+      case 'cost':
+        av = a.cost_usd_m2_mid || a.cost_usd_m2_low || 0;
+        bv = b.cost_usd_m2_mid || b.cost_usd_m2_low || 0;
+        return sortDir * (av - bv);
+      case 'source':
+        av = (a.source||'').toLowerCase();
+        bv = (b.source||'').toLowerCase();
+        break;
+      case 'date':
+        av = a.date_published || '';
+        bv = b.date_published || '';
+        break;
+      default: return 0;
+    }
+    return av < bv ? -sortDir : av > bv ? sortDir : 0;
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  Render table
+// ─────────────────────────────────────────────────────────────────────────────
+function renderTable(dps) {
+  const tbody = document.getElementById('table-body');
+  if (!dps.length) {
+    tbody.innerHTML =
+      '<tr><td colspan="6" style="padding:0">' +
+      '<div class="intel-empty">' +
+      '<div class="intel-empty-title">No cost data matches your filters</div>' +
+      '<div class="intel-empty-body">Try clearing the filters, or run ' +
+      '<code>python fetch_intelligence.py</code> to fetch new reports.</div>' +
+      '</div></td></tr>';
+    return;
+  }
+  const rows = [];
+  for (const dp of dps) {
+    const mid = dp.cost_usd_m2_mid ||
+      (dp.cost_usd_m2_low && dp.cost_usd_m2_high
+        ? Math.round((dp.cost_usd_m2_low + dp.cost_usd_m2_high) / 2)
+        : dp.cost_usd_m2_low);
+    const costRangeStr = formatCost(dp.cost_usd_m2_low, dp.cost_usd_m2_high);
+    const reportLink = dp.report_url
+      ? '<a href="' + esc(dp.report_url) + '" target="_blank" rel="noopener">' +
+        esc(dp.report_title || 'Report') + ' ↗</a>'
+      : esc(dp.report_title || '');
+    rows.push(
+      '<tr>' +
+      '<td>' +
+        '<div class="td-city">' + esc(dp.city || dp.country || '—') + '</div>' +
+        '<div class="td-country">' + esc(dp.country || '') + '</div>' +
+        (dp.continent ? '<span class="td-continent-badge">' + esc(dp.continent) + '</span>' : '') +
+      '</td>' +
+      '<td><span class="td-type">' + esc(dp.fit_out_type || '—') + '</span></td>' +
+      '<td>' +
+        '<div class="td-cost-usd ' + costColorClass(mid) + '">' + costRangeStr + '</div>' +
+        (dp.cost_original ? '<div class="td-cost-orig">' + esc(dp.cost_original) + '</div>' : '') +
+        (dp.exchange_rate && dp.currency ? '<div class="td-cost-orig">' + esc(dp.currency) + '→USD @' + dp.exchange_rate + '</div>' : '') +
+      '</td>' +
+      '<td>' +
+        '<div class="td-source-name">' + esc(dp.source || '—') + '</div>' +
+        (reportLink ? '<div class="td-report-link">' + reportLink + '</div>' : '') +
+      '</td>' +
+      '<td class="td-summary">' + esc(dp.summary || '—') + '</td>' +
+      '<td class="td-date">' + formatDate(dp.date_published) + '</td>' +
+      '</tr>'
+    );
+  }
+  tbody.innerHTML = rows.join('');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  Boot
+// ─────────────────────────────────────────────────────────────────────────────
+function boot() {
+  const periods = DATA.periods || [];
+  if (periods.length && activePeriod === '')
+    activePeriod = periods[periods.length - 1].id;
+
+  // Masthead counts
+  const countEl = document.getElementById('meta-count');
+  if (countEl) countEl.textContent = DATA.total_datapoints || getAllDatapoints().length;
+  const updEl = document.getElementById('meta-updated');
+  if (updEl && DATA.last_updated) {
+    updEl.textContent = new Date(DATA.last_updated).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  }
+  // Utility count
+  const ucEl = document.getElementById('utility-count');
+  if (ucEl) ucEl.textContent = (DATA.total_datapoints || getAllDatapoints().length) + ' datapoints';
+
+  buildPeriodPills();
+  buildContinentTabs();
+  buildSummaryCards();
+  populateSourceFilter();
+
+  // Default sort: date descending (newest first)
+  document.querySelectorAll('.data-table thead th').forEach(th => th.classList.remove('sorted-asc','sorted-desc'));
+  const ths = document.querySelectorAll('.data-table thead th');
+  if (ths[5]) ths[5].classList.add('sorted-desc');
+
+  applyFilters();
+}
+
+// Start
+probeServer();
+</script>
+<!-- ══ Tip modal ═════════════════════════════════════════════════════════════ -->
+<div id="tip-modal" role="dialog" aria-modal="true" aria-labelledby="tip-modal-headline">
+  <div id="tip-modal-backdrop"
+       onclick="document.getElementById('tip-modal').classList.remove('open')"></div>
+  <div id="tip-modal-card">
+    <button id="tip-modal-close"
+            onclick="document.getElementById('tip-modal').classList.remove('open')"
+            aria-label="Close">×</button>
+    <div id="tip-modal-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+           fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+    </div>
+    <div id="tip-modal-headline">Have a tip?</div>
+    <p id="tip-modal-body">Do you have important information you would like to share with the FitOut Post?</p>
+    <a href="mailto:info@fitoutpost.com" id="tip-modal-email">info@fitoutpost.com</a>
+    <p id="tip-modal-note">All communications are treated with strict confidentiality.<br>Our editorial team reads every message.</p>
+  </div>
+</div>
+
+<script>
+// Have a tip? — close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('tip-modal').classList.remove('open');
+});
+</script>
+<script></script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>

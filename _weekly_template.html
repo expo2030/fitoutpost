@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weekly Roundup — FitOut Post</title>
+  <meta name="description" content="Every Monday: all fit-out industry news from the previous week, listed by market." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Data slot: build.py writes the JSON here -->
+  <!--WEEKLY-DATA-SLOT-->
+  <style>
+  /* ─── Reset ─────────────────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --salmon:      #FFF1E5;
+    --white:       #FFFFFF;
+    --black:       #1a1a1a;
+    --claret:      #990033;
+    --claret-lt:   #CC0044;
+    --warm-gray:   #66605A;
+    --mid-gray:    #9A948E;
+    --border:      #D9CBC0;
+    --border-lt:   #EDE3DA;
+    --body-bg:     #FAF5F0;
+    --row-alt:     #F5EFE9;
+    --serif:       'Playfair Display', Georgia, 'Times New Roman', serif;
+    --sans:        'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    --mono:        'JetBrains Mono', 'Courier New', monospace;
+  }
+  html  { scroll-behavior: smooth; font-size: 16px; }
+  body  { font-family: var(--sans); background: var(--body-bg); color: var(--black);
+          min-height: 100vh; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--claret); }
+
+  /* ─── Utility bar ───────────────────────────────────────────────────────── */
+  #utility-bar {
+    background: #1a1a1a; color: rgba(255,255,255,.7);
+    font-size: 11.5px; letter-spacing: .3px; padding: 0 24px;
+  }
+  #utility-inner {
+    max-width: 1320px; margin: 0 auto; height: 34px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  #utility-left  { display: flex; align-items: center; gap: 20px; }
+  #utility-right { display: flex; align-items: center; gap: 20px; }
+  #utility-date  { color: #9A8A80; }
+  .util-link { color: #9A8A80; transition: color .15s; }
+  .util-link:hover { color: #D4C4BA; }
+
+  /* ─── Masthead ───────────────────────────────────────────────────────────── */
+  #masthead {
+    background: var(--salmon); border-bottom: 2px solid var(--black);
+    position: sticky; top: 0; z-index: 200;
+  }
+  #masthead-inner {
+    max-width: 1320px; margin: 0 auto; padding: 0 24px;
+    height: 72px; display: flex; align-items: center; gap: 24px;
+  }
+  #fop-logo { display: flex; align-items: center; gap: 14px; flex-shrink: 0;
+              cursor: default; user-select: none; text-decoration: none; }
+  #fop-logo:hover { color: inherit; }
+  #fop-box  { width: 52px; height: 52px; background: var(--black);
+              display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  #fop-box span { font-family: var(--serif); font-weight: 800; font-size: 24px;
+                  letter-spacing: 1px; color: #fff; line-height: 1; }
+  #fop-wordmark { display: flex; flex-direction: column; line-height: 1.2; }
+  #fop-wordmark strong { font-family: var(--serif); font-weight: 700; font-size: 20px;
+                         letter-spacing: .2px; color: var(--black); }
+  #fop-wordmark em { font-style: normal; font-size: 10px; letter-spacing: 1.4px;
+                     text-transform: uppercase; color: var(--warm-gray);
+                     font-weight: 500; display: block; margin-top: 2px; }
+  #wr-badge { font-family: var(--serif); font-style: italic; font-size: 17px;
+               font-weight: 700; color: var(--black); padding-left: 16px;
+               border-left: 1px solid var(--border); }
+  #mh-right { margin-left: auto; flex-shrink: 0; }
+  .mh-cta { font-size: 12.5px; font-weight: 600; padding: 6px 18px;
+             background: var(--claret); color: #fff; border: 1px solid var(--claret);
+             transition: background .15s; }
+  .mh-cta:hover { background: var(--claret-lt); }
+
+  /* ─── Product nav ────────────────────────────────────────────────────────── */
+  #product-nav { background: var(--black); position: sticky; top: 72px; z-index: 195; }
+  #product-nav-inner {
+    max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex;
+  }
+  .pnav-link {
+    display: inline-block; padding: 0 20px; height: 38px; line-height: 38px;
+    font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.65);
+    border-right: 1px solid rgba(255,255,255,.1); transition: color .15s, background .15s;
+  }
+  .pnav-link:first-child { border-left: 1px solid rgba(255,255,255,.1); }
+  .pnav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
+  .pnav-link.active { color: #fff; background: var(--claret); border-color: var(--claret); }
+  .pnav-link.active + .pnav-link { border-left-color: var(--claret); }
+
+  /* ─── Page header ────────────────────────────────────────────────────────── */
+  #wr-header { background: var(--black); color: #fff; padding: 36px 24px 28px; }
+  #wr-hdr-inner {
+    max-width: 1320px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end;
+  }
+  #wr-title { font-family: var(--serif); font-size: 36px; font-weight: 800;
+               letter-spacing: -.5px; line-height: 1; }
+  #wr-sub { font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+             color: rgba(255,255,255,.4); margin-bottom: 8px; }
+  #wr-meta { text-align: right; font-size: 11px; color: rgba(255,255,255,.4); line-height: 2; }
+  #wr-meta strong { color: rgba(255,255,255,.7); font-size: 20px; display: block;
+                     font-family: var(--serif); line-height: 1.2; }
+
+  /* ─── Week selector ──────────────────────────────────────────────────────── */
+  #week-bar {
+    background: var(--salmon); border-bottom: 1px solid var(--border);
+    padding: 10px 24px;
+  }
+  #week-bar-inner {
+    max-width: 1320px; margin: 0 auto;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  #week-bar label { font-size: 11px; font-weight: 600; letter-spacing: 1px;
+                     text-transform: uppercase; color: var(--warm-gray); }
+  #week-select {
+    padding: 5px 10px; font-size: 13px; font-family: var(--sans);
+    border: 1px solid var(--border); background: var(--white); color: var(--black);
+    cursor: pointer; outline: none;
+  }
+  #week-select:focus { border-color: var(--black); }
+  #week-count { font-size: 12px; color: var(--mid-gray); margin-left: auto; }
+
+  /* ─── Main content ────────────────────────────────────────────────────────── */
+  #main { max-width: 1320px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* ─── Fax header (transmission header) ───────────────────────────────────── */
+  .fax-transmission {
+    border: 1px solid var(--black); margin-bottom: 32px; background: var(--white);
+  }
+  .fax-header {
+    background: var(--black); color: #fff;
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .5px;
+  }
+  .fax-header-field { display: flex; flex-direction: column; gap: 2px; }
+  .fax-header-label { color: rgba(255,255,255,.45); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .fax-header-value { color: #fff; font-size: 12px; }
+
+  /* ─── Continent sections ─────────────────────────────────────────────────── */
+  .continent-block { margin: 0; }
+  .continent-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 8px 20px;
+    background: var(--row-alt);
+    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+  }
+  .continent-header:first-child { border-top: none; }
+  .continent-name {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--warm-gray); font-family: var(--mono);
+  }
+  .continent-count {
+    font-size: 10px; color: var(--mid-gray); font-family: var(--mono);
+  }
+
+  /* ─── Article rows ───────────────────────────────────────────────────────── */
+  .article-row {
+    display: grid;
+    grid-template-columns: 54px 160px 1fr 56px;
+    align-items: baseline;
+    gap: 0;
+    padding: 9px 20px;
+    border-bottom: 1px solid var(--border-lt);
+    transition: background .1s;
+    line-height: 1.4;
+  }
+  .article-row:last-child { border-bottom: none; }
+  .article-row:hover { background: #FDF5EE; }
+  .article-row:nth-child(even) { background: var(--row-alt); }
+  .article-row:nth-child(even):hover { background: #EEE4D8; }
+
+  .art-date {
+    font-family: var(--mono); font-size: 11.5px; color: var(--claret);
+    font-weight: 500; white-space: nowrap; padding-right: 12px;
+  }
+  .art-market {
+    font-size: 12px; color: var(--warm-gray); font-weight: 500;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    padding-right: 16px; font-family: var(--mono);
+  }
+  .art-headline {
+    font-size: 13px; color: var(--black); font-weight: 400;
+    overflow: hidden; display: -webkit-box;
+    -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    padding-right: 16px; line-height: 1.45;
+  }
+  .art-link {
+    font-size: 11px; font-weight: 600; color: var(--claret); white-space: nowrap;
+    text-align: right; letter-spacing: .3px; font-family: var(--mono);
+  }
+  .art-link:hover { color: var(--claret-lt); }
+
+  /* ─── Empty / loading states ─────────────────────────────────────────────── */
+  .empty-state {
+    text-align: center; padding: 80px 24px; color: var(--warm-gray);
+    font-family: var(--serif); font-size: 18px; font-style: italic;
+  }
+  .empty-state small { display: block; font-family: var(--sans); font-size: 13px;
+                         margin-top: 8px; font-style: normal; }
+
+  /* ─── Footer ─────────────────────────────────────────────────────────────── */
+  #footer-inner a { color: rgba(255,255,255,.4); margin-left: 16px; }
+  #footer-inner a:hover { color: #fff; }
+
+  /* ─── Responsive ─────────────────────────────────────────────────────────── */
+  @media (max-width: 700px) {
+    .article-row { grid-template-columns: 50px 1fr 44px; }
+    .art-market { display: none; }
+    .fax-header { grid-template-columns: 1fr 1fr; }
+    .fax-header-field:last-child { display: none; }
+  }
+  
+  /* ── Have a tip? modal ───────────────────────────────────────────────────── */
+  #tip-modal {
+    display: none; position: fixed; inset: 0; z-index: 9000;
+    align-items: center; justify-content: center;
+  }
+  #tip-modal.open { display: flex; }
+  #tip-modal-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.65); backdrop-filter: blur(2px);
+  }
+  #tip-modal-card {
+    position: relative; z-index: 1;
+    background: #fff; max-width: 520px; width: calc(100% - 48px);
+    padding: 48px 40px 40px; text-align: center;
+    border-top: 4px solid var(--claret,#990033);
+    box-shadow: 0 24px 64px rgba(0,0,0,.35);
+    animation: tipIn .2s ease;
+  }
+  @keyframes tipIn {
+    from { opacity:0; transform:translateY(-12px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  #tip-modal-close {
+    position: absolute; top: 14px; right: 16px;
+    background: none; border: none; cursor: pointer;
+    font-size: 22px; color: #999; line-height: 1; padding: 4px 8px;
+    font-family: sans-serif; transition: color .15s;
+  }
+  #tip-modal-close:hover { color: var(--claret,#990033); }
+  #tip-modal-icon {
+    width: 64px; height: 64px;
+    background: var(--claret,#990033);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+  }
+  #tip-modal-headline {
+    font-family: var(--serif,'Playfair Display',Georgia,serif);
+    font-size: 28px; font-weight: 800; font-style: italic;
+    color: var(--black,#1a1a1a); margin-bottom: 18px;
+    letter-spacing: -.3px; line-height: 1.2;
+  }
+  #tip-modal-body {
+    font-size: 15px; line-height: 1.7;
+    color: var(--warm-gray,#66605A); margin-bottom: 28px;
+  }
+  #tip-modal-email {
+    display: inline-block;
+    font-size: 17px; font-weight: 700;
+    color: var(--claret,#990033);
+    border-bottom: 2px solid var(--claret,#990033);
+    padding-bottom: 2px; margin-bottom: 24px;
+    transition: color .15s;
+    text-decoration: none;
+  }
+  #tip-modal-email:hover { color: #CC0044; border-color: #CC0044; }
+  #tip-modal-note {
+    font-size: 11.5px; color: #aaa; line-height: 1.6;
+    padding-top: 20px; border-top: 1px solid #eee;
+  }
+  
+  /* ─── Have a tip? — utility bar button ───────────────────────────────────── */
+  .tip-util-btn {
+    font-size: 11px; font-weight: 600; letter-spacing: .3px;
+    color: var(--claret,#990033); background: none; border: none;
+    cursor: pointer; padding: 0; display: flex; align-items: center; gap: 5px;
+    font-family: var(--sans,Inter,sans-serif); transition: opacity .15s;
+    line-height: 1;
+  }
+  .tip-util-btn:hover { opacity: .7; }
+  
+    #ad-banner-cta { font-size: 15px; }
+    #ad-banner-label { display: none; }
+  }
+  
+  /* ─── Full footer ────────────────────────────────────────────────────────── */
+  #footer {
+    background: var(--black,#1a1a1a);
+    color: #A09890;
+    margin-top: 80px;
+  }
+  #footer-main {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 48px 24px 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    border-bottom: 1px solid #2e2e2e;
+  }
+  #footer-brand .footer-logo-wrap {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+  }
+  #footer-fop-box {
+    width: 40px; height: 40px; background: #fff;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  #footer-fop-box span {
+    font-family: var(--serif,"Playfair Display",Georgia,serif);
+    font-weight: 800; font-size: 18px; letter-spacing: 0.5px; color: #1a1a1a;
+  }
+  #footer-fop-wordmark { display: flex; flex-direction: column; }
+  #footer-fop-name {
+    font-family: var(--serif,"Playfair Display",Georgia,serif);
+    font-weight: 700; font-size: 16px; color: #E8D8C8; line-height: 1.2;
+  }
+  #footer-fop-tagline {
+    font-family: var(--sans,Inter,sans-serif); font-size: 9px; font-weight: 600;
+    letter-spacing: 1.6px; text-transform: uppercase; color: #7a6e68; margin-top: 3px;
+  }
+  #footer-brand p {
+    font-size: 12.5px; line-height: 1.75; color: #A09890;
+    max-width: 300px; margin-bottom: 14px;
+  }
+  #footer-brand .footer-disclaimer {
+    font-size: 11px; line-height: 1.7; color: #7a706a;
+    max-width: 300px; font-style: italic;
+  }
+  .footer-col h4 {
+    font-family: var(--sans,Inter,sans-serif); font-size: 10px; font-weight: 700;
+    letter-spacing: 1.2px; text-transform: uppercase; color: #B8A8A0;
+    margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #2e2e2e;
+  }
+  .footer-col ul {
+    list-style: none; display: flex; flex-direction: column; gap: 8px;
+  }
+  .footer-col ul li a { font-size: 12.5px; color: #A09890; transition: color .15s; }
+  .footer-col ul li a:hover { color: #E8D8C8; }
+  #footer-bottom {
+    max-width: 1320px; margin: 0 auto; padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  #footer-copyright { font-size: 11.5px; color: #7a706a; }
+  #footer-legal-links { display: flex; align-items: center; gap: 20px; }
+  #footer-legal-links a { font-size: 11.5px; color: #7a706a; transition: color .15s; }
+  #footer-legal-links a:hover { color: #9A8A80; }
+  @media (max-width: 1100px) {
+    #footer-main { grid-template-columns: 2fr 1fr 1fr; }
+    #footer-legal { display: none; }
+  }
+  @media (max-width: 760px) {
+    #footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+    #footer-brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 480px) {
+    #footer-main { grid-template-columns: 1fr; }
+  }
+  
+  /* ─── Marketing banner — photo strip ─────────────────────────────────────── */
+  #ad-banner {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+    background: #111;         /* fallback while image loads */
+  }
+  #ad-banner-img {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: opacity .4s ease;
+    opacity: 0;               /* fades in once loaded */
+  }
+  #ad-banner-img.loaded { opacity: 1; }
+  #ad-banner-badge {
+    position: absolute; top: 12px; left: 16px;
+    font-size: 9px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: rgba(255,255,255,.6);
+    background: rgba(0,0,0,.35); padding: 3px 7px;
+    pointer-events: none;
+  }
+  #ad-banner-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 10px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,.45));
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  #ad-banner-overlay a {
+    font-size: 11px; font-weight: 600; letter-spacing: .3px;
+    color: rgba(255,255,255,.85); transition: color .15s;
+  }
+  #ad-banner-overlay a:hover { color: #fff; }
+  @media (max-width: 760px) {
+    #ad-banner { height: 160px; }
+  }
+  /* ─── Utility bar — Advertise link ──────────────────────────────────────── */
+  .util-ad-link {
+    font-size: 10px; font-weight: 500; color: var(--claret,#990033);
+    opacity: .8; letter-spacing: .2px; transition: opacity .15s;
+    white-space: nowrap;
+  }
+  .util-ad-link:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<div id="utility-bar"><div id="utility-inner">
+  <div id="utility-left">
+    <span id="utility-date"></span>
+  </div>
+  <div id="utility-right">
+    <a class="util-link" href="companies_site.html">Companies</a>
+    <a class="util-link" href="contact.html">Contact</a>
+  
+      <button class="tip-util-btn"
+        onclick="document.getElementById('tip-modal').classList.add('open')"
+        aria-label="Have a tip? Contact the FitOut Post editorial team">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+             style="flex-shrink:0">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Have a tip?
+      </button>
+    </div>
+</div></div>
+
+<header id="masthead">
+  <div id="masthead-inner">
+    <a href="index.html" id="fop-logo">
+      <div id="fop-box"><span>FOP</span></div>
+      <div id="fop-wordmark">
+        <strong>FitOut Post</strong>
+        <em>Global Industry Intelligence</em>
+      </div>
+    </a>
+    <div id="wr-badge">Weekly Roundup</div>
+    <div id="mh-right">
+      <a href="companies_site.html" class="mh-cta">Companies directory</a>
+    </div>
+  </div>
+</header>
+
+<nav id="product-nav" role="navigation" aria-label="Sections">
+  <div id="product-nav-inner">
+    <a class="pnav-link" href="index.html">News</a>
+    <a class="pnav-link active" href="weekly.html">Weekly</a>
+    <a class="pnav-link" href="intelligence.html">Intelligence</a>
+    <a class="pnav-link" href="tenders.html">Tenders</a>
+    <a class="pnav-link" href="pipeline.html">Pipeline</a>
+    <a class="pnav-link" href="companies_site.html">Companies</a>
+    <a class="pnav-link" href="alphaedge.html"><span style="font-size:1.1em">α</span> Edge</a>
+    <a class="pnav-link" href="betaedge.html"><span style="font-size:1.1em">β</span> Edge</a>
+    <a class="pnav-link" href="gammaedge.html"><span style="font-size:1.1em">γ</span> Edge</a>
+  </div>
+</nav>
+  <span id="ad-banner-badge">Advertisement</span>
+  <div id="ad-banner-overlay">
+    <a href="contact.html">Advertise with FitOut Post</a>
+  </div>
+</div>
+</div>
+
+<div id="wr-header"><div id="wr-hdr-inner">
+  <div>
+    <div id="wr-sub">FitOut Post</div>
+    <div id="wr-title">Weekly Roundup</div>
+  </div>
+  <div id="wr-meta">
+    <strong id="wr-total-count">—</strong>
+    articles this week<br>
+    Published every Monday 08:00
+  </div>
+</div></div>
+
+<div id="week-bar"><div id="week-bar-inner">
+  <label for="week-select">Edition</label>
+  <select id="week-select" onchange="renderWeek(this.value)"></select>
+  <span id="week-count"></span>
+</div></div>
+
+<div id="main">
+  <div id="roundup-container">
+    <div class="empty-state">Loading roundup…</div>
+  </div>
+</div>
+
+
+
+<footer id="footer" role="contentinfo">
+  <div id="footer-main">
+    <!-- Brand column -->
+    <div id="footer-brand">
+      <div class="footer-logo-wrap">
+        <div id="footer-fop-box"><span>FOP</span></div>
+        <div id="footer-fop-wordmark">
+          <div id="footer-fop-name">FitOut Post</div>
+          <div id="footer-fop-tagline">Global Industry Intelligence</div>
+        </div>
+      </div>
+      <p>An independent aggregator of global fit-out and interior construction news.
+         Articles are drawn from industry publications, company announcements, and
+         newswires across more than 50 countries. Updated daily.</p>
+      <p class="footer-disclaimer">FitOut Post is not affiliated with any company featured
+         in its coverage. Article links open the original source. Content is for reference only.</p>
+    </div>
+    <!-- Regions column -->
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="index.html" data-tab="All">All regions</a></li>
+        <li><a href="index.html" data-tab="Europe">Europe</a></li>
+        <li><a href="index.html" data-tab="Middle East">Middle East</a></li>
+        <li><a href="index.html" data-tab="Asia Pacific">Asia Pacific</a></li>
+        <li><a href="index.html" data-tab="Americas">Americas</a></li>
+        <li><a href="index.html" data-tab="Oceania">Oceania</a></li>
+      </ul>
+    </div>
+    <!-- Directory column -->
+    <div class="footer-col" id="footer-legal">
+      <h4>Directory</h4>
+      <ul>
+        <li><a href="companies_site.html">All companies</a></li>
+        <li><a href="companies_site.html?sector=office">Offices</a></li>
+        <li><a href="companies_site.html?sector=hospitality">Hospitality</a></li>
+        <li><a href="companies_site.html?sector=retail">Retail</a></li>
+        <li><a href="companies_site.html?sector=fb">Food and beverage</a></li>
+        <li><a href="companies_site.html?sector=leisure">Sports and entertainment</a></li>
+        <li><a href="companies_site.html?sector=Museums">Exhibitions and museums</a></li>
+        <li><a href="companies_site.html?sector=datacentre">Data centres</a></li>
+        <li><a href="companies_site.html?sector=healthcare">Healthcare</a></li>
+        <li><a href="companies_site.html?sector=lab">Life sciences</a></li>
+      </ul>
+    </div>
+    <!-- About column -->
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="legal.html#terms">Terms of use</a></li>
+        <li><a href="legal.html#privacy">Privacy policy</a></li>
+        <li><a href="legal.html#cookies">Cookie policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="footer-bottom">
+    <div id="footer-copyright">
+      © <span id="footer-year"></span> FitOut Post. An independent publication. All rights reserved.
+    </div>
+    <div id="footer-legal-links">
+      <a href="legal.html#terms">Terms of use</a>
+      <a href="legal.html#privacy">Privacy policy</a>
+      <a href="legal.html#cookies">Cookie policy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ─── Load data from embedded JSON ────────────────────────────────────────── */
+let DATA = null;
+const slot = document.getElementById("weekly-data");
+if (slot && slot.textContent.trim()) {
+  try { DATA = JSON.parse(slot.textContent); } catch (e) { console.error("Weekly data parse error:", e.message); }
+}
+
+/* ─── Helpers ────────────────────────────────────────────────────────────── */
+function esc(s) {
+  return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+/* ─── Populate week selector ─────────────────────────────────────────────── */
+function populateSelector(weeks) {
+  const sel = document.getElementById("week-select");
+  sel.innerHTML = weeks.map((w, i) =>
+    `<option value="${i}">${esc(w.label)}</option>`
+  ).join("");
+}
+
+/* ─── Render one week ────────────────────────────────────────────────────── */
+function renderWeek(weekIndex) {
+  const container = document.getElementById("roundup-container");
+  if (!DATA || !DATA.weeks || !DATA.weeks.length) {
+    container.innerHTML = `<div class="empty-state">
+      No roundups published yet.<br>
+      <small>Run <code>python fetch_weekly.py</code> every Monday to generate the week's digest.</small>
+    </div>`;
+    document.getElementById("wr-total-count").textContent = "—";
+    return;
+  }
+
+  const w = DATA.weeks[weekIndex] || DATA.weeks[0];
+  document.getElementById("wr-total-count").textContent = w.total || 0;
+  document.getElementById("week-count").textContent =
+    `${w.total || 0} articles · generated ${w.generated ? new Date(w.generated).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}) : "—"}`;
+
+  // Fax transmission header
+  const faxHeader = `
+    <div class="fax-header">
+      <div class="fax-header-field">
+        <span class="fax-header-label">TO</span>
+        <span class="fax-header-value">FitOut Industry</span>
+      </div>
+      <div class="fax-header-field">
+        <span class="fax-header-label">FROM</span>
+        <span class="fax-header-value">FitOut Post Editorial</span>
+      </div>
+      <div class="fax-header-field">
+        <span class="fax-header-label">WEEK</span>
+        <span class="fax-header-value">${esc(w.label)}</span>
+      </div>
+    </div>`;
+
+  // Continent groups
+  const groups = (w.groups || []).map(g => {
+    const rows = g.articles.map(a => `
+      <div class="article-row">
+        <span class="art-date">${esc(a.date_display)}</span>
+        <span class="art-market" title="${esc(a.country)}">${esc(a.country)}</span>
+        <span class="art-headline">${esc(a.headline)}</span>
+        <a class="art-link" href="${esc(a.url)}" target="_blank" rel="noopener">→ Read</a>
+      </div>`).join("");
+
+    return `
+      <div class="continent-block">
+        <div class="continent-header">
+          <span class="continent-name">${esc(g.continent)}</span>
+          <span class="continent-count">${g.articles.length} article${g.articles.length !== 1 ? "s" : ""}</span>
+        </div>
+        ${rows}
+      </div>`;
+  }).join("");
+
+  container.innerHTML = `
+    <div class="fax-transmission">
+      ${faxHeader}
+      ${groups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No articles found for this week.</div>'}
+    </div>`;
+}
+
+/* ─── Init ───────────────────────────────────────────────────────────────── */
+document.getElementById("utility-date").textContent =
+  new Date().toLocaleDateString("en-GB", {weekday:"long",day:"numeric",month:"long",year:"numeric"});
+document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+if (DATA && DATA.weeks && DATA.weeks.length) {
+  populateSelector(DATA.weeks);
+  renderWeek(0);
+} else {
+  renderWeek(0); // will show empty state
+}
+
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
+<!-- ══ Tip modal ═════════════════════════════════════════════════════════════ -->
+<div id="tip-modal" role="dialog" aria-modal="true" aria-labelledby="tip-modal-headline">
+  <div id="tip-modal-backdrop"
+       onclick="document.getElementById('tip-modal').classList.remove('open')"></div>
+  <div id="tip-modal-card">
+    <button id="tip-modal-close"
+            onclick="document.getElementById('tip-modal').classList.remove('open')"
+            aria-label="Close">×</button>
+    <div id="tip-modal-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+           fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+    </div>
+    <div id="tip-modal-headline">Have a tip?</div>
+    <p id="tip-modal-body">Do you have important information you would like to share with the FitOut Post?</p>
+    <a href="mailto:info@fitoutpost.com" id="tip-modal-email">info@fitoutpost.com</a>
+    <p id="tip-modal-note">All communications are treated with strict confidentiality.<br>Our editorial team reads every message.</p>
+  </div>
+</div>
+
+<script>
+// Have a tip? — close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('tip-modal').classList.remove('open');
+});
+</script>
+<script></script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>

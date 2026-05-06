@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — FitOut Post</title>
+  <meta name="description" content="FitOut Post Free vs Pro. Get full access to global fit-out intelligence, tender alerts, pipeline data and API access with a Pro membership." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --salmon: #FFF1E5; --salmon-dk: #F2DFCE; --white: #FFFFFF;
+    --black: #1a1a1a; --claret: #990033; --claret-lt: #CC0044;
+    --teal: #0D7680; --warm-gray: #66605A; --mid-gray: #9A948E;
+    --border: #D9CBC0; --border-lt: #EDE3DA; --border-dk: #B8A99A;
+    --serif: "Playfair Display", Georgia, serif;
+    --serif-body: "EB Garamond", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    --gold: #B8860B;
+  }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body { font-family: var(--sans); background: var(--salmon); color: var(--black); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--claret); }
+
+  /* Utility bar */
+  #utility-bar { background: var(--black); color: #9A8A80; font-size: 11px; letter-spacing: 0.3px; border-bottom: 1px solid #333; padding: 0 24px; }
+  #utility-inner { max-width: 1320px; margin: 0 auto; height: 34px; display: flex; align-items: center; justify-content: space-between; }
+  #utility-left { display: flex; align-items: center; gap: 20px; }
+  #utility-right { display: flex; align-items: center; gap: 20px; }
+  .util-link { color: #9A8A80; transition: color .15s; }
+  .util-link:hover { color: #D4C4BA; }
+
+  /* Masthead */
+  #masthead { background: var(--salmon); border-bottom: 2px solid var(--black); }
+  #masthead-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; height: 72px; display: flex; align-items: center; gap: 24px; }
+  #fop-logo { display: flex; align-items: center; gap: 14px; flex-shrink: 0; text-decoration: none; }
+  #fop-logo:hover { color: inherit; }
+  #fop-box { width: 52px; height: 52px; background: var(--black); display: flex; align-items: center; justify-content: center; }
+  #fop-box span { font-family: var(--serif); font-weight: 800; font-size: 24px; letter-spacing: 1px; color: #fff; line-height: 1; }
+  #fop-wordmark { display: flex; flex-direction: column; line-height: 1.2; }
+  #fop-wordmark strong { font-family: var(--serif); font-weight: 700; font-size: 20px; letter-spacing: 0.2px; color: var(--black); }
+  #fop-wordmark em { font-style: normal; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; margin-top: 2px; }
+  #masthead-right { margin-left: auto; display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+  .masthead-nav-link { font-size: 12.5px; font-weight: 500; color: var(--black); padding: 6px 14px; border: 1px solid var(--border-dk); transition: background .15s, border-color .15s, color .15s; white-space: nowrap; }
+  .masthead-nav-link:hover { background: var(--black); border-color: var(--black); color: #fff; }
+  .masthead-nav-link--cta { background: var(--claret); border-color: var(--claret); color: #fff; font-weight: 600; padding: 6px 18px; }
+  .masthead-nav-link--cta:hover { background: var(--claret-lt); border-color: var(--claret-lt); color: #fff; }
+
+  /* Product nav */
+  #product-nav { background: var(--black); }
+  #product-nav-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; }
+  .pnav-link { display: inline-block; padding: 0 20px; height: 38px; line-height: 38px; font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.65); border-right: 1px solid rgba(255,255,255,.1); transition: color .15s, background .15s; white-space: nowrap; }
+  .pnav-link:first-child { border-left: 1px solid rgba(255,255,255,.1); }
+  .pnav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
+  .pnav-link.active { color: #fff; background: var(--claret); border-color: var(--claret); }
+
+  /* Page */
+  #page { max-width: 1320px; margin: 0 auto; padding: 0 24px 100px; }
+
+  /* Hero */
+  .pricing-hero { text-align: center; padding: 72px 24px 60px; }
+  .pricing-hero-kicker { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--claret); font-weight: 600; margin-bottom: 16px; }
+  .pricing-hero-headline { font-family: var(--serif); font-size: 52px; font-weight: 700; line-height: 1.1; margin-bottom: 20px; }
+  .pricing-hero-sub { font-family: var(--serif-body); font-size: 20px; line-height: 1.7; color: var(--warm-gray); max-width: 600px; margin: 0 auto 12px; }
+  .pricing-hero-note { font-size: 12px; color: var(--mid-gray); }
+
+  /* Billing toggle */
+  .billing-toggle { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 28px 0 52px; }
+  .billing-toggle span { font-size: 13px; font-weight: 500; color: var(--warm-gray); }
+  .toggle-switch { position: relative; width: 48px; height: 26px; }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: var(--claret); transition: .3s; }
+  .toggle-slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 3px; bottom: 3px; background: white; transition: .3s; }
+  .toggle-switch input:checked + .toggle-slider:before { transform: translateX(22px); }
+  .billing-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; background: var(--gold); color: #fff; padding: 2px 8px; }
+  #billing-label { font-weight: 600; color: var(--black); transition: color .2s; }
+
+  /* Plans grid */
+  .plans-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; max-width: 880px; margin: 0 auto 80px; background: var(--border); }
+  .plan-card { background: var(--salmon); padding: 44px 40px 48px; position: relative; }
+  .plan-card.pro { background: var(--black); color: #fff; }
+  .plan-badge { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; margin-bottom: 20px; }
+  .plan-card:not(.pro) .plan-badge { color: var(--claret); }
+  .plan-card.pro .plan-badge { color: var(--gold); }
+  .plan-popular { position: absolute; top: 0; right: 0; background: var(--claret); color: #fff; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; padding: 4px 14px; }
+  .plan-name { font-family: var(--serif); font-size: 32px; font-weight: 700; margin-bottom: 4px; }
+  .plan-tagline { font-size: 13px; color: var(--warm-gray); margin-bottom: 32px; line-height: 1.5; }
+  .plan-card.pro .plan-tagline { color: #9A8A80; }
+  .plan-price { margin-bottom: 8px; }
+  .plan-price-amount { font-family: var(--serif); font-size: 48px; font-weight: 700; line-height: 1; }
+  .plan-price-period { font-size: 14px; color: var(--warm-gray); margin-left: 4px; }
+  .plan-card.pro .plan-price-period { color: #9A8A80; }
+  .plan-price-annual { font-size: 12px; color: var(--mid-gray); margin-bottom: 32px; min-height: 18px; }
+  .plan-card.pro .plan-price-annual { color: #6A6060; }
+  .plan-cta { display: block; text-align: center; padding: 13px 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.3px; transition: background .15s, border-color .15s, color .15s; margin-bottom: 40px; border: 2px solid transparent; }
+  .plan-card:not(.pro) .plan-cta { background: transparent; border-color: var(--border-dk); color: var(--black); }
+  .plan-card:not(.pro) .plan-cta:hover { background: var(--black); border-color: var(--black); color: #fff; }
+  .plan-card.pro .plan-cta { background: var(--claret); color: #fff; border-color: var(--claret); }
+  .plan-card.pro .plan-cta:hover { background: var(--claret-lt); border-color: var(--claret-lt); color: #fff; }
+  .plan-divider { height: 1px; background: var(--border); margin-bottom: 28px; }
+  .plan-card.pro .plan-divider { background: #333; }
+  .plan-features-label { font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; color: var(--mid-gray); margin-bottom: 18px; }
+  .plan-card.pro .plan-features-label { color: #6A6060; }
+  .plan-features { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .plan-features li { font-size: 13.5px; line-height: 1.45; display: flex; align-items: flex-start; gap: 10px; }
+  .plan-features li .fi { flex-shrink: 0; margin-top: 1px; }
+  .fi-yes { color: #3D6B3F; font-size: 15px; }
+  .fi-no  { color: var(--mid-gray); font-size: 15px; }
+  .plan-card.pro .fi-yes { color: #7FBF82; }
+  .plan-card.pro .fi-no  { color: #4A4A4A; }
+  .plan-card.pro li { color: #D4C4BA; }
+  .fi-no-text { color: var(--mid-gray); }
+  .plan-card.pro .fi-no-text { color: #4A4A4A; }
+
+  /* Comparison table */
+  .compare-section { margin-bottom: 80px; }
+  .section-kicker { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--claret); font-weight: 600; margin-bottom: 8px; }
+  .section-title { font-family: var(--serif); font-size: 36px; font-weight: 700; margin-bottom: 40px; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .compare-table th { padding: 14px 24px; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; border-bottom: 2px solid var(--black); text-align: left; }
+  .compare-table th:not(:first-child) { text-align: center; }
+  .compare-table th.th-pro { background: var(--black); color: #fff; }
+  .compare-table td { padding: 14px 24px; border-bottom: 1px solid var(--border-lt); vertical-align: middle; }
+  .compare-table td:not(:first-child) { text-align: center; }
+  .compare-table tr:hover td { background: var(--salmon-dk); }
+  .compare-table .cat-row td { background: var(--salmon-dk); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; color: var(--warm-gray); padding: 10px 24px 6px; border-bottom: 1px solid var(--border); }
+  .check-yes { color: #3D6B3F; font-size: 18px; }
+  .check-no  { color: var(--mid-gray); font-size: 18px; }
+  .check-partial { color: var(--gold); font-size: 13px; font-weight: 600; }
+
+  /* Pro benefits detail */
+  .pro-benefits { background: var(--black); color: #fff; padding: 72px 80px; margin-bottom: 80px; position: relative; overflow: hidden; }
+  .pro-benefits::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gold); }
+  .pro-benefits-kicker { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 14px; }
+  .pro-benefits-headline { font-family: var(--serif); font-size: 40px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+  .pro-benefits-sub { font-family: var(--serif-body); font-size: 19px; line-height: 1.7; color: #D4C4BA; margin-bottom: 52px; max-width: 680px; }
+  .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid #333; }
+  .benefit-item { padding: 32px 28px; border-right: 1px solid #333; border-bottom: 1px solid #333; }
+  .benefit-item:nth-child(3n) { border-right: none; }
+  .benefit-item:nth-last-child(-n+3) { border-bottom: none; }
+  .benefit-icon { font-size: 28px; margin-bottom: 16px; }
+  .benefit-title { font-family: var(--serif); font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .benefit-desc { font-size: 13px; line-height: 1.6; color: #9A8A80; }
+  .benefit-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; background: var(--gold); color: #fff; padding: 2px 8px; display: inline-block; margin-bottom: 12px; }
+
+  /* Stripe section */
+  .stripe-section { background: #fff; border: 2px solid var(--border); padding: 48px; margin-bottom: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .stripe-section h2 { font-family: var(--serif); font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+  .stripe-section p { font-family: var(--serif-body); font-size: 17px; line-height: 1.7; color: var(--warm-gray); margin-bottom: 20px; }
+  .stripe-badges { display: flex; gap: 12px; flex-wrap: wrap; }
+  .stripe-badge { font-size: 11px; font-weight: 600; letter-spacing: 0.3px; background: var(--salmon-dk); color: var(--warm-gray); padding: 6px 12px; border: 1px solid var(--border); }
+  .stripe-form { background: var(--salmon); border: 1px solid var(--border); padding: 32px; }
+  .stripe-form-title { font-family: var(--serif); font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .stripe-form-sub { font-size: 13px; color: var(--warm-gray); margin-bottom: 24px; }
+  .form-row { margin-bottom: 16px; }
+  .form-row label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 6px; }
+  .form-row input, .form-row select { width: 100%; padding: 10px 12px; border: 1px solid var(--border-dk); background: #fff; font-family: var(--sans); font-size: 13.5px; color: var(--black); outline: none; transition: border-color .15s; }
+  .form-row input:focus, .form-row select:focus { border-color: var(--claret); }
+  .stripe-note { font-size: 11px; color: var(--mid-gray); margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
+  .stripe-submit { width: 100%; padding: 13px; background: var(--claret); color: #fff; border: none; font-family: var(--sans); font-size: 13px; font-weight: 600; cursor: pointer; letter-spacing: 0.3px; transition: background .15s; }
+  .stripe-submit:hover { background: var(--claret-lt); }
+  .stripe-success { display: none; text-align: center; padding: 24px 0; }
+  .stripe-success-icon { font-size: 36px; margin-bottom: 12px; }
+  .stripe-success h3 { font-family: var(--serif); font-size: 22px; margin-bottom: 8px; }
+  .stripe-success p { font-size: 13px; color: var(--warm-gray); }
+
+  /* FAQ */
+  .faq-section { max-width: 720px; margin: 0 auto 80px; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q { width: 100%; background: none; border: none; padding: 20px 0; text-align: left; font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--black); cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .faq-q:hover { color: var(--claret); }
+  .faq-chevron { font-size: 18px; transition: transform .2s; flex-shrink: 0; color: var(--mid-gray); }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+  .faq-item.open .faq-a { max-height: 300px; }
+  .faq-a-inner { font-family: var(--serif-body); font-size: 17px; line-height: 1.7; color: var(--warm-gray); padding-bottom: 20px; }
+
+  /* CTA banner */
+  .cta-banner { background: var(--claret); color: #fff; padding: 56px; text-align: center; }
+  .cta-banner h2 { font-family: var(--serif); font-size: 36px; font-weight: 700; margin-bottom: 14px; }
+  .cta-banner p { font-family: var(--serif-body); font-size: 19px; line-height: 1.6; color: rgba(255,255,255,.85); margin-bottom: 32px; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .cta-btn { padding: 13px 32px; font-size: 13px; font-weight: 600; letter-spacing: 0.3px; transition: background .15s, border-color .15s; border: 2px solid transparent; }
+  .cta-btn-primary { background: #fff; color: var(--claret); border-color: #fff; }
+  .cta-btn-primary:hover { background: transparent; color: #fff; border-color: #fff; }
+  .cta-btn-secondary { background: transparent; color: #fff; border-color: rgba(255,255,255,.5); }
+  .cta-btn-secondary:hover { border-color: #fff; }
+
+  /* Footer */
+  footer { background: var(--black); color: #9A8A80; font-size: 12px; padding: 32px 24px; text-align: center; border-top: 2px solid var(--claret); }
+  footer a { color: #9A8A80; }
+  footer a:hover { color: #D4C4BA; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 12px; }
+
+  @media (max-width: 900px) {
+    .plans-grid { grid-template-columns: 1fr; }
+    .benefits-grid { grid-template-columns: 1fr 1fr; }
+    .stripe-section { grid-template-columns: 1fr; }
+    .pricing-hero-headline { font-size: 38px; }
+  }
+  @media (max-width: 600px) {
+    .plan-card { padding: 32px 24px; }
+    .pro-benefits { padding: 48px 24px; }
+    .benefits-grid { grid-template-columns: 1fr; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- Utility bar -->
+<div id="utility-bar">
+  <div id="utility-inner">
+    <div id="utility-left">
+      <span>Global fit-out intelligence</span>
+      <a href="about.html" class="util-link">About</a>
+      <a href="advertise.html" class="util-link">Advertise</a>
+    </div>
+    <div id="utility-right">
+      <a href="register.html" class="util-link">Sign in</a>
+      <span>|</span>
+      <a href="pricing.html" class="util-link" style="color:#D4C4BA;font-weight:600;">Go Pro</a>
+    </div>
+  </div>
+</div>
+
+<!-- Masthead -->
+<header id="masthead">
+  <div id="masthead-inner">
+    <a href="index.html" id="fop-logo">
+      <div id="fop-box"><span>FP</span></div>
+      <div id="fop-wordmark">
+        <strong>FitOut Post</strong>
+        <em>Global Intelligence</em>
+      </div>
+    </a>
+    <nav id="masthead-right">
+      <a class="masthead-nav-link" href="advertise.html">Advertise</a>
+      <a class="masthead-nav-link" href="about.html">About</a>
+      <a class="masthead-nav-link masthead-nav-link--cta" href="register.html">Register free →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Product nav -->
+<nav id="product-nav">
+  <div id="product-nav-inner">
+    <a class="pnav-link" href="index.html">News</a>
+    <a class="pnav-link" href="tenders.html">Tenders</a>
+    <a class="pnav-link" href="pipeline.html">Pipeline</a>
+    <a class="pnav-link" href="intelligence.html">Intelligence</a>
+    <a class="pnav-link" href="companies_site.html">Companies</a>
+    <a class="pnav-link" href="weekly.html">Weekly</a>
+    <a class="pnav-link active" href="pricing.html" style="margin-left:auto;background:var(--gold);border-color:var(--gold);color:#fff;font-weight:600;">Pro ↑</a>
+  </div>
+</nav>
+
+<!-- Page -->
+<div id="page">
+
+  <!-- Hero -->
+  <div class="pricing-hero">
+    <div class="pricing-hero-kicker">Membership</div>
+    <h1 class="pricing-hero-headline">Intelligence that pays<br>for itself.</h1>
+    <p class="pricing-hero-sub">One live tender is worth more than a year's subscription. Start free — upgrade when you need the edge.</p>
+
+    <!-- Billing toggle -->
+    <div class="billing-toggle">
+      <span>Monthly</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="billing-toggle" />
+        <span class="toggle-slider"></span>
+      </label>
+      <span id="billing-label">Annual</span>
+      <span class="billing-badge">Save 20%</span>
+    </div>
+  </div>
+
+  <!-- Plans grid -->
+  <div class="plans-grid">
+
+    <!-- Free plan -->
+    <div class="plan-card">
+      <div class="plan-badge">Free forever</div>
+      <div class="plan-name">Free</div>
+      <div class="plan-tagline">Market visibility across 190+ countries.<br>No credit card required.</div>
+      <div class="plan-price">
+        <span class="plan-price-amount">€0</span>
+        <span class="plan-price-period">/ month</span>
+      </div>
+      <div class="plan-price-annual">&nbsp;</div>
+      <a href="register.html" class="plan-cta">Get started free</a>
+      <div class="plan-divider"></div>
+      <div class="plan-features-label">What's included</div>
+      <ul class="plan-features">
+        <li><span class="fi fi-yes">✓</span> Daily news feed — all regions</li>
+        <li><span class="fi fi-yes">✓</span> Continent &amp; country filters</li>
+        <li><span class="fi fi-yes">✓</span> Pipeline project announcements</li>
+        <li><span class="fi fi-yes">✓</span> Company directory (171+ firms)</li>
+        <li><span class="fi fi-yes">✓</span> Weekly Roundup digest</li>
+        <li><span class="fi fi-yes">✓</span> Signal badges (Award / Tender / Progress)</li>
+        <li><span class="fi fi-no fi-no-text">—</span> <span class="fi-no-text">Tender full detail &amp; documents</span></li>
+        <li><span class="fi fi-no fi-no-text">—</span> <span class="fi-no-text">CSV data export</span></li>
+        <li><span class="fi fi-no fi-no-text">—</span> <span class="fi-no-text">Keyword alerts</span></li>
+        <li><span class="fi fi-no fi-no-text">—</span> <span class="fi-no-text">AlphaEdge intelligence layer</span></li>
+        <li><span class="fi fi-no fi-no-text">—</span> <span class="fi-no-text">API access</span></li>
+      </ul>
+    </div>
+
+    <!-- Pro plan -->
+    <div class="plan-card pro">
+      <div class="plan-popular">Most popular</div>
+      <div class="plan-badge">Full intelligence stack</div>
+      <div class="plan-name">Pro</div>
+      <div class="plan-tagline">Everything in Free, plus full tender detail,<br>alerts, exports and API access.</div>
+      <div class="plan-price">
+        <span class="plan-price-amount" id="pro-price">€49</span>
+        <span class="plan-price-period">/ month</span>
+      </div>
+      <div class="plan-price-annual" id="pro-annual-note">€588 billed monthly</div>
+      <a href="#pro-signup" class="plan-cta">Start Pro free for 14 days</a>
+      <div class="plan-divider"></div>
+      <div class="plan-features-label">Everything in Free, plus</div>
+      <ul class="plan-features">
+        <li><span class="fi fi-yes">✓</span> Full tender detail — specs, deadlines, contacts</li>
+        <li><span class="fi fi-yes">✓</span> Tender document links &amp; source URLs</li>
+        <li><span class="fi fi-yes">✓</span> CSV export — news, tenders, pipeline</li>
+        <li><span class="fi fi-yes">✓</span> Keyword alerts — daily digest to your inbox</li>
+        <li><span class="fi fi-yes">✓</span> AlphaEdge curated intelligence layer</li>
+        <li><span class="fi fi-yes">✓</span> Company profile detail &amp; project history</li>
+        <li><span class="fi fi-yes">✓</span> Priority support (24h response)</li>
+        <li><span class="fi fi-yes">✓</span> REST API access (read-only JSON endpoints)</li>
+        <li><span class="fi fi-yes">✓</span> BetaEdge market polls &amp; sentiment data</li>
+        <li><span class="fi fi-yes">✓</span> €/m² Intelligence cost benchmarks</li>
+        <li><span class="fi fi-yes">✓</span> Early access to new features</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Full comparison table -->
+  <div class="compare-section">
+    <div class="section-kicker">Full comparison</div>
+    <h2 class="section-title">Free vs Pro — every feature</h2>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="width:50%">Feature</th>
+          <th>Free</th>
+          <th class="th-pro">Pro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cat-row"><td colspan="3">News &amp; content</td></tr>
+        <tr><td>Daily global news feed</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Geographic filters (continent / country)</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Signal badges (Award / Tender / Progress)</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Weekly Roundup digest</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>AlphaEdge curated intelligence</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Article full-text &amp; source access</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+
+        <tr class="cat-row"><td colspan="3">Tenders</td></tr>
+        <tr><td>Tender headlines &amp; geography</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Full tender specification &amp; deadlines</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Tender document links &amp; source URLs</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>TED / OJEU tender sourcing</td><td><span class="check-partial">Headlines</span></td><td><span class="check-yes">Full detail</span></td></tr>
+        <tr><td>ME / Africa / APAC tender coverage</td><td><span class="check-partial">Headlines</span></td><td><span class="check-yes">Full detail</span></td></tr>
+
+        <tr class="cat-row"><td colspan="3">Pipeline</td></tr>
+        <tr><td>Project announcements &amp; pipeline</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Pipeline value data &amp; developer profiles</td><td><span class="check-partial">Limited</span></td><td><span class="check-yes">✓</span></td></tr>
+
+        <tr class="cat-row"><td colspan="3">Intelligence &amp; data</td></tr>
+        <tr><td>€/m² fit-out cost benchmarks</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Company directory (171+ firms)</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Company project history &amp; profile detail</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>BetaEdge market polls &amp; sentiment</td><td><span class="check-partial">View only</span></td><td><span class="check-yes">Vote + results</span></td></tr>
+
+        <tr class="cat-row"><td colspan="3">Alerts &amp; export</td></tr>
+        <tr><td>Keyword alert — daily email digest</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>CSV data export (news / tenders / pipeline)</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>REST API access (JSON endpoints)</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+
+        <tr class="cat-row"><td colspan="3">Support</td></tr>
+        <tr><td>Community support</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Priority email support (24h)</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Early access to new features</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pro benefits detail -->
+  <div class="pro-benefits">
+    <div class="pro-benefits-kicker">Pro membership — what you unlock</div>
+    <h2 class="pro-benefits-headline">Built for professionals who<br>win on intelligence.</h2>
+    <p class="pro-benefits-sub">Every Pro feature exists because a contractor, developer or consultant asked for it. No bloat — just the data you need to quote faster, pitch smarter, and spot opportunities first.</p>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <div class="benefit-badge">Tenders</div>
+        <div class="benefit-icon">📋</div>
+        <div class="benefit-title">Full tender detail</div>
+        <div class="benefit-desc">Complete specification, estimated value, deadline, contracting authority contact, and direct link to source documents. Stop chasing PDFs — get what you need in one place.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-badge">Export</div>
+        <div class="benefit-icon">⬇️</div>
+        <div class="benefit-title">CSV data export</div>
+        <div class="benefit-desc">Download news, tenders, and pipeline data as CSV. Feed your CRM, populate your BD tracker, or run your own analysis. Your data, your workflow.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-badge">Alerts</div>
+        <div class="benefit-icon">🔔</div>
+        <div class="benefit-title">Keyword alerts</div>
+        <div class="benefit-desc">Save searches like "Dubai office fit-out" or "hospital interiors UK" and receive a daily digest of matching articles, tenders and pipeline items — straight to your inbox at 07:00.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-badge">Intelligence</div>
+        <div class="benefit-icon">📊</div>
+        <div class="benefit-title">€/m² cost benchmarks</div>
+        <div class="benefit-desc">Access the Intelligence layer — editor-curated $/m² fit-out cost data by region and sector. Validate your quotes, benchmark competitors, and build credible proposals.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-badge">Companies</div>
+        <div class="benefit-icon">🏢</div>
+        <div class="benefit-title">Company profiles</div>
+        <div class="benefit-desc">Full profiles for 171+ fit-out contractors and developers — project history, geographic focus, sector specialisms, and recent news. Know who you're up against before you quote.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-badge">API</div>
+        <div class="benefit-icon">⚡</div>
+        <div class="benefit-title">REST API access</div>
+        <div class="benefit-desc">Read-only JSON endpoints: /api/news.json, /api/tenders.json, /api/pipeline.json. Integrate FitOut Post data directly into your internal tools, dashboards, or bid management system.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stripe / signup section -->
+  <div class="stripe-section" id="pro-signup">
+    <div>
+      <h2>Start your 14-day free trial</h2>
+      <p>No commitment. Cancel any time. Your first invoice is issued at the end of your trial — we'll remind you 3 days before.</p>
+      <p style="font-size:13px;color:var(--mid-gray);margin-bottom:20px;">Secure payments powered by Stripe. We never store card details.</p>
+      <div class="stripe-badges">
+        <span class="stripe-badge">🔒 256-bit TLS</span>
+        <span class="stripe-badge">Stripe Payments</span>
+        <span class="stripe-badge">Cancel anytime</span>
+        <span class="stripe-badge">GDPR compliant</span>
+      </div>
+    </div>
+    <div>
+      <div class="stripe-form" id="stripe-form-wrap">
+        <div class="stripe-form-title">Activate Pro</div>
+        <div class="stripe-form-sub">14 days free — then <span id="stripe-price-display">€49/month</span></div>
+        <form id="pro-signup-form" onsubmit="handleProSignup(event)">
+          <div class="form-row">
+            <label>Full name</label>
+            <input type="text" id="ps-name" placeholder="Your name" required />
+          </div>
+          <div class="form-row">
+            <label>Work email</label>
+            <input type="email" id="ps-email" placeholder="you@company.com" required />
+          </div>
+          <div class="form-row">
+            <label>Company</label>
+            <input type="text" id="ps-company" placeholder="Company name" required />
+          </div>
+          <div class="form-row">
+            <label>Plan</label>
+            <select id="ps-plan">
+              <option value="monthly">Pro Monthly — €49/month</option>
+              <option value="annual">Pro Annual — €470/year (save 20%)</option>
+            </select>
+          </div>
+          <p class="stripe-note">🔒 You won't be charged until your trial ends. Cancel any time.</p>
+          <button type="submit" class="stripe-submit">Start free trial →</button>
+        </form>
+        <div class="stripe-success" id="stripe-success">
+          <div class="stripe-success-icon">✅</div>
+          <h3>Trial started — welcome to Pro.</h3>
+          <p>Check your email for onboarding details. Your full access activates immediately.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <div class="section-kicker" style="text-align:center;">FAQ</div>
+    <h2 class="section-title" style="text-align:center;font-size:32px;">Common questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is the free plan really free forever?
+        <span class="faq-chevron">▾</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Yes. FitOut Post Free gives you access to the full news feed, pipeline, company directory, and weekly digest with no time limit and no credit card required. We believe open access to market intelligence makes the whole industry smarter.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What happens after the 14-day Pro trial?
+        <span class="faq-chevron">▾</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">We'll email you 3 days before your trial ends with a reminder. If you choose to continue, your card is charged for the plan you selected. If you cancel, you revert to Free automatically — no data is lost.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can I switch between monthly and annual?
+        <span class="faq-chevron">▾</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Yes. You can upgrade from monthly to annual at any time and receive a prorated credit. Downgrades take effect at the next billing cycle.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you offer team or enterprise pricing?
+        <span class="faq-chevron">▾</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Yes. Teams of 5+ receive 15% off Pro. Enterprise contracts (10+ seats, custom API limits, white-label data feed) are available on application. Contact us at <a href="mailto:intelligence@fitoutpost.com" style="color:var(--claret)">intelligence@fitoutpost.com</a>.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How does the API work?
+        <span class="faq-chevron">▾</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Pro members receive an API key that grants read-only access to /api/news.json, /api/tenders.json, and /api/pipeline.json — updated daily at 06:00 UTC. Full API documentation is available at <a href="api.html" style="color:var(--claret)">fitoutpost.com/api</a>.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is my payment information secure?
+        <span class="faq-chevron">▾</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Payments are processed by Stripe — we never store card details on FitOut Post servers. All traffic is encrypted via TLS 1.3. FitOut Post is GDPR compliant and does not sell personal data.</div></div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<!-- CTA banner -->
+<div class="cta-banner">
+  <h2>One tender. One win. That's your ROI.</h2>
+  <p>The average commercial fit-out contract is worth €2–15M. FitOut Post Pro costs less than a business lunch.</p>
+  <div class="cta-buttons">
+    <a href="#pro-signup" class="cta-btn cta-btn-primary">Start free trial →</a>
+    <a href="register.html" class="cta-btn cta-btn-secondary">Register free first</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html">News</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="pipeline.html">Pipeline</a>
+    <a href="about.html">About</a>
+    <a href="advertise.html">Advertise</a>
+    <a href="register.html">Register</a>
+    <a href="legal.html">Legal</a>
+    <a href="sitemap.xml">Sitemap</a>
+  </div>
+  <div>© 2025 FitOut Post · Global fit-out intelligence · <a href="mailto:intelligence@fitoutpost.com">intelligence@fitoutpost.com</a></div>
+</footer>
+
+<script>
+// ── Billing toggle ───────────────────────────────────────────────────────────
+const toggle = document.getElementById('billing-toggle');
+const priceEl = document.getElementById('pro-price');
+const annualNote = document.getElementById('pro-annual-note');
+const stripePriceDisplay = document.getElementById('stripe-price-display');
+const planSelect = document.getElementById('ps-plan');
+
+function updatePricing(annual) {
+  if (annual) {
+    priceEl.textContent = '€39';
+    annualNote.textContent = '€470 billed annually — save €118';
+    stripePriceDisplay.textContent = '€470/year';
+    planSelect.value = 'annual';
+  } else {
+    priceEl.textContent = '€49';
+    annualNote.textContent = '€588 billed monthly';
+    stripePriceDisplay.textContent = '€49/month';
+    planSelect.value = 'monthly';
+  }
+}
+toggle.addEventListener('change', () => updatePricing(toggle.checked));
+
+// ── FAQ accordion ────────────────────────────────────────────────────────────
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ── Pro signup form ──────────────────────────────────────────────────────────
+function handleProSignup(e) {
+  e.preventDefault();
+  const member = {
+    name: document.getElementById('ps-name').value.trim(),
+    email: document.getElementById('ps-email').value.trim(),
+    company: document.getElementById('ps-company').value.trim(),
+    plan: document.getElementById('ps-plan').value,
+    tier: 'pro',
+    trialStart: new Date().toISOString(),
+    id: 'pro_' + Date.now()
+  };
+
+  // Store locally (stub — replace with Stripe Checkout redirect on live hosting)
+  try {
+    const existing = JSON.parse(localStorage.getItem('fop_members_list') || '[]');
+    const idx = existing.findIndex(m => m.email === member.email);
+    if (idx >= 0) { existing[idx] = { ...existing[idx], ...member }; }
+    else { existing.push(member); }
+    localStorage.setItem('fop_members_list', JSON.stringify(existing));
+    localStorage.setItem('fop_member', JSON.stringify(member));
+  } catch(err) {}
+
+  // On live hosting: redirect to Stripe Checkout
+  // window.location.href = '/api/stripe/create-checkout-session?plan=' + member.plan;
+
+  document.getElementById('pro-signup-form').style.display = 'none';
+  document.getElementById('stripe-success').style.display = 'block';
+}
+
+// Sync toggle from plan select
+planSelect.addEventListener('change', () => {
+  toggle.checked = planSelect.value === 'annual';
+  updatePricing(toggle.checked);
+});
+</script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>

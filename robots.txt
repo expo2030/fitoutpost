@@ -1,0 +1,37 @@
+# FitOut Post — robots.txt
+# https://fitoutpost.com
+
+User-agent: *
+Allow: /
+
+# Core pages — allow all crawlers
+Allow: /index.html
+Allow: /tenders.html
+Allow: /pipeline.html
+Allow: /companies_site.html
+Allow: /weekly.html
+Allow: /intelligence.html
+Allow: /alphaedge.html
+Allow: /about.html
+Allow: /register.html
+Allow: /advertise.html
+Allow: /contact.html
+Allow: /legal.html
+
+# Data files — allow crawlers to access JSON data
+Allow: /news.json
+Allow: /tenders.json
+Allow: /pipeline.json
+
+# Disallow admin and private files
+Disallow: /admin.py
+Disallow: /members.json
+Disallow: /votes.json
+Disallow: /polls.json
+Disallow: /*.py
+Disallow: /build.py
+Disallow: /fetch_*.py
+Disallow: /.github/
+
+# Sitemap
+Sitemap: https://fitoutpost.com/sitemap.xml

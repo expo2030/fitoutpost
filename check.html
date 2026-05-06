@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitOut Post — Diagnostic Check</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #faf5f0; color: #1a1a1a;
+           max-width: 680px; margin: 0 auto; padding: 32px 24px 60px; }
+    h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 28px; }
+    .card { border-radius: 8px; padding: 20px 22px; margin-bottom: 16px; }
+    .card-ok  { background: #d4edda; border: 1px solid #28a745; }
+    .card-err { background: #f8d7da; border: 1px solid #dc3545; }
+    .card-info { background: #fff; border: 1px solid #ddd; }
+    .card h2 { font-size: 15px; margin-bottom: 8px; }
+    .card p  { font-size: 13.5px; line-height: 1.6; color: #333; margin-bottom: 8px; }
+    .card p:last-child { margin-bottom: 0; }
+    code { background: #eee; padding: 2px 7px; border-radius: 4px; font-size: 12.5px; font-family: monospace; }
+    .path { background: #1a1a1a; color: #90EE90; font-family: monospace; font-size: 13px;
+            padding: 12px 16px; border-radius: 6px; margin: 8px 0; overflow-x: auto; white-space: nowrap; }
+    hr { border: none; border-top: 1px solid #ddd; margin: 24px 0; }
+    .step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+    .step-num { background: #990033; color: white; border-radius: 50%; width: 24px; height: 24px;
+                display: flex; align-items: center; justify-content: center; font-size: 12px;
+                font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .step-text { font-size: 13.5px; line-height: 1.6; }
+    a { color: #990033; }
+  </style>
+</head>
+<body>
+  <h1>FitOut Post — Diagnostic</h1>
+  <p class="subtitle">This page checks that your browser can read the embedded news data correctly.</p>
+
+  <!-- Embedded test data (same technique as index.html) -->
+  <script type="application/json" id="test-data">
+  {"status":"ok","message":"Embedded JSON loads correctly","articles":42}
+  </script>
+
+  <div id="result">Checking…</div>
+
+  <div class="card card-info" id="path-card">
+    <h2>You are currently viewing from:</h2>
+    <div class="path" id="current-path">—</div>
+    <p id="path-advice"></p>
+  </div>
+
+  <hr>
+  <div class="card card-info">
+    <h2>How to open the correct index.html</h2>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">Open <strong>File Explorer</strong> (Windows key + E)</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">Navigate to the <strong>Fitoutpost</strong> folder — the one containing <code>check.html</code>, <code>index.html</code>, <code>build.py</code>, etc.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">Double-click <code>index.html</code> to open it fresh in your browser</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-text">If an old version still appears, press <code>Ctrl + Shift + R</code> to force-reload without cache</div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-text">You should see a build date in the page footer (e.g. "Built 05 May 2026"). If you see "Make sure news.js is in the same folder", you have opened an old copy — go back to step 1.</div>
+    </div>
+  </div>
+
+  <script>
+    // Show current file path
+    const pathEl = document.getElementById("current-path");
+    const pathAdvice = document.getElementById("path-advice");
+    const href = window.location.href;
+    pathEl.textContent = href;
+
+    if (href.includes("check.html")) {
+      pathAdvice.textContent = "To open the main site, replace 'check.html' with 'index.html' in your browser address bar, or double-click index.html in the same folder.";
+    }
+
+    // JSON test
+    try {
+      const slot = document.getElementById("test-data");
+      const data = JSON.parse(slot.textContent);
+      if (data.status === "ok" && data.articles === 42) {
+        document.getElementById("result").innerHTML =
+          '<div class="card card-ok">' +
+          '<h2>PASS — Your browser correctly reads embedded JSON data.</h2>' +
+          '<p>' + data.message + '. This means <strong>index.html</strong> will work correctly in this browser.</p>' +
+          '<p>If index.html still shows an error or no articles, you are opening an <strong>old copy</strong> of the file. ' +
+          'Follow the steps below to open the correct version.</p>' +
+          '</div>';
+      } else {
+        throw new Error("Unexpected data");
+      }
+    } catch (e) {
+      document.getElementById("result").innerHTML =
+        '<div class="card card-err">' +
+        '<h2>FAIL — JSON parsing error: ' + e.message + '</h2>' +
+        '<p>Please note your browser name and version and contact the FitOut Post team.</p>' +
+        '</div>';
+    }
+  </script>
+</body>
+</html>

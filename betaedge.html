@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>β Edge — FitOut Post Polling</title>
+  <meta name="description" content="Industry polling with an edge. Real opinions on fit-out and interior construction. Register once to vote." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Data slot: build.py writes the JSON here -->
+  <script type="application/json" id="betaedge-data">
+{"polls":[]}
+</script>
+  <style>
+  /* ─── Reset ─────────────────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --salmon:      #FFF1E5;
+    --salmon-dk:   #F2DFCE;
+    --salmon-md:   #FAE8D6;
+    --white:       #FFFFFF;
+    --black:       #1a1a1a;
+    --black-mid:   #262626;
+    --claret:      #990033;
+    --claret-lt:   #CC0044;
+    --teal:        #0D7680;
+    --warm-gray:   #66605A;
+    --mid-gray:    #9A948E;
+    --border:      #D9CBC0;
+    --border-lt:   #EDE3DA;
+    --border-dk:   #B8A99A;
+    --card-bg:     #FFFFFF;
+    --body-bg:     #FAF5F0;
+    --serif:       'Playfair Display', Georgia, 'Times New Roman', serif;
+    --sans:        'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  }
+  html  { scroll-behavior: smooth; font-size: 16px; }
+  body  { font-family: var(--sans); background: var(--body-bg); color: var(--black);
+          min-height: 100vh; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--claret); }
+
+  /* ─── Utility bar ───────────────────────────────────────────────────────── */
+  #utility-bar {
+    background: #1a1a1a; color: rgba(255,255,255,.7);
+    font-size: 11.5px; letter-spacing: .3px; padding: 0 24px;
+  }
+  #utility-inner {
+    max-width: 1320px; margin: 0 auto; height: 34px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  #utility-left  { display: flex; align-items: center; gap: 20px; }
+  #utility-right { display: flex; align-items: center; gap: 20px; }
+  #utility-date  { color: #9A8A80; }
+  .util-link { color: #9A8A80; transition: color .15s; }
+  .util-link:hover { color: #D4C4BA; }
+
+  /* ─── Masthead ───────────────────────────────────────────────────────────── */
+  #masthead {
+    background: var(--salmon); border-bottom: 2px solid var(--black);
+    position: sticky; top: 0; z-index: 200;
+  }
+  #masthead-inner {
+    max-width: 1320px; margin: 0 auto; padding: 0 24px;
+    height: 72px; display: flex; align-items: center; gap: 24px;
+  }
+  #fop-logo { display: flex; align-items: center; gap: 14px; flex-shrink: 0;
+              cursor: default; user-select: none; text-decoration: none; }
+  #fop-logo:hover { color: inherit; }
+  #fop-box  { width: 52px; height: 52px; background: var(--black);
+              display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  #fop-box span { font-family: var(--serif); font-weight: 800; font-size: 24px;
+                  letter-spacing: 1px; color: #fff; line-height: 1; }
+  #fop-wordmark { display: flex; flex-direction: column; line-height: 1.2; }
+  #fop-wordmark strong { font-family: var(--serif); font-weight: 700; font-size: 20px;
+                         letter-spacing: .2px; color: var(--black); }
+  #fop-wordmark em { font-style: normal; font-size: 10px; letter-spacing: 1.4px;
+                     text-transform: uppercase; color: var(--warm-gray);
+                     font-weight: 500; display: block; margin-top: 2px; }
+  #be-badge { font-family: var(--serif); font-style: italic; font-size: 17px;
+               font-weight: 700; color: var(--claret); padding-left: 16px;
+               border-left: 1px solid var(--border); }
+  #mh-right { margin-left: auto; flex-shrink: 0; }
+  .mh-cta { font-size: 12.5px; font-weight: 600; padding: 6px 18px;
+             background: var(--claret); color: #fff; border: 1px solid var(--claret);
+             transition: background .15s; }
+  .mh-cta:hover { background: var(--claret-lt); }
+
+  /* ─── Product nav ────────────────────────────────────────────────────────── */
+  #product-nav { background: var(--black); position: sticky; top: 72px; z-index: 195; }
+  #product-nav-inner {
+    max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex;
+  }
+  .pnav-link {
+    display: inline-block; padding: 0 20px; height: 38px; line-height: 38px;
+    font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.65);
+    border-right: 1px solid rgba(255,255,255,.1); transition: color .15s, background .15s;
+  }
+  .pnav-link:first-child { border-left: 1px solid rgba(255,255,255,.1); }
+  .pnav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
+  .pnav-link.active { color: #fff; background: var(--claret); border-color: var(--claret); }
+  .pnav-link.active + .pnav-link { border-left-color: var(--claret); }
+
+  /* ─── Page header ────────────────────────────────────────────────────────── */
+  #be-header { background: var(--black); color: #fff; padding: 40px 24px 32px; }
+  #be-hdr-inner {
+    max-width: 1320px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end;
+  }
+  #be-title {
+    font-family: var(--serif); font-size: 46px; font-weight: 800;
+    font-style: italic; line-height: 1; letter-spacing: -1px;
+  }
+  #be-title .greek { color: var(--claret); }
+  #be-tagline { font-size: 14px; color: rgba(255,255,255,.55); margin-top: 8px;
+                max-width: 520px; line-height: 1.6; }
+  #be-meta { text-align: right; font-size: 11px; color: rgba(255,255,255,.4); line-height: 1.8; }
+  #be-meta strong { color: rgba(255,255,255,.7); font-size: 22px; display: block;
+                     font-family: var(--serif); }
+
+  /* ─── Content grid ───────────────────────────────────────────────────────── */
+  #content-area {
+    max-width: 1320px; margin: 0 auto; padding: 32px 24px 80px;
+    display: grid; grid-template-columns: 1fr 360px; gap: 32px;
+  }
+  @media (max-width: 900px) { #content-area { grid-template-columns: 1fr; } }
+
+  /* ─── Poll cards ─────────────────────────────────────────────────────────── */
+  #polls-col h3 {
+    font-family: var(--serif); font-size: 13px; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--warm-gray); margin-bottom: 16px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--border);
+  }
+  .poll-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    padding: 26px 28px; margin-bottom: 20px; transition: border-color .15s;
+  }
+  .poll-card:hover { border-color: var(--black); }
+  .poll-cat {
+    font-size: 10px; font-weight: 700; letter-spacing: .8px;
+    text-transform: uppercase; color: var(--claret); margin-bottom: 8px;
+  }
+  .poll-q { font-family: var(--serif); font-size: 20px; font-weight: 700;
+             line-height: 1.35; margin-bottom: 18px; }
+  .poll-option { margin-bottom: 12px; }
+  .poll-option-label {
+    display: flex; justify-content: space-between;
+    align-items: center; font-size: 13.5px; margin-bottom: 5px;
+  }
+  .poll-option-name { font-weight: 500; }
+  .poll-option-pct { font-weight: 700; font-size: 15px; color: var(--claret); }
+  .poll-bar-track { height: 10px; background: #eee; border-radius: 5px; overflow: hidden; }
+  .poll-bar-fill { height: 100%; background: var(--claret); border-radius: 5px; transition: width .5s; }
+  .poll-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-lt);
+  }
+  .poll-votes  { font-size: 12px; color: var(--mid-gray); }
+  .poll-deadline { font-size: 12px; color: var(--mid-gray); }
+  .btn-vote {
+    padding: 9px 22px; background: var(--claret); color: #fff; border: none;
+    font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--sans);
+    transition: background .15s;
+  }
+  .btn-vote:hover { background: var(--claret-lt); }
+  .voted-badge  { font-size: 12px; font-weight: 600; color: #155724; background: #d4edda; padding: 6px 12px; }
+  .closed-badge { font-size: 12px; color: var(--mid-gray); padding: 6px 12px; background: #eee; }
+  .server-badge { font-size: 12px; color: var(--mid-gray); padding: 6px 12px;
+                   background: #f8f4f0; border: 1px solid var(--border); font-style: italic; }
+
+  /* ─── Side panel ─────────────────────────────────────────────────────────── */
+  #side-col h3 {
+    font-family: var(--serif); font-size: 13px; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--warm-gray); margin-bottom: 16px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--border);
+  }
+  .how-it-works { background: var(--card-bg); border: 1px solid var(--border); padding: 22px 24px; margin-bottom: 20px; }
+  .how-step { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num { width: 28px; height: 28px; background: var(--black); color: #fff;
+               font-size: 12px; font-weight: 700; display: flex; align-items: center;
+               justify-content: center; flex-shrink: 0; border-radius: 50%; }
+  .step-text { font-size: 13px; line-height: 1.55; color: var(--warm-gray); }
+  .step-text strong { color: var(--black); }
+  .disclaimer {
+    background: var(--salmon); border: 1px solid var(--border);
+    padding: 18px 22px; font-size: 12px; color: var(--warm-gray); line-height: 1.65;
+    margin-bottom: 20px;
+  }
+  .disclaimer strong { color: var(--black); }
+  .server-notice {
+    background: #fff8f3; border: 1px solid var(--border); border-left: 3px solid var(--claret);
+    padding: 16px 18px; font-size: 12.5px; color: var(--warm-gray); line-height: 1.6;
+    display: none;
+  }
+  .server-notice strong { color: var(--black); display: block; margin-bottom: 4px; }
+  .server-notice code { background: #eee; padding: 1px 5px; font-size: 11px; }
+
+  /* ─── Modal ──────────────────────────────────────────────────────────────── */
+  .modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55);
+                     z-index: 1000; align-items: center; justify-content: center; }
+  .modal-backdrop.open { display: flex; }
+  .modal { background: #fff; border: 1px solid var(--border); padding: 32px 36px;
+            max-width: 480px; width: 90%; max-height: 90vh; overflow-y: auto; }
+  .modal h2 { font-family: var(--serif); font-size: 22px; margin-bottom: 6px; }
+  .modal .m-sub { font-size: 13px; color: var(--warm-gray); margin-bottom: 24px; line-height: 1.5; }
+  .mfield { margin-bottom: 16px; }
+  .mfield label { display: block; font-size: 11px; font-weight: 600; letter-spacing: .8px;
+                   text-transform: uppercase; color: var(--warm-gray); margin-bottom: 5px; }
+  .mfield input { width: 100%; padding: 10px 12px; font-size: 14px;
+                   border: 1px solid var(--border); outline: none; font-family: var(--sans);
+                   transition: border-color .15s; }
+  .mfield input:focus { border-color: var(--black); }
+  .mfield-check { display: flex; gap: 10px; align-items: flex-start; margin-top: 4px; }
+  .mfield-check input[type=checkbox] { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; cursor: pointer; }
+  .mfield-check label { font-size: 12.5px; color: var(--warm-gray); line-height: 1.5;
+                          font-weight: 400; text-transform: none; letter-spacing: 0; }
+  .m-selected-option { background: var(--salmon); border: 1px solid var(--border);
+                        padding: 12px 16px; margin-bottom: 20px; font-size: 14px; }
+  .m-selected-option strong { display: block; font-size: 11px; text-transform: uppercase;
+                                letter-spacing: .5px; color: var(--claret); margin-bottom: 4px; }
+  .m-status { font-size: 13px; padding: 10px 14px; margin-top: 12px; display: none; }
+  .m-status.ok  { background: #d4edda; color: #155724; }
+  .m-status.err { background: #f8d7da; color: #721c24; }
+  .modal-actions { display: flex; gap: 12px; margin-top: 24px; }
+  .mbtn { padding: 11px 24px; font-size: 14px; font-weight: 600; cursor: pointer;
+           border: none; font-family: var(--sans); transition: background .15s; }
+  .mbtn-primary { background: var(--black); color: #fff; }
+  .mbtn-primary:hover { background: #333; }
+  .mbtn-outline { background: transparent; color: var(--black); border: 1px solid var(--border); }
+  .mbtn-outline:hover { border-color: var(--black); }
+
+  /* ─── Empty / loading states ─────────────────────────────────────────────── */
+  .loading     { text-align: center; padding: 80px 24px; color: var(--warm-gray);
+                  font-family: var(--serif); font-size: 18px; font-style: italic; }
+  .empty-polls { text-align: center; padding: 60px 24px; color: var(--warm-gray);
+                  font-size: 14px; line-height: 1.7; }
+
+  /* ─── Footer ─────────────────────────────────────────────────────────────── */
+  #footer-inner a { color: rgba(255,255,255,.4); margin-left: 16px; }
+  #footer-inner a:hover { color: #fff; }
+  
+  /* ── Have a tip? modal ───────────────────────────────────────────────────── */
+  #tip-modal {
+    display: none; position: fixed; inset: 0; z-index: 9000;
+    align-items: center; justify-content: center;
+  }
+  #tip-modal.open { display: flex; }
+  #tip-modal-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.65); backdrop-filter: blur(2px);
+  }
+  #tip-modal-card {
+    position: relative; z-index: 1;
+    background: #fff; max-width: 520px; width: calc(100% - 48px);
+    padding: 48px 40px 40px; text-align: center;
+    border-top: 4px solid var(--claret,#990033);
+    box-shadow: 0 24px 64px rgba(0,0,0,.35);
+    animation: tipIn .2s ease;
+  }
+  @keyframes tipIn {
+    from { opacity:0; transform:translateY(-12px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  #tip-modal-close {
+    position: absolute; top: 14px; right: 16px;
+    background: none; border: none; cursor: pointer;
+    font-size: 22px; color: #999; line-height: 1; padding: 4px 8px;
+    font-family: sans-serif; transition: color .15s;
+  }
+  #tip-modal-close:hover { color: var(--claret,#990033); }
+  #tip-modal-icon {
+    width: 64px; height: 64px;
+    background: var(--claret,#990033);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+  }
+  #tip-modal-headline {
+    font-family: var(--serif,'Playfair Display',Georgia,serif);
+    font-size: 28px; font-weight: 800; font-style: italic;
+    color: var(--black,#1a1a1a); margin-bottom: 18px;
+    letter-spacing: -.3px; line-height: 1.2;
+  }
+  #tip-modal-body {
+    font-size: 15px; line-height: 1.7;
+    color: var(--warm-gray,#66605A); margin-bottom: 28px;
+  }
+  #tip-modal-email {
+    display: inline-block;
+    font-size: 17px; font-weight: 700;
+    color: var(--claret,#990033);
+    border-bottom: 2px solid var(--claret,#990033);
+    padding-bottom: 2px; margin-bottom: 24px;
+    transition: color .15s;
+    text-decoration: none;
+  }
+  #tip-modal-email:hover { color: #CC0044; border-color: #CC0044; }
+  #tip-modal-note {
+    font-size: 11.5px; color: #aaa; line-height: 1.6;
+    padding-top: 20px; border-top: 1px solid #eee;
+  }
+  
+  /* ─── Have a tip? — utility bar button ───────────────────────────────────── */
+  .tip-util-btn {
+    font-size: 11px; font-weight: 600; letter-spacing: .3px;
+    color: var(--claret,#990033); background: none; border: none;
+    cursor: pointer; padding: 0; display: flex; align-items: center; gap: 5px;
+    font-family: var(--sans,Inter,sans-serif); transition: opacity .15s;
+    line-height: 1;
+  }
+  .tip-util-btn:hover { opacity: .7; }
+  
+    #ad-banner-cta { font-size: 15px; }
+    #ad-banner-label { display: none; }
+  }
+  
+  /* ─── Full footer ────────────────────────────────────────────────────────── */
+  #footer {
+    background: var(--black,#1a1a1a);
+    color: #A09890;
+    margin-top: 80px;
+  }
+  #footer-main {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 48px 24px 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    border-bottom: 1px solid #2e2e2e;
+  }
+  #footer-brand .footer-logo-wrap {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+  }
+  #footer-fop-box {
+    width: 40px; height: 40px; background: #fff;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  #footer-fop-box span {
+    font-family: var(--serif,"Playfair Display",Georgia,serif);
+    font-weight: 800; font-size: 18px; letter-spacing: 0.5px; color: #1a1a1a;
+  }
+  #footer-fop-wordmark { display: flex; flex-direction: column; }
+  #footer-fop-name {
+    font-family: var(--serif,"Playfair Display",Georgia,serif);
+    font-weight: 700; font-size: 16px; color: #E8D8C8; line-height: 1.2;
+  }
+  #footer-fop-tagline {
+    font-family: var(--sans,Inter,sans-serif); font-size: 9px; font-weight: 600;
+    letter-spacing: 1.6px; text-transform: uppercase; color: #7a6e68; margin-top: 3px;
+  }
+  #footer-brand p {
+    font-size: 12.5px; line-height: 1.75; color: #A09890;
+    max-width: 300px; margin-bottom: 14px;
+  }
+  #footer-brand .footer-disclaimer {
+    font-size: 11px; line-height: 1.7; color: #7a706a;
+    max-width: 300px; font-style: italic;
+  }
+  .footer-col h4 {
+    font-family: var(--sans,Inter,sans-serif); font-size: 10px; font-weight: 700;
+    letter-spacing: 1.2px; text-transform: uppercase; color: #B8A8A0;
+    margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #2e2e2e;
+  }
+  .footer-col ul {
+    list-style: none; display: flex; flex-direction: column; gap: 8px;
+  }
+  .footer-col ul li a { font-size: 12.5px; color: #A09890; transition: color .15s; }
+  .footer-col ul li a:hover { color: #E8D8C8; }
+  #footer-bottom {
+    max-width: 1320px; margin: 0 auto; padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  #footer-copyright { font-size: 11.5px; color: #7a706a; }
+  #footer-legal-links { display: flex; align-items: center; gap: 20px; }
+  #footer-legal-links a { font-size: 11.5px; color: #7a706a; transition: color .15s; }
+  #footer-legal-links a:hover { color: #9A8A80; }
+  @media (max-width: 1100px) {
+    #footer-main { grid-template-columns: 2fr 1fr 1fr; }
+    #footer-legal { display: none; }
+  }
+  @media (max-width: 760px) {
+    #footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+    #footer-brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 480px) {
+    #footer-main { grid-template-columns: 1fr; }
+  }
+  
+  /* ─── Marketing banner — photo strip ─────────────────────────────────────── */
+  #ad-banner {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+    background: #111;         /* fallback while image loads */
+  }
+  #ad-banner-img {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: opacity .4s ease;
+    opacity: 0;               /* fades in once loaded */
+  }
+  #ad-banner-img.loaded { opacity: 1; }
+  #ad-banner-badge {
+    position: absolute; top: 12px; left: 16px;
+    font-size: 9px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: rgba(255,255,255,.6);
+    background: rgba(0,0,0,.35); padding: 3px 7px;
+    pointer-events: none;
+  }
+  #ad-banner-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 10px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,.45));
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  #ad-banner-overlay a {
+    font-size: 11px; font-weight: 600; letter-spacing: .3px;
+    color: rgba(255,255,255,.85); transition: color .15s;
+  }
+  #ad-banner-overlay a:hover { color: #fff; }
+  @media (max-width: 760px) {
+    #ad-banner { height: 160px; }
+  }
+  /* ─── Utility bar — Advertise link ──────────────────────────────────────── */
+  .util-ad-link {
+    font-size: 10px; font-weight: 500; color: var(--claret,#990033);
+    opacity: .8; letter-spacing: .2px; transition: opacity .15s;
+    white-space: nowrap;
+  }
+  .util-ad-link:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<div id="utility-bar"><div id="utility-inner">
+  <div id="utility-left">
+    <span id="utility-date"></span>
+  </div>
+  <div id="utility-right">
+    <a class="util-link" href="companies_site.html">Companies</a>
+    <a class="util-link" href="contact.html">Contact</a>
+  
+      <button class="tip-util-btn"
+        onclick="document.getElementById('tip-modal').classList.add('open')"
+        aria-label="Have a tip? Contact the FitOut Post editorial team">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+             style="flex-shrink:0">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Have a tip?
+      </button>
+    </div>
+</div></div>
+
+<header id="masthead">
+  <div id="masthead-inner">
+    <a href="index.html" id="fop-logo">
+      <div id="fop-box"><span>FOP</span></div>
+      <div id="fop-wordmark">
+        <strong>FitOut Post</strong>
+        <em>Global Industry Intelligence</em>
+      </div>
+    </a>
+    <div id="be-badge"><span style="font-size:1.1em">β</span> Edge — Polling with an edge</div>
+    <div id="mh-right">
+      <a href="companies_site.html" class="mh-cta">Companies directory</a>
+    </div>
+  </div>
+</header>
+
+<nav id="product-nav" role="navigation" aria-label="Sections">
+  <div id="product-nav-inner">
+    <a class="pnav-link" href="index.html">News</a>
+    <a class="pnav-link" href="weekly.html">Weekly</a>
+    <a class="pnav-link" href="intelligence.html">Intelligence</a>
+    <a class="pnav-link" href="tenders.html">Tenders</a>
+    <a class="pnav-link" href="pipeline.html">Pipeline</a>
+    <a class="pnav-link" href="companies_site.html">Companies</a>
+    <a class="pnav-link" href="alphaedge.html"><span style="font-size:1.1em">α</span> Edge</a>
+    <a class="pnav-link active" href="betaedge.html"><span style="font-size:1.1em">β</span> Edge</a>
+    <a class="pnav-link" href="gammaedge.html"><span style="font-size:1.1em">γ</span> Edge</a>
+  </div>
+</nav>
+  <span id="ad-banner-badge">Advertisement</span>
+  <div id="ad-banner-overlay">
+    <a href="contact.html">Advertise with FitOut Post</a>
+  </div>
+</div>
+</div>
+
+<div id="be-header"><div id="be-hdr-inner">
+  <div>
+    <div id="be-title"><span class="greek">β</span>Edge</div>
+    <div id="be-tagline">Polling with an edge</div>
+  </div>
+  <div id="be-meta"><strong id="be-poll-count">—</strong>active polls</div>
+</div></div>
+
+<div id="content-area">
+  <div id="polls-col">
+    <h3>Active polls</h3>
+    <div id="polls-list"><div class="loading">Loading polls…</div></div>
+  </div>
+  <div id="side-col">
+    <h3>How it works</h3>
+    <div class="how-it-works">
+      <div class="how-step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Read the question</strong><br>Each poll covers a real industry topic — costs, trends, regions, companies.</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Register once</strong><br>Name, organisation and email. Your details stay private and are only used to prevent duplicate votes.</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Vote and see results</strong><br>Results update live when admin.py is running. One vote per person per poll.</div>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <strong>For information only.</strong> βEdge polls are informal opinion surveys. No money, no prizes. Results reflect participant sentiment only and should not be used as market data.
+    </div>
+    <div class="server-notice" id="server-notice">
+      <strong>Voting requires admin server</strong>
+      To cast votes, run:<br>
+      <code>python admin.py</code><br>
+      then open <code>http://localhost:5050/betaedge-preview</code>
+    </div>
+  </div>
+</div>
+
+
+
+<footer id="footer" role="contentinfo">
+  <div id="footer-main">
+    <!-- Brand column -->
+    <div id="footer-brand">
+      <div class="footer-logo-wrap">
+        <div id="footer-fop-box"><span>FOP</span></div>
+        <div id="footer-fop-wordmark">
+          <div id="footer-fop-name">FitOut Post</div>
+          <div id="footer-fop-tagline">Global Industry Intelligence</div>
+        </div>
+      </div>
+      <p>An independent aggregator of global fit-out and interior construction news.
+         Articles are drawn from industry publications, company announcements, and
+         newswires across more than 50 countries. Updated daily.</p>
+      <p class="footer-disclaimer">FitOut Post is not affiliated with any company featured
+         in its coverage. Article links open the original source. Content is for reference only.</p>
+    </div>
+    <!-- Regions column -->
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="index.html" data-tab="All">All regions</a></li>
+        <li><a href="index.html" data-tab="Europe">Europe</a></li>
+        <li><a href="index.html" data-tab="Middle East">Middle East</a></li>
+        <li><a href="index.html" data-tab="Asia Pacific">Asia Pacific</a></li>
+        <li><a href="index.html" data-tab="Americas">Americas</a></li>
+        <li><a href="index.html" data-tab="Oceania">Oceania</a></li>
+      </ul>
+    </div>
+    <!-- Directory column -->
+    <div class="footer-col" id="footer-legal">
+      <h4>Directory</h4>
+      <ul>
+        <li><a href="companies_site.html">All companies</a></li>
+        <li><a href="companies_site.html?sector=office">Offices</a></li>
+        <li><a href="companies_site.html?sector=hospitality">Hospitality</a></li>
+        <li><a href="companies_site.html?sector=retail">Retail</a></li>
+        <li><a href="companies_site.html?sector=fb">Food and beverage</a></li>
+        <li><a href="companies_site.html?sector=leisure">Sports and entertainment</a></li>
+        <li><a href="companies_site.html?sector=Museums">Exhibitions and museums</a></li>
+        <li><a href="companies_site.html?sector=datacentre">Data centres</a></li>
+        <li><a href="companies_site.html?sector=healthcare">Healthcare</a></li>
+        <li><a href="companies_site.html?sector=lab">Life sciences</a></li>
+      </ul>
+    </div>
+    <!-- About column -->
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="legal.html#terms">Terms of use</a></li>
+        <li><a href="legal.html#privacy">Privacy policy</a></li>
+        <li><a href="legal.html#cookies">Cookie policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="footer-bottom">
+    <div id="footer-copyright">
+      © <span id="footer-year"></span> FitOut Post. An independent publication. All rights reserved.
+    </div>
+    <div id="footer-legal-links">
+      <a href="legal.html#terms">Terms of use</a>
+      <a href="legal.html#privacy">Privacy policy</a>
+      <a href="legal.html#cookies">Cookie policy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── Vote modal ────────────────────────────────────────────────────────── -->
+<div class="modal-backdrop" id="vote-modal">
+  <div class="modal">
+    <h2>Cast your vote</h2>
+    <div class="m-sub">Register to vote. Your details are private and used only to prevent duplicate votes.</div>
+    <div class="m-selected-option">
+      <strong>Your choice</strong>
+      <span id="m-option-name"></span>
+    </div>
+    <div class="mfield"><label>Full name *</label><input type="text" id="m-name" autocomplete="name" /></div>
+    <div class="mfield"><label>Organisation *</label><input type="text" id="m-org" autocomplete="organization" /></div>
+    <div class="mfield"><label>Email address *</label><input type="email" id="m-email" autocomplete="email" /></div>
+    <div class="mfield"><label>Phone number (optional)</label><input type="tel" id="m-phone" autocomplete="tel" /></div>
+    <div class="mfield">
+      <div class="mfield-check">
+        <input type="checkbox" id="m-tc" />
+        <label for="m-tc">I accept the <a href="legal.html#terms" target="_blank" style="color:var(--claret)">Terms and Conditions</a> and understand this is an informal opinion poll.</label>
+      </div>
+    </div>
+    <div class="m-status" id="m-status"></div>
+    <div class="modal-actions">
+      <button class="mbtn mbtn-primary" id="m-submit" onclick="submitVote()">Submit vote</button>
+      <button class="mbtn mbtn-outline" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ─── Config ────────────────────────────────────────────────────────────── */
+const ADMIN_SERVER = "http://localhost:5050";
+
+/* ─── State ─────────────────────────────────────────────────────────────── */
+let activePollId = "", activeOption = "", votedPolls = {};
+let serverAvailable = false;
+
+try { votedPolls = JSON.parse(localStorage.getItem("betaedge_voted") || "{}"); } catch {}
+
+/* ─── Helpers ────────────────────────────────────────────────────────────── */
+function esc(s) {
+  return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+function fmtDate(iso) {
+  if (!iso) return "";
+  try { return new Date(iso).toLocaleDateString("en-GB", {day:"numeric",month:"short",year:"numeric"}); }
+  catch { return iso; }
+}
+
+/* ─── Load embedded data ─────────────────────────────────────────────────── */
+function loadEmbeddedData() {
+  const slot = document.getElementById("betaedge-data");
+  if (slot && slot.textContent.trim()) {
+    try { return JSON.parse(slot.textContent); } catch {}
+  }
+  return null;
+}
+
+/* ─── Try live server, fall back to embedded snapshot ────────────────────── */
+async function checkServer() {
+  try {
+    const r = await fetch(ADMIN_SERVER + "/api/polls", { signal: AbortSignal.timeout(1500) });
+    if (r.ok) { serverAvailable = true; return await r.json(); }
+  } catch {}
+  return null;
+}
+
+async function loadPolls() {
+  // 1. Try live server first
+  const live = await checkServer();
+  if (live) {
+    const active = live.filter(p => p.status === "active");
+    document.getElementById("be-poll-count").textContent = active.length;
+    renderPolls(active, true);
+    return;
+  }
+
+  // 2. Fall back to embedded snapshot
+  document.getElementById("server-notice").style.display = "block";
+  const data = loadEmbeddedData();
+  if (!data || !data.polls || !data.polls.length) {
+    document.getElementById("polls-list").innerHTML =
+      '<div class="empty-polls">No polls yet.<br><small>Run <code>python admin.py</code> to create polls.</small></div>';
+    document.getElementById("be-poll-count").textContent = "0";
+    return;
+  }
+  const active = data.polls.filter(p => p.status === "active");
+  document.getElementById("be-poll-count").textContent = active.length;
+  renderPolls(active, false);
+}
+
+/* ─── Render ─────────────────────────────────────────────────────────────── */
+function renderPolls(polls, canVote) {
+  const list = document.getElementById("polls-list");
+  if (!polls.length) {
+    list.innerHTML = '<div class="empty-polls">No active polls at the moment.<br>Check back soon.</div>';
+    return;
+  }
+  list.innerHTML = polls.map(p => {
+    const total = p.total_votes || 0;
+    const hasVoted = !!votedPolls[p.id];
+    const isClosed = p.status === "closed" || (p.closes_at && new Date(p.closes_at) < new Date());
+    const showBars = hasVoted || isClosed;
+
+    const opts = p.options.map(o => {
+      const c = (p.vote_counts && p.vote_counts[o]) || 0;
+      const pct = total ? Math.round(c / total * 100) : 0;
+      const isMyVote = votedPolls[p.id] === o;
+      const clickable = canVote && !hasVoted && !isClosed;
+      return `<div class="poll-option"${clickable ? ` onclick="openModal('${esc(p.id)}','${esc(o)}','${esc(p.question)}')" style="cursor:pointer"` : ""}>
+        <div class="poll-option-label">
+          <span class="poll-option-name">${esc(o)}${isMyVote ? ' <span style="color:var(--claret);font-size:11px">✓ your vote</span>' : ""}</span>
+          ${showBars ? `<span class="poll-option-pct">${pct}%</span>` : ""}
+        </div>
+        <div class="poll-bar-track">
+          <div class="poll-bar-fill" style="width:${showBars ? pct : 0}%"></div>
+        </div>
+      </div>`;
+    }).join("");
+
+    let footerRight = "";
+    if (hasVoted)       footerRight = `<span class="voted-badge">✓ Voted</span>`;
+    else if (isClosed)  footerRight = `<span class="closed-badge">Poll closed</span>`;
+    else if (!canVote)  footerRight = `<span class="server-badge">Start admin.py to vote</span>`;
+    else                footerRight = `<button class="btn-vote" onclick="openModal('${esc(p.id)}',null,'${esc(p.question)}')">Vote now</button>`;
+
+    return `<div class="poll-card" id="poll-${esc(p.id)}">
+      ${p.category ? `<div class="poll-cat">${esc(p.category)}</div>` : ""}
+      <div class="poll-q">${esc(p.question)}</div>
+      ${opts}
+      <div class="poll-footer">
+        <div>
+          <div class="poll-votes">${total} vote${total !== 1 ? "s" : ""}</div>
+          ${p.closes_at ? `<div class="poll-deadline">Closes ${fmtDate(p.closes_at)}</div>` : ""}
+        </div>
+        ${footerRight}
+      </div>
+    </div>`;
+  }).join("");
+}
+
+/* ─── Modal ──────────────────────────────────────────────────────────────── */
+function openModal(pollId, option, question) {
+  activePollId = pollId; activeOption = option || "";
+  document.getElementById("m-option-name").textContent = option || "(choose below)";
+  ["m-name","m-org","m-email","m-phone"].forEach(id => { document.getElementById(id).value = ""; });
+  document.getElementById("m-tc").checked = false;
+  document.getElementById("m-status").style.display = "none";
+  document.getElementById("m-submit").disabled = false;
+  document.getElementById("vote-modal").classList.add("open");
+  document.getElementById("m-name").focus();
+}
+function closeModal() { document.getElementById("vote-modal").classList.remove("open"); }
+
+async function submitVote() {
+  const name  = document.getElementById("m-name").value.trim();
+  const org   = document.getElementById("m-org").value.trim();
+  const email = document.getElementById("m-email").value.trim();
+  const phone = document.getElementById("m-phone").value.trim();
+  const tc    = document.getElementById("m-tc").checked;
+  const st    = document.getElementById("m-status");
+
+  if (!name || !org || !email) {
+    st.textContent = "Please fill in all required fields."; st.className = "m-status err"; st.style.display = "block"; return;
+  }
+  if (!tc) {
+    st.textContent = "Please accept the Terms and Conditions."; st.className = "m-status err"; st.style.display = "block"; return;
+  }
+  if (!activeOption) {
+    st.textContent = "Please select an option from the poll."; st.className = "m-status err"; st.style.display = "block"; return;
+  }
+
+  document.getElementById("m-submit").disabled = true;
+  st.textContent = "Submitting…"; st.className = "m-status"; st.style.display = "block";
+
+  try {
+    const r = await fetch(ADMIN_SERVER + "/api/vote", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ poll_id: activePollId, option: activeOption,
+        voter: { name, org, email, phone, tc_accepted: true } })
+    });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.error || "Vote failed");
+    votedPolls[activePollId] = activeOption;
+    localStorage.setItem("betaedge_voted", JSON.stringify(votedPolls));
+    st.textContent = "✅ Vote recorded!"; st.className = "m-status ok";
+    setTimeout(() => { closeModal(); loadPolls(); }, 1200);
+  } catch (e) {
+    st.textContent = "Error: " + e.message; st.className = "m-status err";
+    document.getElementById("m-submit").disabled = false;
+  }
+}
+
+/* ─── Close modal on backdrop click ─────────────────────────────────────── */
+document.getElementById("vote-modal").addEventListener("click", function(e) {
+  if (e.target === this) closeModal();
+});
+
+/* ─── Init ───────────────────────────────────────────────────────────────── */
+document.getElementById("utility-date").textContent =
+  new Date().toLocaleDateString("en-GB", {weekday:"long",day:"numeric",month:"long",year:"numeric"});
+document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+loadPolls();
+// Refresh every 30s when server is available
+setInterval(() => { if (serverAvailable) loadPolls(); }, 30000);
+
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
+<!-- ══ Tip modal ═════════════════════════════════════════════════════════════ -->
+<div id="tip-modal" role="dialog" aria-modal="true" aria-labelledby="tip-modal-headline">
+  <div id="tip-modal-backdrop"
+       onclick="document.getElementById('tip-modal').classList.remove('open')"></div>
+  <div id="tip-modal-card">
+    <button id="tip-modal-close"
+            onclick="document.getElementById('tip-modal').classList.remove('open')"
+            aria-label="Close">×</button>
+    <div id="tip-modal-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+           fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+    </div>
+    <div id="tip-modal-headline">Have a tip?</div>
+    <p id="tip-modal-body">Do you have important information you would like to share with the FitOut Post?</p>
+    <a href="mailto:info@fitoutpost.com" id="tip-modal-email">info@fitoutpost.com</a>
+    <p id="tip-modal-note">All communications are treated with strict confidentiality.<br>Our editorial team reads every message.</p>
+  </div>
+</div>
+
+<script>
+// Have a tip? — close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('tip-modal').classList.remove('open');
+});
+</script>
+<script></script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>

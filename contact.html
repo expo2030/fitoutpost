@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — FitOut Post</title>
+  <meta name="description" content="Contact FitOut Post — the global fit-out and interior construction news aggregator." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --salmon:    #FFF1E5;
+    --salmon-dk: #F2DFCE;
+    --white:     #FFFFFF;
+    --black:     #1a1a1a;
+    --claret:    #990033;
+    --warm-gray: #66605A;
+    --mid-gray:  #9A948E;
+    --border:    #D9CBC0;
+    --border-lt: #EDE3DA;
+    --serif:     "Playfair Display", Georgia, serif;
+    --sans:      "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--salmon);
+    color: var(--black);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--claret); }
+
+  /* ── Utility bar ─────────────────────────────────────────────────────────── */
+  #utility-bar {
+    background: var(--black);
+    color: #9A8A80;
+    font-family: var(--sans);
+    font-size: 11px;
+    padding: 0 24px;
+    border-bottom: 1px solid #333;
+  }
+  #utility-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #utility-left { display: flex; align-items: center; gap: 20px; }
+  #utility-edition { padding-left: 20px; border-left: 1px solid #3a3a3a; color: #7a706a; }
+  #utility-right { display: flex; align-items: center; gap: 20px; }
+  .util-link { color: #9A8A80; transition: color .15s; }
+  .util-link:hover { color: #D4C4BA; }
+
+  /* ── Masthead ─────────────────────────────────────────────────────────────── */
+  #masthead {
+    background: var(--salmon);
+    border-bottom: 2px solid var(--black);
+  }
+  #masthead-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  #fop-logo {
+    display: flex; align-items: center; gap: 14px;
+    flex-shrink: 0; cursor: pointer; user-select: none;
+    text-decoration: none;
+  }
+  #fop-logo:hover { color: inherit; }
+  #fop-box {
+    width: 52px; height: 52px;
+    background: var(--black);
+    display: flex; align-items: center; justify-content: center;
+  }
+  #fop-box span {
+    font-family: var(--serif);
+    font-weight: 800; font-size: 24px; letter-spacing: 1px;
+    color: #fff; line-height: 1;
+  }
+  #fop-wordmark { display: flex; flex-direction: column; line-height: 1.2; }
+  #fop-wordmark strong {
+    font-family: var(--serif); font-weight: 700; font-size: 20px;
+    letter-spacing: 0.2px; color: var(--black);
+  }
+  #fop-wordmark em {
+    font-style: normal; font-size: 10px; letter-spacing: 1.4px;
+    text-transform: uppercase; color: var(--warm-gray);
+    font-weight: 500; margin-top: 2px;
+  }
+  #masthead-right {
+    margin-left: auto; display: flex; align-items: center; gap: 16px;
+  }
+  .masthead-nav-link {
+    font-size: 12.5px; font-weight: 500; color: var(--black);
+    padding: 6px 14px; border: 1px solid var(--border);
+    transition: background .15s, border-color .15s; white-space: nowrap;
+  }
+  .masthead-nav-link:hover,
+  .masthead-nav-link.active {
+    background: var(--black); border-color: var(--black); color: #fff;
+  }
+
+  /* ── Page header ──────────────────────────────────────────────────────────── */
+  #page-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 24px 40px;
+  }
+  #page-header-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+  #page-header .section-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--claret);
+    margin-bottom: 10px;
+    display: block;
+  }
+  #page-header h1 {
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--black);
+    margin-bottom: 16px;
+  }
+  #page-header .page-lead {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--warm-gray);
+    max-width: 680px;
+  }
+
+  /* ── Main content ─────────────────────────────────────────────────────────── */
+  #main {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* ── Section headings ─────────────────────────────────────────────────────── */
+  .section-header {
+    border-top: 3px solid var(--black);
+    padding-top: 16px;
+    margin-bottom: 28px;
+  }
+  .section-header h2 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+  .section-header p {
+    font-size: 13.5px;
+    color: var(--warm-gray);
+    line-height: 1.6;
+  }
+
+  /* ── Contact categories ───────────────────────────────────────────────────── */
+  .contact-group { margin-bottom: 48px; }
+  .contact-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 20px;
+  }
+  .contact-card {
+    background: var(--white);
+    padding: 24px 28px;
+    border-top: 3px solid var(--claret);
+  }
+  .contact-card.editorial { border-top-color: #1A237E; }
+  .contact-card.industry  { border-top-color: #0D7680; }
+  .contact-card.press     { border-top-color: #D4690A; }
+  .contact-card.technical { border-top-color: #37474F; }
+  .contact-card.data      { border-top-color: #4527A0; }
+  .contact-card.general   { border-top-color: var(--claret); }
+
+  .contact-card-type {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--claret);
+    margin-bottom: 10px;
+  }
+  .contact-card.editorial .contact-card-type { color: #1A237E; }
+  .contact-card.industry  .contact-card-type { color: #0D7680; }
+  .contact-card.press     .contact-card-type { color: #D4690A; }
+  .contact-card.technical .contact-card-type { color: #37474F; }
+  .contact-card.data      .contact-card-type { color: #4527A0; }
+
+  .contact-card h3 {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+  .contact-card p {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--warm-gray);
+    margin-bottom: 16px;
+  }
+  .contact-email {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--claret);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color .15s;
+  }
+  .contact-email:hover { color: #CC0044; }
+  .contact-email svg { opacity: .7; }
+
+  /* ── Single-column contact card ──────────────────────────────────────────── */
+  .contact-card.full-width {
+    grid-column: 1 / -1;
+  }
+
+  /* ── About sidebar ────────────────────────────────────────────────────────── */
+  #sidebar { padding-top: 0; }
+  .sidebar-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--black);
+    padding: 24px 24px 20px;
+    margin-bottom: 24px;
+  }
+  .sidebar-block h3 {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 12px;
+  }
+  .sidebar-block p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--warm-gray);
+    margin-bottom: 10px;
+  }
+  .sidebar-block p:last-child { margin-bottom: 0; }
+  .sidebar-block a {
+    color: var(--claret);
+    font-weight: 500;
+  }
+  .sidebar-block a:hover { color: #CC0044; }
+  .sidebar-fact {
+    display: flex;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-lt);
+    font-size: 13px;
+  }
+  .sidebar-fact:last-child { border-bottom: none; padding-bottom: 0; }
+  .sidebar-fact-label {
+    font-weight: 600;
+    color: var(--black);
+    min-width: 100px;
+  }
+  .sidebar-fact-value { color: var(--warm-gray); }
+
+  /* ── Footer ───────────────────────────────────────────────────────────────── */
+  #footer { background: var(--black); color: #A09890; margin-top: 0; }
+  #footer-main {
+    max-width: 1320px; margin: 0 auto;
+    padding: 48px 24px 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    border-bottom: 1px solid #2e2e2e;
+  }
+  #footer-brand .footer-logo-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  #footer-fop-box { width: 40px; height: 40px; background: #fff; display: flex; align-items: center; justify-content: center; }
+  #footer-fop-box span { font-family: var(--serif); font-weight: 800; font-size: 18px; letter-spacing: 0.5px; color: var(--black); }
+  #footer-fop-wordmark { display: flex; flex-direction: column; }
+  #footer-fop-name { font-family: var(--serif); font-weight: 700; font-size: 16px; color: #E8D8C8; line-height: 1.2; }
+  #footer-fop-tagline { font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: #7a6e68; margin-top: 3px; }
+  #footer-brand p { font-size: 12.5px; line-height: 1.75; color: #A09890; max-width: 300px; margin-bottom: 14px; }
+  .footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #B8A8A0; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #2e2e2e; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul li a { font-size: 12.5px; color: #A09890; transition: color .15s; }
+  .footer-col ul li a:hover { color: #E8D8C8; }
+  #footer-bottom { max-width: 1320px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  #footer-copyright { font-size: 11.5px; color: #7a706a; }
+  #footer-legal-links { display: flex; align-items: center; gap: 20px; }
+  #footer-legal-links a { font-size: 11.5px; color: #7a706a; transition: color .15s; }
+  #footer-legal-links a:hover { color: #B8A8A0; }
+
+  /* ── Responsive ───────────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    #main { grid-template-columns: 1fr; gap: 48px; }
+    #footer-main { grid-template-columns: 2fr 1fr 1fr; }
+  }
+  @media (max-width: 760px) {
+    #utility-bar { display: none; }
+    #masthead-inner { height: 60px; }
+    #fop-wordmark { display: none; }
+    #page-header h1 { font-size: 30px; }
+    .contact-cards { grid-template-columns: 1fr; }
+    #footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+    #footer-brand { grid-column: 1 / -1; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- ── Utility bar ─────────────────────────────────────────────────────────── -->
+<div id="utility-bar">
+  <div id="utility-inner">
+    <div id="utility-left">
+      <span id="utility-date"></span>
+      <span id="utility-edition">Global Edition</span>
+    </div>
+    <div id="utility-right">
+      <a href="site.html" class="util-link">News</a>
+      <a href="companies_site.html" class="util-link">Companies</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── Masthead ────────────────────────────────────────────────────────────── -->
+<header id="masthead" role="banner">
+  <div id="masthead-inner">
+    <a href="site.html" id="fop-logo">
+      <div id="fop-box"><span>FOP</span></div>
+      <div id="fop-wordmark">
+        <strong>FitOut Post</strong>
+        <em>Global Industry Intelligence</em>
+      </div>
+    </a>
+    <div id="masthead-right">
+      <a href="site.html" class="masthead-nav-link">News</a>
+      <a href="companies_site.html" class="masthead-nav-link">Companies</a>
+      <a href="contact.html" class="masthead-nav-link active">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── Page header ─────────────────────────────────────────────────────────── -->
+<div id="page-header">
+  <div id="page-header-inner">
+    <span class="section-label">FitOut Post</span>
+    <h1>Contact us</h1>
+    <p class="page-lead">
+      FitOut Post is an independent aggregator of global fit-out and interior
+      construction news. We cover contract awards, project completions, company
+      moves, and sector analysis from more than 50 countries. Use the addresses
+      below to reach the right team.
+    </p>
+  </div>
+</div>
+
+<!-- ── Main ────────────────────────────────────────────────────────────────── -->
+<main id="main">
+
+  <div id="contact-body">
+
+    <!-- Editorial enquiries -->
+    <div class="contact-group">
+      <div class="section-header">
+        <h2>Editorial</h2>
+        <p>Coverage decisions, corrections, and requests for removal of inaccurate information.</p>
+      </div>
+      <div class="contact-cards">
+        <div class="contact-card editorial">
+          <div class="contact-card-type">News coverage</div>
+          <h3>Editorial team</h3>
+          <p>
+            Questions about our coverage, requests to correct a factual error, or
+            concerns about how a specific article has been characterised. We aim to
+            respond within two working days.
+          </p>
+          <a href="mailto:editorial@fitoutpost.com" class="contact-email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            editorial@fitoutpost.com
+          </a>
+        </div>
+
+        <div class="contact-card industry">
+          <div class="contact-card-type">Company news</div>
+          <h3>Industry submissions</h3>
+          <p>
+            Contract awards, project completions, personnel appointments, and press
+            releases from fit-out contractors, clients, and suppliers. Include the
+            project name, value, location, and completion date where known.
+          </p>
+          <a href="mailto:news@fitoutpost.com" class="contact-email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            news@fitoutpost.com
+          </a>
+        </div>
+
+        <div class="contact-card press">
+          <div class="contact-card-type">Media</div>
+          <h3>Press and media enquiries</h3>
+          <p>
+            Journalists, broadcasters, and researchers seeking comment on the
+            global fit-out market, sector trends, or the FitOut Post platform.
+          </p>
+          <a href="mailto:press@fitoutpost.com" class="contact-email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            press@fitoutpost.com
+          </a>
+        </div>
+
+        <div class="contact-card data">
+          <div class="contact-card-type">Companies directory</div>
+          <h3>Directory corrections</h3>
+          <p>
+            Requests to update, correct, or remove a company listing from the
+            FitOut Post Companies directory. Include the company name and the
+            specific field requiring amendment.
+          </p>
+          <a href="mailto:directory@fitoutpost.com" class="contact-email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            directory@fitoutpost.com
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical and general -->
+    <div class="contact-group">
+      <div class="section-header">
+        <h2>Technical and general</h2>
+        <p>Platform issues, data licensing, and all other enquiries.</p>
+      </div>
+      <div class="contact-cards">
+        <div class="contact-card technical">
+          <div class="contact-card-type">Platform</div>
+          <h3>Technical issues</h3>
+          <p>
+            Broken links, display errors, or problems with the site on any
+            device or browser. Describe what you expected to see and what
+            appeared instead.
+          </p>
+          <a href="mailto:tech@fitoutpost.com" class="contact-email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            tech@fitoutpost.com
+          </a>
+        </div>
+
+        <div class="contact-card general">
+          <div class="contact-card-type">General</div>
+          <h3>All other enquiries</h3>
+          <p>
+            Data licensing, syndication, partnerships, and anything not covered
+            by the categories above. We read every message and reply as promptly
+            as we can.
+          </p>
+          <a href="mailto:hello@fitoutpost.com" class="contact-email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            hello@fitoutpost.com
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Sidebar ─────────────────────────────────────────────────────────────── -->
+  <aside id="sidebar">
+
+    <div class="sidebar-block">
+      <h3>About FitOut Post</h3>
+      <p>
+        FitOut Post is an independent news aggregator covering the global fit-out
+        and interior construction industry. We do not produce original journalism.
+        Our platform draws from publicly available sources including trade press,
+        company announcements, and newswires.
+      </p>
+      <p>
+        Articles link directly to their original source. FitOut Post does not
+        hold copyright in third-party content.
+      </p>
+    </div>
+
+    <div class="sidebar-block">
+      <h3>Publication details</h3>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact-label">Published by</span>
+        <span class="sidebar-fact-value">FitOut Post</span>
+      </div>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact-label">Coverage</span>
+        <span class="sidebar-fact-value">Global — 50+ countries</span>
+      </div>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact-label">Updated</span>
+        <span class="sidebar-fact-value">Daily, automated</span>
+      </div>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact-label">Launched</span>
+        <span class="sidebar-fact-value">2026</span>
+      </div>
+    </div>
+
+    <div class="sidebar-block">
+      <h3>Legal</h3>
+      <p>
+        Our <a href="legal.html#terms">terms of use</a>,
+        <a href="legal.html#privacy">privacy policy</a>, and
+        <a href="legal.html#cookies">cookie policy</a> set out how we operate
+        and how we handle any personal information you share with us.
+      </p>
+    </div>
+
+  </aside>
+
+</main>
+
+<!-- ── Footer ─────────────────────────────────────────────────────────────── -->
+<footer id="footer" role="contentinfo">
+  <div id="footer-main">
+    <div id="footer-brand">
+      <div class="footer-logo-wrap">
+        <div id="footer-fop-box"><span>FOP</span></div>
+        <div id="footer-fop-wordmark">
+          <div id="footer-fop-name">FitOut Post</div>
+          <div id="footer-fop-tagline">Global Industry Intelligence</div>
+        </div>
+      </div>
+      <p>An independent aggregator of global fit-out and interior construction news. Updated daily.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="site.html">All regions</a></li>
+        <li><a href="site.html">Europe</a></li>
+        <li><a href="site.html">Middle East</a></li>
+        <li><a href="site.html">Asia Pacific</a></li>
+        <li><a href="site.html">Americas</a></li>
+        <li><a href="site.html">Oceania</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Directory</h4>
+      <ul>
+        <li><a href="companies_site.html">All companies</a></li>
+        <li><a href="companies_site.html?sector=office">Offices</a></li>
+        <li><a href="companies_site.html?sector=hospitality">Hospitality</a></li>
+        <li><a href="companies_site.html?sector=fb">Food and beverage</a></li>
+        <li><a href="companies_site.html?sector=leisure">Sports and entertainment</a></li>
+        <li><a href="companies_site.html?sector=datacentre">Data centres</a></li>
+        <li><a href="companies_site.html?sector=healthcare">Healthcare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="legal.html#terms">Terms of use</a></li>
+        <li><a href="legal.html#privacy">Privacy policy</a></li>
+        <li><a href="legal.html#cookies">Cookie policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="footer-bottom">
+    <div id="footer-copyright">© <span id="footer-year"></span> FitOut Post. An independent publication. All rights reserved.</div>
+    <div id="footer-legal-links">
+      <a href="legal.html#terms">Terms of use</a>
+      <a href="legal.html#privacy">Privacy policy</a>
+      <a href="legal.html#cookies">Cookie policy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("utility-date").textContent = new Date().toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+  document.getElementById("footer-year").textContent  = new Date().getFullYear();
+</script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>

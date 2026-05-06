@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitOut Post — Global Fit-Out Industry News</title>
+  <meta name="description" content="The world's fit-out industry news aggregator. Covering fitout, fit-out and interior construction projects across every continent." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Data slot: build.py writes the JSON here; no script execution needed -->
+  <!--FITOUT-DATA-SLOT-->
+
+  <style>
+  /* ─── Reset ──────────────────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --salmon:      #FFF1E5;
+    --salmon-dk:   #F2DFCE;
+    --salmon-md:   #FAE8D6;
+    --white:       #FFFFFF;
+    --black:       #1a1a1a;
+    --black-mid:   #262626;
+    --claret:      #990033;
+    --claret-lt:   #CC0044;
+    --teal:        #0D7680;
+    --warm-gray:   #66605A;
+    --mid-gray:    #9A948E;
+    --border:      #D9CBC0;
+    --border-lt:   #EDE3DA;
+    --border-dk:   #B8A99A;
+    --card-bg:     #FFFFFF;
+    --card-hover:  #FFF8F3;
+    --serif:       "Playfair Display", Georgia, "Times New Roman", serif;
+    --serif-body:  "EB Garamond", Georgia, "Times New Roman", serif;
+    --sans:        "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  html  { scroll-behavior: smooth; font-size: 16px; }
+  body  {
+    font-family: var(--sans);
+    background: var(--salmon);
+    color: var(--black);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--claret); }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     TIER 1 — UTILITY BAR (thin dark strip, top of page)
+  ══════════════════════════════════════════════════════════════════════════ */
+  #utility-bar {
+    background: var(--black);
+    color: #9A8A80;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid #333;
+    padding: 0 24px;
+  }
+  #utility-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #utility-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  #utility-date {
+    color: #9A8A80;
+  }
+  #utility-edition {
+    color: #7a706a;
+    padding-left: 20px;
+    border-left: 1px solid #3a3a3a;
+  }
+  #utility-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  #utility-count {
+    color: #9A8A80;
+  }
+  .util-link {
+    color: #9A8A80;
+    transition: color .15s;
+  }
+  .util-link:hover { color: #D4C4BA; }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     TIER 2 — MASTHEAD (salmon background, FOP logo + search)
+  ══════════════════════════════════════════════════════════════════════════ */
+  #masthead {
+    background: var(--salmon);
+    border-bottom: 2px solid var(--black);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+  #masthead-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  /* ─── FOP Logo ──────────────────────────────────────────────────────────── */
+  #fop-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+    cursor: default;
+    user-select: none;
+    text-decoration: none;
+  }
+  #fop-logo:hover { color: inherit; }
+  #fop-box {
+    width: 52px;
+    height: 52px;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  #fop-box span {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #fff;
+    line-height: 1;
+  }
+  #fop-wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  #fop-wordmark strong {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.2px;
+    color: var(--black);
+  }
+  #fop-wordmark em {
+    font-style: normal;
+    font-size: 10px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  /* ─── Masthead search ───────────────────────────────────────────────────── */
+  #masthead-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--border-dk);
+    flex-shrink: 0;
+    margin: 0 4px;
+  }
+  #search-wrap {
+    position: relative;
+    flex: 1;
+    max-width: 360px;
+  }
+  #search {
+    width: 100%;
+    background: rgba(255,255,255,.6);
+    border: 1px solid var(--border);
+    color: var(--black);
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 8px 12px 8px 36px;
+    outline: none;
+    transition: background .2s, border-color .2s;
+  }
+  #search:focus {
+    background: #fff;
+    border-color: var(--black);
+  }
+  #search::placeholder { color: var(--mid-gray); }
+  #search-icon {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .45;
+    pointer-events: none;
+  }
+
+  /* ─── Masthead right ────────────────────────────────────────────────────── */
+  #masthead-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+  #masthead-updated {
+    font-size: 11px;
+    color: var(--warm-gray);
+    text-align: right;
+    line-height: 1.6;
+  }
+  #masthead-updated strong { color: var(--black); font-weight: 600; }
+  .masthead-nav-link {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--black);
+    padding: 6px 14px;
+    border: 1px solid var(--border-dk);
+    transition: background .15s, border-color .15s, color .15s;
+    white-space: nowrap;
+  }
+  .masthead-nav-link:hover {
+    background: var(--black);
+    border-color: var(--black);
+    color: #fff;
+  }
+  .masthead-nav-link.active {
+    background: var(--black);
+    border-color: var(--black);
+    color: #fff;
+  }
+  /* Companies Directory — FT-style red CTA */
+  .masthead-nav-link--cta {
+    background: var(--claret);
+    border-color: var(--claret);
+    color: #fff;
+    font-weight: 600;
+    padding: 6px 18px;
+    letter-spacing: 0.2px;
+  }
+  .masthead-nav-link--cta:hover {
+    background: var(--claret-lt);
+    border-color: var(--claret-lt);
+    color: #fff;
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     TIER 3 — PRODUCT NAV (News / AlphaEdge / …)
+  ══════════════════════════════════════════════════════════════════════════ */
+  #product-nav {
+    background: var(--black);
+    position: sticky;
+    top: 72px;
+    z-index: 195;
+  }
+  #product-nav-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 0;
+  }
+  .pnav-link {
+    display: inline-block;
+    padding: 0 20px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,.65);
+    letter-spacing: .3px;
+    border-right: 1px solid rgba(255,255,255,.1);
+    transition: color .15s, background .15s;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .pnav-link:first-child { border-left: 1px solid rgba(255,255,255,.1); }
+  .pnav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
+  .pnav-link.active { color: #fff; background: var(--claret); border-color: var(--claret); }
+  .pnav-link.active + .pnav-link { border-left-color: var(--claret); }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     TIER 4 — SECTION NAVIGATION (continent tabs)
+  ══════════════════════════════════════════════════════════════════════════ */
+  #nav-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 110px;
+    z-index: 190;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  #nav-bar::-webkit-scrollbar { display: none; }
+  #nav-tabs {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+  }
+  .tab {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--warm-gray);
+    padding: 12px 16px;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color .15s, border-color .15s;
+    user-select: none;
+    text-transform: none;
+  }
+  .tab:hover { color: var(--black); border-bottom-color: var(--border-dk); }
+  .tab.active { color: var(--black); border-bottom-color: var(--claret); font-weight: 600; }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     SUB-BAR (filter controls)
+  ══════════════════════════════════════════════════════════════════════════ */
+  #sub-bar {
+    background: var(--salmon-md);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+  #sub-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    gap: 16px;
+  }
+  #stats {
+    font-size: 12px;
+    color: var(--warm-gray);
+    letter-spacing: 0.1px;
+  }
+  #stats strong { color: var(--black); font-weight: 600; }
+  #sub-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--warm-gray);
+  }
+  #country-select {
+    border: 1px solid var(--border);
+    background: #fff;
+    padding: 4px 8px;
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--black);
+    cursor: pointer;
+    outline: none;
+  }
+  #country-select:focus { border-color: var(--black); }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     MAIN CONTENT AREA
+  ══════════════════════════════════════════════════════════════════════════ */
+  #main {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 40px 24px 100px;
+  }
+
+  /* ─── Country section ────────────────────────────────────────────────────── */
+  .country-section { margin-bottom: 56px; }
+
+  .country-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--black);
+    position: relative;
+  }
+  .country-heading::before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--claret);
+  }
+  .country-heading-flag { font-size: 20px; line-height: 1; position: relative; top: 2px; }
+  .country-heading-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    color: var(--black);
+  }
+  .country-heading-count {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--mid-gray);
+    letter-spacing: 0.3px;
+    margin-left: 2px;
+  }
+
+  /* ─── Article grid ────────────────────────────────────────────────────────── */
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  /* ─── Article card ────────────────────────────────────────────────────────── */
+  .card {
+    background: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 22px 18px;
+    border-top: 3px solid var(--claret);
+    transition: background .18s;
+    cursor: pointer;
+    position: relative;
+  }
+  .card:hover { background: var(--card-hover); }
+  .card.cat-office      { border-top-color: #0D7680; }
+  .card.cat-retail      { border-top-color: #7B5EA7; }
+  .card.cat-hospitality { border-top-color: #D4690A; }
+  .card.cat-residential { border-top-color: #2E7D32; }
+  .card.cat-fb          { border-top-color: #C0392B; }
+  .card.cat-datacentre  { border-top-color: #1A237E; }
+  .card.cat-lab         { border-top-color: #00838F; }
+  .card.cat-airport     { border-top-color: #4527A0; }
+  .card.cat-museum      { border-top-color: #BF360C; }
+  .card.cat-healthcare  { border-top-color: #1B5E20; }
+  .card.cat-education   { border-top-color: #E65100; }
+  .card.cat-marine      { border-top-color: #006064; }
+  .card.cat-leisure     { border-top-color: #827717; }
+  .card.cat-industrial  { border-top-color: #37474F; }
+  .card.cat-fitout      { border-top-color: #5a6a84; }
+
+  /* ─── Card top row (category + recency badge) ─────────────────────────── */
+  .card-top-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 9px;
+  }
+  .card-category {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--claret);
+    font-family: var(--sans);
+    flex-shrink: 0;
+  }
+  .card-new-badge {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    background: var(--claret);
+    color: #fff;
+    padding: 1px 6px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  /* ── Signal type badges ─────────────────────────────────────────────────── */
+  .signal-badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    flex-shrink: 0;
+    display: inline-block;
+  }
+  .signal-badge.sig-award    { background: #B8860B; color: #fff; }
+  .signal-badge.sig-tender   { background: #1a1a1a; color: #fff; }
+  .signal-badge.sig-pipeline { background: #0D7680; color: #fff; }
+  .signal-badge.sig-progress { background: #3D6B3F; color: #fff; }
+  .signal-badge.sig-news     { display: none; } /* News is the default — no badge needed */
+  .card-rel-time {
+    font-size: 11px;
+    color: var(--mid-gray);
+    font-family: var(--sans);
+    margin-left: auto;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .card.cat-office      .card-category { color: #0D7680; }
+  .card.cat-retail      .card-category { color: #7B5EA7; }
+  .card.cat-hospitality .card-category { color: #D4690A; }
+  .card.cat-residential .card-category { color: #2E7D32; }
+  .card.cat-fb          .card-category { color: #C0392B; }
+  .card.cat-datacentre  .card-category { color: #1A237E; }
+  .card.cat-lab         .card-category { color: #00838F; }
+  .card.cat-airport     .card-category { color: #4527A0; }
+  .card.cat-museum      .card-category { color: #BF360C; }
+  .card.cat-healthcare  .card-category { color: #1B5E20; }
+  .card.cat-education   .card-category { color: #E65100; }
+  .card.cat-marine      .card-category { color: #006064; }
+  .card.cat-leisure     .card-category { color: #827717; }
+  .card.cat-industrial  .card-category { color: #37474F; }
+  .card.cat-fitout      .card-category { color: #5a6a84; }
+
+  .card-title {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--black);
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color .15s;
+  }
+  .card:hover .card-title { color: var(--claret); }
+
+  .card-desc {
+    font-family: var(--serif-body);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--warm-gray);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+    margin-bottom: 14px;
+  }
+
+  .card-footer {
+    padding-top: 12px;
+    border-top: 1px solid var(--border-lt);
+  }
+  .card-attribution {
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--mid-gray);
+    margin-bottom: 9px;
+  }
+  .card-attribution-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .attr-label {
+    font-weight: 600;
+    color: #8a8078;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .attr-source {
+    font-weight: 600;
+    color: var(--black);
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .attr-sep { color: #ccc; padding: 0 2px; }
+  .attr-date { color: var(--mid-gray); }
+  .attr-accessed {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-top: 1px;
+  }
+  .card-footer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .card-link {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--claret);
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.1px;
+    transition: color .15s;
+  }
+  .card-link:hover { color: var(--claret-lt); }
+  .card-link::after { content: " ›"; }
+
+  /* ─── Loading / error / empty states ─────────────────────────────────────── */
+  #loading, #error-state {
+    text-align: center;
+    padding: 100px 24px;
+    color: var(--warm-gray);
+  }
+  #loading .spinner {
+    width: 40px; height: 40px;
+    border: 3px solid var(--border);
+    border-top-color: var(--claret);
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+    margin: 0 auto 20px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  #loading p { font-family: var(--serif); font-size: 18px; font-style: italic; color: var(--warm-gray); }
+  #error-state h2 { font-family: var(--serif); font-size: 24px; margin-bottom: 14px; }
+  #error-state p  { font-size: 14px; margin-bottom: 20px; }
+  #error-state code {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 16px 22px;
+    font-family: "SFMono-Regular", "Fira Mono", monospace;
+    font-size: 12.5px;
+    line-height: 2;
+    text-align: left;
+    border-left: 3px solid var(--claret);
+  }
+  .empty-section {
+    padding: 48px 24px;
+    text-align: center;
+    color: var(--warm-gray);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    background: #fff;
+    border: 1px solid var(--border);
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     FOOTER — multi-column FT style
+  ══════════════════════════════════════════════════════════════════════════ */
+  #footer {
+    background: var(--black);
+    color: #A09890;
+    margin-top: 80px;
+  }
+  #footer-main {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 48px 24px 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    border-bottom: 1px solid #2e2e2e;
+  }
+  #footer-brand .footer-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  #footer-fop-box {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  #footer-fop-box span {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    color: var(--black);
+  }
+  #footer-fop-wordmark { display: flex; flex-direction: column; }
+  #footer-fop-name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 16px;
+    color: #E8D8C8;
+    line-height: 1.2;
+  }
+  #footer-fop-tagline {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #7a6e68;
+    margin-top: 3px;
+  }
+  #footer-brand p {
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: #A09890;
+    max-width: 300px;
+    margin-bottom: 14px;
+  }
+  #footer-brand .footer-disclaimer {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #7a706a;
+    max-width: 300px;
+    font-style: italic;
+  }
+
+  .footer-col h4 {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #B8A8A0;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2e2e2e;
+  }
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-col ul li a {
+    font-size: 12.5px;
+    color: #A09890;
+    transition: color .15s;
+  }
+  .footer-col ul li a:hover { color: #E8D8C8; }
+
+  #footer-bottom {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  #footer-copyright {
+    font-size: 11.5px;
+    color: #7a706a;
+  }
+  #footer-legal-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  #footer-legal-links a {
+    font-size: 11.5px;
+    color: #7a706a;
+    transition: color .15s;
+  }
+  #footer-legal-links a:hover { color: #9A8A80; }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════════════════════════════════════════ */
+  @media (max-width: 1100px) {
+    #footer-main { grid-template-columns: 2fr 1fr 1fr; }
+    #footer-legal { display: none; }
+  }
+  @media (max-width: 1024px) {
+    .articles-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 760px) {
+    #utility-bar { display: none; }
+    #masthead-inner { gap: 12px; height: 60px; }
+    #fop-wordmark, #masthead-divider { display: none; }
+    #masthead-right { gap: 8px; }
+    #search-wrap { max-width: 100%; }
+    #nav-bar { top: 60px; }
+    #masthead { border-bottom-width: 1px; }
+    #main { padding: 24px 16px 60px; }
+    .articles-grid { grid-template-columns: 1fr; }
+    .country-heading-name { font-size: 18px; }
+    #footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+    #footer-brand { grid-column: 1 / -1; }
+    .masthead-nav-link span { display: none; }
+  }
+  @media (max-width: 480px) {
+    #footer-main { grid-template-columns: 1fr; }
+    .tab { font-size: 11px; padding: 10px 12px; }
+  }
+  
+  /* ── Have a tip? modal ───────────────────────────────────────────────────── */
+  #tip-modal {
+    display: none; position: fixed; inset: 0; z-index: 9000;
+    align-items: center; justify-content: center;
+  }
+  #tip-modal.open { display: flex; }
+  #tip-modal-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.65); backdrop-filter: blur(2px);
+  }
+  #tip-modal-card {
+    position: relative; z-index: 1;
+    background: #fff; max-width: 520px; width: calc(100% - 48px);
+    padding: 48px 40px 40px; text-align: center;
+    border-top: 4px solid var(--claret,#990033);
+    box-shadow: 0 24px 64px rgba(0,0,0,.35);
+    animation: tipIn .2s ease;
+  }
+  @keyframes tipIn {
+    from { opacity:0; transform:translateY(-12px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  #tip-modal-close {
+    position: absolute; top: 14px; right: 16px;
+    background: none; border: none; cursor: pointer;
+    font-size: 22px; color: #999; line-height: 1; padding: 4px 8px;
+    font-family: sans-serif; transition: color .15s;
+  }
+  #tip-modal-close:hover { color: var(--claret,#990033); }
+  #tip-modal-icon {
+    width: 64px; height: 64px;
+    background: var(--claret,#990033);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+  }
+  #tip-modal-headline {
+    font-family: var(--serif,'Playfair Display',Georgia,serif);
+    font-size: 28px; font-weight: 800; font-style: italic;
+    color: var(--black,#1a1a1a); margin-bottom: 18px;
+    letter-spacing: -.3px; line-height: 1.2;
+  }
+  #tip-modal-body {
+    font-size: 15px; line-height: 1.7;
+    color: var(--warm-gray,#66605A); margin-bottom: 28px;
+  }
+  #tip-modal-email {
+    display: inline-block;
+    font-size: 17px; font-weight: 700;
+    color: var(--claret,#990033);
+    border-bottom: 2px solid var(--claret,#990033);
+    padding-bottom: 2px; margin-bottom: 24px;
+    transition: color .15s;
+    text-decoration: none;
+  }
+  #tip-modal-email:hover { color: #CC0044; border-color: #CC0044; }
+  #tip-modal-note {
+    font-size: 11.5px; color: #aaa; line-height: 1.6;
+    padding-top: 20px; border-top: 1px solid #eee;
+  }
+  
+  /* ─── Have a tip? — utility bar button ───────────────────────────────────── */
+  .tip-util-btn {
+    font-size: 11px; font-weight: 600; letter-spacing: .3px;
+    color: var(--claret,#990033); background: none; border: none;
+    cursor: pointer; padding: 0; display: flex; align-items: center; gap: 5px;
+    font-family: var(--sans,Inter,sans-serif); transition: opacity .15s;
+    line-height: 1;
+  }
+  .tip-util-btn:hover { opacity: .7; }
+  
+    #ad-banner-cta { font-size: 15px; }
+    #ad-banner-label { display: none; }
+  }
+  
+  /* ─── Marketing banner — photo strip ─────────────────────────────────────── */
+  #ad-banner {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+    background: #111;         /* fallback while image loads */
+  }
+  #ad-banner-img {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: opacity .4s ease;
+    opacity: 0;               /* fades in once loaded */
+  }
+  #ad-banner-img.loaded { opacity: 1; }
+  #ad-banner-badge {
+    position: absolute; top: 12px; left: 16px;
+    font-size: 9px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: rgba(255,255,255,.6);
+    background: rgba(0,0,0,.35); padding: 3px 7px;
+    pointer-events: none;
+  }
+  #ad-banner-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 10px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,.45));
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  #ad-banner-overlay a {
+    font-size: 11px; font-weight: 600; letter-spacing: .3px;
+    color: rgba(255,255,255,.85); transition: color .15s;
+  }
+  #ad-banner-overlay a:hover { color: #fff; }
+  @media (max-width: 760px) {
+    #ad-banner { height: 160px; }
+  }
+  /* ─── Utility bar — Advertise link ──────────────────────────────────────── */
+  .util-ad-link {
+    font-size: 10px; font-weight: 500; color: var(--claret,#990033);
+    opacity: .8; letter-spacing: .2px; transition: opacity .15s;
+    white-space: nowrap;
+  }
+  .util-ad-link:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════ UTILITY BAR ══════════════════════════════════════ -->
+<!-- Build stamp (injected by build.py — visible before JS loads) -->
+<div id="build-stamp" style="display:none"><!--BUILD-STAMP-SLOT--></div>
+<div id="utility-bar">
+  <div id="utility-inner">
+    <div id="utility-left">
+      <span id="utility-date"></span>
+      <span id="utility-edition">Global Edition</span>
+    </div>
+    <div id="utility-right">
+      <a href="contact.html" class="util-link">Contact</a>
+    
+      <button class="tip-util-btn"
+        onclick="document.getElementById('tip-modal').classList.add('open')"
+        aria-label="Have a tip? Contact the FitOut Post editorial team">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+             style="flex-shrink:0">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Have a tip?
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ MASTHEAD ═════════════════════════════════════════ -->
+<header id="masthead" role="banner">
+  <div id="masthead-inner">
+
+    <!-- FOP Logo -->
+    <a href="index.html" id="fop-logo">
+      <div id="fop-box"><span>FOP</span></div>
+      <div id="fop-wordmark">
+        <strong>FitOut Post</strong>
+        <em>Global Industry Intelligence</em>
+      </div>
+    </a>
+
+    <div id="masthead-divider"></div>
+
+    <!-- Search -->
+    <div id="search-wrap">
+      <svg id="search-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round" style="color:var(--warm-gray)">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input id="search" type="search" placeholder="Search articles, countries, sources…" autocomplete="off" />
+    </div>
+
+    <!-- Right -->
+    <div id="masthead-right">
+      <div id="masthead-updated">
+        Updated <span id="meta-updated">—</span>
+      </div>
+      <a class="masthead-nav-link" href="register.html" id="reg-btn" style="background:var(--claret);border-color:var(--claret);color:#fff;font-weight:600;padding:6px 18px;" id="masthead-reg">Register free →</a>
+    </div>
+
+  </div>
+</header>
+
+<!-- ═══════════════════════ PRODUCT NAV ══════════════════════════════════════ -->
+<nav id="product-nav" role="navigation" aria-label="Sections">
+  <div id="product-nav-inner">
+    <a class="pnav-link active" href="index.html">News</a>
+    <a class="pnav-link" href="weekly.html">Weekly</a>
+    <a class="pnav-link" href="intelligence.html">Intelligence</a>
+    <a class="pnav-link" href="tenders.html">Tenders</a>
+    <a class="pnav-link" href="pipeline.html">Pipeline</a>
+    <a class="pnav-link" href="companies_site.html">Companies</a>
+    <a class="pnav-link" href="alphaedge.html"><span style="font-size:1.1em">α</span> Edge</a>
+    <a class="pnav-link" href="betaedge.html"><span style="font-size:1.1em">β</span> Edge</a>
+    <a class="pnav-link" href="gammaedge.html"><span style="font-size:1.1em">γ</span> Edge</a>
+    <a class="pnav-link" href="register.html" style="margin-left:auto;background:var(--claret);border-left:1px solid var(--claret);color:#fff;font-weight:600;">Register free →</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ HERO BANNER ══════════════════════════════════════ -->
+<div id="hero-banner" style="background:var(--black);color:#fff;padding:20px 0;border-bottom:2px solid var(--claret);">
+  <div style="max-width:1320px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:280px;">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--claret);font-weight:600;margin-bottom:6px;">Global Fit-Out Intelligence Platform</div>
+      <h2 style="font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.25;color:#fff;margin-bottom:6px;">The world's fit-out industry news, tenders &amp; pipeline — in one place</h2>
+      <p style="font-size:13px;color:#B8A89A;line-height:1.5;">
+        <span id="hero-news-count">—</span> news articles &nbsp;·&nbsp;
+        <span id="hero-tenders-count">—</span> live tenders &nbsp;·&nbsp;
+        <span id="hero-pipeline-count">—</span> pipeline signals &nbsp;·&nbsp;
+        30+ markets covered
+      </p>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;" id="hero-cta">
+      <a href="register.html" style="display:inline-block;background:var(--claret);color:#fff;padding:10px 24px;font-size:13px;font-weight:600;letter-spacing:0.3px;white-space:nowrap;transition:background .15s;" onmouseover="this.style.background='#CC0044'" onmouseout="this.style.background='var(--claret)'">Register free →</a>
+      <span style="font-size:11px;color:#9A8A80;max-width:140px;line-height:1.5;">Free. No credit card. Unsubscribe anytime.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ CONTINENT NAVIGATION ══════════════════════════════ -->
+<nav id="nav-bar" role="navigation" aria-label="Regions">
+  <div id="nav-tabs">
+    <div class="tab active" data-continent="All">All regions</div>
+    <div class="tab" data-continent="Europe">Europe</div>
+    <div class="tab" data-continent="Middle East">Middle East</div>
+    <div class="tab" data-continent="Asia Pacific">Asia Pacific</div>
+    <div class="tab" data-continent="Americas">Americas</div>
+    <div class="tab" data-continent="Africa">Africa</div>
+    <div class="tab" data-continent="Oceania">Oceania</div>
+    <div class="tab" data-continent="Global">International</div>
+  </div>
+</nav>
+  <span id="ad-banner-badge">Advertisement</span>
+  <div id="ad-banner-overlay">
+    <a href="contact.html">Advertise with FitOut Post</a>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════ SUB-BAR ══════════════════════════════════════════ -->
+<div id="sub-bar">
+  <div id="sub-inner">
+    <div id="stats">
+      Showing <strong id="stats-shown">—</strong> articles
+      across <strong id="stats-countries">—</strong> countries
+    </div>
+    <div id="sub-right">
+      <label for="country-select">Filter by country:</label>
+      <select id="country-select">
+        <option value="">All countries</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ MAIN ══════════════════════════════════════════════ -->
+<main id="main">
+
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>Loading articles…</p>
+  </div>
+
+  <div id="error-state" style="display:none">
+    <h2>No articles found</h2>
+    <p>Run the news fetcher to rebuild the site with the latest articles:</p>
+    <code>
+      pip install -r requirements.txt<br>
+      python fetch_news.py
+    </code>
+    <p style="margin-top:12px;font-size:13px;color:#666">Then open <strong>index.html</strong> in any browser.</p>
+  </div>
+
+  <div id="content" style="display:none"></div>
+
+</main>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════════════════════════ -->
+
+<footer id="footer" role="contentinfo">
+
+  <div id="footer-main">
+
+    <!-- Brand column -->
+    <div id="footer-brand">
+      <div class="footer-logo-wrap">
+        <div id="footer-fop-box"><span>FOP</span></div>
+        <div id="footer-fop-wordmark">
+          <div id="footer-fop-name">FitOut Post</div>
+          <div id="footer-fop-tagline">Global Industry Intelligence</div>
+        </div>
+      </div>
+      <p>
+        An independent aggregator of global fit-out and interior construction news.
+        Articles are drawn from industry publications, company announcements, and
+        newswires across more than 50 countries. Updated daily.
+      </p>
+      <p class="footer-disclaimer">
+        FitOut Post is not affiliated with any company featured in its coverage.
+        Article links open the original source. Content is for reference only.
+      </p>
+    </div>
+
+    <!-- Navigate column -->
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="index.html" data-tab="All">All regions</a></li>
+        <li><a href="index.html" data-tab="Europe">Europe</a></li>
+        <li><a href="index.html" data-tab="Middle East">Middle East</a></li>
+        <li><a href="index.html" data-tab="Asia Pacific">Asia Pacific</a></li>
+        <li><a href="index.html" data-tab="Americas">Americas</a></li>
+        <li><a href="index.html" data-tab="Oceania">Oceania</a></li>
+      </ul>
+    </div>
+
+    <!-- Directory column -->
+    <div class="footer-col" id="footer-legal">
+      <h4>Directory</h4>
+      <ul>
+        <li><a href="companies_site.html">All companies</a></li>
+        <li><a href="companies_site.html?sector=office">Offices</a></li>
+        <li><a href="companies_site.html?sector=hospitality">Hospitality</a></li>
+        <li><a href="companies_site.html?sector=retail">Retail</a></li>
+        <li><a href="companies_site.html?sector=fb">Food and beverage</a></li>
+        <li><a href="companies_site.html?sector=leisure">Sports and entertainment</a></li>
+        <li><a href="companies_site.html?sector=Museums">Exhibitions and museums</a></li>
+        <li><a href="companies_site.html?sector=datacentre">Data centres</a></li>
+        <li><a href="companies_site.html?sector=healthcare">Healthcare</a></li>
+        <li><a href="companies_site.html?sector=lab">Life sciences</a></li>
+      </ul>
+    </div>
+
+    <!-- About column -->
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="legal.html#terms">Terms of use</a></li>
+        <li><a href="legal.html#privacy">Privacy policy</a></li>
+        <li><a href="legal.html#cookies">Cookie policy</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div id="footer-bottom">
+    <div id="footer-copyright">
+      © <span id="footer-year"></span> FitOut Post. An independent publication. All rights reserved.
+      <span id="footer-build" style="margin-left:12px;opacity:.45;font-size:10px"></span>
+    </div>
+    <div id="footer-legal-links">
+      <a href="legal.html#terms">Terms of use</a>
+      <a href="legal.html#privacy">Privacy policy</a>
+      <a href="legal.html#cookies">Cookie policy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+</footer>
+
+<!-- ═══════════════════════ JAVASCRIPT ═══════════════════════════════════════ -->
+<script>
+"use strict";
+
+// ── State ─────────────────────────────────────────────────────────────────────
+let ALL_ARTICLES      = [];
+let currentContinent  = "All";
+let currentCountry    = "";
+let searchQuery       = "";
+
+// ── Country → flag emoji ──────────────────────────────────────────────────────
+const FLAGS = {
+  "United Kingdom":"🇬🇧","Germany":"🇩🇪","France":"🇫🇷","Spain":"🇪🇸","Italy":"🇮🇹",
+  "Netherlands":"🇳🇱","Belgium":"🇧🇪","Switzerland":"🇨🇭","Austria":"🇦🇹","Sweden":"🇸🇪",
+  "Norway":"🇳🇴","Denmark":"🇩🇰","Finland":"🇫🇮","Poland":"🇵🇱","Czech Republic":"🇨🇿",
+  "Portugal":"🇵🇹","Ireland":"🇮🇪","Greece":"🇬🇷","Hungary":"🇭🇺","Romania":"🇷🇴",
+  "Bulgaria":"🇧🇬","Croatia":"🇭🇷","Serbia":"🇷🇸","Slovakia":"🇸🇰","Slovenia":"🇸🇮",
+  "Luxembourg":"🇱🇺","Malta":"🇲🇹","Cyprus":"🇨🇾","Estonia":"🇪🇪","Latvia":"🇱🇻",
+  "Lithuania":"🇱🇹","Russia":"🇷🇺","Ukraine":"🇺🇦",
+  "United Arab Emirates":"🇦🇪","Saudi Arabia":"🇸🇦","Qatar":"🇶🇦","Kuwait":"🇰🇼",
+  "Bahrain":"🇧🇭","Oman":"🇴🇲","Israel":"🇮🇱","Jordan":"🇯🇴","Lebanon":"🇱🇧",
+  "Egypt":"🇪🇬","Iraq":"🇮🇶","Turkey":"🇹🇷",
+  "China":"🇨🇳","Japan":"🇯🇵","South Korea":"🇰🇷","India":"🇮🇳","Singapore":"🇸🇬",
+  "Hong Kong":"🇭🇰","Taiwan":"🇹🇼","Thailand":"🇹🇭","Malaysia":"🇲🇾","Indonesia":"🇮🇩",
+  "Philippines":"🇵🇭","Vietnam":"🇻🇳","Bangladesh":"🇧🇩","Pakistan":"🇵🇰","Sri Lanka":"🇱🇰",
+  "Australia":"🇦🇺","New Zealand":"🇳🇿","Papua New Guinea":"🇵🇬","Fiji":"🇫🇯",
+  "United States":"🇺🇸","Canada":"🇨🇦","Mexico":"🇲🇽","Brazil":"🇧🇷","Argentina":"🇦🇷",
+  "Chile":"🇨🇱","Colombia":"🇨🇴","Peru":"🇵🇪",
+  "South Africa":"🇿🇦","Nigeria":"🇳🇬","Kenya":"🇰🇪","Ghana":"🇬🇭","Ethiopia":"🇪🇹",
+  "Tanzania":"🇹🇿","Morocco":"🇲🇦","Algeria":"🇩🇿","Tunisia":"🇹🇳",
+  "Global":"🌐",
+};
+const flag = c => FLAGS[c] || "🏳";
+
+// ── Article category detection ────────────────────────────────────────────────
+function categorise(title) {
+  const t = title.toLowerCase();
+  if (/data cent(re|er)|mission.critical|server.room/.test(t))           return "datacentre";
+  if (/laborator|lab\s|life.science|pharma|biotech|cleanroom/.test(t))   return "lab";
+  if (/airport|terminal|aviation|airline/.test(t))                        return "airport";
+  if (/museum|gallery|exhibition|cultural|heritage/.test(t))              return "museum";
+  if (/hospital|clinic|healthcare|medical|nhs|surgery/.test(t))          return "healthcare";
+  if (/university|campus|school|college|education/.test(t))              return "education";
+  if (/yacht|cruise.ship|marine|vessel/.test(t))                         return "marine";
+  if (/theme.park|entertainment.venue|stadium|arena|sports/.test(t))     return "leisure";
+  if (/restaurant|f&b|food.and.beverage|café|bar\b|dining/.test(t))      return "fb";
+  if (/hotel|hospitality|resort|spa|lodge/.test(t))                      return "hospitality";
+  if (/luxury.apartment|residential|condo|villa|penthouse/.test(t))      return "residential";
+  if (/retail|shop|store|mall|boutique|flagship|shopfit/.test(t))        return "retail";
+  if (/office|workplace|workspace|headquarters|hq/.test(t))              return "office";
+  if (/industrial|warehouse|logistics|distribution/.test(t))             return "industrial";
+  return "fitout";
+}
+
+const CAT_LABELS = {
+  office:      "Office fit-out",
+  retail:      "Retail fit-out",
+  hospitality: "Hospitality",
+  residential: "Residential",
+  fb:          "Restaurants and F&B",
+  datacentre:  "Data centre",
+  lab:         "Life sciences and labs",
+  airport:     "Airports and aviation",
+  museum:      "Museums and cultural",
+  healthcare:  "Healthcare",
+  education:   "Education",
+  marine:      "Marine and yachts",
+  leisure:     "Sports and leisure",
+  industrial:  "Industrial",
+  fitout:      "Fit-out",
+};
+
+// ── Signal type classification ────────────────────────────────────────────────
+// Classifies each article into: news | award | tender | pipeline | progress
+function signalType(a) {
+  const t = ((a.title || '') + ' ' + (a.description || '')).toLowerCase();
+  // Award signals
+  if (/\b(award|winner|won|prize|shortlist|commend|recogni[sz]|accolade)\b/.test(t)) return 'award';
+  // Tender/RFP signals
+  if (/\b(tender|rfp|itb|rfq|bid|procurement|solicitation|invitation to|call for tender|appel d'offres|ausschreibung|مناقصة|入札)\b/.test(t)) return 'tender';
+  // Pipeline signals (future/planned)
+  if (/\b(pipeline|planned|announced|break.?ground|groundbreak|will open|to open|coming soon|development plan|scheduled|under construction|under development|pre.?construction|vision 2030|giga.?project)\b/.test(t)) return 'pipeline';
+  // Progress / project update signals
+  if (/\b(complet|handov|deliv|opens|open(ing|ed)|inaugurat|unveil|launch|finish|wrap|milestone|phase \d|stage \d|on track|ahead of schedule)\b/.test(t)) return 'progress';
+  return 'news';
+}
+
+const SIGNAL_LABELS = {
+  award:    'Award',
+  tender:   'Tender',
+  pipeline: 'Pipeline',
+  progress: 'Progress',
+  news:     'News',
+};
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+// Fisher-Yates shuffle — returns the array (mutates in place)
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function esc(s) {
+  return String(s)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function timeAgo(iso) {
+  try {
+    const d = new Date(iso), now = new Date();
+    const diff = Math.floor((now - d) / 1000);
+    if (diff < 3600)  return Math.floor(diff/60) + "m ago";
+    if (diff < 86400) return Math.floor(diff/3600) + "h ago";
+    if (diff < 604800) return Math.floor(diff/86400) + "d ago";
+    return d.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
+  } catch { return ""; }
+}
+
+function fullDate(iso) {
+  try {
+    return new Date(iso).toLocaleDateString("en-GB", {
+      day: "numeric", month: "long", year: "numeric",
+      hour: "2-digit", minute: "2-digit", timeZone: "UTC", timeZoneName: "short"
+    });
+  } catch { return iso; }
+}
+
+function todayLong() {
+  return new Date().toLocaleDateString("en-GB", {
+    weekday:"long", day:"numeric", month:"long", year:"numeric"
+  });
+}
+
+function todayShort() {
+  return new Date().toLocaleDateString("en-GB", {
+    day:"numeric", month:"long", year:"numeric"
+  });
+}
+
+// ── Card HTML ─────────────────────────────────────────────────────────────────
+function cardHtml(a) {
+  const cat   = categorise(a.title);
+  const label = CAT_LABELS[cat];
+  const sig   = signalType(a);
+
+  const relTime   = a.published ? timeAgo(a.published)   : "Date unknown";
+  const published = a.published ? fullDate(a.published)   : "Date unknown";
+  const accessed  = a.accessed_at ? fullDate(a.accessed_at) : fullDate(a.published);
+
+  // "New" badge for articles published within the last 48 hours
+  const ageMs   = a.published ? Date.now() - new Date(a.published).getTime() : Infinity;
+  const newBadge = ageMs < 172800000
+    ? `<span class="card-new-badge">New</span>`
+    : "";
+
+  // Signal type badge (hidden for plain 'news')
+  const sigBadge = `<span class="signal-badge sig-${sig}" title="Signal type: ${SIGNAL_LABELS[sig]}">${SIGNAL_LABELS[sig]}</span>`;
+
+  return `
+<article class="card cat-${cat}" data-signal="${sig}" onclick="window.open('${esc(a.url)}','_blank','noopener,noreferrer')">
+  <div class="card-top-row">
+    <div class="card-category">${label}</div>
+    ${sigBadge}
+    ${newBadge}
+    <time class="card-rel-time" datetime="${esc(a.published || "")}" title="${published}">${relTime}</time>
+  </div>
+  <h3 class="card-title">${esc(a.title)}</h3>
+  <p class="card-desc">${esc(a.description || "")}</p>
+  <div class="card-footer">
+    <div class="card-attribution">
+      <div class="card-attribution-row">
+        <span class="attr-label">Source</span>
+        <span class="attr-source">${esc(a.source)}</span>
+        <span class="attr-sep">·</span>
+        <span class="attr-date">${published}</span>
+      </div>
+      <div class="attr-accessed">
+        <span class="attr-label">Accessed</span>
+        <span class="attr-date">${accessed}</span>
+      </div>
+    </div>
+    <div class="card-footer-actions">
+      <a class="card-link" href="${esc(a.url)}" target="_blank" rel="noopener noreferrer"
+         onclick="event.stopPropagation()">Read full article</a>
+    </div>
+  </div>
+</article>`;
+}
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function render() {
+  const content = document.getElementById("content");
+  const q = searchQuery.trim().toLowerCase();
+
+  let filtered = ALL_ARTICLES.filter(a => {
+    if (currentContinent !== "All" && a.continent !== currentContinent) return false;
+    if (currentCountry && a.country !== currentCountry) return false;
+    if (q) {
+      const hay = (a.title + " " + a.description + " " + a.source + " " + a.country).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  // Stats
+  const countries = [...new Set(filtered.map(a => a.country))];
+  document.getElementById("stats-shown").textContent     = filtered.length.toLocaleString();
+  document.getElementById("stats-countries").textContent = countries.length.toLocaleString();
+
+  // Country dropdown
+  const sel  = document.getElementById("country-select");
+  const prev = sel.value;
+  sel.innerHTML = '<option value="">All countries</option>';
+  [...countries].sort().forEach(c => {
+    const o = document.createElement("option");
+    o.value = c;
+    o.textContent = `${flag(c)} ${c === "Global" ? "International" : c}`;
+    sel.appendChild(o);
+  });
+  sel.value = countries.includes(prev) ? prev : "";
+
+  if (filtered.length === 0) {
+    content.innerHTML = `<div class="empty-section">No articles found${q ? ` for "${esc(q)}"` : ""}.</div>`;
+    return;
+  }
+
+  // Shuffle articles randomly (different every page load)
+  shuffle(filtered);
+
+  // Group by country — articles within each country keep the shuffled order
+  const byCountry = {};
+  filtered.forEach(a => { (byCountry[a.country] = byCountry[a.country] || []).push(a); });
+
+  // Shuffle the country section order too
+  const sortedCountries = shuffle(Object.keys(byCountry));
+
+  content.innerHTML = sortedCountries.map(country => {
+    const arts = byCountry[country];
+    const displayName = country === "Global" ? "International" : country;
+    const n = arts.length;
+    return `
+<section class="country-section">
+  <div class="country-heading">
+    <span class="country-heading-flag">${flag(country)}</span>
+    <span class="country-heading-name">${esc(displayName)}</span>
+    <span class="country-heading-count">${n} article${n !== 1 ? "s" : ""}</span>
+  </div>
+  <div class="articles-grid">
+    ${arts.map(cardHtml).join("")}
+  </div>
+</section>`;
+  }).join("");
+}
+
+// ── Controls ──────────────────────────────────────────────────────────────────
+document.querySelectorAll(".tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    currentContinent = tab.dataset.continent;
+    currentCountry   = "";
+    document.getElementById("country-select").value = "";
+    render();
+  });
+});
+
+document.getElementById("search").addEventListener("input", e => {
+  searchQuery = e.target.value;
+  render();
+});
+
+document.getElementById("country-select").addEventListener("change", e => {
+  currentCountry = e.target.value;
+  render();
+});
+
+// ── Dates and footer ──────────────────────────────────────────────────────────
+document.getElementById("utility-date").textContent = todayLong();
+document.getElementById("footer-year").textContent  = new Date().getFullYear();
+
+// Build stamp (written by build.py into the hidden #build-stamp div)
+(function() {
+  const stampEl = document.getElementById("build-stamp");
+  if (stampEl && stampEl.textContent.trim()) {
+    const iso = stampEl.textContent.trim();
+    const d   = new Date(iso);
+    if (!isNaN(d)) {
+      const label = "Built " + d.toLocaleDateString("en-GB", {
+        day:"2-digit", month:"short", year:"numeric"
+      }) + " " + d.toLocaleTimeString("en-GB", { hour:"2-digit", minute:"2-digit" }) + " UTC";
+      const el = document.getElementById("footer-build");
+      if (el) el.textContent = label;
+      console.info("FitOut Post %s · %s", label, iso);
+    }
+  }
+})();
+
+// ── Load data ─────────────────────────────────────────────────────────────────
+async function loadNews() {
+  try {
+    // 1. Prefer data embedded as <script type="application/json"> — works on file:// always
+    // 2. Fall back to window.__FITOUT_NEWS__ (set by news.js if present)
+    // 3. Last resort: fetch news.json (requires HTTP server)
+    let data;
+    const slot = document.getElementById("fitout-data");
+    if (slot && slot.textContent.trim()) {
+      data = JSON.parse(slot.textContent);
+    } else if (window.__FITOUT_NEWS__) {
+      data = window.__FITOUT_NEWS__;
+    } else {
+      const r = await fetch("news.json?" + Date.now());
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      data = await r.json();
+    }
+
+    ALL_ARTICLES = data.articles || [];
+
+
+    const upd = data.last_updated
+      ? new Date(data.last_updated).toLocaleDateString("en-GB", {
+          day:"numeric", month:"long", year:"numeric",
+          hour:"2-digit", minute:"2-digit"
+        })
+      : "—";
+    document.getElementById("meta-updated").textContent = upd;
+
+    // ── Hero counts ──────────────────────────────────────────────────────────
+    const _fmt = n => n >= 1000 ? (n/1000).toFixed(1).replace(/\.0$/,'') + 'k' : String(n);
+    if (data.total_articles) {
+      const el = document.getElementById("hero-news-count");
+      if (el) el.textContent = _fmt(data.total_articles);
+    }
+    (async () => {
+      try {
+        const [td, pl] = await Promise.all([
+          fetch('tenders.json').then(r=>r.ok?r.json():null).catch(()=>null),
+          fetch('pipeline.json').then(r=>r.ok?r.json():null).catch(()=>null)
+        ]);
+        const htc = document.getElementById("hero-tenders-count");
+        const hpc = document.getElementById("hero-pipeline-count");
+        if (td && td.total_tenders && htc) htc.textContent = _fmt(td.total_tenders);
+        if (pl && pl.total_items && hpc) hpc.textContent = _fmt(pl.total_items);
+      } catch(e) {}
+      // Hide hero CTA if already a registered member
+      if (localStorage.getItem('fop_member')) {
+        const cta = document.getElementById('hero-cta');
+        if (cta) cta.innerHTML = '<span style="font-size:13px;color:#9A8A80;">✓ You\'re a registered member</span>';
+        const rb = document.getElementById('masthead-reg');
+        if (rb) rb.textContent = '✓ Member';
+      }
+    })();
+
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("content").style.display = "block";
+    render();
+
+  } catch (err) {
+    document.getElementById("loading").style.display     = "none";
+    document.getElementById("error-state").style.display = "block";
+    console.error("FitOut Post:", err.message);
+  }
+}
+
+loadNews();
+</script>
+<!-- ══ Tip modal ═════════════════════════════════════════════════════════════ -->
+<div id="tip-modal" role="dialog" aria-modal="true" aria-labelledby="tip-modal-headline">
+  <div id="tip-modal-backdrop"
+       onclick="document.getElementById('tip-modal').classList.remove('open')"></div>
+  <div id="tip-modal-card">
+    <button id="tip-modal-close"
+            onclick="document.getElementById('tip-modal').classList.remove('open')"
+            aria-label="Close">×</button>
+    <div id="tip-modal-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+           fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+    </div>
+    <div id="tip-modal-headline">Have a tip?</div>
+    <p id="tip-modal-body">Do you have important information you would like to share with the FitOut Post?</p>
+    <a href="mailto:info@fitoutpost.com" id="tip-modal-email">info@fitoutpost.com</a>
+    <p id="tip-modal-note">All communications are treated with strict confidentiality.<br>Our editorial team reads every message.</p>
+  </div>
+</div>
+
+<script>
+// Have a tip? — close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('tip-modal').classList.remove('open');
+});
+</script>
+<script></script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>

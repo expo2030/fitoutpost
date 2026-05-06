@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Company Directory — FitOut Post</title>
+  <meta name="description" content="Global directory of fit-out companies — contractors, designers and consultants across every continent." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --salmon:    #FFF1E5;
+    --salmon-dk: #F2DFCE;
+    --black:     #1a1a1a;
+    --black-mid: #262626;
+    --claret:    #990033;
+    --claret-lt: #c1003f;
+    --teal:      #0D7680;
+    --warm-gray: #66605A;
+    --border:    #D9CBC0;
+    --border-lt: #EDE3DA;
+    --card-bg:   #FFFFFF;
+    --serif:     "Playfair Display", Georgia, serif;
+    --sans:      "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--salmon); color: var(--black); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── Masthead ── */
+  #masthead { background: var(--black); color: #fff; position: sticky; top: 0; z-index: 200; border-bottom: 1px solid #3a3a3a; }
+  #masthead-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; gap: 20px; }
+  #fop-logo { display: flex; align-items: center; gap: 13px; flex-shrink: 0; }
+  #fop-box { width: 46px; height: 46px; background: #fff; display: flex; align-items: center; justify-content: center; }
+  #fop-box span { font-family: var(--serif); font-weight: 700; font-size: 18px; letter-spacing: 2px; color: var(--black); }
+  #fop-wordmark strong { font-family: var(--serif); font-size: 16px; color: #fff; display: block; }
+  #fop-wordmark em { font-style: normal; font-size: 10.5px; letter-spacing: .8px; text-transform: uppercase; color: #B8A99A; }
+  #nav-links { display: flex; gap: 0; margin-left: 20px; }
+  .nav-link { font-size: 12px; font-weight: 500; letter-spacing: .5px; text-transform: uppercase; color: #8A7E76; padding: 0 14px; border-bottom: 2px solid transparent; height: 60px; display: flex; align-items: center; cursor: pointer; white-space: nowrap; transition: color .15s, border-color .15s; }
+  .nav-link:hover { color: #D4C4BA; }
+  .nav-link.active { color: #fff; border-color: var(--claret); }
+  .nav-link a { color: inherit; }
+  #search-wrap { position: relative; flex: 1; max-width: 360px; margin-left: auto; }
+  #search { width: 100%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 2px; color: #fff; font-family: var(--sans); font-size: 13px; padding: 7px 12px 7px 34px; outline: none; }
+  #search:focus { background: rgba(255,255,255,.12); }
+  #search::placeholder { color: #7a7068; }
+  #search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); opacity: .4; pointer-events: none; }
+
+  /* ── Sub-bar ── */
+  #sub-bar { background: var(--salmon); border-bottom: 1px solid var(--border); padding: 0 24px; }
+  #sub-inner { max-width: 1320px; margin: 0 auto; display: flex; align-items: center; height: 44px; gap: 12px; flex-wrap: wrap; }
+  #stats { font-size: 12px; color: var(--warm-gray); }
+  #stats strong { color: var(--black); font-weight: 600; }
+  #filters { margin-left: auto; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .filter-select { border: 1px solid var(--border); background: #fff; border-radius: 2px; padding: 4px 8px; font-family: var(--sans); font-size: 12px; color: var(--black); cursor: pointer; outline: none; }
+  .filter-select:focus { border-color: var(--claret); }
+  #clear-btn { font-size: 11px; font-weight: 600; color: var(--claret); cursor: pointer; padding: 4px 6px; border: none; background: none; font-family: var(--sans); }
+  #clear-btn:hover { color: var(--claret-lt); }
+
+  /* ── Main ── */
+  #main { max-width: 1320px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* ── Section heading ── */
+  .section-heading { display: flex; align-items: baseline; gap: 12px; padding-bottom: 10px; margin-bottom: 24px; border-bottom: 2px solid var(--black); }
+  .section-heading h2 { font-family: var(--serif); font-size: 20px; font-weight: 700; }
+  .section-count { font-size: 11.5px; color: var(--warm-gray); font-weight: 500; letter-spacing: .3px; text-transform: uppercase; }
+
+  /* ── Company grid ── */
+  .companies-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 48px; }
+
+  /* ── Company card ── */
+  .company-card { background: var(--card-bg); padding: 20px 22px 18px; border-top: 3px solid var(--claret); display: flex; flex-direction: column; gap: 10px; transition: background .18s; }
+  .company-card:hover { background: #FFF8F3; }
+  .company-card.type-contractor   { border-top-color: var(--claret); }
+  .company-card.type-design       { border-top-color: #0D7680; }
+  .company-card.type-consultant   { border-top-color: #7B5EA7; }
+  .company-card.type-manufacturer { border-top-color: #D4690A; }
+  .company-card.type-listed       { border-top-color: #2E7D32; }
+
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+  .card-type { font-size: 10px; font-weight: 600; letter-spacing: 1.1px; text-transform: uppercase; color: var(--claret); font-family: var(--sans); }
+  .company-card.type-design .card-type    { color: #0D7680; }
+  .company-card.type-consultant .card-type { color: #7B5EA7; }
+  .company-card.type-manufacturer .card-type { color: #D4690A; }
+  .listed-badge { font-size: 10px; font-weight: 600; background: #2E7D32; color: #fff; padding: 2px 7px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; }
+
+  .company-name { font-family: var(--serif); font-size: 17px; font-weight: 700; line-height: 1.3; }
+  .company-name a:hover { color: var(--claret); }
+
+  .company-meta { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--warm-gray); flex-wrap: wrap; }
+  .meta-flag { font-size: 14px; }
+  .meta-sep { color: #ccc; }
+  .meta-founded { font-weight: 500; }
+
+  .company-desc { font-size: 12.5px; font-weight: 300; line-height: 1.6; color: var(--warm-gray); }
+
+  /* ── Detail rows ── */
+  .detail-rows { display: flex; flex-direction: column; gap: 5px; }
+  .detail-row { display: flex; gap: 8px; font-size: 12px; }
+  .detail-label { font-weight: 600; color: #8a8078; font-size: 10.5px; letter-spacing: .4px; text-transform: uppercase; min-width: 72px; flex-shrink: 0; padding-top: 1px; }
+  .detail-val { color: var(--black); line-height: 1.5; }
+  .detail-val a { color: var(--claret); }
+  .detail-val a:hover { color: var(--claret-lt); }
+
+  /* ── Tags ── */
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag { font-size: 10.5px; background: var(--salmon-dk); border: 1px solid var(--border); border-radius: 2px; padding: 2px 8px; color: var(--warm-gray); }
+
+  /* ── Card footer ── */
+  .card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--border-lt); }
+  .card-revenue { font-size: 11px; color: var(--warm-gray); }
+  .card-revenue strong { color: var(--black); font-weight: 600; }
+  .news-link { font-size: 11.5px; font-weight: 600; color: var(--claret); transition: color .15s; white-space: nowrap; }
+  .news-link:hover { color: var(--claret-lt); }
+
+  /* ── States ── */
+  #loading { text-align: center; padding: 100px 24px; color: var(--warm-gray); }
+  .spinner { width: 40px; height: 40px; border: 3px solid var(--border); border-top-color: var(--claret); border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 20px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .empty { text-align: center; padding: 60px; font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--warm-gray); background: #fff; border: 1px solid var(--border); }
+
+  /* ── Footer ── */
+  #footer { background: var(--black); color: #66605A; padding: 24px; margin-top: 60px; font-size: 12px; text-align: center; }
+  #footer strong { color: #C8B8AA; }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) { .companies-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) {
+    .companies-grid { grid-template-columns: 1fr; }
+    #fop-wordmark em { display: none; }
+    #main { padding: 20px 16px 60px; }
+    #nav-links .nav-link { padding: 0 8px; font-size: 11px; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ MASTHEAD ═══════════════════════════════════════════════════════ -->
+<header id="masthead">
+  <div id="masthead-inner">
+    <a id="fop-logo" href="site.html">
+      <div id="fop-box"><span>FOP</span></div>
+      <div id="fop-wordmark">
+        <strong>FitOut Post</strong>
+        <em>Global Industry News</em>
+      </div>
+    </a>
+    <nav id="nav-links">
+      <div class="nav-link"><a href="site.html">News</a></div>
+      <div class="nav-link active"><a href="companies.html">Companies</a></div>
+    </nav>
+    <div id="search-wrap">
+      <svg id="search-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input id="search" type="search" placeholder="Search companies, services, countries…" autocomplete="off" />
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ SUB-BAR ═══════════════════════════════════════════════════════ -->
+<div id="sub-bar">
+  <div id="sub-inner">
+    <div id="stats">Showing <strong id="stats-shown">—</strong> of <strong id="stats-total">—</strong> companies</div>
+    <div id="filters">
+      <select class="filter-select" id="filter-continent">
+        <option value="">All Regions</option>
+        <option>Europe</option><option>Middle East</option><option>Asia Pacific</option>
+        <option>Americas</option><option>Africa</option><option>Oceania</option>
+      </select>
+      <select class="filter-select" id="filter-type">
+        <option value="">All Types</option>
+        <option>Fit-Out Contractor</option>
+        <option>Design &amp; Build Fit-Out</option>
+        <option>Architecture &amp; Interior Design</option>
+        <option>Construction &amp; Fit-Out</option>
+        <option>Real Estate &amp; Fit-Out Services</option>
+        <option>Cost Management &amp; Project Management</option>
+      </select>
+      <select class="filter-select" id="filter-sector">
+        <option value="">All Sectors</option>
+        <optgroup label="Commercial">
+          <option value="Offices">Offices &amp; Workplace</option>
+          <option value="Technology Campuses">Technology Campuses</option>
+          <option value="Financial Services">Financial Services</option>
+          <option value="Mixed-Use">Mixed-Use Development</option>
+        </optgroup>
+        <optgroup label="Hospitality &amp; Leisure">
+          <option value="Hospitality &amp; Hotels">Hospitality &amp; Hotels</option>
+          <option value="Restaurants &amp; F&amp;B">Restaurants &amp; F&amp;B</option>
+          <option value="Sports &amp; Leisure">Sports &amp; Leisure</option>
+          <option value="Yachts &amp; Marine">Yachts &amp; Marine</option>
+          <option value="Theme Parks">Theme Parks &amp; Entertainment</option>
+          <option value="Cruise">Cruise Ships</option>
+        </optgroup>
+        <optgroup label="Retail">
+          <option value="Retail">Retail</option>
+          <option value="Luxury Retail">Luxury Retail</option>
+          <option value="Fashion &amp; Beauty">Fashion &amp; Beauty</option>
+        </optgroup>
+        <optgroup label="Infrastructure &amp; Transport">
+          <option value="Airports &amp; Aviation">Airports &amp; Aviation</option>
+          <option value="Mission Critical &amp; Data Centres">Mission Critical &amp; Data Centres</option>
+          <option value="Industrial &amp; Logistics">Industrial &amp; Logistics</option>
+        </optgroup>
+        <optgroup label="Healthcare &amp; Science">
+          <option value="Hospitals &amp; Healthcare">Hospitals &amp; Healthcare</option>
+          <option value="Life Sciences &amp; Laboratories">Life Sciences &amp; Laboratories</option>
+          <option value="Science &amp; Research">Science &amp; Research</option>
+        </optgroup>
+        <optgroup label="Public &amp; Cultural">
+          <option value="Government &amp; Public Sector">Government &amp; Public Sector</option>
+          <option value="Higher Education">Higher Education</option>
+          <option value="Museums &amp; Cultural Institutions">Museums &amp; Cultural Institutions</option>
+          <option value="Exhibitions">Exhibitions &amp; Events</option>
+          <option value="Museums">Exhibitions and museums (combined)</option>
+        </optgroup>
+        <optgroup label="Residential">
+          <option value="Residential">Residential &amp; Luxury Apartments</option>
+        </optgroup>
+      </select>
+      <button id="clear-btn">Clear filters</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ MAIN ═══════════════════════════════════════════════════════════ -->
+<main id="main">
+  <div id="loading"><div class="spinner"></div><p style="font-family:var(--serif);font-style:italic;font-size:18px">Loading company directory…</p></div>
+  <div id="content" style="display:none"></div>
+</main>
+
+<footer id="footer">
+  <strong>FitOut Post</strong> — Global Company Directory. Data sourced from company websites, Construction News CN Specialists Index 2025 and Commercial Interior Design Power List 2025.<br>
+  Revenue figures in GBP unless otherwise stated. Last updated April 2026.
+</footer>
+
+<script>
+"use strict";
+
+let ALL_COMPANIES = [];
+let searchQuery = "";
+let filterContinent = "";
+let filterType = "";
+let filterSector = "";
+
+const FLAGS = {
+  "United Kingdom":"🇬🇧","Germany":"🇩🇪","France":"🇫🇷","Ireland":"🇮🇪","Sweden":"🇸🇪",
+  "Netherlands":"🇳🇱","Belgium":"🇧🇪","Spain":"🇪🇸","Italy":"🇮🇹","Portugal":"🇵🇹",
+  "United Arab Emirates":"🇦🇪","Saudi Arabia":"🇸🇦","Bahrain":"🇧🇭","Qatar":"🇶🇦","Kuwait":"🇰🇼",
+  "United States":"🇺🇸","Canada":"🇨🇦","Brazil":"🇧🇷","Mexico":"🇲🇽",
+  "Australia":"🇦🇺","New Zealand":"🇳🇿","Hong Kong":"🇭🇰","Singapore":"🇸🇬","China":"🇨🇳","India":"🇮🇳",
+  "South Africa":"🇿🇦","Kenya":"🇰🇪","Nigeria":"🇳🇬",
+};
+const flag = c => FLAGS[c] || "🏳";
+
+function typeClass(type) {
+  const t = (type || "").toLowerCase();
+  if (t.includes("design") && t.includes("build")) return "type-design";
+  if (t.includes("architecture") || t.includes("interior design")) return "type-design";
+  if (t.includes("cost") || t.includes("consultant") || t.includes("engineering") || t.includes("real estate")) return "type-consultant";
+  if (t.includes("manufacturer")) return "type-manufacturer";
+  return "type-contractor";
+}
+
+function esc(s) {
+  return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function revenueStr(c) {
+  if (c.revenue_gbp_m)   return `£${Number(c.revenue_gbp_m).toLocaleString()}m`;
+  if (c.revenue_usd_bn)  return `$${Number(c.revenue_usd_bn).toLocaleString()}bn USD`;
+  if (c.revenue_aud_bn)  return `A$${Number(c.revenue_aud_bn).toLocaleString()}bn`;
+  if (c.revenue_cad_bn)  return `C$${Number(c.revenue_cad_bn).toLocaleString()}bn`;
+  if (c.revenue_sek_bn)  return `SEK ${Number(c.revenue_sek_bn).toLocaleString()}bn`;
+  return null;
+}
+
+function cardHtml(c) {
+  const cls  = typeClass(c.type);
+  const rev  = revenueStr(c);
+  const locs = (c.locations || []).slice(0,5).join(", ") + (c.locations.length > 5 ? "…" : "");
+  const svcs = (c.services || []).slice(0,4).join(" · ");
+  const secs = (c.sectors  || []).slice(0,4).join(", ");
+  const proj = (c.notable_projects || []).slice(0,3).map(p => `<li>${esc(p)}</li>`).join("");
+
+  const contactParts = [];
+  if (c.contact?.phone) contactParts.push(`<a href="tel:${esc(c.contact.phone)}">${esc(c.contact.phone)}</a>`);
+  if (c.contact?.email) contactParts.push(`<a href="mailto:${esc(c.contact.email)}">${esc(c.contact.email)}</a>`);
+  if (c.website)        contactParts.push(`<a href="${esc(c.website)}" target="_blank" rel="noopener noreferrer">${esc(c.website.replace(/^https?:\/\//,""))}</a>`);
+
+  const newsSearch = encodeURIComponent(c.name.replace(" (historical)","").replace(" (Project & Development Services)","").replace(" (UK)",""));
+
+  return `
+<div class="company-card ${cls}${c.listed ? " type-listed":""}" id="co-${esc(c.id)}">
+  <div class="card-top">
+    <div class="card-type">${esc(c.type)}</div>
+    ${c.listed ? `<span class="listed-badge">Listed · ${esc(c.exchange||"")}</span>` : ""}
+  </div>
+
+  <div class="company-name">
+    ${c.website ? `<a href="${esc(c.website)}" target="_blank" rel="noopener noreferrer">${esc(c.name)}</a>` : esc(c.name)}
+  </div>
+
+  <div class="company-meta">
+    <span class="meta-flag">${flag(c.country)}</span>
+    <span>${esc(c.hq)}</span>
+    ${c.founded ? `<span class="meta-sep">·</span><span class="meta-founded">Est. ${c.founded}</span>` : ""}
+    ${c.parent  ? `<span class="meta-sep">·</span><span>Part of ${esc(c.parent)}</span>` : ""}
+  </div>
+
+  <p class="company-desc">${esc(c.description)}</p>
+
+  <div class="detail-rows">
+    ${locs ? `<div class="detail-row"><span class="detail-label">Offices</span><span class="detail-val">${esc(locs)}</span></div>` : ""}
+    ${svcs ? `<div class="detail-row"><span class="detail-label">Services</span><span class="detail-val">${esc(svcs)}</span></div>` : ""}
+    ${secs ? `<div class="detail-row"><span class="detail-label">Sectors</span><span class="detail-val">${esc(secs)}</span></div>` : ""}
+    ${c.employees ? `<div class="detail-row"><span class="detail-label">Employees</span><span class="detail-val">${esc(c.employees)}</span></div>` : ""}
+    ${proj ? `<div class="detail-row"><span class="detail-label">Projects</span><span class="detail-val"><ul style="padding-left:14px;font-size:12px;line-height:1.8">${proj}</ul></span></div>` : ""}
+    ${contactParts.length ? `<div class="detail-row"><span class="detail-label">Contact</span><span class="detail-val" style="line-height:1.9">${contactParts.join("<br>")}</span></div>` : ""}
+    ${c.contact?.linkedin ? `<div class="detail-row"><span class="detail-label">LinkedIn</span><span class="detail-val"><a href="${esc(c.contact.linkedin)}" target="_blank" rel="noopener noreferrer">View profile →</a></span></div>` : ""}
+  </div>
+
+  ${(c.tags||[]).length ? `<div class="tags">${c.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>` : ""}
+
+  <div class="card-footer">
+    <div class="card-revenue">
+      ${rev ? `Revenue: <strong>${rev}</strong>${c.revenue_year ? ` (${c.revenue_year})` : ""}` : `<span style="color:#ccc">Revenue: undisclosed</span>`}
+    </div>
+    <a class="news-link" href="site.html?search=${newsSearch}" target="_blank">
+      News mentions →
+    </a>
+  </div>
+</div>`;
+}
+
+function render() {
+  const content = document.getElementById("content");
+  const q = searchQuery.trim().toLowerCase();
+
+  let filtered = ALL_COMPANIES.filter(c => {
+    if (filterContinent && c.continent !== filterContinent) return false;
+    if (filterSector) {
+      const fs = filterSector.toLowerCase().replace(/&amp;/g,"&");
+      // "Museums" is a combined filter covering both museums and exhibitions
+      const matchTerms = fs === "museums" ? ["museum", "exhibition"] : [fs];
+      if (!(c.sectors||[]).some(s => matchTerms.some(t => s.toLowerCase().includes(t)))) return false;
+    }
+    if (filterType && !c.type.toLowerCase().includes(filterType.toLowerCase().split("&")[0].trim())) return false;
+    if (q) {
+      const hay = [c.name, c.hq, c.country, c.type, c.description,
+                   ...(c.services||[]), ...(c.sectors||[]), ...(c.tags||[]),
+                   ...(c.locations||[])].join(" ").toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  document.getElementById("stats-shown").textContent = filtered.length;
+
+  if (filtered.length === 0) {
+    content.innerHTML = `<div class="empty">No companies match your filters.</div>`;
+    return;
+  }
+
+  // Group by continent
+  const CONT_ORDER = ["Europe","Middle East","Asia Pacific","Americas","Africa","Oceania"];
+  const byCont = {};
+  filtered.forEach(c => (byCont[c.continent] = byCont[c.continent] || []).push(c));
+
+  const ordered = [...CONT_ORDER.filter(k => byCont[k]), ...Object.keys(byCont).filter(k => !CONT_ORDER.includes(k))];
+
+  const CONT_FLAG = {"Europe":"🌍","Middle East":"🕌","Asia Pacific":"🌏","Americas":"🌎","Africa":"🌍","Oceania":"🦘"};
+
+  content.innerHTML = ordered.map(cont => {
+    const cos = byCont[cont];
+    return `
+<div>
+  <div class="section-heading">
+    <h2>${CONT_FLAG[cont]||"🌐"} ${cont}</h2>
+    <span class="section-count">${cos.length} compan${cos.length !== 1 ? "ies" : "y"}</span>
+  </div>
+  <div class="companies-grid">
+    ${cos.map(cardHtml).join("")}
+  </div>
+</div>`;
+  }).join("");
+}
+
+// Controls
+document.getElementById("search").addEventListener("input", e => { searchQuery = e.target.value; render(); });
+document.getElementById("filter-continent").addEventListener("change", e => { filterContinent = e.target.value; render(); });
+document.getElementById("filter-type").addEventListener("change", e => { filterType = e.target.value; render(); });
+document.getElementById("filter-sector").addEventListener("change", e => { filterSector = e.target.value; render(); });
+document.getElementById("clear-btn").addEventListener("click", () => {
+  searchQuery = ""; filterContinent = ""; filterType = ""; filterSector = "";
+  document.getElementById("search").value = "";
+  ["filter-continent","filter-type","filter-sector"].forEach(id => document.getElementById(id).value = "");
+  render();
+});
+
+// Handle ?search= param from news-link clicks
+const urlSearch = new URLSearchParams(window.location.search).get("search");
+if (urlSearch) { document.getElementById("search").value = urlSearch; searchQuery = urlSearch; }
+
+// Load
+async function loadData() {
+  try {
+    const res = await fetch("companies.json?" + Date.now());
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    ALL_COMPANIES = data.companies || [];
+    document.getElementById("stats-total").textContent = ALL_COMPANIES.length;
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("content").style.display  = "block";
+    render();
+  } catch(err) {
+    document.getElementById("loading").innerHTML = `<p style="color:#c00;font-size:15px">Could not load companies.json — ${err.message}</p>`;
+  }
+}
+
+loadData();
+</script>
+</body>
+</html>

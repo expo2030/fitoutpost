@@ -1,0 +1,22 @@
+# Sensitive — never commit
+credentials.html
+members.json
+alerts_outbox/
+alert_log.json
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
