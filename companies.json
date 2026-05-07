@@ -9218,8 +9218,63 @@
         "seoul",
         "interior-construction"
       ]
+    },
+    {
+      "id": "bewunder",
+      "name": "BeWunder",
+      "type": "Design & Build Fit-Out",
+      "founded": 2022,
+      "hq": "Berlin, Germany",
+      "country": "Germany",
+      "continent": "Europe",
+      "locations": [
+        "Berlin",
+        "Hamburg",
+        "Munich",
+        "Dubai",
+        "Riyadh",
+        "Jeddah",
+        "Tokyo",
+        "Osaka"
+      ],
+      "services": [
+        "Turnkey Experience Design & Build",
+        "Exhibition Fit-Out",
+        "Museum & Visitor Centre Fit-Out",
+        "Pavilion & EXPO Build",
+        "Audiovisual & Multimedia Integration",
+        "Event & Brand Activation Spaces"
+      ],
+      "sectors": [
+        "Museums & Cultural Institutions",
+        "Exhibitions",
+        "Government & Public Sector",
+        "Hospitality & Hotels",
+        "Corporate & Brand Spaces"
+      ],
+      "description": "Global turnkey experience partner delivering ambitious spatial experiences — from permanent museum fit-outs to pavilions and brand activations. Spun off from Neumann & Müller in 2022, BeWunder combines design, engineering, and multimedia technology across eight markets in Europe, Middle East, and Asia.",
+      "notable_projects": [
+        "Cartier exhibition, Louvre Abu Dhabi",
+        "Museum of the Future, Dubai",
+        "Japan Pavilion, EXPO 2020 Dubai",
+        "Women's Pavilion, EXPO 2020 Dubai",
+        "Switzerland, Germany & USA Pavilions, EXPO 2025 Osaka"
+      ],
+      "employees": "200+",
+      "website": "https://bewunder.com",
+      "listed": true,
+      "tags": [
+        "fit-out",
+        "exhibitions",
+        "museums",
+        "experiential",
+        "germany",
+        "middle-east",
+        "asia",
+        "expo"
+      ]
     }
   ],
-  "total_companies": 187,
-  "last_updated": "2026-05-06"
+  "total_companies": 188,
+  "last_updated": "2026-05-07"
 }
