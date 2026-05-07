@@ -6,7 +6,7 @@ Embeds data JSON into HTML templates using <script type="application/json">.
 Works on file://, http://, and any browser without restrictions.
 
 Produces:
-  index.html       — main news page
+  news.html        — main news page
   site.html        — alias of index.html
   alphaedge.html   — curated reading (α Edge)
   betaedge.html    — industry polling (β Edge)
@@ -30,7 +30,7 @@ BASE = Path(__file__).parent
 
 # ── News build ────────────────────────────────────────────────────────────────
 TEMPLATE      = BASE / "_template.html"
-NEWS_OUTPUTS  = [BASE / "index.html", BASE / "site.html"]
+NEWS_OUTPUTS  = [BASE / "news.html", BASE / "site.html"]
 DATA_SLOT     = "<!--FITOUT-DATA-SLOT-->"
 STAMP_SLOT    = "<!--BUILD-STAMP-SLOT-->"
 DATA_SLOT_ID  = "fitout-data"
@@ -460,6 +460,7 @@ def build_sitemap() -> None:
     # Priority / changefreq rules
     RULES = {
         "index.html":        ("1.0", "daily"),
+        "news.html":         ("0.9", "daily"),
         "home.html":         ("0.9", "daily"),
         "news.html":         ("0.9", "daily"),
         "tenders.html":      ("0.9", "daily"),
@@ -563,9 +564,9 @@ def _write_receipt(n: int, source: str, stamp: str):
         f"Built    : {stamp}\n"
         f"Articles : {n}\n"
         f"Source   : {source}\n"
-        f"Outputs  : index.html, site.html, alphaedge.html, betaedge.html\n\n"
-        f"If index.html shows no articles, confirm you are opening\n"
-        f"THIS folder's index.html (not a browser bookmark to an old copy).\n"
+        f"Outputs  : news.html, site.html, alphaedge.html, betaedge.html\n\n"
+        f"If news.html shows no articles, confirm you are opening\n"
+        f"THIS folder's news.html (not a browser bookmark to an old copy).\n"
         f"\nDiagnostic: open check.html in the same folder first.\n"
         f"Admin (αEdge + βEdge): python admin.py\n"
     )
