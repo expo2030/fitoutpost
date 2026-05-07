@@ -749,6 +749,10 @@ if (slot && slot.textContent.trim()) {
   try {
     const d = JSON.parse(slot.textContent);
     AWARDS = d.awards || [];
+    if (d.generated) {
+      const mu = document.getElementById('meta-updated');
+      if (mu) mu.textContent = new Date(d.generated).toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+    }
   } catch(e) { console.error("Awards parse error:", e); }
 }
 

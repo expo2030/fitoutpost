@@ -1488,8 +1488,8 @@ async function loadData() {
     { const _pc=document.getElementById("pl-count"); if(_pc) _pc.textContent=(data.total||0).toLocaleString(); }
     { const _uc=document.getElementById("utility-count"); if(_uc) _uc.textContent=(data.total||0).toLocaleString()+" signals"; }
     if (data.last_updated) {
-      { const _pu=document.getElementById("pl-updated"); if(_pu) _pu.textContent =
-        "Updated " + new Date(data.last_updated).toLocaleDateString("en-GB",{
+      { const _pu=document.getElementById("meta-updated"); if(_pu) _pu.textContent =
+        new Date(data.last_updated).toLocaleDateString("en-GB",{
           day:"numeric", month:"long", year:"numeric"
         }); }
     }

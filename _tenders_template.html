@@ -1297,6 +1297,10 @@ function setDate() {
     const d = new Date();
     el.textContent = d.toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
   }
+  if (META.last_updated) {
+    const mu = document.getElementById('meta-updated');
+    if (mu) mu.textContent = new Date(META.last_updated).toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+  }
 }
 
 // ── Continent tabs ────────────────────────────────────────────────────────────
