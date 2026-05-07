@@ -47,7 +47,7 @@ jobs:
         run: |
           git config user.name  "FitOut Post Bot"
           git config user.email "bot@fitoutpost.com"
-          git add news.json index.html site.html awards.html \
+          git add news.json news.html site.html awards.html \
                   alphaedge.html betaedge.html gammaedge.html \
                   weekly.html companies_site.html timeline.html \
                   BUILD_INFO.txt
