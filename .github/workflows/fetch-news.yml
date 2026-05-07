@@ -50,6 +50,7 @@ jobs:
           git add news.json news.html site.html awards.html \
                   alphaedge.html betaedge.html gammaedge.html \
                   weekly.html companies_site.html timeline.html \
+                  intelligence.html intelligence.json \
                   BUILD_INFO.txt
           git diff --cached --quiet && echo "No changes" || \
             git commit -m "chore(news): daily fetch $(date -u '+%Y-%m-%d %H:%M UTC')"
