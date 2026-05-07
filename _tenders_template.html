@@ -344,23 +344,6 @@
   }
   .tab.active .tab-count { background: var(--claret); color: #fff; }
 
-  /* ══════════════════════════════════════════════════════════════════════════
-     STATS BAR
-  ══════════════════════════════════════════════════════════════════════════ */
-  #stats-bar {
-    background: var(--black-mid); color: #D4C4BA;
-    padding: 10px 24px; font-size: 12px;
-    border-bottom: 1px solid #333;
-  }
-  #stats-inner {
-    max-width: 1320px; margin: 0 auto;
-    display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
-  }
-  .stat-item { display: flex; align-items: center; gap: 7px; }
-  .stat-num { font-weight: 600; color: #fff; font-size: 14px; }
-  .stat-label { color: #9A8A80; font-size: 11px; }
-  .stat-sep { color: #444; }
-  #stats-updated { margin-left: auto; font-size: 10px; color: #6a6060; }
 
   /* ══════════════════════════════════════════════════════════════════════════
      FILTER BAR
@@ -936,8 +919,7 @@
     #masthead { top: 0; padding: 0 12px; }
     #product-nav { top: 56px; padding: 0 12px; }
     #nav-bar { top: 94px; padding: 0 12px; }
-    #stats-bar { padding: 8px 12px; }
-    #filter-bar { padding: 8px 12px; }
+#filter-bar { padding: 8px 12px; }
     #page-body { padding: 16px 12px 40px; }
     .masthead-nav { display: none; }
     .tender-title { font-size: 15px; }
@@ -1079,31 +1061,6 @@
   </div>
 </div>
 
-<!-- ══ Stats bar ══════════════════════════════════════════════════════════════ -->
-<div id="stats-bar">
-  <div id="stats-inner">
-    <div class="stat-item">
-      <span class="stat-num" id="stat-total">—</span>
-      <span class="stat-label">tenders tracked</span>
-    </div>
-    <span class="stat-sep">·</span>
-    <div class="stat-item">
-      <span class="stat-num" id="stat-open">—</span>
-      <span class="stat-label">open</span>
-    </div>
-    <span class="stat-sep">·</span>
-    <div class="stat-item">
-      <span class="stat-num" id="stat-closing">—</span>
-      <span class="stat-label" style="color:#E8820C">closing soon</span>
-    </div>
-    <span class="stat-sep">·</span>
-    <div class="stat-item">
-      <span class="stat-num" id="stat-countries">—</span>
-      <span class="stat-label">countries</span>
-    </div>
-    <span id="stats-updated"></span>
-  </div>
-</div>
 
 <!-- ══ Filter bar ════════════════════════════════════════════════════════════ -->
 <div id="filter-bar">
@@ -1331,7 +1288,6 @@ document.addEventListener('DOMContentLoaded', function() {
   populateSources();
   buildSidebar();
   applyFilters();
-  updateStats();
   setupStatusPills();
 });
 
@@ -1340,11 +1296,6 @@ function setDate() {
   if (el) {
     const d = new Date();
     el.textContent = d.toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
-  }
-  const upd = document.getElementById('stats-updated');
-  if (upd && META.last_updated) {
-    const d = new Date(META.last_updated);
-    upd.textContent = 'Updated ' + d.toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
   }
 }
 
@@ -1618,18 +1569,6 @@ function renderTenders(tenders) {
   }
 }
 
-// ── Stats ─────────────────────────────────────────────────────────────────────
-function updateStats() {
-  const openN    = ALL_TENDERS.filter(t => t.status === 'open').length;
-  const closingN = ALL_TENDERS.filter(t => t.status === 'closing_soon').length;
-  const countries = new Set(ALL_TENDERS.map(t => t.issuer_country).filter(Boolean)).size;
-
-  const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
-  set('stat-total',    ALL_TENDERS.length);
-  set('stat-open',     openN);
-  set('stat-closing',  closingN);
-  set('stat-countries', countries);
-}
 
 // ── Sidebar ───────────────────────────────────────────────────────────────────
 function buildSidebar() {
