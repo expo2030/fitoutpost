@@ -606,29 +606,6 @@
 </head>
 <body>
 
-<!-- ══ Utility bar ══════════════════════════════════════════════════════════ -->
-<div id="utility-bar">
-  <div id="utility-inner">
-    <div id="utility-left">
-      <span id="utility-date"></span>
-      <span id="utility-edition">Global Edition</span>
-    </div>
-    <div id="utility-right">
-      <a href="contact.html" class="util-link">Contact</a>
-      <button class="tip-util-btn"
-        onclick="document.getElementById('tip-modal').classList.add('open')"
-        aria-label="Have a tip? Contact the FitOut Post editorial team">
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-             style="flex-shrink:0">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        </svg>
-        Have a tip?
-      </button>
-    </div>
-  </div>
-</div>
-
 <!-- ══ Masthead ═════════════════════════════════════════════════════════════ -->
 <header id="masthead" role="banner">
   <div id="masthead-inner">
@@ -1034,11 +1011,6 @@ async function loadData() {
     document.getElementById("loading").innerHTML = `<p style="color:#c00;font-size:15px">Could not load companies.json — ${err.message}</p>`;
   }
 }
-
-// Dates
-document.getElementById("utility-date").textContent = new Date().toLocaleDateString("en-GB", {
-  weekday:"long", day:"numeric", month:"long", year:"numeric"
-});
 
 loadData();
 </script>
