@@ -1110,14 +1110,6 @@ function renderWeek(weekIndex) {
   const faxHeader = `
     <div class="fax-header">
       <div class="fax-header-field">
-        <span class="fax-header-label">TO</span>
-        <span class="fax-header-value">FitOut Industry</span>
-      </div>
-      <div class="fax-header-field">
-        <span class="fax-header-label">FROM</span>
-        <span class="fax-header-value">FitOut Post Editorial</span>
-      </div>
-      <div class="fax-header-field">
         <span class="fax-header-label">WEEK</span>
         <span class="fax-header-value">${esc(w.label)}</span>
       </div>
@@ -1143,45 +1135,12 @@ function renderWeek(weekIndex) {
   }
 
   const allGroups = w.groups || [];
-  const registered = isRegistered();
-
-  if (registered || allGroups.length === 0) {
-    // Full content for members
-    const groups = allGroups.map(renderGroup).join("");
-    container.innerHTML = `
-      <div class="fax-transmission">
-        ${faxHeader}
-        ${groups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No articles found for this week.</div>'}
-      </div>`;
-  } else {
-    // Teaser: first continent group visible, rest blurred + register gate
-    const teaser = renderGroup(allGroups[0]);
-    const locked = allGroups.slice(1).map(renderGroup).join("");
-    const remaining = allGroups.slice(1).reduce((s,g) => s + g.articles.length, 0);
-    container.innerHTML = `
-      <div class="fax-transmission">
-        ${faxHeader}
-        ${teaser}
-        <div style="position:relative;">
-          <div style="filter:blur(4px);pointer-events:none;user-select:none;opacity:.55;">${locked}</div>
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:10;">
-            <div style="background:#fff;border:1px solid #d8c9a8;border-radius:4px;padding:32px 40px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.12);max-width:420px;">
-              <div style="font-size:28px;margin-bottom:8px;">📋</div>
-              <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#1a1a1a;margin-bottom:8px;">
-                ${remaining} more articles this week
-              </div>
-              <p style="font-size:14px;color:#555;margin-bottom:20px;line-height:1.5;">
-                Register free to read the full weekly roundup — every market, every week.
-              </p>
-              <a href="register.html" style="display:inline-block;background:#990033;color:#fff;font-family:Inter,sans-serif;font-size:14px;font-weight:600;padding:12px 28px;border-radius:2px;text-decoration:none;letter-spacing:.03em;">
-                Register free →
-              </a>
-              <div style="margin-top:12px;font-size:12px;color:#8a7f72;">Already registered? <a href="register.html" style="color:#990033;">Sign in here</a></div>
-            </div>
-          </div>
-        </div>
-      </div>`;
-  }
+  const groups = allGroups.map(renderGroup).join("");
+  container.innerHTML = `
+    <div class="fax-transmission">
+      ${faxHeader}
+      ${groups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No articles found for this week.</div>'}
+    </div>`;
 }
 
 /* ─── Init ───────────────────────────────────────────────────────────────── */
