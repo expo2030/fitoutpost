@@ -432,18 +432,27 @@
   #cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 16px;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
   }
   .pl-card {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: 4px; padding: 18px 20px; display: flex; flex-direction: column;
-    gap: 10px; cursor: pointer; transition: box-shadow .15s, transform .1s;
+    background: var(--card-bg);
+    border-top: 3px solid var(--claret);
+    padding: 18px 20px; display: flex; flex-direction: column;
+    gap: 10px; cursor: pointer; transition: background .18s;
     position: relative;
   }
-  .pl-card:hover {
-    box-shadow: 0 4px 20px rgba(0,0,0,.1);
-    transform: translateY(-1px);
-  }
+  .pl-card:hover { background: var(--card-hover); }
+  /* sector-specific top border colours */
+  .pl-card.sector-office       { border-top-color: #0D7680; }
+  .pl-card.sector-retail       { border-top-color: #7B5EA7; }
+  .pl-card.sector-hospitality  { border-top-color: #D4690A; }
+  .pl-card.sector-residential  { border-top-color: #2E7D32; }
+  .pl-card.sector-fb           { border-top-color: #C0392B; }
+  .pl-card.sector-healthcare   { border-top-color: #1B5E20; }
+  .pl-card.sector-education    { border-top-color: #7B5EA7; }
+  .pl-card.sector-corporate    { border-top-color: #0D7680; }
   .pl-card-top {
     display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
   }
@@ -612,7 +621,8 @@
     /* Masthead */
     #masthead-inner { height: 56px; gap: 8px; padding: 0 12px; }
     #fop-wordmark, #masthead-divider { display: none; }
-    #fop-box { width: 34px; height: 34px; font-size: 13px; }
+    #fop-box { width: 34px; height: 34px; }
+    #fop-box span { font-size: 13px; letter-spacing: 0; }
     #masthead-right { gap: 8px; }
     #masthead-updated { display: none; }
     #search-wrap { flex: 1; max-width: none; min-width: 0; }
@@ -722,6 +732,18 @@
     #summary-strip { grid-template-columns: 1fr !important; }
     .award-card, .card { padding: 14px 14px; }
     .tab { font-size: 11px; padding: 9px 11px; }
+  }
+
+
+  /* ── Mobile landscape (phone rotated) ───────────────────────────────────── */
+  @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+    #fop-wordmark { display: flex !important; }
+    #masthead-divider { display: block !important; }
+    #masthead-inner { height: 48px; gap: 10px; }
+    #product-nav { top: 48px; }
+    #nav-bar { top: 84px; }
+    #fop-wordmark strong { font-size: 16px; }
+    #fop-wordmark em { display: none; }
   }
 
 </style>

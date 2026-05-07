@@ -446,7 +446,8 @@
     /* Masthead */
     #masthead-inner { height: 56px; gap: 8px; padding: 0 12px; }
     #fop-wordmark, #masthead-divider { display: none; }
-    #fop-box { width: 34px; height: 34px; font-size: 13px; }
+    #fop-box { width: 34px; height: 34px; }
+    #fop-box span { font-size: 13px; letter-spacing: 0; }
     #masthead-right { gap: 8px; }
     #masthead-updated { display: none; }
     #search-wrap { flex: 1; max-width: none; min-width: 0; }
@@ -556,6 +557,18 @@
     #summary-strip { grid-template-columns: 1fr !important; }
     .award-card, .card { padding: 14px 14px; }
     .tab { font-size: 11px; padding: 9px 11px; }
+  }
+
+
+  /* ── Mobile landscape (phone rotated) ───────────────────────────────────── */
+  @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+    #fop-wordmark { display: flex !important; }
+    #masthead-divider { display: block !important; }
+    #masthead-inner { height: 48px; gap: 10px; }
+    #product-nav { top: 48px; }
+    #nav-bar { top: 84px; }
+    #fop-wordmark strong { font-size: 16px; }
+    #fop-wordmark em { display: none; }
   }
 
 </style>

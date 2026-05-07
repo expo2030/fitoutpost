@@ -386,6 +386,92 @@
   .filter-pill.active { background: var(--claret); color: #fff; border-color: var(--claret); }
   #result-count { font-size: 11px; color: var(--warm-gray); margin-left: auto; }
 
+
+  /* ─── Tender list & cards ─────────────────────────────────────────────────── */
+  #tender-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .tender-card {
+    background: var(--card-bg);
+    border-top: 3px solid var(--claret);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background .18s;
+    position: relative;
+  }
+  .tender-card:hover { background: var(--card-hover); }
+  .tender-card.locked { border-top-color: var(--warm-gray); opacity: .9; }
+
+  .tender-header {
+    display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 11px;
+  }
+  .tender-flag { font-size: 16px; flex-shrink: 0; }
+  .tender-country { font-weight: 600; color: var(--black); }
+  .tender-sep { color: var(--mid-gray); }
+  .tender-category { color: var(--warm-gray); text-transform: capitalize; }
+  .tender-source { color: var(--mid-gray); font-size: 10px; margin-left: auto; }
+
+  .tender-title {
+    font-family: var(--serif); font-weight: 700; font-size: 16px;
+    line-height: 1.4; color: var(--black);
+  }
+  .tender-title a { color: inherit; text-decoration: none; }
+  .tender-title a:hover { color: var(--claret); }
+
+  .tender-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+  .meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .meta-label {
+    font-size: 9px; font-weight: 700; letter-spacing: .8px;
+    text-transform: uppercase; color: var(--mid-gray);
+  }
+  .meta-value { font-size: 12px; font-weight: 500; color: var(--black); }
+  .meta-value.deadline-urgent { color: #c0392b; font-weight: 700; }
+  .meta-value.deadline-soon   { color: var(--amber); font-weight: 600; }
+  .meta-value.deadline-ok     { color: var(--teal); }
+
+  .tender-desc { font-size: 13px; color: var(--warm-gray); line-height: 1.55; }
+
+  .tender-actions {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding-top: 4px;
+  }
+  .source-link {
+    font-size: 12px; font-weight: 600; color: var(--claret);
+    text-decoration: none; letter-spacing: .2px;
+  }
+  .source-link:hover { color: var(--claret-lt); }
+  .unlock-btn {
+    font-size: 11px; font-weight: 600; padding: 5px 12px;
+    background: var(--salmon-dk); border: 1px solid var(--border-dk);
+    border-radius: 3px; cursor: pointer; color: var(--black); transition: all .15s;
+  }
+  .unlock-btn:hover { background: var(--claret); color: #fff; border-color: var(--claret); }
+
+  .locked-row { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+  .locked-label {
+    font-size: 10px; font-weight: 700; letter-spacing: .6px;
+    text-transform: uppercase; color: var(--mid-gray); min-width: 48px;
+  }
+  .locked-value { color: var(--mid-gray); filter: blur(3px); user-select: none; }
+  .locked-icon { font-size: 11px; }
+
+  .featured-badge {
+    font-size: 10px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase;
+    padding: 2px 8px; background: rgba(13,118,128,.08); color: var(--teal); border-radius: 2px;
+  }
+  .status-badge {
+    font-size: 9px; font-weight: 700; letter-spacing: .8px;
+    text-transform: uppercase; padding: 2px 7px; border-radius: 10px;
+  }
+  .status-open     { background: rgba(13,118,128,.12); color: var(--teal); }
+  .status-closed   { background: rgba(153,0,51,.1); color: var(--claret); }
+  .status-upcoming { background: rgba(232,130,12,.1); color: var(--amber); }
+  .status-awarded  { background: rgba(46,125,50,.1); color: #2E7D32; }
   /* ══════════════════════════════════════════════════════════════════════════
      MAIN LAYOUT
   ══════════════════════════════════════════════════════════════════════════ */
@@ -410,7 +496,8 @@
     /* Masthead */
     #masthead-inner { height: 56px; gap: 8px; padding: 0 12px; }
     #fop-wordmark, #masthead-divider { display: none; }
-    #fop-box { width: 34px; height: 34px; font-size: 13px; }
+    #fop-box { width: 34px; height: 34px; }
+    #fop-box span { font-size: 13px; letter-spacing: 0; }
     #masthead-right { gap: 8px; }
     #masthead-updated { display: none; }
     #search-wrap { flex: 1; max-width: none; min-width: 0; }
@@ -520,6 +607,18 @@
     #summary-strip { grid-template-columns: 1fr !important; }
     .award-card, .card { padding: 14px 14px; }
     .tab { font-size: 11px; padding: 9px 11px; }
+  }
+
+
+  /* ── Mobile landscape (phone rotated) ───────────────────────────────────── */
+  @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+    #fop-wordmark { display: flex !important; }
+    #masthead-divider { display: block !important; }
+    #masthead-inner { height: 48px; gap: 10px; }
+    #product-nav { top: 48px; }
+    #nav-bar { top: 84px; }
+    #fop-wordmark strong { font-size: 16px; }
+    #fop-wordmark em { display: none; }
   }
 
 </style>

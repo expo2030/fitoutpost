@@ -163,9 +163,9 @@
   .year-body { padding-top:24px; }
   .month-group { margin-bottom:40px; }
   .month-heading { font-family:var(--serif);font-size:20px;font-weight:700;color:var(--black);border-bottom:2px solid var(--claret);padding-bottom:8px;margin-bottom:20px; }
-  .events-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px; }
-  .event-card { border:1px solid var(--border);background:#fff;padding:18px 20px;transition:border-color .2s,box-shadow .2s; }
-  .event-card:hover { border-color:var(--claret);box-shadow:0 2px 12px rgba(153,0,51,.08); }
+  .events-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1px;background:var(--border);border:1px solid var(--border); }
+  .event-card { background:var(--card-bg);border-top:3px solid var(--claret);padding:18px 20px;transition:background .18s; }
+  .event-card:hover { background:var(--card-hover); }
   .event-card.past { opacity:.55; }
   .event-meta { display:flex;align-items:center;gap:8px;margin-bottom:10px; }
   .event-date { font-size:11px;font-weight:600;color:var(--claret);letter-spacing:0.5px;text-transform:uppercase; }

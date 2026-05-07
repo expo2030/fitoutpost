@@ -316,22 +316,20 @@
 
   /* ── Main grid ─────────────────────────────────────────────── */
   #main { max-width: 1320px; margin: 0 auto; padding: 28px 24px 80px; }
-  #awards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+  #awards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
 
   /* ── Award card ────────────────────────────────────────────── */
   .award-card {
-    background: #fff;
-    border: 1px solid var(--rule);
-    border-radius: 2px;
+    background: var(--card-bg);
+    border-top: 3px solid var(--claret);
     padding: 18px 20px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    transition: box-shadow .15s;
+    transition: background .18s;
     position: relative;
   }
-  .award-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--claret); border-radius: 2px 0 0 2px; }
-  .award-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+  .award-card:hover { background: var(--card-hover); }
   .award-card-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .award-badge { font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 2px 8px; border-radius: 10px; background: #f2e8e8; color: var(--claret); }
   .award-geo { font-family: var(--sans); font-size: 11px; color: var(--warm-gray); }
@@ -368,7 +366,8 @@
     /* Masthead */
     #masthead-inner { height: 56px; gap: 8px; padding: 0 12px; }
     #fop-wordmark, #masthead-divider { display: none; }
-    #fop-box { width: 34px; height: 34px; font-size: 13px; }
+    #fop-box { width: 34px; height: 34px; }
+    #fop-box span { font-size: 13px; letter-spacing: 0; }
     #masthead-right { gap: 8px; }
     #masthead-updated { display: none; }
     #search-wrap { flex: 1; max-width: none; min-width: 0; }
@@ -478,6 +477,18 @@
     #summary-strip { grid-template-columns: 1fr !important; }
     .award-card, .card { padding: 14px 14px; }
     .tab { font-size: 11px; padding: 9px 11px; }
+  }
+
+
+  /* ── Mobile landscape (phone rotated) ───────────────────────────────────── */
+  @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+    #fop-wordmark { display: flex !important; }
+    #masthead-divider { display: block !important; }
+    #masthead-inner { height: 48px; gap: 10px; }
+    #product-nav { top: 48px; }
+    #nav-bar { top: 84px; }
+    #fop-wordmark strong { font-size: 16px; }
+    #fop-wordmark em { display: none; }
   }
 
 </style>
