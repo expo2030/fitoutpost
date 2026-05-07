@@ -491,6 +491,80 @@
     #fop-wordmark em { display: none; }
   }
 
+
+  /* ─── Shared FT news card elements ───────────────────────────────────────── */
+  .card-top-row {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 9px;
+  }
+  .card-category {
+    font-size: 10px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--claret); font-family: var(--sans); flex-shrink: 0;
+  }
+  .card-new-badge {
+    font-size: 9.5px; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; background: var(--claret); color: #fff;
+    padding: 1px 6px; border-radius: 2px; flex-shrink: 0;
+  }
+  .card-rel-time {
+    font-size: 11px; color: var(--mid-gray); margin-left: auto;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .card-title {
+    font-family: var(--serif); font-size: 17px; font-weight: 700;
+    line-height: 1.4; color: var(--black); margin-bottom: 6px; transition: color .15s;
+  }
+  .card-title a { color: inherit; text-decoration: none; }
+  .award-card:hover .card-title,
+  .pl-card:hover .card-title,
+  .tender-card:hover .card-title { color: var(--claret); }
+  .card-title a:hover { color: var(--claret); }
+  .card-geo {
+    font-size: 11px; color: var(--warm-gray); margin-bottom: 9px; letter-spacing: .02em;
+  }
+  .card-desc {
+    font-size: 14px; line-height: 1.55; color: var(--warm-gray); flex: 1;
+    margin-bottom: 14px;
+    display: -webkit-box; -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .card-footer {
+    padding-top: 10px; border-top: 1px solid var(--border-lt); margin-top: auto;
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 8px;
+  }
+  .card-attribution { font-size: 11px; line-height: 1.7; color: var(--mid-gray); }
+  .card-attribution-row {
+    display: flex; align-items: baseline; gap: 4px; flex-wrap: wrap;
+  }
+  .attr-label {
+    font-weight: 600; color: #8a8078; font-size: 10px;
+    letter-spacing: 0.5px; text-transform: uppercase; flex-shrink: 0;
+  }
+  .attr-source {
+    font-weight: 600; color: var(--black);
+    max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .attr-sep { color: #ccc; padding: 0 2px; }
+  .attr-date { color: var(--mid-gray); }
+  .attr-extra {
+    display: flex; align-items: baseline; gap: 4px; flex-wrap: wrap; margin-top: 2px;
+  }
+  .card-footer-actions {
+    display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+  }
+  .card-link {
+    font-size: 11.5px; font-weight: 600; color: var(--claret);
+    white-space: nowrap; text-decoration: none; letter-spacing: 0.1px;
+    transition: color .15s; flex-shrink: 0;
+  }
+  .card-link:hover { color: var(--claret-lt); }
+  .signal-badge {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; padding: 2px 7px; flex-shrink: 0;
+  }
+  .signal-badge.sig-award    { background: #B8860B; color: #fff; }
+  .signal-badge.sig-tender   { background: #1a1a1a; color: #fff; }
+  .signal-badge.sig-pipeline { background: #0D7680; color: #fff; }
+
 </style>
 </head>
 <body>
@@ -673,6 +747,30 @@ function filtered() {
 /* ── Render ───────────────────────────────────────────────────────────── */
 function esc(s) { return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
+
+function timeAgo(iso) {
+  if (!iso) return '';
+  const diff = Date.now() - new Date(iso).getTime();
+  const m = Math.floor(diff / 60000);
+  if (m < 60)  return m <= 1 ? 'just now' : `${m}m ago`;
+  const h = Math.floor(m / 60);
+  if (h < 24)  return `${h}h ago`;
+  const d = Math.floor(h / 24);
+  if (d < 30)  return `${d}d ago`;
+  return new Date(iso).toLocaleDateString('en-GB', { day:'numeric', month:'short' });
+}
+function flagEmoji(country) {
+  const FLAGS = {
+    'United Kingdom':'🇬🇧','UAE':'🇦🇪','United Arab Emirates':'🇦🇪','Saudi Arabia':'🇸🇦',
+    'USA':'🇺🇸','United States':'🇺🇸','India':'🇮🇳','Qatar':'🇶🇦','Australia':'🇦🇺',
+    'Singapore':'🇸🇬','China':'🇨🇳','Germany':'🇩🇪','France':'🇫🇷','Italy':'🇮🇹',
+    'Spain':'🇪🇸','Netherlands':'🇳🇱','Canada':'🇨🇦','Japan':'🇯🇵','South Korea':'🇰🇷',
+    'Hong Kong':'🇭🇰','Ireland':'🇮🇪','Poland':'🇵🇱','Czech Republic':'🇨🇿',
+    'International':'🌍'
+  };
+  return FLAGS[country] || '🌍';
+}
+
 function render() {
   const data = filtered();
   const grid = document.getElementById("awards-grid");
@@ -688,20 +786,40 @@ function render() {
   grid.style.display = "grid";
 
   grid.innerHTML = data.map(a => {
-    const geo = [a.country, a.continent].filter(Boolean).join(" · ");
-    const date = a.date_display || a.pub_date || "";
-    const src  = a.source || "";
-    return `<div class="award-card">
-      <div class="award-card-meta">
-        <span class="award-badge">Award</span>
-        ${geo ? `<span class="award-geo">${esc(geo)}</span>` : ""}
-        ${date ? `<span class="award-date">${esc(date)}</span>` : ""}
+    const country   = a.country || 'International';
+    const continent = a.continent || '';
+    const geoLine   = `${flagEmoji(country)} ${esc(country)}${continent ? ' · ' + esc(continent) : ''}`;
+    const pubDate   = a.date_display || a.pub_date || '';
+    const src       = a.source || '';
+    const relTime   = a.pub_date ? timeAgo(a.pub_date) : '';
+    const ageMs     = a.pub_date ? Date.now() - new Date(a.pub_date).getTime() : Infinity;
+    const newBadge  = ageMs < 172800000 ? '<span class="card-new-badge">New</span>' : '';
+    const title     = esc(a.headline || a.title || '');
+    return `<div class="award-card" onclick="window.open(${JSON.stringify(a.url||'#')},'_blank','noopener,noreferrer')" style="cursor:pointer">
+      <div class="card-top-row">
+        <span class="card-category" style="color:var(--amber)">Award</span>
+        <span class="signal-badge sig-award">Contract</span>
+        ${newBadge}
+        ${relTime ? `<time class="card-rel-time">${esc(relTime)}</time>` : ''}
       </div>
-      <div class="award-headline">${esc(a.headline || a.title || "")}</div>
-      ${src ? `<div class="award-source">${esc(src)}</div>` : ""}
-      ${a.url ? `<a class="award-link" href="${esc(a.url)}" target="_blank" rel="noopener">Read full story →</a>` : ""}
+      <h3 class="card-title">${a.url
+        ? `<a href="${esc(a.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${title}</a>`
+        : title}</h3>
+      <div class="card-geo">${geoLine}</div>
+      <div class="card-footer">
+        <div class="card-attribution">
+          ${src ? `<div class="card-attribution-row">
+            <span class="attr-label">Source</span>
+            <span class="attr-source">${esc(src)}</span>
+            ${pubDate ? `<span class="attr-sep">·</span><span class="attr-date">${esc(pubDate)}</span>` : ''}
+          </div>` : ''}
+        </div>
+        <div class="card-footer-actions">
+          ${a.url ? `<a class="card-link" href="${esc(a.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Read full story →</a>` : ''}
+        </div>
+      </div>
     </div>`;
-  }).join("");
+  }).join('');
 }
 
 /* ── Init ─────────────────────────────────────────────────────────────── */
