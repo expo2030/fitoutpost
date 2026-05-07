@@ -295,6 +295,125 @@
 
   
 
+
+  /* ── Page hero ─────────────────────────────────────────────── */
+  #page-hero { background: var(--black); color: #fff; padding: 28px 0 24px; border-bottom: 1px solid #333; }
+  #page-hero-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+  #page-hero-eyebrow { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--claret); margin-bottom: 8px; }
+  #page-hero h1 { font-family: var(--serif); font-size: clamp(26px,3.5vw,42px); font-weight: 800; line-height: 1.1; margin-bottom: 10px; }
+  #page-hero-sub { font-family: var(--sans); font-size: 13px; color: #B8A89A; }
+
+  /* ── Filter bar ────────────────────────────────────────────── */
+  #filter-bar { background: #fff; border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 40; }
+  #filter-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 12px; min-height: 44px; flex-wrap: wrap; }
+  .filter-tab { font-family: var(--sans); font-size: 12px; font-weight: 500; padding: 4px 14px; border: 1px solid var(--rule); border-radius: 20px; cursor: pointer; background: #fff; color: #555; transition: all .15s; white-space: nowrap; }
+  .filter-tab:hover { border-color: var(--claret); color: var(--claret); }
+  .filter-tab.active { background: var(--claret); color: #fff; border-color: var(--claret); }
+  #award-count { font-family: var(--sans); font-size: 12px; color: var(--warm-gray); margin-left: auto; white-space: nowrap; }
+
+  /* ── Main grid ─────────────────────────────────────────────── */
+  #main { max-width: 1320px; margin: 0 auto; padding: 28px 24px 80px; }
+  #awards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+
+  /* ── Award card ────────────────────────────────────────────── */
+  .award-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: box-shadow .15s;
+    position: relative;
+  }
+  .award-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--claret); border-radius: 2px 0 0 2px; }
+  .award-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+  .award-card-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .award-badge { font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 2px 8px; border-radius: 10px; background: #f2e8e8; color: var(--claret); }
+  .award-geo { font-family: var(--sans); font-size: 11px; color: var(--warm-gray); }
+  .award-date { font-family: var(--sans); font-size: 11px; color: var(--warm-gray); margin-left: auto; }
+  .award-headline { font-family: var(--garamond); font-size: 16px; line-height: 1.35; color: var(--black); font-weight: 400; }
+  .award-source { font-family: var(--sans); font-size: 11px; color: var(--warm-gray); }
+  .award-link { display: inline-block; font-family: var(--sans); font-size: 11px; font-weight: 600; color: var(--claret); text-decoration: none; margin-top: 4px; }
+  .award-link:hover { text-decoration: underline; }
+
+  /* ── Empty / loading ───────────────────────────────────────── */
+  #loading, #empty-state { text-align: center; padding: 80px 20px; color: var(--warm-gray); font-family: var(--sans); font-size: 14px; }
+  .spinner { width: 32px; height: 32px; border: 3px solid var(--rule); border-top-color: var(--claret); border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 16px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Footer ────────────────────────────────────────────────── */
+  #footer { background: var(--black); color: #8a7f72; font-family: var(--sans); font-size: 12px; padding: 24px; text-align: center; border-top: 2px solid var(--claret); }
+  #footer a { color: #c8beb2; text-decoration: none; }
+  #footer a:hover { color: #fff; }
+
+  @media (max-width: 680px) {
+    #awards-grid { grid-template-columns: 1fr; }
+    #masthead-nav .mh-link { padding: 12px 8px; font-size: 10px; }
+  }
+  
+  /* ─── Contact + Tip links in masthead ──────────────────────────────────── */
+  .mh-util-link {
+    font-size: 11px;
+    color: var(--warm-gray);
+    transition: color .15s;
+    white-space: nowrap;
+  }
+  .mh-util-link:hover { color: var(--black); }
+  .mh-tip-btn {
+    background: none;
+    border: none;
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--warm-gray);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color .15s;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .mh-tip-btn:hover { color: var(--black); }
+  .mh-util-sep {
+    width: 1px;
+    height: 14px;
+    background: var(--border-dk);
+    flex-shrink: 0;
+  }
+
+
+  /* ── Section banner ──────────────────────────────────────────────────────────────── */
+  #section-banner {
+    background: var(--black);
+    border-bottom: 2px solid var(--claret);
+    padding: 12px 0;
+  }
+  #section-banner-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  #section-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--claret);
+    flex-shrink: 0;
+  }
+  #section-sub {
+    font-size: 12.5px;
+    color: #B8A89A;
+  }
+
+
 /* ══════════════════════════════════════════════════════════════════════════
      FOOTER — multi-column FT style
   ══════════════════════════════════════════════════════════════════════════ */
