@@ -402,41 +402,12 @@
     padding: 40px 24px 100px;
   }
 
-  /* ─── Country section ────────────────────────────────────────────────────── */
-  .country-section { margin-bottom: 56px; }
-
-  .country-heading {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--black);
-    position: relative;
-  }
-  .country-heading::before {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: var(--claret);
-  }
-  .country-heading-flag { font-size: 20px; line-height: 1; position: relative; top: 2px; }
-  .country-heading-name {
-    font-family: var(--serif);
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: 0.1px;
-    color: var(--black);
-  }
-  .country-heading-count {
+  /* ─── Card geo line ─────────────────────────────────────────────────────── */
+  .card-geo {
     font-size: 11px;
-    font-weight: 500;
-    color: var(--mid-gray);
-    letter-spacing: 0.3px;
-    margin-left: 2px;
+    color: var(--warm-gray);
+    margin-top: 5px;
+    letter-spacing: .02em;
   }
 
   /* ─── Article grid ────────────────────────────────────────────────────────── */
@@ -855,8 +826,7 @@
     #masthead { border-bottom-width: 1px; }
     #main { padding: 24px 16px 60px; }
     .articles-grid { grid-template-columns: 1fr; }
-    .country-heading-name { font-size: 18px; }
-    #footer-main { grid-template-columns: 1fr; gap: 32px; }
+#footer-main { grid-template-columns: 1fr; gap: 32px; }
     .masthead-nav-link span { display: none; }
   }
   @media (max-width: 480px) {
@@ -1082,15 +1052,6 @@
   </div>
 </div>
 
-<!-- ═══════════════════════ LATEST SIGNALS STRIP ═════════════════════════════ -->
-<div id="latest-signals-wrap" style="background:var(--salmon-dk);border-bottom:1px solid #D8C9A8;">
-  <div style="max-width:1320px;margin:0 auto;padding:10px 24px;">
-    <div style="display:flex;align-items:center;gap:12px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:4px;" id="latest-signals-scroll">
-      <span style="font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--claret);flex-shrink:0;white-space:nowrap;">Latest →</span>
-      <div id="latest-signals-cards" style="display:flex;gap:10px;flex-shrink:0;"></div>
-    </div>
-  </div>
-</div>
 
 <!-- ═══════════════════════ CONTINENT NAVIGATION ══════════════════════════════ -->
 <nav id="nav-bar" role="navigation" aria-label="Regions">
@@ -1364,6 +1325,10 @@ function cardHtml(a) {
   // Signal type badge (hidden for plain 'news')
   const sigBadge = `<span class="signal-badge sig-${sig}" title="Signal type: ${SIGNAL_LABELS[sig]}">${SIGNAL_LABELS[sig]}</span>`;
 
+  const geoCountry   = a.country && a.country !== "Global" ? a.country : "International";
+  const geoContinent = a.continent || "";
+  const geoLine = `${flag(geoCountry)} ${esc(geoCountry)}${geoContinent ? " · " + esc(geoContinent) : ""}`;
+
   return `
 <article class="card cat-${cat}" data-signal="${sig}" onclick="window.open('${esc(a.url)}','_blank','noopener,noreferrer')">
   <div class="card-top-row">
@@ -1373,6 +1338,7 @@ function cardHtml(a) {
     <time class="card-rel-time" datetime="${esc(a.published || "")}" title="${published}">${relTime}</time>
   </div>
   <h3 class="card-title">${esc(a.title)}</h3>
+  <div class="card-geo">${geoLine}</div>
   <p class="card-desc">${esc(a.description || "")}</p>
   <div class="card-footer">
     <div class="card-attribution">
@@ -1432,32 +1398,14 @@ function render() {
     return;
   }
 
-  // Shuffle articles randomly (different every page load)
-  shuffle(filtered);
+  // Sort newest first
+  filtered.sort((a, b) => {
+    const da = a.published ? new Date(a.published).getTime() : 0;
+    const db = b.published ? new Date(b.published).getTime() : 0;
+    return db - da;
+  });
 
-  // Group by country — articles within each country keep the shuffled order
-  const byCountry = {};
-  filtered.forEach(a => { (byCountry[a.country] = byCountry[a.country] || []).push(a); });
-
-  // Shuffle the country section order too
-  const sortedCountries = shuffle(Object.keys(byCountry));
-
-  content.innerHTML = sortedCountries.map(country => {
-    const arts = byCountry[country];
-    const displayName = country === "Global" ? "International" : country;
-    const n = arts.length;
-    return `
-<section class="country-section">
-  <div class="country-heading">
-    <span class="country-heading-flag">${flag(country)}</span>
-    <span class="country-heading-name">${esc(displayName)}</span>
-    <span class="country-heading-count">${n} article${n !== 1 ? "s" : ""}</span>
-  </div>
-  <div class="articles-grid">
-    ${arts.map(cardHtml).join("")}
-  </div>
-</section>`;
-  }).join("");
+  content.innerHTML = `<div class="articles-grid">${filtered.map(cardHtml).join("")}</div>`;
 }
 
 // ── Controls ──────────────────────────────────────────────────────────────────
@@ -1562,33 +1510,6 @@ async function loadNews() {
     document.getElementById("content").style.display = "block";
     render();
 
-    // ── Latest Signals strip ─────────────────────────────────────────────────
-    (function buildSignalStrip() {
-      const strip = document.getElementById("latest-signals-cards");
-      if (!strip || !ALL_ARTICLES.length) return;
-      const top = ALL_ARTICLES.slice(0, 8);
-      const sigColor = { News:"#2a5f8f", Award:"#5a6e1f", Tender:"#7a3f6e", Pipeline:"#8a4a00", Progress:"#2a6f5f" };
-      strip.innerHTML = top.map(a => {
-        const sig = (a.signal_type || "News").replace(/^./, c => c.toUpperCase());
-        const col = sigColor[sig] || "#555";
-        const headline = (a.headline || a.title || "").substring(0,60) + ((a.headline||"").length>60?"…":"");
-        const country = a.country || a.geo_country || "";
-        return `<a href="${a.url||"#"}" target="_blank" rel="noopener" style="
-            display:flex;flex-direction:column;gap:4px;
-            background:#fff;border:1px solid #D8C9A8;border-radius:2px;
-            padding:8px 12px;min-width:220px;max-width:260px;flex-shrink:0;
-            text-decoration:none;color:inherit;
-            box-shadow:0 1px 3px rgba(0,0,0,.06);transition:box-shadow .15s;"
-            onmouseover="this.style.boxShadow='0 2px 8px rgba(0,0,0,.12)'"
-            onmouseout="this.style.boxShadow='0 1px 3px rgba(0,0,0,.06)'">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;">
-            <span style="font-family:Inter,sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:${col};background:${col}18;padding:1px 6px;border-radius:10px;">${sig}</span>
-            ${country ? `<span style="font-family:Inter,sans-serif;font-size:9px;color:#8a7f72;letter-spacing:.03em;">${country}</span>` : ""}
-          </div>
-          <span style="font-family:'EB Garamond',Georgia,serif;font-size:13px;line-height:1.35;color:#1a1a1a;">${headline}</span>
-        </a>`;
-      }).join("");
-    })();
 
   } catch (err) {
     document.getElementById("loading").style.display     = "none";
