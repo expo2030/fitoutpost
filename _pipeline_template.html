@@ -63,6 +63,7 @@
     --warm-gray:   #66605A;
     --mid-gray:    #9A948E;
     --card-bg:     #FFFFFF;
+    --card-hover:  #FFF8F3;
     --body-bg:     #FAF5F0;
     --border:      #D8C9A8;
     --border-dk:   #BBA898;
@@ -306,6 +307,9 @@
   .pnav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
   .pnav-link.active { color: #fff; background: var(--claret); border-color: var(--claret); }
   .pnav-link.active + .pnav-link { border-left-color: var(--claret); }
+  .pnav-edge { color: var(--claret); }
+  .pnav-link.active.pnav-edge { background: rgba(255,255,255,.65); border-color: rgba(255,255,255,.4); color: var(--black); }
+  .pnav-link.active.pnav-edge + .pnav-link { border-left-color: rgba(255,255,255,.4); }
 
   
 
@@ -517,7 +521,7 @@
   }
   #footer-main {
     max-width: 1320px; margin: 0 auto; display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+    grid-template-columns: 2fr 1.2fr; gap: 40px;
   }
   #footer-brand p {
     font-size: 12.5px; line-height: 1.65; color: rgba(255,255,255,.5); margin-top: 12px;
@@ -534,6 +538,52 @@
   .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
   .footer-col li a { color:rgba(255,255,255,.6); font-size:12.5px; transition:color .15s; }
   .footer-col li a:hover { color:#fff; }
+  /* ─── Footer ad box ─────────────────────────────────────────────────────── */
+  #footer-ad-box {
+    background: var(--amber);
+    border-radius: 4px;
+    padding: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #footer-ad-badge {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,.4);
+    margin-bottom: 12px;
+  }
+  #footer-ad-headline {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  #footer-ad-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,.85);
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+  #footer-ad-cta {
+    display: inline-block;
+    background: #fff;
+    color: var(--amber);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 3px;
+    align-self: flex-start;
+    transition: opacity .15s;
+  }
+  #footer-ad-cta:hover { opacity: .85; color: var(--amber); }
+
   #footer-bottom {
     max-width:1320px; margin:32px auto 0; padding-top:20px;
     border-top:1px solid rgba(255,255,255,.1);
@@ -717,7 +767,7 @@
     margin: 0 auto;
     padding: 48px 24px 40px;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1.2fr;
     gap: 48px;
     border-bottom: 1px solid #2e2e2e;
   }
@@ -799,6 +849,52 @@
   }
   .footer-col ul li a:hover { color: #E8D8C8; }
 
+  /* ─── Footer ad box ─────────────────────────────────────────────────────── */
+  #footer-ad-box {
+    background: var(--amber);
+    border-radius: 4px;
+    padding: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #footer-ad-badge {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,.4);
+    margin-bottom: 12px;
+  }
+  #footer-ad-headline {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  #footer-ad-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,.85);
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+  #footer-ad-cta {
+    display: inline-block;
+    background: #fff;
+    color: var(--amber);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 3px;
+    align-self: flex-start;
+    transition: opacity .15s;
+  }
+  #footer-ad-cta:hover { opacity: .85; color: var(--amber); }
+
   #footer-bottom {
     max-width: 1320px;
     margin: 0 auto;
@@ -825,6 +921,14 @@
   }
   #footer-legal-links a:hover { color: #9A8A80; }
 
+  
+  /* ── Section header ──────────────────────────────────────────────────────── */
+  .sec-header { background: var(--black); color: #fff; padding: 40px 24px 32px; border-bottom: 1px solid #333; }
+  .sec-header-inner { max-width: 1320px; margin: 0 auto; }
+  .sec-title { font-family: var(--serif); font-size: 46px; font-weight: 800; font-style: italic; line-height: 1.0; letter-spacing: -1px; color: #fff; margin-bottom: 8px; }
+  .sec-title span { color: var(--claret); }
+  .sec-tagline { font-size: 14px; color: rgba(255,255,255,.55); max-width: 520px; line-height: 1.6; }
+  @media (max-width: 768px) { .sec-title { font-size: 34px; } }
   </style>
   <!-- Google Analytics 4 (G-9ECWT6671C) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ECWT6671C"></script>
@@ -889,41 +993,26 @@
   <div id="product-nav-inner">
     <a class="pnav-link" href="home.html">Home</a>
     <a class="pnav-link" href="index.html">News</a>
-    <a class="pnav-link" href="weekly.html">Weekly</a>
-    <a class="pnav-link" href="intelligence.html">Intelligence</a>
+    <a class="pnav-link" href="weekly.html">Roundup</a>
     <a class="pnav-link" href="tenders.html">Tenders</a>
     <a class="pnav-link active" href="pipeline.html">Pipeline</a>
+    <a class="pnav-link" href="awards.html">Awards</a>
+    <a class="pnav-link" href="intelligence.html">Intelligence</a>
     <a class="pnav-link" href="companies_site.html">Companies</a>
     <a class="pnav-link" href="countries/index.html">Countries</a>
     <a class="pnav-link" href="events.html">Events</a>
-    <a class="pnav-link" href="alphaedge.html"><span style="font-size:1.1em">α</span> Edge</a>
-    <a class="pnav-link" href="betaedge.html"><span style="font-size:1.1em">β</span> Edge</a>
-    <a class="pnav-link" href="gammaedge.html"><span style="font-size:1.1em">γ</span> Edge</a>
+    <a class="pnav-link pnav-edge" href="alphaedge.html"><span style="font-size:1.1em">α</span> Edge</a>
+    <a class="pnav-link pnav-edge" href="betaedge.html"><span style="font-size:1.1em">β</span> Edge</a>
+    <a class="pnav-link pnav-edge" href="gammaedge.html"><span style="font-size:1.1em">γ</span> Edge</a>
   </div>
 </nav>
 
 
-<!-- ╔═══ SECTION BANNER ═════════════════════════════════════════════════════════ -->
-<div id="section-banner">
-  <div id="section-banner-inner">
-    <span id="section-label">Pipeline</span>
-    <span id="section-sub">Global fit-out pipeline & project signals</span>
-  </div>
-</div>
-<!-- ══ Page header ════════════════════════════════════════════════════════════ -->
-<div id="pl-header">
-  <div id="pl-header-inner">
-    <div>
-      <div id="pl-title">Pipeline</div>
-      <div id="pl-tagline">
-        Forward-looking project announcements across hospitality, cultural, offices, retail, healthcare and leisure — updated daily
-      </div>
-    </div>
-    <div id="pl-meta">
-      <span id="pl-count">—</span>
-      <div id="pl-meta-label">pipeline signals</div>
-      <div id="pl-updated">—</div>
-    </div>
+<!-- ══ Section header ════════════════════════════════════════════════════════ -->
+<div class="sec-header">
+  <div class="sec-header-inner">
+    <div class="sec-title">Pipeline</div>
+    <div class="sec-tagline">Project announcements, appointments, and milestones.</div>
   </div>
 </div>
 
@@ -1012,45 +1101,13 @@
       </p>
     </div>
 
-    <!-- Navigate column -->
-    <div class="footer-col">
-      <h4>Regions</h4>
-      <ul>
-        <li><a href="index.html" data-tab="All">All regions</a></li>
-        <li><a href="index.html" data-tab="Europe">Europe</a></li>
-        <li><a href="index.html" data-tab="Middle East">Middle East</a></li>
-        <li><a href="index.html" data-tab="Asia Pacific">Asia Pacific</a></li>
-        <li><a href="index.html" data-tab="Americas">Americas</a></li>
-        <li><a href="index.html" data-tab="Oceania">Oceania</a></li>
-      </ul>
-    </div>
 
-    <!-- Directory column -->
-    <div class="footer-col" id="footer-legal">
-      <h4>Directory</h4>
-      <ul>
-        <li><a href="companies_site.html">All companies</a></li>
-        <li><a href="companies_site.html?sector=office">Offices</a></li>
-        <li><a href="companies_site.html?sector=hospitality">Hospitality</a></li>
-        <li><a href="companies_site.html?sector=retail">Retail</a></li>
-        <li><a href="companies_site.html?sector=fb">Food and beverage</a></li>
-        <li><a href="companies_site.html?sector=leisure">Sports and entertainment</a></li>
-        <li><a href="companies_site.html?sector=Museums">Exhibitions and museums</a></li>
-        <li><a href="companies_site.html?sector=datacentre">Data centres</a></li>
-        <li><a href="companies_site.html?sector=healthcare">Healthcare</a></li>
-        <li><a href="companies_site.html?sector=lab">Life sciences</a></li>
-      </ul>
-    </div>
-
-    <!-- About column -->
-    <div class="footer-col">
-      <h4>About</h4>
-      <ul>
-        <li><a href="contact.html">Contact us</a></li>
-        <li><a href="legal.html#terms">Terms of use</a></li>
-        <li><a href="legal.html#privacy">Privacy policy</a></li>
-        <li><a href="legal.html#cookies">Cookie policy</a></li>
-      </ul>
+    <!-- Advertise box -->
+    <div id="footer-ad-box">
+      <div id="footer-ad-badge">Advertisement</div>
+      <p id="footer-ad-headline">Your fit-out product or service here.</p>
+      <p id="footer-ad-sub">Reach decision-makers tracking interior construction projects. Decision-makers, specifiers and contractors — every day.</p>
+      <a href="mailto:hello@fitoutpost.com" id="footer-ad-cta">hello@fitoutpost.com</a>
     </div>
 
   </div>
@@ -1428,13 +1485,13 @@ async function loadData() {
     ALL_PROJECTS = data.projects || [];
 
     // Header
-    document.getElementById("pl-count").textContent = (data.total||0).toLocaleString();
-    document.getElementById("utility-count").textContent = (data.total||0).toLocaleString() + " signals";
+    { const _pc=document.getElementById("pl-count"); if(_pc) _pc.textContent=(data.total||0).toLocaleString(); }
+    { const _uc=document.getElementById("utility-count"); if(_uc) _uc.textContent=(data.total||0).toLocaleString()+" signals"; }
     if (data.last_updated) {
-      document.getElementById("pl-updated").textContent =
+      { const _pu=document.getElementById("pl-updated"); if(_pu) _pu.textContent =
         "Updated " + new Date(data.last_updated).toLocaleDateString("en-GB",{
           day:"numeric", month:"long", year:"numeric"
-        });
+        }); }
     }
 
     // Build UI components

@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fit-Out Industry Events 2025–2026 — FitOut Post</title>
-  <meta name="description" content="Global calendar of fit-out, interior design and commercial construction industry events, trade shows, conferences and design weeks 2025–2026." />
+  <title>Fit-Out Industry Events 2025–2027 — FitOut Post</title>
+  <meta name="description" content="Global calendar of fit-out, interior design and commercial construction industry events, trade shows, conferences and design weeks 2025–2027." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="FitOut Post" />
-  <meta property="og:title" content="Fit-Out Industry Events 2025–2026 — FitOut Post" />
-  <meta property="og:description" content="Global calendar of fit-out, interior design and commercial construction industry events, trade shows, conferences and design weeks 2025–2026." />
+  <meta property="og:title" content="Fit-Out Industry Events 2025–2027 — FitOut Post" />
+  <meta property="og:description" content="Global calendar of fit-out, interior design and commercial construction industry events, trade shows, conferences and design weeks 2025–2027." />
   <meta property="og:url" content="https://fitoutpost.com/events.html" />
   <meta property="og:image" content="https://fitoutpost.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@fitoutpost" />
-  <meta name="twitter:title" content="Fit-Out Industry Events 2025–2026 — FitOut Post" />
+  <meta name="twitter:title" content="Fit-Out Industry Events 2025–2027 — FitOut Post" />
   <meta name="twitter:image" content="https://fitoutpost.com/og-image.png" />
   <link rel="canonical" href="https://fitoutpost.com/events.html" />
   <link rel="icon" type="image/svg+xml" href="https://fitoutpost.com/favicon.svg" />
@@ -21,7 +21,7 @@
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Fit-Out Industry Events 2025–2026",
+    "name": "Fit-Out Industry Events 2025–2027",
     "description": "Global calendar of fit-out, interior design and commercial construction industry events.",
     "url": "https://fitoutpost.com/events.html",
     "publisher": { "@type": "Organization", "name": "FitOut Post", "url": "https://fitoutpost.com" }
@@ -133,6 +133,9 @@
   .pnav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
   .pnav-link.active { color: #fff; background: var(--claret); border-color: var(--claret); }
   .pnav-link.active + .pnav-link { border-left-color: var(--claret); }
+  .pnav-edge { color: var(--claret); }
+  .pnav-link.active.pnav-edge { background: rgba(255,255,255,.65); border-color: rgba(255,255,255,.4); color: var(--black); }
+  .pnav-link.active.pnav-edge + .pnav-link { border-left-color: rgba(255,255,255,.4); }
 
   /* ── Page header ──────────────────────────────────────────────────────── */
   #page-header { background:var(--black);color:#fff;padding:32px 0;border-bottom:2px solid var(--claret); }
@@ -151,6 +154,13 @@
 
   /* ── Events grid ──────────────────────────────────────────────────────── */
   #events-wrap { max-width:1320px;margin:0 auto;padding:32px 24px; }
+  .year-section { margin-bottom:8px; }
+  .year-heading { display:flex;align-items:center;gap:12px;cursor:pointer;padding:14px 20px;background:var(--black);color:#fff;user-select:none;border-left:4px solid var(--claret); }
+  .year-heading:hover { background:#2a2a2a; }
+  .year-label { font-family:var(--serif);font-size:24px;font-weight:800;font-style:italic;flex:1; }
+  .year-count { font-size:12px;color:rgba(255,255,255,.5); }
+  .year-toggle { font-size:11px;color:rgba(255,255,255,.5);transition:transform .2s; }
+  .year-body { padding-top:24px; }
   .month-group { margin-bottom:40px; }
   .month-heading { font-family:var(--serif);font-size:20px;font-weight:700;color:var(--black);border-bottom:2px solid var(--claret);padding-bottom:8px;margin-bottom:20px; }
   .events-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px; }
@@ -192,6 +202,14 @@
     #masthead-inner { padding:0 16px; }
     #filters-inner { gap:8px; }
   }
+  
+  /* ── Section header ──────────────────────────────────────────────────────── */
+  .sec-header { background: var(--black); color: #fff; padding: 40px 24px 32px; border-bottom: 1px solid #333; }
+  .sec-header-inner { max-width: 1320px; margin: 0 auto; }
+  .sec-title { font-family: var(--serif); font-size: 46px; font-weight: 800; font-style: italic; line-height: 1.0; letter-spacing: -1px; color: #fff; margin-bottom: 8px; }
+  .sec-title span { color: var(--claret); }
+  .sec-tagline { font-size: 14px; color: rgba(255,255,255,.55); max-width: 520px; line-height: 1.6; }
+  @media (max-width: 768px) { .sec-title { font-size: 34px; } }
   </style>
 
   <!-- Google Analytics 4 (G-9ECWT6671C) -->
@@ -269,28 +287,27 @@ function declineCookies(){ localStorage.setItem('fop_cookie_consent','declined')
   <div id="product-nav-inner">
     <a class="pnav-link" href="home.html">Home</a>
     <a class="pnav-link" href="index.html">News</a>
-    <a class="pnav-link" href="weekly.html">Weekly</a>
-    <a class="pnav-link" href="intelligence.html">Intelligence</a>
+    <a class="pnav-link" href="weekly.html">Roundup</a>
     <a class="pnav-link" href="tenders.html">Tenders</a>
     <a class="pnav-link" href="pipeline.html">Pipeline</a>
+    <a class="pnav-link" href="awards.html">Awards</a>
+    <a class="pnav-link" href="intelligence.html">Intelligence</a>
     <a class="pnav-link" href="companies_site.html">Companies</a>
     <a class="pnav-link" href="countries/index.html">Countries</a>
     <a class="pnav-link active" href="events.html">Events</a>
-    <a class="pnav-link" href="awards.html">Awards</a>
-    <a class="pnav-link" href="timeline.html">Timeline</a>
-    <a class="pnav-link" href="alphaedge.html"><span style="font-size:1.1em">α</span> Edge</a>
-    <a class="pnav-link" href="betaedge.html"><span style="font-size:1.1em">β</span> Edge</a>
-    <a class="pnav-link" href="gammaedge.html"><span style="font-size:1.1em">γ</span> Edge</a>
-    <a class="pnav-link" href="register.html" style="margin-left:auto;background:var(--claret);border-left:1px solid var(--claret);color:#fff;font-weight:600;">Register free →</a>
+    <a class="pnav-link pnav-edge" href="alphaedge.html"><span style="font-size:1.1em">α</span> Edge</a>
+    <a class="pnav-link pnav-edge" href="betaedge.html"><span style="font-size:1.1em">β</span> Edge</a>
+    <a class="pnav-link pnav-edge" href="gammaedge.html"><span style="font-size:1.1em">γ</span> Edge</a>
   </div>
 </nav>
 
 <!-- PAGE HEADER -->
-<div id="page-header">
-  <div id="page-header-inner">
-    <div class="page-kicker">Global Calendar</div>
-    <h1 class="page-title">Fit-Out Industry Events 2025–2026</h1>
-    <p class="page-sub">Trade shows, design weeks, conferences and summits for fit-out, interior design and commercial construction professionals worldwide.</p>
+
+<!-- ══ Section header ════════════════════════════════════════════════════════ -->
+<div class="sec-header">
+  <div class="sec-header-inner">
+    <div class="sec-title">Events</div>
+    <div class="sec-tagline">Trade shows, design weeks, conferences and summits.</div>
   </div>
 </div>
 
@@ -692,23 +709,38 @@ function setFilter(f, btn) {
   renderEvents();
 }
 
-function groupByMonth(evts) {
-  const months = {};
+function toggleYear(year) {
+  const body = document.getElementById('body-' + year);
+  const toggle = document.getElementById('toggle-' + year);
+  const open = body.style.display !== 'none';
+  body.style.display = open ? 'none' : '';
+  toggle.textContent = open ? '▼ show' : '▲ hide';
+}
+
+function groupByYearMonth(evts) {
+  const years = {};
   evts.forEach(e => {
     const d = new Date(e.iso);
-    const key = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
-    const label = d.toLocaleDateString('en-GB',{month:'long',year:'numeric'});
-    if (!months[key]) months[key] = {label, events:[]};
-    months[key].events.push(e);
+    const year = d.getFullYear();
+    const mKey = year + '-' + String(d.getMonth()+1).padStart(2,'0');
+    const mLabel = d.toLocaleDateString('en-GB',{month:'long',year:'numeric'});
+    if (!years[year]) years[year] = {};
+    if (!years[year][mKey]) years[year][mKey] = {label:mLabel, events:[]};
+    years[year][mKey].events.push(e);
   });
-  return Object.entries(months).sort((a,b) => a[0].localeCompare(b[0]));
+  return Object.entries(years)
+    .sort((a,b) => b[0] - a[0])
+    .map(([year, months]) => ({
+      year,
+      months: Object.entries(months).sort((a,b) => b[0].localeCompare(a[0]))
+    }));
 }
 
 function badgeClass(type) {
-  return {show:'badge-show', conf:'badge-conf', design:'badge-design', awards:'badge-awards', summit:'badge-summit'}[type] || 'badge-show';
+  return {show:'badge-show',conf:'badge-conf',design:'badge-design',awards:'badge-awards',summit:'badge-summit'}[type]||'badge-show';
 }
 function badgeLabel(type) {
-  return {show:'Trade show', conf:'Conference', design:'Design week', awards:'Awards', summit:'Summit'}[type] || type;
+  return {show:'Trade show',conf:'Conference',design:'Design week',awards:'Awards',summit:'Summit'}[type]||type;
 }
 
 function renderEvents() {
@@ -718,28 +750,43 @@ function renderEvents() {
     return e.type === activeFilter;
   });
 
-  filtered.sort((a,b) => a.iso.localeCompare(b.iso));
+  filtered.sort((a,b) => b.iso.localeCompare(a.iso));
 
   const container = document.getElementById('events-wrap');
-  const grouped = groupByMonth(filtered);
+  const grouped = groupByYearMonth(filtered);
   let html = '';
-  grouped.forEach(([,{label, events}]) => {
-    html += `<div class="month-group">`;
-    html += `<h2 class="month-heading">${label}</h2>`;
-    html += `<div class="events-grid">`;
-    events.forEach(e => {
-      const isPast = new Date(e.iso) < today;
-      html += `<article class="event-card${isPast?' past':''}">`;
-      html += `<div class="event-meta">`;
-      html += `<span class="event-date">${e.dates}</span>`;
-      html += `<span class="event-badge ${badgeClass(e.type)}">${badgeLabel(e.type)}</span>`;
-      html += `</div>`;
-      html += `<h3 class="event-name">${e.name}</h3>`;
-      html += `<div class="event-location"><span>📍</span>${e.location}</div>`;
-      html += `<p class="event-desc">${e.desc}</p>`;
-      if (e.url) html += `<a class="event-link" href="${e.url}" target="_blank" rel="noopener">Official website →</a>`;
-      html += `</article>`;
+
+  grouped.forEach(({year, months}) => {
+    const collapsed = parseInt(year) < 2026;
+    const count = months.reduce((s,[,{events}]) => s + events.length, 0);
+    html += `<div class="year-section">`;
+    html += `<div class="year-heading" onclick="toggleYear('${year}')">`;
+    html += `<span class="year-label">${year}</span>`;
+    html += `<span class="year-count">${count} events</span>`;
+    html += `<span class="year-toggle" id="toggle-${year}">${collapsed ? '▼ show' : '▲ hide'}</span>`;
+    html += `</div>`;
+    html += `<div class="year-body" id="body-${year}"${collapsed ? ' style="display:none"' : ''}>`;
+
+    months.forEach(([,{label, events}]) => {
+      html += `<div class="month-group">`;
+      html += `<h2 class="month-heading">${label}</h2>`;
+      html += `<div class="events-grid">`;
+      events.forEach(e => {
+        const isPast = new Date(e.iso) < today;
+        html += `<article class="event-card${isPast?' past':''}">`;
+        html += `<div class="event-meta">`;
+        html += `<span class="event-date">${e.dates}</span>`;
+        html += `<span class="event-badge ${badgeClass(e.type)}">${badgeLabel(e.type)}</span>`;
+        html += `</div>`;
+        html += `<h3 class="event-name">${e.name}</h3>`;
+        html += `<div class="event-location"><span>📍</span>${e.location}</div>`;
+        html += `<p class="event-desc">${e.desc}</p>`;
+        if (e.url) html += `<a class="event-link" href="${e.url}" target="_blank" rel="noopener">Official website →</a>`;
+        html += `</article>`;
+      });
+      html += `</div></div>`;
     });
+
     html += `</div></div>`;
   });
 
