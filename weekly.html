@@ -1099,12 +1099,12 @@ function renderWeek(weekIndex) {
       No roundups published yet.<br>
       <small>Run <code>python fetch_weekly.py</code> every Monday to generate the week's digest.</small>
     </div>`;
-    document.getElementById("wr-total-count").textContent = "—";
+    { const _el=document.getElementById("wr-total-count"); if(_el) _el.textContent="—"; }
     return;
   }
 
   const w = DATA.weeks[weekIndex] || DATA.weeks[0];
-  document.getElementById("wr-total-count").textContent = w.total || 0;
+  { const _el=document.getElementById("wr-total-count"); if(_el) _el.textContent=w.total||0; }
   document.getElementById("week-count").textContent =
     `${w.total || 0} articles · generated ${w.generated ? new Date(w.generated).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}) : "—"}`;
 
