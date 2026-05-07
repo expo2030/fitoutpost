@@ -753,7 +753,7 @@ if (slot && slot.textContent.trim()) {
 }
 
 document.getElementById("footer-year").textContent = new Date().getFullYear();
-document.getElementById("hero-count").textContent = AWARDS.length || "—";
+{ const _el = document.getElementById("hero-count"); if (_el) _el.textContent = AWARDS.length || "—"; }
 
 /* ── Filter state ─────────────────────────────────────────────────────── */
 let activeRegion = "All";

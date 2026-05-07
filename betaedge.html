@@ -1174,7 +1174,7 @@ async function loadPolls() {
     return;
   }
   const active = data.polls.filter(p => p.status === "active");
-  document.getElementById("be-poll-count").textContent = active.length;
+  { const _el = document.getElementById("be-poll-count"); if (_el) _el.textContent = active.length; }
   renderPolls(active, false);
 }
 
