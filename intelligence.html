@@ -1155,10 +1155,10 @@ async function probeServer() {
     if (r.ok) {
       const live = await r.json();
       if (live && live.periods && live.periods.length) DATA = live;
-      wrap.innerHTML = '<span class="server-badge live"><span class="server-dot"></span>Live</span>';
+      if (wrap) wrap.innerHTML = '<span class="server-badge live"><span class="server-dot"></span>Live</span>';
     } else throw new Error();
   } catch(e) {
-    wrap.innerHTML = '<span class="server-badge offline"><span class="server-dot"></span>Snapshot</span>';
+    if (wrap) wrap.innerHTML = '<span class="server-badge offline"><span class="server-dot"></span>Snapshot</span>';
   }
   boot();
 }
