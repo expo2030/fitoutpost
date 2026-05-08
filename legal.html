@@ -191,15 +191,6 @@
   .sidebar-block a.sidebar-email { color: var(--claret); font-weight: 500; font-size: 12.5px; }
 
   /* ── Footer ───────────────────────────────────────────────────────────────── */
-  #footer { background: var(--black); color: #A09890; }
-  #footer-main { max-width: 1320px; margin: 0 auto; padding: 48px 24px 40px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; border-bottom: 1px solid #2e2e2e; }
-  #footer-brand .footer-logo-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-  #footer-fop-box { width: 40px; height: 40px; background: #fff; display: flex; align-items: center; justify-content: center; }
-  #footer-fop-box span { font-family: var(--serif); font-weight: 800; font-size: 18px; color: var(--black); }
-  #footer-fop-wordmark { display: flex; flex-direction: column; }
-  #footer-fop-name { font-family: var(--serif); font-weight: 700; font-size: 16px; color: #E8D8C8; line-height: 1.2; }
-  #footer-fop-tagline { font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: #7a6e68; margin-top: 3px; }
-  #footer-brand p { font-size: 12.5px; line-height: 1.75; color: #A09890; }
   .footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #B8A8A0; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #2e2e2e; }
   .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
   .footer-col ul li a { font-size: 12.5px; color: #A09890; transition: color .15s; }
@@ -223,6 +214,45 @@
     #page-header h1 { font-size: 30px; }
     #footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
     #footer-brand { grid-column: 1 / -1; }
+  }
+  
+  /* ─── Footer ─────────────────────────────────────────────────────────────── */
+  #footer {
+    background: var(--black);
+    color: #A09890;
+    margin-top: 80px;
+  }
+  #footer-main {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 48px 24px 40px;
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+    gap: 48px;
+    border-bottom: 1px solid #2e2e2e;
+  }
+  #footer-brand .footer-logo-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  #footer-fop-box { width: 40px; height: 40px; background: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  #footer-fop-box span { font-family: var(--serif); font-weight: 800; font-size: 18px; letter-spacing: 0.5px; color: var(--black); }
+  #footer-fop-wordmark { display: flex; flex-direction: column; }
+  #footer-fop-name { font-family: var(--serif); font-weight: 700; font-size: 16px; color: #E8D8C8; line-height: 1.2; }
+  #footer-fop-tagline { font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: #7a6e68; margin-top: 3px; }
+  #footer-brand p { font-size: 12.5px; line-height: 1.75; color: #A09890; margin-bottom: 14px; }
+  #footer-brand .footer-disclaimer { font-size: 11px; line-height: 1.7; color: #7a706a; font-style: italic; }
+  #footer-ad-box { background: var(--amber); border-radius: 4px; padding: 32px 36px; display: flex; flex-direction: column; justify-content: center; }
+  #footer-ad-badge { font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(0,0,0,.4); margin-bottom: 12px; }
+  #footer-ad-headline { font-family: var(--serif); font-size: 19px; font-style: italic; color: #fff; line-height: 1.35; margin-bottom: 8px; }
+  #footer-ad-sub { font-size: 12px; color: rgba(255,255,255,.85); line-height: 1.55; margin-bottom: 22px; }
+  #footer-ad-cta { display: inline-block; background: #fff; color: var(--amber); font-family: var(--sans); font-size: 12px; font-weight: 700; padding: 9px 20px; border-radius: 3px; align-self: flex-start; transition: opacity .15s; }
+  #footer-ad-cta:hover { opacity: .85; color: var(--amber); }
+  #footer-bottom { max-width: 1320px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  #footer-copyright { font-size: 11.5px; color: #7a706a; }
+  #footer-legal-links { display: flex; align-items: center; gap: 20px; }
+  #footer-legal-links a { font-size: 11.5px; color: #7a706a; transition: color .15s; }
+  #footer-legal-links a:hover { color: #9A8A80; }
+  @media (max-width: 768px) {
+    #footer-main { grid-template-columns: 1fr !important; gap: 24px; }
+    #footer { padding-bottom: 24px; }
   }
   </style>
   <!-- Google Analytics 4 (G-9ECWT6671C) -->
@@ -608,40 +638,14 @@
           <div id="footer-fop-tagline">Global Industry Intelligence</div>
         </div>
       </div>
-      <p>An independent aggregator of global fit-out and interior construction news. Updated daily.</p>
+      <p>An independent aggregator of global fit-out and interior construction news. Articles are drawn from industry publications, company announcements, and newswires across more than 50 countries. Updated daily.</p>
       <p class="footer-disclaimer">FitOut Post is not affiliated with any company featured in its coverage. Article links open the original source. Content is for reference only. This website is an independent news aggregator. Content is sourced from publicly available media and official announcements. The content published on this platform may be incomplete, inaccurate, or not fully representative of all relevant developments. We do not verify, endorse, or accept responsibility for the accuracy, completeness, or timeliness of any information presented. This site accepts no liability for any loss, damage, or inconvenience arising from reliance on its content.</p>
     </div>
-    <div class="footer-col">
-      <h4>Regions</h4>
-      <ul>
-        <li><a href="site.html">All regions</a></li>
-        <li><a href="site.html">Europe</a></li>
-        <li><a href="site.html">Middle East</a></li>
-        <li><a href="site.html">Asia Pacific</a></li>
-        <li><a href="site.html">Americas</a></li>
-        <li><a href="site.html">Oceania</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Directory</h4>
-      <ul>
-        <li><a href="companies_site.html">All companies</a></li>
-        <li><a href="companies_site.html?sector=office">Offices</a></li>
-        <li><a href="companies_site.html?sector=hospitality">Hospitality</a></li>
-        <li><a href="companies_site.html?sector=fb">Food and beverage</a></li>
-        <li><a href="companies_site.html?sector=leisure">Sports and entertainment</a></li>
-        <li><a href="companies_site.html?sector=datacentre">Data centres</a></li>
-        <li><a href="companies_site.html?sector=healthcare">Healthcare</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>About</h4>
-      <ul>
-        <li><a href="contact.html">Contact us</a></li>
-        <li><a href="legal.html#terms">Terms of use</a></li>
-        <li><a href="legal.html#privacy">Privacy policy</a></li>
-        <li><a href="legal.html#cookies">Cookie policy</a></li>
-      </ul>
+    <div id="footer-ad-box">
+      <div id="footer-ad-badge">Advertisement</div>
+      <p id="footer-ad-headline">Your fit-out product or service here.</p>
+      <p id="footer-ad-sub">Reach decision-makers tracking interior construction projects. Decision-makers, specifiers and contractors — every day.</p>
+      <a href="mailto:hello@fitoutpost.com" id="footer-ad-cta">hello@fitoutpost.com</a>
     </div>
   </div>
   <div id="footer-bottom">
