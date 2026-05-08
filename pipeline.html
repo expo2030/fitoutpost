@@ -392,13 +392,6 @@
     color: var(--black); background: transparent; flex: 1; width: 100%;
   }
   #pl-search::placeholder { color: var(--mid-gray); }
-  #result-count-bar {
-    font-size: 12px; color: var(--warm-gray);
-    padding: 8px 24px; background: var(--salmon-md);
-    border-bottom: 1px solid var(--border-lt);
-    max-width: 100%;
-  }
-  #result-count-bar span { max-width: 1320px; margin: 0 auto; display: block; }
 
   /* ─── Sector pill filter ─────────────────────────────────────────────────── */
   #sector-pills {
@@ -946,7 +939,6 @@
 </div>
 
 <!-- Result count -->
-<div id="result-count-bar"><span id="result-count-text"></span></div>
 
 <!-- ══ Loading / error ════════════════════════════════════════════════════════ -->
 <div id="loading">
@@ -1258,7 +1250,6 @@ function applyFilters() {
   });
   shownCount = PAGE_SIZE;
   renderCards();
-  renderResultCount();
 }
 
 function renderCards() {
@@ -1274,13 +1265,6 @@ function renderCards() {
   wrap.style.display = FILTERED.length > shownCount ? "block" : "none";
 }
 
-function renderResultCount() {
-  const n = FILTERED.length;
-  const total = ALL_PROJECTS.length;
-  document.getElementById("result-count-text").textContent =
-    n === total ? `Showing all ${n.toLocaleString()} pipeline signals`
-                : `Showing ${n.toLocaleString()} of ${total.toLocaleString()} signals`;
-}
 
 // ── Summary strip (continent) ─────────────────────────────────────────────────
 function buildSummaryStrip(data) {
