@@ -17,8 +17,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ECWT6671C"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9ECWT6671C',{anonymize_ip:true});</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=EB+Garamond:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   :root{
@@ -64,19 +63,16 @@
   .pnav-link:hover{color:#fff;background:rgba(255,255,255,.08);}
   .pnav-link.active{color:#fff;background:var(--claret);border-color:var(--claret);}
   .pnav-link.active+.pnav-link{border-left-color:var(--claret);}
-  .pnav-edge{color:var(--claret);}
-  .pnav-link.active.pnav-edge{background:rgba(255,255,255,.65);border-color:rgba(255,255,255,.4);color:var(--black);}
-  .pnav-link.active.pnav-edge+.pnav-link{border-left-color:rgba(255,255,255,.4);}
-  #hero{background:var(--black);color:#fff;padding:40px 0 32px;border-bottom:1px solid #333;}
-  #hero-inner{max-width:1320px;margin:0 auto;padding:0 24px;}
-  .hero-flag{font-size:40px;margin-bottom:10px;display:block;}
-  .hero-eyebrow{font-size:14px;color:rgba(255,255,255,.55);margin-top:8px;line-height:1.6;display:block;}
-  h1{font-family:var(--serif);font-size:46px;font-weight:700;line-height:1.2;color:#fff;margin-bottom:0;}
-  .hero-sub{display:none;}
-  .stats-row{display:flex;gap:32px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.15);}
-  .stat{font-family:var(--sans);text-align:left;}
-  .stat-val{font-size:22px;font-weight:700;color:#fff;display:block;line-height:1.1;}
-  .stat-label{font-size:10px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.12em;margin-top:3px;display:block;}
+  #hero{background:var(--black);color:#fff;padding:32px 24px;}
+  #hero-inner{max-width:1200px;margin:0 auto;}
+  .hero-flag{font-size:48px;margin-bottom:12px;display:block;}
+  .hero-eyebrow{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--claret);margin-bottom:8px;}
+  h1{font-family:var(--serif);font-size:clamp(28px,4vw,44px);font-weight:800;line-height:1.1;margin-bottom:8px;}
+  .hero-sub{font-family:var(--sans);font-size:13px;color:#B8A89A;}
+  .stats-row{display:flex;gap:24px;margin-top:16px;}
+  .stat{font-family:var(--sans);text-align:center;}
+  .stat-val{font-size:24px;font-weight:700;color:#fff;display:block;}
+  .stat-label{font-size:10px;color:#8a7f72;text-transform:uppercase;letter-spacing:.1em;}
   #main{max-width:1200px;margin:0 auto;padding:32px 24px 80px;}
   .section-title{font-family:var(--serif);font-size:22px;font-weight:700;border-bottom:2px solid var(--claret);padding-bottom:8px;margin:32px 0 16px;}
   .items-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
@@ -103,7 +99,7 @@
 <body>
 <header id="masthead" role="banner">
   <div id="masthead-inner">
-    <a href="../index.html" id="fop-logo">
+    <a href="../home.html" id="fop-logo">
       <div id="fop-box"><span>FO</span><span style="color:var(--claret)">P</span></div>
       <div id="fop-wordmark">
         <strong>Fit&nbsp;Out <span style="color:var(--claret)">Post</span></strong>
@@ -132,19 +128,16 @@
 
 <nav id="product-nav" role="navigation" aria-label="Sections">
   <div id="product-nav-inner">
-    <a class="pnav-link" href="../index.html">Home</a>
-    <a class="pnav-link" href="../news.html">News</a>
-    <a class="pnav-link" href="../weekly.html">Roundup</a>
+    <a class="pnav-link" href="../home.html">Home</a>
+    <a class="pnav-link" href="../index.html">News</a>
+    <a class="pnav-link" href="../weekly.html">Weekly</a>
+    <a class="pnav-link" href="../intelligence.html">Intelligence</a>
     <a class="pnav-link" href="../tenders.html">Tenders</a>
     <a class="pnav-link" href="../pipeline.html">Pipeline</a>
-    <a class="pnav-link" href="../awards.html">Awards</a>
-    <a class="pnav-link" href="../intelligence.html">Intelligence</a>
     <a class="pnav-link" href="../companies_site.html">Companies</a>
-    <a class="pnav-link active" href="news.html">Countries</a>
+    <a class="pnav-link active" href="index.html">Countries</a>
     <a class="pnav-link" href="../events.html">Events</a>
-    <a class="pnav-link pnav-edge" href="../alphaedge.html"><span style="font-size:1.1em">α</span> Edge</a>
-    <a class="pnav-link pnav-edge" href="../betaedge.html"><span style="font-size:1.1em">β</span> Edge</a>
-    <a class="pnav-link pnav-edge" href="../gammaedge.html"><span style="font-size:1.1em">γ</span> Edge</a>
+    <a class="pnav-link" href="../awards.html">Awards</a>
   </div>
 </nav>
 
@@ -201,7 +194,7 @@
 
 <footer id="footer">
   <p>© <span id="fy"></span> FitOut Post · Canada market intelligence ·
-    <a href="../news.html">Home</a> · <a href="../tenders.html">All Tenders</a> ·
+    <a href="../index.html">Home</a> · <a href="../tenders.html">All Tenders</a> ·
     <a href="../contact.html">Contact</a> · <a href="../legal.html">Legal</a>
   </p>
 </footer>
