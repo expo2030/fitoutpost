@@ -976,7 +976,7 @@
 
 <!-- ═══════════════════════ UTILITY BAR ══════════════════════════════════════ -->
 <!-- Build stamp (injected by build.py — visible before JS loads) -->
-<div id="build-stamp" style="display:none">2026-05-08T07:55:17Z</div>
+<div id="build-stamp" style="display:none">2026-05-08T07:59:39Z</div>
 
 <!-- ═══════════════════════ MASTHEAD ═════════════════════════════════════════ -->
 <header id="masthead" role="banner">
@@ -1085,13 +1085,8 @@
   </div>
 
   <div id="error-state" style="display:none">
-    <h2>No articles found</h2>
-    <p>Run the news fetcher to rebuild the site with the latest articles:</p>
-    <code>
-      pip install -r requirements.txt<br>
-      python fetch_news.py
-    </code>
-    <p style="margin-top:12px;font-size:13px;color:#666">Then open <strong>index.html</strong> in any browser.</p>
+    <h2>Unable to load articles</h2>
+    <p>Please try refreshing the page. If the problem persists, check back shortly — the feed updates daily.</p>
   </div>
 
   <div id="content" style="display:none"></div>
@@ -1365,8 +1360,10 @@ function render() {
 
   // Stats
   const countries = [...new Set(filtered.map(a => a.country))];
-  document.getElementById("stats-shown").textContent     = filtered.length.toLocaleString();
-  document.getElementById("stats-countries").textContent = countries.length.toLocaleString();
+  const elShown = document.getElementById("stats-shown");
+  const elCountries = document.getElementById("stats-countries");
+  if (elShown) elShown.textContent = filtered.length.toLocaleString();
+  if (elCountries) elCountries.textContent = countries.length.toLocaleString();
 
   // Country dropdown
   const sel  = document.getElementById("country-select");
