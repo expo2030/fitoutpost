@@ -365,6 +365,25 @@
   .sc-count { font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--black); }
   .sc-sub   { font-size: 11px; color: var(--mid-gray); margin-top: 2px; }
 
+  /* ─── Region nav bar ────────────────────────────────────────────────────── */
+  #nav-bar {
+    background: var(--white); border-bottom: 1px solid var(--border);
+    position: sticky; top: 110px; z-index: 190; overflow-x: auto; scrollbar-width: none;
+  }
+  #nav-bar::-webkit-scrollbar { display: none; }
+  #nav-tabs {
+    max-width: 1320px; margin: 0 auto; padding: 0 24px;
+    display: flex; gap: 0; align-items: stretch;
+  }
+  .tab {
+    font-family: var(--sans); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.5px; color: var(--warm-gray); padding: 12px 16px;
+    border-bottom: 3px solid transparent; cursor: pointer; white-space: nowrap;
+    transition: color .15s, border-color .15s; user-select: none;
+  }
+  .tab:hover { color: var(--black); border-bottom-color: var(--border-dk); }
+  .tab.active { color: var(--black); border-bottom-color: var(--claret); font-weight: 600; }
+
   /* ─── Controls bar ───────────────────────────────────────────────────────── */
   #controls-bar {
     background: var(--salmon-md); border-bottom: 1px solid var(--border);
@@ -908,6 +927,19 @@
   </div>
 </div>
 
+<!-- ══ Continent nav bar ═════════════════════════════════════════════════════ -->
+<nav id="nav-bar" role="navigation" aria-label="Regions">
+  <div id="nav-tabs">
+    <div class="tab active" data-continent="">All regions</div>
+    <div class="tab" data-continent="Europe">Europe</div>
+    <div class="tab" data-continent="Middle East">Middle East</div>
+    <div class="tab" data-continent="Asia Pacific">Asia Pacific</div>
+    <div class="tab" data-continent="Americas">Americas</div>
+    <div class="tab" data-continent="Africa">Africa</div>
+    <div class="tab" data-continent="Oceania">Oceania</div>
+  </div>
+</nav>
+
 <!-- ══ Summary strip ══════════════════════════════════════════════════════════ -->
 <div id="summary-strip">
   <div id="summary-inner"></div>
@@ -921,14 +953,6 @@
 <!-- ══ Controls bar ═══════════════════════════════════════════════════════════ -->
 <div id="controls-bar">
   <div id="controls-inner">
-    <select class="ctrl-select" id="filter-continent">
-      <option value="">All regions</option>
-      <option>Middle East</option>
-      <option>Europe</option>
-      <option>Americas</option>
-      <option>Asia Pacific</option>
-      <option>Africa</option>
-    </select>
     <select class="ctrl-select" id="filter-country">
       <option value="">All countries</option>
     </select>
@@ -1293,7 +1317,7 @@ function buildSummaryStrip(data) {
       activeCont = cont; applyFilters();
       document.querySelectorAll(".summary-card").forEach(c=>c.classList.remove("active"));
       card.classList.add("active");
-      document.getElementById("filter-continent").value = cont;
+      activeCont = cont;
     });
     strip.appendChild(card);
   });
@@ -1348,19 +1372,27 @@ function setSector(s) {
 }
 function setContinent(c) {
   activeCont = c;
-  document.getElementById("filter-continent").value = c;
+  document.querySelectorAll('#nav-tabs .tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.continent === c);
+  });
   applyFilters();
   window.scrollTo({top:0, behavior:"smooth"});
 }
 
 // ── Controls wiring ───────────────────────────────────────────────────────────
-document.getElementById("filter-continent").addEventListener("change", e => {
-  activeCont = e.target.value; applyFilters();
-  document.querySelectorAll(".summary-card").forEach(c => {
-    c.classList.toggle("active",
-      (activeCont === "" && c.querySelector(".sc-label")?.textContent === "All regions") ||
-      (c.querySelector(".sc-label")?.textContent === activeCont)
-    );
+document.querySelectorAll('#nav-tabs .tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    activeCont = tab.dataset.continent;
+    document.querySelectorAll('#nav-tabs .tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll(".summary-card").forEach(c => {
+      c.classList.toggle("active",
+        (activeCont === "" && c.querySelector(".sc-label")?.textContent === "All regions") ||
+        (c.querySelector(".sc-label")?.textContent === activeCont)
+      );
+    });
+    applyFilters();
+    window.scrollTo({top:0, behavior:"smooth"});
   });
 });
 document.getElementById("filter-country").addEventListener("change", () => applyFilters());

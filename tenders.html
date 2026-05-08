@@ -328,23 +328,21 @@
   ══════════════════════════════════════════════════════════════════════════ */
   #nav-bar {
     background: var(--white); border-bottom: 1px solid var(--border);
-    padding: 0 24px; position: sticky; top: 94px; z-index: 98; overflow-x: auto;
+    position: sticky; top: 110px; z-index: 190; overflow-x: auto; scrollbar-width: none;
   }
   #nav-bar::-webkit-scrollbar { display: none; }
-  #nav-tabs { display: flex; align-items: stretch; gap: 0; max-width: 1320px; margin: 0 auto; }
+  #nav-tabs {
+    max-width: 1320px; margin: 0 auto; padding: 0 24px;
+    display: flex; gap: 0; align-items: stretch;
+  }
   .tab {
-    font-size: 12px; font-weight: 500; color: var(--warm-gray);
-    padding: 11px 18px; border-bottom: 2px solid transparent;
-    cursor: pointer; white-space: nowrap; transition: all .15s;
-    display: flex; align-items: center; gap: 6px;
+    font-family: var(--sans); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.5px; color: var(--warm-gray); padding: 12px 16px;
+    border-bottom: 3px solid transparent; cursor: pointer; white-space: nowrap;
+    transition: color .15s, border-color .15s; user-select: none;
   }
   .tab:hover { color: var(--black); border-bottom-color: var(--border-dk); }
   .tab.active { color: var(--black); border-bottom-color: var(--claret); font-weight: 600; }
-  .tab-count {
-    font-size: 10px; background: var(--salmon-dk); color: var(--warm-gray);
-    border-radius: 10px; padding: 1px 6px; font-weight: 500;
-  }
-  .tab.active .tab-count { background: var(--claret); color: #fff; }
 
 
   /* ══════════════════════════════════════════════════════════════════════════
@@ -790,17 +788,18 @@
 </div>
 
 <!-- ══ Continent tabs ════════════════════════════════════════════════════════ -->
-<div id="nav-bar" role="navigation" aria-label="Regions">
+<nav id="nav-bar" role="navigation" aria-label="Regions">
   <div id="nav-tabs">
-    <div class="tab active" data-continent="All">All regions <span class="tab-count" id="tc-all">—</span></div>
-    <div class="tab" data-continent="Europe">Europe <span class="tab-count" id="tc-europe">—</span></div>
-    <div class="tab" data-continent="Middle East">Middle East <span class="tab-count" id="tc-me">—</span></div>
-    <div class="tab" data-continent="Asia Pacific">Asia Pacific <span class="tab-count" id="tc-ap">—</span></div>
-    <div class="tab" data-continent="Americas">Americas <span class="tab-count" id="tc-am">—</span></div>
-    <div class="tab" data-continent="Africa">Africa <span class="tab-count" id="tc-af">—</span></div>
-    <div class="tab" data-continent="Other">Other <span class="tab-count" id="tc-other">—</span></div>
+    <div class="tab active" data-continent="All">All regions</div>
+    <div class="tab" data-continent="Europe">Europe</div>
+    <div class="tab" data-continent="Middle East">Middle East</div>
+    <div class="tab" data-continent="Asia Pacific">Asia Pacific</div>
+    <div class="tab" data-continent="Americas">Americas</div>
+    <div class="tab" data-continent="Africa">Africa</div>
+    <div class="tab" data-continent="Oceania">Oceania</div>
+    <div class="tab" data-continent="Other">Other</div>
   </div>
-</div>
+</nav>
 
 <!-- ══ Filter bar ════════════════════════════════════════════════════════════ -->
 

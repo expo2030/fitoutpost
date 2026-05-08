@@ -641,6 +641,25 @@
   .util-ad-link:hover { opacity: 1; }
   
 
+  /* ── Region nav bar ─────────────────────────────────────────────────────── */
+  #nav-bar {
+    background: var(--white); border-bottom: 1px solid var(--border);
+    position: sticky; top: 110px; z-index: 190; overflow-x: auto; scrollbar-width: none;
+  }
+  #nav-bar::-webkit-scrollbar { display: none; }
+  #nav-tabs {
+    max-width: 1320px; margin: 0 auto; padding: 0 24px;
+    display: flex; gap: 0; align-items: stretch;
+  }
+  .tab {
+    font-family: var(--sans); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.5px; color: var(--warm-gray); padding: 12px 16px;
+    border-bottom: 3px solid transparent; cursor: pointer; white-space: nowrap;
+    transition: color .15s, border-color .15s; user-select: none;
+  }
+  .tab:hover { color: var(--black); border-bottom-color: var(--border-dk); }
+  .tab.active { color: var(--black); border-bottom-color: var(--claret); font-weight: 600; }
+
   /* ── Section header ──────────────────────────────────────────────────────── */
   .sec-header { background: var(--black); color: #fff; padding: 40px 24px 32px; border-bottom: 1px solid #333; }
   .sec-header-inner { max-width: 1320px; margin: 0 auto; }
@@ -730,6 +749,19 @@
     <div class="sec-tagline">A directory of stakeholders operating in the fit-out industry.</div>
   </div>
 </div>
+
+<!-- ══ Continent nav bar ═════════════════════════════════════════════════════ -->
+<nav id="nav-bar" role="navigation" aria-label="Regions">
+  <div id="nav-tabs">
+    <div class="tab active" data-continent="">All regions</div>
+    <div class="tab" data-continent="Europe">Europe</div>
+    <div class="tab" data-continent="Middle East">Middle East</div>
+    <div class="tab" data-continent="Asia Pacific">Asia Pacific</div>
+    <div class="tab" data-continent="Americas">Americas</div>
+    <div class="tab" data-continent="Africa">Africa</div>
+    <div class="tab" data-continent="Oceania">Oceania</div>
+  </div>
+</nav>
 
 <!-- ═══════════ SUB-BAR ═══════════════════════════════════════════════════════ -->
 <div id="sub-bar">
@@ -1011,15 +1043,34 @@ function render() {
   }).join("");
 }
 
+// Continent nav tabs
+document.querySelectorAll("#nav-tabs .tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll("#nav-tabs .tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    filterContinent = tab.dataset.continent;
+    const sel = document.getElementById("filter-continent");
+    if (sel) sel.value = filterContinent;
+    render();
+  });
+});
+
 // Controls
 document.getElementById("name-search").addEventListener("input", e => { searchQuery = e.target.value; render(); });
-document.getElementById("filter-continent").addEventListener("change", e => { filterContinent = e.target.value; render(); });
+document.getElementById("filter-continent").addEventListener("change", e => {
+  filterContinent = e.target.value;
+  document.querySelectorAll("#nav-tabs .tab").forEach(t => {
+    t.classList.toggle("active", t.dataset.continent === filterContinent);
+  });
+  render();
+});
 document.getElementById("filter-type").addEventListener("change", e => { filterType = e.target.value; render(); });
 document.getElementById("filter-sector").addEventListener("change", e => { filterSector = e.target.value; render(); });
 document.getElementById("clear-btn").addEventListener("click", () => {
   searchQuery = ""; filterContinent = ""; filterType = ""; filterSector = "";
   document.getElementById("name-search").value = "";
   ["filter-continent","filter-type","filter-sector"].forEach(id => document.getElementById(id).value = "");
+  document.querySelectorAll("#nav-tabs .tab").forEach((t,i) => t.classList.toggle("active", i === 0));
   render();
 });
 

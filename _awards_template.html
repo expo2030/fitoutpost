@@ -307,11 +307,24 @@
   #page-hero-sub { font-family: var(--sans); font-size: 13px; color: #B8A89A; }
 
   /* ── Filter bar ────────────────────────────────────────────── */
-  #filter-bar { background: #fff; border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 40; }
-  #filter-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 12px; min-height: 44px; flex-wrap: wrap; }
-  .filter-tab { font-family: var(--sans); font-size: 12px; font-weight: 500; padding: 4px 14px; border: 1px solid var(--rule); border-radius: 20px; cursor: pointer; background: #fff; color: #555; transition: all .15s; white-space: nowrap; }
-  .filter-tab:hover { border-color: var(--claret); color: var(--claret); }
-  .filter-tab.active { background: var(--claret); color: #fff; border-color: var(--claret); }
+  /* ── Region nav bar ─────────────────────────────────────────────────────── */
+  #nav-bar {
+    background: var(--white); border-bottom: 1px solid var(--border);
+    position: sticky; top: 110px; z-index: 190; overflow-x: auto; scrollbar-width: none;
+  }
+  #nav-bar::-webkit-scrollbar { display: none; }
+  #nav-tabs {
+    max-width: 1320px; margin: 0 auto; padding: 0 24px;
+    display: flex; gap: 0; align-items: stretch;
+  }
+  .tab {
+    font-family: var(--sans); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.5px; color: var(--warm-gray); padding: 12px 16px;
+    border-bottom: 3px solid transparent; cursor: pointer; white-space: nowrap;
+    transition: color .15s, border-color .15s; user-select: none;
+  }
+  .tab:hover { color: var(--black); border-bottom-color: var(--border-dk); }
+  .tab.active { color: var(--black); border-bottom-color: var(--claret); font-weight: 600; }
   #award-count { font-family: var(--sans); font-size: 12px; color: var(--warm-gray); margin-left: auto; white-space: nowrap; }
 
   /* ── Main grid ─────────────────────────────────────────────── */
@@ -646,20 +659,18 @@
   </div>
 </div>
 
-<!-- ═══ FILTER BAR ═════════════════════════════════════════════════════════ -->
-<div id="filter-bar">
-  <div id="filter-inner">
-    <span style="font-family:var(--sans);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#888;">Region:</span>
-    <div class="filter-tab active" data-region="All">All</div>
-    <div class="filter-tab" data-region="Europe">Europe</div>
-    <div class="filter-tab" data-region="Middle East">Middle East</div>
-    <div class="filter-tab" data-region="Asia Pacific">Asia Pacific</div>
-    <div class="filter-tab" data-region="Americas">Americas</div>
-    <div class="filter-tab" data-region="Africa">Africa</div>
-    <div class="filter-tab" data-region="Oceania">Oceania</div>
-    <span id="award-count"></span>
+<!-- ══ Continent nav bar ═════════════════════════════════════════════════════ -->
+<nav id="nav-bar" role="navigation" aria-label="Regions">
+  <div id="nav-tabs">
+    <div class="tab active" data-continent="All">All regions</div>
+    <div class="tab" data-continent="Europe">Europe</div>
+    <div class="tab" data-continent="Middle East">Middle East</div>
+    <div class="tab" data-continent="Asia Pacific">Asia Pacific</div>
+    <div class="tab" data-continent="Americas">Americas</div>
+    <div class="tab" data-continent="Africa">Africa</div>
+    <div class="tab" data-continent="Oceania">Oceania</div>
   </div>
-</div>
+</nav>
 
 <!-- ═══ MAIN CONTENT ═══════════════════════════════════════════════════════ -->
 
@@ -742,15 +753,15 @@ document.getElementById("footer-year").textContent = new Date().getFullYear();
 { const _el = document.getElementById("hero-count"); if (_el) _el.textContent = AWARDS.length || "—"; }
 
 /* ── Filter state ─────────────────────────────────────────────────────── */
-let activeRegion = "All";
+let activeContinent = "All";
 
 function getRegion(a) {
   return a.continent || a.region || "Global";
 }
 
 function filtered() {
-  if (activeRegion === "All") return AWARDS;
-  return AWARDS.filter(a => getRegion(a) === activeRegion);
+  if (activeContinent === "All") return AWARDS;
+  return AWARDS.filter(a => getRegion(a) === activeContinent);
 }
 
 /* ── Render ───────────────────────────────────────────────────────────── */
@@ -840,12 +851,12 @@ if (AWARDS.length) {
   document.getElementById("empty-state").style.display = "block";
 }
 
-/* ── Filter tabs ──────────────────────────────────────────────────────── */
-document.querySelectorAll(".filter-tab").forEach(tab => {
+/* ── Continent tabs ───────────────────────────────────────────────────── */
+document.querySelectorAll("#nav-tabs .tab").forEach(tab => {
   tab.addEventListener("click", () => {
-    document.querySelectorAll(".filter-tab").forEach(t => t.classList.remove("active"));
+    document.querySelectorAll("#nav-tabs .tab").forEach(t => t.classList.remove("active"));
     tab.classList.add("active");
-    activeRegion = tab.dataset.region;
+    activeContinent = tab.dataset.continent;
     render();
   });
 });
