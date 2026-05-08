@@ -1,0 +1,261 @@
+<style>
+  /* ── Page header ──────────────────────────────────────────────────────────── */
+  #page-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 24px 40px;
+  }
+  #page-header-inner { max-width: 1320px; margin: 0 auto; }
+  #page-header .section-label {
+    font-family: var(--sans); font-size: 10px; font-weight: 700;
+    letter-spacing: 1.4px; text-transform: uppercase; color: var(--claret);
+    margin-bottom: 10px; display: block;
+  }
+  #page-header h1 {
+    font-family: var(--serif); font-size: 42px; font-weight: 700;
+    line-height: 1.15; color: var(--black); margin-bottom: 16px;
+  }
+  #page-header .page-lead { font-size: 17px; line-height: 1.65; color: var(--warm-gray); max-width: 680px; }
+
+  /* ── Main content ─────────────────────────────────────────────────────────── */
+  #main {
+    max-width: 1320px; margin: 0 auto;
+    padding: 60px 24px 100px;
+    display: grid; grid-template-columns: 2fr 1fr;
+    gap: 80px; align-items: start;
+  }
+
+  /* ── Section headings ─────────────────────────────────────────────────────── */
+  .section-header { border-top: 3px solid var(--black); padding-top: 16px; margin-bottom: 28px; }
+  .section-header h2 { font-family: var(--serif); font-size: 24px; font-weight: 700; color: var(--black); margin-bottom: 6px; }
+  .section-header p { font-size: 13.5px; color: var(--warm-gray); line-height: 1.6; }
+
+  /* ── Contact categories ───────────────────────────────────────────────────── */
+  .contact-group { margin-bottom: 48px; }
+  .contact-cards {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 20px;
+  }
+  .contact-card { background: var(--white); padding: 24px 28px; border-top: 3px solid var(--claret); }
+  .contact-card.editorial { border-top-color: #1A237E; }
+  .contact-card.industry  { border-top-color: #0D7680; }
+  .contact-card.press     { border-top-color: #D4690A; }
+  .contact-card.technical { border-top-color: #37474F; }
+  .contact-card.data      { border-top-color: #4527A0; }
+  .contact-card.general   { border-top-color: var(--claret); }
+
+  .contact-card-type {
+    font-family: var(--sans); font-size: 10px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; color: var(--claret); margin-bottom: 10px;
+  }
+  .contact-card.editorial .contact-card-type { color: #1A237E; }
+  .contact-card.industry  .contact-card-type { color: #0D7680; }
+  .contact-card.press     .contact-card-type { color: #D4690A; }
+  .contact-card.technical .contact-card-type { color: #37474F; }
+  .contact-card.data      .contact-card-type { color: #4527A0; }
+
+  .contact-card h3 { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--black); margin-bottom: 8px; }
+  .contact-card p { font-size: 13.5px; line-height: 1.65; color: var(--warm-gray); margin-bottom: 16px; }
+  .contact-email {
+    font-size: 13px; font-weight: 600; color: var(--claret);
+    display: inline-flex; align-items: center; gap: 6px; transition: color .15s;
+  }
+  .contact-email:hover { color: #CC0044; }
+  .contact-email svg { opacity: .7; }
+  .contact-card.full-width { grid-column: 1 / -1; }
+
+  /* ── Sidebar ──────────────────────────────────────────────────────────────── */
+  #sidebar { padding-top: 0; }
+  .sidebar-block {
+    background: var(--white); border: 1px solid var(--border);
+    border-top: 3px solid var(--black); padding: 24px 24px 20px; margin-bottom: 24px;
+  }
+  .sidebar-block h3 { font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--black); margin-bottom: 12px; }
+  .sidebar-block p { font-size: 13px; line-height: 1.7; color: var(--warm-gray); margin-bottom: 10px; }
+  .sidebar-block p:last-child { margin-bottom: 0; }
+  .sidebar-block a { color: var(--claret); font-weight: 500; }
+  .sidebar-block a:hover { color: #CC0044; }
+  .sidebar-fact { display: flex; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--border-lt); font-size: 13px; }
+  .sidebar-fact:last-child { border-bottom: none; padding-bottom: 0; }
+  .sidebar-fact-label { font-weight: 600; color: var(--black); min-width: 100px; }
+  .sidebar-fact-value { color: var(--warm-gray); }
+
+  @media (max-width: 1024px) { #main { grid-template-columns: 1fr; gap: 48px; } }
+  @media (max-width: 760px) {
+    #page-header h1 { font-size: 30px; }
+    .contact-cards { grid-template-columns: 1fr; }
+  }
+</style>
+
+<!-- Page header -->
+<div id="page-header">
+  <div id="page-header-inner">
+    <span class="section-label">FitOut Post</span>
+    <h1>Contact us</h1>
+    <p class="page-lead">
+      FitOut Post is an independent aggregator of global fit-out and interior
+      construction news. We cover contract awards, project completions, company
+      moves, and sector analysis from more than 50 countries. Use the addresses
+      below to reach the right team.
+    </p>
+  </div>
+</div>
+
+<!-- Main -->
+<main id="main">
+
+  <div id="contact-body">
+
+    <!-- Editorial enquiries -->
+    <div class="contact-group">
+      <div class="section-header">
+        <h2>Editorial</h2>
+        <p>Coverage decisions, corrections, and requests for removal of inaccurate information.</p>
+      </div>
+      <div class="contact-cards">
+        <div class="contact-card editorial">
+          <div class="contact-card-type">News coverage</div>
+          <h3>Editorial team</h3>
+          <p>
+            Questions about our coverage, requests to correct a factual error, or
+            concerns about how a specific article has been characterised. We aim to
+            respond within two working days.
+          </p>
+          <a href="mailto:editorial@fitoutpost.com" class="contact-email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            editorial@fitoutpost.com
+          </a>
+        </div>
+
+        <div class="contact-card industry">
+          <div class="contact-card-type">Company news</div>
+          <h3>Industry submissions</h3>
+          <p>
+            Contract awards, project completions, personnel appointments, and press
+            releases from fit-out contractors, clients, and suppliers. Include the
+            project name, value, location, and completion date where known.
+          </p>
+          <a href="mailto:news@fitoutpost.com" class="contact-email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            news@fitoutpost.com
+          </a>
+        </div>
+
+        <div class="contact-card press">
+          <div class="contact-card-type">Media</div>
+          <h3>Press and media enquiries</h3>
+          <p>
+            Journalists, broadcasters, and researchers seeking comment on the
+            global fit-out market, sector trends, or the FitOut Post platform.
+          </p>
+          <a href="mailto:press@fitoutpost.com" class="contact-email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            press@fitoutpost.com
+          </a>
+        </div>
+
+        <div class="contact-card data">
+          <div class="contact-card-type">Companies directory</div>
+          <h3>Directory corrections</h3>
+          <p>
+            Requests to update, correct, or remove a company listing from the
+            FitOut Post Companies directory. Include the company name and the
+            specific field requiring amendment.
+          </p>
+          <a href="mailto:directory@fitoutpost.com" class="contact-email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            directory@fitoutpost.com
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical and general -->
+    <div class="contact-group">
+      <div class="section-header">
+        <h2>Technical and general</h2>
+        <p>Platform issues, data licensing, and all other enquiries.</p>
+      </div>
+      <div class="contact-cards">
+        <div class="contact-card technical">
+          <div class="contact-card-type">Platform</div>
+          <h3>Technical issues</h3>
+          <p>
+            Broken links, display errors, or problems with the site on any
+            device or browser. Describe what you expected to see and what
+            appeared instead.
+          </p>
+          <a href="mailto:tech@fitoutpost.com" class="contact-email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            tech@fitoutpost.com
+          </a>
+        </div>
+
+        <div class="contact-card general">
+          <div class="contact-card-type">General</div>
+          <h3>All other enquiries</h3>
+          <p>
+            Data licensing, syndication, partnerships, and anything not covered
+            by the categories above. We read every message and reply as promptly
+            as we can.
+          </p>
+          <a href="mailto:hello@fitoutpost.com" class="contact-email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            hello@fitoutpost.com
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Sidebar -->
+  <aside id="sidebar">
+
+    <div class="sidebar-block">
+      <h3>About FitOut Post</h3>
+      <p>
+        FitOut Post is an independent news aggregator covering the global fit-out
+        and interior construction industry. We do not produce original journalism.
+        Our platform draws from publicly available sources including trade press,
+        company announcements, and newswires.
+      </p>
+      <p>
+        Articles link directly to their original source. FitOut Post does not
+        hold copyright in third-party content.
+      </p>
+    </div>
+
+    <div class="sidebar-block">
+      <h3>Publication details</h3>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact-label">Published by</span>
+        <span class="sidebar-fact-value">FitOut Post</span>
+      </div>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact-label">Coverage</span>
+        <span class="sidebar-fact-value">Global — 50+ countries</span>
+      </div>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact-label">Updated</span>
+        <span class="sidebar-fact-value">Daily, automated</span>
+      </div>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact-label">Launched</span>
+        <span class="sidebar-fact-value">2026</span>
+      </div>
+    </div>
+
+    <div class="sidebar-block">
+      <h3>Legal</h3>
+      <p>
+        Our <a href="legal.html#terms">terms of use</a>,
+        <a href="legal.html#privacy">privacy policy</a>, and
+        <a href="legal.html#cookies">cookie policy</a> set out how we operate
+        and how we handle any personal information you share with us.
+      </p>
+    </div>
+
+  </aside>
+
+</main>

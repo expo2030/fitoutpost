@@ -508,6 +508,375 @@ def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.js
     print(f"✅  awards.html — {len(unique)} award signals, {now}, {sz:.0f} KB")
 
 
+# ── Static pages build ────────────────────────────────────────────────────────
+STATIC_TEMPLATE  = BASE / "_static_template.html"
+STATIC_PAGES_DIR = BASE / "_pages"
+
+STATIC_PAGES = {
+    "about": {
+        "output":     "about.html",
+        "title":      "About — FitOut Post",
+        "active_nav": "About",
+        "meta": (
+            '<meta name="description" content="FitOut Post is an independent global aggregator'
+            ' of fit-out and interior construction intelligence. Our mission, coverage, and data sources." />\n'
+            '  <meta property="og:title" content="About — FitOut Post" />\n'
+            '  <meta property="og:description" content="FitOut Post is an independent global aggregator'
+            ' of fit-out and interior construction intelligence." />\n'
+            '  <link rel="canonical" href="https://fitoutpost.com/about.html" />'
+        ),
+        "extra_js": r"""
+// Stats
+(async function(){
+  const fmt = n => n >= 1000 ? (n/1000).toFixed(1).replace(/\.0$/,'') + 'k' : String(n);
+  const load = async (url) => { try { const r = await fetch(url); return r.ok ? r.json() : null; } catch(e) { return null; } };
+  const [news, tenders, pipeline, companies] = await Promise.all([
+    load('news.json'), load('tenders.json'), load('pipeline.json'), load('companies.json')
+  ]);
+  if (news && news.total_articles)       document.getElementById('ps-news').textContent     = fmt(news.total_articles);
+  if (tenders && tenders.total_tenders)  document.getElementById('ps-tenders').textContent  = fmt(tenders.total_tenders);
+  if (pipeline && pipeline.total_items)  document.getElementById('ps-pipeline').textContent = fmt(pipeline.total_items);
+  if (companies && companies.companies)  document.getElementById('ps-companies').textContent = fmt(companies.companies.length);
+})();
+// Enquiry form
+(function(){
+  const form = document.getElementById('enquiry-form');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name  = document.getElementById('enq-name').value.trim();
+    const email = document.getElementById('enq-email').value.trim();
+    if (!name || !email) return;
+    const enq = { name, email, company: document.getElementById('enq-company').value.trim(), interest: document.getElementById('enq-interest').value, message: document.getElementById('enq-message').value.trim(), at: new Date().toISOString() };
+    try { const list = JSON.parse(localStorage.getItem('fop_ad_enquiries') || '[]'); list.push(enq); localStorage.setItem('fop_ad_enquiries', JSON.stringify(list)); } catch(e) {}
+    document.getElementById('enq-confirm').classList.add('show');
+    this.style.display = 'none';
+  });
+})();
+""",
+    },
+    "contact": {
+        "output":     "contact.html",
+        "title":      "Contact — FitOut Post",
+        "active_nav": "",
+        "meta": (
+            '<meta name="description" content="Contact the FitOut Post team — editorial,'
+            ' industry submissions, press, technical issues, and advertising enquiries." />\n'
+            '  <link rel="canonical" href="https://fitoutpost.com/contact.html" />'
+        ),
+        "extra_js": "",
+    },
+    "legal": {
+        "output":     "legal.html",
+        "title":      "Legal — FitOut Post",
+        "active_nav": "",
+        "meta": (
+            '<meta name="description" content="FitOut Post terms of use, privacy policy,'
+            ' and cookie policy." />\n'
+            '  <meta name="robots" content="noindex" />\n'
+            '  <link rel="canonical" href="https://fitoutpost.com/legal.html" />'
+        ),
+        "extra_js": "",
+    },
+    "advertise": {
+        "output":     "advertise.html",
+        "title":      "Advertise — FitOut Post",
+        "active_nav": "Advertise",
+        "meta": (
+            '<meta name="description" content="Reach the global fit-out industry.'
+            ' Advertising and sponsorship options on FitOut Post." />\n'
+            '  <meta property="og:title" content="Advertise — FitOut Post" />\n'
+            '  <link rel="canonical" href="https://fitoutpost.com/advertise.html" />'
+        ),
+        "extra_js": r"""
+(async function(){
+  const fmt = n => n >= 1000 ? (n/1000).toFixed(1).replace(/\.0$/,'') + 'k' : String(n);
+  try {
+    const r = await fetch('news.json');
+    const d = await r.json();
+    if (d.total_articles) document.getElementById('ad-stat-news').textContent = fmt(d.total_articles) + '+';
+  } catch(e) {}
+})();
+(function(){
+  const form = document.getElementById('ad-form');
+  if (!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('ad-name').value.trim();
+    const email = document.getElementById('ad-email').value.trim();
+    if (!name || !email) return;
+    const enq = { name, email, company: document.getElementById('ad-company').value.trim(), title: document.getElementById('ad-title').value.trim(), format: document.getElementById('ad-format').value, budget: document.getElementById('ad-budget').value, message: document.getElementById('ad-message').value.trim(), at: new Date().toISOString(), type: 'advertising' };
+    try { const list = JSON.parse(localStorage.getItem('fop_ad_enquiries') || '[]'); list.push(enq); localStorage.setItem('fop_ad_enquiries', JSON.stringify(list)); } catch(e) {}
+    document.getElementById('ad-confirm').classList.add('show');
+    this.style.display = 'none';
+  });
+})();
+""",
+    },
+    "pricing": {
+        "output":     "pricing.html",
+        "title":      "Pricing — FitOut Post",
+        "active_nav": "Pro ↑",
+        "meta": (
+            '<meta name="description" content="FitOut Post Free vs Pro. Full access'
+            ' to global fit-out intelligence, tender alerts, pipeline data and API access." />\n'
+            '  <meta property="og:title" content="Pricing — FitOut Post" />\n'
+            '  <link rel="canonical" href="https://fitoutpost.com/pricing.html" />'
+        ),
+        "extra_js": r"""
+// Billing toggle
+const toggle = document.getElementById('billing-toggle');
+const priceEl = document.getElementById('pro-price');
+const annualNote = document.getElementById('pro-annual-note');
+const stripePriceDisplay = document.getElementById('stripe-price-display');
+const planSelect = document.getElementById('ps-plan');
+function updatePricing(annual) {
+  if (annual) {
+    priceEl.textContent = '€39';
+    annualNote.textContent = '€470 billed annually — save €118';
+    stripePriceDisplay.textContent = '€470/year';
+    planSelect.value = 'annual';
+  } else {
+    priceEl.textContent = '€49';
+    annualNote.textContent = '€588 billed monthly';
+    stripePriceDisplay.textContent = '€49/month';
+    planSelect.value = 'monthly';
+  }
+}
+toggle.addEventListener('change', () => updatePricing(toggle.checked));
+// FAQ accordion
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+// Pro signup form
+function handleProSignup(e) {
+  e.preventDefault();
+  const member = {
+    name: document.getElementById('ps-name').value.trim(),
+    email: document.getElementById('ps-email').value.trim(),
+    company: document.getElementById('ps-company').value.trim(),
+    plan: document.getElementById('ps-plan').value,
+    tier: 'pro',
+    trialStart: new Date().toISOString(),
+    id: 'pro_' + Date.now()
+  };
+  try {
+    const existing = JSON.parse(localStorage.getItem('fop_members_list') || '[]');
+    const idx = existing.findIndex(m => m.email === member.email);
+    if (idx >= 0) { existing[idx] = { ...existing[idx], ...member }; }
+    else { existing.push(member); }
+    localStorage.setItem('fop_members_list', JSON.stringify(existing));
+    localStorage.setItem('fop_member', JSON.stringify(member));
+  } catch(err) {}
+  document.getElementById('pro-signup-form').style.display = 'none';
+  document.getElementById('stripe-success').style.display = 'block';
+}
+planSelect.addEventListener('change', () => {
+  toggle.checked = planSelect.value === 'annual';
+  updatePricing(toggle.checked);
+});
+""",
+    },
+    "register": {
+        "output":     "register.html",
+        "title":      "Register Free — FitOut Post",
+        "active_nav": "Register Free",
+        "meta": (
+            '<meta name="description" content="Join FitOut Post free. Get daily fit-out news,'
+            ' tender alerts, and pipeline intelligence from every continent." />\n'
+            '  <meta property="og:title" content="Register Free — FitOut Post" />\n'
+            '  <link rel="canonical" href="https://fitoutpost.com/register.html" />'
+        ),
+        "extra_js": r"""
+// Load stats
+(async function() {
+  const load = async (url) => { try { const r = await fetch(url); if (!r.ok) return null; return await r.json(); } catch(e) { return null; } };
+  const fmt = n => n >= 1000 ? (n/1000).toFixed(1).replace(/\.0$/,'') + 'k' : String(n);
+  const [news, tenders, pipeline] = await Promise.all([load('news.json'), load('tenders.json'), load('pipeline.json')]);
+  if (news && news.total_articles) document.getElementById('stat-news').textContent = fmt(news.total_articles);
+  if (tenders && tenders.total_tenders) document.getElementById('stat-tenders').textContent = fmt(tenders.total_tenders);
+  if (pipeline && pipeline.total_items) document.getElementById('stat-pipeline').textContent = fmt(pipeline.total_items);
+})();
+// Member gate
+(function() {
+  const member = localStorage.getItem('fop_member');
+  if (member) { try { const m = JSON.parse(member); showSuccess(m.email || ''); } catch(e) {} }
+})();
+// Login link
+document.getElementById('login-link').addEventListener('click', function(e) {
+  e.preventDefault();
+  const member = localStorage.getItem('fop_member');
+  if (member) { window.location.href = 'index.html'; }
+  else { document.getElementById('email').focus(); document.getElementById('email').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+});
+// Form submit
+document.getElementById('reg-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const errEl = document.getElementById('form-error');
+  errEl.className = 'form-msg error'; errEl.textContent = '';
+  const first = document.getElementById('first-name').value.trim();
+  const last = document.getElementById('last-name').value.trim();
+  const email = document.getElementById('email').value.trim().toLowerCase();
+  const company = document.getElementById('company').value.trim();
+  const role = document.getElementById('role').value;
+  const region = document.getElementById('region').value;
+  const gdpr = document.getElementById('gdpr-consent').checked;
+  const interests = Array.from(document.querySelectorAll('.check-grid input[type="checkbox"]:checked')).map(cb => cb.value);
+  if (!first || !last) return showError('Please enter your first and last name.');
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showError('Please enter a valid email address.');
+  if (!gdpr) return showError('Please accept the Privacy Policy and Terms of Use to continue.');
+  btn.disabled = true; btn.textContent = 'Registering…';
+  const member = { firstName: first, lastName: last, email, company, role, region, interests, registeredAt: new Date().toISOString(), id: 'fop_' + Date.now() };
+  localStorage.setItem('fop_member', JSON.stringify(member));
+  try { const list = JSON.parse(localStorage.getItem('fop_members_list') || '[]'); list.push(member); localStorage.setItem('fop_members_list', JSON.stringify(list)); } catch(e) {}
+  setTimeout(() => showSuccess(email), 600);
+  function showError(msg) { errEl.textContent = msg; errEl.className = 'form-msg error show'; btn.disabled = false; btn.textContent = 'Create free account →'; }
+});
+function showSuccess(email) {
+  document.getElementById('form-panel').style.display = 'none';
+  const panel = document.getElementById('success-panel');
+  panel.classList.add('show');
+  if (email) document.getElementById('success-email').textContent = email;
+  renderAlerts();
+}
+// Keyword alert management
+const FREE_LIMIT = 10;
+function renderAlerts() {
+  const member = JSON.parse(localStorage.getItem('fop_member') || '{}');
+  const alerts = member.keyword_alerts || [];
+  const container = document.getElementById('alerts-list');
+  if (!container) return;
+  container.innerHTML = alerts.length === 0 ? '<span style="font-size:13px;color:var(--mid-gray);font-style:italic;">No alerts saved yet.</span>' : alerts.map((kw, i) => `<span style="display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border-dk);padding:5px 12px;font-size:13px;font-weight:500;">${escH(kw)}<button onclick="removeAlert(${i})" style="background:none;border:none;cursor:pointer;color:var(--mid-gray);font-size:14px;padding:0 0 1px;line-height:1;" title="Remove">×</button></span>`).join('');
+}
+function escH(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function saveAlerts(alerts) {
+  const member = JSON.parse(localStorage.getItem('fop_member') || '{}');
+  member.keyword_alerts = alerts;
+  localStorage.setItem('fop_member', JSON.stringify(member));
+  try { const list = JSON.parse(localStorage.getItem('fop_members_list') || '[]'); const idx = list.findIndex(m => m.email === member.email); if (idx >= 0) list[idx] = member; else list.push(member); localStorage.setItem('fop_members_list', JSON.stringify(list)); } catch(e) {}
+  const msg = document.getElementById('alerts-save-msg');
+  if (msg) { msg.style.display = 'block'; setTimeout(() => msg.style.display = 'none', 2000); }
+  renderAlerts();
+}
+function addAlert() {
+  const input = document.getElementById('alert-input');
+  const kw = (input.value || '').trim();
+  if (!kw) return;
+  const member = JSON.parse(localStorage.getItem('fop_member') || '{}');
+  const alerts = member.keyword_alerts || [];
+  if (alerts.includes(kw)) { input.value = ''; return; }
+  if (alerts.length >= FREE_LIMIT) { alert('Free accounts can save up to ' + FREE_LIMIT + ' keyword alerts. Upgrade to Pro for unlimited.'); return; }
+  alerts.push(kw); input.value = '';
+  saveAlerts(alerts);
+}
+function removeAlert(index) {
+  const member = JSON.parse(localStorage.getItem('fop_member') || '{}');
+  const alerts = member.keyword_alerts || [];
+  alerts.splice(index, 1);
+  saveAlerts(alerts);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const inp = document.getElementById('alert-input');
+  if (inp) inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addAlert(); } });
+});
+if (document.getElementById('alerts-section')) renderAlerts();
+""",
+    },
+    "api": {
+        "output":     "api.html",
+        "title":      "API Documentation — FitOut Post",
+        "active_nav": "API",
+        "meta": (
+            '<meta name="description" content="FitOut Post REST API — read-only JSON endpoints'
+            ' for Pro members. Access global fit-out news, tenders and pipeline data programmatically." />\n'
+            '  <meta property="og:title" content="API Documentation — FitOut Post" />\n'
+            '  <link rel="canonical" href="https://fitoutpost.com/api.html" />'
+        ),
+        "extra_js": r"""
+// Sidebar active link on scroll
+const sections = document.querySelectorAll('.api-section');
+const navLinks = document.querySelectorAll('.api-nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+  navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+});
+// Copy code buttons
+function copyCode(btn) {
+  const block = btn.closest('.code-block');
+  const text = block.innerText.replace(/^(JSON|Python|cURL|JavaScript|HTTP)\n/, '').replace(/^Copy\n/, '').trim();
+  navigator.clipboard.writeText(text).then(() => { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 1800); });
+}
+""",
+    },
+    "404": {
+        "output":     "404.html",
+        "title":      "404 — Page not found — FitOut Post",
+        "active_nav": "",
+        "meta": (
+            '<meta name="robots" content="noindex" />'
+        ),
+        "extra_js": "",
+    },
+}
+
+
+def build_static_pages() -> None:
+    """Stamp _static_template.html with per-page content to build 8 static pages."""
+    import re
+
+    if not STATIC_TEMPLATE.exists():
+        print(f"❌  Static template {STATIC_TEMPLATE.name} not found.")
+        return
+    if not STATIC_PAGES_DIR.exists():
+        print(f"❌  _pages/ directory not found.")
+        return
+
+    template = STATIC_TEMPLATE.read_text(encoding="utf-8")
+
+    for key, cfg in STATIC_PAGES.items():
+        frag_path = STATIC_PAGES_DIR / f"{key}.html"
+        if not frag_path.exists():
+            print(f"  ⚠  Fragment not found: _pages/{key}.html — skipping")
+            continue
+
+        frag = frag_path.read_text(encoding="utf-8")
+
+        # Extract page-specific CSS from the <style>...</style> block at top of fragment
+        css_match = re.search(r'<style>(.*?)</style>', frag, re.DOTALL)
+        page_css = ""
+        if css_match:
+            page_css = f"<style>\n{css_match.group(1)}\n</style>"
+            # Body is everything after the closing </style>
+            body = frag[css_match.end():].strip()
+        else:
+            body = frag.strip()
+
+        # Build the extra JS block
+        extra_js = cfg.get("extra_js", "").strip()
+        js_block  = f"<script>\n{extra_js}\n</script>" if extra_js else ""
+
+        built = template
+        built = built.replace("<!--STATIC-TITLE-->",      cfg["title"],      1)
+        built = built.replace("<!--STATIC-META-->",        cfg["meta"],       1)
+        built = built.replace("<!--STATIC-ACTIVE-NAV-->",  cfg["active_nav"], 1)
+        built = built.replace("<!--STATIC-CSS-->",         page_css,          1)
+        built = built.replace("<!--STATIC-BODY-->",        body,              1)
+        built = built.replace("<!--STATIC-JS-->",          js_block,          1)
+
+        out_path = BASE / cfg["output"]
+        out_path.write_text(built, encoding="utf-8")
+        sz = out_path.stat().st_size / 1024
+        print(f"✅  {cfg['output']} — {sz:.0f} KB")
+
+    now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
+    print(f"    Static pages built ({now})")
+
+
 def build_sitemap() -> None:
     """Auto-generate sitemap.xml from all HTML pages in the site root and countries/."""
     BASE_URL = "https://fitoutpost.com"
@@ -649,6 +1018,8 @@ if __name__ == "__main__":
         build_awards()
     elif "--news" in args:
         build()
+    elif "--static" in args:
+        build_static_pages()
     else:
         build()
         build_alphaedge()
@@ -660,4 +1031,5 @@ if __name__ == "__main__":
         build_pipeline()
         build_awards()
         build_companies_site()
+        build_static_pages()
         build_sitemap()

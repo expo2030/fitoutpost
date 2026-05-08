@@ -1,0 +1,249 @@
+<style>
+  /* ─── Page ────────────────────────────────────────────────────────────── */
+  #page {
+    max-width: 1320px; margin: 0 auto; padding: 60px 24px 100px;
+    display: grid; grid-template-columns: 680px 1fr; gap: 80px; align-items: start;
+  }
+
+  /* ─── Main content ────────────────────────────────────────────────────── */
+  .about-kicker { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--claret); font-weight: 600; margin-bottom: 16px; }
+  .about-headline { font-family: var(--serif); font-weight: 700; font-size: 44px; line-height: 1.1; margin-bottom: 24px; }
+  .about-lead { font-family: var(--serif-body); font-size: 21px; line-height: 1.65; color: var(--warm-gray); margin-bottom: 40px; border-left: 3px solid var(--claret); padding-left: 20px; }
+
+  .about-section { margin-bottom: 48px; }
+  .about-section h2 { font-family: var(--serif); font-size: 26px; font-weight: 700; margin-bottom: 16px; border-bottom: 2px solid var(--border); padding-bottom: 10px; }
+  .about-section p { font-family: var(--serif-body); font-size: 18px; line-height: 1.75; color: var(--black); margin-bottom: 16px; }
+  .about-section p:last-child { margin-bottom: 0; }
+
+  /* Editorial standards */
+  .standards-list { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+  .standard { display: flex; align-items: flex-start; gap: 14px; }
+  .std-num { font-family: var(--serif); font-weight: 700; font-size: 22px; color: var(--claret); flex-shrink: 0; width: 28px; }
+  .std-text { font-family: var(--serif-body); font-size: 17px; line-height: 1.6; color: var(--black); }
+  .std-text strong { font-weight: 700; }
+
+  /* Coverage table */
+  .cov-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
+  .cov-table th { text-align: left; font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--warm-gray); padding: 8px 12px; border-bottom: 2px solid var(--border-dk); }
+  .cov-table td { padding: 10px 12px; border-bottom: 1px solid var(--border-lt); vertical-align: top; }
+  .cov-table tr:last-child td { border-bottom: none; }
+  .cov-table .region-cell { font-weight: 600; white-space: nowrap; }
+  .cov-badge { display: inline-block; background: var(--black); color: #fff; font-size: 10px; letter-spacing: 0.5px; padding: 2px 7px; margin: 2px 2px 2px 0; white-space: nowrap; }
+
+  /* ─── Sidebar ─────────────────────────────────────────────────────────── */
+  .sidebar {}
+  .sidebar-card { background: var(--white); border: 1px solid var(--border-dk); padding: 28px; margin-bottom: 24px; }
+  .sidebar-card h3 { font-family: var(--serif); font-size: 18px; font-weight: 700; margin-bottom: 14px; }
+  .sidebar-card p { font-size: 13px; color: var(--warm-gray); line-height: 1.6; margin-bottom: 16px; }
+  .sidebar-card:last-child { margin-bottom: 0; }
+
+  /* Advertising enquiry form */
+  .enquiry-form .form-group { margin-bottom: 14px; }
+  .enquiry-form label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--black); margin-bottom: 6px; }
+  .enquiry-form input, .enquiry-form textarea, .enquiry-form select {
+    width: 100%; background: var(--salmon); border: 1px solid var(--border);
+    color: var(--black); font-family: var(--sans); font-size: 13px;
+    padding: 9px 12px; outline: none; transition: background .2s, border-color .2s;
+    resize: vertical;
+  }
+  .enquiry-form input:focus, .enquiry-form textarea:focus, .enquiry-form select:focus { background: #fff; border-color: var(--black); }
+  .enquiry-form textarea { min-height: 90px; }
+  .enquiry-form .select-wrap { position: relative; }
+  .enquiry-form .select-wrap::after { content: "▾"; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--warm-gray); font-size: 11px; }
+  .enquiry-form .select-wrap select { appearance: none; -webkit-appearance: none; padding-right: 28px; cursor: pointer; }
+  .btn-enquire { display: block; width: 100%; background: var(--black); color: #fff; border: none; padding: 12px; font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.3px; cursor: pointer; transition: background .15s; }
+  .btn-enquire:hover { background: var(--claret); }
+  .enquiry-confirm { display: none; padding: 14px; background: #F0FFF4; border: 1px solid #2D7D46; color: #1a5c32; font-size: 13px; margin-top: 12px; }
+  .enquiry-confirm.show { display: block; }
+
+  /* Stats sidebar card */
+  .platform-stats { display: flex; flex-direction: column; gap: 0; }
+  .ps-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--border-lt); }
+  .ps-row:last-child { border-bottom: none; }
+  .ps-label { font-size: 12.5px; color: var(--warm-gray); }
+  .ps-val { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--black); }
+
+  @media (max-width: 1024px) { #page { grid-template-columns: 1fr; gap: 48px; } }
+  @media (max-width: 640px) { #page { padding: 32px 16px 60px; } .about-headline { font-size: 32px; } }
+</style>
+
+<!-- Page -->
+<div id="page">
+
+  <!-- Main content -->
+  <main>
+    <p class="about-kicker">About FitOut Post</p>
+    <h1 class="about-headline">The world's fit-out industry in one place</h1>
+    <p class="about-lead">FitOut Post is an independent intelligence platform dedicated to the global interior fit-out industry — the $290bn sector that transforms shells into workplaces, hotels, retail stores, hospitals, and hospitality spaces.</p>
+
+    <div class="about-section">
+      <h2>Our mission</h2>
+      <p>The fit-out industry is fragmented, multilingual, and badly served by generalist construction media. A hotel interior project in Riyadh, a commercial tenant improvement in Chicago, and a retail rollout in Tokyo share the same supply chain dynamics — but nobody was connecting those dots globally.</p>
+      <p>FitOut Post aggregates news, tenders, and project pipeline signals from every continent into a single, structured feed — updated every day before 08:00 — so that contractors, designers, developers, suppliers, and investors can find the intelligence they need without the noise.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>What we cover</h2>
+      <p>We monitor fit-out activity under all the names the industry uses globally:</p>
+      <table class="cov-table">
+        <thead>
+          <tr>
+            <th>Region</th>
+            <th>Primary terms monitored</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="region-cell">🇬🇧 UK / Commonwealth</td>
+            <td><span class="cov-badge">fit-out</span><span class="cov-badge">fitout</span><span class="cov-badge">fit out</span><span class="cov-badge">CAT A</span><span class="cov-badge">CAT B</span></td>
+          </tr>
+          <tr>
+            <td class="region-cell">🇺🇸 North America</td>
+            <td><span class="cov-badge">tenant improvement</span><span class="cov-badge">TI allowance</span><span class="cov-badge">interior build-out</span><span class="cov-badge">office renovation</span></td>
+          </tr>
+          <tr>
+            <td class="region-cell">🇩🇪 DACH</td>
+            <td><span class="cov-badge">Innenausbau</span><span class="cov-badge">Büroausbau</span><span class="cov-badge">Hotelausbau</span><span class="cov-badge">Ladenausbau</span></td>
+          </tr>
+          <tr>
+            <td class="region-cell">🇫🇷 France / Francophone</td>
+            <td><span class="cov-badge">second œuvre</span><span class="cov-badge">aménagement intérieur</span><span class="cov-badge">agencement commercial</span></td>
+          </tr>
+          <tr>
+            <td class="region-cell">🇪🇸 Spain / LatAm</td>
+            <td><span class="cov-badge">acondicionamiento</span><span class="cov-badge">interiorismo comercial</span><span class="cov-badge">reforma interior</span></td>
+          </tr>
+          <tr>
+            <td class="region-cell">🇳🇱 Netherlands / Belgium</td>
+            <td><span class="cov-badge">afbouw</span><span class="cov-badge">interieurinrichting</span><span class="cov-badge">kantoorinrichting</span></td>
+          </tr>
+          <tr>
+            <td class="region-cell">🇮🇹 Italy</td>
+            <td><span class="cov-badge">allestimento interni</span><span class="cov-badge">ristrutturazione uffici</span><span class="cov-badge">interior contracting</span></td>
+          </tr>
+          <tr>
+            <td class="region-cell">🇸🇦 Middle East</td>
+            <td><span class="cov-badge">تشطيبات داخلية</span><span class="cov-badge">أعمال التشطيب</span><span class="cov-badge">interior fit-out</span></td>
+          </tr>
+          <tr>
+            <td class="region-cell">🇯🇵 Japan</td>
+            <td><span class="cov-badge">内装工事</span><span class="cov-badge">店舗内装工事</span><span class="cov-badge">テナント工事</span></td>
+          </tr>
+          <tr>
+            <td class="region-cell">🇨🇳 China / HK / TW</td>
+            <td><span class="cov-badge">室内装修工程</span><span class="cov-badge">室內裝修工程</span><span class="cov-badge">interior fit-out</span></td>
+          </tr>
+          <tr>
+            <td class="region-cell">🌍 Africa</td>
+            <td><span class="cov-badge">fit-out</span><span class="cov-badge">interior construction</span><span class="cov-badge">commercial interiors</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="about-section">
+      <h2>Editorial standards</h2>
+      <ul class="standards-list">
+        <li class="standard">
+          <div class="std-num">1</div>
+          <div class="std-text"><strong>No editorial bias.</strong> We do not accept payment for editorial coverage. Our news feed is algorithmically ranked by relevance and recency, not commercial relationships.</div>
+        </li>
+        <li class="standard">
+          <div class="std-num">2</div>
+          <div class="std-text"><strong>Primary sources only.</strong> We link directly to original reporting — publisher websites, official procurement portals, and company announcements. We do not republish full articles.</div>
+        </li>
+        <li class="standard">
+          <div class="std-num">3</div>
+          <div class="std-text"><strong>Geographic precision.</strong> Every item is tagged by country and continent using structured data. We correct misclassifications as they are identified.</div>
+        </li>
+        <li class="standard">
+          <div class="std-num">4</div>
+          <div class="std-text"><strong>Tender accuracy.</strong> Tender notices are sourced from TED (EU), national procurement portals, and government procurement feeds. We flag expired tenders and remove them at the next daily refresh.</div>
+        </li>
+        <li class="standard">
+          <div class="std-num">5</div>
+          <div class="std-text"><strong>Corrections policy.</strong> We publish corrections promptly. If you identify an error, <a href="contact.html" style="color:var(--claret)">contact us</a>.</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="about-section">
+      <h2>Data sources</h2>
+      <p>FitOut Post aggregates from over 200 identified sources including: trade press (FX, Sleeper, FRAME, Mixology News, Hospitality Design, Contract Journal), Google News in 14 languages, TED European procurement database, national e-procurement portals, company press releases, LinkedIn announcements, and project award databases.</p>
+      <p>Data is refreshed daily. The platform is built on a static architecture — every page is pre-built from JSON data files — ensuring fast, reliable delivery without server infrastructure.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>Contact</h2>
+      <p>For editorial enquiries, corrections, or tip-offs: <a href="contact.html" style="color:var(--claret)">contact.html</a>.</p>
+      <p>For advertising and sponsorship: use the enquiry form on this page, or visit <a href="advertise.html" style="color:var(--claret)">advertise.html</a>.</p>
+      <p>FitOut Post is an independent publication. It is not affiliated with any fit-out contractor, developer, or trade association.</p>
+    </div>
+  </main>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+    <!-- Platform stats -->
+    <div class="sidebar-card">
+      <h3>Platform at a glance</h3>
+      <div class="platform-stats">
+        <div class="ps-row"><span class="ps-label">News articles</span><span class="ps-val" id="ps-news">—</span></div>
+        <div class="ps-row"><span class="ps-label">Live tenders</span><span class="ps-val" id="ps-tenders">—</span></div>
+        <div class="ps-row"><span class="ps-label">Pipeline signals</span><span class="ps-val" id="ps-pipeline">—</span></div>
+        <div class="ps-row"><span class="ps-label">Companies tracked</span><span class="ps-val" id="ps-companies">—</span></div>
+        <div class="ps-row"><span class="ps-label">Markets covered</span><span class="ps-val">30+</span></div>
+        <div class="ps-row"><span class="ps-label">Languages monitored</span><span class="ps-val">14</span></div>
+        <div class="ps-row"><span class="ps-label">Updated</span><span class="ps-val" style="font-size:14px;">Daily</span></div>
+      </div>
+    </div>
+
+    <!-- Register CTA -->
+    <div class="sidebar-card" style="background:var(--black);border-color:var(--black);">
+      <h3 style="color:#fff;">Join FitOut Post free</h3>
+      <p style="color:#9A8A80;">Daily briefings, tender alerts, and pipeline intelligence. No credit card required.</p>
+      <a href="register.html" style="display:block;background:var(--claret);color:#fff;text-align:center;padding:12px;font-size:13px;font-weight:600;letter-spacing:0.3px;transition:background .15s;" onmouseover="this.style.background='#CC0044'" onmouseout="this.style.background='#990033'">Create free account →</a>
+    </div>
+
+    <!-- Advertising enquiry -->
+    <div class="sidebar-card" id="advertise-card">
+      <h3>Advertising enquiry</h3>
+      <p>Reach the global fit-out industry. Sponsors and advertising partners are clearly labelled. We do not accept payment for editorial coverage.</p>
+      <form class="enquiry-form" id="enquiry-form" novalidate>
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" id="enq-name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="enq-email" placeholder="you@company.com" required />
+        </div>
+        <div class="form-group">
+          <label>Company</label>
+          <input type="text" id="enq-company" placeholder="Organisation" />
+        </div>
+        <div class="form-group">
+          <label>Interest</label>
+          <div class="select-wrap">
+            <select id="enq-interest">
+              <option value="" disabled selected>Select…</option>
+              <option value="banner">Display advertising</option>
+              <option value="newsletter">Newsletter sponsorship</option>
+              <option value="branded">Branded content / thought leadership</option>
+              <option value="tender">Tender section sponsorship</option>
+              <option value="event">Event / webinar partnership</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="enq-message" placeholder="Tell us about your campaign goals or budget…"></textarea>
+        </div>
+        <button type="submit" class="btn-enquire">Send enquiry</button>
+        <div class="enquiry-confirm" id="enq-confirm">✓ Thanks — we'll be in touch within 2 business days.</div>
+      </form>
+    </div>
+
+  </aside>
+</div>

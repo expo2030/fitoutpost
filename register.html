@@ -4,48 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register Free — FitOut Post</title>
-  <meta name="description" content="Join FitOut Post free. Get daily intelligence on fit-out projects, tenders, and pipeline from every continent." />
-  <!-- ── SEO: Open Graph ──────────────────────────────────────── -->
+  <meta name="fop-active-nav" content="Register Free" />
+  <meta name="description" content="Join FitOut Post free. Get daily fit-out news, tender alerts, and pipeline intelligence from every continent." />
+  <meta property="og:title" content="Register Free — FitOut Post" />
+  <link rel="canonical" href="https://fitoutpost.com/register.html" />
+  <!-- Shared OG tags -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="FitOut Post" />
-  <meta property="og:title" content="Register Free — FitOut Post" />
-  <meta property="og:description" content="Join FitOut Post for free. Get daily briefings, full weekly roundups, pipeline exports and industry alerts." />
-  <meta property="og:url" content="https://fitoutpost.com/register.html" />
-  <meta property="og:image" content="https://fitoutpost.com/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@fitoutpost" />
-  <meta name="twitter:title" content="Register Free — FitOut Post" />
-  <meta name="twitter:description" content="Join FitOut Post for free. Get daily briefings, full weekly roundups, pipeline exports and industry alerts." />
-  <meta name="twitter:image" content="https://fitoutpost.com/og-image.png" />
-  <!-- Canonical -->
-  <link rel="canonical" href="https://fitoutpost.com/register.html" />
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="https://fitoutpost.com/favicon.svg" />
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "FitOut Post",
-    "url": "https://fitoutpost.com",
-    "description": "Join FitOut Post for free. Get daily briefings, full weekly roundups, pipeline exports and industry alerts.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://fitoutpost.com/?q={{search_term_string}}"
-      },
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
+  /* ─── Reset ──────────────────────────────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --salmon:      #FFF1E5;
@@ -57,31 +30,36 @@
     --claret:      #990033;
     --claret-lt:   #CC0044;
     --teal:        #0D7680;
+    --amber:       #E8820C;
     --warm-gray:   #66605A;
     --mid-gray:    #9A948E;
-    --border:      #D9CBC0;
+    --card-bg:     #FFFFFF;
+    --card-hover:  #FFF8F3;
+    --body-bg:     #FAF5F0;
+    --border:      #D8C9A8;
+    --border-dk:   #BBA898;
     --border-lt:   #EDE3DA;
-    --border-dk:   #B8A99A;
-    --serif:       "Playfair Display", Georgia, "Times New Roman", serif;
     --serif-body:  "EB Garamond", Georgia, "Times New Roman", serif;
-    --sans:        "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --gold:        #B8860B;
+    --serif:  'Playfair Display', 'EB Garamond', Georgia, serif;
+    --sans:   Inter, system-ui, sans-serif;
   }
-  html { scroll-behavior: smooth; font-size: 16px; }
-  body {
+  html  { scroll-behavior: smooth; font-size: 16px; }
+  body  {
     font-family: var(--sans);
     background: var(--salmon);
     color: var(--black);
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   a { color: inherit; text-decoration: none; }
   a:hover { color: var(--claret); }
 
-  /* ─── Utility bar ─────────────────────────────────────────────────────── */
+  /* ─── Utility bar ─────────────────────────────────────────────────────────── */
   #utility-bar {
     background: var(--black);
     color: #9A8A80;
-    font-family: var(--sans);
     font-size: 11px;
     letter-spacing: 0.3px;
     border-bottom: 1px solid #333;
@@ -95,15 +73,20 @@
     align-items: center;
     justify-content: space-between;
   }
-  #utility-left { display: flex; align-items: center; gap: 20px; }
+  #utility-left  { display: flex; align-items: center; gap: 20px; }
   #utility-right { display: flex; align-items: center; gap: 20px; }
   .util-link { color: #9A8A80; transition: color .15s; }
   .util-link:hover { color: #D4C4BA; }
 
-  /* ─── Masthead ────────────────────────────────────────────────────────── */
+  /* ══════════════════════════════════════════════════════════════════════════
+     MASTHEAD (salmon background, FOP logo + search)
+  ══════════════════════════════════════════════════════════════════════════ */
   #masthead {
     background: var(--salmon);
     border-bottom: 2px solid var(--black);
+    position: sticky;
+    top: 0;
+    z-index: 200;
   }
   #masthead-inner {
     max-width: 1320px;
@@ -114,54 +97,425 @@
     align-items: center;
     gap: 24px;
   }
+
+  /* ─── FOP Logo ──────────────────────────────────────────────────────────── */
   #fop-logo {
-    display: flex; align-items: center; gap: 14px;
-    flex-shrink: 0; text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+    cursor: default;
+    user-select: none;
+    text-decoration: none;
   }
   #fop-logo:hover { color: inherit; }
   #fop-box {
-    width: 52px; height: 52px; background: var(--black);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
   #fop-box span {
-    font-family: var(--serif); font-weight: 800; font-size: 24px;
-    letter-spacing: 1px; color: #fff; line-height: 1;
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #fff;
+    line-height: 1;
   }
-  #fop-wordmark { display: flex; flex-direction: column; line-height: 1.2; }
+  #fop-wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
   #fop-wordmark strong {
-    font-family: var(--serif); font-weight: 700; font-size: 20px;
-    letter-spacing: 0.2px; color: var(--black);
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.2px;
+    color: var(--black);
   }
   #fop-wordmark em {
-    font-style: normal; font-size: 10px; letter-spacing: 1.4px;
-    text-transform: uppercase; color: var(--warm-gray); font-weight: 500; margin-top: 2px;
-  }
-  #masthead-right {
-    margin-left: auto; display: flex; align-items: center; gap: 16px; flex-shrink: 0;
-  }
-  .masthead-nav-link {
-    font-size: 12.5px; font-weight: 500; color: var(--black);
-    padding: 6px 14px; border: 1px solid var(--border-dk);
-    transition: background .15s, border-color .15s, color .15s; white-space: nowrap;
-  }
-  .masthead-nav-link:hover {
-    background: var(--black); border-color: var(--black); color: #fff;
+    font-style: normal;
+    font-size: 10px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 500;
+    margin-top: 2px;
   }
 
-  /* ─── Product nav ─────────────────────────────────────────────────────── */
-  #product-nav { background: var(--black); }
+  /* ─── Masthead search ───────────────────────────────────────────────────── */
+  #masthead-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--border-dk);
+    flex-shrink: 0;
+    margin: 0 4px;
+  }
+  #search-wrap {
+    position: relative;
+    flex: 1;
+    max-width: 360px;
+  }
+  #search {
+    width: 100%;
+    background: rgba(255,255,255,.6);
+    border: 1px solid var(--border);
+    color: var(--black);
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 8px 12px 8px 36px;
+    outline: none;
+    transition: background .2s, border-color .2s;
+  }
+  #search:focus {
+    background: #fff;
+    border-color: var(--black);
+  }
+  #search::placeholder { color: var(--mid-gray); }
+  #search-icon {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .45;
+    pointer-events: none;
+  }
+
+  /* ─── Masthead right ────────────────────────────────────────────────────── */
+  #masthead-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+  .masthead-nav-link {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--black);
+    padding: 6px 14px;
+    border: 1px solid var(--border-dk);
+    transition: background .15s, border-color .15s, color .15s;
+    white-space: nowrap;
+  }
+  .masthead-nav-link:hover {
+    background: var(--black);
+    border-color: var(--black);
+    color: #fff;
+  }
+  .masthead-nav-link--cta {
+    background: var(--claret);
+    border-color: var(--claret);
+    color: #fff;
+    font-weight: 600;
+    padding: 6px 18px;
+    letter-spacing: 0.2px;
+  }
+  .masthead-nav-link--cta:hover {
+    background: var(--claret-lt);
+    border-color: var(--claret-lt);
+    color: #fff;
+  }
+  .mh-util-link {
+    font-size: 11px;
+    color: var(--warm-gray);
+    transition: color .15s;
+    white-space: nowrap;
+  }
+  .mh-util-link:hover { color: var(--black); }
+  .mh-tip-btn {
+    background: none;
+    border: none;
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--warm-gray);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color .15s;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .mh-tip-btn:hover { color: var(--black); }
+  .mh-util-sep {
+    width: 1px;
+    height: 14px;
+    background: var(--border-dk);
+    flex-shrink: 0;
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     PRODUCT NAV
+  ══════════════════════════════════════════════════════════════════════════ */
+  #product-nav {
+    background: var(--black);
+    position: sticky;
+    top: 72px;
+    z-index: 195;
+  }
   #product-nav-inner {
-    max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; gap: 0;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 0;
   }
   .pnav-link {
-    display: inline-block; padding: 0 20px; height: 38px; line-height: 38px;
-    font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.65);
-    letter-spacing: .3px; border-right: 1px solid rgba(255,255,255,.1);
-    transition: color .15s, background .15s; white-space: nowrap; cursor: pointer;
+    display: inline-block;
+    padding: 0 20px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,.65);
+    letter-spacing: .3px;
+    border-right: 1px solid rgba(255,255,255,.1);
+    transition: color .15s, background .15s;
+    white-space: nowrap;
+    cursor: pointer;
   }
   .pnav-link:first-child { border-left: 1px solid rgba(255,255,255,.1); }
   .pnav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
   .pnav-link.active { color: #fff; background: var(--claret); border-color: var(--claret); }
+  .pnav-link.active + .pnav-link { border-left-color: var(--claret); }
+  .pnav-edge { color: var(--claret); }
+  .pnav-link.active.pnav-edge { background: rgba(255,255,255,.65); border-color: rgba(255,255,255,.4); color: var(--black); }
+  .pnav-link.active.pnav-edge + .pnav-link { border-left-color: rgba(255,255,255,.4); }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     FOOTER — multi-column FT style
+  ══════════════════════════════════════════════════════════════════════════ */
+  #footer {
+    background: var(--black);
+    color: #A09890;
+    margin-top: 80px;
+  }
+  #footer-main {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 48px 24px 40px;
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+    gap: 48px;
+    border-bottom: 1px solid #2e2e2e;
+  }
+  #footer-brand .footer-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  #footer-fop-box {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  #footer-fop-box span {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    color: var(--black);
+  }
+  #footer-fop-wordmark { display: flex; flex-direction: column; }
+  #footer-fop-name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 16px;
+    color: #E8D8C8;
+    line-height: 1.2;
+  }
+  #footer-fop-tagline {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #7a6e68;
+    margin-top: 3px;
+  }
+  #footer-brand p {
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: #A09890;
+    max-width: 300px;
+    margin-bottom: 14px;
+  }
+  #footer-brand .footer-disclaimer {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #7a706a;
+    font-style: italic;
+  }
+  .footer-col h4 {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #B8A8A0;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2e2e2e;
+  }
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-col ul li a {
+    font-size: 12.5px;
+    color: #A09890;
+    transition: color .15s;
+  }
+  .footer-col ul li a:hover { color: #E8D8C8; }
+
+  /* ─── Footer ad box ─────────────────────────────────────────────────────── */
+  #footer-ad-box {
+    background: var(--amber);
+    border-radius: 4px;
+    padding: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #footer-ad-badge {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,.4);
+    margin-bottom: 12px;
+  }
+  #footer-ad-headline {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  #footer-ad-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,.85);
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+  #footer-ad-cta {
+    display: inline-block;
+    background: #fff;
+    color: var(--amber);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 3px;
+    align-self: flex-start;
+    transition: opacity .15s;
+  }
+  #footer-ad-cta:hover { opacity: .85; color: var(--amber); }
+  #footer-bottom {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  #footer-copyright {
+    font-size: 11.5px;
+    color: #7a706a;
+  }
+  #footer-legal-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  #footer-legal-links a {
+    font-size: 11.5px;
+    color: #7a706a;
+    transition: color .15s;
+  }
+  #footer-legal-links a:hover { color: #9A8A80; }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════════════════════════════════════════ */
+
+  /* ── Tablet ≤ 1024px ─────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    #footer-main { grid-template-columns: 2fr 1fr; }
+  }
+
+  /* ── Mobile ≤ 768px ──────────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    /* Masthead */
+    #masthead-inner { height: 56px; gap: 8px; padding: 0 12px; }
+    #fop-wordmark, #masthead-divider { display: none; }
+    #fop-box { width: 34px; height: 34px; }
+    #fop-box span { font-size: 13px; letter-spacing: 0; }
+    #masthead-right { gap: 8px; }
+    #search-wrap { flex: 1; max-width: none; min-width: 0; }
+    #search { font-size: 13px; }
+    .masthead-nav-link { font-size: 11.5px; padding: 5px 10px; }
+    .masthead-nav-link span { display: none; }
+    .mh-util-link, .mh-tip-btn, .mh-util-sep { display: none; }
+    #reg-btn { font-size: 11px; padding: 5px 10px !important; white-space: nowrap; }
+
+    /* Utility bar */
+    #utility-bar { display: none; }
+
+    /* Product nav — scrollable strip on mobile */
+    #product-nav {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      top: 56px;
+    }
+    #product-nav::-webkit-scrollbar { display: none; }
+    #product-nav-inner {
+      padding: 0;
+      width: max-content;
+      min-width: 100%;
+    }
+    .pnav-link { padding: 0 13px; font-size: 11.5px; height: 36px; line-height: 36px; }
+
+    /* Footer */
+    #footer { padding: 40px 16px 24px; }
+    #footer-main { grid-template-columns: 1fr !important; gap: 24px; }
+  }
+
+  /* ── Small phone ≤ 430px ─────────────────────────────────────────────── */
+  @media (max-width: 430px) {
+    .pnav-link { padding: 0 10px; font-size: 11px; }
+  }
+
+  /* ── Mobile landscape ───────────────────────────────────────────────────── */
+  @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+    #fop-wordmark { display: flex !important; }
+    #masthead-divider { display: block !important; }
+    #masthead-inner { height: 48px; gap: 10px; }
+    #product-nav { top: 48px; }
+    #fop-wordmark strong { font-size: 16px; }
+    #fop-wordmark em { display: none; }
+  }
+  </style>
+  <style>
 
   /* ─── Page layout ─────────────────────────────────────────────────────── */
   #page-wrap {
@@ -358,8 +712,6 @@
   }
   .trust-bar svg { width: 14px; height: 14px; fill: var(--mid-gray); flex-shrink: 0; }
 
-  /* ─── Footer ──────────────────────────────────────────────────────────── */
-
   @media (max-width: 900px) {
     #page-wrap { grid-template-columns: 1fr; gap: 40px; padding: 40px 16px 60px; }
     .reg-headline { font-size: 32px; }
@@ -368,106 +720,92 @@
     .stat-item:nth-child(even) { border-right: none; }
     .reg-card { padding: 28px 20px; }
   }
-  
-  /* ─── Footer ─────────────────────────────────────────────────────────────── */
-  #footer {
-    background: var(--black);
-    color: #A09890;
-    margin-top: 80px;
-  }
-  #footer-main {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 48px 24px 40px;
-    display: grid;
-    grid-template-columns: 2fr 1.2fr;
-    gap: 48px;
-    border-bottom: 1px solid #2e2e2e;
-  }
-  #footer-brand .footer-logo-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-  #footer-fop-box { width: 40px; height: 40px; background: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  #footer-fop-box span { font-family: var(--serif); font-weight: 800; font-size: 18px; letter-spacing: 0.5px; color: var(--black); }
-  #footer-fop-wordmark { display: flex; flex-direction: column; }
-  #footer-fop-name { font-family: var(--serif); font-weight: 700; font-size: 16px; color: #E8D8C8; line-height: 1.2; }
-  #footer-fop-tagline { font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: #7a6e68; margin-top: 3px; }
-  #footer-brand p { font-size: 12.5px; line-height: 1.75; color: #A09890; margin-bottom: 14px; }
-  #footer-brand .footer-disclaimer { font-size: 11px; line-height: 1.7; color: #7a706a; font-style: italic; }
-  #footer-ad-box { background: var(--amber); border-radius: 4px; padding: 32px 36px; display: flex; flex-direction: column; justify-content: center; }
-  #footer-ad-badge { font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(0,0,0,.4); margin-bottom: 12px; }
-  #footer-ad-headline { font-family: var(--serif); font-size: 19px; font-style: italic; color: #fff; line-height: 1.35; margin-bottom: 8px; }
-  #footer-ad-sub { font-size: 12px; color: rgba(255,255,255,.85); line-height: 1.55; margin-bottom: 22px; }
-  #footer-ad-cta { display: inline-block; background: #fff; color: var(--amber); font-family: var(--sans); font-size: 12px; font-weight: 700; padding: 9px 20px; border-radius: 3px; align-self: flex-start; transition: opacity .15s; }
-  #footer-ad-cta:hover { opacity: .85; color: var(--amber); }
-  #footer-bottom { max-width: 1320px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-  #footer-copyright { font-size: 11.5px; color: #7a706a; }
-  #footer-legal-links { display: flex; align-items: center; gap: 20px; }
-  #footer-legal-links a { font-size: 11.5px; color: #7a706a; transition: color .15s; }
-  #footer-legal-links a:hover { color: #9A8A80; }
-  @media (max-width: 768px) {
-    #footer-main { grid-template-columns: 1fr !important; gap: 24px; }
-    #footer { padding-bottom: 24px; }
-  }
-  </style>
-  <!-- Google Analytics 4 (G-9ECWT6671C) -->
+
+</style>
+  <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ECWT6671C"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9ECWT6671C', {anonymize_ip: true});
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9ECWT6671C',{anonymize_ip:true});</script>
 </head>
 <body>
 
-<!-- Utility bar -->
+<!-- ═══════════════════════ UTILITY BAR ══════════════════════════════════════ -->
 <div id="utility-bar">
   <div id="utility-inner">
     <div id="utility-left">
       <span id="utility-date"></span>
-      
     </div>
     <div id="utility-right">
-      <a class="util-link" href="news.html">Home</a>
-      <a class="util-link" href="about.html">About</a>
+      <a class="util-link" href="contact.html">Contact</a>
+      <a class="util-link" href="legal.html">Privacy</a>
       <a class="util-link" href="advertise.html">Advertise</a>
     </div>
   </div>
 </div>
 
-<!-- Masthead -->
-<header id="masthead">
+<!-- ═══════════════════════ MASTHEAD ═════════════════════════════════════════ -->
+<header id="masthead" role="banner">
   <div id="masthead-inner">
-    <a id="fop-logo" href="news.html">
-      <div id="fop-box"><span>FP</span></div>
+
+    <!-- FOP Logo -->
+    <a href="index.html" id="fop-logo">
+      <div id="fop-box"><span>FO</span><span style="color:var(--claret)">P</span></div>
       <div id="fop-wordmark">
         <strong>Fit&nbsp;Out <span style="color:var(--claret)">Post</span></strong>
-        <em>Global Intelligence</em>
+        <em>Global Industry Intelligence</em>
       </div>
     </a>
-    <div id="masthead-right">
-      <a class="masthead-nav-link" href="news.html">← Back to platform</a>
+
+    <div id="masthead-divider"></div>
+
+    <!-- Search -->
+    <div id="search-wrap">
+      <svg id="search-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round" style="color:var(--warm-gray)">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input id="search" type="search" placeholder="Search articles, countries, sources…" autocomplete="off" />
     </div>
+
+    <!-- Right -->
+    <div id="masthead-right">
+      <div class="mh-util-sep"></div>
+      <a href="contact.html" class="mh-util-link">Contact</a>
+      <button class="mh-tip-btn"
+        onclick="document.getElementById('tip-modal') && document.getElementById('tip-modal').classList.add('open')"
+        aria-label="Have a tip?">Have a tip?</button>
+      <div class="mh-util-sep"></div>
+      <a class="masthead-nav-link masthead-nav-link--cta" href="register.html" id="reg-btn">Register free →</a>
+    </div>
+
   </div>
-<button id="masthead-search-btn" title="Search (/ or Ctrl+K)" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
+  <button id="masthead-search-btn" title="Search (/ or Ctrl+K)" aria-label="Search" style="background:none;border:none;color:#c8beb2;cursor:pointer;padding:0 12px;font-size:18px;line-height:1;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#c8beb2'">🔍</button>
 </header>
 
-<!-- Product nav -->
-<nav id="product-nav">
+<!-- ═══════════════════════ PRODUCT NAV ══════════════════════════════════════ -->
+<nav id="product-nav" role="navigation" aria-label="Sections">
   <div id="product-nav-inner">
     <a class="pnav-link" href="index.html">Home</a>
     <a class="pnav-link" href="news.html">News</a>
+    <a class="pnav-link" href="weekly.html">Roundup</a>
     <a class="pnav-link" href="tenders.html">Tenders</a>
     <a class="pnav-link" href="pipeline.html">Pipeline</a>
+    <a class="pnav-link" href="awards.html">Awards</a>
+    <a class="pnav-link" href="intelligence.html">Intelligence</a>
     <a class="pnav-link" href="companies_site.html">Companies</a>
     <a class="pnav-link" href="countries/index.html">Countries</a>
     <a class="pnav-link" href="events.html">Events</a>
-    <a class="pnav-link" href="weekly.html">Weekly</a>
-    <a class="pnav-link" href="intelligence.html">Intelligence</a>
-    <a class="pnav-link active" href="register.html">Register Free</a>
+    <a class="pnav-link pnav-edge" href="alphaedge.html"><span style="font-size:1.1em">α</span> Edge</a>
+    <a class="pnav-link pnav-edge" href="betaedge.html"><span style="font-size:1.1em">β</span> Edge</a>
+    <a class="pnav-link pnav-edge" href="gammaedge.html"><span style="font-size:1.1em">γ</span> Edge</a>
+    <a class="pnav-link" href="about.html" style="margin-left:auto;">About</a>
+    <a class="pnav-link" href="advertise.html">Advertise</a>
+    <a class="pnav-link" href="register.html">Register Free</a>
+    <a class="pnav-link" href="api.html">API</a>
+    <a class="pnav-link" href="pricing.html" style="background:var(--gold);border-color:var(--gold);color:#fff;font-weight:600;">Pro ↑</a>
   </div>
 </nav>
 
-<!-- Page content -->
 <div id="page-wrap">
 
   <!-- Left: Value proposition -->
@@ -671,9 +1009,12 @@
 
 </div>
 
-<!-- Footer -->
+<!-- ═══════════════════════ FOOTER ═══════════════════════════════════════════ -->
 <footer id="footer" role="contentinfo">
+
   <div id="footer-main">
+
+    <!-- Brand column -->
     <div id="footer-brand">
       <div class="footer-logo-wrap">
         <div id="footer-fop-box"><span>FO</span><span style="color:var(--claret)">P</span></div>
@@ -682,18 +1023,30 @@
           <div id="footer-fop-tagline">Global Industry Intelligence</div>
         </div>
       </div>
-      <p>An independent aggregator of global fit-out and interior construction news. Articles are drawn from industry publications, company announcements, and newswires across more than 50 countries. Updated daily.</p>
-      <p class="footer-disclaimer">FitOut Post is not affiliated with any company featured in its coverage. Article links open the original source. Content is for reference only. This website is an independent news aggregator. Content is sourced from publicly available media and official announcements. The content published on this platform may be incomplete, inaccurate, or not fully representative of all relevant developments. We do not verify, endorse, or accept responsibility for the accuracy, completeness, or timeliness of any information presented. This site accepts no liability for any loss, damage, or inconvenience arising from reliance on its content.</p>
+      <p>
+        An independent aggregator of global fit-out and interior construction news.
+        Articles are drawn from industry publications, company announcements, and
+        newswires across more than 50 countries. Updated daily.
+      </p>
+      <p class="footer-disclaimer">
+        FitOut Post is not affiliated with any company featured in its coverage. Article links open the original source. Content is for reference only. This website is an independent news aggregator. Content is sourced from publicly available media and official announcements. The content published on this platform may be incomplete, inaccurate, or not fully representative of all relevant developments. We do not verify, endorse, or accept responsibility for the accuracy, completeness, or timeliness of any information presented. This site accepts no liability for any loss, damage, or inconvenience arising from reliance on its content.
+      </p>
     </div>
+
+    <!-- Advertise box -->
     <div id="footer-ad-box">
       <div id="footer-ad-badge">Advertisement</div>
       <p id="footer-ad-headline">Your fit-out product or service here.</p>
-      <p id="footer-ad-sub">Reach decision-makers tracking interior construction projects. Decision-makers, specifiers and contractors — every day.</p>
+      <p id="footer-ad-sub">Reach decision-makers tracking interior construction projects across every continent — every day.</p>
       <a href="mailto:hello@fitoutpost.com" id="footer-ad-cta">hello@fitoutpost.com</a>
     </div>
+
   </div>
+
   <div id="footer-bottom">
-    <div id="footer-copyright">© <span id="footer-year"></span> FitOut Post. An independent publication. All rights reserved.</div>
+    <div id="footer-copyright">
+      © <span id="footer-year"></span> FitOut Post. An independent publication. All rights reserved.
+    </div>
     <div id="footer-legal-links">
       <a href="legal.html#terms">Terms of use</a>
       <a href="legal.html#privacy">Privacy policy</a>
@@ -701,70 +1054,55 @@
       <a href="contact.html">Contact</a>
     </div>
   </div>
+
 </footer>
 
+<!-- ═══════════════════════ SHARED JS ════════════════════════════════════════ -->
 <script>
-// ── Utility: date
-(function() {
-  const d = new Date();
-  const fmt = d.toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
-  const el = document.getElementById('utility-date');
-  if (el) el.textContent = fmt;
+(function(){
+  // Utility date
+  var d = document.getElementById('utility-date');
+  if (d) d.textContent = new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  // Footer year
+  var y = document.getElementById('footer-year');
+  if (y) y.textContent = new Date().getFullYear();
+  // Active product-nav item
+  var m = document.querySelector('meta[name="fop-active-nav"]');
+  if (m && m.content) {
+    document.querySelectorAll('.pnav-link').forEach(function(l){
+      if (l.textContent.trim() === m.content) l.classList.add('active');
+    });
+  }
 })();
-
-// ── Load stats from JSON files
+</script>
+<script>
+// Load stats
 (async function() {
-  const load = async (url) => {
-    try {
-      const r = await fetch(url);
-      if (!r.ok) return null;
-      return await r.json();
-    } catch(e) { return null; }
-  };
+  const load = async (url) => { try { const r = await fetch(url); if (!r.ok) return null; return await r.json(); } catch(e) { return null; } };
   const fmt = n => n >= 1000 ? (n/1000).toFixed(1).replace(/\.0$/,'') + 'k' : String(n);
-
-  const [news, tenders, pipeline] = await Promise.all([
-    load('news.json'), load('tenders.json'), load('pipeline.json')
-  ]);
-
+  const [news, tenders, pipeline] = await Promise.all([load('news.json'), load('tenders.json'), load('pipeline.json')]);
   if (news && news.total_articles) document.getElementById('stat-news').textContent = fmt(news.total_articles);
   if (tenders && tenders.total_tenders) document.getElementById('stat-tenders').textContent = fmt(tenders.total_tenders);
   if (pipeline && pipeline.total_items) document.getElementById('stat-pipeline').textContent = fmt(pipeline.total_items);
 })();
-
-// ── Member gate: if already registered, skip to success
+// Member gate
 (function() {
   const member = localStorage.getItem('fop_member');
-  if (member) {
-    try {
-      const m = JSON.parse(member);
-      showSuccess(m.email || '');
-    } catch(e) {}
-  }
+  if (member) { try { const m = JSON.parse(member); showSuccess(m.email || ''); } catch(e) {} }
 })();
-
-// ── Login link: check membership
+// Login link
 document.getElementById('login-link').addEventListener('click', function(e) {
   e.preventDefault();
   const member = localStorage.getItem('fop_member');
-  if (member) {
-    window.location.href = 'index.html';
-  } else {
-    document.getElementById('email').focus();
-    document.getElementById('email').scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
+  if (member) { window.location.href = 'index.html'; }
+  else { document.getElementById('email').focus(); document.getElementById('email').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
 });
-
-// ── Form submit
+// Form submit
 document.getElementById('reg-form').addEventListener('submit', async function(e) {
   e.preventDefault();
-
   const btn = document.getElementById('submit-btn');
   const errEl = document.getElementById('form-error');
-  errEl.className = 'form-msg error';
-  errEl.textContent = '';
-
-  // Collect values
+  errEl.className = 'form-msg error'; errEl.textContent = '';
   const first = document.getElementById('first-name').value.trim();
   const last = document.getElementById('last-name').value.trim();
   const email = document.getElementById('email').value.trim().toLowerCase();
@@ -772,101 +1110,43 @@ document.getElementById('reg-form').addEventListener('submit', async function(e)
   const role = document.getElementById('role').value;
   const region = document.getElementById('region').value;
   const gdpr = document.getElementById('gdpr-consent').checked;
-
-  const interests = Array.from(
-    document.querySelectorAll('.check-grid input[type="checkbox"]:checked')
-  ).map(cb => cb.value);
-
-  // Validation
+  const interests = Array.from(document.querySelectorAll('.check-grid input[type="checkbox"]:checked')).map(cb => cb.value);
   if (!first || !last) return showError('Please enter your first and last name.');
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showError('Please enter a valid email address.');
   if (!gdpr) return showError('Please accept the Privacy Policy and Terms of Use to continue.');
-
-  btn.disabled = true;
-  btn.textContent = 'Registering…';
-
-  // Build member record
-  const member = {
-    firstName: first,
-    lastName: last,
-    email: email,
-    company: company,
-    role: role,
-    region: region,
-    interests: interests,
-    registeredAt: new Date().toISOString(),
-    id: 'fop_' + Date.now()
-  };
-
-  // Save to localStorage (client-side gate)
+  btn.disabled = true; btn.textContent = 'Registering…';
+  const member = { firstName: first, lastName: last, email, company, role, region, interests, registeredAt: new Date().toISOString(), id: 'fop_' + Date.now() };
   localStorage.setItem('fop_member', JSON.stringify(member));
-
-  // Mailchimp integration hook
-  // When hosting is live, uncomment and configure:
-  // await submitToMailchimp(member);
-
-  // Optional: log to admin list in localStorage
-  try {
-    const list = JSON.parse(localStorage.getItem('fop_members_list') || '[]');
-    list.push(member);
-    localStorage.setItem('fop_members_list', JSON.stringify(list));
-  } catch(e) {}
-
-  // Show success
+  try { const list = JSON.parse(localStorage.getItem('fop_members_list') || '[]'); list.push(member); localStorage.setItem('fop_members_list', JSON.stringify(list)); } catch(e) {}
   setTimeout(() => showSuccess(email), 600);
-
-  function showError(msg) {
-    errEl.textContent = msg;
-    errEl.className = 'form-msg error show';
-    btn.disabled = false;
-    btn.textContent = 'Create free account →';
-  }
+  function showError(msg) { errEl.textContent = msg; errEl.className = 'form-msg error show'; btn.disabled = false; btn.textContent = 'Create free account →'; }
 });
-
 function showSuccess(email) {
   document.getElementById('form-panel').style.display = 'none';
   const panel = document.getElementById('success-panel');
   panel.classList.add('show');
   if (email) document.getElementById('success-email').textContent = email;
+  renderAlerts();
 }
-
-// ── Keyword alert management ─────────────────────────────────────────────────
+// Keyword alert management
 const FREE_LIMIT = 10;
-
 function renderAlerts() {
   const member = JSON.parse(localStorage.getItem('fop_member') || '{}');
   const alerts = member.keyword_alerts || [];
   const container = document.getElementById('alerts-list');
   if (!container) return;
-  container.innerHTML = alerts.length === 0
-    ? '<span style="font-size:13px;color:var(--mid-gray);font-style:italic;">No alerts saved yet.</span>'
-    : alerts.map((kw, i) => `
-        <span style="display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border-dk);padding:5px 12px;font-size:13px;font-weight:500;">
-          ${escH(kw)}
-          <button onclick="removeAlert(${i})" style="background:none;border:none;cursor:pointer;color:var(--mid-gray);font-size:14px;padding:0 0 1px;line-height:1;" title="Remove">×</button>
-        </span>`).join('');
+  container.innerHTML = alerts.length === 0 ? '<span style="font-size:13px;color:var(--mid-gray);font-style:italic;">No alerts saved yet.</span>' : alerts.map((kw, i) => `<span style="display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border-dk);padding:5px 12px;font-size:13px;font-weight:500;">${escH(kw)}<button onclick="removeAlert(${i})" style="background:none;border:none;cursor:pointer;color:var(--mid-gray);font-size:14px;padding:0 0 1px;line-height:1;" title="Remove">×</button></span>`).join('');
 }
-
-function escH(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
+function escH(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function saveAlerts(alerts) {
   const member = JSON.parse(localStorage.getItem('fop_member') || '{}');
   member.keyword_alerts = alerts;
   localStorage.setItem('fop_member', JSON.stringify(member));
-  // Also update the member in fop_members_list
-  try {
-    const list = JSON.parse(localStorage.getItem('fop_members_list') || '[]');
-    const idx = list.findIndex(m => m.email === member.email);
-    if (idx >= 0) list[idx] = member; else list.push(member);
-    localStorage.setItem('fop_members_list', JSON.stringify(list));
-  } catch(e) {}
+  try { const list = JSON.parse(localStorage.getItem('fop_members_list') || '[]'); const idx = list.findIndex(m => m.email === member.email); if (idx >= 0) list[idx] = member; else list.push(member); localStorage.setItem('fop_members_list', JSON.stringify(list)); } catch(e) {}
   const msg = document.getElementById('alerts-save-msg');
   if (msg) { msg.style.display = 'block'; setTimeout(() => msg.style.display = 'none', 2000); }
   renderAlerts();
 }
-
 function addAlert() {
   const input = document.getElementById('alert-input');
   const kw = (input.value || '').trim();
@@ -874,62 +1154,21 @@ function addAlert() {
   const member = JSON.parse(localStorage.getItem('fop_member') || '{}');
   const alerts = member.keyword_alerts || [];
   if (alerts.includes(kw)) { input.value = ''; return; }
-  if (alerts.length >= FREE_LIMIT) {
-    alert('Free accounts can save up to ' + FREE_LIMIT + ' keyword alerts. Upgrade to Pro for unlimited.');
-    return;
-  }
-  alerts.push(kw);
-  input.value = '';
+  if (alerts.length >= FREE_LIMIT) { alert('Free accounts can save up to ' + FREE_LIMIT + ' keyword alerts. Upgrade to Pro for unlimited.'); return; }
+  alerts.push(kw); input.value = '';
   saveAlerts(alerts);
 }
-
 function removeAlert(index) {
   const member = JSON.parse(localStorage.getItem('fop_member') || '{}');
   const alerts = member.keyword_alerts || [];
   alerts.splice(index, 1);
   saveAlerts(alerts);
 }
-
-// Allow Enter key in alert input
 document.addEventListener('DOMContentLoaded', () => {
   const inp = document.getElementById('alert-input');
   if (inp) inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addAlert(); } });
 });
-
-// Render alerts whenever success panel is shown
-const _origShowSuccess = showSuccess;
-function showSuccess(email) {
-  _origShowSuccess(email);
-  renderAlerts();
-}
-// Initial render if already logged in
 if (document.getElementById('alerts-section')) renderAlerts();
-
-// ── Mailchimp submission stub (activate when hosting ready)
-async function submitToMailchimp(member) {
-  // Replace with your Mailchimp API proxy endpoint
-  const ENDPOINT = 'https://fitoutpost.com/api/subscribe';
-  try {
-    await fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email_address: member.email,
-        status: 'subscribed',
-        merge_fields: {
-          FNAME: member.firstName,
-          LNAME: member.lastName,
-          COMPANY: member.company,
-          ROLE: member.role,
-          REGION: member.region
-        },
-        tags: member.interests
-      })
-    });
-  } catch(e) {
-    console.warn('Mailchimp submission failed (non-blocking):', e);
-  }
-}
 </script>
 <script src="cookie-consent.js"></script>
 <script src="search.js"></script>

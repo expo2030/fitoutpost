@@ -1,0 +1,171 @@
+<style>
+  /* ── 404 Body ─────────────────────────────────────────────────────── */
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    min-height: 40vh;
+  }
+  body { display: flex; flex-direction: column; }
+
+  .error-container {
+    max-width: 640px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .error-code {
+    font-family: var(--serif);
+    font-size: 96px;
+    font-weight: 700;
+    color: var(--claret);
+    line-height: 1;
+    opacity: 0.15;
+    user-select: none;
+  }
+
+  .error-rule {
+    width: 60px;
+    height: 3px;
+    background: var(--claret);
+    margin: 24px auto;
+  }
+
+  .error-headline {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+
+  .error-body {
+    font-size: 16px;
+    color: var(--warm-gray);
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  .error-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--claret);
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background 0.15s;
+  }
+  .btn-primary:hover { background: var(--claret-lt); color: #fff; }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 2px solid var(--border);
+    color: var(--black);
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--claret); color: var(--claret); }
+
+  /* ── Quick links ──────────────────────────────────────────────────── */
+  .quick-links { border-top: 1px solid var(--border); padding-top: 32px; }
+  .quick-links-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-bottom: 16px;
+  }
+  .quick-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+  }
+  .quick-link {
+    display: block;
+    padding: 12px 16px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .quick-link:hover { border-color: var(--claret); box-shadow: 0 2px 8px rgba(153,0,51,0.08); }
+  .quick-link-name { display: block; font-family: var(--sans); font-size: 12px; font-weight: 700; color: var(--black); margin-bottom: 2px; }
+  .quick-link-desc { display: block; font-family: var(--sans); font-size: 11px; color: var(--mid-gray); }
+</style>
+
+<main>
+  <div class="error-container">
+    <div class="error-code">404</div>
+    <div class="error-rule"></div>
+    <h1 class="error-headline">Page not found</h1>
+    <p class="error-body">
+      The page you're looking for has moved, been removed, or never existed.<br>
+      Try the homepage or use search to find what you need.
+    </p>
+    <div class="error-actions">
+      <a class="btn-primary" href="index.html">Go to homepage</a>
+      <a class="btn-secondary" href="index.html" onclick="setTimeout(()=>{const b=document.querySelector('#masthead-search-btn');if(b)b.click();},200)">Search the site</a>
+    </div>
+
+    <div class="quick-links">
+      <p class="quick-links-label">Or go directly to</p>
+      <div class="quick-links-grid">
+        <a class="quick-link" href="news.html">
+          <span class="quick-link-name">News</span>
+          <span class="quick-link-desc">Latest industry news</span>
+        </a>
+        <a class="quick-link" href="tenders.html">
+          <span class="quick-link-name">Tenders</span>
+          <span class="quick-link-desc">Open procurement</span>
+        </a>
+        <a class="quick-link" href="pipeline.html">
+          <span class="quick-link-name">Pipeline</span>
+          <span class="quick-link-desc">Project signals</span>
+        </a>
+        <a class="quick-link" href="intelligence.html">
+          <span class="quick-link-name">Intelligence</span>
+          <span class="quick-link-desc">Cost benchmarks</span>
+        </a>
+        <a class="quick-link" href="companies_site.html">
+          <span class="quick-link-name">Companies</span>
+          <span class="quick-link-desc">Industry directory</span>
+        </a>
+        <a class="quick-link" href="countries/index.html">
+          <span class="quick-link-name">Countries</span>
+          <span class="quick-link-desc">Market dossiers</span>
+        </a>
+        <a class="quick-link" href="events.html">
+          <span class="quick-link-name">Events</span>
+          <span class="quick-link-desc">Industry calendar</span>
+        </a>
+        <a class="quick-link" href="awards.html">
+          <span class="quick-link-name">Awards</span>
+          <span class="quick-link-desc">Contract awards</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
