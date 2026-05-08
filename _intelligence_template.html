@@ -1215,11 +1215,10 @@ function buildContinentTabs() {
   wrap.innerHTML = '';
   for (const c of CONTINENTS_ORDER) {
     if (c !== 'All' && !present.has(c)) continue;
-    const cnt = c === 'All' ? dps.length : dps.filter(d => (d.continent||'Global') === c).length;
     const div = document.createElement('div');
     div.className = 'tab' + (activeContinent === c ? ' active' : '');
     div.dataset.c = c;
-    div.textContent = c + (cnt ? ' (' + cnt + ')' : '');
+    div.textContent = c === 'All' ? 'All regions' : c;
     div.onclick = () => selectContinent(c);
     wrap.appendChild(div);
   }
