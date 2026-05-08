@@ -85,6 +85,53 @@ PL_DATA_SLOT  = "<!--PIPELINE-DATA-SLOT-->"
 PL_SLOT_ID    = "pipeline-data"
 
 
+def _compute_site_updated() -> str:
+    """Return the most recent data date across all content JSON files (e.g. '7 May 2026')."""
+    latest = None
+    for fname, keys in [
+        ("news.json",         ["last_updated", "generated"]),
+        ("tenders.json",      ["last_updated", "generated"]),
+        ("pipeline.json",     ["last_updated", "generated"]),
+        ("intelligence.json", ["last_updated", "generated"]),
+        ("weekly.json",       ["last_updated", "generated"]),
+        ("alphaedge.json",    ["last_updated", "generated"]),
+    ]:
+        try:
+            d = json.loads((BASE / fname).read_text(encoding="utf-8"))
+            for key in keys:
+                val = d.get(key)
+                if not val and key == "generated" and isinstance(d.get("weeks"), list) and d["weeks"]:
+                    val = d["weeks"][0].get("generated")
+                if val:
+                    val = val.replace("Z", "+00:00")
+                    dt = datetime.fromisoformat(val)
+                    if dt.tzinfo is None:
+                        dt = dt.replace(tzinfo=timezone.utc)
+                    if latest is None or dt > latest:
+                        latest = dt
+                    break
+        except Exception:
+            pass
+    if latest:
+        return latest.strftime("%-d %B %Y")
+    return datetime.now(timezone.utc).strftime("%-d %B %Y")
+
+
+def _inject_site_updated(html: str, site_updated: str) -> str:
+    """Stamp every page with a consistent 'Updated' date.
+
+    Appends a window-load listener that fires after per-section DOMContentLoaded
+    handlers, so it always wins and every page shows the same date.
+    """
+    script = (
+        f'<script>window.addEventListener("load",function(){{'
+        f'var el=document.getElementById("meta-updated");'
+        f'if(el)el.textContent="{site_updated}";'
+        f'}});</script>\n'
+    )
+    return html.replace('</body>', script + '</body>', 1)
+
+
 def _embed_json(template_text: str, data: dict, slot: str, slot_id: str) -> str:
     """Replace slot placeholder with an embedded <script type="application/json"> block."""
     if slot not in template_text:
@@ -120,6 +167,7 @@ def build(news_path: str = "news.json") -> None:
 
     built = _embed_json(template, news, DATA_SLOT, DATA_SLOT_ID)
     built = built.replace(STAMP_SLOT, stamp_iso, 1)
+    built = _inject_site_updated(built, _compute_site_updated())
 
     for out in NEWS_OUTPUTS:
         out.write_text(built, encoding="utf-8")
@@ -149,6 +197,7 @@ def build_alphaedge(data_path: str = "alphaedge.json") -> None:
     n    = data.get("total_articles", len(data.get("articles", [])))
 
     built = _embed_json(tmpl, data, AE_DATA_SLOT, AE_SLOT_ID)
+    built = _inject_site_updated(built, _compute_site_updated())
     AE_OUTPUT.write_text(built, encoding="utf-8")
     sz = AE_OUTPUT.stat().st_size / 1024
     now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
@@ -190,6 +239,7 @@ def build_betaedge(data_path: str = "polls.json") -> None:
 
     n = len(raw.get("polls", []))
     built = _embed_json(tmpl, raw, BE_DATA_SLOT, BE_SLOT_ID)
+    built = _inject_site_updated(built, _compute_site_updated())
     BE_OUTPUT.write_text(built, encoding="utf-8")
     sz  = BE_OUTPUT.stat().st_size / 1024
     now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
@@ -213,6 +263,7 @@ def build_gammaedge(data_path: str = "gammaedge.json") -> None:
     n    = len(data.get("games", []))
 
     built = _embed_json(tmpl, data, GE_DATA_SLOT, GE_SLOT_ID)
+    built = _inject_site_updated(built, _compute_site_updated())
     GE_OUTPUT.write_text(built, encoding="utf-8")
     sz  = GE_OUTPUT.stat().st_size / 1024
     now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
@@ -236,6 +287,7 @@ def build_intelligence(data_path: str = "intelligence.json") -> None:
     n    = data.get("total_datapoints", 0)
 
     built = _embed_json(tmpl, data, IN_DATA_SLOT, IN_SLOT_ID)
+    built = _inject_site_updated(built, _compute_site_updated())
     IN_OUTPUT.write_text(built, encoding="utf-8")
     sz  = IN_OUTPUT.stat().st_size / 1024
     now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
@@ -260,6 +312,7 @@ def build_weekly(data_path: str = "weekly.json") -> None:
     n    = len(data.get("weeks", []))
 
     built = _embed_json(tmpl, data, WR_DATA_SLOT, WR_SLOT_ID)
+    built = _inject_site_updated(built, _compute_site_updated())
     WR_OUTPUT.write_text(built, encoding="utf-8")
     sz  = WR_OUTPUT.stat().st_size / 1024
     now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
@@ -283,6 +336,7 @@ def build_tenders(data_path: str = "tenders.json") -> None:
     n    = len(data.get("tenders", []))
 
     built = _embed_json(tmpl, data, TD_DATA_SLOT, TD_SLOT_ID)
+    built = _inject_site_updated(built, _compute_site_updated())
     TD_OUTPUT.write_text(built, encoding="utf-8")
     sz  = TD_OUTPUT.stat().st_size / 1024
     now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
@@ -327,6 +381,7 @@ def build_pipeline(data_path: str = "pipeline.json") -> None:
     # We inject an empty <script> so the slot resolves but textContent is blank.
     empty_slot = f'<script type="application/json" id="{PL_SLOT_ID}"></script>'
     built = tmpl.replace(PL_DATA_SLOT, empty_slot, 1)
+    built = _inject_site_updated(built, _compute_site_updated())
     PL_OUTPUT.write_text(built, encoding="utf-8")
     sz  = PL_OUTPUT.stat().st_size / 1024
     now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
@@ -445,6 +500,7 @@ def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.js
 
     tmpl  = AW_TEMPLATE.read_text(encoding="utf-8")
     built = _embed_json(tmpl, data, AW_DATA_SLOT, AW_SLOT_ID)
+    built = _inject_site_updated(built, _compute_site_updated())
     AW_OUTPUT.write_text(built, encoding="utf-8")
 
     sz  = AW_OUTPUT.stat().st_size / 1024
