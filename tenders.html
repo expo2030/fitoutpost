@@ -479,7 +479,7 @@
   ══════════════════════════════════════════════════════════════════════════ */
   #page-body {
     max-width: 1320px; margin: 0 auto; padding: 24px 24px 60px;
-    display: grid; grid-template-columns: 1fr 300px; gap: 32px;
+    display: block;
   }
 
   /* ═══════════════════════════════════════════════════════════════════════
@@ -578,8 +578,6 @@
     .awards-grid { grid-template-columns: 1fr !important; }
 
     /* Tenders layout — collapse sidebar */
-    .tenders-layout { grid-template-columns: 1fr !important; }
-    #tenders-sidebar { display: none; }
 
     /* Pipeline filter row */
     .filter-row, .filters-row {
@@ -892,26 +890,6 @@
       <div class="paywall-note">No credit card required for free tier · Cancel subscription anytime</div>
     </div>
   </main>
-
-  <aside id="sidebar">
-    <!-- By region -->
-    <div class="sidebar-section">
-      <div class="sidebar-title">By region</div>
-      <div id="sidebar-regions"></div>
-    </div>
-
-    <!-- By category -->
-    <div class="sidebar-section">
-      <div class="sidebar-title">By category</div>
-      <div id="sidebar-categories"></div>
-    </div>
-
-    <!-- By source -->
-    <div class="sidebar-section">
-      <div class="sidebar-title">Procurement portals</div>
-      <div id="sidebar-sources"></div>
-    </div>
-  </aside>
 
 </div>
 
@@ -1342,44 +1320,7 @@ function buildSidebar() {
   const maxCount = Math.max(...ALL_TENDERS.length ? [1] : [1],
     ...Object.values(META.by_continent));
 
-  const regEl = document.getElementById('sidebar-regions');
-  if (regEl) {
-    Object.entries(META.by_continent)
-      .sort((a,b) => b[1]-a[1])
-      .forEach(([name, count]) => {
-        regEl.innerHTML += `
-          <div class="sidebar-stat-row" onclick="selectContinent('${esc(name)}')" style="cursor:pointer">
-            <span class="ss-name">${esc(name)}</span>
-            <span class="ss-val">${count}</span>
-          </div>`;
-      });
-  }
-
-  const catEl = document.getElementById('sidebar-categories');
-  if (catEl) {
-    const cats = {};
-    ALL_TENDERS.forEach(t => { const c = t.category || 'Commercial'; cats[c] = (cats[c]||0)+1; });
-    Object.entries(cats).sort((a,b)=>b[1]-a[1]).forEach(([name,count]) => {
-      catEl.innerHTML += `
-        <div class="sidebar-stat-row">
-          <span class="ss-name">${esc(name)}</span>
-          <span class="ss-val">${count}</span>
-        </div>`;
-    });
-  }
-
-  const srcEl = document.getElementById('sidebar-sources');
-  if (srcEl) {
-    Object.entries(META.by_source || {}).sort((a,b)=>b[1]-a[1]).forEach(([name,count]) => {
-      srcEl.innerHTML += `
-        <div class="sidebar-stat-row">
-          <span class="ss-name">${esc(name)}</span>
-          <span class="ss-val">${count}</span>
-        </div>`;
-    });
-  }
-}
-
+  
 function updateSidebar(tenders) {
   // Highlight active continent tab counts
 }
