@@ -149,7 +149,6 @@
   .filter-btn { font-size:12px;font-weight:500;padding:5px 14px;border:1px solid var(--border-dk);background:#fff;color:var(--black-soft);cursor:pointer;transition:all .15s; }
   .filter-btn:hover { border-color:var(--claret);color:var(--claret); }
   .filter-btn.active { background:var(--claret);border-color:var(--claret);color:#fff; }
-  #result-count { font-size:12px;color:var(--warm-gray);margin-left:auto; }
 
   /* ── Events grid ──────────────────────────────────────────────────────── */
   #events-wrap { max-width:1320px;margin:0 auto;padding:32px 24px; }
@@ -355,7 +354,6 @@ function declineCookies(){ localStorage.setItem('fop_cookie_consent','declined')
     <button class="filter-btn" data-filter="summit" onclick="setFilter('summit',this)">Summits</button>
     <button class="filter-btn" data-filter="awards" onclick="setFilter('awards',this)">Awards</button>
     <button class="filter-btn" data-filter="upcoming" onclick="setFilter('upcoming',this)">Upcoming only</button>
-    <span id="result-count"></span>
   </div>
 </div>
 
@@ -844,7 +842,6 @@ function renderEvents() {
 
   const total = filtered.length;
   const upcoming = filtered.filter(e => new Date(e.iso) >= today).length;
-  document.getElementById('result-count').textContent = `${total} events · ${upcoming} upcoming`;
 }
 
 renderEvents();

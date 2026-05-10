@@ -366,7 +366,6 @@
   }
   .filter-pill:hover { border-color: var(--claret); color: var(--claret); }
   .filter-pill.active { background: var(--claret); color: #fff; border-color: var(--claret); }
-  #result-count { font-size: 11px; color: var(--warm-gray); margin-left: auto; }
 
 
   /* ─── Tender list & cards ─────────────────────────────────────────────────── */
@@ -817,7 +816,6 @@
     <input type="text" id="filter-search"
       placeholder="Search title, country, issuer…"
       oninput="applyFilters()" />
-    <span id="result-count"></span>
   </div>
 </div>
 
@@ -1074,8 +1072,6 @@ function applyFilters() {
   }
 
   filtered = tenders;
-  const cnt = document.getElementById('result-count');
-  if (cnt) cnt.textContent = tenders.length + ' result' + (tenders.length !== 1 ? 's' : '');
 
   renderTenders(tenders);
   updateSidebar(tenders);
