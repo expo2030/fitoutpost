@@ -248,22 +248,6 @@
     white-space: nowrap;
   }
   .mh-util-link:hover { color: var(--black); }
-  .mh-tip-btn {
-    background: none;
-    border: none;
-    font-family: var(--sans);
-    font-size: 11px;
-    color: var(--warm-gray);
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: color .15s;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-  }
-  .mh-tip-btn:hover { color: var(--black); }
   .mh-util-sep {
     width: 1px;
     height: 14px;
@@ -421,76 +405,6 @@
     #name-search { width: 100%; }
     #sub-inner { flex-direction: column; align-items: flex-start; height: auto; padding: 10px 0; gap: 8px; }
   }
-  
-  /* ── Have a tip? modal ───────────────────────────────────────────────────── */
-  #tip-modal {
-    display: none; position: fixed; inset: 0; z-index: 9000;
-    align-items: center; justify-content: center;
-  }
-  #tip-modal.open { display: flex; }
-  #tip-modal-backdrop {
-    position: absolute; inset: 0;
-    background: rgba(0,0,0,.65); backdrop-filter: blur(2px);
-  }
-  #tip-modal-card {
-    position: relative; z-index: 1;
-    background: #fff; max-width: 520px; width: calc(100% - 48px);
-    padding: 48px 40px 40px; text-align: center;
-    border-top: 4px solid var(--claret,#990033);
-    box-shadow: 0 24px 64px rgba(0,0,0,.35);
-    animation: tipIn .2s ease;
-  }
-  @keyframes tipIn {
-    from { opacity:0; transform:translateY(-12px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
-  #tip-modal-close {
-    position: absolute; top: 14px; right: 16px;
-    background: none; border: none; cursor: pointer;
-    font-size: 22px; color: #999; line-height: 1; padding: 4px 8px;
-    font-family: sans-serif; transition: color .15s;
-  }
-  #tip-modal-close:hover { color: var(--claret,#990033); }
-  #tip-modal-icon {
-    width: 64px; height: 64px;
-    background: var(--claret,#990033);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 24px;
-  }
-  #tip-modal-headline {
-    font-family: var(--serif,'Playfair Display',Georgia,serif);
-    font-size: 28px; font-weight: 800; font-style: italic;
-    color: var(--black,#1a1a1a); margin-bottom: 18px;
-    letter-spacing: -.3px; line-height: 1.2;
-  }
-  #tip-modal-body {
-    font-size: 15px; line-height: 1.7;
-    color: var(--warm-gray,#66605A); margin-bottom: 28px;
-  }
-  #tip-modal-email {
-    display: inline-block;
-    font-size: 17px; font-weight: 700;
-    color: var(--claret,#990033);
-    border-bottom: 2px solid var(--claret,#990033);
-    padding-bottom: 2px; margin-bottom: 24px;
-    transition: color .15s;
-    text-decoration: none;
-  }
-  #tip-modal-email:hover { color: #CC0044; border-color: #CC0044; }
-  #tip-modal-note {
-    font-size: 11.5px; color: #aaa; line-height: 1.6;
-    padding-top: 20px; border-top: 1px solid #eee;
-  }
-  
-  /* ─── Have a tip? — utility bar button ───────────────────────────────────── */
-  .tip-util-btn {
-    font-size: 11px; font-weight: 600; letter-spacing: .3px;
-    color: var(--claret,#990033); background: none; border: none;
-    cursor: pointer; padding: 0; display: flex; align-items: center; gap: 5px;
-    font-family: var(--sans,Inter,sans-serif); transition: opacity .15s;
-    line-height: 1;
-  }
-  .tip-util-btn:hover { opacity: .7; }
   
     #ad-banner-cta { font-size: 15px; }
     #ad-banner-label { display: none; }
@@ -713,9 +627,6 @@
       
       <div class="mh-util-sep"></div>
       <a href="contact.html" class="mh-util-link">Contact</a>
-      <button class="mh-tip-btn"
-        onclick="document.getElementById('tip-modal').classList.add('open')"
-        aria-label="Have a tip?">Have a tip?</button>
       <div class="mh-util-sep"></div><a class="masthead-nav-link" href="register.html" id="reg-btn" style="background:var(--claret);border-color:var(--claret);color:#fff;font-weight:600;padding:6px 18px;" id="masthead-reg">Register free →</a>
     </div>
 
@@ -1099,34 +1010,7 @@ async function loadData() {
 
 loadData();
 </script>
-<!-- ══ Tip modal ═════════════════════════════════════════════════════════════ -->
-<div id="tip-modal" role="dialog" aria-modal="true" aria-labelledby="tip-modal-headline">
-  <div id="tip-modal-backdrop"
-       onclick="document.getElementById('tip-modal').classList.remove('open')"></div>
-  <div id="tip-modal-card">
-    <button id="tip-modal-close"
-            onclick="document.getElementById('tip-modal').classList.remove('open')"
-            aria-label="Close">×</button>
-    <div id="tip-modal-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
-           fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-      </svg>
-    </div>
-    <div id="tip-modal-headline">Have a tip?</div>
-    <p id="tip-modal-body">Do you have important information you would like to share with the FitOut Post?</p>
-    <a href="mailto:hello@fitoutpost.com" id="tip-modal-email">hello@fitoutpost.com</a>
-    <p id="tip-modal-note">All communications are treated with strict confidentiality.<br>Our editorial team reads every message.</p>
-  </div>
-</div>
 
-<script>
-// Have a tip? — close on Escape
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') document.getElementById('tip-modal').classList.remove('open');
-});
-</script>
 <script></script>
 <script src="cookie-consent.js"></script>
 <script src="search.js"></script>

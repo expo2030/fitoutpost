@@ -120,8 +120,6 @@
   .masthead-nav-link:hover { background: var(--black); border-color: var(--black); color: #fff; }
   .mh-util-link { font-size: 11px; color: var(--warm-gray); transition: color .15s; white-space: nowrap; }
   .mh-util-link:hover { color: var(--black); }
-  .mh-tip-btn { background: none; border: none; font-family: var(--sans); font-size: 11px; color: var(--warm-gray); cursor: pointer; padding: 0; display: flex; align-items: center; gap: 5px; transition: color .15s; white-space: nowrap; }
-  .mh-tip-btn:hover { color: var(--black); }
   .mh-util-sep { width: 1px; height: 14px; background: var(--border-dk); flex-shrink: 0; }
 
   /* ══════════════════════════════════════════════════════════════════════════
@@ -311,9 +309,6 @@ function declineCookies(){ localStorage.setItem('fop_cookie_consent','declined')
       </div>
       <div class="mh-util-sep"></div>
       <a href="contact.html" class="mh-util-link">Contact</a>
-      <button class="mh-tip-btn"
-        onclick="document.getElementById('tip-modal').classList.add('open')"
-        aria-label="Have a tip?">Have a tip?</button>
       <div class="mh-util-sep"></div><a class="masthead-nav-link" href="register.html" id="reg-btn" style="background:var(--claret);border-color:var(--claret);color:#fff;font-weight:600;padding:6px 18px;">Register free →</a>
     </div>
 

@@ -251,22 +251,6 @@
     white-space: nowrap;
   }
   .mh-util-link:hover { color: var(--black); }
-  .mh-tip-btn {
-    background: none;
-    border: none;
-    font-family: var(--sans);
-    font-size: 11px;
-    color: var(--warm-gray);
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: color .15s;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-  }
-  .mh-tip-btn:hover { color: var(--black); }
   .mh-util-sep {
     width: 1px;
     height: 14px;
@@ -918,9 +902,6 @@
       
       <div class="mh-util-sep"></div>
       <a href="contact.html" class="mh-util-link">Contact</a>
-      <button class="mh-tip-btn"
-        onclick="document.getElementById('tip-modal').classList.add('open')"
-        aria-label="Have a tip?">Have a tip?</button>
       <div class="mh-util-sep"></div><a class="masthead-nav-link" href="register.html" id="reg-btn" style="background:var(--claret);border-color:var(--claret);color:#fff;font-weight:600;padding:6px 18px;" id="masthead-reg">Register free →</a>
     </div>
 
@@ -1448,34 +1429,7 @@ function boot() {
 // Start
 probeServer();
 </script>
-<!-- ══ Tip modal ═════════════════════════════════════════════════════════════ -->
-<div id="tip-modal" role="dialog" aria-modal="true" aria-labelledby="tip-modal-headline">
-  <div id="tip-modal-backdrop"
-       onclick="document.getElementById('tip-modal').classList.remove('open')"></div>
-  <div id="tip-modal-card">
-    <button id="tip-modal-close"
-            onclick="document.getElementById('tip-modal').classList.remove('open')"
-            aria-label="Close">×</button>
-    <div id="tip-modal-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
-           fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-      </svg>
-    </div>
-    <div id="tip-modal-headline">Have a tip?</div>
-    <p id="tip-modal-body">Do you have important information you would like to share with the FitOut Post?</p>
-    <a href="mailto:hello@fitoutpost.com" id="tip-modal-email">hello@fitoutpost.com</a>
-    <p id="tip-modal-note">All communications are treated with strict confidentiality.<br>Our editorial team reads every message.</p>
-  </div>
-</div>
 
-<script>
-// Have a tip? — close on Escape
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') document.getElementById('tip-modal').classList.remove('open');
-});
-</script>
 <script></script>
 <script src="cookie-consent.js"></script>
 <script src="search.js"></script>
