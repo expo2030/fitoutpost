@@ -311,7 +311,6 @@
   .tab.active { color: var(--black); border-bottom-color: var(--claret); font-weight: 600; }
   #sub-bar { background: var(--salmon); border-bottom: 1px solid var(--border); padding: 0 24px; }
   #sub-inner { max-width: 1320px; margin: 0 auto; display: flex; align-items: center; height: 40px; }
-  #award-count { font-family: var(--sans); font-size: 12px; color: var(--warm-gray); white-space: nowrap; }
 
   /* ── Main grid ─────────────────────────────────────────────── */
   #main { max-width: 1320px; margin: 0 auto; padding: 28px 24px 80px; }
@@ -656,12 +655,6 @@
   </div>
 </nav>
 
-<!-- ══ Count bar ══════════════════════════════════════════════════════════════ -->
-<div id="sub-bar">
-  <div id="sub-inner">
-    <span id="award-count"></span>
-  </div>
-</div>
 
 <!-- ═══ MAIN CONTENT ═══════════════════════════════════════════════════════ -->
 
@@ -784,8 +777,6 @@ function flagEmoji(country) {
 function render() {
   const data = filtered();
   const grid = document.getElementById("awards-grid");
-  const cnt  = document.getElementById("award-count");
-  cnt.textContent = data.length + " award" + (data.length !== 1 ? "s" : "");
 
   if (!data.length) {
     grid.style.display = "none";
