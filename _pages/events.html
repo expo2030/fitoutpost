@@ -1,0 +1,87 @@
+<style>
+  /* ── Page header ──────────────────────────────────────────────────────────── */
+  #page-header { background:var(--black);color:#fff;padding:32px 0;border-bottom:2px solid var(--claret); }
+  #page-header-inner { max-width:1320px;margin:0 auto;padding:0 24px; }
+  .page-kicker { font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--claret);font-weight:600;margin-bottom:8px; }
+  .page-title { font-family:var(--serif);font-size:28px;font-weight:700;color:#fff;margin-bottom:8px; }
+  .page-sub { font-size:14px;color:#9A8A80;line-height:1.5; }
+
+  /* ── Filters ──────────────────────────────────────────────────────────────── */
+  #filters-bar { background:var(--salmon);border-bottom:1px solid var(--border);padding:12px 0;position:sticky;top:110px;z-index:100; }
+  #filters-inner { max-width:1320px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap; }
+  .filter-btn { font-size:12px;font-weight:500;padding:5px 14px;border:1px solid var(--border-dk);background:#fff;color:var(--black-soft);cursor:pointer;transition:all .15s; }
+  .filter-btn:hover { border-color:var(--claret);color:var(--claret); }
+  .filter-btn.active { background:var(--claret);border-color:var(--claret);color:#fff; }
+
+  /* ── Events grid ──────────────────────────────────────────────────────────── */
+  #events-wrap { max-width:1320px;margin:0 auto;padding:32px 24px; }
+  .year-section { margin-bottom:8px; }
+  .year-heading { display:flex;align-items:center;gap:12px;cursor:pointer;padding:14px 20px;background:var(--black);color:#fff;user-select:none;border-left:4px solid var(--claret); }
+  .year-heading:hover { background:#2a2a2a; }
+  .year-label { font-family:var(--serif);font-size:24px;font-weight:800;font-style:italic;flex:1; }
+  .year-count { font-size:12px;color:rgba(255,255,255,.5); }
+  .year-toggle { font-size:11px;color:rgba(255,255,255,.5);transition:transform .2s; }
+  .year-body { padding-top:24px; }
+  .month-group { margin-bottom:40px; }
+  .month-heading { font-family:var(--serif);font-size:20px;font-weight:700;color:var(--black);border-bottom:2px solid var(--claret);padding-bottom:8px;margin-bottom:20px; }
+  .events-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1px;background:var(--salmon);border:1px solid var(--salmon); }
+  .event-card { background:var(--card-bg);border-top:3px solid var(--claret);padding:18px 20px;transition:background .18s; }
+  .event-card:hover { background:var(--card-hover); }
+  .event-card.past { opacity:.55; }
+  .event-meta { display:flex;align-items:center;gap:8px;margin-bottom:10px; }
+  .event-date { font-size:11px;font-weight:600;color:var(--claret);letter-spacing:0.5px;text-transform:uppercase; }
+  .event-badge { font-size:10px;font-weight:600;padding:2px 8px;letter-spacing:0.8px;text-transform:uppercase; }
+  .badge-show     { background:#FFF1E5;color:#8B4000; }
+  .badge-conf     { background:#E8F4FD;color:#0C5A8A; }
+  .badge-design   { background:#F0EBF8;color:#5A2D8A; }
+  .badge-awards   { background:#FEF9E7;color:#7D6608; }
+  .badge-summit   { background:#EAFAF1;color:#1B6B3A; }
+  .event-name { font-family:var(--serif);font-size:16px;font-weight:700;color:var(--black);margin-bottom:4px;line-height:1.3; }
+  .event-location { font-size:12px;color:var(--warm-gray);margin-bottom:8px; }
+  .event-location span { margin-right:6px; }
+  .event-desc { font-size:13px;color:var(--black-soft);line-height:1.55;margin-bottom:12px; }
+  .event-link { font-size:12px;font-weight:600;color:var(--claret);letter-spacing:0.3px;transition:color .15s; }
+  .event-link:hover { color:var(--claret-lt); }
+  .event-card.past .event-name { color:var(--warm-gray); }
+
+  /* ── Section header ──────────────────────────────────────────────────────── */
+  .sec-header { background: var(--black); color: #fff; padding: 40px 0 32px; border-bottom: 1px solid #333; }
+  .sec-header-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+  .sec-title { font-family: var(--serif); font-size: 46px; font-weight: 700; line-height: 1.2; color: #fff; margin-bottom: 8px; }
+  .sec-title span { color: var(--claret); }
+  .sec-tagline { font-size: 14px; color: rgba(255,255,255,.55); max-width: 520px; line-height: 1.6; }
+  @media (max-width: 768px) { .sec-title { font-size: 34px; } }
+
+  /* ── Hidden ───────────────────────────────────────────────────────────── */
+  .hidden { display:none!important; }
+
+  @media (max-width:640px) {
+    .events-grid { grid-template-columns:1fr; }
+    #filters-inner { gap:8px; }
+  }
+</style>
+
+<!-- ══ Section header ════════════════════════════════════════════════════════ -->
+<div class="sec-header">
+  <div class="sec-header-inner">
+    <div class="sec-title">Events</div>
+    <div class="sec-tagline">Trade shows, design weeks, conferences and summits.</div>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div id="filters-bar">
+  <div id="filters-inner">
+    <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)">All events</button>
+    <button class="filter-btn" data-filter="show" onclick="setFilter('show',this)">Trade shows</button>
+    <button class="filter-btn" data-filter="design" onclick="setFilter('design',this)">Design weeks</button>
+    <button class="filter-btn" data-filter="conf" onclick="setFilter('conf',this)">Conferences</button>
+    <button class="filter-btn" data-filter="summit" onclick="setFilter('summit',this)">Summits</button>
+    <button class="filter-btn" data-filter="awards" onclick="setFilter('awards',this)">Awards</button>
+    <button class="filter-btn" data-filter="upcoming" onclick="setFilter('upcoming',this)">Upcoming only</button>
+  </div>
+</div>
+
+<!-- EVENTS -->
+<main id="events-wrap" role="main">
+</main>

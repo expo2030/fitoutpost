@@ -1,0 +1,241 @@
+<style>
+  /* ── Hero ────────────────────────────────────────────────────────── */
+  #hero {
+    background: var(--black);
+    color: #fff;
+    padding: 52px 24px 48px;
+    border-bottom: 3px solid var(--claret);
+  }
+  #hero-inner {
+    max-width: 1320px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 40px; flex-wrap: wrap;
+  }
+  #hero-text { flex: 1; min-width: 280px; }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--claret); font-weight: 600; margin-bottom: 12px;
+  }
+  #hero h1 {
+    font-family: var(--serif); font-size: clamp(26px, 3vw, 40px);
+    font-weight: 700; line-height: 1.2; color: #fff;
+    margin-bottom: 14px;
+  }
+  #hero h1 span { color: #C8A87A; }
+  #hero-sub {
+    font-size: 15px; color: #B8A898; line-height: 1.6;
+    max-width: 540px; margin-bottom: 24px;
+  }
+  .hero-stats {
+    display: flex; gap: 32px; flex-wrap: wrap;
+  }
+  .hero-stat-val {
+    font-family: var(--serif); font-size: 28px; font-weight: 700; color: #fff;
+  }
+  .hero-stat-label {
+    font-size: 11px; color: #9A8A80; letter-spacing: 0.5px; margin-top: 2px;
+  }
+  #hero-cta { flex-shrink: 0; }
+  .hero-btn {
+    display: inline-block;
+    background: var(--claret); color: #fff;
+    font-family: var(--sans); font-size: 13px; font-weight: 600;
+    padding: 14px 28px; text-decoration: none;
+    letter-spacing: 0.4px; transition: background .15s;
+    border: 2px solid var(--claret);
+  }
+  .hero-btn:hover { background: var(--claret-lt); border-color: var(--claret-lt); color: #fff; }
+  .hero-btn-outline {
+    display: inline-block;
+    background: transparent; color: #C8B8A8;
+    font-family: var(--sans); font-size: 13px; font-weight: 500;
+    padding: 14px 28px; text-decoration: none;
+    border: 1px solid rgba(255,255,255,.2);
+    letter-spacing: 0.4px; margin-left: 10px;
+    transition: border-color .15s, color .15s;
+  }
+  .hero-btn-outline:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+
+  /* ── Section cards grid ──────────────────────────────────────────── */
+  #cards-section {
+    max-width: 1320px; margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+  .cards-heading {
+    font-family: var(--serif); font-size: 13px; font-weight: 700;
+    letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--warm-gray); margin-bottom: 28px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--border);
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1px;
+    background: var(--salmon);
+    border: 1px solid var(--salmon-dk);
+  }
+  .section-card {
+    background: var(--white);
+    padding: 28px 24px 24px;
+    display: flex; flex-direction: column;
+    text-decoration: none; color: var(--black);
+    transition: background .12s;
+    position: relative;
+    overflow: hidden;
+  }
+  .section-card:hover { background: #FFF8F2; }
+  .section-card:hover .card-arrow { opacity: 1; transform: translateX(0); }
+  .card-label {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    font-weight: 600; color: var(--mid-gray); margin-bottom: 6px;
+  }
+  .card-title {
+    font-family: var(--serif); font-size: 18px; font-weight: 700;
+    line-height: 1.2; color: var(--black);
+    margin-bottom: 10px;
+  }
+  .card-desc {
+    font-size: 12.5px; color: var(--warm-gray); line-height: 1.6;
+    flex: 1;
+  }
+  .card-meta {
+    margin-top: 16px;
+    font-size: 11px; font-weight: 600;
+    color: var(--claret); letter-spacing: 0.3px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .card-badge {
+    position: absolute; top: 0; right: 0;
+    background: var(--claret); color: #fff;
+    font-size: 9px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; padding: 3px 8px;
+  }
+  .card-accent {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px; background: transparent;
+    transition: background .12s;
+  }
+  .section-card:hover .card-accent { background: var(--claret); }
+  .card-arrow {
+    opacity: 0; transform: translateX(-4px);
+    transition: opacity .15s, transform .15s;
+    display: inline-block;
+  }
+</style>
+
+<!-- ── Hero ─────────────────────────────────────────────────────────────── -->
+<div id="hero">
+  <div id="hero-inner">
+    <div id="hero-text">
+      <h1>The world's fit-out industry<br><span>— all in one place</span></h1>
+      <p id="hero-sub">News, tenders, pipeline projects, contract awards, $/m² benchmarks and country intelligence. Updated daily.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section cards ─────────────────────────────────────────────────────── -->
+<div id="cards-section">
+  <div class="cards-heading">Platform Sections</div>
+  <div class="cards-grid">
+
+    <!-- News -->
+    <a class="section-card" href="news.html" data-color="news">
+      <span class="card-label">Daily</span>
+      <div class="card-title">News Feed</div>
+      <p class="card-desc">527 articles from 200+ global sources. Fit-out, interior construction and workplace news across every continent — updated daily.</p>
+      <div class="card-meta">Read latest <span class="card-arrow">→</span></div>
+      <div class="card-accent"></div>
+    </a>
+
+    <!-- Weekly -->
+    <a class="section-card" href="weekly.html" data-color="weekly">
+      <span class="card-label">Every week</span>
+      <div class="card-title">Weekly Roundup</div>
+      <p class="card-desc">Curated digest of the week's most significant stories, deals and project announcements — organised by region. Full content for registered members.</p>
+      <div class="card-meta">Read roundup <span class="card-arrow">→</span></div>
+      <div class="card-accent"></div>
+    </a>
+
+    <!-- Intelligence -->
+    <a class="section-card" href="intelligence.html" data-color="intel">
+      <span class="card-label">Benchmarks</span>
+      <div class="card-title">Intelligence</div>
+      <p class="card-desc">83 $/m² fit-out cost datapoints sourced from CBRE, JLL, Cushman & Wakefield, Knight Frank and AECOM. Sector and market breakdowns.</p>
+      <div class="card-meta">View data <span class="card-arrow">→</span></div>
+      <div class="card-accent"></div>
+    </a>
+
+    <!-- Tenders -->
+    <a class="section-card" href="tenders.html" data-color="tenders">
+      <span class="card-label">Procurement</span>
+      <div class="card-title">Tenders</div>
+      <p class="card-desc">200+ live fit-out tenders from TED EU and global procurement feeds. Filter by region, value, deadline. Full tender details for members.</p>
+      <div class="card-meta">Browse tenders <span class="card-arrow">→</span></div>
+      <div class="card-accent"></div>
+    </a>
+
+    <!-- Pipeline -->
+    <a class="section-card" href="pipeline.html" data-color="pipeline">
+      <span class="card-label">Projects</span>
+      <div class="card-title">Pipeline</div>
+      <p class="card-desc">5,895 fit-out and interior construction project signals. Announcements, appointments, groundbreakings and completions across all sectors.</p>
+      <div class="card-meta">Explore pipeline <span class="card-arrow">→</span></div>
+      <div class="card-accent"></div>
+    </a>
+
+    <!-- Companies -->
+    <a class="section-card" href="companies_site.html" data-color="companies">
+      <span class="card-label">Directory</span>
+      <div class="card-title">Companies</div>
+      <p class="card-desc">Stakeholders operating in the fit-out industry — contractors, designers and specialists. Searchable by region, sector and company type.</p>
+      <div class="card-meta">View directory <span class="card-arrow">→</span></div>
+      <div class="card-accent"></div>
+    </a>
+
+    <!-- Awards -->
+    <a class="section-card" href="awards.html" data-color="awards">
+      <span class="card-label">Contracts</span>
+      <div class="card-title">Awards</div>
+      <p class="card-desc">29 contract award signals extracted from news and pipeline data. Who won what, where, and when — filterable by region.</p>
+      <div class="card-meta">See awards <span class="card-arrow">→</span></div>
+      <div class="card-accent"></div>
+    </a>
+
+    <!-- Countries -->
+    <a class="section-card" href="countries/index.html" data-color="countries">
+      <span class="card-label">Market intelligence</span>
+      <div class="card-title">Countries</div>
+      <p class="card-desc">15 country dossier pages: UAE, UK, US, Germany, Australia, India, Singapore, France, Spain, Saudi Arabia, Netherlands, Hong Kong, Ireland, Qatar, South Africa.</p>
+      <div class="card-meta">Choose market <span class="card-arrow">→</span></div>
+      <div class="card-accent"></div>
+    </a>
+
+    <!-- Alpha Edge -->
+    <a class="section-card" href="alphaedge.html" data-color="alpha">
+      <span class="card-label">Curated reading</span>
+      <div class="card-title">α Edge</div>
+      <p class="card-desc">Editor-curated long reads, reports and analysis from across the fit-out and interiors world. Selected for depth and strategic value.</p>
+      <div class="card-meta">Open α Edge <span class="card-arrow">→</span></div>
+      <div class="card-accent"></div>
+    </a>
+
+    <!-- Beta Edge -->
+    <a class="section-card" href="betaedge.html" data-color="beta">
+      <span class="card-label">Industry polling</span>
+      <div class="card-title">β Edge</div>
+      <p class="card-desc">Anonymous polls on current industry topics. Share your view on market conditions, project trends and sector challenges.</p>
+      <div class="card-meta">Vote now <span class="card-arrow">→</span></div>
+      <div class="card-accent"></div>
+    </a>
+
+    <!-- Gamma Edge -->
+    <a class="section-card" href="gammaedge.html" data-color="gamma">
+      <span class="card-label">For the industry</span>
+      <div class="card-title">γ Edge</div>
+      <p class="card-desc">15 curated games, puzzles and interactive tools with an industry edge. A different way to engage with the fit-out world.</p>
+      <div class="card-meta">Play <span class="card-arrow">→</span></div>
+      <div class="card-accent"></div>
+    </a>
+
+  </div>
+</div>
