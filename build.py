@@ -179,97 +179,6 @@ def build(news_path: str = "news.json") -> None:
     print(f"\n    Open index.html in any browser — no server required.")
 
 
-def build_alphaedge(data_path: str = "alphaedge.json") -> None:
-    """Build alphaedge.html from alphaedge.json + _alphaedge_template.html."""
-    data_file = BASE / data_path
-
-    if not AE_TEMPLATE.exists():
-        print(f"❌  Template {AE_TEMPLATE.name} not found.")
-        return
-
-    # Create empty alphaedge.json if missing (first run)
-    if not data_file.exists():
-        empty = {"last_updated": "", "total_articles": 0, "articles": []}
-        data_file.write_text(json.dumps(empty, indent=2), encoding="utf-8")
-
-    data = json.loads(data_file.read_text(encoding="utf-8"))
-    tmpl = AE_TEMPLATE.read_text(encoding="utf-8")
-    n    = data.get("total_articles", len(data.get("articles", [])))
-
-    built = _embed_json(tmpl, data, AE_DATA_SLOT, AE_SLOT_ID)
-    built = _inject_site_updated(built, _compute_site_updated())
-    AE_OUTPUT.write_text(built, encoding="utf-8")
-    sz = AE_OUTPUT.stat().st_size / 1024
-    now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
-    print(f"✅  alphaedge.html — {n} articles, {now}, {sz:.0f} KB")
-
-
-def build_betaedge(data_path: str = "polls.json") -> None:
-    """Build betaedge.html from polls.json + _betaedge_template.html."""
-    data_file = BASE / data_path
-
-    if not BE_TEMPLATE.exists():
-        print(f"❌  Template {BE_TEMPLATE.name} not found.")
-        return
-
-    # Create empty polls.json if missing (first run)
-    if not data_file.exists():
-        empty = {"polls": []}
-        data_file.write_text(json.dumps(empty, indent=2), encoding="utf-8")
-
-    raw  = json.loads(data_file.read_text(encoding="utf-8"))
-    tmpl = BE_TEMPLATE.read_text(encoding="utf-8")
-
-    # Include vote_counts if votes.json exists alongside polls.json
-    votes_file = BASE / "votes.json"
-    if votes_file.exists():
-        try:
-            votes = json.loads(votes_file.read_text(encoding="utf-8")).get("votes", [])
-            for p in raw.get("polls", []):
-                pv = [v for v in votes if v.get("poll_id") == p["id"]]
-                counts = {o: 0 for o in p.get("options", [])}
-                for v in pv:
-                    opt = v.get("option", "")
-                    if opt in counts:
-                        counts[opt] += 1
-                p["vote_counts"]  = counts
-                p["total_votes"]  = len(pv)
-        except Exception:
-            pass
-
-    n = len(raw.get("polls", []))
-    built = _embed_json(tmpl, raw, BE_DATA_SLOT, BE_SLOT_ID)
-    built = _inject_site_updated(built, _compute_site_updated())
-    BE_OUTPUT.write_text(built, encoding="utf-8")
-    sz  = BE_OUTPUT.stat().st_size / 1024
-    now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
-    print(f"✅  betaedge.html — {n} polls, {now}, {sz:.0f} KB")
-
-
-def build_gammaedge(data_path: str = "gammaedge.json") -> None:
-    """Build gammaedge.html from gammaedge.json + _gammaedge_template.html."""
-    data_file = BASE / data_path
-
-    if not GE_TEMPLATE.exists():
-        print(f"❌  Template {GE_TEMPLATE.name} not found.")
-        return
-
-    if not data_file.exists():
-        empty = {"last_updated": "", "total_games": 0, "games": []}
-        data_file.write_text(json.dumps(empty, indent=2), encoding="utf-8")
-
-    data = json.loads(data_file.read_text(encoding="utf-8"))
-    tmpl = GE_TEMPLATE.read_text(encoding="utf-8")
-    n    = len(data.get("games", []))
-
-    built = _embed_json(tmpl, data, GE_DATA_SLOT, GE_SLOT_ID)
-    built = _inject_site_updated(built, _compute_site_updated())
-    GE_OUTPUT.write_text(built, encoding="utf-8")
-    sz  = GE_OUTPUT.stat().st_size / 1024
-    now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
-    print(f"✅  gammaedge.html — {n} game(s), {now}, {sz:.0f} KB")
-
-
 def build_intelligence(data_path: str = "intelligence.json") -> None:
     """Build intelligence.html from intelligence.json + _intelligence_template.html."""
     data_file = BASE / data_path
@@ -1381,9 +1290,6 @@ def build_sitemap() -> None:
         "intelligence.html": ("0.8", "weekly"),
         "weekly.html":       ("0.8", "weekly"),
         "awards.html":       ("0.7", "weekly"),
-        "alphaedge.html":    ("0.6", "weekly"),
-        "betaedge.html":     ("0.6", "weekly"),
-        "gammaedge.html":    ("0.6", "monthly"),
         "about.html":        ("0.5", "monthly"),
         "contact.html":      ("0.5", "monthly"),
         "register.html":     ("0.5", "monthly"),
@@ -1396,7 +1302,8 @@ def build_sitemap() -> None:
     urls = []
 
     # Root HTML pages (exclude private/build files)
-    EXCLUDE = {"credentials.html", "site.html", "companies.html", "timeline.html"}
+    EXCLUDE = {"credentials.html", "site.html", "companies.html", "timeline.html",
+               "alphaedge.html", "betaedge.html", "gammaedge.html"}
     for p in sorted(BASE.glob("*.html")):
         if p.name.startswith("_") or p.name in EXCLUDE:
             continue
@@ -1486,14 +1393,8 @@ def _write_receipt(n: int, source: str, stamp: str):
 
 if __name__ == "__main__":
     args = sys.argv[1:]
-    if "--alphaedge" in args:
-        build_alphaedge()
-    elif "--betaedge" in args:
-        build_betaedge()
-    elif "--weekly" in args:
+    if "--weekly" in args:
         build_weekly()
-    elif "--gammaedge" in args:
-        build_gammaedge()
     elif "--intelligence" in args:
         build_intelligence()
     elif "--tenders" in args:
@@ -1508,9 +1409,6 @@ if __name__ == "__main__":
         build_static_pages()
     else:
         build()
-        build_alphaedge()
-        build_betaedge()
-        build_gammaedge()
         build_weekly()
         build_intelligence()
         build_tenders()
