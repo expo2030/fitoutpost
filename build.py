@@ -118,18 +118,8 @@ def _compute_site_updated() -> str:
 
 
 def _inject_site_updated(html: str, site_updated: str) -> str:
-    """Stamp every page with a consistent 'Updated' date.
-
-    Appends a window-load listener that fires after per-section DOMContentLoaded
-    handlers, so it always wins and every page shows the same date.
-    """
-    script = (
-        f'<script>window.addEventListener("load",function(){{'
-        f'var el=document.getElementById("meta-updated");'
-        f'if(el)el.textContent="{site_updated}";'
-        f'}});</script>\n'
-    )
-    return html.replace('</body>', script + '</body>', 1)
+    """No-op — masthead-updated element removed; kept to avoid refactoring all call sites."""
+    return html
 
 
 def _embed_json(template_text: str, data: dict, slot: str, slot_id: str) -> str:
