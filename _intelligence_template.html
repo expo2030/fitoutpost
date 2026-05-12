@@ -86,6 +86,30 @@
   .util-link:hover { color: #D4C4BA; }
 
     /* ══════════════════════════════════════════════════════════════════════════
+     UTILITY BAR (black top bar — date + links)
+  ══════════════════════════════════════════════════════════════════════════ */
+  #utility-bar {
+    background: var(--black);
+    color: #9A8A80;
+    font-size: 11px;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid #333;
+    padding: 0 24px;
+  }
+  #utility-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #utility-left  { display: flex; align-items: center; gap: 20px; }
+  #utility-right { display: flex; align-items: center; gap: 20px; }
+  .util-link { color: #9A8A80; transition: color .15s; }
+  .util-link:hover { color: #D4C4BA; }
+
+  /* ══════════════════════════════════════════════════════════════════════════
      TIER 2 — MASTHEAD (salmon background, FOP logo + search)
   ══════════════════════════════════════════════════════════════════════════ */
   #masthead {
@@ -816,6 +840,20 @@
   </script>
 </head>
 <body>
+
+<!-- ═══════════════════════ UTILITY BAR ══════════════════════════════════════ -->
+<div id="utility-bar">
+  <div id="utility-inner">
+    <div id="utility-left">
+      <span id="utility-date"></span>
+    </div>
+    <div id="utility-right">
+      <a class="util-link" href="mailto:hello@fitoutpost.com">Contact: hello@fitoutpost.com</a>
+      <a class="util-link" href="legal.html">Privacy</a>
+      <a class="util-link" href="advertise.html">Advertise</a>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════════════════════ MASTHEAD ═════════════════════════════════════════ -->
 <!--PARTIAL:MASTHEAD-->
