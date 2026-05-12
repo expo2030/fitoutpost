@@ -520,18 +520,23 @@ STATIC_PAGES = {
     if (d.total_articles) document.getElementById('ad-stat-news').textContent = fmt(d.total_articles) + '+';
   } catch(e) {}
 })();
+// Show thank-you if redirected back after FormSubmit delivery
+if (new URLSearchParams(location.search).get('sent') === '1') {
+  const form = document.getElementById('ad-form');
+  const confirm = document.getElementById('ad-confirm');
+  if (form) form.style.display = 'none';
+  if (confirm) confirm.classList.add('show');
+}
+// Client-side validation before FormSubmit POST
 (function(){
   const form = document.getElementById('ad-form');
   if (!form) return;
   form.addEventListener('submit', function(e){
-    e.preventDefault();
     const name = document.getElementById('ad-name').value.trim();
     const email = document.getElementById('ad-email').value.trim();
-    if (!name || !email) return;
-    const enq = { name, email, company: document.getElementById('ad-company').value.trim(), title: document.getElementById('ad-title').value.trim(), format: document.getElementById('ad-format').value, budget: document.getElementById('ad-budget').value, message: document.getElementById('ad-message').value.trim(), at: new Date().toISOString(), type: 'advertising' };
-    try { const list = JSON.parse(localStorage.getItem('fop_ad_enquiries') || '[]'); list.push(enq); localStorage.setItem('fop_ad_enquiries', JSON.stringify(list)); } catch(e) {}
-    document.getElementById('ad-confirm').classList.add('show');
-    this.style.display = 'none';
+    const code = document.getElementById('ad-phone-code').value;
+    const num = document.getElementById('ad-phone-num').value.trim();
+    if (!name || !email || !code || !num) { e.preventDefault(); return; }
   });
 })();
 """,
