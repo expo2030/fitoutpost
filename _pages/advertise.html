@@ -3,8 +3,9 @@
   #page { max-width: 1320px; margin: 0 auto; padding: 60px 24px 100px; }
 
   /* Hero — full bleed */
-  .ad-hero { background: var(--black); color: #fff; padding: 52px 60px 52px; position: relative; overflow: hidden; }
+  .ad-hero { background: var(--black); color: #fff; padding: 40px 0 52px; position: relative; overflow: hidden; }
   .ad-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--claret); }
+  .ad-hero-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
   .ad-hero-kicker { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--claret); font-weight: 600; margin-bottom: 14px; }
   .ad-hero-headline { font-family: var(--serif); font-size: 44px; font-weight: 700; line-height: 1.1; margin-bottom: 20px; }
   .ad-hero-sub { font-family: var(--serif-body); font-size: 20px; line-height: 1.65; color: #D4C4BA; margin-bottom: 36px; max-width: 640px; }
@@ -65,7 +66,8 @@
 
   @media (max-width: 1024px) { .ad-grid { grid-template-columns: 1fr; } }
   @media (max-width: 768px) {
-    .ad-hero { padding: 36px 24px; }
+    .ad-hero { padding: 28px 0 40px; }
+    .ad-hero-inner { padding: 0 16px; }
     .ad-hero-headline { font-size: 32px; }
     .format-row { grid-template-columns: 1fr; }
     .audience-grid { grid-template-columns: 1fr; }
@@ -75,10 +77,12 @@
 
 <!-- Hero — full bleed -->
 <div class="ad-hero">
-  <a href="index.html" class="back-home" style="display:inline-flex;margin-bottom:20px;padding:0;color:#9A8A80;">← Home</a>
-  <p class="ad-hero-kicker">Advertising &amp; Sponsorship</p>
-  <h1 class="ad-hero-headline">Reach the global fit-out industry</h1>
-  <p class="ad-hero-sub">FitOut Post is read by contractors, designers, developers, suppliers, and investors across every continent. Speak directly to the decision-makers shaping the world's interior built environment.</p>
+  <div class="ad-hero-inner">
+    <a href="index.html" class="back-home" style="display:inline-flex;margin-bottom:20px;padding:0;color:#9A8A80;">← Home</a>
+    <p class="ad-hero-kicker">Advertising &amp; Sponsorship</p>
+    <h1 class="ad-hero-headline">Reach the global fit-out industry</h1>
+    <p class="ad-hero-sub">FitOut Post is read by contractors, designers, developers, suppliers, and investors across every continent. Speak directly to the decision-makers shaping the world's interior built environment.</p>
+  </div>
 </div>
 
 <div id="page">
