@@ -1366,7 +1366,7 @@ a{color:inherit;text-decoration:none}
   <span id="util-date"></span>
   <div>
     <a class="util-link" href="companies_site.html">Companies</a>
-    <a class="util-link" style="margin-left:16px" href="contact.html">Contact</a>
+    <a class="util-link" style="margin-left:16px" href="mailto:hello@fitoutpost.com">Contact</a>
   </div>
 </div></div>
 
@@ -1433,7 +1433,7 @@ a{color:inherit;text-decoration:none}
   <div>
     <a href="legal.html#terms">Terms</a>
     <a href="legal.html#privacy">Privacy</a>
-    <a href="contact.html">Contact</a>
+    <a href="mailto:hello@fitoutpost.com">Contact</a>
   </div>
 </div></footer>
 

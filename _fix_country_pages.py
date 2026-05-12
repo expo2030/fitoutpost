@@ -83,7 +83,7 @@ NEW_MASTHEAD_HTML = """\
       </div>
     </a>
     <div id="masthead-right">
-      <a href="../contact.html" class="mh-util-link">Contact</a>
+      <a href="mailto:hello@fitoutpost.com" class="mh-util-link">Contact</a>
       <div class="mh-util-sep"></div>
       <a class="masthead-nav-link masthead-nav-link--cta" href="../register.html">Register free →</a>
     </div>
@@ -153,7 +153,7 @@ NEW_FOOTER_HTML = """\
       <a href="../legal.html#terms">Terms of use</a>
       <a href="../legal.html#privacy">Privacy policy</a>
       <a href="../legal.html#cookies">Cookie policy</a>
-      <a href="../contact.html">Contact</a>
+      <a href="mailto:hello@fitoutpost.com">Contact</a>
     </div>
   </div>
 </footer>

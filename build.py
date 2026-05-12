@@ -488,17 +488,7 @@ STATIC_PAGES = {
 })();
 """,
     },
-    "contact": {
-        "output":     "contact.html",
-        "title":      "Contact — FitOut Post",
-        "active_nav": "",
-        "meta": (
-            '<meta name="description" content="Contact the FitOut Post team — editorial,'
-            ' industry submissions, press, technical issues, and advertising enquiries." />\n'
-            '  <link rel="canonical" href="https://fitoutpost.com/contact.html" />'
-        ),
-        "extra_js": "",
-    },
+
     "legal": {
         "output":     "legal.html",
         "title":      "Legal — FitOut Post",
@@ -1317,7 +1307,7 @@ def build_sitemap() -> None:
         "weekly.html":       ("0.8", "weekly"),
         "awards.html":       ("0.7", "weekly"),
         "about.html":        ("0.5", "monthly"),
-        "contact.html":      ("0.5", "monthly"),
+
         "register.html":     ("0.5", "monthly"),
         "pricing.html":      ("0.5", "monthly"),
         "advertise.html":    ("0.4", "monthly"),

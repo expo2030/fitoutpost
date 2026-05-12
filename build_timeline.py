@@ -269,7 +269,7 @@ HTML = """<!DOCTYPE html>
 <footer id="footer">
   <p>© <span id="footer-year"></span> FitOut Post · Independent industry intelligence ·
     <a href="index.html">News</a> · <a href="awards.html">Awards</a> · <a href="pipeline.html">Pipeline</a> ·
-    <a href="contact.html">Contact</a> · <a href="legal.html">Legal</a>
+    <a href="mailto:hello@fitoutpost.com">Contact</a> · <a href="legal.html">Legal</a>
   </p>
 </footer>
 
