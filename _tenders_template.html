@@ -718,56 +718,13 @@
 
   <main>
     <div id="tender-list"></div>
-    <div id="empty-state">
-      <div class="empty-icon">📋</div>
-      <div class="empty-title">No tenders match your filters</div>
+<div class="empty-title">No tenders match your filters</div>
       <div class="empty-sub">Try changing the region, category, or search term.</div>
     </div>
-    <div id="paywall-cta">
-      <div class="paywall-eyebrow">🔒 Full tender access</div>
-      <div class="paywall-title">Unlock the global fit-out<br>procurement pipeline</div>
-      <div class="paywall-sub">Register free to preview issuer details. Subscribe for full access — reference numbers, documents, contacts and email alerts when new tenders match your criteria.</div>
-      <div class="paywall-tiers">
-        <div class="paywall-tier">
-          <div class="tier-badge free">Free</div>
-          <div class="tier-name">Preview</div>
-          <div class="tier-price">$0 <span>/ forever</span></div>
-          <div class="tier-feature">Title &amp; country</div>
-          <div class="tier-feature">Category &amp; deadline</div>
-          <div class="tier-feature">Status badge</div>
-          <div class="tier-feature locked-feat">Issuer name</div>
-          <div class="tier-feature locked-feat">Reference number</div>
-          <div class="tier-feature locked-feat">Documents link</div>
-          <div class="tier-feature locked-feat">Email alerts</div>
-        </div>
-        <div class="paywall-tier featured-tier">
-          <div class="tier-badge pro">Pro</div>
-          <div class="tier-name">Full Access</div>
-          <div class="tier-price">$49 <span>/ month</span></div>
-          <div class="tier-feature">Everything in Free</div>
-          <div class="tier-feature">Issuer name &amp; contacts</div>
-          <div class="tier-feature">Reference numbers</div>
-          <div class="tier-feature">Document links</div>
-          <div class="tier-feature">Value estimates</div>
-          <div class="tier-feature">Email alerts (daily digest)</div>
-          <div class="tier-feature">API export (JSON/CSV)</div>
-        </div>
-      </div>
-      <div class="paywall-btn-row">
-        <button class="paywall-btn paywall-btn-free" onclick="openUnlockModal()">Register free — unlock 10/day</button>
-        <button class="paywall-btn paywall-btn-pro" onclick="alert('Subscription coming soon. Contact us at contact@fitoutpost.com')">Subscribe — $49/month</button>
-      </div>
-      <div class="paywall-note">No credit card required for free tier · Cancel subscription anytime</div>
-    </div>
-  </main>
+</main>
 
 </div>
 
-<!-- ══ Tip modal ══════════════════════════════════════════════════════════════ -->
-<div id="tip-modal-overlay">
-  <div id="tip-modal" role="dialog" aria-modal="true" aria-labelledby="tip-modal-title">
-    <button class="modal-close" onclick="document.getElementById('tip-modal-overlay').classList.remove('open')" aria-label="Close">×</button>
-    <div class="modal-title" id="tip-modal-title">Submit a tender tip</div>
     <div class="modal-sub">Know of a fit-out tender, RFP or bid that isn't listed? Let us know.</div>
     <div class="modal-form">
       <input type="text" class="modal-input" placeholder="Tender title / description" />
@@ -777,21 +734,6 @@
       <textarea class="modal-textarea" placeholder="Any additional context…"></textarea>
       <button class="modal-btn" onclick="alert('Thank you — we will review your tip.')">Submit tip</button>
     </div>
-  </div>
-</div>
-
-<!-- ══ Unlock modal ══════════════════════════════════════════════════════════ -->
-<div id="unlock-modal-overlay">
-  <div id="unlock-modal" role="dialog" aria-modal="true">
-    <button class="um-close" onclick="closeUnlockModal()">×</button>
-    <div class="um-eyebrow">🔓 Free access</div>
-    <div class="um-title">Unlock 10 tenders / day free</div>
-    <div class="um-sub">Register your email to unlock issuer names, reference numbers, and description previews — 10 tenders per day, no card needed.</div>
-    <input type="email" class="um-input" id="um-email" placeholder="your@email.com" />
-    <button class="um-btn" onclick="registerFree()">Unlock free access</button>
-    <div class="um-divider">— or —</div>
-    <button class="um-pro-btn" onclick="alert('Subscription coming soon. Contact us at contact@fitoutpost.com')">Subscribe for unlimited — $49/month</button>
-    <div class="um-note">No spam · Unsubscribe anytime · Your data is never sold</div>
   </div>
 </div>
 
@@ -813,16 +755,7 @@ let activeContinent = 'All';
 let activeStatus    = 'all';
 let filtered        = [];
 
-const FREE_PREVIEW_COUNT = 5;   // fully visible without any account
-const FREE_REG_COUNT     = 15;  // unlocked after email registration
 
-// Check if user has registered
-function isRegistered() {
-  try { return !!localStorage.getItem('fp_tender_email'); } catch(e) { return false; }
-}
-function freeQuota() {
-  return isRegistered() ? FREE_REG_COUNT : FREE_PREVIEW_COUNT;
-}
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
@@ -974,28 +907,14 @@ function statusLabel(s) {
 }
 
 function renderTenders(tenders) {
-  const list  = document.getElementById('tender-list');
-  const empty = document.getElementById('empty-state');
-  const wall  = document.getElementById('paywall-cta');
-
+  const list = document.getElementById('tender-list');
   list.innerHTML = '';
 
-  if (!tenders.length) {
-    empty.classList.add('visible');
-    wall.classList.remove('visible');
-    return;
-  }
-  empty.classList.remove('visible');
-
-  const quota   = freeQuota();
-  let   shown   = 0;
-  let   locked  = 0;
-  let   wallShown = false;
+  if (!tenders.length) return;
 
   tenders.forEach((t, i) => {
-    const isFree   = !t.is_premium || shown < quota;
-    const card     = document.createElement('article');
-    card.className = 'tender-card' + (isFree ? ' featured' : ' locked');
+    const card = document.createElement('article');
+    card.className = 'tender-card featured';
     card.dataset.id = t.id || i;
 
     const flag    = t.issuer_flag || '🌍';
@@ -1005,111 +924,64 @@ function renderTenders(tenders) {
     const dlClass = deadlineClass(t);
     const pubDate = fmtDate(t.published);
 
-    // Build issuer display
-    const issuerDisplay = isFree && t.issuer
+    const issuerDisplay = t.issuer
       ? `<div class="locked-row">
           <span class="locked-label">Issuer</span>
           <span style="font-size:13px;font-weight:500;color:var(--black)">${esc(t.issuer)}</span>
          </div>`
-      : t.issuer
-      ? `<div class="locked-row">
-          <span class="locked-label">Issuer</span>
-          <span class="locked-value">${esc(t.issuer || 'Procurement Authority — Classified')}</span>
-          <span class="locked-icon">🔒</span>
-         </div>`
       : '';
 
-    const refDisplay = isFree && t.reference
+    const refDisplay = t.reference
       ? `<div class="meta-item"><div class="meta-label">Reference</div><div class="meta-value" style="font-size:11px;font-family:monospace">${esc(t.reference)}</div></div>`
-      : t.reference
-      ? `<div class="meta-item"><div class="meta-label">Reference</div><div class="meta-value" style="font-size:11px"><span class="locked-value">████████████</span></div></div>`
       : '';
 
-    const valueDisplay = isFree && t.value_display
-      ? `<span class="attr-label">Value</span><span class="attr-date">${esc(t.value_display)}</span>`
+    const valueDisplay = t.value_display
+      ? `<div class="meta-item"><div class="meta-label">Est. Value</div><div class="meta-value">${esc(t.value_display)}</div></div>`
       : '';
 
     const desc = t.description_preview
-      ? `<p class="card-desc">${esc(t.description_preview)}</p>`
+      ? `<div class="tender-desc">${esc(t.description_preview)}</div>`
       : '';
 
-    const sourceLink = (isFree && t.source_url)
+    const sourceLink = t.source_url
       ? `<a class="source-link" href="${esc(t.source_url)}" target="_blank" rel="noopener">View on ${esc(t.source)}</a>`
       : '';
 
-    const freeTag  = isFree && i < FREE_PREVIEW_COUNT
-      ? '<span class="featured-badge">✓ Free preview</span>' : '';
-    const regTag   = isFree && i >= FREE_PREVIEW_COUNT && isRegistered()
-      ? '<span class="featured-badge" style="color:var(--amber);background:rgba(232,130,12,.08)">✓ Registered</span>' : '';
-
-    const lockBtn = !isFree
-      ? `<button class="unlock-btn" onclick="openUnlockModal()">🔒 Unlock details</button>`
-      : '';
-
-    const relTime  = t.published ? timeAgo(t.published) : '';
-    const ageMs    = t.published ? Date.now() - new Date(t.published).getTime() : Infinity;
-    const newBadge2 = ageMs < 172800000 ? '<span class="card-new-badge">New</span>' : '';
-    const geoLine  = `${flag} ${esc(country)}${t.continent ? ' · ' + esc(t.continent) : ''}`;
-
     card.innerHTML = `
-      ${freeTag}${regTag}
-      <div class="card-top-row">
-        <span class="card-category">${esc(t.category || 'Tender')}</span>
+      <div class="tender-header">
+        <span class="tender-flag">${flag}</span>
+        <span class="tender-country">${esc(country)}</span>
+        <span class="tender-sep">·</span>
+        <span class="tender-category">${esc(t.category || 'Commercial')}</span>
         <span class="status-badge status-${esc(status)}">${statusLabel(status)}</span>
-        <span class="signal-badge sig-tender">Tender</span>
-        ${newBadge2}
-        ${relTime ? `<time class="card-rel-time">${esc(relTime)}</time>` : ''}
+        <span class="tender-source">${esc(t.source || '')}</span>
       </div>
-      <h3 class="card-title">${
-        isFree && t.source_url
-          ? `<a href="${esc(t.source_url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${esc(t.title)}</a>`
+      <h3 class="tender-title">${
+        t.source_url
+          ? `<a href="${esc(t.source_url)}" target="_blank" rel="noopener">${esc(t.title)}</a>`
           : esc(t.title)
       }</h3>
-      <div class="card-geo">${geoLine}</div>
-      ${desc}
+      <div class="tender-meta">
+        ${dlLabel ? `<div class="meta-item">
+          <div class="meta-label">Deadline</div>
+          <div class="meta-value ${dlClass}">${esc(dlLabel)}</div>
+        </div>` : ''}
+        ${pubDate ? `<div class="meta-item">
+          <div class="meta-label">Published</div>
+          <div class="meta-value">${esc(pubDate)}</div>
+        </div>` : ''}
+        ${valueDisplay}
+        ${refDisplay}
+      </div>
       ${issuerDisplay}
-      <div class="card-footer">
-        <div class="card-attribution">
-          <div class="card-attribution-row">
-            <span class="attr-label">Source</span>
-            <span class="attr-source">${esc(t.source || '')}</span>
-            ${pubDate ? `<span class="attr-sep">·</span><span class="attr-date">${esc(pubDate)}</span>` : ''}
-          </div>
-          ${dlLabel ? `<div class="attr-extra">
-            <span class="attr-label">Deadline</span>
-            <span class="attr-date ${dlClass}">${esc(dlLabel)}</span>
-          </div>` : ''}
-          ${(isFree && t.reference) ? `<div class="attr-extra">
-            <span class="attr-label">Ref</span>
-            <span class="attr-date" style="font-family:monospace;font-size:10px">${esc(t.reference)}</span>
-          </div>` : ''}
-          ${valueDisplay ? `<div class="attr-extra">${valueDisplay}</div>` : ''}
-        </div>
-        <div class="card-footer-actions">
-          ${lockBtn}
-          ${sourceLink}
-        </div>
+      ${desc}
+      <div class="tender-actions">
+        ${sourceLink}
       </div>
     `;
 
     list.appendChild(card);
-
-    if (isFree) shown++;
-    else locked++;
-
-    // Show paywall after first locked block
-    if (!wallShown && locked > 0 && shown >= FREE_PREVIEW_COUNT) {
-      wall.classList.add('visible');
-      wallShown = true;
-    }
   });
-
-  if (!wallShown && tenders.length > quota) {
-    wall.classList.add('visible');
-  }
-  if (locked === 0) {
-    wall.classList.remove('visible');
-  }
 }
 
 
@@ -1122,39 +994,8 @@ function updateSidebar(tenders) {
   // Highlight active continent tab counts
 }
 
-// ── Unlock / register ─────────────────────────────────────────────────────────
-function openUnlockModal() {
-  document.getElementById('unlock-modal-overlay').classList.add('open');
-}
-function closeUnlockModal() {
-  document.getElementById('unlock-modal-overlay').classList.remove('open');
-}
-window.openUnlockModal = openUnlockModal;
-window.closeUnlockModal = closeUnlockModal;
-
-function registerFree() {
-  const email = document.getElementById('um-email').value.trim();
-  if (!email || !email.includes('@')) {
-    alert('Please enter a valid email address.');
-    return;
-  }
-  try {
-    localStorage.setItem('fp_tender_email', email);
-  } catch(e) {}
-  closeUnlockModal();
-  // Re-render with expanded access
-  applyFilters();
-  alert('✓ Access unlocked! You can now preview up to ' + FREE_REG_COUNT + ' tenders per session.');
-}
 
 
-// Close modals on overlay click
-document.getElementById('tip-modal-overlay').addEventListener('click', function(e) {
-  if (e.target === this) this.classList.remove('open');
-});
-document.getElementById('unlock-modal-overlay').addEventListener('click', function(e) {
-  if (e.target === this) closeUnlockModal();
-});
 </script>
 
 <script src="cookie-consent.js"></script>
