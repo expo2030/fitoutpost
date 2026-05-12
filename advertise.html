@@ -461,20 +461,14 @@
   <style>
 
   /* Page */
-  #page { max-width: 1320px; margin: 0 auto; padding: 0 24px 100px; }
+  #page { max-width: 1320px; margin: 0 auto; padding: 60px 24px 100px; }
 
-  /* Hero */
-  .ad-hero { background: var(--black); color: #fff; padding: 60px 60px 52px; margin-bottom: 60px; position: relative; overflow: hidden; }
+  /* Hero — full bleed */
+  .ad-hero { background: var(--black); color: #fff; padding: 52px 60px 52px; position: relative; overflow: hidden; }
   .ad-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--claret); }
   .ad-hero-kicker { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--claret); font-weight: 600; margin-bottom: 14px; }
   .ad-hero-headline { font-family: var(--serif); font-size: 44px; font-weight: 700; line-height: 1.1; margin-bottom: 20px; }
   .ad-hero-sub { font-family: var(--serif-body); font-size: 20px; line-height: 1.65; color: #D4C4BA; margin-bottom: 36px; max-width: 640px; }
-  .ad-hero-stats { display: flex; gap: 0; border: 1px solid #333; }
-  .ad-stat { flex: 1; padding: 18px 24px; border-right: 1px solid #333; }
-  .ad-stat:last-child { border-right: none; }
-  .ad-stat-num { font-family: var(--serif); font-size: 28px; font-weight: 700; color: #fff; line-height: 1; }
-  .ad-stat-label { font-size: 10px; letter-spacing: 0.8px; text-transform: uppercase; color: #9A8A80; margin-top: 4px; }
-
   /* Grid layout */
   .ad-grid { display: grid; grid-template-columns: 1fr 380px; gap: 60px; align-items: start; }
 
@@ -527,18 +521,16 @@
   .disclaimer { font-size: 11px; color: var(--mid-gray); margin-top: 14px; line-height: 1.5; }
   .phone-row { display: grid; grid-template-columns: 150px 1fr; gap: 10px; }
   @media (max-width: 480px) { .phone-row { grid-template-columns: 120px 1fr; } }
-  .back-home { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--warm-gray); text-decoration: none; letter-spacing: 0.3px; padding: 10px 0 0 20px; transition: color .15s; }
-  .back-home:hover { color: var(--black); }
-  @media (max-width: 768px) { .back-home { padding-left: 16px; } }
+  .back-home { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: #9A8A80; text-decoration: none; letter-spacing: 0.3px; transition: color .15s; }
+  .back-home:hover { color: #fff; }
 
   @media (max-width: 1024px) { .ad-grid { grid-template-columns: 1fr; } }
   @media (max-width: 768px) {
     .ad-hero { padding: 36px 24px; }
     .ad-hero-headline { font-size: 32px; }
-    .ad-hero-stats { flex-wrap: wrap; }
     .format-row { grid-template-columns: 1fr; }
     .audience-grid { grid-template-columns: 1fr; }
-    #page { padding: 0 16px 60px; }
+    #page { padding: 40px 16px 60px; }
   }
 
 </style>
@@ -606,34 +598,15 @@
 </nav>
 
 
-<a href="index.html" class="back-home">← Home</a>
+<!-- Hero — full bleed -->
+<div class="ad-hero">
+  <a href="index.html" class="back-home" style="display:inline-flex;margin-bottom:20px;padding:0;color:#9A8A80;">← Home</a>
+  <p class="ad-hero-kicker">Advertising &amp; Sponsorship</p>
+  <h1 class="ad-hero-headline">Reach the global fit-out industry</h1>
+  <p class="ad-hero-sub">FitOut Post is read by contractors, designers, developers, suppliers, and investors across every continent. Speak directly to the decision-makers shaping the world's interior built environment.</p>
+</div>
 
 <div id="page">
-
-  <!-- Hero -->
-  <div class="ad-hero">
-    <p class="ad-hero-kicker">Advertising &amp; Sponsorship</p>
-    <h1 class="ad-hero-headline">Reach the global fit-out industry</h1>
-    <p class="ad-hero-sub">FitOut Post is read by contractors, designers, developers, suppliers, and investors across every continent. Speak directly to the decision-makers shaping the world's interior built environment.</p>
-    <div class="ad-hero-stats">
-      <div class="ad-stat">
-        <div class="ad-stat-num" id="ad-stat-news">527+</div>
-        <div class="ad-stat-label">News articles indexed</div>
-      </div>
-      <div class="ad-stat">
-        <div class="ad-stat-num">200+</div>
-        <div class="ad-stat-label">Active tenders</div>
-      </div>
-      <div class="ad-stat">
-        <div class="ad-stat-num">30+</div>
-        <div class="ad-stat-label">Markets covered</div>
-      </div>
-      <div class="ad-stat">
-        <div class="ad-stat-num">Daily</div>
-        <div class="ad-stat-label">Update frequency</div>
-      </div>
-    </div>
-  </div>
 
   <div class="ad-grid">
 
@@ -898,14 +871,6 @@
 })();
 </script>
 <script>
-(async function(){
-  const fmt = n => n >= 1000 ? (n/1000).toFixed(1).replace(/\.0$/,'') + 'k' : String(n);
-  try {
-    const r = await fetch('news.json');
-    const d = await r.json();
-    if (d.total_articles) document.getElementById('ad-stat-news').textContent = fmt(d.total_articles) + '+';
-  } catch(e) {}
-})();
 // Show thank-you if redirected back after FormSubmit delivery
 if (new URLSearchParams(location.search).get('sent') === '1') {
   const form = document.getElementById('ad-form');

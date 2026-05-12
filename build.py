@@ -512,14 +512,6 @@ STATIC_PAGES = {
             '  <link rel="canonical" href="https://fitoutpost.com/advertise.html" />'
         ),
         "extra_js": r"""
-(async function(){
-  const fmt = n => n >= 1000 ? (n/1000).toFixed(1).replace(/\.0$/,'') + 'k' : String(n);
-  try {
-    const r = await fetch('news.json');
-    const d = await r.json();
-    if (d.total_articles) document.getElementById('ad-stat-news').textContent = fmt(d.total_articles) + '+';
-  } catch(e) {}
-})();
 // Show thank-you if redirected back after FormSubmit delivery
 if (new URLSearchParams(location.search).get('sent') === '1') {
   const form = document.getElementById('ad-form');
