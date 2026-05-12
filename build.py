@@ -1243,6 +1243,9 @@ def build_static_pages() -> None:
     """Stamp _static_template.html with per-page content to build 8 static pages."""
     import re
 
+    if not _PARTIALS:
+        _load_partials()
+
     if not STATIC_TEMPLATE.exists():
         print(f"❌  Static template {STATIC_TEMPLATE.name} not found.")
         return

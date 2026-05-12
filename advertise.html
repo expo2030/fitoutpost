@@ -524,6 +524,9 @@
   .disclaimer { font-size: 11px; color: var(--mid-gray); margin-top: 14px; line-height: 1.5; }
   .phone-row { display: grid; grid-template-columns: 150px 1fr; gap: 10px; }
   @media (max-width: 480px) { .phone-row { grid-template-columns: 120px 1fr; } }
+  .back-home { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--warm-gray); text-decoration: none; letter-spacing: 0.3px; padding: 10px 0 0 20px; transition: color .15s; }
+  .back-home:hover { color: var(--black); }
+  @media (max-width: 768px) { .back-home { padding-left: 16px; } }
 
   @media (max-width: 1024px) { .ad-grid { grid-template-columns: 1fr; } }
   @media (max-width: 768px) {
@@ -557,9 +560,47 @@
 </div>
 
 <!-- ═══════════════════════ MASTHEAD ═════════════════════════════════════════ -->
+<header id="masthead" role="banner">
+  <div id="masthead-inner">
+
+    <!-- FOP Logo -->
+    <a href="index.html" id="fop-logo">
+      <div id="fop-box"><span>FO</span><span style="color:var(--claret)">P</span></div>
+      <div id="fop-wordmark">
+        <strong>Fit&nbsp;Out <span style="color:var(--claret)">Post</span></strong>
+        <em>Global Industry Intelligence</em>
+      </div>
+    </a>
+
+    <!-- Right -->
+    <div id="masthead-right">
+      <a href="mailto:hello@fitoutpost.com" class="mh-util-link">Contact</a>
+      <div class="mh-util-sep"></div>
+      <a class="masthead-nav-link masthead-nav-link--cta" href="register.html" id="reg-btn">Register free →</a>
+    </div>
+
+  </div>
+</header>
 
 
+<!-- ═══════════════════════ PRODUCT NAV ══════════════════════════════════════ -->
+<nav id="product-nav" role="navigation" aria-label="Sections">
+  <div id="product-nav-inner">
+    <a class="pnav-link" href="index.html">Home</a>
+    <a class="pnav-link" href="news.html">News</a>
+    <a class="pnav-link" href="weekly.html">Roundup</a>
+    <a class="pnav-link" href="tenders.html">Tenders</a>
+    <a class="pnav-link" href="pipeline.html">Pipeline</a>
+    <a class="pnav-link" href="awards.html">Awards</a>
+    <a class="pnav-link" href="intelligence.html">Intelligence</a>
+    <a class="pnav-link" href="companies_site.html">Companies</a>
+    <a class="pnav-link" href="countries/index.html">Countries</a>
+    <a class="pnav-link" href="events.html">Events</a>
+  </div>
+</nav>
 
+
+<a href="index.html" class="back-home">← Home</a>
 
 <div id="page">
 

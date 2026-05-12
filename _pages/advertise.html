@@ -66,6 +66,9 @@
   .disclaimer { font-size: 11px; color: var(--mid-gray); margin-top: 14px; line-height: 1.5; }
   .phone-row { display: grid; grid-template-columns: 150px 1fr; gap: 10px; }
   @media (max-width: 480px) { .phone-row { grid-template-columns: 120px 1fr; } }
+  .back-home { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--warm-gray); text-decoration: none; letter-spacing: 0.3px; padding: 10px 0 0 20px; transition: color .15s; }
+  .back-home:hover { color: var(--black); }
+  @media (max-width: 768px) { .back-home { padding-left: 16px; } }
 
   @media (max-width: 1024px) { .ad-grid { grid-template-columns: 1fr; } }
   @media (max-width: 768px) {
@@ -77,6 +80,8 @@
     #page { padding: 0 16px 60px; }
   }
 </style>
+
+<a href="index.html" class="back-home">← Home</a>
 
 <div id="page">
 
