@@ -45,7 +45,7 @@ def _load_partials() -> None:
 _NAV_KEYS = ["Home", "News", "Roundup", "Tenders", "Pipeline",
              "Awards", "Intelligence", "Companies", "Countries", "Events"]
 
-def inject_partials(html: str, active_nav: str = "") -> str:
+def inject_partials(html: str, active_nav: str = "", include_footer: bool = True) -> str:
     """Replace <!--PARTIAL:X--> slots with shared masthead, nav, and footer HTML."""
     html = html.replace("<!--PARTIAL:MASTHEAD-->", _PARTIALS.get("masthead", ""))
     # Nav — activate the matching link at build time
@@ -53,7 +53,7 @@ def inject_partials(html: str, active_nav: str = "") -> str:
     for key in _NAV_KEYS:
         nav = nav.replace(f"<!--PNAV:{key}-->", " active" if key == active_nav else "")
     html = html.replace("<!--PARTIAL:NAV-->", nav)
-    html = html.replace("<!--PARTIAL:FOOTER-->", _PARTIALS.get("footer", ""))
+    html = html.replace("<!--PARTIAL:FOOTER-->", _PARTIALS.get("footer", "") if include_footer else "")
     return html
 
 # ── News build ────────────────────────────────────────────────────────────────
@@ -185,7 +185,7 @@ def build(news_path: str = "news.json") -> None:
 
     built = _embed_json(template, news, DATA_SLOT, DATA_SLOT_ID)
     built = built.replace(STAMP_SLOT, stamp_iso, 1)
-    built = inject_partials(built, "News")
+    built = inject_partials(built, "News", include_footer=False)
     built = _inject_site_updated(built, _compute_site_updated())
 
     for out in NEWS_OUTPUTS:
@@ -215,7 +215,7 @@ def build_intelligence(data_path: str = "intelligence.json") -> None:
     n    = data.get("total_datapoints", 0)
 
     built = _embed_json(tmpl, data, IN_DATA_SLOT, IN_SLOT_ID)
-    built = inject_partials(built, "Intelligence")
+    built = inject_partials(built, "Intelligence", include_footer=False)
     built = _inject_site_updated(built, _compute_site_updated())
     IN_OUTPUT.write_text(built, encoding="utf-8")
     sz  = IN_OUTPUT.stat().st_size / 1024
@@ -241,7 +241,7 @@ def build_weekly(data_path: str = "weekly.json") -> None:
     n    = len(data.get("weeks", []))
 
     built = _embed_json(tmpl, data, WR_DATA_SLOT, WR_SLOT_ID)
-    built = inject_partials(built, "Roundup")
+    built = inject_partials(built, "Roundup", include_footer=False)
     built = _inject_site_updated(built, _compute_site_updated())
     WR_OUTPUT.write_text(built, encoding="utf-8")
     sz  = WR_OUTPUT.stat().st_size / 1024
@@ -266,7 +266,7 @@ def build_tenders(data_path: str = "tenders.json") -> None:
     n    = len(data.get("tenders", []))
 
     built = _embed_json(tmpl, data, TD_DATA_SLOT, TD_SLOT_ID)
-    built = inject_partials(built, "Tenders")
+    built = inject_partials(built, "Tenders", include_footer=False)
     built = _inject_site_updated(built, _compute_site_updated())
     TD_OUTPUT.write_text(built, encoding="utf-8")
     sz  = TD_OUTPUT.stat().st_size / 1024
@@ -312,7 +312,7 @@ def build_pipeline(data_path: str = "pipeline.json") -> None:
     # We inject an empty <script> so the slot resolves but textContent is blank.
     empty_slot = f'<script type="application/json" id="{PL_SLOT_ID}"></script>'
     built = tmpl.replace(PL_DATA_SLOT, empty_slot, 1)
-    built = inject_partials(built, "Pipeline")
+    built = inject_partials(built, "Pipeline", include_footer=False)
     built = _inject_site_updated(built, _compute_site_updated())
     PL_OUTPUT.write_text(built, encoding="utf-8")
     sz  = PL_OUTPUT.stat().st_size / 1024
@@ -432,7 +432,7 @@ def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.js
 
     tmpl  = AW_TEMPLATE.read_text(encoding="utf-8")
     built = _embed_json(tmpl, data, AW_DATA_SLOT, AW_SLOT_ID)
-    built = inject_partials(built, "Awards")
+    built = inject_partials(built, "Awards", include_footer=False)
     built = _inject_site_updated(built, _compute_site_updated())
     AW_OUTPUT.write_text(built, encoding="utf-8")
 
@@ -1286,7 +1286,8 @@ def build_static_pages() -> None:
         built = built.replace("<!--STATIC-CSS-->",         page_css,          1)
         built = built.replace("<!--STATIC-BODY-->",        body,              1)
         built = built.replace("<!--STATIC-JS-->",          js_block,          1)
-        built = inject_partials(built, cfg["active_nav"])
+        show_footer = cfg["output"] in ("home.html", "index.html")
+        built = inject_partials(built, cfg["active_nav"], include_footer=show_footer)
 
         out_path = BASE / cfg["output"]
         out_path.write_text(built, encoding="utf-8")
@@ -1373,7 +1374,7 @@ def build_companies_site(data_path: str = "companies.json") -> None:
 
     current = json.loads(co_file.read_text(encoding="utf-8"))
     html    = tmpl_file.read_text(encoding="utf-8")
-    html    = inject_partials(html, "Companies")
+    html    = inject_partials(html, "Companies", include_footer=False)
 
     start_marker = "<script>window.__FITOUT_CO__ = "
     end_marker   = ";</script>"
