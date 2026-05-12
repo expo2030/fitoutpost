@@ -28,6 +28,34 @@ from pathlib import Path
 
 BASE = Path(__file__).parent
 
+# ── Partials ──────────────────────────────────────────────────────────────────
+PARTIALS_DIR = BASE / "_partials"
+_PARTIALS: dict = {}
+
+def _load_partials() -> None:
+    """Load shared HTML partials from _partials/ directory."""
+    for name in ("masthead", "nav", "footer"):
+        path = PARTIALS_DIR / f"{name}.html"
+        if path.exists():
+            _PARTIALS[name] = path.read_text(encoding="utf-8")
+        else:
+            print(f"⚠  Partial not found: _partials/{name}.html")
+            _PARTIALS[name] = f"<!-- PARTIAL:{name.upper()} MISSING -->"
+
+_NAV_KEYS = ["Home", "News", "Roundup", "Tenders", "Pipeline",
+             "Awards", "Intelligence", "Companies", "Countries", "Events"]
+
+def inject_partials(html: str, active_nav: str = "") -> str:
+    """Replace <!--PARTIAL:X--> slots with shared masthead, nav, and footer HTML."""
+    html = html.replace("<!--PARTIAL:MASTHEAD-->", _PARTIALS.get("masthead", ""))
+    # Nav — activate the matching link at build time
+    nav = _PARTIALS.get("nav", "")
+    for key in _NAV_KEYS:
+        nav = nav.replace(f"<!--PNAV:{key}-->", " active" if key == active_nav else "")
+    html = html.replace("<!--PARTIAL:NAV-->", nav)
+    html = html.replace("<!--PARTIAL:FOOTER-->", _PARTIALS.get("footer", ""))
+    return html
+
 # ── News build ────────────────────────────────────────────────────────────────
 TEMPLATE      = BASE / "_template.html"
 NEWS_OUTPUTS  = [BASE / "news.html", BASE / "site.html"]
@@ -157,6 +185,7 @@ def build(news_path: str = "news.json") -> None:
 
     built = _embed_json(template, news, DATA_SLOT, DATA_SLOT_ID)
     built = built.replace(STAMP_SLOT, stamp_iso, 1)
+    built = inject_partials(built, "News")
     built = _inject_site_updated(built, _compute_site_updated())
 
     for out in NEWS_OUTPUTS:
@@ -186,6 +215,7 @@ def build_intelligence(data_path: str = "intelligence.json") -> None:
     n    = data.get("total_datapoints", 0)
 
     built = _embed_json(tmpl, data, IN_DATA_SLOT, IN_SLOT_ID)
+    built = inject_partials(built, "Intelligence")
     built = _inject_site_updated(built, _compute_site_updated())
     IN_OUTPUT.write_text(built, encoding="utf-8")
     sz  = IN_OUTPUT.stat().st_size / 1024
@@ -211,6 +241,7 @@ def build_weekly(data_path: str = "weekly.json") -> None:
     n    = len(data.get("weeks", []))
 
     built = _embed_json(tmpl, data, WR_DATA_SLOT, WR_SLOT_ID)
+    built = inject_partials(built, "Roundup")
     built = _inject_site_updated(built, _compute_site_updated())
     WR_OUTPUT.write_text(built, encoding="utf-8")
     sz  = WR_OUTPUT.stat().st_size / 1024
@@ -235,6 +266,7 @@ def build_tenders(data_path: str = "tenders.json") -> None:
     n    = len(data.get("tenders", []))
 
     built = _embed_json(tmpl, data, TD_DATA_SLOT, TD_SLOT_ID)
+    built = inject_partials(built, "Tenders")
     built = _inject_site_updated(built, _compute_site_updated())
     TD_OUTPUT.write_text(built, encoding="utf-8")
     sz  = TD_OUTPUT.stat().st_size / 1024
@@ -280,6 +312,7 @@ def build_pipeline(data_path: str = "pipeline.json") -> None:
     # We inject an empty <script> so the slot resolves but textContent is blank.
     empty_slot = f'<script type="application/json" id="{PL_SLOT_ID}"></script>'
     built = tmpl.replace(PL_DATA_SLOT, empty_slot, 1)
+    built = inject_partials(built, "Pipeline")
     built = _inject_site_updated(built, _compute_site_updated())
     PL_OUTPUT.write_text(built, encoding="utf-8")
     sz  = PL_OUTPUT.stat().st_size / 1024
@@ -399,6 +432,7 @@ def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.js
 
     tmpl  = AW_TEMPLATE.read_text(encoding="utf-8")
     built = _embed_json(tmpl, data, AW_DATA_SLOT, AW_SLOT_ID)
+    built = inject_partials(built, "Awards")
     built = _inject_site_updated(built, _compute_site_updated())
     AW_OUTPUT.write_text(built, encoding="utf-8")
 
@@ -1252,6 +1286,7 @@ def build_static_pages() -> None:
         built = built.replace("<!--STATIC-CSS-->",         page_css,          1)
         built = built.replace("<!--STATIC-BODY-->",        body,              1)
         built = built.replace("<!--STATIC-JS-->",          js_block,          1)
+        built = inject_partials(built, cfg["active_nav"])
 
         out_path = BASE / cfg["output"]
         out_path.write_text(built, encoding="utf-8")
@@ -1323,20 +1358,22 @@ def build_sitemap() -> None:
 
 
 def build_companies_site(data_path: str = "companies.json") -> None:
-    """Rebuild the embedded companies data in companies_site.html."""
+    """Rebuild companies_site.html from _companies_template.html + companies.json."""
     import re as _re
-    co_file = BASE / data_path
+    co_file   = BASE / data_path
+    tmpl_file = BASE / "_companies_template.html"
     site_file = BASE / "companies_site.html"
 
     if not co_file.exists():
         print(f"⚠️  {data_path} not found — skipping companies_site rebuild.")
         return
-    if not site_file.exists():
-        print(f"⚠️  companies_site.html not found.")
+    if not tmpl_file.exists():
+        print(f"⚠️  _companies_template.html not found.")
         return
 
     current = json.loads(co_file.read_text(encoding="utf-8"))
-    html    = site_file.read_text(encoding="utf-8")
+    html    = tmpl_file.read_text(encoding="utf-8")
+    html    = inject_partials(html, "Companies")
 
     start_marker = "<script>window.__FITOUT_CO__ = "
     end_marker   = ";</script>"
@@ -1382,6 +1419,7 @@ def _write_receipt(n: int, source: str, stamp: str):
 
 
 if __name__ == "__main__":
+    _load_partials()
     args = sys.argv[1:]
     if "--weekly" in args:
         build_weekly()
