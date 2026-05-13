@@ -1116,7 +1116,7 @@ function applyFilters() {
   FILTERED = ALL_PROJECTS.filter(p => {
     if (showTrackedOnly && !TRACKED_IDS.has(p.id)) return false;
     if (activeSector && p.sector !== activeSector) return false;
-    if (activeCont   && p.continent !== activeCont) return false;
+    if (activeCont && activeCont !== "All" && p.continent !== activeCont) return false;
     const cVal = document.getElementById("filter-country").value;
     if (cVal && p.country_name !== cVal) return false;
     if (q) {
@@ -1240,8 +1240,8 @@ document.querySelectorAll('#nav-tabs .tab').forEach(tab => {
     tab.classList.add('active');
     document.querySelectorAll(".summary-card").forEach(c => {
       c.classList.toggle("active",
-        (activeCont === "" && c.querySelector(".sc-label")?.textContent === "All regions") ||
-        (c.querySelector(".sc-label")?.textContent === activeCont)
+        ((activeCont === "" || activeCont === "All") && c.querySelector(".sc-label")?.textContent === "All regions") ||
+        (activeCont !== "All" && c.querySelector(".sc-label")?.textContent === activeCont)
       );
     });
     applyFilters();
