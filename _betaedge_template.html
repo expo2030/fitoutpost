@@ -849,7 +849,7 @@ document.getElementById("vote-modal").addEventListener("click", function(e) {
 /* ─── Init ───────────────────────────────────────────────────────────────── */
 { const _ud=document.getElementById("utility-date");
   if(_ud) _ud.textContent=new Date().toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric"}); }
-document.getElementById("footer-year").textContent = new Date().getFullYear();
+{ const _fy=document.getElementById("footer-year"); if(_fy) _fy.textContent=new Date().getFullYear(); }
 
 loadPolls();
 // Refresh every 30s when server is available
