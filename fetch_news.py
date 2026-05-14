@@ -1221,7 +1221,7 @@ def save(articles: list[dict], path: str = "news.json") -> None:
 
 
 if __name__ == "__main__":
-    art = fetch_all(keep_days=365)
+    art = fetch_all(keep_days=90)
     save(art)
     print(f"\n✅  {len(art)} articles saved to news.json")
 
