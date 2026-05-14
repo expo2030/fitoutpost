@@ -7,12 +7,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
 
 jobs:
   fetch-news:
@@ -56,14 +50,3 @@ jobs:
             git commit -m "chore(news): daily fetch $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main
           git push
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
