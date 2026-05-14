@@ -1052,6 +1052,10 @@ function renderTenders(tenders) {
           <div class="meta-label">Published</div>
           <div class="meta-value">${esc(pubDate)}</div>
         </div>` : ''}
+        ${t.accessed_at ? `<div class="meta-item">
+          <div class="meta-label">Accessed</div>
+          <div class="meta-value">${fmtDate(t.accessed_at)}</div>
+        </div>` : ''}
         ${valueDisplay}
         ${refDisplay}
       </div>

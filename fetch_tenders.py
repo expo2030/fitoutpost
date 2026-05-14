@@ -1251,6 +1251,11 @@ def main():
     all_tenders = deduplicate(all_tenders)
     all_tenders.sort(key=sort_key)
 
+    # Stamp fetch time on every item
+    fetched_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    for t in all_tenders:
+        t.setdefault("accessed_at", fetched_at)
+
     # Stats
     by_continent = {}
     by_status    = {"open":0,"closing_soon":0,"closed":0,"unknown":0}

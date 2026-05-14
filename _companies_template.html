@@ -481,51 +481,6 @@
     #footer-main { grid-template-columns: 1fr; }
   }
   
-  /* ─── Marketing banner — photo strip ─────────────────────────────────────── */
-  #ad-banner {
-    position: relative;
-    height: 240px;
-    overflow: hidden;
-    background: #111;         /* fallback while image loads */
-  }
-  #ad-banner-img {
-    position: absolute; inset: 0;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    transition: opacity .4s ease;
-    opacity: 0;               /* fades in once loaded */
-  }
-  #ad-banner-img.loaded { opacity: 1; }
-  #ad-banner-badge {
-    position: absolute; top: 12px; left: 16px;
-    font-size: 9px; font-weight: 700; letter-spacing: 1.2px;
-    text-transform: uppercase; color: rgba(255,255,255,.6);
-    background: rgba(0,0,0,.35); padding: 3px 7px;
-    pointer-events: none;
-  }
-  #ad-banner-overlay {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 10px 20px;
-    background: linear-gradient(transparent, rgba(0,0,0,.45));
-    display: flex; align-items: flex-end; justify-content: flex-end;
-  }
-  #ad-banner-overlay a {
-    font-size: 11px; font-weight: 600; letter-spacing: .3px;
-    color: rgba(255,255,255,.85); transition: color .15s;
-  }
-  #ad-banner-overlay a:hover { color: #fff; }
-  @media (max-width: 760px) {
-    #ad-banner { height: 160px; }
-  }
-  /* ─── Utility bar — Advertise link ──────────────────────────────────────── */
-  .util-ad-link {
-    font-size: 10px; font-weight: 500; color: var(--claret,#990033);
-    opacity: .8; letter-spacing: .2px; transition: opacity .15s;
-    white-space: nowrap;
-  }
-  .util-ad-link:hover { opacity: 1; }
-  
 
   /* ── Section header ──────────────────────────────────────────────────────── */
   .sec-header { background: var(--black); color: #fff; padding: 40px 0 32px; border-bottom: 1px solid #333; }
@@ -559,12 +514,6 @@
     <div class="sec-title">Companies</div>
     <div class="sec-tagline">A directory of stakeholders operating in the fit-out industry.</div>
   </div>
-</div>
-  <span id="ad-banner-badge">Advertisement</span>
-  <div id="ad-banner-overlay">
-    <a href="mailto:hello@fitoutpost.com">Advertise with FitOut Post</a>
-  </div>
-</div>
 </div>
 
 <!-- ══ Continent nav bar ═════════════════════════════════════════════════════ -->

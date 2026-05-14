@@ -1094,6 +1094,7 @@ function cardHtml(p) {
         <span class="attr-source">${esc(p.source||'')}</span>
         ${p.published ? `<span class="attr-sep">·</span><span class="attr-date">${fmtDate(p.published)}</span>` : ''}
       </div>
+      ${p.accessed_at ? `<div class="attr-accessed"><span class="attr-label">Accessed</span><span class="attr-date">${fmtDate(p.accessed_at)}</span></div>` : ''}
     </div>
     <div class="card-footer-actions">
       ${updates.length > 0 ? `<button class="updates-toggle" onclick="event.stopPropagation();toggleUpdates('${updId}')"><span class="updates-count-badge">↻ ${updates.length} update${updates.length>1?"s":""}</span></button>` : ''}

@@ -700,6 +700,7 @@ function render() {
             <span class="attr-source">${esc(src)}</span>
             ${pubDate ? `<span class="attr-sep">·</span><span class="attr-date">${esc(pubDate)}</span>` : ''}
           </div>` : ''}
+          ${a.accessed_at ? `<div class="attr-accessed"><span class="attr-label">Accessed</span><span class="attr-date">${fmtDate(a.accessed_at)}</span></div>` : ''}
         </div>
         <div class="card-footer-actions">
           ${a.url ? `<a class="card-link" href="${esc(a.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Read full story →</a>` : ''}

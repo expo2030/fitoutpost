@@ -770,6 +770,7 @@ def fetch_pipeline():
                 "source":       source_name or "News",
                 "source_url":   link,
                 "published":    pub,
+                "accessed_at":  datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 "country_code": country_code,
                 "country_name": COUNTRY_NAMES.get(country_code, ""),
                 "country_flag": COUNTRY_FLAGS.get(country_code, "🌍"),
