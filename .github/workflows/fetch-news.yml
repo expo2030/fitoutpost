@@ -51,7 +51,7 @@ jobs:
                   alphaedge.html betaedge.html gammaedge.html \
                   weekly.html companies_site.html timeline.html \
                   intelligence.html intelligence.json \
-                  BUILD_INFO.txt
+                  events.html BUILD_INFO.txt
           git diff --cached --quiet && echo "No changes" || \
             git commit -m "chore(news): daily fetch $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main
