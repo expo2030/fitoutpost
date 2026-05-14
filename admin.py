@@ -311,6 +311,48 @@ a{color:inherit;text-decoration:none}
                  font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--warm-gray)}
 .voter-table td{padding:8px 10px;border-bottom:1px solid var(--border)}
 .voter-option{font-weight:700;color:var(--claret)}
+
+/* ─── Dashboard ─────────────────────────────────────────────── */
+.dash-section{margin-bottom:36px}
+.dash-section-title{font-family:var(--serif);font-size:14px;font-weight:700;letter-spacing:.4px;
+  text-transform:uppercase;color:var(--warm-gray);border-bottom:2px solid var(--claret);
+  padding-bottom:6px;margin-bottom:20px}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;margin-bottom:8px}
+.kpi-card{background:#fff;border:1px solid var(--border);border-top:3px solid var(--claret);
+  padding:18px 20px;display:flex;flex-direction:column;gap:4px}
+.kpi-val{font-family:var(--serif);font-size:32px;font-weight:800;color:var(--black);line-height:1}
+.kpi-label{font-size:11px;color:var(--warm-gray);letter-spacing:.4px;text-transform:uppercase;font-weight:600}
+.kpi-sub{font-size:11px;color:var(--mid-gray);margin-top:2px}
+.kpi-card.kpi-accent{border-top-color:var(--teal)}
+.kpi-card.kpi-amber{border-top-color:var(--amber)}
+.kpi-card.kpi-green{border-top-color:#2a9d5c}
+.kpi-card.kpi-blue{border-top-color:#1565c0}
+.breakdown-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.breakdown-card{background:#fff;border:1px solid var(--border);padding:18px 20px}
+.breakdown-title{font-size:12px;font-weight:700;color:var(--black-soft);letter-spacing:.3px;
+  text-transform:uppercase;margin-bottom:14px}
+.breakdown-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12.5px}
+.breakdown-bar-label{width:110px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  color:var(--black-soft);flex-shrink:0}
+.breakdown-bar-track{flex:1;height:6px;background:var(--salmon-dk);overflow:hidden}
+.breakdown-bar-fill{height:100%;background:var(--claret);transition:width .4s}
+.breakdown-bar-count{width:36px;text-align:right;color:var(--warm-gray);flex-shrink:0}
+.freshness-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.fresh-row{background:#fff;border:1px solid var(--border);padding:12px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px}
+.fresh-label{font-size:12px;font-weight:600;color:var(--black-soft)}
+.fresh-date{font-size:11px;color:var(--warm-gray);font-family:var(--mono)}
+.fresh-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.fresh-dot.green{background:#2a9d5c}
+.fresh-dot.amber{background:var(--amber)}
+.fresh-dot.red{background:var(--claret)}
+.dash-refresh{font-size:11px;color:var(--warm-gray);cursor:pointer;text-decoration:underline;
+  float:right;font-family:var(--mono)}
+.dash-refresh:hover{color:var(--claret)}
+.dash-loading{display:flex;align-items:center;justify-content:center;height:200px;
+  color:var(--warm-gray);font-size:13px;font-family:var(--mono);gap:8px}
+.dash-err{color:var(--claret);font-size:13px;padding:20px 0}
+
 </style>
 </head>
 <body>
@@ -346,6 +388,10 @@ a{color:inherit;text-decoration:none}
       <span class="sb-icon">👤</span>
       <span class="sb-label">Members</span>
       <span class="sb-count" id="members-count">0</span>
+    </div>
+    <div class="sb-item" data-tab="dashboard" onclick="switchTab('dashboard')">
+      <span class="sb-icon">📊</span>
+      <span class="sb-label">Dashboard</span>
     </div>
   </div>
   <div id="sb-footer">
@@ -596,6 +642,23 @@ a{color:inherit;text-decoration:none}
     </div>
   </div>
 
+
+  <!-- ════ DASHBOARD PANEL ════ -->
+  <div id="tab-dashboard" style="display:none">
+    <div class="panel-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+      <div>
+        <h2>Site Dashboard</h2>
+        <div class="ph-sub">Live statistics across all data sources</div>
+      </div>
+      <span class="dash-refresh" onclick="loadDashboard()">↺ Refresh</span>
+    </div>
+    <div class="panel-body" style="max-width:1100px">
+      <div id="dash-content">
+        <div class="dash-loading">⌛ Loading dashboard…</div>
+      </div>
+    </div>
+  </div>
+
   <!-- ─── Members tab -->
   <div class="ph-panel" id="members-panel" style="display:none">
     <div class="ph-header">
@@ -779,6 +842,168 @@ a{color:inherit;text-decoration:none}
 let alphaUrl="", alphaId="";
 let currentTab="alpha";
 
+
+// ══ DASHBOARD ════════════════════════════════════════════════════════════════
+let _dashLoaded = false;
+
+async function loadDashboard(){
+  const wrap = document.getElementById('dash-content');
+  if(!wrap) return;
+  wrap.innerHTML = '<div class="dash-loading">⌛ Loading…</div>';
+  try {
+    const r = await fetch('/api/dashboard');
+    if(!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    renderDashboard(d);
+    _dashLoaded = true;
+  } catch(e) {
+    wrap.innerHTML = '<p class="dash-err">Could not load dashboard data: ' + esc(String(e)) + '</p>';
+  }
+}
+
+function fmt(n){ if(n==null||n===undefined) return '—'; return n>=1000?(n/1000).toFixed(1).replace(/\.0$/,'')+'k':String(n); }
+function fmtAge(iso){
+  if(!iso) return {label:'—', cls:'red'};
+  try {
+    const diff = Date.now() - new Date(iso).getTime();
+    const h = diff/3600000, d = diff/86400000;
+    if(d > 30) return {label: Math.round(d) + 'd ago', cls: 'red'};
+    if(d > 7)  return {label: Math.round(d) + 'd ago', cls: 'amber'};
+    if(d > 1)  return {label: Math.round(d) + 'd ago', cls: 'amber'};
+    return {label: Math.round(h) + 'h ago', cls: 'green'};
+  } catch { return {label:'—', cls:'red'}; }
+}
+
+function barRow(label, count, max){
+  const pct = max > 0 ? Math.round((count/max)*100) : 0;
+  return `<div class="breakdown-bar-row">
+    <div class="breakdown-bar-label" title="${esc(label)}">${esc(label)}</div>
+    <div class="breakdown-bar-track"><div class="breakdown-bar-fill" style="width:${pct}%"></div></div>
+    <div class="breakdown-bar-count">${fmt(count)}</div>
+  </div>`;
+}
+
+function renderBreakdown(title, obj, limit=8){
+  if(!obj || !Object.keys(obj).length) return '';
+  const sorted = Object.entries(obj).sort((a,b)=>b[1]-a[1]).slice(0,limit);
+  const max = sorted[0]?.[1] || 1;
+  return `<div class="breakdown-card">
+    <div class="breakdown-title">${esc(title)}</div>
+    ${sorted.map(([k,v])=>barRow(k,v,max)).join('')}
+  </div>`;
+}
+
+function renderDashboard(d){
+  const wrap = document.getElementById('dash-content');
+  if(!wrap) return;
+
+  const n = d.news || {};
+  const t = d.tenders || {};
+  const p = d.pipeline || {};
+  const aw = d.awards || {};
+  const ev = d.events || {};
+  const mem = d.members || {};
+  const wk = d.weekly || {};
+  const nl = d.newsletter || {};
+
+  // ── Freshness helper
+  function freshRow(label, iso){
+    const {label:l, cls} = fmtAge(iso);
+    return `<div class="fresh-row">
+      <span class="fresh-label">${esc(label)}</span>
+      <span class="fresh-date">${esc(fmtDate(iso))}</span>
+      <span class="fresh-dot ${cls}"></span>
+    </div>`;
+  }
+
+  wrap.innerHTML = `
+    <!-- ── Grand totals ── -->
+    <div class="dash-section">
+      <div class="dash-section-title">Signal Inventory</div>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-val">${fmt(n.total)}</div>
+          <div class="kpi-label">News articles</div>
+          <div class="kpi-sub">${fmt(n.today)} today · ${fmt(n.this_week)} this week</div>
+        </div>
+        <div class="kpi-card kpi-accent">
+          <div class="kpi-val">${fmt(t.total)}</div>
+          <div class="kpi-label">Tenders</div>
+          <div class="kpi-sub">${fmt(t.open)} open · ${fmt(t.closed)} closed</div>
+        </div>
+        <div class="kpi-card kpi-amber">
+          <div class="kpi-val">${fmt(p.total)}</div>
+          <div class="kpi-label">Pipeline projects</div>
+          <div class="kpi-sub">${fmt(p.continents)} regions tracked</div>
+        </div>
+        <div class="kpi-card kpi-green">
+          <div class="kpi-val">${fmt(aw.total)}</div>
+          <div class="kpi-label">Award signals</div>
+          <div class="kpi-sub">From news + pipeline</div>
+        </div>
+        <div class="kpi-card kpi-blue">
+          <div class="kpi-val">${fmt(ev.total)}</div>
+          <div class="kpi-label">Events</div>
+          <div class="kpi-sub">${fmt(ev.upcoming)} upcoming · ${fmt(ev.past)} past</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">${fmt(mem.total)}</div>
+          <div class="kpi-label">Members</div>
+          <div class="kpi-sub">${fmt(mem.pro)} pro · ${fmt(mem.newsletter)} subscribers</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">${fmt(wk.weeks)}</div>
+          <div class="kpi-label">Weekly roundups</div>
+          <div class="kpi-sub">Last: ${esc(fmtDate(wk.last_generated))}</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">${fmt(nl.count)}</div>
+          <div class="kpi-label">Newsletters sent</div>
+          <div class="kpi-sub">Last: ${esc(fmtDate(nl.last_sent))}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Data freshness ── -->
+    <div class="dash-section">
+      <div class="dash-section-title">Data Freshness</div>
+      <div class="freshness-grid">
+        ${freshRow('News', n.last_updated)}
+        ${freshRow('Tenders', t.last_updated)}
+        ${freshRow('Pipeline', p.last_updated)}
+        ${freshRow('Intelligence', d.intelligence?.last_updated)}
+        ${freshRow('Weekly roundup', wk.last_generated)}
+        ${freshRow('Newsletter', nl.last_sent)}
+      </div>
+    </div>
+
+    <!-- ── Breakdowns ── -->
+    <div class="dash-section">
+      <div class="dash-section-title">News by Region</div>
+      <div class="breakdown-grid">
+        ${renderBreakdown('By Continent', n.by_continent)}
+        ${renderBreakdown('Top Countries', n.by_country, 10)}
+      </div>
+    </div>
+    <div class="dash-section">
+      <div class="dash-section-title">Tenders & Pipeline</div>
+      <div class="breakdown-grid">
+        ${renderBreakdown('Tenders by Continent', t.by_continent)}
+        ${renderBreakdown('Tenders by Category', t.by_category)}
+        ${renderBreakdown('Pipeline by Continent', p.by_continent)}
+        ${renderBreakdown('Pipeline by Sector', p.by_sector)}
+      </div>
+    </div>
+    <div class="dash-section">
+      <div class="dash-section-title">Events</div>
+      <div class="breakdown-grid">
+        ${renderBreakdown('Events by Region', ev.by_region)}
+        ${renderBreakdown('Events by Type', ev.by_type)}
+      </div>
+    </div>
+  `;
+}
+
 // ══ TAB SWITCHING ════════════════════════════════════════════════════════════
 function switchTab(t){
   currentTab=t;
@@ -789,11 +1014,14 @@ function switchTab(t){
   document.getElementById("tab-intelligence").style.display=t==="intelligence"?"block":"none";
   const mp = document.getElementById("members-panel");
   if(mp) mp.style.display=t==="members"?"block":"none";
+  const dp = document.getElementById("tab-dashboard");
+  if(dp) dp.style.display=t==="dashboard"?"block":"none";
   if(t==="alpha") loadAlphaList();
   if(t==="beta") loadBetaList();
   if(t==="gamma") loadGammaList();
   if(t==="intelligence") loadIntelList();
   if(t==="members") loadMembers();
+  if(t==="dashboard") loadDashboard();
 }
 
 // ══ UTILS ════════════════════════════════════════════════════════════════════
@@ -1961,6 +2189,186 @@ class AdminHandler(BaseHTTPRequestHandler):
             self.send_header("Access-Control-Allow-Origin", "*")
             self.end_headers()
             self.wfile.write(csv_bytes)
+        elif p=="/api/dashboard":
+            import re as _re
+            from datetime import datetime, timezone, timedelta
+
+            def safe_load(fname, default):
+                try: return json.loads((BASE / fname).read_text(encoding="utf-8"))
+                except: return default
+
+            now = datetime.now(timezone.utc)
+
+            # ── News ──────────────────────────────────────────────────────────
+            news = safe_load("news.json", {"articles":[], "total_articles":0})
+            articles = news.get("articles", [])
+            n_total = news.get("total_articles", len(articles))
+
+            today_str  = now.strftime("%Y-%m-%d")
+            week_ago   = (now - timedelta(days=7)).isoformat()
+
+            n_today = sum(1 for a in articles if (a.get("published","") or "")[:10] == today_str)
+            n_week  = sum(1 for a in articles if (a.get("published","") or "") >= week_ago)
+
+            # Continent + country counts from articles (flat list)
+            n_by_continent = {}
+            n_by_country   = {}
+            for a in articles:
+                cont = a.get("continent","Other") or "Other"
+                n_by_continent[cont] = n_by_continent.get(cont,0)+1
+                c = a.get("country","")
+                if c and c != "Global": n_by_country[c] = n_by_country.get(c,0)+1
+            # Fall back to group-based counting if flat list is empty
+            if not n_by_continent:
+                for g in news.get("groups", []):
+                    cont = g.get("continent","Other")
+                    arts = g.get("articles", g.get("items", []))
+                    n_by_continent[cont] = n_by_continent.get(cont,0) + len(arts)
+                    for a2 in arts:
+                        c = a2.get("country","")
+                        if c: n_by_country[c] = n_by_country.get(c,0)+1
+
+            # ── Tenders ───────────────────────────────────────────────────────
+            tenders = safe_load("tenders.json", {"tenders":[], "total":0})
+            td_list = tenders.get("tenders", [])
+            td_total = tenders.get("total", len(td_list))
+            td_open   = sum(1 for t in td_list if t.get("status","").lower() == "open")
+            td_closed = td_total - td_open
+
+            td_by_cont = {}
+            for t in td_list:
+                c = t.get("continent","Other")
+                td_by_cont[c] = td_by_cont.get(c,0)+1
+
+            td_by_cat = {}
+            for t in td_list:
+                c = t.get("category","Other") or "Other"
+                td_by_cat[c] = td_by_cat.get(c,0)+1
+
+            # Prefer top-level by_continent (values = counts) if we got nothing from iteration
+            if not td_by_cont and tenders.get("by_continent"):
+                td_by_cont = {k: (len(v) if isinstance(v,list) else int(v))
+                              for k,v in tenders["by_continent"].items()}
+            # If we have both, prefer top-level (more accurate)
+            elif tenders.get("by_continent"):
+                td_by_cont = {k: (len(v) if isinstance(v,list) else int(v))
+                              for k,v in tenders["by_continent"].items()}
+
+            # ── Pipeline ──────────────────────────────────────────────────────
+            pipeline = safe_load("pipeline.json", {"projects":[], "total":0})
+            pl_list  = pipeline.get("projects", [])
+            pl_total = pipeline.get("total", len(pl_list))
+
+            pl_by_cont = {}
+            pl_by_sect = {}
+            for p2 in pl_list:
+                c = p2.get("continent","Other")
+                pl_by_cont[c] = pl_by_cont.get(c,0)+1
+                for s in (p2.get("sectors") or p2.get("sector","Other") or ["Other"]):
+                    if isinstance(s,str): pl_by_sect[s] = pl_by_sect.get(s,0)+1
+
+            # Prefer top-level dicts (counts are more accurate than iterating paginated list)
+            if pipeline.get("by_continent"):
+                pl_by_cont = {k: (len(v) if isinstance(v,list) else int(v))
+                              for k,v in pipeline["by_continent"].items()}
+            if pipeline.get("by_sector"):
+                pl_by_sect = {k: (len(v) if isinstance(v,list) else int(v))
+                              for k,v in pipeline["by_sector"].items()}
+
+            # ── Awards proxy (news articles with award keywords) ──────────────
+            AWARD_KW = ["awarded","wins contract","win contract","secures contract",
+                        "appointed contractor","contract win","fitout contract","fit-out contract"]
+            AWARD_NEG = ["award-winning","design award","awards ceremony"]
+            aw_total = sum(1 for a in articles
+                           if any(kw in ((a.get("headline","")+" "+a.get("description","")).lower())
+                                  for kw in AWARD_KW)
+                           and not any(nk in ((a.get("headline","")+" "+a.get("description","")).lower())
+                                       for nk in AWARD_NEG))
+
+            # ── Events ────────────────────────────────────────────────────────
+            events_data = safe_load("events.json", {"events":[], "total":0})
+            ev_list = events_data.get("events", [])
+            ev_total = events_data.get("total", len(ev_list))
+            today_iso = now.strftime("%Y-%m-%d")
+            ev_upcoming = sum(1 for e in ev_list if e.get("iso","") >= today_iso)
+            ev_past     = ev_total - ev_upcoming
+
+            ev_by_region = {}
+            ev_by_type   = {}
+            for e in ev_list:
+                r = e.get("region","Other")
+                ev_by_region[r] = ev_by_region.get(r,0)+1
+                tp = e.get("type","other")
+                ev_by_type[tp] = ev_by_type.get(tp,0)+1
+
+            # ── Members ───────────────────────────────────────────────────────
+            mem_data = safe_load("members.json", {"members":[]})
+            nl_data  = safe_load("newsletter_members.json", {"members":[]})
+            mem_list = mem_data.get("members",[])
+            mem_total = len(mem_list)
+            mem_pro   = sum(1 for m in mem_list if m.get("tier","free")=="pro")
+            nl_total  = len(nl_data.get("members",[]))
+
+            # ── Weekly roundup ────────────────────────────────────────────────
+            weekly = safe_load("weekly.json", {"weeks":[]})
+            wk_weeks = weekly.get("weeks",[])
+            wk_count = len(wk_weeks)
+            wk_last  = wk_weeks[0].get("generated","") if wk_weeks else ""
+
+            # ── Newsletter archive ─────────────────────────────────────────────
+            nl_archive = safe_load("newsletter_archive.json", {"newsletters":[]})
+            nl_list2   = nl_archive.get("newsletters",[])
+            nl_count   = len(nl_list2)
+            nl_last    = nl_list2[0].get("sent_at","") if nl_list2 else ""
+
+            # ── Intelligence ──────────────────────────────────────────────────
+            intel = safe_load("intelligence.json", {"last_updated":"","total_datapoints":0})
+            intel_updated = intel.get("last_updated","")
+
+            result = {
+                "news": {
+                    "total": n_total, "today": n_today, "this_week": n_week,
+                    "last_updated": news.get("last_updated",""),
+                    "by_continent": n_by_continent,
+                    "by_country": dict(sorted(n_by_country.items(),key=lambda x:-x[1])[:20]),
+                },
+                "tenders": {
+                    "total": td_total, "open": td_open, "closed": td_closed,
+                    "last_updated": tenders.get("last_updated",""),
+                    "by_continent": td_by_cont,
+                    "by_category": td_by_cat,
+                },
+                "pipeline": {
+                    "total": pl_total,
+                    "continents": len(pl_by_cont),
+                    "last_updated": pipeline.get("last_updated",""),
+                    "by_continent": pl_by_cont,
+                    "by_sector": pl_by_sect,
+                },
+                "awards": {"total": aw_total},
+                "events": {
+                    "total": ev_total, "upcoming": ev_upcoming, "past": ev_past,
+                    "last_updated": events_data.get("last_updated",""),
+                    "by_region": ev_by_region,
+                    "by_type": ev_by_type,
+                },
+                "members": {
+                    "total": mem_total, "pro": mem_pro, "newsletter": nl_total,
+                },
+                "weekly": {
+                    "weeks": wk_count,
+                    "last_generated": wk_last,
+                },
+                "newsletter": {
+                    "count": nl_count,
+                    "last_sent": nl_last,
+                },
+                "intelligence": {
+                    "last_updated": intel_updated,
+                    "total": intel.get("total_datapoints",0),
+                },
+            }
+            self.send_json(200, result)
         else:
             self.send_response(404); self.end_headers()
 
