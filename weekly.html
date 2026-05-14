@@ -396,6 +396,40 @@
   .empty-state small { display: block; font-family: var(--sans); font-size: 13px;
                          margin-top: 8px; font-style: normal; }
 
+  /* ─── Member gate / paywall ──────────────────────────────────────────────── */
+  .paywall-fade {
+    position: relative; overflow: hidden;
+  }
+  .paywall-fade::after {
+    content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+    background: linear-gradient(transparent, var(--white));
+    pointer-events: none;
+  }
+  .paywall-wall {
+    text-align: center; padding: 36px 32px 40px; border-top: 2px solid var(--border);
+    background: var(--salmon);
+  }
+  .paywall-wall h3 {
+    font-family: var(--serif); font-size: 22px; font-weight: 700;
+    margin-bottom: 10px; color: var(--black);
+  }
+  .paywall-wall p {
+    font-size: 14px; color: var(--warm-gray); margin-bottom: 20px; line-height: 1.55;
+  }
+  .paywall-cta {
+    display: inline-block; background: var(--claret); color: #fff;
+    padding: 11px 32px; font-size: 13px; font-weight: 600;
+    letter-spacing: .3px; text-decoration: none; transition: background .15s;
+  }
+  .paywall-cta:hover { background: var(--claret-lt); color: #fff; }
+  .paywall-locked-panel {
+    padding: 32px 20px; text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--warm-gray); font-size: 13px;
+  }
+  .paywall-lock-icon { font-size: 22px; margin-bottom: 8px; }
+  .paywall-locked-panel strong { color: var(--black); }
+
   /* ─── Section tabs (News / Pipeline / Tenders / Awards) ─────────────────── */
   #section-tabs {
     display: flex;
@@ -740,6 +774,14 @@ if (slot && slot.textContent.trim()) {
   try { DATA = JSON.parse(slot.textContent); } catch (e) { console.error("Weekly data parse error:", e.message); }
 }
 
+/* ─── Member gate ────────────────────────────────────────────────────────── */
+function isRegistered() {
+  try {
+    const m = JSON.parse(localStorage.getItem('fop_member') || 'null');
+    return !!(m && (m.email || m.id));
+  } catch(e) { return false; }
+}
+
 /* ─── Helpers ────────────────────────────────────────────────────────────── */
 function esc(s) {
   return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;")
@@ -836,26 +878,23 @@ function renderWeek(weekIndex) {
   if (!DATA || !DATA.weeks || !DATA.weeks.length) {
     container.innerHTML = `<div class="empty-state">
       No roundups published yet.<br>
-      <small>Run <code>python fetch_weekly.py</code> every Monday to generate the week's digest.</small>
+      <small>The full weekly roundup is published every Monday.</small>
     </div>`;
     return;
   }
 
   const w = DATA.weeks[parseInt(weekIndex, 10)] || DATA.weeks[0];
 
-  // Totals (support both old schema with just .total and new multi-signal schema)
   const nTotal = w.news_total     ?? (w.groups || []).reduce((s,g)=>(s+(g.items||g.articles||[]).length),0);
   const pTotal = w.pipeline_total ?? 0;
   const tTotal = w.tenders_total  ?? 0;
   const aTotal = w.awards_total   ?? 0;
   const grand  = w.total ?? nTotal;
 
-  // Update count bar
   { const el = document.getElementById("week-count");
     if (el) el.textContent = `${grand} signals · generated ${w.generated
       ? new Date(w.generated).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}) : "—"}`; }
 
-  // Fax transmission header
   const faxHeader = `<div class="fax-header">
     <div class="fax-header-field">
       <span class="fax-header-label">EDITION</span>
@@ -872,35 +911,6 @@ function renderWeek(weekIndex) {
     </div>
   </div>`;
 
-  // ── News panel ──────────────────────────────────────────────────────────
-  const newsGroups = (w.groups || []).map(g => renderGroup(g, newsRow)).join("");
-  const newsPanel = `<div class="signal-panel active" data-panel="news">
-    ${colHeader([{label:"Date",w:"54px"},{label:"Market",w:"160px"},{label:"Headline",w:"1fr"},{label:"",w:"56px"}])}
-    ${newsGroups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No news this week.</div>'}
-  </div>`;
-
-  // ── Pipeline panel ──────────────────────────────────────────────────────
-  const plGroups = (w.pipeline_groups || []).map(g => renderGroup(g, pipelineRow)).join("");
-  const plPanel = `<div class="signal-panel" data-panel="pipeline">
-    ${colHeader([{label:"Date",w:"54px"},{label:"Market",w:"160px"},{label:"Project",w:"1fr"},{label:"Sector",w:"80px"},{label:"",w:"56px"}])}
-    ${plGroups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No pipeline projects this week.</div>'}
-  </div>`;
-
-  // ── Tenders panel ───────────────────────────────────────────────────────
-  const tdGroups = (w.tenders_groups || []).map(g => renderGroup(g, tenderRow)).join("");
-  const tdPanel = `<div class="signal-panel" data-panel="tenders">
-    ${colHeader([{label:"Issued",w:"54px"},{label:"Market",w:"160px"},{label:"Tender",w:"1fr"},{label:"Deadline",w:"90px"},{label:"",w:"56px"}])}
-    ${tdGroups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No tenders this week.</div>'}
-  </div>`;
-
-  // ── Awards panel ────────────────────────────────────────────────────────
-  const awGroups = (w.awards_groups || []).map(g => renderGroup(g, awardRow)).join("");
-  const awPanel = `<div class="signal-panel" data-panel="awards">
-    ${colHeader([{label:"Date",w:"54px"},{label:"Market",w:"160px"},{label:"Award Signal",w:"1fr"},{label:"",w:"56px"}])}
-    ${awGroups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No contract awards identified this week.</div>'}
-  </div>`;
-
-  // ── Section tabs ────────────────────────────────────────────────────────
   const tabs = `<div id="section-tabs">
     <span class="sec-tab active" data-tab="news" onclick="switchTab('news')">
       News <span class="tab-count">${nTotal}</span>
@@ -916,12 +926,86 @@ function renderWeek(weekIndex) {
     </span>
   </div>`;
 
-  container.innerHTML = `
-    <div class="fax-transmission">
-      ${faxHeader}
-      ${tabs}
+  // ── Full content (members only) ─────────────────────────────────────────
+  if (isRegistered()) {
+    const newsGroups = (w.groups || []).map(g => renderGroup(g, newsRow)).join("");
+    const newsPanel = `<div class="signal-panel active" data-panel="news">
+      ${colHeader([{label:"Date",w:"54px"},{label:"Market",w:"160px"},{label:"Headline",w:"1fr"},{label:"",w:"56px"}])}
+      ${newsGroups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No news this week.</div>'}
+    </div>`;
+
+    const plGroups = (w.pipeline_groups || []).map(g => renderGroup(g, pipelineRow)).join("");
+    const plPanel = `<div class="signal-panel" data-panel="pipeline">
+      ${colHeader([{label:"Date",w:"54px"},{label:"Market",w:"160px"},{label:"Project",w:"1fr"},{label:"Sector",w:"80px"},{label:"",w:"56px"}])}
+      ${plGroups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No pipeline projects this week.</div>'}
+    </div>`;
+
+    const tdGroups = (w.tenders_groups || []).map(g => renderGroup(g, tenderRow)).join("");
+    const tdPanel = `<div class="signal-panel" data-panel="tenders">
+      ${colHeader([{label:"Issued",w:"54px"},{label:"Market",w:"160px"},{label:"Tender",w:"1fr"},{label:"Deadline",w:"90px"},{label:"",w:"56px"}])}
+      ${tdGroups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No tenders this week.</div>'}
+    </div>`;
+
+    const awGroups = (w.awards_groups || []).map(g => renderGroup(g, awardRow)).join("");
+    const awPanel = `<div class="signal-panel" data-panel="awards">
+      ${colHeader([{label:"Date",w:"54px"},{label:"Market",w:"160px"},{label:"Award Signal",w:"1fr"},{label:"",w:"56px"}])}
+      ${awGroups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No contract awards identified this week.</div>'}
+    </div>`;
+
+    container.innerHTML = `<div class="fax-transmission">
+      ${faxHeader}${tabs}
       ${newsPanel}${plPanel}${tdPanel}${awPanel}
     </div>`;
+    return;
+  }
+
+  // ── Teaser (non-members) ────────────────────────────────────────────────
+  // Show fax header + tabs + first 3 news items (faded) + paywall wall
+  const firstGroups = w.groups || [];
+  let teaserRows = "";
+  let teaserCount = 0;
+  for (const g of firstGroups) {
+    const items = g.items || g.articles || [];
+    for (const a of items) {
+      if (teaserCount >= 3) break;
+      teaserRows += newsRow(a);
+      teaserCount++;
+    }
+    if (teaserCount >= 3) break;
+  }
+
+  const teaserPanel = `<div class="signal-panel active" data-panel="news">
+    ${colHeader([{label:"Date",w:"54px"},{label:"Market",w:"160px"},{label:"Headline",w:"1fr"},{label:"",w:"56px"}])}
+    <div class="paywall-fade">${teaserRows}</div>
+  </div>`;
+
+  const lockedPanel = (label, count) =>
+    `<div class="signal-panel" data-panel="${label.toLowerCase()}">
+      <div class="paywall-locked-panel">
+        <div class="paywall-lock-icon">🔒</div>
+        <strong>${count} ${label} signals this week</strong><br>
+        Register free to access the full ${label.toLowerCase()} roundup.
+      </div>
+    </div>`;
+
+  const paywall = `<div class="paywall-wall">
+    <h3>Members-only content</h3>
+    <p>The full weekly roundup — news, pipeline, tenders and contract awards — is<br>
+    free for registered FitOut Post members. Registration takes 30 seconds.</p>
+    <a class="paywall-cta" href="register.html">Register free →</a>
+    <p style="margin-top:14px;font-size:12px;color:var(--mid-gray);">
+      Already a member? <a href="register.html" style="color:var(--claret);">Sign in</a>
+    </p>
+  </div>`;
+
+  container.innerHTML = `<div class="fax-transmission">
+    ${faxHeader}${tabs}
+    ${teaserPanel}
+    ${lockedPanel("Pipeline", pTotal)}
+    ${lockedPanel("Tenders", tTotal)}
+    ${lockedPanel("Awards", aTotal)}
+    ${paywall}
+  </div>`;
 }
 
 /* ─── Init ───────────────────────────────────────────────────────────────── */

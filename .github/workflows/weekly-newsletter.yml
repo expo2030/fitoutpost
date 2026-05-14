@@ -1,0 +1,56 @@
+name: "⑥ Weekly Newsletter — Monday 09:30 UTC"
+
+# Runs 90 minutes after the roundup workflow (08:00 UTC) so weekly.json
+# is always fresh before the newsletter is generated and dispatched.
+# 09:30 UTC = 11:30 Madrid summer (CEST / UTC+2)
+#           = 10:30 Madrid winter (CET  / UTC+1)
+
+on:
+  schedule:
+    - cron: '30 9 * * 1'
+  workflow_dispatch:          # Allow manual re-send
+
+permissions:
+  contents: write
+
+jobs:
+  newsletter:
+    name: Generate & dispatch newsletter
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          ref: main           # Always use latest (after roundup commit)
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate newsletter
+        run: python generate_newsletter.py
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PYTHONUNBUFFERED: "1"
+
+      - name: Send newsletter
+        run: python send_newsletter.py
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          PYTHONUNBUFFERED: "1"
+
+      - name: Commit newsletter archive
+        run: |
+          git config user.name  "FitOut Post Bot"
+          git config user.email "bot@fitoutpost.com"
+          git add newsletter_latest.html
+          git diff --cached --quiet && echo "No changes" || \
+            git commit -m "chore(newsletter): $(date -u '+%Y-%m-%d') edition"
+          git pull --rebase origin main
+          git push

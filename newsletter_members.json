@@ -1,0 +1,10 @@
+{
+  "description": "FitOut Post newsletter member list. Add entries when someone registers. Email is required; name is optional.",
+  "members": [
+    {
+      "email": "pulpvoid@yahoo.es",
+      "name": "Victor",
+      "subscribedAt": "2026-01-01T00:00:00Z"
+    }
+  ]
+}
