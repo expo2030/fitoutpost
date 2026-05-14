@@ -394,6 +394,95 @@
   .empty-state small { display: block; font-family: var(--sans); font-size: 13px;
                          margin-top: 8px; font-style: normal; }
 
+  /* ─── Section tabs (News / Pipeline / Tenders / Awards) ─────────────────── */
+  #section-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  #section-tabs::-webkit-scrollbar { display: none; }
+  .sec-tab {
+    padding: 10px 20px;
+    font-size: 12px; font-weight: 600; letter-spacing: .4px;
+    text-transform: uppercase; color: var(--warm-gray);
+    cursor: pointer; border-bottom: 2px solid transparent;
+    white-space: nowrap; transition: color .15s, border-color .15s;
+    user-select: none;
+  }
+  .sec-tab:hover { color: var(--black); }
+  .sec-tab.active { color: var(--black); border-bottom-color: var(--claret); }
+  .sec-tab .tab-count {
+    display: inline-block; margin-left: 6px;
+    font-size: 10px; font-weight: 500;
+    background: var(--salmon-dk); color: var(--warm-gray);
+    padding: 1px 5px; border-radius: 8px; letter-spacing: 0;
+  }
+  .sec-tab.active .tab-count { background: var(--claret); color: #fff; }
+
+  /* ─── Signal section panels ──────────────────────────────────────────────── */
+  .signal-panel { display: none; }
+  .signal-panel.active { display: block; }
+
+  /* ─── Pipeline rows ──────────────────────────────────────────────────────── */
+  .pipeline-row {
+    display: grid;
+    grid-template-columns: 54px 160px 1fr 80px 56px;
+    align-items: baseline;
+    gap: 0;
+    padding: 9px 20px;
+    border-bottom: 1px solid var(--border-lt);
+    transition: background .1s;
+    line-height: 1.4;
+  }
+  .pipeline-row:last-child { border-bottom: none; }
+  .pipeline-row:hover { background: #FDF5EE; }
+  .pipeline-row:nth-child(even) { background: var(--row-alt); }
+  .pipeline-row:nth-child(even):hover { background: #EEE4D8; }
+  .pl-sector {
+    font-size: 10px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase;
+    color: var(--teal); white-space: nowrap; text-align: right;
+    padding-left: 8px; font-family: var(--mono);
+  }
+
+  /* ─── Tender rows ────────────────────────────────────────────────────────── */
+  .tender-row {
+    display: grid;
+    grid-template-columns: 54px 160px 1fr 90px 56px;
+    align-items: baseline;
+    gap: 0;
+    padding: 9px 20px;
+    border-bottom: 1px solid var(--border-lt);
+    transition: background .1s;
+    line-height: 1.4;
+  }
+  .tender-row:last-child { border-bottom: none; }
+  .tender-row:hover { background: #FDF5EE; }
+  .tender-row:nth-child(even) { background: var(--row-alt); }
+  .tender-row:nth-child(even):hover { background: #EEE4D8; }
+  .td-deadline {
+    font-size: 11px; color: var(--amber); font-family: var(--mono);
+    white-space: nowrap; padding: 0 8px; text-align: right; font-weight: 600;
+  }
+  .td-deadline.urgent { color: var(--claret); }
+
+  /* ─── Award rows (same style as news rows) ───────────────────────────────── */
+  .award-row {
+    display: grid;
+    grid-template-columns: 54px 160px 1fr 56px;
+    align-items: baseline;
+    gap: 0;
+    padding: 9px 20px;
+    border-bottom: 1px solid var(--border-lt);
+    transition: background .1s;
+    line-height: 1.4;
+  }
+  .award-row:last-child { border-bottom: none; }
+  .award-row:hover { background: #FDF5EE; }
+  .award-row:nth-child(even) { background: var(--row-alt); }
+  .award-row:nth-child(even):hover { background: #EEE4D8; }
+
   /* ─── Footer ─────────────────────────────────────────────────────────────── */
   #footer-inner a { color: rgba(255,255,255,.4); margin-left: 16px; }
   #footer-inner a:hover { color: #fff; }
@@ -599,6 +688,7 @@
 
 
 
+
 <!--PARTIAL:FOOTER-->
 
 <script>
@@ -607,11 +697,6 @@ let DATA = null;
 const slot = document.getElementById("weekly-data");
 if (slot && slot.textContent.trim()) {
   try { DATA = JSON.parse(slot.textContent); } catch (e) { console.error("Weekly data parse error:", e.message); }
-}
-
-/* ─── Member gate ────────────────────────────────────────────────────────── */
-function isRegistered() {
-  try { return !!JSON.parse(localStorage.getItem('fop_member') || 'null'); } catch(e) { return false; }
 }
 
 /* ─── Helpers ────────────────────────────────────────────────────────────── */
@@ -623,9 +708,85 @@ function esc(s) {
 /* ─── Populate week selector ─────────────────────────────────────────────── */
 function populateSelector(weeks) {
   const sel = document.getElementById("week-select");
+  if (!sel) return;
   sel.innerHTML = weeks.map((w, i) =>
     `<option value="${i}">${esc(w.label)}</option>`
   ).join("");
+}
+
+/* ─── Section tab switching ──────────────────────────────────────────────── */
+let _activeTab = "news";
+function switchTab(name) {
+  _activeTab = name;
+  document.querySelectorAll(".sec-tab").forEach(t =>
+    t.classList.toggle("active", t.dataset.tab === name));
+  document.querySelectorAll(".signal-panel").forEach(p =>
+    p.classList.toggle("active", p.dataset.panel === name));
+}
+
+/* ─── Continent group renderer (generic) ─────────────────────────────────── */
+function renderGroup(g, rowRenderer) {
+  const items = g.items || g.articles || [];
+  if (!items.length) return "";
+  const rows = items.map(rowRenderer).join("");
+  return `
+    <div class="continent-block">
+      <div class="continent-header">
+        <span class="continent-name">${esc(g.continent)}</span>
+        <span class="continent-count">${items.length} item${items.length !== 1 ? "s" : ""}</span>
+      </div>
+      ${rows}
+    </div>`;
+}
+
+/* ─── Row renderers per signal type ──────────────────────────────────────── */
+function newsRow(a) {
+  return `<div class="article-row">
+    <span class="art-date">${esc(a.date_display)}</span>
+    <span class="art-market" title="${esc(a.country)}">${esc(a.country)}</span>
+    <span class="art-headline">${esc(a.headline)}</span>
+    <a class="art-link" href="${esc(a.url)}" target="_blank" rel="noopener">→ Read</a>
+  </div>`;
+}
+
+function pipelineRow(p) {
+  return `<div class="pipeline-row">
+    <span class="art-date">${esc(p.date_display)}</span>
+    <span class="art-market" title="${esc(p.country)}">${esc(p.country)}</span>
+    <span class="art-headline">${esc(p.title)}</span>
+    <span class="pl-sector">${esc(p.sector || "")}</span>
+    <a class="art-link" href="${esc(p.url)}" target="_blank" rel="noopener">→ Read</a>
+  </div>`;
+}
+
+function tenderRow(t) {
+  const dl = t.deadline ? t.deadline.substring(0, 10) : "";
+  const dlDays = t.deadline_days != null ? t.deadline_days : null;
+  const dlClass = dlDays !== null && dlDays <= 7 ? "td-deadline urgent" : "td-deadline";
+  const dlText = dl ? dl.substring(5).replace("-", " ") : "—";
+  return `<div class="tender-row">
+    <span class="art-date">${esc(t.date_display)}</span>
+    <span class="art-market" title="${esc(t.country)}">${esc(t.country)}</span>
+    <span class="art-headline">${esc(t.title)}</span>
+    <span class="${dlClass}">${dlText}</span>
+    <a class="art-link" href="${esc(t.url)}" target="_blank" rel="noopener">→ Read</a>
+  </div>`;
+}
+
+function awardRow(a) {
+  return `<div class="award-row">
+    <span class="art-date">${esc(a.date_display)}</span>
+    <span class="art-market" title="${esc(a.country)}">${esc(a.country)}</span>
+    <span class="art-headline">${esc(a.headline)}</span>
+    <a class="art-link" href="${esc(a.url)}" target="_blank" rel="noopener">→ Read</a>
+  </div>`;
+}
+
+/* ─── Column headers per section ─────────────────────────────────────────── */
+function colHeader(cols) {
+  return `<div style="display:grid;grid-template-columns:${cols.map(c=>c.w).join(" ")};padding:5px 20px;border-bottom:1px solid var(--border);background:var(--salmon);">
+    ${cols.map(c=>`<span style="font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--mid-gray)">${c.label}</span>`).join("")}
+  </div>`;
 }
 
 /* ─── Render one week ────────────────────────────────────────────────────── */
@@ -636,49 +797,89 @@ function renderWeek(weekIndex) {
       No roundups published yet.<br>
       <small>Run <code>python fetch_weekly.py</code> every Monday to generate the week's digest.</small>
     </div>`;
-    { const _el=document.getElementById("wr-total-count"); if(_el) _el.textContent="—"; }
     return;
   }
 
-  const w = DATA.weeks[weekIndex] || DATA.weeks[0];
-  { const _el=document.getElementById("wr-total-count"); if(_el) _el.textContent=w.total||0; }
-  document.getElementById("week-count").textContent =
-    `${w.total || 0} articles · generated ${w.generated ? new Date(w.generated).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}) : "—"}`;
+  const w = DATA.weeks[parseInt(weekIndex, 10)] || DATA.weeks[0];
+
+  // Totals (support both old schema with just .total and new multi-signal schema)
+  const nTotal = w.news_total     ?? (w.groups || []).reduce((s,g)=>(s+(g.items||g.articles||[]).length),0);
+  const pTotal = w.pipeline_total ?? 0;
+  const tTotal = w.tenders_total  ?? 0;
+  const aTotal = w.awards_total   ?? 0;
+  const grand  = w.total ?? nTotal;
+
+  // Update count bar
+  { const el = document.getElementById("week-count");
+    if (el) el.textContent = `${grand} signals · generated ${w.generated
+      ? new Date(w.generated).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}) : "—"}`; }
 
   // Fax transmission header
-  const faxHeader = `
-    <div class="fax-header">
-      <div class="fax-header-field">
-        <span class="fax-header-label">WEEK</span>
-        <span class="fax-header-value">${esc(w.label)}</span>
-      </div>
-    </div>`;
+  const faxHeader = `<div class="fax-header">
+    <div class="fax-header-field">
+      <span class="fax-header-label">EDITION</span>
+      <span class="fax-header-value">${esc(w.label)}</span>
+    </div>
+    <div class="fax-header-field">
+      <span class="fax-header-label">SIGNALS</span>
+      <span class="fax-header-value">${grand}</span>
+    </div>
+    <div class="fax-header-field">
+      <span class="fax-header-label">GENERATED</span>
+      <span class="fax-header-value">${w.generated
+        ? new Date(w.generated).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}) : "—"}</span>
+    </div>
+  </div>`;
 
-  // ── Build continent group HTML ────────────────────────────────────────────
-  function renderGroup(g) {
-    const rows = g.articles.map(a => `
-      <div class="article-row">
-        <span class="art-date">${esc(a.date_display)}</span>
-        <span class="art-market" title="${esc(a.country)}">${esc(a.country)}</span>
-        <span class="art-headline">${esc(a.headline)}</span>
-        <a class="art-link" href="${esc(a.url)}" target="_blank" rel="noopener">→ Read</a>
-      </div>`).join("");
-    return `
-      <div class="continent-block">
-        <div class="continent-header">
-          <span class="continent-name">${esc(g.continent)}</span>
-          <span class="continent-count">${g.articles.length} article${g.articles.length !== 1 ? "s" : ""}</span>
-        </div>
-        ${rows}
-      </div>`;
-  }
+  // ── News panel ──────────────────────────────────────────────────────────
+  const newsGroups = (w.groups || []).map(g => renderGroup(g, newsRow)).join("");
+  const newsPanel = `<div class="signal-panel active" data-panel="news">
+    ${colHeader([{label:"Date",w:"54px"},{label:"Market",w:"160px"},{label:"Headline",w:"1fr"},{label:"",w:"56px"}])}
+    ${newsGroups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No news this week.</div>'}
+  </div>`;
 
-  const allGroups = w.groups || [];
-  const groups = allGroups.map(renderGroup).join("");
+  // ── Pipeline panel ──────────────────────────────────────────────────────
+  const plGroups = (w.pipeline_groups || []).map(g => renderGroup(g, pipelineRow)).join("");
+  const plPanel = `<div class="signal-panel" data-panel="pipeline">
+    ${colHeader([{label:"Date",w:"54px"},{label:"Market",w:"160px"},{label:"Project",w:"1fr"},{label:"Sector",w:"80px"},{label:"",w:"56px"}])}
+    ${plGroups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No pipeline projects this week.</div>'}
+  </div>`;
+
+  // ── Tenders panel ───────────────────────────────────────────────────────
+  const tdGroups = (w.tenders_groups || []).map(g => renderGroup(g, tenderRow)).join("");
+  const tdPanel = `<div class="signal-panel" data-panel="tenders">
+    ${colHeader([{label:"Issued",w:"54px"},{label:"Market",w:"160px"},{label:"Tender",w:"1fr"},{label:"Deadline",w:"90px"},{label:"",w:"56px"}])}
+    ${tdGroups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No tenders this week.</div>'}
+  </div>`;
+
+  // ── Awards panel ────────────────────────────────────────────────────────
+  const awGroups = (w.awards_groups || []).map(g => renderGroup(g, awardRow)).join("");
+  const awPanel = `<div class="signal-panel" data-panel="awards">
+    ${colHeader([{label:"Date",w:"54px"},{label:"Market",w:"160px"},{label:"Award Signal",w:"1fr"},{label:"",w:"56px"}])}
+    ${awGroups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No contract awards identified this week.</div>'}
+  </div>`;
+
+  // ── Section tabs ────────────────────────────────────────────────────────
+  const tabs = `<div id="section-tabs">
+    <span class="sec-tab active" data-tab="news" onclick="switchTab('news')">
+      News <span class="tab-count">${nTotal}</span>
+    </span>
+    <span class="sec-tab" data-tab="pipeline" onclick="switchTab('pipeline')">
+      Pipeline <span class="tab-count">${pTotal}</span>
+    </span>
+    <span class="sec-tab" data-tab="tenders" onclick="switchTab('tenders')">
+      Tenders <span class="tab-count">${tTotal}</span>
+    </span>
+    <span class="sec-tab" data-tab="awards" onclick="switchTab('awards')">
+      Awards <span class="tab-count">${aTotal}</span>
+    </span>
+  </div>`;
+
   container.innerHTML = `
     <div class="fax-transmission">
       ${faxHeader}
-      ${groups || '<div style="padding:40px 20px;text-align:center;color:var(--warm-gray);font-style:italic">No articles found for this week.</div>'}
+      ${tabs}
+      ${newsPanel}${plPanel}${tdPanel}${awPanel}
     </div>`;
 }
 

@@ -2,9 +2,10 @@
 """
 FitOut Post — Weekly Roundup Generator
 
-Reads news.json, extracts the previous week's articles (Mon–Sun),
-groups them geographically (continent → country), and appends an
-entry to weekly.json.  Then rebuilds weekly.html via build.py.
+Reads news.json, pipeline.json, and tenders.json, extracts the previous
+week's signals (Mon–Sun), groups each signal type geographically
+(continent → country), and appends an entry to weekly.json.
+Then rebuilds weekly.html via build.py.
 
 Schedule: every Monday at 08:00 Madrid time (Europe/Madrid).
 
@@ -33,6 +34,34 @@ CONTINENT_ORDER = [
     "Global",
 ]
 
+# ── Award keyword detection (mirrors build.py) ─────────────────────────────────
+AWARD_KEYWORDS = [
+    "awarded", "wins contract", "win contract", "won contract",
+    "secures contract", "secured contract", "appointed contractor",
+    "appoints contractor", "signs contract", "signed contract",
+    "contract signed", "contract win", "fit-out contract",
+    "interior contract", "design-and-build contract",
+    "appointed to deliver", "appointed to fit", "appointed to refurbish",
+    "construction contract", "fitout contract", "bags contract",
+    "clinches contract", "lands contract", "lands deal",
+    "wins deal", "wins project", "selected as contractor", "appointed as contractor",
+    "awarded the contract", "awarded contract", "awarded fit-out",
+    "main contractor appointed", "contractor selected", "contractor appointed",
+]
+
+AWARD_NEGATIVE_KEYWORDS = [
+    "award-winning", "award winning", "award-nominated",
+    "design award", "awards ceremony", "award scheme",
+    "awards programme", "awards program", "shortlisted for",
+    "shortlisted at", "finalist at", "winner of the",
+    "won the award", "won an award", "receives award",
+    "received award", "prize winner", "prize-winning",
+    "accolade", "recognition award", "industry award",
+    "best workplace award", "design awards 2", "interior design award",
+]
+
+
+# ── Date helpers ───────────────────────────────────────────────────────────────
 
 def monday_of_week(d: date) -> date:
     """Return the Monday of the ISO week containing d."""
@@ -53,7 +82,6 @@ def iso_to_date(iso: str) -> date | None:
     if not iso:
         return None
     try:
-        # Handle offsets like +00:00, +02:00, Z
         iso_clean = iso.replace("Z", "+00:00")
         return datetime.fromisoformat(iso_clean).date()
     except Exception:
@@ -63,87 +91,201 @@ def iso_to_date(iso: str) -> date | None:
             return None
 
 
-def load_articles(news_path: Path) -> list:
-    if not news_path.exists():
-        print(f"❌  {news_path.name} not found. Run fetch_news.py first.")
-        sys.exit(1)
-    return json.loads(news_path.read_text(encoding="utf-8")).get("articles", [])
+def fmt_date_display(d: date) -> str:
+    return d.strftime("%-d %b").lstrip("0")
 
 
-def filter_articles(articles: list, start: date, end: date) -> list:
-    """Return articles whose published date falls within [start, end]."""
-    result = []
-    for a in articles:
-        d = iso_to_date(a.get("published", ""))
-        if d and start <= d <= end:
-            result.append(a)
-    return result
+def norm_continent(raw: str) -> str:
+    """Normalise non-standard continent labels to a known value."""
+    raw = (raw or "").strip()
+    if raw in ("Other", "other", "Unknown", "unknown", ""):
+        return "Global"
+    return raw
 
 
-def format_article(a: dict, d: date) -> dict:
+# ── Data loaders ───────────────────────────────────────────────────────────────
+
+def load_news(path: Path) -> list:
+    if not path.exists():
+        print(f"⚠️   {path.name} not found — skipping news")
+        return []
+    return json.loads(path.read_text(encoding="utf-8")).get("articles", [])
+
+
+def load_pipeline(path: Path) -> list:
+    if not path.exists():
+        print(f"⚠️   {path.name} not found — skipping pipeline")
+        return []
+    return json.loads(path.read_text(encoding="utf-8")).get("projects", [])
+
+
+def load_tenders(path: Path) -> list:
+    if not path.exists():
+        print(f"⚠️   {path.name} not found — skipping tenders")
+        return []
+    return json.loads(path.read_text(encoding="utf-8")).get("tenders", [])
+
+
+# ── Formatters ────────────────────────────────────────────────────────────────
+
+def format_news_item(a: dict, d: date) -> dict:
     return {
         "date":         d.isoformat(),
-        "date_display": d.strftime("%-d %b").lstrip("0"),
+        "date_display": fmt_date_display(d),
         "country":      a.get("country") or "—",
-        "continent":    a.get("continent") or "Global",
-        "headline":     (a.get("title") or "").strip(),
+        "continent":    norm_continent(a.get("continent", "")),
+        "headline":     (a.get("title") or a.get("headline") or "").strip(),
         "source":       a.get("source") or "",
         "url":          a.get("url") or "#",
     }
 
 
-def group_by_continent(articles: list) -> list:
-    """Return list of {continent, articles[]} dicts in display order."""
-    buckets: dict[str, list] = {c: [] for c in CONTINENT_ORDER}
-    for a in articles:
-        c = a["continent"]
-        if c not in buckets:
-            buckets[c] = []
-        buckets[c].append(a)
+def format_pipeline_item(p: dict, d: date) -> dict:
+    return {
+        "date":         d.isoformat(),
+        "date_display": fmt_date_display(d),
+        "country":      p.get("country_name") or p.get("country") or "—",
+        "continent":    norm_continent(p.get("continent", "")),
+        "title":        (p.get("title") or "").strip(),
+        "sector":       p.get("sector") or "",
+        "source":       p.get("source") or "",
+        "url":          p.get("source_url") or p.get("url") or "#",
+        "summary":      (p.get("summary") or "")[:200],
+    }
 
-    # Sort each bucket: country asc, then date asc
-    for arts in buckets.values():
-        arts.sort(key=lambda x: (x["country"], x["date"]))
 
-    # Build ordered list, skip empty continents
+def format_tender_item(t: dict, d: date) -> dict:
+    return {
+        "date":          d.isoformat(),
+        "date_display":  fmt_date_display(d),
+        "country":       t.get("issuer_country_name") or t.get("issuer_country") or "—",
+        "continent":     norm_continent(t.get("continent", "")),
+        "title":         (t.get("title") or "").strip(),
+        "issuer":        t.get("issuer") or "",
+        "category":      t.get("category") or "",
+        "deadline":      t.get("deadline") or "",
+        "deadline_days": t.get("deadline_days"),
+        "source":        t.get("source") or "",
+        "url":           t.get("source_url") or t.get("url") or "#",
+    }
+
+
+def format_award_item(a: dict, d: date) -> dict:
+    return {
+        "date":         d.isoformat(),
+        "date_display": fmt_date_display(d),
+        "country":      a.get("country") or "—",
+        "continent":    norm_continent(a.get("continent", "")),
+        "headline":     (a.get("title") or a.get("headline") or "").strip(),
+        "source":       a.get("source") or "",
+        "url":          a.get("url") or "#",
+    }
+
+
+# ── Filtering ─────────────────────────────────────────────────────────────────
+
+def filter_by_date(items: list, start: date, end: date,
+                   date_field: str = "published") -> list:
+    """Return items whose date_field falls within [start, end]."""
     result = []
-    for c in CONTINENT_ORDER:
-        if buckets.get(c):
-            result.append({"continent": c, "articles": buckets[c]})
-    # Any unknown continents at the end
-    for c, arts in buckets.items():
-        if c not in CONTINENT_ORDER and arts:
-            result.append({"continent": c, "articles": arts})
+    for item in items:
+        d = iso_to_date(item.get(date_field, ""))
+        if d and start <= d <= end:
+            result.append((item, d))
     return result
 
 
+def is_award(article: dict) -> bool:
+    text = ((article.get("headline") or article.get("title") or "") + " " +
+            (article.get("description") or article.get("summary") or "")).lower()
+    has_kw  = any(kw in text for kw in AWARD_KEYWORDS)
+    has_neg = any(kw in text for kw in AWARD_NEGATIVE_KEYWORDS)
+    is_signal = article.get("signal_type", "").lower() == "award"
+    return (is_signal or has_kw) and not has_neg
+
+
+# ── Continent grouping ────────────────────────────────────────────────────────
+
+def group_by_continent(formatted: list) -> list:
+    """Return list of {continent, items[]} dicts in display order.
+    Each item in `formatted` must have a 'continent' key.
+    """
+    buckets: dict[str, list] = {c: [] for c in CONTINENT_ORDER}
+    for item in formatted:
+        c = item.get("continent", "Global")
+        if c not in buckets:
+            buckets[c] = []
+        buckets[c].append(item)
+
+    # Sort each bucket: country asc, then date asc
+    for items in buckets.values():
+        items.sort(key=lambda x: (x.get("country", ""), x.get("date", "")))
+
+    result = []
+    for c in CONTINENT_ORDER:
+        if buckets.get(c):
+            result.append({"continent": c, "items": buckets[c]})
+    for c, items in buckets.items():
+        if c not in CONTINENT_ORDER and items:
+            result.append({"continent": c, "items": items})
+    return result
+
+
+# ── Main entry builder ────────────────────────────────────────────────────────
+
 def build_week_entry(weeks_ago: int = 1) -> dict:
     start, end = week_range(weeks_ago)
-    articles_raw = load_articles(BASE / "news.json")
-    filtered = filter_articles(articles_raw, start, end)
 
-    formatted = []
-    for a in filtered:
-        d = iso_to_date(a.get("published", ""))
-        if d:
-            formatted.append(format_article(a, d))
+    # ── NEWS ──────────────────────────────────────────────────────────────────
+    news_raw  = load_news(BASE / "news.json")
+    news_week = filter_by_date(news_raw, start, end, "published")
+    news_fmt  = [format_news_item(a, d) for a, d in news_week]
+    news_fmt.sort(key=lambda x: (x["date"], x["continent"], x["country"]))
+    news_groups = group_by_continent(news_fmt)
 
-    # Sort overall by date, then continent, then country
-    formatted.sort(key=lambda x: (x["date"], x["continent"], x["country"]))
+    # ── PIPELINE ──────────────────────────────────────────────────────────────
+    pl_raw   = load_pipeline(BASE / "pipeline.json")
+    pl_week  = filter_by_date(pl_raw, start, end, "published")
+    pl_fmt   = [format_pipeline_item(p, d) for p, d in pl_week]
+    pl_fmt.sort(key=lambda x: (x["date"], x["continent"], x["country"]))
+    pl_groups = group_by_continent(pl_fmt)
 
-    groups = group_by_continent(formatted)
+    # ── TENDERS ───────────────────────────────────────────────────────────────
+    td_raw   = load_tenders(BASE / "tenders.json")
+    td_week  = filter_by_date(td_raw, start, end, "published")
+    td_fmt   = [format_tender_item(t, d) for t, d in td_week]
+    td_fmt.sort(key=lambda x: (x["date"], x["continent"], x["country"]))
+    td_groups = group_by_continent(td_fmt)
+
+    # ── AWARDS (from news, keyword-filtered) ──────────────────────────────────
+    aw_fmt = []
+    for a, d in news_week:
+        if is_award(a):
+            aw_fmt.append(format_award_item(a, d))
+    aw_fmt.sort(key=lambda x: (x["date"], x["continent"], x["country"]))
+    aw_groups = group_by_continent(aw_fmt)
+
+    # ── Totals ────────────────────────────────────────────────────────────────
+    total = len(news_fmt) + len(pl_fmt) + len(td_fmt) + len(aw_fmt)
 
     iso_now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    week_id  = f"{start.isocalendar().year}-W{start.isocalendar().week:02d}"
+    week_id = f"{start.isocalendar().year}-W{start.isocalendar().week:02d}"
 
     return {
-        "id":         week_id,
-        "week_start": start.isoformat(),
-        "week_end":   end.isoformat(),
-        "label":      f"{start.strftime('%-d %b')} – {end.strftime('%-d %b %Y')}",
-        "generated":  iso_now,
-        "total":      len(formatted),
-        "groups":     groups,
+        "id":              week_id,
+        "week_start":      start.isoformat(),
+        "week_end":        end.isoformat(),
+        "label":           f"{start.strftime('%-d %b')} – {end.strftime('%-d %b %Y')}",
+        "generated":       iso_now,
+        "total":           total,
+        "news_total":      len(news_fmt),
+        "pipeline_total":  len(pl_fmt),
+        "tenders_total":   len(td_fmt),
+        "awards_total":    len(aw_fmt),
+        "groups":          news_groups,       # news by continent
+        "pipeline_groups": pl_groups,         # pipeline by continent
+        "tenders_groups":  td_groups,         # tenders by continent
+        "awards_groups":   aw_groups,         # contract awards by continent
     }
 
 
@@ -154,7 +296,6 @@ def save_entry(entry: dict) -> None:
     else:
         data = {"last_updated": "", "weeks": []}
 
-    # Replace existing entry for same week id, or prepend
     weeks = data.get("weeks", [])
     weeks = [w for w in weeks if w.get("id") != entry["id"]]
     weeks.insert(0, entry)          # newest first
@@ -163,7 +304,10 @@ def save_entry(entry: dict) -> None:
     data["weeks"] = weeks
     data["last_updated"] = entry["generated"]
     weekly_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"✅  weekly.json updated — {entry['total']} articles, week {entry['id']}")
+    print(f"✅  weekly.json updated — {entry['total']} signals "
+          f"(news:{entry['news_total']} pipeline:{entry['pipeline_total']} "
+          f"tenders:{entry['tenders_total']} awards:{entry['awards_total']}), "
+          f"week {entry['id']}")
 
 
 def rebuild_html() -> None:
@@ -195,17 +339,33 @@ if __name__ == "__main__":
     print(f"📅  Target week: {start.strftime('%-d %b')} – {end.strftime('%-d %b %Y')}")
 
     entry = build_week_entry(weeks_ago)
-    print(f"📰  Found {entry['total']} articles across "
-          f"{len(entry['groups'])} continent(s)")
+    print(f"📰  News:     {entry['news_total']} articles across {len(entry['groups'])} continent(s)")
+    print(f"🏗️   Pipeline: {entry['pipeline_total']} projects across {len(entry['pipeline_groups'])} continent(s)")
+    print(f"📋  Tenders:  {entry['tenders_total']} tenders across {len(entry['tenders_groups'])} continent(s)")
+    print(f"🏆  Awards:   {entry['awards_total']} awards across {len(entry['awards_groups'])} continent(s)")
+    print(f"─────────────────────────────────────────────────")
+    print(f"     Total:   {entry['total']} signals")
 
     if dry_run:
         print("\n─── DRY RUN — not saving ───────────────────────────────────────")
-        for g in entry["groups"]:
-            print(f"\n  {g['continent'].upper()} ({len(g['articles'])} articles)")
-            for a in g["articles"][:3]:
-                print(f"    {a['date_display']:6}  {a['country'][:20]:<20}  {a['headline'][:60]}")
-            if len(g["articles"]) > 3:
-                print(f"    … and {len(g['articles']) - 3} more")
+        for section, label in [
+            ("groups", "NEWS"),
+            ("pipeline_groups", "PIPELINE"),
+            ("tenders_groups", "TENDERS"),
+            ("awards_groups", "AWARDS"),
+        ]:
+            groups = entry.get(section, [])
+            if not groups:
+                continue
+            print(f"\n  ── {label} ──")
+            for g in groups:
+                items = g.get("items", g.get("articles", []))
+                print(f"  {g['continent'].upper()} ({len(items)} items)")
+                for it in items[:2]:
+                    title = it.get("headline") or it.get("title") or "—"
+                    print(f"    {it.get('date_display',''):6}  {it.get('country','')[:18]:<18}  {title[:55]}")
+                if len(items) > 2:
+                    print(f"    … and {len(items) - 2} more")
     else:
         save_entry(entry)
         rebuild_html()

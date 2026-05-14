@@ -1,9 +1,9 @@
-name: "① News — Daily 06:00 UTC"
+name: "⑤ Weekly Roundup — Monday 08:00 UTC"
 
 on:
   schedule:
-    - cron: '0 6 * * *'
-  workflow_dispatch:
+    - cron: '0 8 * * 1'    # Every Monday at 08:00 UTC (≈ 10:00 Madrid summer time)
+  workflow_dispatch:        # Allow manual trigger
 
 permissions:
   contents: write
@@ -15,10 +15,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  fetch-news:
-    name: Fetch news & rebuild site
+  weekly-roundup:
+    name: Build weekly roundup & deploy
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
 
     steps:
       - uses: actions/checkout@v4
@@ -31,29 +31,20 @@ jobs:
           cache: 'pip'
 
       - name: Install dependencies
-        run: pip install requests feedparser python-dateutil tqdm beautifulsoup4
+        run: pip install requests feedparser python-dateutil
 
-      - name: Fetch news
-        run: python fetch_news.py
+      - name: Generate weekly roundup
+        run: python fetch_weekly.py
         env:
           PYTHONUNBUFFERED: "1"
-
-      - name: Build site
-        run: |
-          python build.py
-          python build.py --awards
 
       - name: Commit & push
         run: |
           git config user.name  "FitOut Post Bot"
           git config user.email "bot@fitoutpost.com"
-          git add news.json news.html site.html awards.html \
-                  alphaedge.html betaedge.html gammaedge.html \
-                  weekly.json weekly.html companies_site.html timeline.html \
-                  intelligence.html intelligence.json \
-                  events.html BUILD_INFO.txt
+          git add weekly.json weekly.html
           git diff --cached --quiet && echo "No changes" || \
-            git commit -m "chore(news): daily fetch $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git commit -m "chore(weekly): roundup $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main
           git push
 
