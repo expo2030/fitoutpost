@@ -287,6 +287,18 @@ a{color:inherit;text-decoration:none}
               background:var(--card);border:1px dashed var(--border)}
 .view-voters-link{font-size:12px;color:var(--claret);cursor:pointer;text-decoration:underline}
 
+/* ─── Member stats cards */
+.mem-stat-card{background:#FAF5F0;border:1px solid #DDD0C4;padding:16px 18px;}
+.mem-stat-val{font-size:28px;font-weight:700;color:#1a1a1a;font-family:Georgia,serif;line-height:1;}
+.mem-stat-label{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:#9A8A80;margin-top:6px;}
+
+/* ─── Member detail modal sections */
+.mmod-section{margin-bottom:20px;}
+.mmod-section-title{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:#9A8A80;margin-bottom:12px;font-weight:600;}
+.mmod-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.mmod-field-label{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:#9A8A80;margin-bottom:3px;}
+.mmod-field-val{font-size:13px;color:#1a1a1a;}
+
 /* ─── Voter modal */
 .modal-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;
                  align-items:center;justify-content:center}
@@ -590,10 +602,48 @@ a{color:inherit;text-decoration:none}
       <h2>Members</h2>
       <div class="ph-actions">
         <button class="btn btn-outline btn-sm" onclick="exportMembersCSV()">Export CSV</button>
-        <button class="btn btn-primary btn-sm" onclick="loadMembers()">Refresh</button>
+        <button class="btn btn-primary btn-sm" onclick="loadMembers()">↺ Refresh</button>
       </div>
     </div>
-    <div class="ph-sub">Registered members. Stored server-side in members.json when admin.py is running, and client-side in localStorage.</div>
+
+    <!-- Stats strip -->
+    <div id="mem-stats-strip" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 20px;">
+      <div class="mem-stat-card"><div class="mem-stat-val" id="mstat-total">—</div><div class="mem-stat-label">Total members</div></div>
+      <div class="mem-stat-card"><div class="mem-stat-val" id="mstat-nl">—</div><div class="mem-stat-label">Newsletter subscribers</div></div>
+      <div class="mem-stat-card"><div class="mem-stat-val" id="mstat-week">—</div><div class="mem-stat-label">Joined this week</div></div>
+      <div class="mem-stat-card"><div class="mem-stat-val" id="mstat-pro">—</div><div class="mem-stat-label">Pro members</div></div>
+    </div>
+
+    <!-- Filter bar -->
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;">
+      <input type="text" id="mem-search" placeholder="Search name, email, company…"
+        oninput="renderMembers()"
+        style="flex:1;min-width:200px;padding:8px 12px;border:1px solid #DDD0C4;font-size:13px;font-family:inherit;background:#FAF5F0;">
+      <select id="mem-filter-role" onchange="renderMembers()"
+        style="padding:8px 10px;border:1px solid #DDD0C4;font-size:12px;font-family:inherit;background:#FAF5F0;cursor:pointer;">
+        <option value="">All roles</option>
+        <option>Contractor / Developer</option>
+        <option>Architect / Designer</option>
+        <option>Investor / Finance</option>
+        <option>Government / Authority</option>
+        <option>Media / Analyst</option>
+        <option>Other</option>
+      </select>
+      <select id="mem-filter-tier" onchange="renderMembers()"
+        style="padding:8px 10px;border:1px solid #DDD0C4;font-size:12px;font-family:inherit;background:#FAF5F0;cursor:pointer;">
+        <option value="">All tiers</option>
+        <option value="free">Free</option>
+        <option value="pro">Pro</option>
+      </select>
+      <select id="mem-filter-nl" onchange="renderMembers()"
+        style="padding:8px 10px;border:1px solid #DDD0C4;font-size:12px;font-family:inherit;background:#FAF5F0;cursor:pointer;">
+        <option value="">All</option>
+        <option value="yes">NL subscribed</option>
+        <option value="no">Not subscribed</option>
+      </select>
+      <span id="mem-count-label" style="font-size:12px;color:#9A8A80;white-space:nowrap;"></span>
+    </div>
+
     <div id="members-status" class="status"></div>
     <div id="members-list"></div>
   </div>
@@ -635,6 +685,81 @@ a{color:inherit;text-decoration:none}
     <div style="display:flex;gap:10px;margin-top:20px">
       <button class="btn btn-claret" id="qmodal-save-btn" onclick="saveQuestion()">Add question</button>
       <button class="btn btn-outline" onclick="closeQuestionModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Member detail modal -->
+<div class="modal-backdrop" id="member-modal">
+  <div class="modal" style="max-width:640px;padding:0;overflow:hidden;">
+    <!-- Header -->
+    <div id="mmod-header" style="background:#1a1a1a;padding:24px 28px;display:flex;align-items:center;gap:16px;">
+      <div id="mmod-avatar" style="width:48px;height:48px;border-radius:50%;background:#990033;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;flex-shrink:0;">?</div>
+      <div style="flex:1;min-width:0;">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <span id="mmod-name" style="font-size:17px;font-weight:700;color:#fff;font-family:Georgia,serif;"></span>
+          <span id="mmod-tier-badge"></span>
+        </div>
+        <div id="mmod-email" style="font-size:12px;color:rgba(255,255,255,.5);margin-top:3px;"></div>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="closeMemberModal()" style="border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7);">Close</button>
+    </div>
+
+    <!-- Body -->
+    <div style="padding:24px 28px;max-height:70vh;overflow-y:auto;">
+
+      <!-- Profile -->
+      <div class="mmod-section">
+        <div class="mmod-section-title">Profile</div>
+        <div class="mmod-grid">
+          <div class="mmod-field"><div class="mmod-field-label">Company</div><div class="mmod-field-val" id="mmod-company">—</div></div>
+          <div class="mmod-field"><div class="mmod-field-label">Role</div><div class="mmod-field-val" id="mmod-role">—</div></div>
+          <div class="mmod-field"><div class="mmod-field-label">Region</div><div class="mmod-field-val" id="mmod-region">—</div></div>
+          <div class="mmod-field"><div class="mmod-field-label">Registered</div><div class="mmod-field-val" id="mmod-reg">—</div></div>
+        </div>
+        <div id="mmod-interests-wrap" style="margin-top:10px;display:none;">
+          <div class="mmod-field-label" style="margin-bottom:6px;">Interests</div>
+          <div id="mmod-interests" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
+        </div>
+      </div>
+
+      <!-- Status -->
+      <div class="mmod-section">
+        <div class="mmod-section-title">Status</div>
+        <div class="mmod-grid">
+          <div class="mmod-field">
+            <div class="mmod-field-label">Tier</div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
+              <span id="mmod-tier-val" style="font-size:13px;"></span>
+              <button id="mmod-tier-btn" class="btn btn-outline btn-sm" onclick="toggleMemberTier()" style="font-size:11px;"></button>
+            </div>
+          </div>
+          <div class="mmod-field">
+            <div class="mmod-field-label">Newsletter</div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
+              <span id="mmod-nl-val" style="font-size:13px;"></span>
+              <button id="mmod-nl-btn" class="btn btn-outline btn-sm" onclick="toggleMemberNewsletter()" style="font-size:11px;"></button>
+            </div>
+          </div>
+          <div class="mmod-field">
+            <div class="mmod-field-label">Keyword alerts</div>
+            <div class="mmod-field-val" id="mmod-alerts">—</div>
+          </div>
+          <div class="mmod-field">
+            <div class="mmod-field-label">Member ID</div>
+            <div class="mmod-field-val" id="mmod-id" style="font-family:var(--mono);font-size:11px;word-break:break-all;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Danger -->
+      <div class="mmod-section" style="border-top:1px solid #EDE3DA;padding-top:16px;margin-top:4px;">
+        <div class="mmod-section-title" style="color:#c0392b;">Remove member</div>
+        <p style="font-size:12px;color:#9A8A80;margin:4px 0 12px;">Permanently removes from members.json and the newsletter list.</p>
+        <button class="btn btn-sm" onclick="deleteMemberFromModal()"
+          style="background:#c0392b;color:#fff;border:none;padding:7px 16px;cursor:pointer;font-size:12px;">Delete member</button>
+      </div>
+
     </div>
   </div>
 </div>
@@ -1137,42 +1262,190 @@ async function runIntelFetch(){
 }
 
 // ══ MEMBERS ══════════════════════════════════════════════════════════════════
+let _allMembers = [];
+let _activeMemberId = null;
+
 async function loadMembers(){
-  showStatus('members-status','Loading members…','info');
+  showStatus('members-status','Loading…','info');
   try {
     const r = await fetch('/api/members');
     const d = await r.json();
-    const members = d.members || [];
-    document.getElementById('members-count').textContent = members.length;
-    const el = document.getElementById('members-list');
-    if(!members.length){
-      el.innerHTML='<p style="color:#9A8A80;font-size:13px;padding:20px 0;">No members registered yet. Members appear here once someone registers at <a href="../register.html" target="_blank">register.html</a>.</p>';
-      showStatus('members-status','0 members','info'); return;
-    }
-    el.innerHTML = '<table style="width:100%;border-collapse:collapse;font-size:13px;">'
-      + '<thead><tr style="border-bottom:2px solid #1a1a1a;">'
-      + '<th style="text-align:left;padding:8px 10px;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;">Name</th>'
-      + '<th style="text-align:left;padding:8px 10px;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;">Email</th>'
-      + '<th style="text-align:left;padding:8px 10px;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;">Company</th>'
-      + '<th style="text-align:left;padding:8px 10px;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;">Role</th>'
-      + '<th style="text-align:left;padding:8px 10px;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;">Region</th>'
-      + '<th style="text-align:left;padding:8px 10px;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;">Registered</th>'
-      + '<th style="text-align:left;padding:8px 10px;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;"></th>'
-      + '</tr></thead><tbody>'
-      + members.map(m => `<tr style="border-bottom:1px solid #EDE3DA;">
-          <td style="padding:9px 10px;">${esc(m.firstName||'')} ${esc(m.lastName||'')}</td>
-          <td style="padding:9px 10px;"><a href="mailto:${esc(m.email)}">${esc(m.email)}</a></td>
-          <td style="padding:9px 10px;">${esc(m.company||'—')}</td>
-          <td style="padding:9px 10px;">${esc(m.role||'—')}</td>
-          <td style="padding:9px 10px;">${esc(m.region||'—')}</td>
-          <td style="padding:9px 10px;">${fmtDate(m.registeredAt)}</td>
-          <td style="padding:9px 10px;"><button class="btn btn-outline btn-sm" onclick="deleteMember('${esc(m.id||'')}')">Remove</button></td>
-        </tr>`).join('')
-      + '</tbody></table>';
-    showStatus('members-status', members.length + ' member(s)','ok');
+    _allMembers = d.members || [];
+
+    // Stats
+    const now = new Date();
+    const weekAgo = new Date(now - 7*24*60*60*1000);
+    const nlEmails = new Set((d.newsletter_emails||[]));
+    const thisWeek = _allMembers.filter(m => m.registeredAt && new Date(m.registeredAt) >= weekAgo).length;
+    const proCount = _allMembers.filter(m => (m.tier||'free')==='pro').length;
+    document.getElementById('mstat-total').textContent = _allMembers.length;
+    document.getElementById('mstat-nl').textContent = d.newsletter_total || nlEmails.size;
+    document.getElementById('mstat-week').textContent = thisWeek;
+    document.getElementById('mstat-pro').textContent = proCount;
+    document.getElementById('members-count').textContent = _allMembers.length;
+
+    hideStatus('members-status');
+    renderMembers();
   } catch(e) {
-    showStatus('members-status','Error loading members: '+e.message,'error');
+    showStatus('members-status','Error: '+e.message,'err');
   }
+}
+
+function renderMembers(){
+  const q   = (document.getElementById('mem-search').value||'').toLowerCase();
+  const role = document.getElementById('mem-filter-role').value;
+  const tier = document.getElementById('mem-filter-tier').value;
+  const nl   = document.getElementById('mem-filter-nl').value;
+
+  const filtered = _allMembers.filter(m => {
+    const name = ((m.firstName||'')+' '+(m.lastName||'')).toLowerCase();
+    if(q && !name.includes(q) && !(m.email||'').toLowerCase().includes(q) && !(m.company||'').toLowerCase().includes(q)) return false;
+    if(role && (m.role||'') !== role) return false;
+    if(tier && (m.tier||'free') !== tier) return false;
+    if(nl==='yes' && !m.newsletter_subscribed) return false;
+    if(nl==='no' && m.newsletter_subscribed) return false;
+    return true;
+  });
+
+  document.getElementById('mem-count-label').textContent = filtered.length + ' of ' + _allMembers.length;
+  const el = document.getElementById('members-list');
+  if(!filtered.length){
+    el.innerHTML = '<p style="color:#9A8A80;font-size:13px;padding:20px 0;">No members match this filter.</p>';
+    return;
+  }
+
+  const th = s => `<th style="text-align:left;padding:8px 10px;font-size:11px;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;">${s}</th>`;
+  el.innerHTML = `<table style="width:100%;border-collapse:collapse;font-size:13px;">
+    <thead><tr style="border-bottom:2px solid #1a1a1a;">
+      ${th('Name')}${th('Email')}${th('Company')}${th('Role')}${th('Region')}${th('Registered')}${th('Tier')}${th('NL')}${th('')}
+    </tr></thead><tbody>`
+    + filtered.map(m => {
+        const name = [m.firstName,m.lastName].filter(Boolean).join(' ') || '—';
+        const tier = (m.tier||'free');
+        const tierBadge = tier==='pro'
+          ? `<span style="background:#990033;color:#fff;font-size:10px;font-weight:700;padding:2px 7px;letter-spacing:.5px;text-transform:uppercase;">PRO</span>`
+          : `<span style="background:#EDE3DA;color:#66605A;font-size:10px;font-weight:600;padding:2px 7px;letter-spacing:.5px;text-transform:uppercase;">FREE</span>`;
+        const nlBadge = m.newsletter_subscribed
+          ? `<span style="color:#2e7d32;font-size:13px;" title="Newsletter subscriber">✓</span>`
+          : `<span style="color:#9A8A80;font-size:13px;" title="Not subscribed">—</span>`;
+        return `<tr style="border-bottom:1px solid #EDE3DA;cursor:pointer;" onclick="openMemberDetail('${esc(m.id||'')}')">
+          <td style="padding:9px 10px;font-weight:500;">${esc(name)}</td>
+          <td style="padding:9px 10px;"><a href="mailto:${esc(m.email)}" onclick="event.stopPropagation()" style="color:#990033;">${esc(m.email)}</a></td>
+          <td style="padding:9px 10px;color:#66605A;">${esc(m.company||'—')}</td>
+          <td style="padding:9px 10px;color:#66605A;">${esc(m.role||'—')}</td>
+          <td style="padding:9px 10px;color:#66605A;">${esc(m.region||'—')}</td>
+          <td style="padding:9px 10px;color:#66605A;white-space:nowrap;">${fmtDate(m.registeredAt)}</td>
+          <td style="padding:9px 10px;">${tierBadge}</td>
+          <td style="padding:9px 10px;text-align:center;">${nlBadge}</td>
+          <td style="padding:9px 10px;"><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();openMemberDetail('${esc(m.id||'')}')">View</button></td>
+        </tr>`;
+      }).join('')
+    + '</tbody></table>';
+}
+
+function openMemberDetail(id){
+  const m = _allMembers.find(x => x.id===id);
+  if(!m) return;
+  _activeMemberId = id;
+
+  const name = [m.firstName,m.lastName].filter(Boolean).join(' ') || m.email;
+  const initials = (name.split(' ').map(w=>w[0]).join('').slice(0,2)||'?').toUpperCase();
+  const tier = m.tier||'free';
+
+  document.getElementById('mmod-avatar').textContent = initials;
+  document.getElementById('mmod-name').textContent = name;
+  document.getElementById('mmod-email').textContent = m.email||'';
+
+  const tierBadge = tier==='pro'
+    ? `<span style="background:#990033;color:#fff;font-size:10px;font-weight:700;padding:3px 9px;letter-spacing:.5px;">PRO</span>`
+    : `<span style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-size:10px;padding:3px 9px;letter-spacing:.5px;">FREE</span>`;
+  document.getElementById('mmod-tier-badge').innerHTML = tierBadge;
+
+  document.getElementById('mmod-company').textContent = m.company||'—';
+  document.getElementById('mmod-role').textContent = m.role||'—';
+  document.getElementById('mmod-region').textContent = m.region||'—';
+  document.getElementById('mmod-reg').textContent = fmtDate(m.registeredAt);
+  document.getElementById('mmod-id').textContent = m.id||'—';
+
+  // Interests tags
+  const interests = m.interests||[];
+  const iWrap = document.getElementById('mmod-interests-wrap');
+  if(interests.length){
+    document.getElementById('mmod-interests').innerHTML = interests.map(i=>
+      `<span style="background:#F5EDE4;border:1px solid #DDD0C4;font-size:11px;padding:3px 9px;">${esc(i)}</span>`).join('');
+    iWrap.style.display='block';
+  } else { iWrap.style.display='none'; }
+
+  // Tier control
+  document.getElementById('mmod-tier-val').innerHTML = tier==='pro'
+    ? `<span style="color:#990033;font-weight:600;">Pro</span>`
+    : `<span style="color:#9A8A80;">Free</span>`;
+  const tierBtn = document.getElementById('mmod-tier-btn');
+  tierBtn.textContent = tier==='pro' ? 'Set to Free' : 'Promote to Pro';
+  tierBtn.style.color = tier==='pro' ? '#9A8A80' : '#990033';
+  tierBtn.style.borderColor = tier==='pro' ? '#DDD0C4' : '#990033';
+
+  // Newsletter control
+  const subscribed = m.newsletter_subscribed;
+  document.getElementById('mmod-nl-val').innerHTML = subscribed
+    ? `<span style="color:#2e7d32;font-weight:600;">Subscribed</span>`
+    : `<span style="color:#9A8A80;">Not subscribed</span>`;
+  const nlBtn = document.getElementById('mmod-nl-btn');
+  nlBtn.textContent = subscribed ? 'Unsubscribe' : 'Subscribe';
+  nlBtn.style.color = subscribed ? '#9A8A80' : '#990033';
+  nlBtn.style.borderColor = subscribed ? '#DDD0C4' : '#990033';
+
+  // Alerts
+  const alerts = m.keyword_alerts||[];
+  document.getElementById('mmod-alerts').textContent = alerts.length
+    ? alerts.length + ' alert(s): ' + alerts.slice(0,4).join(', ') + (alerts.length>4?'…':'')
+    : 'None saved';
+
+  document.getElementById('member-modal').classList.add('open');
+}
+
+function closeMemberModal(){
+  document.getElementById('member-modal').classList.remove('open');
+  _activeMemberId = null;
+}
+
+async function toggleMemberTier(){
+  const m = _allMembers.find(x => x.id===_activeMemberId);
+  if(!m) return;
+  const newTier = (m.tier||'free')==='pro' ? 'free' : 'pro';
+  try{
+    await fetch('/api/members/update',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({id:m.id, tier:newTier})});
+    m.tier = newTier;
+    openMemberDetail(m.id);
+    renderMembers();
+  }catch(e){ alert('Error: '+e.message); }
+}
+
+async function toggleMemberNewsletter(){
+  const m = _allMembers.find(x => x.id===_activeMemberId);
+  if(!m) return;
+  const action = m.newsletter_subscribed ? 'newsletter-unsubscribe' : 'newsletter-subscribe';
+  try{
+    await fetch('/api/members/'+action,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:m.email, name:(m.firstName||'')+' '+(m.lastName||'')})});
+    m.newsletter_subscribed = !m.newsletter_subscribed;
+    openMemberDetail(m.id);
+    renderMembers();
+    // Update NL stat
+    const nlCount = _allMembers.filter(x=>x.newsletter_subscribed).length;
+    document.getElementById('mstat-nl').textContent = nlCount;
+  }catch(e){ alert('Error: '+e.message); }
+}
+
+async function deleteMemberFromModal(){
+  if(!_activeMemberId || !confirm('Delete this member permanently?')) return;
+  try{
+    await fetch('/api/members/delete',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({id:_activeMemberId})});
+    closeMemberModal();
+    loadMembers();
+  }catch(e){ alert('Error: '+e.message); }
 }
 
 async function deleteMember(id){
@@ -1636,9 +1909,35 @@ class AdminHandler(BaseHTTPRequestHandler):
         elif p=="/api/intelligence/datapoints":
             self.send_json(200,load(INTEL_FILE,{"last_updated":"","total_datapoints":0,"periods":[]}))
         elif p=="/api/members":
-            # Return member list from members.json (server-side) or empty list
+            # Merge members.json (site registrations) with newsletter_members.json
             members_file = BASE / "members.json"
-            data = load(members_file, {"members": [], "total": 0})
+            nl_file      = BASE / "newsletter_members.json"
+            data    = load(members_file, {"members": [], "total": 0})
+            nl_data = load(nl_file, {"members": []})
+            # Build a set of newsletter subscriber emails for fast lookup
+            nl_emails = {m.get("email","").lower() for m in nl_data.get("members", [])}
+            # Annotate each member with newsletter status
+            for m in data.get("members", []):
+                m["newsletter_subscribed"] = m.get("email","").lower() in nl_emails
+            # Also include newsletter-only subscribers not in members.json
+            reg_emails = {m.get("email","").lower() for m in data.get("members",[])}
+            for nm in nl_data.get("members", []):
+                ne = nm.get("email","").lower()
+                if ne and ne not in reg_emails:
+                    data["members"].append({
+                        "id": "nl_" + ne.replace("@","_").replace(".","_"),
+                        "firstName": (nm.get("name","") or "").split()[0] if nm.get("name") else "",
+                        "lastName":  " ".join((nm.get("name","") or "").split()[1:]),
+                        "email": nm.get("email",""),
+                        "company": "", "role": "", "region": "",
+                        "tier": "free",
+                        "registeredAt": nm.get("subscribedAt",""),
+                        "newsletter_subscribed": True,
+                        "source": "newsletter",
+                    })
+            data["total"] = len(data["members"])
+            data["newsletter_emails"] = list(nl_emails)
+            data["newsletter_total"] = len(nl_emails)
             self.send_json(200, data)
         elif p=="/api/members/export.csv":
             # Export member list as CSV
@@ -1897,13 +2196,60 @@ class AdminHandler(BaseHTTPRequestHandler):
             save(members_file, data)
             self.send_json(200, {"ok": True, "total": data["total"]})
 
+        elif p=="/api/members/update":
+            # Update mutable fields — currently: tier
+            member_id = body.get("id", "")
+            members_file = BASE / "members.json"
+            data = load(members_file, {"members": [], "total": 0})
+            updated = False
+            for m in data["members"]:
+                if m.get("id") == member_id:
+                    if "tier" in body: m["tier"] = body["tier"]
+                    updated = True; break
+            if updated:
+                save(members_file, data)
+                self.send_json(200, {"ok": True})
+            else:
+                self.send_json(404, {"error": "Member not found"})
+
+        elif p=="/api/members/newsletter-subscribe":
+            email = (body.get("email","") or "").lower().strip()
+            name  = body.get("name","").strip()
+            if not email: self.send_json(400, {"error": "email required"}); return
+            nl_file = BASE / "newsletter_members.json"
+            nl_data = load(nl_file, {"description": "FitOut Post newsletter member list.", "members": []})
+            if not any(m.get("email","").lower()==email for m in nl_data["members"]):
+                nl_data["members"].append({
+                    "email": email, "name": name,
+                    "subscribedAt": datetime.now(timezone.utc).isoformat()
+                })
+                nl_file.write_text(json.dumps(nl_data, ensure_ascii=False, indent=2), "utf-8")
+            self.send_json(200, {"ok": True})
+
+        elif p=="/api/members/newsletter-unsubscribe":
+            email = (body.get("email","") or "").lower().strip()
+            if not email: self.send_json(400, {"error": "email required"}); return
+            nl_file = BASE / "newsletter_members.json"
+            nl_data = load(nl_file, {"description": "FitOut Post newsletter member list.", "members": []})
+            nl_data["members"] = [m for m in nl_data["members"] if m.get("email","").lower() != email]
+            nl_file.write_text(json.dumps(nl_data, ensure_ascii=False, indent=2), "utf-8")
+            self.send_json(200, {"ok": True})
+
         elif p=="/api/members/delete":
             member_id = body.get("id", "")
             members_file = BASE / "members.json"
             data = load(members_file, {"members": [], "total": 0})
+            # Get the email before deleting so we can also remove from newsletter
+            email = next((m.get("email","") for m in data["members"] if m.get("id")==member_id), "")
             data["members"] = [m for m in data["members"] if m.get("id") != member_id]
             data["total"] = len(data["members"])
             save(members_file, data)
+            # Also remove from newsletter if present
+            if email:
+                nl_file = BASE / "newsletter_members.json"
+                nl_data = load(nl_file, {"description":"","members":[]})
+                nl_data["members"] = [m for m in nl_data["members"] if m.get("email","").lower()!=email.lower()]
+                nl_file.write_text(json.dumps(nl_data, ensure_ascii=False, indent=2), "utf-8")
             self.send_json(200, {"ok": True})
 
         else:
