@@ -194,7 +194,9 @@ ISO3_TO_ISO2 = {
 # ─────────────────────────────────────────────────────────────────────────────
 
 TED_URL = "https://api.ted.europa.eu/v3/notices/search"
-TED_FIELDS = ["ND", "TI", "CY", "AU", "DT", "DD", "publication-number"]
+# DT = deadline timestamp (list of ISO-8601), PD = publication date (string),
+# DD is always null in TED v3 — do not request it.
+TED_FIELDS = ["ND", "TI", "CY", "AU", "DT", "PD", "publication-number"]
 
 # Title queries — TED supports both exact (=) and contains (~) operators
 # Key: ~ "fit-out" works even with hyphen because ~ is phrase-contains not keyword
@@ -258,12 +260,28 @@ def pick_eng(field_val):
     return str(field_val) if field_val else ""
 
 def parse_ted_date(raw):
+    """Parse a TED date value to YYYY-MM-DD.
+
+    TED v3 returns:
+      PD (publication date) — string like "2025-04-15+02:00" or "2023-12-06Z"
+      DT (deadline)         — list like ["2025-05-12T16:00:00+01:00"]
+    """
+    if isinstance(raw, list):
+        raw = raw[0] if raw else ""
     s = str(raw or "").strip()
-    if not s: return ""
-    for fmt in ("%Y%m%d", "%Y-%m-%d"):
-        try:
-            return datetime.strptime(s[:10].replace("-",""), "%Y%m%d").strftime("%Y-%m-%d")
-        except: pass
+    if not s:
+        return ""
+    # Take only the date portion (first 10 chars of YYYY-MM-DD)
+    s10 = s[:10]
+    try:
+        return datetime.strptime(s10, "%Y-%m-%d").strftime("%Y-%m-%d")
+    except Exception:
+        pass
+    # Legacy YYYYMMDD format
+    try:
+        return datetime.strptime(s10.replace("-", ""), "%Y%m%d").strftime("%Y-%m-%d")
+    except Exception:
+        pass
     return ""
 
 def _run_ted_query(q, fields, scope=1, limit=50, seen_nd=None, filter_title=True,
@@ -303,8 +321,7 @@ def _run_ted_query(q, fields, scope=1, limit=50, seen_nd=None, filter_title=True
 
         nd = str(n.get("ND") or n.get("publication-number") or "")
 
-        # Filter to recent notices only (TED v3 doesn't expose deadline dates
-        # so we use publication year as a freshness proxy)
+        # Filter to recent notices only — use publication year from ND as proxy
         nd_year = nd.split("-")[-1] if "-" in nd else "0"
         if nd_year.isdigit() and int(nd_year) < 2024:
             continue
@@ -326,8 +343,8 @@ def _run_ted_query(q, fields, scope=1, limit=50, seen_nd=None, filter_title=True
                 elif lang_vals:
                     issuer = str(lang_vals); break
 
-        deadline  = parse_ted_date(n.get("DT"))
-        published = parse_ted_date(n.get("DD"))
+        deadline  = parse_ted_date(n.get("DT"))   # list of ISO timestamps
+        published = parse_ted_date(n.get("PD"))   # publication date string
         d_days    = days_until(deadline)
 
         # For CPV-based results with generic titles, append the CPV work type
