@@ -1249,9 +1249,7 @@ document.querySelectorAll('#nav-tabs .tab').forEach(tab => {
   });
 });
 document.getElementById("filter-country").addEventListener("change", () => applyFilters());
-document.getElementById("pl-search").addEventListener("input", e => {
-  searchQuery = e.target.value; applyFilters();
-});
+{ const _ps=document.getElementById("pl-search"); if(_ps) _ps.addEventListener("input", e => { searchQuery = e.target.value; applyFilters(); }); }
 document.getElementById("load-more-btn").addEventListener("click", () => {
   shownCount += PAGE_SIZE; renderCards();
 });
@@ -1312,7 +1310,7 @@ loadData();
 
 <script>
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') document.getElementById('tip-modal').classList.remove('open');
+  if (e.key === 'Escape') { const _tm=document.getElementById('tip-modal'); if(_tm) _tm.classList.remove('open'); }
 });
 </script>
 <script src="cookie-consent.js"></script>
