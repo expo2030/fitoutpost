@@ -2489,6 +2489,7 @@
       ],
       "description": "One of the most established fit-out contractors in the UAE, operating since 1998. Known for sustainable and wellness-focused workplace fit-out. B Corp certified and a signatory to the UAE Green Building Council. Delivers across office, retail, hospitality, and healthcare sectors from Dubai.",
       "notable_projects": [
+        "Sustainable fit-out projects in UAE",
         "Major corporate office fit-outs, Dubai DIFC",
         "Healthcare and wellness interior projects, UAE",
         "Retail and hospitality fit-outs, Abu Dhabi"
@@ -5407,7 +5408,9 @@
         "infrastructure"
       ],
       "description": "Eiffage Construction is the building division of the Eiffage Group, one of France's leading construction and concession groups, delivering interior fit-out and building projects across France, Belgium, and Francophone Africa.",
-      "notable_projects": [],
+      "notable_projects": [
+        "€397M university hub project"
+      ],
       "employees": "15000+",
       "website": "https://construction.eiffage.fr",
       "contact": {
@@ -8349,6 +8352,7 @@
       ],
       "description": "Nairobi's leading interior design and fit-out firm, providing comprehensive solutions from concept to completion for commercial, retail, and healthcare environments across East Africa. Recognised as Kenya's premier office fit-out contractor.",
       "notable_projects": [
+        "Interior fit-out services and IPO",
         "Corporate office fit-outs Nairobi",
         "International brand interiors Kenya",
         "East Africa commercial projects"
@@ -9276,5 +9280,6 @@
     }
   ],
   "total_companies": 188,
-  "last_updated": "2026-05-07"
+  "last_updated": "2026-05-07",
+  "last_enriched": "2026-05-14T10:53:54.812215+00:00"
 }

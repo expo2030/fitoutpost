@@ -1,0 +1,65 @@
+name: "⑤ Companies — Sunday 10:00 UTC"
+
+on:
+  schedule:
+    - cron: '0 10 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  fetch-companies:
+    name: Enrich company directory & rebuild companies page
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install requests anthropic
+
+      - name: Enrich company directory
+        run: python fetch_companies.py
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PYTHONUNBUFFERED: "1"
+
+      - name: Rebuild companies page
+        run: python build.py --static
+
+      - name: Commit & push
+        run: |
+          git config user.name  "FitOut Post Bot"
+          git config user.email "bot@fitoutpost.com"
+          git add companies.json companies_site.html \
+                  company_candidates.json company_watch_report.md
+          git diff --cached --quiet && echo "No changes" || \
+            git commit -m "chore(companies): weekly enrichment $(date -u '+%Y-%m-%d')"
+          git pull --rebase origin main
+          git push
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
