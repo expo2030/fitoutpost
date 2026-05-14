@@ -45,11 +45,14 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           PYTHONUNBUFFERED: "1"
 
+      - name: Build newsletter archive page
+        run: python build.py --newsletter
+
       - name: Commit newsletter archive
         run: |
           git config user.name  "FitOut Post Bot"
           git config user.email "bot@fitoutpost.com"
-          git add newsletter_latest.html
+          git add newsletter_latest.html newsletter_archive.json newsletter.html
           git diff --cached --quiet && echo "No changes" || \
             git commit -m "chore(newsletter): $(date -u '+%Y-%m-%d') edition"
           git pull --rebase origin main

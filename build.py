@@ -442,6 +442,38 @@ def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.js
     print(f"✅  awards.html — {len(unique)} award signals, {now}, {sz:.0f} KB")
 
 
+# ── Newsletter archive build ──────────────────────────────────────────────────
+NL_TEMPLATE  = BASE / "_newsletter_template.html"
+NL_OUTPUT    = BASE / "newsletter.html"
+NL_DATA_FILE = BASE / "newsletter_archive.json"
+NL_DATA_SLOT = "<!--NEWSLETTER-DATA-SLOT-->"
+NL_SLOT_ID   = "newsletter-data"
+
+
+def build_newsletter(data_path: str = "newsletter_archive.json") -> None:
+    """Build newsletter.html from newsletter_archive.json + _newsletter_template.html."""
+    data_file = BASE / data_path
+
+    if not NL_TEMPLATE.exists():
+        print(f"❌  Template {NL_TEMPLATE.name} not found.")
+        return
+
+    if not data_file.exists():
+        empty = {"last_updated": "", "newsletters": []}
+        data_file.write_text(json.dumps(empty, indent=2), encoding="utf-8")
+
+    data = json.loads(data_file.read_text(encoding="utf-8"))
+    tmpl = NL_TEMPLATE.read_text(encoding="utf-8")
+    n    = len(data.get("newsletters", []))
+
+    built = _embed_json(tmpl, data, NL_DATA_SLOT, NL_SLOT_ID)
+    built = inject_partials(built, "", include_footer=False)
+    NL_OUTPUT.write_text(built, encoding="utf-8")
+    sz  = NL_OUTPUT.stat().st_size / 1024
+    now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
+    print(f"✅  newsletter.html — {n} edition(s), {now}, {sz:.0f} KB")
+
+
 # ── Static pages build ────────────────────────────────────────────────────────
 STATIC_TEMPLATE  = BASE / "_static_template.html"
 STATIC_PAGES_DIR = BASE / "_pages"
@@ -1415,6 +1447,8 @@ if __name__ == "__main__":
     args = sys.argv[1:]
     if "--weekly" in args:
         build_weekly()
+    elif "--newsletter" in args:
+        build_newsletter()
     elif "--intelligence" in args:
         build_intelligence()
     elif "--tenders" in args:
@@ -1430,6 +1464,7 @@ if __name__ == "__main__":
     else:
         build()
         build_weekly()
+        build_newsletter()
         build_intelligence()
         build_tenders()
         build_pipeline()

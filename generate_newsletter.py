@@ -315,6 +315,40 @@ def html_email(week: dict, editorial: str) -> str:
 </html>"""
 
 
+# ── Archive ───────────────────────────────────────────────────────────────────
+
+def save_to_archive(week: dict, editorial: str) -> None:
+    """Append the generated newsletter to newsletter_archive.json (keeps 52 entries)."""
+    path = BASE / "newsletter_archive.json"
+    if path.exists():
+        data = json.loads(path.read_text(encoding="utf-8"))
+    else:
+        data = {"last_updated": "", "newsletters": []}
+
+    entry = {
+        "id":         week.get("id", week["label"].replace(" ", "-")),
+        "week_label": week["label"],
+        "sent_at":    datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "editorial":  editorial,
+        "stats": {
+            "total":    week.get("total", 0),
+            "news":     week.get("news_total", 0),
+            "pipeline": week.get("pipeline_total", 0),
+            "tenders":  week.get("tenders_total", 0),
+            "awards":   week.get("awards_total", 0),
+        },
+    }
+
+    # Replace existing entry for this week_id if present, else prepend
+    entries = [e for e in data.get("newsletters", []) if e.get("id") != entry["id"]]
+    entries.insert(0, entry)
+    data["newsletters"] = entries[:52]
+    data["last_updated"] = entry["sent_at"]
+
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"📁  Archive updated → newsletter_archive.json ({len(data['newsletters'])} entries)")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
@@ -361,6 +395,7 @@ def main():
     if not dry_run:
         print(f"    Week:    {week['label']}")
         print(f"    Signals: {week.get('total',0)}")
+        save_to_archive(week, editorial)
 
 
 if __name__ == "__main__":
