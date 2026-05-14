@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fit-Out Industry Events 2025–2027 — FitOut Post</title>
+  <meta name="description" content="Global calendar of fit-out and interior construction industry events: trade shows, design weeks, conferences and summits — 2025 to 2027." />
+  <!-- SEO -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FitOut Post" />
+  <meta property="og:title" content="Fit-Out Industry Events — FitOut Post" />
+  <meta property="og:description" content="Global calendar of fit-out and interior construction industry events: trade shows, design weeks, conferences and summits." />
+  <meta property="og:url" content="https://fitoutpost.com/events.html" />
+  <meta property="og:image" content="https://fitoutpost.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@fitoutpost" />
+  <meta name="twitter:title" content="Fit-Out Industry Events — FitOut Post" />
+  <meta name="twitter:image" content="https://fitoutpost.com/og-image.png" />
+  <link rel="canonical" href="https://fitoutpost.com/events.html" />
+  <link rel="icon" type="image/svg+xml" href="https://fitoutpost.com/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Data slot — replaced by build.py -->
+  <!--EVENTS-DATA-SLOT-->
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --salmon:      #FFF1E5;
+    --salmon-dk:   #F2DFCE;
+    --salmon-md:   #FAE8D6;
+    --white:       #FFFFFF;
+    --black:       #1a1a1a;
+    --black-mid:   #262626;
+    --claret:      #990033;
+    --claret-lt:   #CC0044;
+    --teal:        #0D7680;
+    --amber:       #E8820C;
+    --warm-gray:   #66605A;
+    --mid-gray:    #9A948E;
+    --card-bg:     #FFFFFF;
+    --card-hover:  #FFF8F3;
+    --body-bg:     #FAF5F0;
+    --border:      #D8C9A8;
+    --border-dk:   #BBA898;
+    --black-soft:  #333333;
+    --serif:  'Playfair Display', 'EB Garamond', Georgia, serif;
+    --sans:   Inter, system-ui, sans-serif;
+    --mono:   'SFMono-Regular', Consolas, monospace;
+  }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body { font-family: var(--sans); background: var(--salmon); color: var(--black); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ── Filters ───────────────────────────────────────────────────────────── */
+  #filters-bar { background: var(--salmon); border-bottom: 1px solid var(--border); padding: 12px 0; position: sticky; top: 110px; z-index: 100; }
+  #filters-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .filter-btn { font-size: 12px; font-weight: 500; padding: 5px 14px; border: 1px solid var(--border-dk); background: #fff; color: var(--black-soft); cursor: pointer; transition: all .15s; }
+  .filter-btn:hover { border-color: var(--claret); color: var(--claret); }
+  .filter-btn.active { background: var(--claret); border-color: var(--claret); color: #fff; }
+  #ev-count { font-size: 11px; color: var(--warm-gray); margin-left: auto; }
+
+  /* ── Events grid ───────────────────────────────────────────────────────── */
+  #events-wrap { max-width: 1320px; margin: 0 auto; padding: 32px 24px; }
+  .year-section { margin-bottom: 8px; }
+  .year-heading { display: flex; align-items: center; gap: 12px; cursor: pointer; padding: 14px 20px; background: var(--black); color: #fff; user-select: none; border-left: 4px solid var(--claret); }
+  .year-heading:hover { background: #2a2a2a; }
+  .year-label { font-family: var(--serif); font-size: 24px; font-weight: 800; font-style: italic; flex: 1; }
+  .year-count { font-size: 12px; color: rgba(255,255,255,.5); }
+  .year-toggle { font-size: 11px; color: rgba(255,255,255,.5); }
+  .year-body { padding-top: 24px; }
+  .month-group { margin-bottom: 40px; }
+  .month-heading { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--black); border-bottom: 2px solid var(--claret); padding-bottom: 8px; margin-bottom: 20px; }
+  .events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1px; background: var(--salmon); border: 1px solid var(--salmon); }
+  .event-card { background: var(--card-bg); border-top: 3px solid var(--claret); padding: 18px 20px; transition: background .18s; }
+  .event-card:hover { background: var(--card-hover); }
+  .event-card.past { opacity: .55; }
+  .event-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .event-date { font-size: 11px; font-weight: 600; color: var(--claret); letter-spacing: .5px; text-transform: uppercase; }
+  .event-badge { font-size: 10px; font-weight: 600; padding: 2px 8px; letter-spacing: .8px; text-transform: uppercase; }
+  .badge-show   { background: #FFF1E5; color: #8B4000; }
+  .badge-conf   { background: #E8F4FD; color: #0C5A8A; }
+  .badge-design { background: #F0EBF8; color: #5A2D8A; }
+  .badge-awards { background: #FEF9E7; color: #7D6608; }
+  .badge-summit { background: #EAFAF1; color: #1B6B3A; }
+  .event-name { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--black); margin-bottom: 4px; line-height: 1.3; }
+  .event-location { font-size: 12px; color: var(--warm-gray); margin-bottom: 8px; }
+  .event-desc { font-size: 13px; color: var(--black-soft); line-height: 1.55; margin-bottom: 12px; }
+  .event-link { font-size: 12px; font-weight: 600; color: var(--claret); letter-spacing: .3px; }
+  .event-link:hover { color: var(--claret-lt); }
+  .event-card.past .event-name { color: var(--warm-gray); }
+
+  /* ── Section header ────────────────────────────────────────────────────── */
+  .sec-header { background: var(--black); color: #fff; padding: 40px 0 32px; border-bottom: 1px solid #333; }
+  .sec-header-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .sec-title { font-family: var(--serif); font-size: 46px; font-weight: 700; line-height: 1.2; color: #fff; margin-bottom: 8px; }
+  .sec-title span { color: var(--claret); }
+  .sec-tagline { font-size: 14px; color: rgba(255,255,255,.55); max-width: 520px; line-height: 1.6; }
+  .sec-updated { font-size: 11px; color: rgba(255,255,255,.3); letter-spacing: .5px; }
+
+  @media (max-width: 768px) { .sec-title { font-size: 34px; } }
+  @media (max-width: 640px) { .events-grid { grid-template-columns: 1fr; } #filters-inner { gap: 8px; } }
+  </style>
+</head>
+<body>
+
+<!--PARTIAL:MASTHEAD-->
+<!--PARTIAL:NAV-->
+
+<!-- ══ Section header ════════════════════════════════════════════════════════ -->
+<div class="sec-header">
+  <div class="sec-header-inner">
+    <div>
+      <div class="sec-title">Events <span>Calendar</span></div>
+      <div class="sec-tagline">Trade shows, design weeks, conferences and summits — updated weekly.</div>
+    </div>
+    <div class="sec-updated" id="ev-updated"></div>
+  </div>
+</div>
+
+<!-- ══ Filter bar ════════════════════════════════════════════════════════════ -->
+<div id="filters-bar">
+  <div id="filters-inner">
+    <button class="filter-btn active" onclick="setFilter('all',this)">All events</button>
+    <button class="filter-btn" onclick="setFilter('show',this)">Trade shows</button>
+    <button class="filter-btn" onclick="setFilter('design',this)">Design weeks</button>
+    <button class="filter-btn" onclick="setFilter('conf',this)">Conferences</button>
+    <button class="filter-btn" onclick="setFilter('summit',this)">Summits</button>
+    <button class="filter-btn" onclick="setFilter('awards',this)">Awards</button>
+    <button class="filter-btn" onclick="setFilter('upcoming',this)">Upcoming only</button>
+    <span id="ev-count"></span>
+  </div>
+</div>
+
+<!-- ══ Events ════════════════════════════════════════════════════════════════ -->
+<main id="events-wrap" role="main"></main>
+
+<!--PARTIAL:FOOTER-->
+
+<script>
+// ── Load data from embedded JSON slot ─────────────────────────────────────
+const _evData = JSON.parse(document.getElementById('events-data')?.textContent || '{"events":[]}');
+const EVENTS  = _evData.events || [];
+const _evUpdated = _evData.last_updated || '';
+if (_evUpdated) {
+  const el = document.getElementById('ev-updated');
+  try { el.textContent = 'Updated ' + new Date(_evUpdated).toLocaleDateString('en-GB', {day:'numeric',month:'long',year:'numeric'}); }
+  catch(e) { el.textContent = _evUpdated; }
+}
+
+// ── Render logic ──────────────────────────────────────────────────────────
+let activeFilter = "all";
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+function setFilter(f, btn) {
+  activeFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderEvents();
+}
+
+function toggleYear(year) {
+  const body   = document.getElementById('body-' + year);
+  const toggle = document.getElementById('toggle-' + year);
+  const open   = body.style.display !== 'none';
+  body.style.display = open ? 'none' : '';
+  toggle.textContent = open ? '▼ show' : '▲ hide';
+}
+
+function groupByYearMonth(evts) {
+  const years = {};
+  evts.forEach(e => {
+    const d     = new Date(e.iso);
+    const year  = d.getFullYear();
+    const mKey  = year + '-' + String(d.getMonth() + 1).padStart(2, '0');
+    const mLabel = d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+    if (!years[year]) years[year] = {};
+    if (!years[year][mKey]) years[year][mKey] = { label: mLabel, events: [] };
+    years[year][mKey].events.push(e);
+  });
+  return Object.entries(years)
+    .sort((a, b) => b[0] - a[0])
+    .map(([year, months]) => ({
+      year,
+      months: Object.entries(months).sort((a, b) => b[0].localeCompare(a[0]))
+    }));
+}
+
+function badgeClass(type) {
+  return ({ show:'badge-show', conf:'badge-conf', design:'badge-design', awards:'badge-awards', summit:'badge-summit' })[type] || 'badge-show';
+}
+function badgeLabel(type) {
+  return ({ show:'Trade show', conf:'Conference', design:'Design week', awards:'Awards', summit:'Summit' })[type] || type;
+}
+
+function renderEvents() {
+  const currentYear = new Date().getFullYear();
+  let filtered = EVENTS.filter(e => {
+    if (activeFilter === 'upcoming') return new Date(e.iso) >= today;
+    if (activeFilter === 'all') return true;
+    return e.type === activeFilter;
+  });
+  filtered.sort((a, b) => b.iso.localeCompare(a.iso));
+
+  document.getElementById('ev-count').textContent = filtered.length + ' event' + (filtered.length !== 1 ? 's' : '');
+
+  const container = document.getElementById('events-wrap');
+  const grouped   = groupByYearMonth(filtered);
+  let html = '';
+
+  grouped.forEach(({ year, months }) => {
+    const collapsed = parseInt(year) < currentYear;
+    const count = months.reduce((s, [, { events }]) => s + events.length, 0);
+    html += `<div class="year-section">`;
+    html += `<div class="year-heading" onclick="toggleYear('${year}')">`;
+    html += `<span class="year-label">${year}</span>`;
+    html += `<span class="year-count">${count} events</span>`;
+    html += `<span class="year-toggle" id="toggle-${year}">${collapsed ? '▼ show' : '▲ hide'}</span>`;
+    html += `</div>`;
+    html += `<div class="year-body" id="body-${year}"${collapsed ? ' style="display:none"' : ''}>`;
+
+    months.forEach(([, { label, events }]) => {
+      html += `<div class="month-group">`;
+      html += `<h2 class="month-heading">${label}</h2>`;
+      html += `<div class="events-grid">`;
+      events.forEach(e => {
+        const isPast = new Date(e.iso) < today;
+        html += `<article class="event-card${isPast ? ' past' : ''}">`;
+        html += `<div class="event-meta">`;
+        html += `<span class="event-date">${e.dates}</span>`;
+        html += `<span class="event-badge ${badgeClass(e.type)}">${badgeLabel(e.type)}</span>`;
+        html += `</div>`;
+        html += `<h3 class="event-name">${e.name}</h3>`;
+        html += `<div class="event-location"><span>📍</span>${e.location}</div>`;
+        html += `<p class="event-desc">${e.desc}</p>`;
+        if (e.url) html += `<a class="event-link" href="${e.url}" target="_blank" rel="noopener">Official website →</a>`;
+        html += `</article>`;
+      });
+      html += `</div></div>`;
+    });
+
+    html += `</div></div>`;
+  });
+
+  if (!html) html = `<p style="color:var(--warm-gray);padding:40px 24px;">No events match this filter.</p>`;
+  container.innerHTML = html;
+}
+
+renderEvents();
+</script>
+</body>
+</html>
