@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-14",
-  "total": 85,
+  "last_updated": "2026-05-15",
+  "total": 94,
   "events": [
     {
       "name": "Orgatec 2026",
@@ -851,6 +851,96 @@
       "region": "Americas",
       "desc": "Awards for Hospitality Experience and Design — Americas. Recognises the best hotel interior design and hospitality fit-out projects across North and South America.",
       "url": "https://www.ahead.global/americas"
+    },
+    {
+      "name": "Hotel Design Encounter (HDE) 2026",
+      "type": "conf",
+      "dates": "26–29 May 2026",
+      "iso": "2026-05-26",
+      "location": "Meliá Villaitana, Costa Blanca, Spain",
+      "region": "Europe",
+      "desc": "Annual B2B networking forum for hotel interior design, in its 16th edition. 60 specifiers with confirmed projects meet 70 suppliers and manufacturers in pre-arranged face-to-face meetings. Sold out every year.",
+      "url": "https://www.hoteldesign.ltd"
+    },
+    {
+      "name": "GBB Hospitality Projects – GCC Edition 2026",
+      "type": "summit",
+      "dates": "8–9 Apr 2026",
+      "iso": "2026-04-08",
+      "location": "InterContinental Dubai Festival City, UAE",
+      "region": "Middle East",
+      "desc": "500+ decision-makers from the KSA & UAE hospitality ecosystem — hotel owners, investors, operators, architects, and interior designers meeting global solution providers and FF&E suppliers.",
+      "url": "https://www.gbbventure.com"
+    },
+    {
+      "name": "GBB Hospitality Projects – Morocco Edition 2026",
+      "type": "summit",
+      "dates": "10–11 Jun 2026",
+      "iso": "2026-06-10",
+      "location": "Four Seasons Hotel Rabat, Morocco",
+      "region": "Africa",
+      "desc": "500+ decision-makers from Morocco's hospitality ecosystem. Hotel owners, developers, operators, architects, and interior designers connect with global solution providers and FF&E suppliers.",
+      "url": "https://hospitalityinnovationsummit.com/morocco/"
+    },
+    {
+      "name": "GBB Real Estate & Interiors – Saudi Arabia in Europe 2026",
+      "type": "summit",
+      "dates": "8–9 Jul 2026",
+      "iso": "2026-07-08",
+      "location": "RAI Amsterdam, Netherlands",
+      "region": "Europe",
+      "desc": "Saudi Arabia's leading project companies fly to Europe to meet international solution providers, architects, and interior designers with active KSA project pipelines. Focused on giga-project interiors and fit-out.",
+      "url": "https://www.gbbventure.com"
+    },
+    {
+      "name": "GBB Real Estate Projects – Africa Edition 2026",
+      "type": "summit",
+      "dates": "14–15 Oct 2026",
+      "iso": "2026-10-14",
+      "location": "Dubai, UAE",
+      "region": "Middle East",
+      "desc": "400+ senior decision-makers from Africa's real estate ecosystem travel to Dubai to meet global solution providers. Covers hospitality, residential, commercial, and mixed-use developments across Africa.",
+      "url": "https://www.gbbventure.com"
+    },
+    {
+      "name": "GBB Real Estate Projects – Saudi Arabia Luxury Edition 2026",
+      "type": "summit",
+      "dates": "11–12 Nov 2026",
+      "iso": "2026-11-11",
+      "location": "Jeddah, Saudi Arabia",
+      "region": "Middle East",
+      "desc": "800+ senior decision-makers from Saudi Arabia's luxury real estate and hospitality sector. Anchored in Vision 2030 giga-developments — the Kingdom's leading platform for interior design and fit-out procurement dialogue.",
+      "url": "https://saudiarabia.redevelopmentsummit.com/"
+    },
+    {
+      "name": "Interior Design & Architecture Summit (IDAS) 2026",
+      "type": "summit",
+      "dates": "22 Jun 2026",
+      "iso": "2026-06-22",
+      "location": "Hilton London Canary Wharf, UK",
+      "region": "Europe",
+      "desc": "Hotel Designs' premium meet-the-buyer event for senior hotel designers, architects, and suppliers. Pre-arranged face-to-face meetings with a networking lunch. One of the UK's leading hospitality interiors B2B forums.",
+      "url": "https://hoteldesigns.net/interior-design-architecture-summit/"
+    },
+    {
+      "name": "Hotel & Resort Design South (HRDS) Miami 2026",
+      "type": "show",
+      "dates": "9–10 Jun 2026",
+      "iso": "2026-06-09",
+      "location": "Miami Beach Convention Center, USA",
+      "region": "Americas",
+      "desc": "Free-to-attend hotel product sourcing platform connecting designers, architects, and the global supply chain with hotel and resort brands from the US South and Latin America markets.",
+      "url": "https://hotelresortdesign-south.com/"
+    },
+    {
+      "name": "Independent Hotel Show Miami 2026",
+      "type": "show",
+      "dates": "16–17 Sep 2026",
+      "iso": "2026-09-16",
+      "location": "Miami, USA",
+      "region": "Americas",
+      "desc": "Dedicated event for luxury, boutique, and independent hotel sector — 200+ product and service providers from across the global hotel supply chain including interior design and FF&E.",
+      "url": "https://www.independenthotelshow.co.uk/miami/"
     }
   ]
 }
