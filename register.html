@@ -1,34 +1,3 @@
-  /* ─── Partner banner ──────────────────────────────────────────────────────── */
-  .partner-banner {
-    display: flex; align-items: flex-start; gap: 20px;
-    border: 1px solid var(--border-dk); background: var(--white);
-    padding: 24px 28px; margin-top: 40px;
-    transition: background .15s, border-color .15s;
-    text-decoration: none; color: inherit;
-  }
-  .partner-banner:hover { background: var(--card-hover); border-color: var(--claret); }
-  .partner-box {
-    width: 52px; height: 52px; background: var(--black);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .partner-box-pre {
-    font-family: var(--serif); font-weight: 800; font-size: 13px;
-    letter-spacing: 0.5px; color: #fff; line-height: 1; text-align: center;
-  }
-  .partner-body { flex: 1; min-width: 0; }
-  .partner-name {
-    font-family: var(--serif); font-weight: 700; font-size: 16px;
-    color: var(--black); line-height: 1.3; margin-bottom: 6px;
-  }
-  .partner-name span { color: var(--claret); display: block; font-size: 13px; font-weight: 600; margin-top: 1px; }
-  .partner-desc {
-    font-size: 12.5px; color: var(--warm-gray); line-height: 1.6; margin-bottom: 10px;
-  }
-  .partner-url {
-    font-size: 11px; font-weight: 700; letter-spacing: .5px; color: var(--claret);
-    text-transform: uppercase;
-  }
-
   <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -517,34 +486,38 @@
     color: var(--warm-gray); margin-bottom: 40px; max-width: 520px;
   }
 
-  /* ─── Partner banner ──────────────────────────────────────────────────────── */
+  /* ─── Partner banner — E30R brand colours ───────────────────────────────── */
+  /* expo2030.co palette: deep navy #0B1C38, gold #C9A843, off-white #F5F0E8  */
   .partner-banner {
     display: flex; align-items: flex-start; gap: 20px;
-    border: 1px solid var(--border-dk); background: var(--white);
+    border: 1px solid #C9A843;
+    background: #0B1C38;
     padding: 24px 28px; margin-top: 40px;
-    transition: background .15s, border-color .15s;
+    transition: background .15s, border-color .15s, box-shadow .15s;
     text-decoration: none; color: inherit;
+    border-left: 4px solid #C9A843;
   }
-  .partner-banner:hover { background: var(--card-hover); border-color: var(--claret); }
+  .partner-banner:hover { background: #0d2244; box-shadow: 0 2px 12px rgba(201,168,67,.25); }
   .partner-box {
-    width: 52px; height: 52px; background: var(--black);
+    width: 52px; height: 52px;
+    background: #C9A843;
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
   .partner-box-pre {
     font-family: var(--serif); font-weight: 800; font-size: 13px;
-    letter-spacing: 0.5px; color: #fff; line-height: 1; text-align: center;
+    letter-spacing: 0.5px; color: #0B1C38; line-height: 1; text-align: center;
   }
   .partner-body { flex: 1; min-width: 0; }
   .partner-name {
     font-family: var(--serif); font-weight: 700; font-size: 16px;
-    color: var(--black); line-height: 1.3; margin-bottom: 6px;
+    color: #F5F0E8; line-height: 1.3; margin-bottom: 6px;
   }
-  .partner-name span { color: var(--claret); display: block; font-size: 13px; font-weight: 600; margin-top: 1px; }
+  .partner-name span { color: #C9A843; display: block; font-size: 13px; font-weight: 600; margin-top: 1px; }
   .partner-desc {
-    font-size: 12.5px; color: var(--warm-gray); line-height: 1.6; margin-bottom: 10px;
+    font-size: 12.5px; color: #9BACCB; line-height: 1.6; margin-bottom: 10px;
   }
   .partner-url {
-    font-size: 11px; font-weight: 700; letter-spacing: .5px; color: var(--claret);
+    font-size: 11px; font-weight: 700; letter-spacing: .5px; color: #C9A843;
     text-transform: uppercase;
   }
 
