@@ -332,6 +332,46 @@
     height: 40px;
     gap: 16px;
   }
+  /* Signal type pills */
+  #signal-bar {
+    background: #f8f5f2;
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+  #signal-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 38px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #signal-inner::-webkit-scrollbar { display: none; }
+  .sig-pill {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--warm-gray);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .15s, color .15s, border-color .15s;
+    user-select: none;
+  }
+  .sig-pill:hover { border-color: #999; color: var(--black); }
+  .sig-pill.active { background: var(--claret); color: #fff; border-color: var(--claret); }
+  .sig-pill[data-signal="contract"].active  { background: #B8860B; border-color: #B8860B; }
+  .sig-pill[data-signal="project"].active   { background: #0D7680; border-color: #0D7680; }
+  .sig-pill[data-signal="market"].active    { background: #1B3A5C; border-color: #1B3A5C; }
+  .sig-pill[data-signal="company"].active   { background: #5B3F8C; border-color: #5B3F8C; }
+  .sig-pill[data-signal="regulation"].active{ background: #8B2500; border-color: #8B2500; }
+  .sig-pill[data-signal="tender"].active    { background: #2E7D32; border-color: #2E7D32; }
   #stats {
     font-size: 12px;
     color: var(--warm-gray);
@@ -438,6 +478,13 @@
     padding: 1px 6px;
     border-radius: 2px;
     flex-shrink: 0;
+  }
+  .card-quality-star {
+    font-size: 10px;
+    color: #B8860B;
+    margin-left: 3px;
+    line-height: 1;
+    vertical-align: middle;
   }
   /* ── Signal type badges ─────────────────────────────────────────────────── */
   .signal-badge {
@@ -997,6 +1044,19 @@
   </div>
 </div>
 
+<!-- ═══════════════════════ SIGNAL PILLS ════════════════════════════════════ -->
+<div id="signal-bar">
+  <div id="signal-inner">
+    <span class="sig-pill active" data-signal="">All signals</span>
+    <span class="sig-pill" data-signal="contract">Contract Win</span>
+    <span class="sig-pill" data-signal="project">Project</span>
+    <span class="sig-pill" data-signal="tender">Tender</span>
+    <span class="sig-pill" data-signal="market">Market Data</span>
+    <span class="sig-pill" data-signal="company">Company News</span>
+    <span class="sig-pill" data-signal="regulation">Regulation</span>
+  </div>
+</div>
+
 <!-- ═══════════════════════ MAIN ══════════════════════════════════════════════ -->
 <main id="main">
 
@@ -1026,6 +1086,7 @@
 let ALL_ARTICLES      = [];
 let currentContinent  = "All";
 let currentCountry    = "";
+let currentSignal     = "";
 let searchQuery       = "";
 
 // ── Country → flag emoji ──────────────────────────────────────────────────────
@@ -1205,6 +1266,11 @@ function cardHtml(a) {
     ? `<span class="card-new-badge">New</span>`
     : "";
 
+  // Quality star for tier-1 sources (quality >= 24)
+  const qualStar = (a.quality && a.quality >= 24)
+    ? `<span class="card-quality-star" title="Tier-1 source">★</span>`
+    : "";
+
   // Signal type badge (hidden for plain 'news')
   const sigBadge = `<span class="signal-badge sig-${sig}" title="Signal type: ${SIGNAL_LABELS[sig]}">${SIGNAL_LABELS[sig]}</span>`;
 
@@ -1222,12 +1288,12 @@ function cardHtml(a) {
   </div>
   <h3 class="card-title">${esc(a.title)}</h3>
   <div class="card-geo">${geoLine}</div>
-  <p class="card-desc">${esc(a.description || "")}</p>
+  <p class="card-desc">${esc(a.description || a.title.substring(0, 150))}</p>
   <div class="card-footer">
     <div class="card-attribution">
       <div class="card-attribution-row">
         <span class="attr-label">Source</span>
-        <span class="attr-source">${esc(a.source)}</span>
+        <span class="attr-source">${esc(a.source)}${qualStar}</span>
         <span class="attr-sep">·</span>
         <span class="attr-date">${published}</span>
       </div>
@@ -1252,6 +1318,7 @@ function render() {
   let filtered = ALL_ARTICLES.filter(a => {
     if (currentContinent !== "All" && a.continent !== currentContinent) return false;
     if (currentCountry && a.country !== currentCountry) return false;
+    if (currentSignal && signalType(a) !== currentSignal) return false;
     if (q) {
       const hay = (a.title + " " + a.description + " " + a.source + " " + a.country).toLowerCase();
       if (!hay.includes(q)) return false;
@@ -1308,6 +1375,15 @@ document.querySelectorAll(".tab").forEach(tab => {
 document.getElementById("country-select").addEventListener("change", e => {
   currentCountry = e.target.value;
   render();
+});
+
+document.querySelectorAll(".sig-pill").forEach(pill => {
+  pill.addEventListener("click", () => {
+    document.querySelectorAll(".sig-pill").forEach(p => p.classList.remove("active"));
+    pill.classList.add("active");
+    currentSignal = pill.dataset.signal;
+    render();
+  });
 });
 
 // ── Dates and footer ──────────────────────────────────────────────────────────

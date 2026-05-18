@@ -1009,8 +1009,6 @@ def build_sitemap() -> None:
     RULES = {
         "index.html":        ("1.0", "daily"),
         "news.html":         ("0.9", "daily"),
-        "home.html":         ("0.9", "daily"),
-        "news.html":         ("0.9", "daily"),
         "tenders.html":      ("0.9", "daily"),
         "pipeline.html":     ("0.9", "daily"),
         "events.html":       ("0.8", "monthly"),
@@ -1028,6 +1026,9 @@ def build_sitemap() -> None:
     }
 
     urls = []
+
+    # RSS feed
+    urls.append((f"{BASE_URL}/feed.xml", today, "daily", "0.9"))
 
     # Root HTML pages (exclude private/build files)
     EXCLUDE = {"credentials.html", "site.html", "companies.html", "timeline.html",

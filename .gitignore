@@ -20,3 +20,8 @@ Thumbs.db
 # Editor
 .vscode/
 *.swp
+
+# Node
+node_modules/
+package.json
+package-lock.json
