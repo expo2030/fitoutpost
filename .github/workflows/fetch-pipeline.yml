@@ -38,17 +38,18 @@ jobs:
         env:
           PYTHONUNBUFFERED: "1"
 
-      - name: Build pipeline, awards & country pages
+      - name: Build pipeline, awards, country & sector pages
         run: |
           python build.py --pipeline
           python build.py --awards
           python build_country_pages.py
+          python build_sector_pages.py
 
       - name: Commit & push
         run: |
           git config user.name  "FitOut Post Bot"
           git config user.email "bot@fitoutpost.com"
-          git add pipeline.json pipeline.html awards.json awards.html countries/
+          git add pipeline.json pipeline.html awards.json awards.html countries/ sectors/
           git diff --cached --quiet && echo "No changes" || \
             git commit -m "chore(pipeline): fetch $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main

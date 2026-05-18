@@ -52,6 +52,8 @@ jobs:
         run: |
           python build.py
           python build.py --awards
+          python build_company_pages.py
+          python build_sector_pages.py
 
       - name: Commit & push
         run: |
@@ -63,7 +65,8 @@ jobs:
                   alphaedge.html betaedge.html gammaedge.html \
                   weekly.json weekly.html companies_site.html timeline.html \
                   intelligence.html intelligence.json \
-                  events.html BUILD_INFO.txt sitemap.xml
+                  events.html BUILD_INFO.txt sitemap.xml \
+                  companies/ sectors/
           git diff --cached --quiet && echo "No changes" || \
             git commit -m "chore(news): daily fetch $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main
