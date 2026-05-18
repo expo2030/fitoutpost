@@ -48,7 +48,7 @@ jobs:
         run: |
           git config user.name  "FitOut Post Bot"
           git config user.email "bot@fitoutpost.com"
-          git add pipeline.json pipeline.html awards.html countries/
+          git add pipeline.json pipeline.html awards.json awards.html countries/
           git diff --cached --quiet && echo "No changes" || \
             git commit -m "chore(pipeline): fetch $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main
