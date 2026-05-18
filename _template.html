@@ -975,6 +975,123 @@
   .sec-title span { color: var(--claret); }
   .sec-tagline { font-size: 14px; color: rgba(255,255,255,.55); max-width: 520px; line-height: 1.6; }
 
+  /* ── Trending keywords bar ───────────────────────────────────────────────── */
+  #trending-bar {
+    background: #f5f0eb;
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+  #trending-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 34px;
+  }
+  #trending-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    white-space: nowrap;
+  }
+  #trending-chips {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  #trending-chips::-webkit-scrollbar { display: none; }
+  .trend-chip {
+    font-family: var(--sans);
+    font-size: 11px;
+    padding: 2px 9px;
+    border-radius: 14px;
+    border: 1px solid var(--border-dk);
+    background: #fff;
+    color: var(--warm-gray);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .13s, color .13s;
+    user-select: none;
+  }
+  .trend-chip:hover { background: var(--black); color: #fff; border-color: var(--black); }
+
+  /* ── Company chips on cards ──────────────────────────────────────────────── */
+  .card-companies { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+  .co-chip {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    padding: 1px 7px;
+    border-radius: 10px;
+    background: rgba(27,58,92,.07);
+    border: 1px solid rgba(27,58,92,.18);
+    color: #1B3A5C;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .13s;
+  }
+  .co-chip:hover { background: rgba(27,58,92,.18); }
+
+  /* ── Load more ───────────────────────────────────────────────────────────── */
+  #load-more-bar {
+    text-align: center;
+    padding: 22px 0;
+    border-top: 1px solid var(--border);
+    background: var(--body-bg);
+  }
+  #load-more-btn {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    padding: 8px 28px;
+    border: 1px solid var(--border-dk);
+    background: var(--card-bg);
+    color: var(--black);
+    cursor: pointer;
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  #load-more-btn:hover { background: var(--claret); color: #fff; border-color: var(--claret); }
+
+  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --salmon:     #1e1a18;
+      --salmon-dk:  #161412;
+      --salmon-md:  #252120;
+      --white:      #242020;
+      --black:      #f0ece8;
+      --black-mid:  #e0dcd8;
+      --warm-gray:  #a09890;
+      --mid-gray:   #7a746e;
+      --card-bg:    #2a2624;
+      --card-hover: #332e2b;
+      --body-bg:    #1e1a18;
+      --border:     #3a3530;
+      --border-dk:  #4d4742;
+    }
+    body { color-scheme: dark; }
+    #signal-bar { background: #1a1816; }
+    .sig-pill { background: #332e2b; border-color: var(--border); }
+    #country-select { background: #2a2624; color: var(--black); border-color: var(--border); }
+    #trending-bar { background: #1a1816; border-color: var(--border); }
+    .trend-chip { background: #2e2a28; border-color: var(--border); }
+    .trend-chip:hover { background: #f0ece8; color: #1a1a1a; border-color: #f0ece8; }
+    .co-chip { background: rgba(27,58,92,.25); border-color: rgba(100,160,220,.25); color: #7ab0d4; }
+    #load-more-btn { background: #2a2624; border-color: var(--border); }
+    #load-more-btn:hover { background: var(--claret); color: #fff; border-color: var(--claret); }
+    .card-link { color: var(--claret-lt); }
+    #nav-bar { background: #1a1816; border-color: var(--border); }
+    #sub-bar { border-color: var(--border); }
+    #signal-bar { border-color: var(--border); }
+    #trending-bar { border-color: var(--border); }
+  }
+
 </style>
   <!-- Google Analytics 4 (G-9ECWT6671C) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ECWT6671C"></script>
@@ -1021,20 +1138,23 @@
 <!-- ═══════════════════════ CONTINENT NAVIGATION ══════════════════════════════ -->
 <nav id="nav-bar" role="navigation" aria-label="Regions">
   <div id="nav-tabs">
-    <div class="tab active" data-continent="All">All regions</div>
-    <div class="tab" data-continent="Europe">Europe</div>
-    <div class="tab" data-continent="Middle East">Middle East</div>
-    <div class="tab" data-continent="Asia Pacific">Asia Pacific</div>
-    <div class="tab" data-continent="Americas">Americas</div>
-    <div class="tab" data-continent="Africa">Africa</div>
-    <div class="tab" data-continent="Oceania">Oceania</div>
+    <div class="tab active" data-continent="All" data-label="All regions">All regions</div>
+    <div class="tab" data-continent="Europe" data-label="Europe">Europe</div>
+    <div class="tab" data-continent="Middle East" data-label="Middle East">Middle East</div>
+    <div class="tab" data-continent="Asia Pacific" data-label="Asia Pacific">Asia Pacific</div>
+    <div class="tab" data-continent="Americas" data-label="Americas">Americas</div>
+    <div class="tab" data-continent="Africa" data-label="Africa">Africa</div>
+    <div class="tab" data-continent="Oceania" data-label="Oceania">Oceania</div>
   </div>
 </nav>
 
 <!-- ═══════════════════════ SUB-BAR ══════════════════════════════════════════ -->
 <div id="sub-bar">
   <div id="sub-inner">
-
+    <div id="stats">
+      <strong id="stats-shown">—</strong> articles across <strong id="stats-countries">—</strong> countries
+      <span id="stats-updated"></span>
+    </div>
     <div id="sub-right">
       <label for="country-select">Filter by country:</label>
       <select id="country-select">
@@ -1047,13 +1167,21 @@
 <!-- ═══════════════════════ SIGNAL PILLS ════════════════════════════════════ -->
 <div id="signal-bar">
   <div id="signal-inner">
-    <span class="sig-pill active" data-signal="">All signals</span>
-    <span class="sig-pill" data-signal="contract">Contract Win</span>
-    <span class="sig-pill" data-signal="project">Project</span>
-    <span class="sig-pill" data-signal="tender">Tender</span>
-    <span class="sig-pill" data-signal="market">Market Data</span>
-    <span class="sig-pill" data-signal="company">Company News</span>
-    <span class="sig-pill" data-signal="regulation">Regulation</span>
+    <span class="sig-pill active" data-signal="" data-label="All signals">All signals</span>
+    <span class="sig-pill" data-signal="contract" data-label="Contract Win">Contract Win</span>
+    <span class="sig-pill" data-signal="project" data-label="Project">Project</span>
+    <span class="sig-pill" data-signal="tender" data-label="Tender">Tender</span>
+    <span class="sig-pill" data-signal="market" data-label="Market Data">Market Data</span>
+    <span class="sig-pill" data-signal="company" data-label="Company News">Company News</span>
+    <span class="sig-pill" data-signal="regulation" data-label="Regulation">Regulation</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ TRENDING BAR ════════════════════════════════════ -->
+<div id="trending-bar" style="display:none">
+  <div id="trending-inner">
+    <span id="trending-label">Trending 48h:</span>
+    <div id="trending-chips"></div>
   </div>
 </div>
 
@@ -1088,6 +1216,8 @@ let currentContinent  = "All";
 let currentCountry    = "";
 let currentSignal     = "";
 let searchQuery       = "";
+const PAGE_SIZE       = 36;
+let visibleCount      = PAGE_SIZE;
 
 // ── Country → flag emoji ──────────────────────────────────────────────────────
 const FLAGS = {
@@ -1278,6 +1408,12 @@ function cardHtml(a) {
   const geoContinent = a.continent || "";
   const geoLine = `${flag(geoCountry)} ${esc(geoCountry)}${geoContinent ? " · " + esc(geoContinent) : ""}`;
 
+  // Company chips
+  const coChips = (a.matched_companies || []).slice(0, 3)
+    .map(c => `<a class="co-chip" href="companies_site.html?search=${encodeURIComponent(c.name)}" onclick="event.stopPropagation()">${esc(c.name)}</a>`)
+    .join("");
+  const coBlock = coChips ? `<div class="card-companies">${coChips}</div>` : "";
+
   return `
 <article class="card cat-${cat}" data-signal="${sig}" onclick="window.open('${esc(a.url)}','_blank','noopener,noreferrer')">
   <div class="card-top-row">
@@ -1289,6 +1425,7 @@ function cardHtml(a) {
   <h3 class="card-title">${esc(a.title)}</h3>
   <div class="card-geo">${geoLine}</div>
   <p class="card-desc">${esc(a.description || a.title.substring(0, 150))}</p>
+  ${coBlock}
   <div class="card-footer">
     <div class="card-attribution">
       <div class="card-attribution-row">
@@ -1315,16 +1452,31 @@ function render() {
   const content = document.getElementById("content");
   const q = searchQuery.trim().toLowerCase();
 
-  let filtered = ALL_ARTICLES.filter(a => {
+  // Pre-signal filter — used for pill counts and stats
+  const preSignal = ALL_ARTICLES.filter(a => {
     if (currentContinent !== "All" && a.continent !== currentContinent) return false;
     if (currentCountry && a.country !== currentCountry) return false;
-    if (currentSignal && signalType(a) !== currentSignal) return false;
     if (q) {
       const hay = (a.title + " " + a.description + " " + a.source + " " + a.country).toLowerCase();
       if (!hay.includes(q)) return false;
     }
     return true;
   });
+
+  // Signal pill counts
+  const sigCounts = {};
+  preSignal.forEach(a => { const s = signalType(a); sigCounts[s] = (sigCounts[s] || 0) + 1; });
+  document.querySelectorAll(".sig-pill").forEach(p => {
+    const sig = p.dataset.signal;
+    const lbl = p.dataset.label || p.textContent;
+    const cnt = sig === "" ? preSignal.length : (sigCounts[sig] || 0);
+    p.textContent = `${lbl} (${cnt})`;
+  });
+
+  // Full filter (including signal)
+  let filtered = currentSignal
+    ? preSignal.filter(a => signalType(a) === currentSignal)
+    : preSignal;
 
   // Stats
   const countries = [...new Set(filtered.map(a => a.country))];
@@ -1357,7 +1509,20 @@ function render() {
     return db - da;
   });
 
-  content.innerHTML = `<div class="articles-grid">${filtered.map(cardHtml).join("")}</div>`;
+  // Paginate
+  const page   = filtered.slice(0, visibleCount);
+  const remain = filtered.length - page.length;
+  let html = `<div class="articles-grid">${page.map(cardHtml).join("")}</div>`;
+  if (remain > 0) {
+    html += `<div id="load-more-bar"><button id="load-more-btn">Load more — ${remain} remaining</button></div>`;
+  }
+  content.innerHTML = html;
+  if (remain > 0) {
+    document.getElementById("load-more-btn").addEventListener("click", () => {
+      visibleCount += PAGE_SIZE;
+      render();
+    });
+  }
 }
 
 // ── Controls ──────────────────────────────────────────────────────────────────
@@ -1367,6 +1532,7 @@ document.querySelectorAll(".tab").forEach(tab => {
     tab.classList.add("active");
     currentContinent = tab.dataset.continent;
     currentCountry   = "";
+    visibleCount     = PAGE_SIZE;
     document.getElementById("country-select").value = "";
     render();
   });
@@ -1374,6 +1540,7 @@ document.querySelectorAll(".tab").forEach(tab => {
 
 document.getElementById("country-select").addEventListener("change", e => {
   currentCountry = e.target.value;
+  visibleCount   = PAGE_SIZE;
   render();
 });
 
@@ -1382,6 +1549,7 @@ document.querySelectorAll(".sig-pill").forEach(pill => {
     document.querySelectorAll(".sig-pill").forEach(p => p.classList.remove("active"));
     pill.classList.add("active");
     currentSignal = pill.dataset.signal;
+    visibleCount  = PAGE_SIZE;
     render();
   });
 });
@@ -1407,6 +1575,58 @@ document.querySelectorAll(".sig-pill").forEach(pill => {
   }
 })();
 
+// ── Trending keywords ─────────────────────────────────────────────────────────
+function updateTrending(articles) {
+  const STOP = new Set([
+    "the","and","for","with","will","new","its","has","are","was","been","from",
+    "that","this","have","not","but","all","our","their","more","than","into",
+    "about","over","after","before","which","when","they","were","also","most",
+    "what","some","other","such","these","those","said","like","only","very",
+    "just","can","one","two","three","get","got","set","per","unit","site","area",
+    "work","works","project","projects","fitout","contract","contracts","design",
+    "sector","industry","market","company","companies","group","space","spaces",
+    "build","built","service","services","interior","interiors","office","retail",
+    "global","local","major","large","small","based","year","first","second",
+    "announces","announced","opens","opening","report","reports"
+  ]);
+  const cutoff = Date.now() - 48 * 3600 * 1000;
+  const counts = {};
+  articles
+    .filter(a => a.published && new Date(a.published).getTime() > cutoff)
+    .forEach(a => {
+      (a.title || "").toLowerCase()
+        .replace(/['']/g, "")
+        .split(/\W+/)
+        .filter(w => w.length >= 5 && !STOP.has(w) && !/^\d+$/.test(w))
+        .forEach(w => { counts[w] = (counts[w] || 0) + 1; });
+    });
+  const top = Object.entries(counts)
+    .filter(([, n]) => n >= 2)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([w]) => w.charAt(0).toUpperCase() + w.slice(1));
+  if (top.length === 0) return;
+  const bar   = document.getElementById("trending-bar");
+  const chips = document.getElementById("trending-chips");
+  if (!bar || !chips) return;
+  chips.innerHTML = top.map(w =>
+    `<span class="trend-chip" data-word="${w.toLowerCase()}">${w}</span>`
+  ).join("");
+  chips.querySelectorAll(".trend-chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      const search = document.getElementById("search-input");
+      if (search) {
+        search.value = chip.dataset.word;
+        searchQuery  = chip.dataset.word;
+        visibleCount = PAGE_SIZE;
+        render();
+        search.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+  });
+  bar.style.display = "";
+}
+
 // ── Load data ─────────────────────────────────────────────────────────────────
 async function loadNews() {
   try {
@@ -1427,13 +1647,38 @@ async function loadNews() {
 
     ALL_ARTICLES = data.articles || [];
 
+    // ── Continent tab counts ──────────────────────────────────────────────────
+    const tabCounts = { All: ALL_ARTICLES.length };
+    ALL_ARTICLES.forEach(a => {
+      const c = a.continent || "Unknown";
+      tabCounts[c] = (tabCounts[c] || 0) + 1;
+    });
+    document.querySelectorAll(".tab").forEach(tab => {
+      const cont = tab.dataset.continent;
+      const lbl  = tab.dataset.label || tab.textContent;
+      const cnt  = tabCounts[cont] || 0;
+      if (cnt > 0 || cont === "All") tab.textContent = `${lbl} (${cnt})`;
+    });
 
-    const upd = data.last_updated
-      ? new Date(data.last_updated).toLocaleDateString("en-GB", {
-          day:"numeric", month:"long", year:"numeric",
-          hour:"2-digit", minute:"2-digit"
-        })
-      : "—";
+    // ── Last updated display ──────────────────────────────────────────────────
+    if (data.last_updated) {
+      const upEl = document.getElementById("stats-updated");
+      if (upEl) {
+        const diffMs  = Date.now() - new Date(data.last_updated).getTime();
+        const diffH   = Math.round(diffMs / 3600000);
+        const diffM   = Math.round(diffMs / 60000);
+        const ago     = diffH >= 24
+          ? Math.floor(diffH / 24) + "d ago"
+          : diffH >= 1
+            ? diffH + "h ago"
+            : diffM + "m ago";
+        upEl.textContent = `· updated ${ago}`;
+        upEl.style.cssText = "margin-left:8px;color:var(--mid-gray);font-size:11px";
+      }
+    }
+
+    // ── Trending keywords ─────────────────────────────────────────────────────
+    updateTrending(ALL_ARTICLES);
     // ── Hero counts ──────────────────────────────────────────────────────────
     const _fmt = n => n >= 1000 ? (n/1000).toFixed(1).replace(/\.0$/,'') + 'k' : String(n);
     if (data.total_articles) {

@@ -164,6 +164,51 @@ def _embed_json(template_text: str, data: dict, slot: str, slot_id: str) -> str:
     return template_text.replace(slot, tag, 1)
 
 
+def _build_company_index() -> list[tuple[str, dict]]:
+    """Load companies.json and return [(lower_name, {name, id}), ...] sorted longest-first."""
+    co_file = BASE / "companies.json"
+    if not co_file.exists():
+        return []
+    try:
+        raw = json.loads(co_file.read_text(encoding="utf-8"))
+        companies = raw.get("companies", raw) if isinstance(raw, dict) else raw
+        index = []
+        for c in companies:
+            name = (c.get("name") or "").strip()
+            if len(name) < 4:
+                continue
+            index.append((name.lower(), {"name": name, "id": c.get("id", "")}))
+        # Longest names first to avoid partial overlaps
+        index.sort(key=lambda x: -len(x[0]))
+        return index
+    except Exception:
+        return []
+
+
+def _match_companies(article: dict, index: list[tuple[str, dict]]) -> list[dict]:
+    """Return up to 3 company matches for an article title+description."""
+    if not index:
+        return []
+    text  = ((article.get("title") or "") + " " + (article.get("description") or "")).lower()
+    found = []
+    seen  = set()
+    for name_lower, info in index:
+        if info["id"] in seen:
+            continue
+        # Require whole-word match for short names, substring for long ones
+        if len(name_lower) <= 6:
+            import re as _re
+            if not _re.search(r'\b' + _re.escape(name_lower) + r'\b', text):
+                continue
+        elif name_lower not in text:
+            continue
+        found.append(info)
+        seen.add(info["id"])
+        if len(found) >= 3:
+            break
+    return found
+
+
 def build(news_path: str = "news.json") -> None:
     """Build index.html + site.html from news.json + _template.html."""
     news_file = BASE / news_path
@@ -178,6 +223,15 @@ def build(news_path: str = "news.json") -> None:
     news     = json.loads(news_file.read_text(encoding="utf-8"))
     template = TEMPLATE.read_text(encoding="utf-8")
     n        = news["total_articles"]
+
+    # Enrich articles with company matches
+    co_index = _build_company_index()
+    if co_index:
+        for art in news.get("articles", []):
+            if "matched_companies" not in art:
+                art["matched_companies"] = _match_companies(art, co_index)
+        # Write enriched news.json back so fetch fallback also has the field
+        news_file.write_text(json.dumps(news, ensure_ascii=False, indent=2), encoding="utf-8")
 
     now        = datetime.now(timezone.utc)
     stamp_iso  = now.strftime("%Y-%m-%dT%H:%M:%SZ")

@@ -13,7 +13,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "2320103dad",
@@ -26,7 +27,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 24
+      "quality": 24,
+      "matched_companies": []
     },
     {
       "id": "83994f78e8",
@@ -39,7 +41,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "379770e935",
@@ -52,7 +55,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "923faab612",
@@ -65,7 +69,8 @@
       "continent": "Americas",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "cd90606bce",
@@ -78,7 +83,8 @@
       "continent": "Americas",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "21f3e471c1",
@@ -91,7 +97,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "0f188b0c2a",
@@ -104,7 +111,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "4de8a061e4",
@@ -117,7 +125,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "a4776e508c",
@@ -130,7 +139,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "1ae5a3e5f9",
@@ -143,7 +153,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Market Data",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "a29ff4dcc7",
@@ -156,7 +167,8 @@
       "continent": "Americas",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "6ff439ad2d",
@@ -169,7 +181,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "db2177d337",
@@ -182,7 +195,8 @@
       "continent": "Americas",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Market Data",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "1520402eb0",
@@ -195,7 +209,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "dedc202079",
@@ -208,7 +223,13 @@
       "continent": "Global",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": [
+        {
+          "name": "Turner & Townsend",
+          "id": "turner-townsend"
+        }
+      ]
     },
     {
       "id": "59535f9eed",
@@ -221,7 +242,13 @@
       "continent": "Global",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Market Data",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": [
+        {
+          "name": "Turner & Townsend",
+          "id": "turner-townsend"
+        }
+      ]
     },
     {
       "id": "1986878b4c",
@@ -234,7 +261,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "29c9098ea9",
@@ -247,7 +275,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "3b765a6df7",
@@ -260,7 +289,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "e53a53c4cc",
@@ -273,7 +303,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Company News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "c2040df4b3",
@@ -286,7 +317,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "3d1db39252",
@@ -299,7 +331,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "5d5f97d2b5",
@@ -312,7 +345,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "f864aecc24",
@@ -325,7 +359,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "d07d68f624",
@@ -338,7 +373,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "ed4e2470af",
@@ -351,7 +387,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "fdb5f45fdd",
@@ -364,7 +401,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "efdfd2524e",
@@ -377,7 +415,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Company News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "bc281f6f97",
@@ -390,7 +429,8 @@
       "continent": "Oceania",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 16
+      "quality": 16,
+      "matched_companies": []
     },
     {
       "id": "8fa30df50b",
@@ -403,7 +443,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "f82443f5d2",
@@ -416,7 +457,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Market Data",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "12719fbe0f",
@@ -429,7 +471,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "e85cf1b9a9",
@@ -442,7 +485,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "f5758c56f6",
@@ -455,7 +499,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Market Data",
-      "quality": 36
+      "quality": 36,
+      "matched_companies": []
     },
     {
       "id": "7a673fd7c4",
@@ -468,7 +513,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 20
+      "quality": 20,
+      "matched_companies": []
     },
     {
       "id": "e0b1525943",
@@ -481,7 +527,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "4c654b097f",
@@ -494,7 +541,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 16
+      "quality": 16,
+      "matched_companies": []
     },
     {
       "id": "f348d85574",
@@ -507,7 +555,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "12d3a233eb",
@@ -520,7 +569,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "c275836937",
@@ -533,7 +583,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "b4a389db68",
@@ -546,7 +597,8 @@
       "continent": "Oceania",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 16
+      "quality": 16,
+      "matched_companies": []
     },
     {
       "id": "cce403cf2e",
@@ -559,7 +611,13 @@
       "continent": "Middle East",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": [
+        {
+          "name": "Summertown Interiors",
+          "id": "summertown-interiors"
+        }
+      ]
     },
     {
       "id": "9c55790652",
@@ -572,7 +630,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "74e858dadc",
@@ -585,7 +644,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "08b855a03a",
@@ -598,7 +658,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:59:55.281704+00:00",
       "signal_type": "Regulation",
-      "quality": 36
+      "quality": 36,
+      "matched_companies": []
     },
     {
       "id": "47c5f252a5",
@@ -611,7 +672,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "20bc70912d",
@@ -624,7 +686,8 @@
       "continent": "Europe",
       "_feed_label": "CompanyTracking",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "2ceb052799",
@@ -637,7 +700,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "ce21f46f6e",
@@ -650,7 +714,8 @@
       "continent": "Europe",
       "_feed_label": "Design&Build",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "18a2dad3ea",
@@ -663,7 +728,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "c9224b1c64",
@@ -676,7 +742,8 @@
       "continent": "Global",
       "_feed_label": "Technical/Procurement",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "f3e8307d5d",
@@ -689,7 +756,8 @@
       "continent": "Europe",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "866442b8a1",
@@ -702,7 +770,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "1e1e7a2e5e",
@@ -715,7 +784,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "300a2eaaaa",
@@ -728,7 +798,8 @@
       "continent": "Europe",
       "_feed_label": "Region-biased",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "6c6ad327cc",
@@ -741,7 +812,8 @@
       "continent": "Global",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "471a1462cb",
@@ -754,7 +826,8 @@
       "continent": "Global",
       "_feed_label": "CompanyTracking",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "d65d0e8608",
@@ -767,7 +840,8 @@
       "continent": "Global",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "296ccee9dc",
@@ -780,7 +854,8 @@
       "continent": "Global",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "0e676df025",
@@ -793,7 +868,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "e17cca2e06",
@@ -806,7 +882,8 @@
       "continent": "Europe",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "7ecc9abb25",
@@ -819,7 +896,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "9e003aef5f",
@@ -832,7 +910,8 @@
       "continent": "Global",
       "_feed_label": "CompanyTracking",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "5c3def078c",
@@ -845,7 +924,8 @@
       "continent": "Global",
       "_feed_label": "Region-biased",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "1839c4946d",
@@ -858,7 +938,8 @@
       "continent": "Europe",
       "_feed_label": "Region-biased",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "f8c466a294",
@@ -871,7 +952,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "f5add355a2",
@@ -884,7 +966,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:59:55.281704+00:00",
       "signal_type": "Industry News",
-      "quality": 20
+      "quality": 20,
+      "matched_companies": []
     },
     {
       "id": "f5393bdb71",
@@ -897,7 +980,8 @@
       "continent": "Global",
       "_feed_label": "Technical/Procurement",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "ade29ad687",
@@ -910,7 +994,8 @@
       "continent": "Global",
       "_feed_label": "CompanyTracking",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "60b77da633",
@@ -923,7 +1008,8 @@
       "continent": "Global",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "c25afbcf98",
@@ -936,7 +1022,8 @@
       "continent": "Asia Pacific",
       "_feed_label": "Design&Build",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "f84926a410",
@@ -949,7 +1036,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "d7c0903234",
@@ -962,7 +1050,8 @@
       "continent": "Europe",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "193749f714",
@@ -975,7 +1064,8 @@
       "continent": "Europe",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 24
+      "quality": 24,
+      "matched_companies": []
     },
     {
       "id": "1e1e862e33",
@@ -988,7 +1078,8 @@
       "continent": "Global",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 18
+      "quality": 18,
+      "matched_companies": []
     },
     {
       "id": "5f0a2ca4b7",
@@ -1001,7 +1092,8 @@
       "continent": "Europe",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "d356db33b0",
@@ -1014,7 +1106,8 @@
       "continent": "Global",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "5635d30673",
@@ -1027,7 +1120,8 @@
       "continent": "Europe",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "c6b1aed061",
@@ -1040,7 +1134,13 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:59:55.281704+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": [
+        {
+          "name": "Gensler",
+          "id": "gensler"
+        }
+      ]
     },
     {
       "id": "522f330251",
@@ -1053,7 +1153,8 @@
       "continent": "Asia Pacific",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "578e109ed7",
@@ -1066,7 +1167,8 @@
       "continent": "Global",
       "_feed_label": "Core",
       "signal_type": "Company News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "0ed7f277c2",
@@ -1079,7 +1181,8 @@
       "continent": "Global",
       "_feed_label": "Technical/Procurement",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "7f39fdef3b",
@@ -1092,7 +1195,8 @@
       "continent": "Global",
       "_feed_label": "Regional/Language",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "a0aa8d1cb1",
@@ -1105,7 +1209,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "4238fa3267",
@@ -1118,7 +1223,8 @@
       "continent": "Global",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 36
+      "quality": 36,
+      "matched_companies": []
     },
     {
       "id": "ddb64bd5a6",
@@ -1131,7 +1237,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T12:56:19.753376+00:00",
       "signal_type": "Industry News",
-      "quality": 36
+      "quality": 36,
+      "matched_companies": []
     },
     {
       "id": "da3af58b93",
@@ -1144,7 +1251,8 @@
       "continent": "Global",
       "_feed_label": "Region-biased",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "6d6db7dc72",
@@ -1157,7 +1265,8 @@
       "continent": "Global",
       "_feed_label": "CompanyTracking",
       "signal_type": "Industry News",
-      "quality": 20
+      "quality": 20,
+      "matched_companies": []
     },
     {
       "id": "14f79589df",
@@ -1170,7 +1279,8 @@
       "continent": "Europe",
       "_feed_label": "Region-biased",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "fd06cece06",
@@ -1183,7 +1293,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "8c0e36cdd4",
@@ -1196,7 +1307,8 @@
       "continent": "Global",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "e1ae075703",
@@ -1209,7 +1321,8 @@
       "continent": "Global",
       "_feed_label": "Technical/Procurement",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "b320f26247",
@@ -1222,7 +1335,8 @@
       "continent": "Global",
       "_feed_label": "Region-biased",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "f71146ad91",
@@ -1235,7 +1349,8 @@
       "continent": "Asia Pacific",
       "_feed_label": "Region-biased",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "11dd044d23",
@@ -1248,7 +1363,8 @@
       "continent": "Global",
       "_feed_label": "Region-biased",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "50ee539334",
@@ -1261,7 +1377,8 @@
       "continent": "Global",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "c0416819f3",
@@ -1274,7 +1391,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-13T07:59:55.281704+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "812afc7473",
@@ -1287,7 +1405,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-13T07:59:55.281704+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "41cfc0f035",
@@ -1300,7 +1419,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "931f56ad30",
@@ -1313,7 +1433,8 @@
       "continent": "Europe",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "a831ee0ddb",
@@ -1326,7 +1447,8 @@
       "continent": "Europe",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "2e387daa07",
@@ -1339,7 +1461,8 @@
       "continent": "Global",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "03c525d465",
@@ -1352,7 +1475,8 @@
       "continent": "Europe",
       "_feed_label": "Region-biased",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "6b89b978f9",
@@ -1365,7 +1489,8 @@
       "continent": "Global",
       "_feed_label": "Core",
       "signal_type": "Market Data",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "b7b53d5c9f",
@@ -1378,7 +1503,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "e1275a1df2",
@@ -1391,7 +1517,8 @@
       "continent": "Americas",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Company News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "f62c24a362",
@@ -1404,7 +1531,8 @@
       "continent": "Asia Pacific",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "50ebbbde40",
@@ -1417,7 +1545,8 @@
       "continent": "Europe",
       "_feed_label": "Region-biased",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "5c9a0b763a",
@@ -1430,7 +1559,8 @@
       "continent": "Global",
       "_feed_label": "Region-biased",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "3609f3070b",
@@ -1443,7 +1573,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Company News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "6b6194319e",
@@ -1456,7 +1587,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "5ef0b44716",
@@ -1469,7 +1601,8 @@
       "continent": "Global",
       "_feed_label": "Core",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "ef7f675f7d",
@@ -1482,7 +1615,8 @@
       "continent": "Middle East",
       "_feed_label": "Core",
       "signal_type": "Company News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "6766009090",
@@ -1495,7 +1629,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-13T07:35:06.346788+00:00",
       "signal_type": "Market Data",
-      "quality": 36
+      "quality": 36,
+      "matched_companies": []
     },
     {
       "id": "f2d2f2d752",
@@ -1508,7 +1643,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-13T07:35:06.346788+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "87a513db69",
@@ -1521,7 +1657,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "7d56a80bfb",
@@ -1534,7 +1671,8 @@
       "continent": "Americas",
       "accessed_at": "2026-04-13T07:35:06.346788+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "f005d7e957",
@@ -1547,7 +1685,8 @@
       "continent": "Global",
       "_feed_label": "CompanyTracking",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "bcd60676eb",
@@ -1560,7 +1699,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "bad759548b",
@@ -1573,7 +1713,8 @@
       "continent": "Europe",
       "_feed_label": "Design&Build",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "1e7d0313e0",
@@ -1586,7 +1727,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "709226e34b",
@@ -1599,7 +1741,8 @@
       "continent": "Global",
       "_feed_label": "Technical/Procurement",
       "signal_type": "Market Data",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "abe4c13b91",
@@ -1612,7 +1755,8 @@
       "continent": "Middle East",
       "accessed_at": "2026-04-13T07:35:06.346788+00:00",
       "signal_type": "Contract Win",
-      "quality": 18
+      "quality": 18,
+      "matched_companies": []
     },
     {
       "id": "1d803aa3c7",
@@ -1625,7 +1769,8 @@
       "continent": "Middle East",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "3ec888ec40",
@@ -1638,7 +1783,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-13T07:35:06.346788+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "8d6627c3a6",
@@ -1651,7 +1797,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-13T07:35:06.346788+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "9f79c52898",
@@ -1664,7 +1811,8 @@
       "continent": "Middle East",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "96cbd76bac",
@@ -1677,7 +1825,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-13T07:59:55.281704+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "9959fc332d",
@@ -1690,7 +1839,8 @@
       "continent": "Global",
       "_feed_label": "CompanyTracking",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "403ddae5b0",
@@ -1703,7 +1853,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Industry News",
-      "quality": 36
+      "quality": 36,
+      "matched_companies": []
     },
     {
       "id": "2ea56d7341",
@@ -1716,7 +1867,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Market Data",
-      "quality": 36
+      "quality": 36,
+      "matched_companies": []
     },
     {
       "id": "81c95ac60f",
@@ -1729,7 +1881,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Industry News",
-      "quality": 36
+      "quality": 36,
+      "matched_companies": []
     },
     {
       "id": "5341986f1c",
@@ -1742,7 +1895,8 @@
       "continent": "Middle East",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "20551452d4",
@@ -1755,7 +1909,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-13T07:59:55.281704+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "f11538be04",
@@ -1768,7 +1923,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "449e79cc6a",
@@ -1781,7 +1937,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "59d644af47",
@@ -1794,7 +1951,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "4937b0c843",
@@ -1807,7 +1965,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "5978800da0",
@@ -1820,7 +1979,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "3e6df7a716",
@@ -1833,7 +1993,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 36
+      "quality": 36,
+      "matched_companies": []
     },
     {
       "id": "3766693555",
@@ -1846,7 +2007,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Market Data",
-      "quality": 36
+      "quality": 36,
+      "matched_companies": []
     },
     {
       "id": "aa93b3da24",
@@ -1859,7 +2021,8 @@
       "continent": "Americas",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "dcf5eed517",
@@ -1872,7 +2035,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Market Data",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "d83978c6d5",
@@ -1885,7 +2049,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "2f11c9d727",
@@ -1898,7 +2063,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Market Data",
-      "quality": 36
+      "quality": 36,
+      "matched_companies": []
     },
     {
       "id": "89f0cd7708",
@@ -1911,7 +2077,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "4d12578b2e",
@@ -1924,7 +2091,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Market Data",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "fb11269428",
@@ -1937,7 +2105,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "96fd4dd5ce",
@@ -1950,7 +2119,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "8f3fc281fe",
@@ -1963,7 +2133,13 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": [
+        {
+          "name": "Gensler",
+          "id": "gensler"
+        }
+      ]
     },
     {
       "id": "8256336232",
@@ -1976,7 +2152,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "2c1dc64993",
@@ -1989,7 +2166,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "af2f5089dd",
@@ -2002,7 +2180,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Contract Win",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "a8dcffa2e1",
@@ -2015,7 +2194,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "a830a7e846",
@@ -2028,7 +2208,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "d4cb847315",
@@ -2041,7 +2222,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "13646cbc92",
@@ -2054,7 +2236,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:59:55.281704+00:00",
       "signal_type": "Regulation",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "9ac6817e4e",
@@ -2067,7 +2250,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "384ca4d661",
@@ -2080,7 +2264,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "8ea54a9b1f",
@@ -2093,7 +2278,8 @@
       "continent": "Middle East",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Industry News",
-      "quality": 36
+      "quality": 36,
+      "matched_companies": []
     },
     {
       "id": "cb90a3de46",
@@ -2106,7 +2292,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "30452f1ccc",
@@ -2119,7 +2306,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "c0a6c8ed97",
@@ -2132,7 +2320,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "36d5f844fe",
@@ -2145,7 +2334,8 @@
       "continent": "Oceania",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "36e8169d5b",
@@ -2158,7 +2348,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "f74844dcb3",
@@ -2171,7 +2362,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "7d034969f7",
@@ -2184,7 +2376,8 @@
       "continent": "Europe",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "a3954cb421",
@@ -2197,7 +2390,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "ba6d525100",
@@ -2210,7 +2404,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "20d6345ab8",
@@ -2223,7 +2418,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 18
+      "quality": 18,
+      "matched_companies": []
     },
     {
       "id": "c1192ef4bd",
@@ -2236,7 +2432,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-06T12:42:13.253232+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "f1334a416f",
@@ -2249,7 +2446,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "5b9a27115c",
@@ -2262,7 +2460,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "5e2666e2f2",
@@ -2275,7 +2474,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "467e51414e",
@@ -2288,7 +2488,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Contract Win",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "4f90101c3a",
@@ -2301,7 +2502,13 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": [
+        {
+          "name": "Turner & Townsend",
+          "id": "turner-townsend"
+        }
+      ]
     },
     {
       "id": "db1063138a",
@@ -2314,7 +2521,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "4d0c6c602f",
@@ -2327,7 +2535,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "eedce9b72c",
@@ -2340,7 +2549,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "5b4e6658ab",
@@ -2353,7 +2563,8 @@
       "continent": "Middle East",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "dcab863267",
@@ -2366,7 +2577,13 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": [
+        {
+          "name": "Overbury",
+          "id": "overbury"
+        }
+      ]
     },
     {
       "id": "787819ce89",
@@ -2379,7 +2596,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "001aefd0d5",
@@ -2392,7 +2610,8 @@
       "continent": "Oceania",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Project Announcement",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "9c20c1b402",
@@ -2405,7 +2624,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "78b30c95ca",
@@ -2418,7 +2638,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "58a32da14e",
@@ -2431,7 +2652,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "113dbaa0c5",
@@ -2444,7 +2666,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "b8c29a7b29",
@@ -2457,7 +2680,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "16200992ad",
@@ -2470,7 +2694,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Market Data",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "3447c1b2e5",
@@ -2483,7 +2708,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "5daaccc3fd",
@@ -2496,7 +2722,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "ebcfd90854",
@@ -2509,7 +2736,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 18
+      "quality": 18,
+      "matched_companies": []
     },
     {
       "id": "68a82fd53b",
@@ -2522,7 +2750,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-05-05T17:48:58.764909+00:00",
       "signal_type": "Market Data",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "e39d4e0c53",
@@ -2535,7 +2764,8 @@
       "continent": "Oceania",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "628aa1e6d4",
@@ -2548,7 +2778,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Project Announcement",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "df9c13e91a",
@@ -2561,7 +2792,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "78d4a773e3",
@@ -2574,7 +2806,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "8b7da01d1c",
@@ -2587,7 +2820,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "e0de710434",
@@ -2600,7 +2834,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "7a13bc9719",
@@ -2613,7 +2848,13 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 24
+      "quality": 24,
+      "matched_companies": [
+        {
+          "name": "Galliford Try",
+          "id": "galliford-try"
+        }
+      ]
     },
     {
       "id": "9425be2f13",
@@ -2626,7 +2867,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Company News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "8d86fd8363",
@@ -2639,7 +2881,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Company News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "dddbd8c608",
@@ -2652,7 +2895,13 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": [
+        {
+          "name": "Lindner Group",
+          "id": "lindner-group"
+        }
+      ]
     },
     {
       "id": "581b1ae833",
@@ -2665,7 +2914,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "43bcfbbffb",
@@ -2678,7 +2928,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "d53b6c00af",
@@ -2691,7 +2942,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "24156ff956",
@@ -2704,7 +2956,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "cbedd9ad1e",
@@ -2717,7 +2970,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-13T07:59:55.281704+00:00",
       "signal_type": "Project Announcement",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "808711684d",
@@ -2730,7 +2984,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Project Announcement",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "c786f6d3c7",
@@ -2743,7 +2998,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "8af844928f",
@@ -2756,7 +3012,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "f789758608",
@@ -2769,7 +3026,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "9d62bb3618",
@@ -2782,7 +3040,8 @@
       "continent": "Middle East",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "56bafa5fc1",
@@ -2795,7 +3054,8 @@
       "continent": "Global",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "c44c7167a4",
@@ -2808,7 +3068,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "1a36a191f0",
@@ -2821,7 +3082,8 @@
       "continent": "Asia Pacific",
       "accessed_at": "2026-05-13T07:52:02.759455+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "9dd14dbae3",
@@ -2834,7 +3096,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "fe6158f77c",
@@ -2847,7 +3110,8 @@
       "continent": "Global",
       "accessed_at": "2026-05-18T06:57:26.087085+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     },
     {
       "id": "74973eb4cf",
@@ -2860,7 +3124,8 @@
       "continent": "Europe",
       "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
-      "quality": 0
+      "quality": 0,
+      "matched_companies": []
     }
   ]
 }
