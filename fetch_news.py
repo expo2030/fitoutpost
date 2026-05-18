@@ -1363,15 +1363,20 @@ def fetch_feed(url: str, seen: set[str], max_retries: int = 3) -> list[dict]:
                 country, continent = resolve_geo(title, desc, geo_url, source_name)
                 seen.add(link)
 
+                clean_desc = _clean_description(title, desc, source_name)
+                if clean_desc and len(clean_desc) > 350:
+                    clean_desc = clean_desc[:350] + "…"
+
                 articles.append({
-                    "id":          hashlib.md5(link.encode()).hexdigest()[:10],
-                    "title":       title,
-                    "url":         link,
-                    "source":      source_name,
-                    "published":   _parse_date(entry),
-                    "description": (desc[:350] + "…") if len(desc) > 350 else desc,
-                    "country":     country,
-                    "continent":   continent,
+                    "id":           hashlib.md5(link.encode()).hexdigest()[:10],
+                    "title":        title,
+                    "url":          link,
+                    "source":       source_name,
+                    "published":    _parse_date(entry),
+                    "description":  clean_desc,
+                    "country":      country,
+                    "continent":    continent,
+                    "signal_type":  classify_signal(title, clean_desc),
                 })
 
             break  # success
@@ -1382,6 +1387,188 @@ def fetch_feed(url: str, seen: set[str], max_retries: int = 3) -> list[dict]:
                 time.sleep(2 ** attempt)   # exponential back-off: 2 s, 4 s
 
     return articles
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+#  Signal type classification
+# ─────────────────────────────────────────────────────────────────────────────
+
+_SIGNAL_RULES: list[tuple[str, list[str]]] = [
+    ("Contract Win", [
+        "awarded contract", "wins contract", "won contract", "win contract",
+        "secures contract", "secured contract", "bags contract", "lands contract",
+        "clinches contract", "appointed contractor", "appoints contractor",
+        "signs contract", "signed contract", "contract win", "fitout contract",
+        "fit-out contract", "appointed to deliver", "appointed to fit",
+        "appointed to refurbish", "contractor appointed", "contractor selected",
+        "main contractor", "selected as contractor", "awarded fit-out",
+        "awarded the contract", "interior contract", "contract awarded",
+    ]),
+    ("Project Announcement", [
+        "breaks ground", "groundbreaking", "construction begins", "construction starts",
+        "work begins", "work starts", "fit-out begins", "fit-out starts",
+        "fitout begins", "opening soon", "set to open", "due to open",
+        "will open", "announced plans", "announces plans", "unveiled",
+        "new hotel", "new office", "new store", "new branch", "new location",
+        "new flagship", "expansion plans", "to be built", "under construction",
+        "planning application", "planning permission", "planning consent",
+        "development approved", "project announced",
+    ]),
+    ("Market Data", [
+        "cost guide", "cost index", "cost report", "market report",
+        "market forecast", "market size", "market growth", "market value",
+        "market data", "benchmark", "survey reveals", "research finds",
+        "study shows", "statistics", "per square", "per sq", "$/m²",
+        "per sqm", "cost per", "billion", "million sqft", "index 2025",
+        "index 2026", "outlook 2025", "outlook 2026", "forecast 2025",
+        "forecast 2026", "trend report", "annual report", "white paper",
+        "industry report", "q1 ", "q2 ", "q3 ", "q4 ",
+    ]),
+    ("Company News", [
+        "appoints", "appointed ceo", "appointed director", "promoted to",
+        "joins as", "named as", "acquires", "acquisition", "merger",
+        "partnership", "joint venture", "strategic alliance", "expands into",
+        "opens office", "new office in", "expands to", "launches in",
+        "rebrands", "rebrand", "new identity", "new brand",
+        "raises funding", "secures funding", "investment round",
+        "ipo", "listed on", "goes public",
+    ]),
+    ("Tender", [
+        "tender", "rfp ", "request for proposal", "request for tender",
+        "procurement", "bidding process", "bid invitation", "pre-qualification",
+        "expression of interest", "eoi ", "competitive tender",
+    ]),
+    ("Regulation", [
+        "regulation", "building code", "building standard", "fire safety",
+        "planning law", "legislation", "compliance requirement",
+        "environmental standard", "green building", "breeam", "leed",
+        "wellbeing standard", "fitwell", "net zero", "embodied carbon",
+    ]),
+]
+
+def classify_signal(title: str, description: str) -> str:
+    """Return the signal type label for an article."""
+    combined = (title + " " + description).lower()
+    for label, keywords in _SIGNAL_RULES:
+        if any(kw in combined for kw in keywords):
+            return label
+    return "Industry News"
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+#  Description scrubber — strip Google News RSS garbage
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _clean_description(title: str, desc: str, source: str) -> str:
+    """Remove RSS boilerplate that's not actually useful content.
+
+    Google News RSS summaries often contain:
+      - The article title repeated verbatim
+      - Just the source name
+      - "Title  Source" with no real body text
+    We detect these patterns and return an empty string so the template
+    can fall back to a clean truncated title instead.
+    """
+    if not desc:
+        return ""
+
+    # Strip excessive whitespace
+    d = re.sub(r"\s+", " ", desc).strip()
+
+    # Pattern 1: description IS the source name (possibly with whitespace)
+    if d.lower() == source.lower():
+        return ""
+
+    # Pattern 2: description is just the title (RSS quirk)
+    title_norm = re.sub(r"\s+", " ", title).strip().lower()
+    if d.lower() == title_norm:
+        return ""
+
+    # Pattern 3: description contains the full title — common in Google News
+    # where the summary is "{title}  {source}" or "{source}  {title}  {source}"
+    # Heuristic: title appears in desc AND desc is < title + 80 chars → garbage
+    if title_norm in d.lower() and len(d) < len(title) + 80:
+        return ""
+
+    # Pattern 4: description starts or ends with the source name exactly
+    src_l = source.lower()
+    d_l = d.lower()
+    if d_l.startswith(src_l):
+        d = d[len(source):].strip(" -–—|·•,")
+    if d_l.endswith(src_l):
+        d = d[:-len(source)].strip(" -–—|·•,")
+
+    # If after all cleaning we have less than 30 chars, it's not useful
+    if len(d.strip()) < 30:
+        return ""
+
+    return d.strip()
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+#  Title-similarity deduplication (within a batch / cross-query)
+# ─────────────────────────────────────────────────────────────────────────────
+
+_DEDUP_STOPWORDS = frozenset({
+    "the","a","an","in","of","for","and","or","to","at","on","with","by",
+    "from","as","is","are","was","its","into","that","this","has","have",
+    "be","do","it","not","can","will","but","up","out","all","new","says",
+    "said","after","over","about","been","more","how","also","than","one",
+})
+
+def _title_fp(title: str) -> frozenset:
+    """Significant-word fingerprint for near-duplicate detection."""
+    words = re.sub(r"[^a-z0-9\s]", "", title.lower()).split()
+    sig = [w for w in words if len(w) > 3 and w not in _DEDUP_STOPWORDS]
+    return frozenset(sig[:10])  # cap at 10 to avoid over-matching short titles
+
+
+def deduplicate_by_title(articles: list[dict]) -> tuple[list[dict], int]:
+    """Collapse near-duplicate articles.
+
+    Two articles are duplicates if:
+    - Their title fingerprints share ≥ 5 significant words, AND
+    - They were published within 72 hours of each other.
+
+    When duplicates are found, keep the article with the longer/better description.
+    Returns (deduplicated_list, dropped_count).
+    """
+    kept: list[dict] = []
+    dropped = 0
+
+    for art in articles:
+        fp = _title_fp(art["title"])
+        if len(fp) < 4:
+            # Too short to fingerprint reliably — always keep
+            kept.append(art)
+            continue
+
+        is_dup = False
+        for existing in kept:
+            existing_fp = _title_fp(existing["title"])
+            overlap = len(fp & existing_fp)
+            if overlap >= 5:
+                # Check time proximity (within 72 hours)
+                try:
+                    t_new = art.get("published", "")
+                    t_old = existing.get("published", "")
+                    if t_new and t_old and abs(
+                        datetime.fromisoformat(t_new.replace("Z", "+00:00")).timestamp() -
+                        datetime.fromisoformat(t_old.replace("Z", "+00:00")).timestamp()
+                    ) < 72 * 3600:
+                        # Duplicate — keep the one with better description
+                        if len(art.get("description", "")) > len(existing.get("description", "")):
+                            kept[kept.index(existing)] = art
+                        is_dup = True
+                        dropped += 1
+                        break
+                except Exception:
+                    pass
+
+        if not is_dup:
+            kept.append(art)
+
+    return kept, dropped
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1443,7 +1630,11 @@ def fetch_all(keep_days: int = 30) -> list[dict]:
     merged = [a for a in merged if a.get("published", "") >= cutoff]
 
     merged.sort(key=lambda x: x["published"], reverse=True)
-    log.info("Total articles after merge + trim: %d", len(merged))
+
+    # Title-similarity deduplication (collapses cross-query duplicate stories)
+    merged, n_dropped = deduplicate_by_title(merged)
+    log.info("Dedup removed %d near-duplicate articles", n_dropped)
+    log.info("Total articles after merge + trim + dedup: %d", len(merged))
     return merged
 
 
