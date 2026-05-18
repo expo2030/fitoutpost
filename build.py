@@ -353,17 +353,36 @@ AWARD_NEGATIVE_KEYWORDS = [
     "best workplace award", "design awards 2", "interior design award",
 ]
 
-def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.json") -> None:
-    """Build awards.html by extracting contract award signals from news + pipeline data."""
-    import re as _re
+AW_DATA_FILE = BASE / "awards.json"
 
+def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.json") -> None:
+    """Build awards.html from awards.json (persistent store) + new signals from news/pipeline.
+
+    awards.json ACCUMULATES over time — awards are never deleted on rebuild.
+    New signals found in news.json / pipeline.json are merged in by URL key.
+    This ensures the page is never empty even if news data is sparse.
+    """
     if not AW_TEMPLATE.exists():
         print(f"❌  Template {AW_TEMPLATE.name} not found.")
         return
 
-    awards = []
+    # ── 1. Load persistent awards store ──────────────────────────────────────
+    if AW_DATA_FILE.exists():
+        store = json.loads(AW_DATA_FILE.read_text(encoding="utf-8"))
+        existing = store.get("awards", [])
+    else:
+        existing = []
 
-    # ── Extract from news.json ────────────────────────────────────────────────
+    # Index existing awards by URL (primary) or id (fallback)
+    seen_keys: set = set()
+    for a in existing:
+        key = a.get("url") or a.get("id")
+        if key:
+            seen_keys.add(key)
+
+    new_candidates = []
+
+    # ── 2. Extract candidates from news.json ──────────────────────────────────
     news_file = BASE / news_path
     if news_file.exists():
         news = json.loads(news_file.read_text(encoding="utf-8"))
@@ -374,7 +393,7 @@ def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.js
             has_award_kw    = any(kw in text for kw in AWARD_KEYWORDS)
             has_neg_kw      = any(kw in text for kw in AWARD_NEGATIVE_KEYWORDS)
             if (is_award_signal or has_award_kw) and not has_neg_kw:
-                awards.append({
+                new_candidates.append({
                     "id":           a.get("id", ""),
                     "headline":     a.get("headline") or a.get("title", ""),
                     "url":          a.get("url", ""),
@@ -389,7 +408,7 @@ def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.js
                     "_source":      "news",
                 })
 
-    # ── Extract from pipeline.json ────────────────────────────────────────────
+    # ── 3. Extract candidates from pipeline.json ──────────────────────────────
     pipeline_file = BASE / pipeline_path
     if pipeline_file.exists():
         pl = json.loads(pipeline_file.read_text(encoding="utf-8"))
@@ -399,7 +418,7 @@ def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.js
             has_award_kw = any(kw in text for kw in AWARD_KEYWORDS)
             has_neg_kw   = any(kw in text for kw in AWARD_NEGATIVE_KEYWORDS)
             if has_award_kw and not has_neg_kw:
-                awards.append({
+                new_candidates.append({
                     "id":           a.get("id", ""),
                     "headline":     a.get("headline") or a.get("title", ""),
                     "url":          a.get("url", ""),
@@ -413,22 +432,31 @@ def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.js
                     "_source":      "pipeline",
                 })
 
-    # Deduplicate by URL
-    seen = set()
-    unique = []
-    for a in awards:
+    # ── 4. Merge new candidates into persistent store ─────────────────────────
+    added = 0
+    for a in new_candidates:
         key = a.get("url") or a.get("id")
-        if key and key not in seen:
-            seen.add(key)
-            unique.append(a)
+        if key and key not in seen_keys:
+            seen_keys.add(key)
+            existing.append(a)
+            added += 1
 
-    # Sort by pub_date descending
-    unique.sort(key=lambda x: x.get("pub_date", ""), reverse=True)
+    # ── 5. Sort by pub_date descending and write back awards.json ─────────────
+    existing.sort(key=lambda x: x.get("pub_date", ""), reverse=True)
 
+    store_out = {
+        "last_updated": datetime.now(timezone.utc).isoformat(),
+        "total": len(existing),
+        "awards": existing,
+    }
+    AW_DATA_FILE.write_text(json.dumps(store_out, indent=2, ensure_ascii=False),
+                            encoding="utf-8")
+
+    # ── 6. Build awards.html from the persistent store ────────────────────────
     data = {
-        "total_awards": len(unique),
+        "total_awards": len(existing),
         "generated": datetime.now(timezone.utc).isoformat(),
-        "awards": unique,
+        "awards": existing,
     }
 
     tmpl  = AW_TEMPLATE.read_text(encoding="utf-8")
@@ -439,7 +467,7 @@ def build_awards(news_path: str = "news.json", pipeline_path: str = "pipeline.js
 
     sz  = AW_OUTPUT.stat().st_size / 1024
     now = datetime.now(timezone.utc).strftime("Built %d %b %Y %H:%M UTC")
-    print(f"✅  awards.html — {len(unique)} award signals, {now}, {sz:.0f} KB")
+    print(f"✅  awards.html — {len(existing)} total awards ({added} new today), {now}, {sz:.0f} KB")
 
 
 # ── Events build ─────────────────────────────────────────────────────────────
