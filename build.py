@@ -237,7 +237,52 @@ def build(news_path: str = "news.json") -> None:
     stamp_iso  = now.strftime("%Y-%m-%dT%H:%M:%SZ")
     stamp_disp = now.strftime("Built %d %b %Y %H:%M UTC")
 
+    # ── ItemList JSON-LD (top 50 articles for Google) ──────────────────────────
+    articles    = news.get("articles", [])
+    top50       = articles[:50]
+    list_items  = ",\n    ".join(
+        f'{{"@type":"ListItem","position":{i+1},"name":{json.dumps(a.get("title",""))},"url":{json.dumps(a.get("url",""))}}}'
+        for i, a in enumerate(top50)
+    )
+    itemlist_ld = (
+        '<script type="application/ld+json">\n'
+        '{\n'
+        '  "@context": "https://schema.org",\n'
+        '  "@type": "ItemList",\n'
+        f'  "name": "Latest Fit-Out Industry News",\n'
+        f'  "url": "https://fitoutpost.com/news.html",\n'
+        f'  "numberOfItems": {len(top50)},\n'
+        '  "itemListElement": [\n'
+        f'    {list_items}\n'
+        '  ]\n'
+        '}\n'
+        '</script>'
+    )
     built = _embed_json(template, news, DATA_SLOT, DATA_SLOT_ID)
+    built = built.replace("<!--ITEMLIST-SLOT-->", itemlist_ld, 1)
+
+    # ── Noscript crawlable article list ────────────────────────────────────────
+    def _esc(s):
+        return str(s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+
+    ns_items = "\n".join(
+        f'<li><a href="{_esc(a.get("url","#"))}">{_esc(a.get("title",""))}</a>'
+        f' — {_esc(a.get("source",""))} · {_esc(a.get("country",""))} · {_esc(a.get("published","")[:10])}</li>'
+        for a in articles[:100]
+    )
+    noscript_html = (
+        "<noscript>\n"
+        '<section style="max-width:1320px;margin:0 auto;padding:32px 24px;font-family:sans-serif;">\n'
+        f'<h2>Latest Fit-Out Industry News — {len(articles)} articles</h2>\n'
+        '<p style="margin:8px 0 16px;color:#666;">Daily fit-out and interior construction news covering contract awards, '
+        'project announcements, tenders and market intelligence worldwide.</p>\n'
+        f'<ul style="list-style:none;padding:0;line-height:1.9;">\n{ns_items}\n</ul>\n'
+        '<p style="margin-top:20px;"><a href="https://fitoutpost.com/news.html">View all fit-out industry news →</a></p>\n'
+        '</section>\n'
+        "</noscript>"
+    )
+    built = built.replace("<!--NOSCRIPT-SLOT-->", noscript_html, 1)
+
     built = built.replace(STAMP_SLOT, stamp_iso, 1)
     built = inject_partials(built, "News", include_footer=False)
     built = _inject_site_updated(built, _compute_site_updated())
@@ -290,11 +335,48 @@ def build_weekly(data_path: str = "weekly.json") -> None:
         empty = {"last_updated": "", "weeks": []}
         data_file.write_text(json.dumps(empty, indent=2), encoding="utf-8")
 
-    data = json.loads(data_file.read_text(encoding="utf-8"))
-    tmpl = WR_TEMPLATE.read_text(encoding="utf-8")
-    n    = len(data.get("weeks", []))
+    data  = json.loads(data_file.read_text(encoding="utf-8"))
+    tmpl  = WR_TEMPLATE.read_text(encoding="utf-8")
+    weeks = data.get("weeks", [])
+    n     = len(weeks)
+
+    # Article JSON-LD for the latest week (helps Google News / Discover)
+    article_ld_tag = ""
+    if weeks:
+        latest = weeks[0]
+        pub_date = latest.get("week_start") or latest.get("generated", "")[:10]
+        mod_date = latest.get("week_end")   or pub_date
+        label    = latest.get("label", "Weekly Fit-Out Industry Roundup")
+        total    = latest.get("total", 0)
+        article_ld = {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": f"{label} — Fit-Out Industry Weekly Roundup",
+            "description": (
+                f"Weekly summary of fit-out and interior construction industry news. "
+                f"{total} signals covering contract awards, project announcements, "
+                "tenders and market intelligence."
+            ),
+            "datePublished": pub_date,
+            "dateModified":  mod_date,
+            "url": "https://fitoutpost.com/weekly.html",
+            "author": {"@type": "Organization", "name": "FitOut Post"},
+            "publisher": {
+                "@type": "NewsMediaOrganization",
+                "name": "FitOut Post",
+                "url":  "https://fitoutpost.com",
+                "logo": {"@type": "ImageObject", "url": "https://fitoutpost.com/og-image.png"},
+            },
+            "isPartOf": {"@type": "Periodical", "name": "FitOut Post Weekly Roundup"},
+        }
+        article_ld_tag = (
+            '<script type="application/ld+json">\n'
+            + json.dumps(article_ld, indent=2, ensure_ascii=False)
+            + "\n</script>"
+        )
 
     built = _embed_json(tmpl, data, WR_DATA_SLOT, WR_SLOT_ID)
+    built = built.replace("<!--ARTICLE-LD-SLOT-->", article_ld_tag, 1)
     built = inject_partials(built, "Roundup", include_footer=False)
     built = _inject_site_updated(built, _compute_site_updated())
     WR_OUTPUT.write_text(built, encoding="utf-8")

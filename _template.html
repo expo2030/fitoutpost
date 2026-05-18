@@ -43,6 +43,32 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsMediaOrganization",
+    "name": "FitOut Post",
+    "url": "https://fitoutpost.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fitoutpost.com/og-image.png",
+      "width": 1200,
+      "height": 630
+    },
+    "description": "Global fit-out and interior construction industry news aggregator covering contract awards, project announcements, tenders and market intelligence across 50+ countries.",
+    "publishingPrinciples": "https://fitoutpost.com/about.html",
+    "masthead": "https://fitoutpost.com/about.html",
+    "sameAs": [
+      "https://fitoutpost.com/feed.xml"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@fitoutpost.com",
+      "contactType": "editorial"
+    }
+  }
+  </script>
+  <!--ITEMLIST-SLOT-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -1188,6 +1214,8 @@
 <!-- ═══════════════════════ MAIN ══════════════════════════════════════════════ -->
 <main id="main">
 
+  <!--NOSCRIPT-SLOT-->
+
   <div id="loading">
     <div class="spinner"></div>
     <p>Loading articles…</p>
@@ -1217,7 +1245,7 @@ let currentCountry    = "";
 let currentSignal     = "";
 let searchQuery       = "";
 const PAGE_SIZE       = 36;
-let visibleCount      = PAGE_SIZE;
+let visibleCount      = 24;
 
 // ── Country → flag emoji ──────────────────────────────────────────────────────
 const FLAGS = {

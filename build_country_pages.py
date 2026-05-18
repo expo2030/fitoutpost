@@ -251,6 +251,17 @@ def build_page(country, news, pipeline, tenders):
   #footer-legal-links a:hover{{color:#9A8A80;}}
   @media(max-width:768px){{#footer-main{{grid-template-columns:1fr;gap:24px;}}#footer-bottom{{flex-direction:column;align-items:flex-start;}}}}
   </style>
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type":"ListItem","position":1,"name":"FitOut Post","item":"https://fitoutpost.com/"}},
+      {{"@type":"ListItem","position":2,"name":"Country Intelligence","item":"https://fitoutpost.com/companies_site.html"}},
+      {{"@type":"ListItem","position":3,"name":"{cn}","item":"https://fitoutpost.com/countries/{cc}.html"}}
+    ]
+  }}
+  </script>
 </head>
 <body>
 <header id="masthead" role="banner">
@@ -309,6 +320,9 @@ def build_page(country, news, pipeline, tenders):
 <div id="main">
   <div class="section-title">📰 Latest News</div>
   <div class="items-grid">{news_html}</div>
+  <p style="font-family:var(--sans);font-size:13px;margin-top:16px;">
+    <a href="../news.html" style="color:var(--claret);border-bottom:1px solid currentColor;padding-bottom:1px;">→ Latest {cn} fit-out news on FitOut Post</a>
+  </p>
 
   <div class="section-title">🏗 Pipeline Projects</div>
   <div class="items-grid">{pipeline_html}</div>
