@@ -102,6 +102,280 @@
 
   @media (max-width: 768px) { .sec-title { font-size: 34px; } }
   @media (max-width: 640px) { .events-grid { grid-template-columns: 1fr; } #filters-inner { gap: 8px; } }
+
+  /* ── Masthead & nav (shared chrome) ─────────────────────────────── */
+  /* ══════════════════════════════════════════════════════════════════════════
+     TIER 2 — MASTHEAD (salmon background, FOP logo + search)
+  ══════════════════════════════════════════════════════════════════════════ */
+  #masthead {
+    background: var(--salmon);
+    border-bottom: 2px solid var(--black);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+  #masthead-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  /* ─── FOP Logo ──────────────────────────────────────────────────────────── */
+  #fop-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+    cursor: default;
+    user-select: none;
+    text-decoration: none;
+  }
+  #fop-logo:hover { color: inherit; }
+  #fop-box {
+    width: 52px;
+    height: 52px;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  #fop-box span {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #fff;
+    line-height: 1;
+  }
+  #fop-wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  #fop-wordmark strong {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.2px;
+    color: var(--black);
+  }
+  #fop-wordmark em {
+    font-style: normal;
+    font-size: 10px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+
+  /* ─── Masthead right ────────────────────────────────────────────────────── */
+  #masthead-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+  .masthead-nav-link {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--black);
+    padding: 6px 14px;
+    border: 1px solid var(--border-dk);
+    transition: background .15s, border-color .15s, color .15s;
+    white-space: nowrap;
+  }
+  .masthead-nav-link:hover {
+    background: var(--black);
+    border-color: var(--black);
+    color: #fff;
+  }
+  .masthead-nav-link.active {
+    background: var(--black);
+    border-color: var(--black);
+    color: #fff;
+  }
+  /* Companies Directory — FT-style red CTA */
+  .masthead-nav-link--cta {
+    background: var(--claret);
+    border-color: var(--claret);
+    color: #fff;
+    font-weight: 600;
+    padding: 6px 18px;
+    letter-spacing: 0.2px;
+  }
+  .masthead-nav-link--cta:hover {
+    background: var(--claret-lt);
+    border-color: var(--claret-lt);
+    color: #fff;
+  }
+  #mh-linkedin { display: flex; align-items: center; opacity: .85; transition: opacity .15s; }
+  #mh-linkedin:hover { opacity: 1; }
+
+
+  
+  /* ─── Contact + Tip links in masthead ──────────────────────────────────── */
+  .mh-util-link {
+    font-size: 11px;
+    color: var(--warm-gray);
+    transition: color .15s;
+    white-space: nowrap;
+  }
+  .mh-util-link:hover { color: var(--black); }
+  .mh-util-sep {
+    width: 1px;
+    height: 14px;
+    background: var(--border-dk);
+    flex-shrink: 0;
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     TIER 3 — PRODUCT NAV (News / AlphaEdge / …)
+  ══════════════════════════════════════════════════════════════════════════ */
+  #product-nav {
+    background: var(--black);
+    position: sticky;
+    top: 72px;
+    z-index: 195;
+  }
+  #product-nav-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 0;
+  }
+  .pnav-link {
+    display: inline-block;
+    padding: 0 20px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,.65);
+    letter-spacing: .3px;
+    border-right: 1px solid rgba(255,255,255,.1);
+    transition: color .15s, background .15s;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .pnav-link:first-child { border-left: 1px solid rgba(255,255,255,.1); }
+  .pnav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
+  .pnav-link.active { color: #fff; background: var(--claret); border-color: var(--claret); }
+  .pnav-link.active + .pnav-link { border-left-color: var(--claret); }
+
+  @media (max-width: 768px) {
+    /* Masthead */
+    #masthead-inner { height: 56px; gap: 8px; padding: 0 12px; }
+    #fop-box { width: 34px; height: 34px; }
+    #fop-box span { font-size: 13px; letter-spacing: 0; }
+    #masthead-right { gap: 8px; }
+    .masthead-nav-link { font-size: 11.5px; padding: 5px 10px; }
+    .masthead-nav-link span { display: none; }
+    #reg-btn { font-size: 11px; padding: 5px 10px !important; white-space: nowrap; }
+
+    /* Utility bar */
+    #utility-bar { display: none; }
+
+    /* Product nav — scrollable strip on mobile */
+    #product-nav {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      top: 56px;          /* matches mobile masthead height */
+    }
+    #product-nav::-webkit-scrollbar { display: none; }
+    #product-nav-inner {
+      padding: 0;
+      width: max-content;
+      min-width: 100%;
+    }
+    .pnav-link { padding: 0 13px; font-size: 11.5px; height: 36px; line-height: 36px; }
+
+    /* Section (continent) nav bar */
+    #nav-bar { top: 92px; } /* 56 masthead + 36 pnav */
+
+    /* Section header hero */
+    .sec-header { padding: 22px 0 18px; }
+    .sec-header-inner { padding: 0 14px; }
+    .sec-title { font-size: 26px !important; }
+    .sec-tagline { font-size: 13px; max-width: 100%; }
+
+    /* Main content area */
+    #main { padding: 16px 12px 48px; }
+
+    /* Articles grid */
+    .articles-grid { grid-template-columns: 1fr !important; }
+
+    /* Footer */
+    #footer { padding: 40px 16px 24px; }
+    #footer-main { grid-template-columns: 1fr !important; gap: 24px; }
+    #footer-legal { display: none; }
+    #summary-strip { grid-template-columns: repeat(2, 1fr) !important; }
+
+    /* Sub-bar / filter controls — stack vertically */
+    .sub-bar {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      padding: 10px 12px;
+    }
+    .sub-select, .sub-input, .sub-search {
+      width: 100%;
+      max-width: none;
+      box-sizing: border-box;
+    }
+
+    /* Data table — horizontal scroll */
+    .data-table-wrap, .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .data-table { min-width: 700px; }
+
+    /* Continent / period tab strips — scrollable */
+    .continent-tabs, .period-pills, .filter-tabs {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      flex-wrap: nowrap !important;
+    }
+    .continent-tabs::-webkit-scrollbar,
+    .period-pills::-webkit-scrollbar,
+    .filter-tabs::-webkit-scrollbar { display: none; }
+
+    /* Awards grid */
+    .awards-grid { grid-template-columns: 1fr !important; }
+
+    /* Tenders layout — collapse sidebar */
+    .tenders-layout { grid-template-columns: 1fr !important; }
+    #tenders-sidebar { display: none; }
+
+    /* Pipeline filter row */
+    .filter-row, .filters-row {
+      flex-direction: column;
+      gap: 8px;
+    }
+    .filter-row select, .filter-row input,
+    .filters-row select, .filters-row input { width: 100%; }
+
+    /* Weekly fax */
+    .fax-transmission { margin: 16px 0; border-radius: 0; }
+    .fax-header { flex-wrap: wrap; gap: 8px; }
+
+    /* Intelligence summary cards */
+    #summary-strip { grid-template-columns: repeat(2, 1fr) !important; }
+
+    /* Search overlay */
+    #search-overlay-box { width: calc(100% - 32px); max-width: none; margin: 0 16px; }
+  }
+
+  /* ── Small phone ≤ 430px ─────────────────────────────────────────────── */
+
   </style>
 </head>
 <body>
