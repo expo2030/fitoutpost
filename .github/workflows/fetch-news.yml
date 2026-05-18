@@ -38,6 +38,16 @@ jobs:
         env:
           PYTHONUNBUFFERED: "1"
 
+      - name: Health check
+        run: |
+          TOTAL=$(python3 -c "import json; d=json.load(open('news.json')); print(d.get('total_articles', 0))")
+          echo "Articles fetched: $TOTAL"
+          if [ "$TOTAL" -lt 30 ]; then
+            echo "❌ Fetch produced only $TOTAL articles — below minimum threshold of 30. Aborting."
+            exit 1
+          fi
+          echo "✅ Health check passed: $TOTAL articles"
+
       - name: Build site
         run: |
           python build.py
@@ -48,11 +58,12 @@ jobs:
           git config user.name  "FitOut Post Bot"
           git config user.email "bot@fitoutpost.com"
           git add news.json news.html site.html \
+                  feed.xml \
                   awards.json awards.html \
                   alphaedge.html betaedge.html gammaedge.html \
                   weekly.json weekly.html companies_site.html timeline.html \
                   intelligence.html intelligence.json \
-                  events.html BUILD_INFO.txt
+                  events.html BUILD_INFO.txt sitemap.xml
           git diff --cached --quiet && echo "No changes" || \
             git commit -m "chore(news): daily fetch $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main

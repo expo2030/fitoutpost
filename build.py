@@ -927,6 +927,79 @@ def build_static_pages() -> None:
     print(f"    Static pages built ({now})")
 
 
+def build_rss_feed(news_path: str = "news.json", output: str = "feed.xml") -> None:
+    """Generate a valid RSS 2.0 feed from the top 50 articles in news.json."""
+    import xml.sax.saxutils as saxutils
+
+    data_file = BASE / news_path
+    if not data_file.exists():
+        print("⚠  feed.xml skipped — news.json not found")
+        return
+
+    data = json.loads(data_file.read_text(encoding="utf-8"))
+    articles = data.get("articles", [])[:50]
+
+    BASE_URL = "https://fitoutpost.com"
+    now_rfc = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
+
+    def rfc_date(iso: str) -> str:
+        try:
+            from email.utils import format_datetime
+            dt = datetime.fromisoformat(iso.replace("Z", "+00:00"))
+            return format_datetime(dt)
+        except Exception:
+            return now_rfc
+
+    def esc(s: str) -> str:
+        return saxutils.escape(str(s) if s else "")
+
+    items = []
+    for a in articles:
+        title   = esc(a.get("title", ""))
+        url     = esc(a.get("url", ""))
+        source  = esc(a.get("source", ""))
+        desc    = esc(a.get("description", "") or a.get("title", ""))
+        pub     = rfc_date(a.get("published", ""))
+        sig     = esc(a.get("signal_type", "Industry News"))
+        country = esc(a.get("country", "") or a.get("continent", ""))
+        guid    = esc(a.get("url", a.get("id", "")))
+        cat_geo = f"<category>{country}</category>" if country and country != "Global" else ""
+        items.append(f"""  <item>
+    <title>{title}</title>
+    <link>{url}</link>
+    <description>{desc}</description>
+    <pubDate>{pub}</pubDate>
+    <source url="{url}">{source}</source>
+    <category>{sig}</category>
+    {cat_geo}
+    <guid isPermaLink="true">{guid}</guid>
+  </item>""")
+
+    rss = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>FitOut Post — Global Fit-Out Industry News</title>
+  <link>{BASE_URL}</link>
+  <description>Daily intelligence on fit-out, interior construction and workplace projects worldwide. Contract wins, project announcements, market data and company news.</description>
+  <language>en</language>
+  <lastBuildDate>{now_rfc}</lastBuildDate>
+  <ttl>360</ttl>
+  <image>
+    <url>{BASE_URL}/og-image.png</url>
+    <title>FitOut Post</title>
+    <link>{BASE_URL}</link>
+  </image>
+  <atom:link href="{BASE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
+{chr(10).join(items)}
+</channel>
+</rss>"""
+
+    out_path = BASE / output
+    out_path.write_text(rss, encoding="utf-8")
+    sz = out_path.stat().st_size / 1024
+    print(f"✅  feed.xml — {len(articles)} items, {sz:.0f} KB")
+
+
 def build_sitemap() -> None:
     """Auto-generate sitemap.xml from all HTML pages in the site root and countries/."""
     BASE_URL = "https://fitoutpost.com"
@@ -1080,4 +1153,5 @@ if __name__ == "__main__":
         build_awards()
         build_companies_site()
         build_static_pages()
+        build_rss_feed()
         build_sitemap()

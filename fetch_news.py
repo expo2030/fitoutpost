@@ -1081,6 +1081,64 @@ def is_relevant(title: str, description: str) -> bool:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+#  Source quality scoring
+# ─────────────────────────────────────────────────────────────────────────────
+# Tier-1 sources get a recency boost so they surface above same-age noise.
+# Scores are added to a virtual "quality hours" offset when sorting.
+# A score of 24 means a tier-1 article sorts as if it were 24 hours more recent.
+
+SOURCE_QUALITY: dict[str, int] = {
+    # Global advisory / research firms
+    "jll":                          36,
+    "cbre":                         36,
+    "cushman & wakefield":          36,
+    "savills":                      36,
+    "knight frank":                 36,
+    "colliers":                     30,
+    "jones lang lasalle":           36,
+    # Industry-specific trade press (high signal)
+    "construction news":            24,
+    "architects' journal":          24,
+    "dezeen":                       20,
+    "architectural record":         20,
+    "interior design":              20,
+    "interiors monthly":            20,
+    "fit out magazine":             24,
+    "mixinteriors":                 20,
+    "workplace insight":            18,
+    "bdcnetwork":                   18,
+    "engineering news-record":      18,
+    "meed":                         24,
+    "construction week":            18,
+    "arabian business":             16,
+    "commercial interior design":   18,
+    "design middle east":           18,
+    "indesign live":                16,
+    "architecture & design":        16,
+    # Mainstream business / financial press
+    "financial times":              30,
+    "bloomberg":                    30,
+    "reuters":                      28,
+    "the guardian":                 20,
+    "the times":                    20,
+    "the telegraph":                18,
+    "wall street journal":          28,
+    "business insider":             16,
+    "forbes":                       16,
+    "connect cre":                  16,
+    "rebusinessonline":             16,
+}
+
+def source_quality_score(source: str) -> int:
+    """Return quality boost in virtual hours for a given source name."""
+    src_l = source.lower()
+    for key, score in SOURCE_QUALITY.items():
+        if key in src_l:
+            return score
+    return 0
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 #  Geo-detection helpers
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -1377,6 +1435,7 @@ def fetch_feed(url: str, seen: set[str], max_retries: int = 3) -> list[dict]:
                     "country":      country,
                     "continent":    continent,
                     "signal_type":  classify_signal(title, clean_desc),
+                    "quality":      source_quality_score(source_name),
                 })
 
             break  # success
@@ -1403,6 +1462,9 @@ _SIGNAL_RULES: list[tuple[str, list[str]]] = [
         "appointed to refurbish", "contractor appointed", "contractor selected",
         "main contractor", "selected as contractor", "awarded fit-out",
         "awarded the contract", "interior contract", "contract awarded",
+        # broader patterns: "[company] wins fit-out", "wins fit out contract"
+        "wins fit", "win fit", "won fit", "secures fit", "secured fit",
+        "bags fit", "lands fit", "awarded fit", "clinches fit",
     ]),
     ("Project Announcement", [
         "breaks ground", "groundbreaking", "construction begins", "construction starts",
@@ -1629,7 +1691,17 @@ def fetch_all(keep_days: int = 30) -> list[dict]:
     cutoff = (datetime.now(timezone.utc) - timedelta(days=keep_days)).isoformat()
     merged = [a for a in merged if a.get("published", "") >= cutoff]
 
-    merged.sort(key=lambda x: x["published"], reverse=True)
+    # Quality-adjusted sort: tier-1 sources surface as if published N hours later
+    from datetime import timedelta
+    def _sort_key(a: dict) -> str:
+        try:
+            pub = datetime.fromisoformat(a["published"].replace("Z", "+00:00"))
+            boost = timedelta(hours=a.get("quality", 0))
+            return (pub + boost).isoformat()
+        except Exception:
+            return a.get("published", "")
+
+    merged.sort(key=_sort_key, reverse=True)
 
     # Title-similarity deduplication (collapses cross-query duplicate stories)
     merged, n_dropped = deduplicate_by_title(merged)
