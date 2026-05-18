@@ -1438,7 +1438,7 @@ function cardHtml(a) {
 
   // Company chips
   const coChips = (a.matched_companies || []).slice(0, 3)
-    .map(c => `<a class="co-chip" href="companies_site.html?search=${encodeURIComponent(c.name)}" onclick="event.stopPropagation()">${esc(c.name)}</a>`)
+    .map(c => `<a class="co-chip" href="companies/${c.id}.html" onclick="event.stopPropagation()">${esc(c.name)}</a>`)
     .join("");
   const coBlock = coChips ? `<div class="card-companies">${coChips}</div>` : "";
 

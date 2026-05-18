@@ -542,6 +542,7 @@
     <a class="pnav-link" href="intelligence.html">Intelligence</a>
     <a class="pnav-link active" href="companies_site.html">Companies</a>
     <a class="pnav-link" href="countries/index.html">Countries</a>
+    <a class="pnav-link" href="sectors/index.html">Sectors</a>
     <a class="pnav-link" href="events.html">Events</a>
   </div>
 </nav>
@@ -724,7 +725,8 @@ function cardHtml(c) {
   </div>
 
   <div class="company-name">
-    ${c.website ? `<a href="${esc(c.website)}" target="_blank" rel="noopener noreferrer">${esc(c.name)}</a>` : esc(c.name)}
+    <a href="companies/${esc(c.id)}.html">${esc(c.name)}</a>
+    ${c.website ? `<a href="${esc(c.website)}" target="_blank" rel="noopener noreferrer" style="font-size:11px;font-family:var(--sans);color:var(--warm-gray);margin-left:8px;">↗</a>` : ""}
   </div>
 
   <div class="company-meta">

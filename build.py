@@ -43,7 +43,7 @@ def _load_partials() -> None:
             _PARTIALS[name] = f"<!-- PARTIAL:{name.upper()} MISSING -->"
 
 _NAV_KEYS = ["Home", "News", "Roundup", "Tenders", "Pipeline",
-             "Awards", "Intelligence", "Companies", "Countries", "Events"]
+             "Awards", "Intelligence", "Companies", "Countries", "Sectors", "Events"]
 
 def inject_partials(html: str, active_nav: str = "", include_footer: bool = True) -> str:
     """Replace <!--PARTIAL:X--> slots with shared masthead, nav, and footer HTML."""
@@ -1180,6 +1180,18 @@ def build_sitemap() -> None:
     if countries_dir.exists():
         for p in sorted(countries_dir.glob("*.html")):
             urls.append((f"{BASE_URL}/countries/{p.name}", today, "weekly", "0.6"))
+
+    # Company profile pages
+    companies_dir = BASE / "companies"
+    if companies_dir.exists():
+        for p in sorted(companies_dir.glob("*.html")):
+            urls.append((f"{BASE_URL}/companies/{p.name}", today, "weekly", "0.7"))
+
+    # Sector pages
+    sectors_dir = BASE / "sectors"
+    if sectors_dir.exists():
+        for p in sorted(sectors_dir.glob("*.html")):
+            urls.append((f"{BASE_URL}/sectors/{p.name}", today, "weekly", "0.7"))
 
     lines = ['<?xml version="1.0" encoding="UTF-8"?>']
     lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')

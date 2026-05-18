@@ -1207,7 +1207,7 @@
 </div>
 
 <!-- Build stamp (injected by build.py — visible before JS loads) -->
-<div id="build-stamp" style="display:none">2026-05-18T09:24:09Z</div>
+<div id="build-stamp" style="display:none">2026-05-18T09:56:59Z</div>
 
 <!-- ═══════════════════════ MASTHEAD ═════════════════════════════════════════ -->
 <header id="masthead" role="banner">
@@ -1248,6 +1248,7 @@
     <a class="pnav-link" href="intelligence.html">Intelligence</a>
     <a class="pnav-link" href="companies_site.html">Companies</a>
     <a class="pnav-link" href="countries/index.html">Countries</a>
+    <a class="pnav-link" href="sectors/index.html">Sectors</a>
     <a class="pnav-link" href="events.html">Events</a>
   </div>
 </nav>
@@ -1647,7 +1648,7 @@ function cardHtml(a) {
 
   // Company chips
   const coChips = (a.matched_companies || []).slice(0, 3)
-    .map(c => `<a class="co-chip" href="companies_site.html?search=${encodeURIComponent(c.name)}" onclick="event.stopPropagation()">${esc(c.name)}</a>`)
+    .map(c => `<a class="co-chip" href="companies/${c.id}.html" onclick="event.stopPropagation()">${esc(c.name)}</a>`)
     .join("");
   const coBlock = coChips ? `<div class="card-companies">${coChips}</div>` : "";
 

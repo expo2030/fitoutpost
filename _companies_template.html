@@ -685,7 +685,8 @@ function cardHtml(c) {
   </div>
 
   <div class="company-name">
-    ${c.website ? `<a href="${esc(c.website)}" target="_blank" rel="noopener noreferrer">${esc(c.name)}</a>` : esc(c.name)}
+    <a href="companies/${esc(c.id)}.html">${esc(c.name)}</a>
+    ${c.website ? `<a href="${esc(c.website)}" target="_blank" rel="noopener noreferrer" style="font-size:11px;font-family:var(--sans);color:var(--warm-gray);margin-left:8px;">↗</a>` : ""}
   </div>
 
   <div class="company-meta">
