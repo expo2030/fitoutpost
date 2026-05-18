@@ -307,11 +307,15 @@ def build_pipeline(data_path: str = "pipeline.json") -> None:
 
     n = data.get("total", len(data.get("projects", [])))
 
-    # ── Embed data directly in HTML so the page works without a server ────────
-    # The template's JS reads from the embedded <script type="application/json">
-    # slot first; the fetch("pipeline.json") runs only if that slot is empty.
-    # Embedding makes the page self-contained for file:// and GitHub Pages.
-    built = _embed_json(tmpl, data, PL_DATA_SLOT, PL_SLOT_ID)
+    # ── Do NOT embed the full 6k-project JSON inline (causes 4.5 MB HTML) ────
+    # The template JS falls back to fetch("pipeline.json") when the inline slot
+    # is empty — which is always the case on GitHub Pages (static file served
+    # alongside pipeline.html). Replacing the slot with an empty script tag
+    # keeps pipeline.html under 350 KB.
+    built = tmpl.replace(
+        PL_DATA_SLOT,
+        f'<script type="application/json" id="{PL_SLOT_ID}"></script>',
+    )
     built = inject_partials(built, "Pipeline", include_footer=False)
     built = _inject_site_updated(built, _compute_site_updated())
     PL_OUTPUT.write_text(built, encoding="utf-8")

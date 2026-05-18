@@ -179,6 +179,92 @@ COUNTRY_ALIASES: dict[str, str] = {
     "Singapore":      "Singapore",
     "Arnstorf":       "Germany",
     "Dusseldorf":     "Germany",
+    # More UK cities
+    "Chelsea":        "United Kingdom",
+    "Canary Wharf":   "United Kingdom",
+    "Mayfair":        "United Kingdom",
+    "Shoreditch":     "United Kingdom",
+    "Westminster":    "United Kingdom",
+    "Southwark":      "United Kingdom",
+    "Hammersmith":    "United Kingdom",
+    # More US cities
+    "Indianapolis":   "United States",
+    "Phoenix":        "United States",
+    "Miami":          "United States",
+    "Seattle":        "United States",
+    "Denver":         "United States",
+    "Nashville":      "United States",
+    "Charlotte":      "United States",
+    "Austin":         "United States",
+    "Minneapolis":    "United States",
+    "San Diego":      "United States",
+    "Portland":       "United States",
+    "Pittsburgh":     "United States",
+    "Columbus":       "United States",
+    # More European cities
+    "Zurich":         "Switzerland",
+    "Zürich":         "Switzerland",
+    "Geneva":         "Switzerland",
+    "Vienna":         "Austria",
+    "Wien":           "Austria",
+    "Warsaw":         "Poland",
+    "Prague":         "Czech Republic",
+    "Budapest":       "Hungary",
+    "Copenhagen":     "Denmark",
+    "Stockholm":      "Sweden",
+    "Oslo":           "Norway",
+    "Helsinki":       "Finland",
+    "Athens":         "Greece",
+    "Rome":           "Italy",
+    "Florence":       "Italy",
+    "Venice":         "Italy",
+    "Antwerp":        "Belgium",
+    "Rotterdam":      "Netherlands",
+    "The Hague":      "Netherlands",
+    # More Asia Pacific cities
+    "Kuala Lumpur":   "Malaysia",
+    "KL":             "Malaysia",
+    "Bangkok":        "Thailand",
+    "Ho Chi Minh":    "Vietnam",
+    "Hanoi":          "Vietnam",
+    "Jakarta":        "Indonesia",
+    "Manila":         "Philippines",
+    "Shanghai":       "China",
+    "Beijing":        "China",
+    "Shenzhen":       "China",
+    "Guangzhou":      "China",
+    "Taipei":         "Taiwan",
+    "Osaka":          "Japan",
+    "Chennai":        "India",
+    "Hyderabad":      "India",
+    "Pune":           "India",
+    "Kolkata":        "India",
+    # More Middle East cities
+    "Sharjah":        "United Arab Emirates",
+    "Ajman":          "United Arab Emirates",
+    "Ras Al Khaimah": "United Arab Emirates",
+    "Bahrain":        "Bahrain",
+    # More Africa cities
+    "Casablanca":     "Morocco",
+    "Marrakech":      "Morocco",
+    "Rabat":          "Morocco",
+    "Cairo":          "Egypt",
+    "Alexandria":     "Egypt",
+    "Accra":          "Ghana",
+    "Dar es Salaam":  "Tanzania",
+    "Addis Ababa":    "Ethiopia",
+    "Tunis":          "Tunisia",
+    # Americas
+    "São Paulo":      "Brazil",
+    "Rio de Janeiro": "Brazil",
+    "Buenos Aires":   "Argentina",
+    "Bogotá":         "Colombia",
+    "Lima":           "Peru",
+    "Santiago":       "Chile",
+    "Mexico City":    "Mexico",
+    "Montreal":       "Canada",
+    "Calgary":        "Canada",
+    "Ottawa":         "Canada",
 }
 
 # Domain TLD suffix → country
@@ -227,6 +313,27 @@ TLD_COUNTRY: dict[str, str] = {
     ".tr":      "Turkey",
     ".il":      "Israel",
     ".hk":      "Hong Kong",
+    ".my":      "Malaysia",
+    ".id":      "Indonesia",
+    ".ph":      "Philippines",
+    ".th":      "Thailand",
+    ".vn":      "Vietnam",
+    ".ro":      "Romania",
+    ".cz":      "Czech Republic",
+    ".hu":      "Hungary",
+    ".sk":      "Slovakia",
+    ".hr":      "Croatia",
+    ".rs":      "Serbia",
+    ".cl":      "Chile",
+    ".ar":      "Argentina",
+    ".pe":      "Peru",
+    ".ma":      "Morocco",
+    ".eg":      "Egypt",
+    ".ng":      "Nigeria",
+    ".tz":      "Tanzania",
+    ".et":      "Ethiopia",
+    ".nz":      "New Zealand",
+    ".in":      "India",
 }
 
 # Build fast lookup: lowercase name → continent
@@ -1014,30 +1121,154 @@ SOURCE_COUNTRY_DEFAULTS: dict[str, str] = {
     "scottish construction now":     "United Kingdom",
     "construction index":            "United Kingdom",
     "fit out magazine":              "United Kingdom",
+    "building better healthcare":    "United Kingdom",
+    "hospital design":               "United Kingdom",
+    "workplace insight":             "United Kingdom",
+    "facilitiesnet":                 "United Kingdom",
+    "furniture news":                "United Kingdom",
+    "mixinteriors":                  "United Kingdom",
+    "mixdesign":                     "United Kingdom",
+    "officelovin":                   "United Kingdom",
+    "officeinteriors":               "United Kingdom",
+    # US publications
     "bdcnetwork":                    "United States",
     "enr":                           "United States",
     "engineering news-record":       "United States",
     "interiors and sources":         "United States",
+    "connect cre":                   "United States",
+    "rebusinessonline":              "United States",
+    "costar":                        "United States",
+    "bisnow":                        "United States",
+    "globest":                       "United States",
+    "commercialsearch":              "United States",
+    "commercial observer":           "United States",
+    "workdesign":                    "United States",
+    "officedesign":                  "United States",
+    # Middle East
     "commercial interior design":    "United Arab Emirates",
     "design middle east":            "United Arab Emirates",
     "construction week online":      "United Arab Emirates",
+    "construction week":             "United Arab Emirates",
     "construction business news middle east": "United Arab Emirates",
     "meed":                          "United Arab Emirates",
+    "arabian business":              "United Arab Emirates",
+    "gulf business":                 "United Arab Emirates",
+    "zawya":                         "United Arab Emirates",
+    "trade arabia":                  "United Arab Emirates",
+    "hospitality net":               "United Arab Emirates",
+    # Australia
     "contractor magazine":           "Australia",
     "architecture & design":         "Australia",
+    "indesign live":                 "Australia",
+    "indesignlive":                  "Australia",
+    "australiandesignreview":        "Australia",
+    "sourceable":                    "Australia",
+    "theurbandeveloper":             "Australia",
+    # India
     "commercial design":             "India",
     "construction world":            "India",
+    "design fabric":                 "India",
+    "acrex":                         "India",
+    # Malaysia / Southeast Asia
+    "klse screener":                 "Malaysia",
+    "the edge":                      "Malaysia",
+    "edge markets":                  "Malaysia",
+    "digital news asia":             "Malaysia",
+    # Singapore
+    "the business times":            "Singapore",
+    "straitstimes":                  "Singapore",
+    "propertyguru":                  "Singapore",
+    # Hong Kong
+    "scmp":                          "Hong Kong",
+    "south china morning post":      "Hong Kong",
+    # Germany
+    "marketscreener schweiz":        "Switzerland",
+    "marktscreener":                 "Germany",
+    "bauzeitung":                    "Germany",
+    "baunetz":                       "Germany",
+    "derwirtschaftsführer":          "Germany",
+    "noticierotextil":               "Spain",
+    "le journal des entreprises":    "France",
+    "batiactu":                      "France",
+    "lemoniteur":                    "France",
+    "batirama":                      "France",
 }
+
+# Continent-level text signals: if these phrases appear in title/desc/source,
+# and we still have no country match, assign the continent directly.
+# Order matters — check more specific first.
+CONTINENT_TEXT_SIGNALS: list[tuple[str, str]] = [
+    ("asia pacific",         "Asia Pacific"),
+    ("asia-pacific",         "Asia Pacific"),
+    ("apac",                 "Asia Pacific"),
+    ("southeast asia",       "Asia Pacific"),
+    ("south-east asia",      "Asia Pacific"),
+    ("cfotech asia",         "Asia Pacific"),
+    ("techasia",             "Asia Pacific"),
+    ("middle east",          "Middle East"),
+    ("mena region",          "Middle East"),
+    ("gulf region",          "Middle East"),
+    ("gcc region",           "Middle East"),
+    ("sub-saharan africa",   "Africa"),
+    ("subsaharan africa",    "Africa"),
+    ("techafric",            "Africa"),
+    ("africa news",          "Africa"),
+    ("latin america",        "Americas"),
+    ("latin-america",        "Americas"),
+    ("south america",        "Americas"),
+    ("north america",        "Americas"),
+    ("central america",      "Americas"),
+    ("nordics",              "Europe"),
+    ("scandinavia",          "Europe"),
+    ("eastern europe",       "Europe"),
+    ("western europe",       "Europe"),
+]
+
+# Non-English geo terms that translate to a country
+FOREIGN_GEO_TERMS: dict[str, str] = {
+    # German
+    "deutschen":     "Germany",
+    "deutschen markt": "Germany",
+    "deutschen":     "Germany",
+    "schweiz":       "Switzerland",
+    "österreich":    "Austria",
+    "niederlande":   "Netherlands",
+    # Spanish
+    "alemán":        "Germany",
+    "alemana":       "Germany",
+    "españa":        "Spain",
+    "reino unido":   "United Kingdom",
+    "emiratos":      "United Arab Emirates",
+    # French
+    "bretonne":      "France",
+    "bretagne":      "France",
+    "française":     "France",
+    "français":      "France",
+    "belge":         "Belgium",
+    # Italian
+    "italiana":      "Italy",
+    "italiano":      "Italy",
+}
+
+
+def detect_country_from_foreign_terms(text: str) -> str | None:
+    text_l = text.lower()
+    for term, country in FOREIGN_GEO_TERMS.items():
+        if term in text_l:
+            return country
+    return None
 
 
 def resolve_geo(title: str, description: str, url: str, source: str) -> tuple[str, str]:
     """Return (country, continent) for an article.
 
     Detection priority:
-    1. Geographic name in title + description + source
+    1. Geographic name in title + description + source (English)
     2. TLD of publisher URL
     3. Known source → country mapping
-    4. Falls back to "Global"
+    4. Non-English geo terms in combined text
+    5. Continent-level text signals (Asia Pacific, Middle East, etc.)
+    6. Falls back to "Global"
     """
     combined = f"{title}  {description}  {source}"
     country = detect_country_from_text(combined) or detect_country_from_url(url)
@@ -1048,9 +1279,16 @@ def resolve_geo(title: str, description: str, url: str, source: str) -> tuple[st
             if key in src_l:
                 country = default_country
                 break
+    if not country:
+        country = detect_country_from_foreign_terms(combined)
     if country:
         continent = COUNTRY_TO_CONTINENT.get(country.lower(), "Global")
         return country, continent
+    # Try continent-level signals before falling back to Global
+    combined_l = combined.lower()
+    for signal, continent in CONTINENT_TEXT_SIGNALS:
+        if signal in combined_l:
+            return "", continent
     return "Global", "Global"
 
 

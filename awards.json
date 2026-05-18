@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-18T06:48:29.925461+00:00",
-  "total": 6,
+  "last_updated": "2026-05-18T07:02:43.324609+00:00",
+  "total": 7,
   "awards": [
     {
       "id": "9bd936c296",
@@ -60,6 +60,20 @@
       "accessed_at": "",
       "country": "United Arab Emirates",
       "continent": "Middle East",
+      "sector": "",
+      "signal_type": "Award",
+      "_source": "news"
+    },
+    {
+      "id": "af2f5089dd",
+      "headline": "Boustead Projects secures Phase 2 fit-out contract exceeding $50 mil from repeat Fortune 500 client - The Edge Singapore",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNN2pXZXBBenBnUmlGZXNES3ktY0JtSzh6aDJDR3hrVGNKLU5pMzNqUHBrY3djVFlDQ1d1eHRTS2FtckJOM3RZOFlyeXExTnVnQmYtZW0ycEd0YTJDcW9SbmhsWVkyS1V0UlRiTXZsUGpYdmVDV2hQN0xaRHBMdEh2VzMybHNJY3BQRE1lbnRyRlVvWXEwR1U5OGQ2MzMySDVoeF83SkQ3cTVtT1g5R1RiOUNjdmVsYWtGdzM5RFFBTTM2aWVlU2V0QjZ3?oc=5",
+      "source": "The Edge Singapore",
+      "pub_date": "2026-03-24T07:00:00+00:00",
+      "date_display": "2026-03-24T07:00:00+00:00",
+      "accessed_at": "2026-05-18T06:57:26.087085+00:00",
+      "country": "Singapore",
+      "continent": "Asia Pacific",
       "sector": "",
       "signal_type": "Award",
       "_source": "news"
