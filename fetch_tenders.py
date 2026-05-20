@@ -17,11 +17,14 @@ Run:
   python fetch_tenders.py
 """
 
-import json, re, hashlib, time, sys, logging
+import json, re, hashlib, time, sys, logging, socket
 import urllib.request, urllib.parse, urllib.error
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 import xml.etree.ElementTree as ET
+
+# Hard cap: any network call that doesn't respond within 10 s is dropped.
+socket.setdefaulttimeout(10)
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s  %(message)s")
 log = logging.getLogger(__name__)

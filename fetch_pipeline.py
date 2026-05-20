@@ -31,12 +31,17 @@ import json
 import logging
 import re
 import time
+import socket
 import urllib.parse
 import urllib.request
 import hashlib
 import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+
+# Hard cap: any network call that doesn't respond within 10 s is dropped.
+socket.setdefaulttimeout(10)
 
 BASE    = Path(__file__).parent
 OUT     = BASE / "pipeline.json"
@@ -705,45 +710,42 @@ def fetch_pipeline():
     total_q = len(PIPELINE_QUERIES)
     log.info(f"📡 Fetching pipeline signals ({total_q} queries)…")
 
-    for i, (query, hint_continent) in enumerate(PIPELINE_QUERIES, 1):
-        if i % 20 == 0:
-            log.info(f"   [{i}/{total_q}] {len(results)} signals so far…")
+    accessed_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
+    def _fetch_one_query(query: str, hint_continent: str) -> list[dict]:
+        """Fetch one Google News RSS query and return candidate items (pre-dedup)."""
         url = (
             "https://news.google.com/rss/search"
             f"?q={urllib.parse.quote(query)}&hl=en&gl=GB&ceid=GB:en"
         )
         raw = get_url(url)
         if not raw:
-            time.sleep(0.3)
-            continue
-
+            return []
         try:
             root = ET.fromstring(raw)
         except Exception:
-            continue
+            return []
 
+        items = []
         for item in root.findall(".//item"):
-            def txt(tag):
-                el = item.find(tag)
+            def txt(tag, _item=item):
+                el = _item.find(tag)
                 return (el.text or "").strip() if el is not None else ""
 
-            title = txt("title")
-            link  = txt("link")
-            desc  = re.sub("<[^>]+>", " ", txt("description"))
-            pub   = parse_date(txt("pubDate"))
+            title       = txt("title")
+            link        = txt("link")
+            desc        = re.sub("<[^>]+>", " ", txt("description"))
+            pub         = parse_date(txt("pubDate"))
             source_name = txt("source")
 
             if not title:
                 continue
 
-            # Strip source suffix from title (Google News appends " - Source Name")
-            clean_title = re.sub(r'\s*[-—]\s*[^-—]+$', '', title).strip() if ' - ' in title or ' — ' in title else title
-
-            # Dedup by clean title
-            slug = re.sub(r'\W+', '', clean_title.lower())[:80]
-            if slug in seen_titles:
-                continue
+            clean_title = (
+                re.sub(r'\s*[-—]\s*[^-—]+$', '', title).strip()
+                if ' - ' in title or ' — ' in title
+                else title
+            )
 
             # Age gate
             if pub and pub < cutoff_date:
@@ -758,19 +760,18 @@ def fetch_pipeline():
             if EXCLUDE_RE.search(clean_title):
                 continue
 
-            seen_titles.add(slug)
-
             country_code = guess_country(clean_title, desc)
             continent    = continent_from_country(country_code) if country_code else (hint_continent or "Other")
             sector       = classify_sector(clean_title, desc)
 
-            results.append({
+            items.append({
                 "id":           make_id(clean_title, link),
+                "_slug":        re.sub(r'\W+', '', clean_title.lower())[:80],
                 "title":        clean_title,
                 "source":       source_name or "News",
                 "source_url":   link,
                 "published":    pub,
-                "accessed_at":  datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "accessed_at":  accessed_at,
                 "country_code": country_code,
                 "country_name": COUNTRY_NAMES.get(country_code, ""),
                 "country_flag": COUNTRY_FLAGS.get(country_code, "🌍"),
@@ -778,8 +779,32 @@ def fetch_pipeline():
                 "sector":       sector,
                 "summary":      desc[:300],
             })
+        return items
 
-        time.sleep(0.35)
+    # ── Parallel fetch ──────────────────────────────────────────────────────────
+    raw_candidates: list[dict] = []
+    with ThreadPoolExecutor(max_workers=20) as executor:
+        futures = {
+            executor.submit(_fetch_one_query, q, h): (q, h)
+            for q, h in PIPELINE_QUERIES
+        }
+        done = 0
+        for future in as_completed(futures):
+            done += 1
+            try:
+                raw_candidates.extend(future.result())
+            except Exception as exc:
+                log.warning("Pipeline worker error: %s", exc)
+            if done % 50 == 0:
+                log.info(f"   [{done}/{total_q}] queries done, {len(raw_candidates)} candidates so far…")
+
+    # ── Dedup by slug (title fingerprint) ──────────────────────────────────────
+    for item in raw_candidates:
+        slug = item.pop("_slug")
+        if slug in seen_titles:
+            continue
+        seen_titles.add(slug)
+        results.append(item)
 
     log.info(f"✅ Total pipeline signals: {len(results)}")
     return results

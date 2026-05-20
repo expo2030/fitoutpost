@@ -28,9 +28,13 @@ import hashlib
 import logging
 import sys
 import html
+import socket
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from urllib.parse import urlparse, quote, urljoin
+
+# Hard cap: any network call that doesn't respond within 10 s is dropped.
+socket.setdefaulttimeout(10)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(levelname)-8s %(message)s")
 log = logging.getLogger("fitpost.intel")
