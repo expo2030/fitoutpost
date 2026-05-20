@@ -27,6 +27,8 @@ import re
 import time
 import hashlib
 import logging
+import socket
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse, quote
@@ -34,6 +36,10 @@ from urllib.parse import urlparse, quote
 import feedparser
 import requests
 from bs4 import BeautifulSoup
+
+# Hard cap: any RSS connection that doesn't respond within 10 s is dropped.
+# Prevents a single hanging feed from blocking the entire run.
+socket.setdefaulttimeout(10)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(levelname)-8s %(message)s")
 log = logging.getLogger("fitoutpost")
@@ -1381,7 +1387,7 @@ def _entry_source(entry, feed_title: str) -> tuple[str, str]:
     return name, href
 
 
-def fetch_feed(url: str, seen: set[str], max_retries: int = 3) -> list[dict]:
+def fetch_feed(url: str, seen: set[str], max_retries: int = 1) -> list[dict]:
     articles = []
     # Trusted industry RSS domains bypass the MUST_HAVE relevance filter
     domain = urlparse(url).netloc.lower().removeprefix("www.")
@@ -1664,21 +1670,40 @@ def fetch_all(keep_days: int = 30) -> list[dict]:
     new_articles: list[dict] = []
     accessed_at = datetime.now(timezone.utc).isoformat()
 
-    for i, feed_url in enumerate(RSS_FEEDS, 1):
-        batch = fetch_feed(feed_url, seen)
-        for a in batch:
-            a["accessed_at"] = accessed_at
-        new_articles.extend(batch)
-        time.sleep(0.25)  # stay below Google News rate limit
-        # Partial save every 50 feeds so a timeout doesn't lose everything
-        if i % 50 == 0:
-            partial = new_articles + prior
-            from datetime import timedelta
-            cutoff = (datetime.now(timezone.utc) - timedelta(days=keep_days)).isoformat()
-            partial = [a for a in partial if a.get("published", "") >= cutoff]
-            partial.sort(key=lambda x: x["published"], reverse=True)
-            save(partial)
-            log.info("Partial save at feed %d/%d — %d articles so far", i, len(RSS_FEEDS), len(partial))
+    # Parallel fetch: 20 workers.  Each worker gets a snapshot of 'seen' so
+    # intra-run URL dedup happens inside fetch_feed; final URL dedup runs below.
+    seen_snapshot = frozenset(seen)
+
+    def _fetch_one(feed_url: str) -> list[dict]:
+        local_seen = set(seen_snapshot)
+        return fetch_feed(feed_url, local_seen)
+
+    log.info("Fetching %d feeds with 20 parallel workers…", len(RSS_FEEDS))
+    with ThreadPoolExecutor(max_workers=20) as executor:
+        futures = {executor.submit(_fetch_one, url): url for url in RSS_FEEDS}
+        done = 0
+        for future in as_completed(futures):
+            done += 1
+            try:
+                batch = future.result()
+                for a in batch:
+                    a["accessed_at"] = accessed_at
+                new_articles.extend(batch)
+            except Exception as exc:
+                log.warning("Feed worker error: %s", exc)
+            if done % 50 == 0:
+                log.info("Progress: %d/%d feeds done, %d articles so far",
+                         done, len(RSS_FEEDS), len(new_articles))
+
+    # URL-level dedup: drop any article whose URL was already in prior runs
+    seen_urls: set[str] = set(seen_snapshot)
+    deduped: list[dict] = []
+    for a in new_articles:
+        u = a.get("url", "")
+        if u and u not in seen_urls:
+            seen_urls.add(u)
+            deduped.append(a)
+    new_articles = deduped
 
     log.info("New articles this run: %d", len(new_articles))
 
