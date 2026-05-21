@@ -7,18 +7,12 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
 
 jobs:
   fetch-tenders:
     name: Fetch tenders & rebuild tenders page
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v4
@@ -35,6 +29,7 @@ jobs:
 
       - name: Fetch tenders
         run: python fetch_tenders.py
+        timeout-minutes: 15
         env:
           PYTHONUNBUFFERED: "1"
           TED_API_KEY: ${{ secrets.TED_API_KEY }}
@@ -51,14 +46,3 @@ jobs:
             git commit -m "chore(tenders): fetch $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main
           git push
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4

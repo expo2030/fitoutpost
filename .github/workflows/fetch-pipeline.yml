@@ -7,18 +7,12 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
 
 jobs:
   fetch-pipeline:
     name: Fetch pipeline signals & rebuild pipeline/awards/countries
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v4
@@ -35,6 +29,7 @@ jobs:
 
       - name: Fetch pipeline
         run: python fetch_pipeline.py
+        timeout-minutes: 15
         env:
           PYTHONUNBUFFERED: "1"
 
@@ -54,14 +49,3 @@ jobs:
             git commit -m "chore(pipeline): fetch $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main
           git push
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
