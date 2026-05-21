@@ -43,25 +43,20 @@ jobs:
           fi
           echo "✅ Health check passed: $TOTAL articles"
 
-      - name: Build site
-        run: |
-          python build.py
-          python build.py --awards
-          python build_company_pages.py
-          python build_sector_pages.py
+      - name: Build news pages
+        # Only rebuild pages news owns — do NOT rebuild sectors/companies/awards
+        # (those are pipeline's responsibility and cause rebase conflicts if touched here)
+        run: python build.py
 
       - name: Commit & push
         run: |
           git config user.name  "FitOut Post Bot"
           git config user.email "bot@fitoutpost.com"
+          # Stage ONLY files news owns — never touch pipeline/tenders/intelligence outputs
           git add news.json news.html site.html \
-                  feed.xml \
-                  awards.json awards.html \
+                  feed.xml BUILD_INFO.txt sitemap.xml \
                   alphaedge.html betaedge.html gammaedge.html \
-                  weekly.json weekly.html companies_site.html timeline.html \
-                  intelligence.html intelligence.json \
-                  events.html BUILD_INFO.txt sitemap.xml \
-                  companies/ sectors/
+                  companies_site.html timeline.html
           git diff --cached --quiet && echo "No changes" || \
             git commit -m "chore(news): daily fetch $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main
