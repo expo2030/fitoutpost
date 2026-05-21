@@ -1,9 +1,7 @@
 name: "① News — Daily 06:00 UTC"
 
 on:
-  schedule:
-    - cron: '0 6 * * *'
-  workflow_dispatch:
+  workflow_dispatch:   # manual trigger only — schedule replaced by daily.yml
 
 permissions:
   contents: write

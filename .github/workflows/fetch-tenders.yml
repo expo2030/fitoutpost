@@ -1,9 +1,7 @@
 name: "② Tenders — Tue/Thu/Sat 12:00 UTC"
 
 on:
-  schedule:
-    - cron: '0 12 * * 2,4,6'
-  workflow_dispatch:
+  workflow_dispatch:   # manual trigger only — schedule replaced by daily.yml
 
 permissions:
   contents: write

@@ -1,9 +1,7 @@
 name: "⑤ Weekly Roundup — Monday 08:00 UTC"
 
 on:
-  schedule:
-    - cron: '0 8 * * 1'    # Every Monday at 08:00 UTC (≈ 10:00 Madrid summer time)
-  workflow_dispatch:        # Allow manual trigger
+  workflow_dispatch:   # manual trigger only — schedule replaced by daily.yml
 
 permissions:
   contents: write

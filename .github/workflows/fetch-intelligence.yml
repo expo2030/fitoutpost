@@ -1,9 +1,7 @@
 name: "④ Intelligence + Countries — Sunday 08:00 UTC"
 
 on:
-  schedule:
-    - cron: '0 8 * * 0'
-  workflow_dispatch:
+  workflow_dispatch:   # manual trigger only — schedule replaced by daily.yml
 
 permissions:
   contents: write

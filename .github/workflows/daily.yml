@@ -1,0 +1,152 @@
+name: "Daily refresh — 06:00 UTC"
+
+# ─────────────────────────────────────────────────────────────────────────────
+#  Single master workflow.  Runs everything in one job → one commit → one push.
+#  No concurrent workflows, no rebase conflicts, no Pages concurrency collisions.
+#
+#  Fetch order:
+#   Group 1 (parallel): news + pipeline          ~4 min each
+#   Group 2 (parallel): tenders + intelligence   ~10 min + ~2 min
+#   Group 3 (serial):   weekly (reads news.json) ~1 min
+#   Build all pages, commit, push with retry.
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # 06:00 UTC daily  (08:00 Madrid summer)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  daily-refresh:
+    name: Fetch all data, build, commit, push
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install requests feedparser python-dateutil tqdm beautifulsoup4
+
+      # ── Group 1: news + pipeline in parallel ─────────────────────────────
+      - name: Fetch news + pipeline (parallel)
+        timeout-minutes: 15
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          python fetch_news.py &
+          NEWS_PID=$!
+          python fetch_pipeline.py &
+          PIPE_PID=$!
+
+          wait $NEWS_PID;  NEWS_EXIT=$?
+          wait $PIPE_PID;  PIPE_EXIT=$?
+
+          [ $NEWS_EXIT -eq 0 ] \
+            && echo "✅ fetch_news OK" \
+            || echo "⚠️  fetch_news exited $NEWS_EXIT — continuing"
+          [ $PIPE_EXIT -eq 0 ] \
+            && echo "✅ fetch_pipeline OK" \
+            || echo "⚠️  fetch_pipeline exited $PIPE_EXIT — continuing"
+          exit 0   # never abort the whole job because one script failed
+
+      # ── Group 2: tenders + intelligence in parallel ──────────────────────
+      - name: Fetch tenders + intelligence (parallel)
+        timeout-minutes: 20
+        env:
+          PYTHONUNBUFFERED: "1"
+          TED_API_KEY: ${{ secrets.TED_API_KEY }}
+        run: |
+          python fetch_tenders.py &
+          TEND_PID=$!
+          python fetch_intelligence.py &
+          INTEL_PID=$!
+
+          wait $TEND_PID;  TEND_EXIT=$?
+          wait $INTEL_PID; INTEL_EXIT=$?
+
+          [ $TEND_EXIT -eq 0 ] \
+            && echo "✅ fetch_tenders OK" \
+            || echo "⚠️  fetch_tenders exited $TEND_EXIT — continuing"
+          [ $INTEL_EXIT -eq 0 ] \
+            && echo "✅ fetch_intelligence OK" \
+            || echo "⚠️  fetch_intelligence exited $INTEL_EXIT — continuing"
+          exit 0
+
+      # ── Group 3: weekly (depends on fresh news.json) ─────────────────────
+      - name: Fetch weekly roundup
+        timeout-minutes: 5
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: python fetch_weekly.py || echo "⚠️  fetch_weekly failed — continuing"
+
+      # ── Health check: news must have data ────────────────────────────────
+      - name: Health check
+        run: |
+          TOTAL=$(python3 -c "
+          import json, sys
+          try:
+              d = json.load(open('news.json'))
+              print(d.get('total_articles', 0))
+          except Exception as e:
+              print(0)
+          ")
+          echo "News articles in store: $TOTAL"
+          if [ "$TOTAL" -lt 30 ]; then
+            echo "❌ Health check failed: only $TOTAL articles (threshold: 30)"
+            exit 1
+          fi
+          echo "✅ Health check passed"
+
+      # ── Build all pages ───────────────────────────────────────────────────
+      - name: Build all pages
+        run: |
+          python build.py
+          python build.py --pipeline
+          python build.py --awards
+          python build.py --tenders
+          python build.py --intelligence
+          python build.py --weekly-only
+          python build.py --events
+          python build_country_pages.py
+          python build_company_pages.py
+          python build_sector_pages.py
+
+      # ── Commit & push (with retry) ────────────────────────────────────────
+      - name: Commit & push
+        run: |
+          git config user.name  "FitOut Post Bot"
+          git config user.email "bot@fitoutpost.com"
+
+          git add --all
+          git reset HEAD credentials.html 2>/dev/null || true  # never commit secrets
+
+          if git diff --cached --quiet; then
+            echo "Nothing changed — skipping commit"
+            exit 0
+          fi
+
+          git commit -m "chore(daily): refresh $(date -u '+%Y-%m-%d %H:%M UTC')"
+
+          # Retry push up to 3 times in case another push landed in the window
+          for attempt in 1 2 3; do
+            if git push origin main; then
+              echo "✅ Pushed on attempt $attempt"
+              exit 0
+            fi
+            echo "⚠️  Push failed (attempt $attempt/3) — pulling and retrying…"
+            git pull --rebase origin main
+          done
+
+          echo "❌ Push failed after 3 attempts"
+          exit 1
