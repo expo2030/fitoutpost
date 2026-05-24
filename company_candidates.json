@@ -1,1 +1,76 @@
-[]
+[
+  {
+    "name": "Abanos",
+    "type": "Fit-Out Contractor",
+    "hq": null,
+    "country": "United Arab Emirates",
+    "continent": "Middle East",
+    "sectors": [
+      "fit-out",
+      "interior construction",
+      "sustainable construction"
+    ],
+    "description": "Abanos is a UAE-based fit-out contractor specializing in low-carbon construction projects. The company demonstrates expertise in sustainable building materials, including Palm Strand Board (PSB®) technology for carbon sequestration.",
+    "website": null,
+    "employees": null,
+    "tags": [
+      "low-carbon fit-out",
+      "sustainable materials",
+      "UAE"
+    ],
+    "id": "abanos",
+    "source": "auto-discovered",
+    "review_needed": true,
+    "notable_projects": [],
+    "revenue_gbp_m": null,
+    "revenue_year": null,
+    "founded": null,
+    "parent": null,
+    "listed": false,
+    "contact": {},
+    "locations": [],
+    "services": [],
+    "_appearances": 2,
+    "_contexts": [
+      "Construction - Abanos advances low-carbon fit-out projects in UAE - Technical Review Middle East",
+      "Abanos Demonstrates Carbon Sequestration at Scale by Using Palm Strand Board (PSB®) Across Major UAE Fit-Out Projects - PR Newswire"
+    ]
+  },
+  {
+    "name": "rhtb",
+    "type": "Fit-Out Contractor",
+    "hq": null,
+    "country": "Germany",
+    "continent": "Europe",
+    "sectors": [
+      "Dry Construction",
+      "Interior Fit-Out",
+      "Modular Construction"
+    ],
+    "description": "Specialized dry construction and interior fit-out contractor acquired by PORR. Expertise in interior construction and prefabricated element assembly.",
+    "website": null,
+    "employees": null,
+    "tags": [
+      "Dry Construction",
+      "Interior Fit-Out",
+      "Germany"
+    ],
+    "id": "rhtb",
+    "source": "auto-discovered",
+    "review_needed": true,
+    "notable_projects": [],
+    "revenue_gbp_m": null,
+    "revenue_year": null,
+    "founded": null,
+    "parent": null,
+    "listed": false,
+    "contact": {},
+    "locations": [],
+    "services": [],
+    "_appearances": 2,
+    "_contexts": [
+      "PORR kauft Trockenbauer rhtb: Kompetenzen im Innenausbau werden erweitert - a3BAU",
+      "Porr übernimmt Trockenbau-Spezialist rhtb für mehr Kompetenz im Elementbau und Innenausbau - bau.bi"
+    ]
+  }
+]
