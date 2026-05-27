@@ -9278,9 +9278,57 @@
         "asia",
         "expo"
       ]
+    },
+    {
+      "id": "viriato",
+      "name": "Viriato",
+      "type": "Joinery & FF&E Manufacturer",
+      "parent": null,
+      "founded": 1952,
+      "hq": "Zona Industrial de Terronhas, Porto, Portugal",
+      "country": "Portugal",
+      "continent": "Europe",
+      "locations": [
+        "Porto"
+      ],
+      "services": [
+        "Contract Joinery",
+        "FF&E Manufacturing",
+        "Millwork",
+        "Bespoke Furniture",
+        "Hospitality Fit-Out Supply"
+      ],
+      "sectors": [
+        "Hospitality",
+        "Luxury Hotels",
+        "Commercial Interiors"
+      ],
+      "description": "Portuguese joinery and FF&E manufacturer founded in 1952, based near Porto. Specialises in bespoke contract joinery and furniture for international hospitality and luxury hotel projects. Long-standing reputation for craftsmanship and technical precision in high-end fit-out supply.",
+      "notable_projects": [
+        "International luxury hotel FF&E supply",
+        "Bespoke contract joinery for hospitality groups"
+      ],
+      "revenue_gbp_m": null,
+      "revenue_year": null,
+      "employees": null,
+      "website": "https://www.viriato.eu",
+      "contact": {
+        "phone": null,
+        "email": null,
+        "linkedin": null
+      },
+      "listed": false,
+      "tags": [
+        "Portugal",
+        "Porto",
+        "joinery",
+        "FF&E",
+        "hospitality",
+        "manufacturer"
+      ]
     }
   ],
-  "total_companies": 188,
+  "total_companies": 189,
   "last_updated": "2026-05-07",
   "last_enriched": "2026-05-24T14:50:08.680126+00:00"
 }
