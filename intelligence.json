@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-31T09:16:36Z",
+  "last_updated": "2026-06-01T11:52:08Z",
   "total_datapoints": 105,
   "periods": [
     {
@@ -2320,6 +2320,13 @@
           "needs_review": false
         }
       ]
+    },
+    {
+      "id": "2026-06",
+      "label": "June 2026",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "datapoints": []
     }
   ]
 }
