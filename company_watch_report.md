@@ -1,7 +1,7 @@
-# Company Watch Report — 2026-05-31
+# Company Watch Report — 2026-06-07
 
-**Signals scanned:** 350 (last 14 days)  
-**Mentions extracted:** 19  
+**Signals scanned:** 316 (last 14 days)  
+**Mentions extracted:** 14  
 **Existing companies enriched:** 1  
 **New candidates flagged:** 0  
 
@@ -9,8 +9,8 @@
 
 ## Existing Companies — New Projects Added
 
-### PORR AG
-- Interior fit-out and construction services expansion
+### Willmott Dixon Interiors
+- £4.4bn forward pipeline of projects
 
 ---
 
