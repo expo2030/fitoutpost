@@ -1,7 +1,7 @@
-# Company Watch Report — 2026-06-07
+# Company Watch Report — 2026-06-14
 
-**Signals scanned:** 316 (last 14 days)  
-**Mentions extracted:** 14  
+**Signals scanned:** 371 (last 14 days)  
+**Mentions extracted:** 19  
 **Existing companies enriched:** 1  
 **New candidates flagged:** 0  
 
@@ -9,8 +9,8 @@
 
 ## Existing Companies — New Projects Added
 
-### Willmott Dixon Interiors
-- £4.4bn forward pipeline of projects
+### Structure Tone
+- Fit Out Conference 2026
 
 ---
 
