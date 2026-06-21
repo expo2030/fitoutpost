@@ -1,5 +1,41 @@
 [
   {
+    "name": "FDC",
+    "type": "Fit-Out Contractor",
+    "hq": "Australia",
+    "country": "Australia",
+    "continent": "Oceania",
+    "sectors": [
+      "Commercial Fit-Out",
+      "Interior Construction"
+    ],
+    "description": "FDC is a major Australian fitouts contractor preparing for IPO with $400m capital raising target. The company specializes in large-scale commercial interior construction and fitout projects.",
+    "website": null,
+    "employees": null,
+    "tags": [
+      "IPO-bound",
+      "Large-scale fitouts",
+      "Australia"
+    ],
+    "id": "fdc",
+    "source": "auto-discovered",
+    "review_needed": true,
+    "notable_projects": [],
+    "revenue_gbp_m": null,
+    "revenue_year": null,
+    "founded": null,
+    "parent": null,
+    "listed": false,
+    "contact": {},
+    "locations": [],
+    "services": [],
+    "_appearances": 2,
+    "_contexts": [
+      "Income, baby! Fitouts giant FDC eyes $400m for IPO, teases dividend - AFR",
+      "Ben Cottle's fitouts giant FDC lifts the lid on IPO financials - AFR"
+    ]
+  },
+  {
     "name": "Abanos",
     "type": "Fit-Out Contractor",
     "hq": null,
