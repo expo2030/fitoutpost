@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-15",
-  "total": 94,
+  "last_updated": "2026-06-22",
+  "total": 113,
   "events": [
     {
       "name": "Orgatec 2026",
@@ -941,6 +941,196 @@
       "region": "Americas",
       "desc": "Dedicated event for luxury, boutique, and independent hotel sector — 200+ product and service providers from across the global hotel supply chain including interior design and FF&E.",
       "url": "https://www.independenthotelshow.co.uk/miami/"
+    },
+    {
+      "name": "ALIS 2026",
+      "type": "summit",
+      "dates": "26–28 Jan 2026",
+      "iso": "2026-01-26",
+      "location": "Los Angeles, USA",
+      "region": "Americas",
+      "desc": "The world's largest hotel investment conference. Opens the Americas hospitality calendar each year, drawing roughly 3,000 delegates to discuss capital flows, development and fit-out pipelines.",
+      "url": "https://www.alisconference.com"
+    },
+    {
+      "name": "IHIF EMEA 2026",
+      "type": "summit",
+      "dates": "23–25 Mar 2026",
+      "iso": "2026-03-23",
+      "location": "Berlin, Germany",
+      "region": "Europe",
+      "desc": "Europe's flagship hospitality investment forum. Roughly 2,500 delegates and 700-plus investors representing an estimated $581bn of assets under management.",
+      "url": "https://www.ihifemea.com"
+    },
+    {
+      "name": "FHS Africa 2026",
+      "type": "summit",
+      "dates": "31 Mar–1 Apr 2026",
+      "iso": "2026-03-31",
+      "location": "Nairobi, Kenya",
+      "region": "Africa",
+      "desc": "Future Hospitality Summit's first Africa edition. Hotel and tourism investment across the continent; moves to South Africa for 2027.",
+      "url": "https://www.futurehospitality.com"
+    },
+    {
+      "name": "ALIS CALA 2026",
+      "type": "summit",
+      "dates": "28–30 Apr 2026",
+      "iso": "2026-04-28",
+      "location": "Coral Gables, USA",
+      "region": "Americas",
+      "desc": "Regional ALIS edition covering hotel investment across the Caribbean and Latin America.",
+      "url": "https://www.burba.com"
+    },
+    {
+      "name": "NYU IHIF 2026",
+      "type": "summit",
+      "dates": "31 May–2 Jun 2026",
+      "iso": "2026-05-31",
+      "location": "New York, USA",
+      "region": "Americas",
+      "desc": "US hospitality capital-markets forum, 48th edition. Deal initiation, brand strategy and owner perspectives for the Americas.",
+      "url": "https://www.ihifamericas.com"
+    },
+    {
+      "name": "FHS Saudi Arabia 2026",
+      "type": "summit",
+      "dates": "22–24 Jun 2026",
+      "iso": "2026-06-22",
+      "location": "Riyadh, Saudi Arabia",
+      "region": "Middle East",
+      "desc": "Saudi and Gulf hospitality investment summit, part of the Future Hospitality Summit franchise alongside FHS World and FHS Africa.",
+      "url": "https://www.futurehospitality.com"
+    },
+    {
+      "name": "Branded Residences Forum — FHS Saudi Arabia 2026",
+      "type": "summit",
+      "dates": "24 Jun 2026",
+      "iso": "2026-06-24",
+      "location": "Riyadh, Saudi Arabia",
+      "region": "Middle East",
+      "desc": "Branded-residences strand running within FHS Saudi Arabia, covering investment and operating models for branded residential product.",
+      "url": "https://www.futurehospitality.com/sa/brf"
+    },
+    {
+      "name": "Annual Hospitality Conference 2026",
+      "type": "conf",
+      "dates": "14 Sep 2026",
+      "iso": "2026-09-14",
+      "location": "Manchester, United Kingdom",
+      "region": "Europe",
+      "desc": "The UK's principal regional hotel investment conference, covering operations, development and finance for the domestic market.",
+      "url": "https://www.theahc.co.uk"
+    },
+    {
+      "name": "IHIF Asia 2026",
+      "type": "summit",
+      "dates": "16–18 Sep 2026",
+      "iso": "2026-09-16",
+      "location": "Hong Kong",
+      "region": "Asia Pacific",
+      "desc": "Newer Asia edition of the IHIF hospitality investment forum, sitting alongside rather than replacing HICAP in the regional calendar.",
+      "url": "https://www.ihif.com"
+    },
+    {
+      "name": "FHS World 2026",
+      "type": "summit",
+      "dates": "29 Sep–1 Oct 2026",
+      "iso": "2026-09-29",
+      "location": "Dubai, UAE",
+      "region": "Middle East",
+      "desc": "Global hospitality investment summit anchored in the Gulf. Absorbed the former Arabian Hotel Investment Conference.",
+      "url": "https://www.futurehospitality.com"
+    },
+    {
+      "name": "Branded Residences Forum — FHS World 2026",
+      "type": "summit",
+      "dates": "1 Oct 2026",
+      "iso": "2026-10-01",
+      "location": "Dubai, UAE",
+      "region": "Middle East",
+      "desc": "Branded-residences strand of FHS World, held at the Madinat Jumeirah on the summit's closing day.",
+      "url": "https://www.futurehospitality.com/ae"
+    },
+    {
+      "name": "EXPOREAL 2026",
+      "type": "conf",
+      "dates": "Oct 2026 (TBC)",
+      "iso": "2026-10-01",
+      "location": "Munich, Germany",
+      "region": "Europe",
+      "desc": "Europe's largest commercial real estate investment and finance event. Hospitality is one segment within a broader cross-asset property fair.",
+      "url": "https://www.exporeal.net"
+    },
+    {
+      "name": "HICAP 2026",
+      "type": "conf",
+      "dates": "20–22 Oct 2026",
+      "iso": "2026-10-20",
+      "location": "Singapore",
+      "region": "Asia Pacific",
+      "desc": "The definitive Asia-Pacific hotel investment conference, 35th edition, completing the ALIS–IHIF–HICAP triangle of major hospitality investment events.",
+      "url": "https://www.hicapconference.com"
+    },
+    {
+      "name": "Future Investment Initiative 2026",
+      "type": "summit",
+      "dates": "26–29 Oct 2026",
+      "iso": "2026-10-26",
+      "location": "Riyadh, Saudi Arabia",
+      "region": "Middle East",
+      "desc": "Broad sovereign and institutional investment summit rather than a hospitality-specific event, but a significant venue for Gulf hospitality and real-estate capital discussions.",
+      "url": "https://www.fii-institute.org"
+    },
+    {
+      "name": "FHS Egypt 2026",
+      "type": "summit",
+      "dates": "10–11 Nov 2026",
+      "iso": "2026-11-10",
+      "location": "Cairo, Egypt",
+      "region": "Africa",
+      "desc": "Egyptian hospitality and real-estate investment summit covering hotels, mixed-use, resorts and branded residences, themed around Egypt's Vision 2030.",
+      "url": "https://www.futurehospitality.com/egypt"
+    },
+    {
+      "name": "MIPIM Asia Summit 2026",
+      "type": "conf",
+      "dates": "2–3 Dec 2026",
+      "iso": "2026-12-02",
+      "location": "Hong Kong",
+      "region": "Asia Pacific",
+      "desc": "Asian counterpart to MIPIM Cannes. Property investment event with significant hospitality-asset coverage.",
+      "url": "https://www.mipim-asia.com"
+    },
+    {
+      "name": "FHS Living 2027",
+      "type": "summit",
+      "dates": "Feb 2027 (TBC)",
+      "iso": "2027-02-01",
+      "location": "Paris, France",
+      "region": "Europe",
+      "desc": "New Future Hospitality Summit initiative targeting living assets — residential, co-living and extended-stay — positioned to channel Middle East capital into the European living sector.",
+      "url": "https://www.futurehospitality.com/living"
+    },
+    {
+      "name": "SAHIC 2027",
+      "type": "summit",
+      "dates": "2027 (TBC)",
+      "iso": "2027-06-01",
+      "location": "Latin America (TBC)",
+      "region": "Americas",
+      "desc": "South and Central America Hotel & Tourism Investment Forum, complementing the regional ALIS CALA event.",
+      "url": "https://www.sahic.com"
+    },
+    {
+      "name": "FHS Africa 2027",
+      "type": "summit",
+      "dates": "2027 (TBC)",
+      "iso": "2027-06-01",
+      "location": "South Africa (TBC)",
+      "region": "Africa",
+      "desc": "FHS Africa moves to South Africa for its second edition, following the inaugural Nairobi staging in 2026.",
+      "url": "https://www.futurehospitality.com/africa"
     }
   ]
 }
