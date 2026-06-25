@@ -109,7 +109,6 @@ jobs:
           python build.py --events
           python build_country_pages.py
           python build_company_pages.py
-          python build_sector_pages.py
 
       # ── Commit & push (with retry) ────────────────────────────────────────
       - name: Commit & push

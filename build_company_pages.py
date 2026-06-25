@@ -291,7 +291,6 @@ def build_page(company, news):
     <a class="pnav-link" href="../intelligence.html">Intelligence</a>
     <a class="pnav-link active" href="../companies_site.html">Companies</a>
     <a class="pnav-link" href="../countries/index.html">Countries</a>
-    <a class="pnav-link" href="../sectors/index.html">Sectors</a>
   </div>
 </nav>
 

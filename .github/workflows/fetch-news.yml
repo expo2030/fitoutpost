@@ -42,7 +42,7 @@ jobs:
           echo "✅ Health check passed: $TOTAL articles"
 
       - name: Build news pages
-        # Only rebuild pages news owns — do NOT rebuild sectors/companies/awards
+        # Only rebuild pages news owns — do NOT rebuild companies/awards
         # (those are pipeline's responsibility and cause rebase conflicts if touched here)
         run: python build.py
 
