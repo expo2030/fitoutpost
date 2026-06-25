@@ -1,13 +1,13 @@
 {
-  "last_updated": "2026-06-24T09:46:16Z",
-  "total_datapoints": 105,
+  "last_updated": "2026-06-25T04:53:15Z",
+  "total_datapoints": 109,
   "periods": [
     {
-      "id": "2026-05",
-      "label": "May 2026",
-      "start": "2026-05-01",
-      "end": "2026-05-31",
-      "note": "Data sourced from 2024–2025 annual reports; exchange rates as of 2025-01-01.",
+      "id": "2026-Q2",
+      "label": "Q2 2026 (Apr–Jun)",
+      "start": "2026-04-01",
+      "end": "2026-06-30",
+      "note": "Data sourced from 2024–2026 published reports; exchange rates as of 2026-06-24. FitOut Post now refreshes intelligence quarterly rather than monthly, reflecting the publication cadence of major occupier cost guides (CBRE, JLL, Cushman & Wakefield, Turner & Townsend, Savills).",
       "datapoints": [
         {
           "id": "dp_6c560f1420",
@@ -2318,15 +2318,80 @@
           "date_added": "2026-05-06T10:00:00Z",
           "auto_extracted": false,
           "needs_review": false
+        },
+        {
+          "id": "dp_5a483c7828",
+          "source": "Cushman & Wakefield",
+          "report_title": "UK Office Fit Out Cost Guide 2026",
+          "report_url": "https://www.cushmanwakefield.com/en/united-kingdom/insights/office-fit-out-cost-guide",
+          "continent": "Europe",
+          "country": "United Kingdom",
+          "city": "Birmingham",
+          "fit_out_type": "Office (All-in Fit-Out)",
+          "cost_usd_m2_low": 1719,
+          "cost_usd_m2_high": 4191,
+          "cost_usd_m2_mid": 2842,
+          "cost_original": "GBP 121–295/sq ft",
+          "currency": "GBP",
+          "exchange_rate": 1.32,
+          "exchange_rate_date": "2026-06-24",
+          "summary": "Cushman & Wakefield's 2026 UK guide reports Birmingham all-in office fit-out costs at £121–295/sq ft (£200/sq ft medium spec), reflecting continued post-2022 cost-base reset, labour pressure and rising M&E/specification standards."
+        },
+        {
+          "id": "dp_a1d17f95f5",
+          "source": "Cushman & Wakefield",
+          "report_title": "UK Office Fit Out Cost Guide 2026",
+          "report_url": "https://www.cushmanwakefield.com/en/united-kingdom/insights/office-fit-out-cost-guide",
+          "continent": "Europe",
+          "country": "United Kingdom",
+          "city": "Glasgow",
+          "fit_out_type": "Office (All-in Fit-Out)",
+          "cost_usd_m2_low": 1662,
+          "cost_usd_m2_high": 4035,
+          "cost_usd_m2_mid": 2728,
+          "cost_original": "GBP 117–284/sq ft",
+          "currency": "GBP",
+          "exchange_rate": 1.32,
+          "exchange_rate_date": "2026-06-24",
+          "summary": "Cushman & Wakefield's 2026 UK guide reports Glasgow all-in office fit-out costs at £117–284/sq ft (£192/sq ft medium spec), reflecting continued post-2022 cost-base reset, labour pressure and rising M&E/specification standards."
+        },
+        {
+          "id": "dp_3956330648",
+          "source": "Cushman & Wakefield",
+          "report_title": "UK Office Fit Out Cost Guide 2026",
+          "report_url": "https://www.cushmanwakefield.com/en/united-kingdom/insights/office-fit-out-cost-guide",
+          "continent": "Europe",
+          "country": "United Kingdom",
+          "city": "London",
+          "fit_out_type": "Office (All-in Fit-Out)",
+          "cost_usd_m2_low": 2103,
+          "cost_usd_m2_high": 5101,
+          "cost_usd_m2_mid": 3453,
+          "cost_original": "GBP 148–359/sq ft",
+          "currency": "GBP",
+          "exchange_rate": 1.32,
+          "exchange_rate_date": "2026-06-24",
+          "summary": "Cushman & Wakefield's 2026 UK guide reports London all-in office fit-out costs at £148–359/sq ft (£243/sq ft medium spec), reflecting continued post-2022 cost-base reset, labour pressure and rising M&E/specification standards."
+        },
+        {
+          "id": "dp_a14033338b",
+          "source": "Cushman & Wakefield",
+          "report_title": "UK Office Fit Out Cost Guide 2026",
+          "report_url": "https://www.cushmanwakefield.com/en/united-kingdom/insights/office-fit-out-cost-guide",
+          "continent": "Europe",
+          "country": "United Kingdom",
+          "city": "Manchester",
+          "fit_out_type": "Office (All-in Fit-Out)",
+          "cost_usd_m2_low": 1819,
+          "cost_usd_m2_high": 4405,
+          "cost_usd_m2_mid": 2984,
+          "cost_original": "GBP 128–310/sq ft",
+          "currency": "GBP",
+          "exchange_rate": 1.32,
+          "exchange_rate_date": "2026-06-24",
+          "summary": "Cushman & Wakefield's 2026 UK guide reports Manchester all-in office fit-out costs at £128–310/sq ft (£210/sq ft medium spec), reflecting continued post-2022 cost-base reset, labour pressure and rising M&E/specification standards."
         }
       ]
-    },
-    {
-      "id": "2026-06",
-      "label": "June 2026",
-      "start": "2026-06-01",
-      "end": "2026-06-30",
-      "datapoints": []
     }
   ]
 }

@@ -17,6 +17,7 @@ Voting API (used by betaedge.html):
 
 import json, hashlib, webbrowser, threading, sys, re
 from datetime import datetime, timezone
+from fetch_intelligence import period_label, period_start_end  # shared quarterly period helpers
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
@@ -618,8 +619,8 @@ a{color:inherit;text-decoration:none}
               <input id="intel-report-url" type="url" placeholder="https://..."></div>
             <div class="field"><label>Date published</label>
               <input id="intel-date-pub" type="date"></div>
-            <div class="field"><label>Period (YYYY-MM) *</label>
-              <input id="intel-period" type="text" placeholder="2026-05" id="intel-period"></div>
+            <div class="field"><label>Period (YYYY-Q#) *</label>
+              <input id="intel-period" type="text" placeholder="2026-Q3" id="intel-period"></div>
           </div>
           <div class="field"><label>Summary / notes</label>
             <textarea id="intel-summary" rows="3" placeholder="One-sentence summary of what the report says about costs in this market…"></textarea>
@@ -1342,9 +1343,12 @@ document.getElementById('intel-cost-low').addEventListener('input',calcIntelUsd)
 document.getElementById('intel-cost-high').addEventListener('input',calcIntelUsd);
 document.getElementById('intel-currency').addEventListener('change',calcIntelUsd);
 
-// Default period to current month
-document.getElementById('intel-period').value=
-  new Date().toISOString().slice(0,7);
+// Default period to current quarter (e.g. "2026-Q3")
+(function(){
+  const now=new Date();
+  const q=Math.floor(now.getUTCMonth()/3)+1;
+  document.getElementById('intel-period').value=now.getUTCFullYear()+'-Q'+q;
+})();
 
 async function addIntelDatapoint(){
   const continent=document.getElementById('intel-continent').value;
@@ -2524,11 +2528,20 @@ class AdminHandler(BaseHTTPRequestHandler):
             # Find or create period
             period=next((p2 for p2 in data["periods"] if p2["id"]==period_id),None)
             if not period:
-                from calendar import monthrange
-                y,m=map(int,period_id.split("-"))
-                _,last_day=monthrange(y,m)
-                period={"id":period_id,"label":datetime(y,m,1).strftime("%B %Y"),
-                        "start":f"{period_id}-01","end":f"{period_id}-{last_day:02d}","datapoints":[]}
+                # Quarterly id, e.g. "2026-Q3" — the standard format since cadence
+                # moved from monthly to quarterly. Legacy "YYYY-MM" ids (from before
+                # the switch) are still supported for backward compatibility.
+                if "Q" in period_id:
+                    start,end=period_start_end(period_id)
+                    label=period_label(period_id)
+                else:
+                    from calendar import monthrange
+                    y,m=map(int,period_id.split("-"))
+                    _,last_day=monthrange(y,m)
+                    start,end=f"{period_id}-01",f"{period_id}-{last_day:02d}"
+                    label=datetime(y,m,1).strftime("%B %Y")
+                period={"id":period_id,"label":label,
+                        "start":start,"end":end,"datapoints":[]}
                 data["periods"].append(period)
             # Dedup by id
             if not any(d2["id"]==dp["id"] for d2 in period["datapoints"]):

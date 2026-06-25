@@ -13,12 +13,21 @@ Sources searched:
 
 Output: intelligence.json
 
+Cadence: this script is intended to run QUARTERLY (Jan/Apr/Jul/Oct), not
+daily or weekly. The underlying sources are annual/biannual benchmark
+reports from consultancies — they do not publish new $/m^2 figures often
+enough to justify a tighter schedule, and the hardcoded report URLs in
+KNOWN_REPORT_URLS go stale between quarters as firms reorganise their
+sites. Each quarterly run should pass --all-known so the Google News
+search (KNOWN_SOURCES) — not just the static URL list — has a chance to
+surface anything new.
+
 Usage:
-    python fetch_intelligence.py                  # fetch current month
-    python fetch_intelligence.py --dry-run        # preview without saving
-    python fetch_intelligence.py --months-ago 1   # fetch previous month
-    python fetch_intelligence.py --all-known      # fetch all known report URLs
-    python fetch_intelligence.py --source CBRE    # filter to one source
+    python fetch_intelligence.py                    # fetch current quarter
+    python fetch_intelligence.py --dry-run           # preview without saving
+    python fetch_intelligence.py --quarters-ago 1    # fetch previous quarter
+    python fetch_intelligence.py --all-known         # also search Google News (use for the real quarterly run)
+    python fetch_intelligence.py --source CBRE       # filter to one source
 """
 
 import json
@@ -595,6 +604,38 @@ def search_google_news(query: str) -> list[dict]:
         results.append({"title": title, "url": link})
     return results
 
+def resolve_redirect(url: str, timeout: int = 8) -> str:
+    """Resolve a Google News RSS link (news.google.com/rss/articles/...) to
+    the publisher's actual URL. Needed because the domain filter in
+    run_fetch() compares against the *final* URL's netloc — without this,
+    every domain-restricted KNOWN_SOURCES query is skipped, since every
+    Google News RSS link has netloc news.google.com regardless of source."""
+    if "news.google.com" not in url:
+        return url
+    try:
+        import requests
+        # Bypass Google's EU/GDPR consent interstitial (consent.google.com),
+        # which otherwise intercepts the redirect before it reaches the
+        # publisher and breaks domain matching. Standard bypass cookie.
+        cookies = {"CONSENT": "YES+cb.20240101-00-p0.en+FX+100"}
+        r = requests.get(
+            url, timeout=timeout, allow_redirects=True, cookies=cookies,
+            headers={"User-Agent": "Mozilla/5.0 (compatible; FitOutPost/1.0; +https://fitoutpost.com/bot)"},
+        )
+        final_url = r.url or url
+        # If we still landed on the consent page itself, pull the real
+        # target out of its "continue=" query parameter.
+        if "consent.google.com" in final_url:
+            from urllib.parse import urlparse, parse_qs, unquote
+            qs = parse_qs(urlparse(final_url).query)
+            cont = qs.get("continue", [None])[0]
+            if cont:
+                return unquote(cont)
+        return final_url
+    except Exception as e:
+        log.warning("  Redirect resolve failed for %s: %s", url[:60], e)
+        return url
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 #  Web page / PDF fetcher
@@ -699,26 +740,32 @@ def make_summary(dp: dict, report_title: str, source: str) -> str:
 # ─────────────────────────────────────────────────────────────────────────────
 #  Period helpers
 # ─────────────────────────────────────────────────────────────────────────────
-def period_id(months_ago: int = 0) -> str:
+# Periods are quarterly (e.g. "2026-Q3"), not monthly. The dataset is a
+# slow-moving benchmark series (consultancy cost guides updated a few
+# times a year at most) — monthly buckets just produced empty months
+# between real updates. See module docstring.
+QUARTER_MONTHS = {1: (1,3), 2: (4,6), 3: (7,9), 4: (10,12)}
+QUARTER_MONTH_NAMES = {1: ("Jan","Mar"), 2: ("Apr","Jun"), 3: ("Jul","Sep"), 4: ("Oct","Dec")}
+
+def period_id(quarters_ago: int = 0) -> str:
     now = datetime.now(timezone.utc)
-    month = now.month - months_ago
-    year  = now.year
-    while month <= 0:
-        month += 12
-        year  -= 1
-    return f"{year}-{month:02d}"
+    q = (now.month - 1) // 3 + 1          # 1..4
+    total = now.year * 4 + (q - 1) - quarters_ago
+    year, q0 = divmod(total, 4)
+    return f"{year}-Q{q0 + 1}"
 
 def period_label(pid: str) -> str:
-    year, month = pid.split("-")
-    dt = datetime(int(year), int(month), 1)
-    return dt.strftime("%B %Y")
+    year, q = pid.split("-Q")
+    start_name, end_name = QUARTER_MONTH_NAMES[int(q)]
+    return f"Q{q} {year} ({start_name}–{end_name})"
 
 def period_start_end(pid: str) -> tuple[str, str]:
-    year, month = pid.split("-")
     from calendar import monthrange
-    y, m = int(year), int(month)
-    _, last_day = monthrange(y, m)
-    return f"{pid}-01", f"{pid}-{last_day:02d}"
+    year, q = pid.split("-Q")
+    y = int(year)
+    start_m, end_m = QUARTER_MONTHS[int(q)]
+    _, last_day = monthrange(y, end_m)
+    return f"{y}-{start_m:02d}-01", f"{y}-{end_m:02d}-{last_day:02d}"
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -860,13 +907,13 @@ def add_datapoints_to_period(data: dict, pid: str, new_dps: list[dict]) -> None:
 #  Main fetch routine
 # ─────────────────────────────────────────────────────────────────────────────
 def run_fetch(
-    months_ago: int = 0,
+    quarters_ago: int = 0,
     dry_run: bool = False,
     source_filter: str = "",
     all_known: bool = False,
     delay: float = 1.5,
 ) -> None:
-    pid = period_id(months_ago)
+    pid = period_id(quarters_ago)
     log.info("=" * 60)
     log.info("Intelligence fetch — period %s", pid)
     log.info("dry_run=%s  source_filter=%r  all_known=%s", dry_run, source_filter, all_known)
@@ -898,10 +945,11 @@ def run_fetch(
             log.info("Searching: %s — %s", src, query[:60])
             results = search_google_news(query)
             for r in results[:3]:
-                title = r.get("title","")
-                url   = r.get("url","")
-                if not url:
+                title   = r.get("title","")
+                raw_url = r.get("url","")
+                if not raw_url:
                     continue
+                url = resolve_redirect(raw_url)
                 # Filter to domain if specified
                 if domain and domain.lower() not in urlparse(url).netloc.lower():
                     log.info("  Skip (wrong domain): %s", url[:60])
@@ -948,16 +996,16 @@ if __name__ == "__main__":
     args = sys.argv[1:]
     dry_run       = "--dry-run" in args
     all_known     = "--all-known" in args
-    months_ago    = 0
+    quarters_ago  = 0
     source_filter = ""
 
     for a in args:
-        if a.startswith("--months-ago="):
-            months_ago = int(a.split("=",1)[1])
-        elif a.startswith("--months-ago"):
+        if a.startswith("--quarters-ago="):
+            quarters_ago = int(a.split("=",1)[1])
+        elif a.startswith("--quarters-ago"):
             idx = args.index(a)
             if idx + 1 < len(args):
-                months_ago = int(args[idx+1])
+                quarters_ago = int(args[idx+1])
         if a.startswith("--source="):
             source_filter = a.split("=",1)[1]
         elif a == "--source":
@@ -966,7 +1014,7 @@ if __name__ == "__main__":
                 source_filter = args[idx+1]
 
     run_fetch(
-        months_ago=months_ago,
+        quarters_ago=quarters_ago,
         dry_run=dry_run,
         source_filter=source_filter,
         all_known=all_known,

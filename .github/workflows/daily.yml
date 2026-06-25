@@ -6,9 +6,14 @@ name: "Daily refresh — 06:00 UTC"
 #
 #  Fetch order:
 #   Group 1 (parallel): news + pipeline          ~4 min each
-#   Group 2 (parallel): tenders + intelligence   ~10 min + ~2 min
+#   Group 2:            tenders                  ~10 min
 #   Group 3 (serial):   weekly (reads news.json) ~1 min
 #   Build all pages, commit, push with retry.
+#
+#  Intelligence ($/m^2 fit-out benchmarks) is NOT part of this daily run — it
+#  moved to a standalone quarterly workflow (fetch-intelligence.yml). The
+#  underlying cost-guide sources (CBRE, JLL, C&W, T&T, Savills...) publish
+#  annually/semi-annually, so a daily fetch only ever produced empty periods.
 # ─────────────────────────────────────────────────────────────────────────────
 
 on:
@@ -60,28 +65,13 @@ jobs:
             || echo "⚠️  fetch_pipeline exited $PIPE_EXIT — continuing"
           exit 0   # never abort the whole job because one script failed
 
-      # ── Group 2: tenders + intelligence in parallel ──────────────────────
-      - name: Fetch tenders + intelligence (parallel)
+      # ── Group 2: tenders ──────────────────────────────────────────────────
+      - name: Fetch tenders
         timeout-minutes: 20
         env:
           PYTHONUNBUFFERED: "1"
           TED_API_KEY: ${{ secrets.TED_API_KEY }}
-        run: |
-          python fetch_tenders.py &
-          TEND_PID=$!
-          python fetch_intelligence.py &
-          INTEL_PID=$!
-
-          wait $TEND_PID;  TEND_EXIT=$?
-          wait $INTEL_PID; INTEL_EXIT=$?
-
-          [ $TEND_EXIT -eq 0 ] \
-            && echo "✅ fetch_tenders OK" \
-            || echo "⚠️  fetch_tenders exited $TEND_EXIT — continuing"
-          [ $INTEL_EXIT -eq 0 ] \
-            && echo "✅ fetch_intelligence OK" \
-            || echo "⚠️  fetch_intelligence exited $INTEL_EXIT — continuing"
-          exit 0
+        run: python fetch_tenders.py || echo "⚠️  fetch_tenders failed — continuing"
 
       # ── Group 3: weekly (depends on fresh news.json) ─────────────────────
       - name: Fetch weekly roundup
@@ -115,7 +105,6 @@ jobs:
           python build.py --pipeline
           python build.py --awards
           python build.py --tenders
-          python build.py --intelligence
           python build.py --weekly-only
           python build.py --events
           python build_country_pages.py

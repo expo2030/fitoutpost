@@ -1,14 +1,21 @@
-name: "④ Intelligence + Countries — Sunday 08:00 UTC"
+name: "④ Intelligence + Countries — Quarterly, 1st of Jan/Apr/Jul/Oct, 08:00 UTC"
 
 on:
-  workflow_dispatch:   # manual trigger only — schedule replaced by daily.yml
+  workflow_dispatch:   # manual trigger, plus the schedule below
+  schedule:
+    # Fires on the first day of each calendar quarter — next run: 1 Jul 2026 (Q3).
+    # Quarterly cadence matches the publication rhythm of the occupier cost guides
+    # this feed draws on (CBRE, JLL, Cushman & Wakefield, Turner & Townsend,
+    # Savills etc. all publish annual/semi-annual guides, not monthly data) —
+    # a monthly/daily fetch was producing empty periods between releases.
+    - cron: '0 8 1 1,4,7,10 *'
 
 permissions:
   contents: write
 
 jobs:
   fetch-intelligence:
-    name: Fetch intelligence data & rebuild intelligence/countries/weekly
+    name: Fetch intelligence data & rebuild intelligence/countries pages
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -26,7 +33,7 @@ jobs:
         run: pip install requests feedparser python-dateutil tqdm beautifulsoup4
 
       - name: Fetch intelligence data
-        run: python fetch_intelligence.py
+        run: python fetch_intelligence.py --all-known
         timeout-minutes: 15
         env:
           PYTHONUNBUFFERED: "1"
@@ -42,6 +49,6 @@ jobs:
           git config user.email "bot@fitoutpost.com"
           git add intelligence.json intelligence.html countries/
           git diff --cached --quiet && echo "No changes" || \
-            git commit -m "chore(intelligence): weekly update $(date -u '+%Y-%m-%d')"
+            git commit -m "chore(intelligence): quarterly update $(date -u '+%Y-%m-%d')"
           git pull --rebase origin main
           git push
