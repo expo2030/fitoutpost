@@ -1,4 +1,13 @@
 {
-    "description": "FitOut Post newsletter member list. Add entries when someone registers. Email is required; name is optional.",
-    "members": []
+  "description": "FitOut Post newsletter member list. Add entries when someone registers. Email is required; name is optional.",
+  "members": [
+    {
+      "email": "pulpvoid@yahoo.es",
+      "name": "Test User",
+      "company": "FitOut Post QA",
+      "role": "contractor",
+      "region": "global",
+      "subscribedAt": "2026-06-25T16:11:41.116Z"
+    }
+  ]
 }
