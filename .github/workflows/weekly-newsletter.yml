@@ -1,13 +1,19 @@
-name: "⑥ Weekly Newsletter — Monday 09:30 UTC"
+name: "⑥ Weekly Newsletter — Monday 12:00 Madrid"
 
-# Runs 90 minutes after the roundup workflow (08:00 UTC) so weekly.json
-# is always fresh before the newsletter is generated and dispatched.
-# 09:30 UTC = 11:30 Madrid summer (CEST / UTC+2)
-#           = 10:30 Madrid winter (CET  / UTC+1)
+# weekly.json is refreshed every morning by daily.yml (06:00 UTC), so it is
+# already hours-fresh by the time this job runs — no extra lead time needed.
+#
+# 10:00 UTC = 12:00 Madrid (CEST, summer, UTC+2)
+#           = 11:00 Madrid (CET,  winter, UTC+1) — 1 hour early; drift accepted.
+#
+# For an exact 12:00 Madrid send year-round, replace the single cron below
+# with this pair instead (mirrors the approach used on the expo2030.co mailer):
+#   - cron: '0 10 * 4-9 1'      # Apr-Sep, CEST exact
+#   - cron: '0 11 * 1-3,10-12 1' # Oct-Mar, CET exact
 
 on:
   schedule:
-    - cron: '30 9 * * 1'
+    - cron: '0 10 * * 1'
   workflow_dispatch:          # Allow manual re-send
 
 permissions:

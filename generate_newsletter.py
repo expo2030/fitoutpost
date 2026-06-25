@@ -153,23 +153,78 @@ def html_email(week: dict, editorial: str) -> str:
     editorial_html = "\n".join(f'<p style="margin:0 0 16px 0;line-height:1.65;">{p}</p>'
                                 for p in paras)
 
-    # Top news items for the "this week" quick-scan block
-    news_rows = ""
-    for g in week.get("groups", []):
-        for a in g.get("items", g.get("articles", []))[:3]:
-            headline = a.get("headline") or a.get("title") or ""
-            country  = a.get("country") or g.get("continent") or ""
-            url      = a.get("url", "#")
-            news_rows += f"""
+    # Members receive the full signal set — every category, not just a teaser.
+    # Each section caps at MAX_ROWS rows (most weeks fall well under this) with
+    # an overflow note linking to the full online edition, to keep the email a
+    # sane size for inboxes and spam filters.
+    MAX_ROWS = 20
+
+    def _flatten(groups, key="items"):
+        out = []
+        for g in groups or []:
+            for item in g.get(key, g.get("articles", [])):
+                out.append((g.get("continent", ""), item))
+        return out
+
+    def _row(country, label, extra, url):
+        extra_html = f'<span style="display:block;font-size:11px;color:{BRAND_WARMGRAY};margin-top:2px;">{extra}</span>' if extra else ""
+        return f"""
         <tr>
           <td style="padding:7px 12px;border-bottom:1px solid #EDE3DA;font-size:11px;
                      color:{BRAND_WARMGRAY};white-space:nowrap;vertical-align:top;">{country}</td>
           <td style="padding:7px 12px;border-bottom:1px solid #EDE3DA;font-size:13px;
                      vertical-align:top;">
             <a href="{url}" style="color:{BRAND_BLACK};text-decoration:none;"
-               target="_blank">{headline[:95]}{'…' if len(headline)>95 else ''}</a>
+               target="_blank">{label[:95]}{'…' if len(label)>95 else ''}</a>{extra_html}
           </td>
         </tr>"""
+
+    def _section_rows(flat_items, title_field, extra_fn=None):
+        rows = ""
+        for continent, item in flat_items[:MAX_ROWS]:
+            label   = item.get(title_field) or item.get("title") or item.get("headline") or ""
+            country = item.get("country") or continent or ""
+            url     = item.get("url", "#")
+            extra   = extra_fn(item) if extra_fn else ""
+            rows += _row(country, label, extra, url)
+        overflow = len(flat_items) - MAX_ROWS
+        if overflow > 0:
+            rows += f"""
+        <tr><td colspan="2" style="padding:9px 12px;font-size:11px;color:{BRAND_WARMGRAY};
+                                    text-align:center;font-style:italic;">
+          +{overflow} more in the full edition online →
+        </td></tr>"""
+        return rows
+
+    news_rows     = _section_rows(_flatten(week.get("groups", [])), "headline")
+    pipeline_rows = _section_rows(_flatten(week.get("pipeline_groups", [])), "title",
+                                   lambda p: p.get("sector", ""))
+    tender_rows   = _section_rows(_flatten(week.get("tenders_groups", [])), "title",
+                                   lambda t: (f"Deadline: {t['deadline'][:10]}" if t.get("deadline") else ""))
+    award_rows    = _section_rows(_flatten(week.get("awards_groups", [])), "headline")
+
+    # Each category renders as its own table section, omitted entirely if empty
+    # (e.g. a quiet week for tenders) rather than showing an empty header.
+    def _digest_section(title, rows):
+        if not rows:
+            return ""
+        return f"""
+    <tr>
+      <td style="padding:0 32px 8px 32px;">
+        <p style="margin:24px 0 12px 0;font-size:10px;letter-spacing:2px;
+                   text-transform:uppercase;color:{BRAND_WARMGRAY};
+                   border-top:1px solid #EDE3DA;padding-top:16px;">
+          {title}</p>
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="border:1px solid #EDE3DA;">
+          {rows}
+        </table>
+      </td>
+    </tr>"""
+
+    pipeline_section = _digest_section("Pipeline signals this week", pipeline_rows)
+    tenders_section   = _digest_section("Tenders open this week", tender_rows)
+    awards_section    = _digest_section("Contract awards this week", award_rows)
 
     return f"""\
 <!DOCTYPE html>
@@ -275,6 +330,11 @@ def html_email(week: dict, editorial: str) -> str:
       </td>
     </tr>
 
+    <!-- ── PIPELINE / TENDERS / AWARDS DIGESTS ── -->
+    {pipeline_section}
+    {tenders_section}
+    {awards_section}
+
     <!-- ── CTA ── -->
     <tr>
       <td style="padding:28px 32px 32px 32px;text-align:center;">
@@ -282,10 +342,10 @@ def html_email(week: dict, editorial: str) -> str:
            style="display:inline-block;background:{BRAND_BLACK};color:#fff;
                   padding:12px 32px;font-size:13px;font-weight:600;
                   text-decoration:none;letter-spacing:.4px;">
-          Read the full roundup →
+          View this edition online →
         </a>
         <p style="margin:16px 0 0 0;font-size:11px;color:{BRAND_WARMGRAY};">
-          Pipeline, tenders, and contract awards are available in the members area.
+          This week's full signal set, above — news, pipeline, tenders and awards.
         </p>
       </td>
     </tr>

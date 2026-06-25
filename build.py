@@ -838,8 +838,8 @@ planSelect.addEventListener('change', () => {
         "title":      "Register Free — FitOut Post",
         "active_nav": "Register Free",
         "meta": (
-            '<meta name="description" content="Join FitOut Post free. Get daily fit-out news,'
-            ' tender alerts, and pipeline intelligence from every continent." />\n'
+            '<meta name="description" content="Join FitOut Post free for the weekly fit-out'
+            ' industry roundup — news, tenders, pipeline and contract awards, every Monday." />\n'
             '  <meta property="og:title" content="Register Free — FitOut Post" />\n'
             '  <link rel="canonical" href="https://fitoutpost.com/register.html" />'
         ),
@@ -865,6 +865,9 @@ document.getElementById('login-link').addEventListener('click', function(e) {
   if (member) { window.location.href = 'index.html'; }
   else { document.getElementById('email').focus(); document.getElementById('email').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
 });
+// Registration endpoint (Netlify Function — see netlify/functions/register.js).
+// Update this if the Netlify site's assigned subdomain ever changes.
+const REGISTER_ENDPOINT = 'https://fitoutpost-api.netlify.app/.netlify/functions/register';
 // Form submit
 document.getElementById('reg-form').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -877,66 +880,42 @@ document.getElementById('reg-form').addEventListener('submit', async function(e)
   const company = document.getElementById('company').value.trim();
   const role = document.getElementById('role').value;
   const region = document.getElementById('region').value;
-  const gdpr = document.getElementById('gdpr-consent').checked;
-  const interests = Array.from(document.querySelectorAll('.check-grid input[type="checkbox"]:checked')).map(cb => cb.value);
+  const consent = document.getElementById('gdpr-consent').checked;
   if (!first || !last) return showError('Please enter your first and last name.');
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showError('Please enter a valid email address.');
-  if (!gdpr) return showError('Please accept the Privacy Policy and Terms of Use to continue.');
-  btn.disabled = true; btn.textContent = 'Registering…';
-  const member = { firstName: first, lastName: last, email, company, role, region, interests, registeredAt: new Date().toISOString(), id: 'fop_' + Date.now() };
-  localStorage.setItem('fop_member', JSON.stringify(member));
-  try { const list = JSON.parse(localStorage.getItem('fop_members_list') || '[]'); list.push(member); localStorage.setItem('fop_members_list', JSON.stringify(list)); } catch(e) {}
-  setTimeout(() => showSuccess(email), 600);
+  if (!consent) return showError('Please confirm you want the weekly roundup to continue.');
   function showError(msg) { errEl.textContent = msg; errEl.className = 'form-msg error show'; btn.disabled = false; btn.textContent = 'Create free account →'; }
+  btn.disabled = true; btn.textContent = 'Registering…';
+  let body = {};
+  try {
+    const resp = await fetch(REGISTER_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ firstName: first, lastName: last, email, company, role, region }),
+    });
+    try { body = await resp.json(); } catch(e) {}
+    if (!resp.ok || body.ok === false) {
+      return showError(body.error || 'Something went wrong — please try again in a moment.');
+    }
+  } catch (err) {
+    return showError('Could not reach the server. Please check your connection and try again.');
+  }
+  const member = { firstName: first, lastName: last, email, company, role, region, registeredAt: new Date().toISOString(), id: 'fop_' + Date.now() };
+  try {
+    const list = JSON.parse(localStorage.getItem('fop_members_list') || '[]');
+    const idx = list.findIndex(m => m.email === member.email);
+    if (idx >= 0) list[idx] = member; else list.push(member);
+    localStorage.setItem('fop_members_list', JSON.stringify(list));
+  } catch(e) {}
+  localStorage.setItem('fop_member', JSON.stringify(member));
+  showSuccess(email);
 });
 function showSuccess(email) {
   document.getElementById('form-panel').style.display = 'none';
   const panel = document.getElementById('success-panel');
   panel.classList.add('show');
   if (email) document.getElementById('success-email').textContent = email;
-  renderAlerts();
 }
-// Keyword alert management
-const FREE_LIMIT = 10;
-function renderAlerts() {
-  const member = JSON.parse(localStorage.getItem('fop_member') || '{}');
-  const alerts = member.keyword_alerts || [];
-  const container = document.getElementById('alerts-list');
-  if (!container) return;
-  container.innerHTML = alerts.length === 0 ? '<span style="font-size:13px;color:var(--mid-gray);font-style:italic;">No alerts saved yet.</span>' : alerts.map((kw, i) => `<span style="display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border-dk);padding:5px 12px;font-size:13px;font-weight:500;">${escH(kw)}<button onclick="removeAlert(${i})" style="background:none;border:none;cursor:pointer;color:var(--mid-gray);font-size:14px;padding:0 0 1px;line-height:1;" title="Remove">×</button></span>`).join('');
-}
-function escH(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function saveAlerts(alerts) {
-  const member = JSON.parse(localStorage.getItem('fop_member') || '{}');
-  member.keyword_alerts = alerts;
-  localStorage.setItem('fop_member', JSON.stringify(member));
-  try { const list = JSON.parse(localStorage.getItem('fop_members_list') || '[]'); const idx = list.findIndex(m => m.email === member.email); if (idx >= 0) list[idx] = member; else list.push(member); localStorage.setItem('fop_members_list', JSON.stringify(list)); } catch(e) {}
-  const msg = document.getElementById('alerts-save-msg');
-  if (msg) { msg.style.display = 'block'; setTimeout(() => msg.style.display = 'none', 2000); }
-  renderAlerts();
-}
-function addAlert() {
-  const input = document.getElementById('alert-input');
-  const kw = (input.value || '').trim();
-  if (!kw) return;
-  const member = JSON.parse(localStorage.getItem('fop_member') || '{}');
-  const alerts = member.keyword_alerts || [];
-  if (alerts.includes(kw)) { input.value = ''; return; }
-  if (alerts.length >= FREE_LIMIT) { alert('Free accounts can save up to ' + FREE_LIMIT + ' keyword alerts. Upgrade to Pro for unlimited.'); return; }
-  alerts.push(kw); input.value = '';
-  saveAlerts(alerts);
-}
-function removeAlert(index) {
-  const member = JSON.parse(localStorage.getItem('fop_member') || '{}');
-  const alerts = member.keyword_alerts || [];
-  alerts.splice(index, 1);
-  saveAlerts(alerts);
-}
-document.addEventListener('DOMContentLoaded', () => {
-  const inp = document.getElementById('alert-input');
-  if (inp) inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addAlert(); } });
-});
-if (document.getElementById('alerts-section')) renderAlerts();
 """,
     },
     "api": {

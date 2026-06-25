@@ -103,24 +103,6 @@
   }
   .select-wrap select { padding-right: 32px; cursor: pointer; }
 
-  /* Interests checkboxes */
-  .interests-label {
-    font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
-    text-transform: uppercase; color: var(--black); margin-bottom: 10px; display: block;
-  }
-  .check-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px;
-  }
-  .check-item {
-    display: flex; align-items: center; gap: 8px; cursor: pointer;
-    font-size: 13px; color: var(--black);
-  }
-  .check-item input[type="checkbox"] {
-    width: 16px; height: 16px; accent-color: var(--claret);
-    cursor: pointer; flex-shrink: 0;
-    padding: 0; background: none; border: none;
-  }
-
   /* GDPR consent */
   .gdpr-row {
     display: flex; align-items: flex-start; gap: 10px;
@@ -210,16 +192,16 @@
   <div class="reg-left">
     <p class="reg-kicker">Free membership</p>
     <h1 class="reg-headline">The world's fit-out industry intelligence, in one place</h1>
-    <p class="reg-subhead">Join FitOut Post free. Get daily news, tender alerts, and pipeline signals from every continent — before your competition does.</p>
+    <p class="reg-subhead">Join FitOut Post free for the weekly roundup — news, tenders, pipeline and contract awards from every continent, in one email every Monday.</p>
 
     <ul class="benefits">
       <li class="benefit">
         <div class="benefit-icon">
-          <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z"/></svg>
         </div>
         <div class="benefit-text">
-          <h4>Daily news briefing</h4>
-          <p>Breaking fit-out news across all six continents, updated every morning before 08:00.</p>
+          <h4>The weekly roundup</h4>
+          <p>One email every Monday — news, pipeline, tenders and contract awards from every continent, in full.</p>
         </div>
       </li>
       <li class="benefit">
@@ -247,15 +229,6 @@
         <div class="benefit-text">
           <h4>Companies directory</h4>
           <p>Browse the global fit-out contractor landscape — contractors, designers, and specialist subcontractors.</p>
-        </div>
-      </li>
-      <li class="benefit">
-        <div class="benefit-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z"/></svg>
-        </div>
-        <div class="benefit-text">
-          <h4>Weekly intelligence digest</h4>
-          <p>Curated editorial roundup every Friday — market trends, major awards, and notable project openings.</p>
         </div>
       </li>
     </ul>
@@ -346,20 +319,10 @@
           </div>
         </div>
 
-        <span class="interests-label">Interests (select all that apply)</span>
-        <div class="check-grid">
-          <label class="check-item"><input type="checkbox" value="news" /> News</label>
-          <label class="check-item"><input type="checkbox" value="tenders" /> Tenders &amp; RFPs</label>
-          <label class="check-item"><input type="checkbox" value="pipeline" /> Pipeline</label>
-          <label class="check-item"><input type="checkbox" value="companies" /> Companies</label>
-          <label class="check-item"><input type="checkbox" value="weekly" /> Weekly roundup</label>
-          <label class="check-item"><input type="checkbox" value="intelligence" /> Intelligence</label>
-        </div>
-
         <div class="gdpr-row">
           <input type="checkbox" id="gdpr-consent" required />
           <label for="gdpr-consent">
-            I agree to receive FitOut Post email briefings and accept the <a href="legal.html">Privacy Policy</a> and <a href="legal.html">Terms of Use</a>. You can unsubscribe at any time.
+            Send me the weekly FitOut Post roundup by email (Monday mornings, Spain time), and I accept the <a href="legal.html">Privacy Policy</a> and <a href="legal.html">Terms of Use</a>. I can unsubscribe at any time.
           </label>
         </div>
 
@@ -380,28 +343,8 @@
         <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
       <h3>Welcome to FitOut Post</h3>
-      <p id="success-msg">You're registered. Check <strong id="success-email"></strong> for your welcome email — you'll receive daily briefings starting tomorrow.</p>
+      <p id="success-msg">You're registered with <strong id="success-email"></strong>. Your first weekly roundup arrives Monday at 12:00 (Spain time).</p>
       <a class="btn-go-home" href="news.html">Go to the platform →</a>
-
-      <!-- Keyword alerts section -->
-      <div id="alerts-section" style="margin-top:36px;width:100%;border-top:1px solid var(--border);padding-top:28px;text-align:left;">
-        <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--claret);margin-bottom:8px;">Keyword alerts</div>
-        <p style="font-family:var(--serif-body);font-size:16px;line-height:1.6;color:var(--warm-gray);margin-bottom:18px;">
-          Save search terms to receive a daily email with matching articles, tenders and pipeline items delivered at 07:00 UTC.
-        </p>
-        <!-- Active alerts display -->
-        <div id="alerts-list" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;min-height:32px;"></div>
-        <!-- Add alert input -->
-        <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <input id="alert-input" type="text" placeholder='e.g. "Dubai office fit-out"'
-            style="flex:1;min-width:180px;padding:9px 12px;border:1px solid var(--border-dk);background:#fff;font-family:var(--sans);font-size:13.5px;outline:none;" />
-          <button onclick="addAlert()" style="padding:9px 20px;background:var(--claret);color:#fff;border:none;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;">
-            + Add alert
-          </button>
-        </div>
-        <div id="alerts-note" style="font-size:12px;color:var(--mid-gray);margin-top:10px;">Up to 10 keyword alerts on Free. <a href="pricing.html" style="color:var(--claret);">Go Pro</a> for unlimited alerts.</div>
-        <div id="alerts-save-msg" style="display:none;font-size:12px;color:#3D6B3F;margin-top:8px;font-weight:600;">✓ Alerts saved</div>
-      </div>
     </div>
   </div>
 

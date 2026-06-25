@@ -396,14 +396,6 @@
                          margin-top: 8px; font-style: normal; }
 
   /* ─── Member gate / paywall ──────────────────────────────────────────────── */
-  .paywall-fade {
-    position: relative; overflow: hidden;
-  }
-  .paywall-fade::after {
-    content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
-    background: linear-gradient(transparent, var(--white));
-    pointer-events: none;
-  }
   .paywall-wall {
     text-align: center; padding: 36px 32px 40px; border-top: 2px solid var(--border);
     background: var(--salmon);
@@ -919,28 +911,9 @@ function renderWeek(weekIndex) {
     return;
   }
 
-  // ── Teaser (non-members) ────────────────────────────────────────────────
-  // Show fax header + tabs + first 3 news items (faded) + paywall wall
-  const firstGroups = w.groups || [];
-  let teaserRows = "";
-  let teaserCount = 0;
-  for (const g of firstGroups) {
-    const items = g.items || g.articles || [];
-    for (const a of items) {
-      if (teaserCount >= 3) break;
-      teaserRows += newsRow(a);
-      teaserCount++;
-    }
-    if (teaserCount >= 3) break;
-  }
-
-  const teaserPanel = `<div class="signal-panel active" data-panel="news">
-    ${colHeader([{label:"Date",w:"54px"},{label:"Market",w:"160px"},{label:"Headline",w:"1fr"},{label:"",w:"56px"}])}
-    <div class="paywall-fade">${teaserRows}</div>
-  </div>`;
-
+  // ── Members-only (non-members see every tab locked) ────────────────────
   const lockedPanel = (label, count) =>
-    `<div class="signal-panel" data-panel="${label.toLowerCase()}">
+    `<div class="signal-panel${label === "News" ? " active" : ""}" data-panel="${label.toLowerCase()}">
       <div class="paywall-locked-panel">
         <div class="paywall-lock-icon">🔒</div>
         <strong>${count} ${label} signals this week</strong><br>
@@ -949,9 +922,9 @@ function renderWeek(weekIndex) {
     </div>`;
 
   const paywall = `<div class="paywall-wall">
-    <h3>Members-only content</h3>
-    <p>The full weekly roundup — news, pipeline, tenders and contract awards — is<br>
-    free for registered FitOut Post members. Registration takes 30 seconds.</p>
+    <h3>The Roundup is for members</h3>
+    <p>News, pipeline, tenders and contract awards — the full weekly roundup is<br>
+    free for registered FitOut Post members, delivered by email every Monday.</p>
     <a class="paywall-cta" href="register.html">Register free →</a>
     <p style="margin-top:14px;font-size:12px;color:var(--mid-gray);">
       Already a member? <a href="register.html" style="color:var(--claret);">Sign in</a>
@@ -960,7 +933,7 @@ function renderWeek(weekIndex) {
 
   container.innerHTML = `<div class="fax-transmission">
     ${faxHeader}${tabs}
-    ${teaserPanel}
+    ${lockedPanel("News", nTotal)}
     ${lockedPanel("Pipeline", pTotal)}
     ${lockedPanel("Tenders", tTotal)}
     ${lockedPanel("Awards", aTotal)}

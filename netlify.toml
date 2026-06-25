@@ -1,0 +1,13 @@
+# Netlify config — deploys only the registration intake function.
+# The canonical site remains fitoutpost.com via GitHub Pages; this
+# Netlify deployment exists solely to host netlify/functions/register.js
+# at https://fitoutpost-api.netlify.app/.netlify/functions/register
+#
+# Required env vars (Site settings → Environment variables):
+#   GITHUB_TOKEN, GITHUB_REPO, RESEND_API_KEY, MAIL_FROM, ALLOWED_ORIGIN
+
+[build]
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"
