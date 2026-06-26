@@ -3,21 +3,8 @@
   "members": [
     {
       "email": "pulpvoid@yahoo.es",
-      "name": "Victor Test",
-      "company": "FitOut Post",
-      "role": "other",
-      "region": "europe",
-      "subscribedAt": "2026-06-26T09:44:34.541Z"
-    },
-    {
-      "email": "fop.test.verify+phone@example.com",
-      "name": "Test Verify",
-      "company": "FOP Verification Co",
-      "role": "consultant",
-      "region": "europe",
-      "phoneCode": "+34",
-      "phoneNumber": "600123456",
-      "subscribedAt": "2026-06-26T10:45:57.004Z"
+      "name": "Victor",
+      "subscribedAt": "2026-01-01T00:00:00Z"
     }
   ]
 }
