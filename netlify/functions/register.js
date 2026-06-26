@@ -139,6 +139,7 @@ async function sendAdminNotification({ apiKey, from, adminEmail, member }) {
                                             <table style="font-size:14px;line-height:1.6;border-collapse:collapse;">
                                                   <tr><td style="padding:4px 12px 4px 0;color:#66605A;">Name</td><td>${member.name || "—"}</td></tr>
                                                         <tr><td style="padding:4px 12px 4px 0;color:#66605A;">Email</td><td>${member.email}</td></tr>
+                                                        <tr><td style="padding:4px 12px 4px 0;color:#66605A;">Phone</td><td>${member.phoneCode || ""} ${member.phoneNumber || "—"}</td></tr>
                                                               <tr><td style="padding:4px 12px 4px 0;color:#66605A;">Company</td><td>${member.company || "—"}</td></tr>
                                                                     <tr><td style="padding:4px 12px 4px 0;color:#66605A;">Role</td><td>${member.role || "—"}</td></tr>
                                                                           <tr><td style="padding:4px 12px 4px 0;color:#66605A;">Region</td><td>${member.region || "—"}</td></tr>
@@ -184,12 +185,17 @@ exports.handler = async function (event) {
     const company = (payload.company || "").trim();
     const role = (payload.role || "").trim();
     const region = (payload.region || "").trim();
+    const phoneCode = (payload.phoneCode || "").trim();
+    const phoneNumber = (payload.phoneNumber || "").trim();
 
     if (!firstName || !lastName) {
           return json(400, { ok: false, error: "First and last name are required." });
     }
     if (!isValidEmail(email)) {
           return json(400, { ok: false, error: "A valid email address is required." });
+    }
+    if (!phoneCode || !phoneNumber) {
+          return json(400, { ok: false, error: "A phone number with country code is required." });
     }
 
     const repo = process.env.GITHUB_REPO;
@@ -222,6 +228,8 @@ exports.handler = async function (event) {
               company,
               role,
             region,
+            phoneCode,
+            phoneNumber,
               subscribedAt: new Date().toISOString(),
       };
           members.push(newMember);
