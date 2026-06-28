@@ -1,20 +1,26 @@
-# Company Watch Report — 2026-06-21
+# Company Watch Report — 2026-06-28
 
-**Signals scanned:** 386 (last 14 days)  
-**Mentions extracted:** 16  
-**Existing companies enriched:** 2  
-**New candidates flagged:** 1  
+**Signals scanned:** 408 (last 14 days)  
+**Mentions extracted:** 15  
+**Existing companies enriched:** 4  
+**New candidates flagged:** 0  
 
 ---
 
 ## Existing Companies — New Projects Added
 
+### Marcon Fit-Out
+- Museum of Watford interior fit-out
+
+### Morgan Sindall Group
+- Overbury flexible office refits service
+
 ### Havelock One Interiors
-- Front-of-house fit-out for The Avenues Khobar mega-development
-- Fit-out contract for The Avenues Khobar
+- The Avenues Khobar front-of-house fit-out
+- The Avenues shopping centre fit-out in Khobar, Saudi Arabia
 
 ### Willmott Dixon Interiors
-- Commercial fit-out services
+- Multiple commercial fit-out projects
 
 ---
 
@@ -23,14 +29,7 @@
 > Edit `company_candidates.json`, remove any false positives, then run:
 > `python approve_candidates.py` to merge approved stubs into `companies.json`.
 
-### FDC ⚠ REVIEW NEEDED
-- **Type:** Fit-Out Contractor
-- **HQ:** Australia
-- **Sectors:** Commercial Fit-Out, Interior Construction
-- **Description:** FDC is a major Australian fitouts contractor preparing for IPO with $400m capital raising target. The company specializes in large-scale commercial interior construction and fitout projects.
-- **Website:** None
-- **Appearances:** 2x in signals
-- **Contexts:** Income, baby! Fitouts giant FDC eyes $400m for IPO, teases dividend - AFR | Ben Cottle's fitouts giant FDC lifts the lid on IPO financials - AFR
+_No new candidates this week._
 
 ---
 
@@ -38,6 +37,6 @@
 
 Total in `company_candidates.json`: **3**
 
-- FDC (Australia) ⭐ NEW
+- FDC (Australia)
 - Abanos (None)
 - rhtb (None)
