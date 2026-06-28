@@ -554,7 +554,6 @@
   }
   .form-group input::placeholder { color: var(--mid-gray); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .phone-row { display: grid; grid-template-columns: 150px 1fr; gap: 10px; }
 
   /* Sector select wrapper */
   .select-wrap { position: relative; }
@@ -645,9 +644,6 @@
     .stat-item { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .stat-item:nth-child(even) { border-right: none; }
     .reg-card { padding: 28px 20px; }
-  }
-  @media (max-width: 480px) {
-    .phone-row { grid-template-columns: 120px 1fr; }
   }
 
 </style>
@@ -810,89 +806,6 @@
         </div>
 
         <div class="form-group">
-          <label for="phone-number">Phone number</label>
-          <div class="phone-row">
-            <div class="select-wrap">
-              <select id="phone-code" required>
-                <option value="" disabled selected>Code</option>
-                <optgroup label="Europe">
-                  <option value="+44">🇬🇧 +44</option>
-                  <option value="+49">🇩🇪 +49</option>
-                  <option value="+33">🇫🇷 +33</option>
-                  <option value="+34">🇪🇸 +34</option>
-                  <option value="+39">🇮🇹 +39</option>
-                  <option value="+31">🇳🇱 +31</option>
-                  <option value="+32">🇧🇪 +32</option>
-                  <option value="+41">🇨🇭 +41</option>
-                  <option value="+43">🇦🇹 +43</option>
-                  <option value="+48">🇵🇱 +48</option>
-                  <option value="+351">🇵🇹 +351</option>
-                  <option value="+46">🇸🇪 +46</option>
-                  <option value="+47">🇳🇴 +47</option>
-                  <option value="+45">🇩🇰 +45</option>
-                  <option value="+358">🇫🇮 +358</option>
-                  <option value="+353">🇮🇪 +353</option>
-                  <option value="+30">🇬🇷 +30</option>
-                  <option value="+36">🇭🇺 +36</option>
-                  <option value="+420">🇨🇿 +420</option>
-                  <option value="+40">🇷🇴 +40</option>
-                </optgroup>
-                <optgroup label="Middle East">
-                  <option value="+971">🇦🇪 +971</option>
-                  <option value="+966">🇸🇦 +966</option>
-                  <option value="+974">🇶🇦 +974</option>
-                  <option value="+973">🇧🇭 +973</option>
-                  <option value="+968">🇴🇲 +968</option>
-                  <option value="+965">🇰🇼 +965</option>
-                  <option value="+972">🇮🇱 +972</option>
-                  <option value="+962">🇯🇴 +962</option>
-                  <option value="+961">🇱🇧 +961</option>
-                </optgroup>
-                <optgroup label="Asia Pacific">
-                  <option value="+65">🇸🇬 +65</option>
-                  <option value="+852">🇭🇰 +852</option>
-                  <option value="+61">🇦🇺 +61</option>
-                  <option value="+64">🇳🇿 +64</option>
-                  <option value="+91">🇮🇳 +91</option>
-                  <option value="+86">🇨🇳 +86</option>
-                  <option value="+81">🇯🇵 +81</option>
-                  <option value="+82">🇰🇷 +82</option>
-                  <option value="+66">🇹🇭 +66</option>
-                  <option value="+60">🇲🇾 +60</option>
-                  <option value="+62">🇮🇩 +62</option>
-                  <option value="+63">🇵🇭 +63</option>
-                  <option value="+84">🇻🇳 +84</option>
-                </optgroup>
-                <optgroup label="Americas">
-                  <option value="+1">🇺🇸 +1</option>
-                  <option value="+1">🇨🇦 +1</option>
-                  <option value="+52">🇲🇽 +52</option>
-                  <option value="+55">🇧🇷 +55</option>
-                  <option value="+54">🇦🇷 +54</option>
-                  <option value="+56">🇨🇱 +56</option>
-                  <option value="+57">🇨🇴 +57</option>
-                </optgroup>
-                <optgroup label="Africa">
-                  <option value="+27">🇿🇦 +27</option>
-                  <option value="+234">🇳🇬 +234</option>
-                  <option value="+254">🇰🇪 +254</option>
-                  <option value="+20">🇪🇬 +20</option>
-                  <option value="+212">🇲🇦 +212</option>
-                  <option value="+233">🇬🇭 +233</option>
-                </optgroup>
-                <optgroup label="Other">
-                  <option value="+7">🇷🇺 +7</option>
-                  <option value="+90">🇹🇷 +90</option>
-                  <option value="+92">🇵🇰 +92</option>
-                  <option value="+880">🇧🇩 +880</option>
-                </optgroup>
-              </select>
-            </div>
-            <input type="tel" id="phone-number" placeholder="Phone number" autocomplete="tel" required />
-          </div>
-        </div>
-
-        <div class="form-group">
           <label for="company">Company</label>
           <input type="text" id="company" placeholder="Your organisation" autocomplete="organization" />
         </div>
@@ -1017,15 +930,12 @@ document.getElementById('reg-form').addEventListener('submit', async function(e)
   const first = document.getElementById('first-name').value.trim();
   const last = document.getElementById('last-name').value.trim();
   const email = document.getElementById('email').value.trim().toLowerCase();
-  const phoneCode = document.getElementById('phone-code').value;
-  const phoneNumber = document.getElementById('phone-number').value.trim();
   const company = document.getElementById('company').value.trim();
   const role = document.getElementById('role').value;
   const region = document.getElementById('region').value;
   const consent = document.getElementById('gdpr-consent').checked;
   if (!first || !last) return showError('Please enter your first and last name.');
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showError('Please enter a valid email address.');
-  if (!phoneCode || !phoneNumber) return showError('Please select your country code and enter your phone number.');
   if (!consent) return showError('Please confirm you want the weekly roundup to continue.');
   function showError(msg) { errEl.textContent = msg; errEl.className = 'form-msg error show'; btn.disabled = false; btn.textContent = 'Create free account →'; }
   btn.disabled = true; btn.textContent = 'Registering…';
@@ -1034,7 +944,7 @@ document.getElementById('reg-form').addEventListener('submit', async function(e)
     const resp = await fetch(REGISTER_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ firstName: first, lastName: last, email, phoneCode, phoneNumber, company, role, region }),
+      body: JSON.stringify({ firstName: first, lastName: last, email, company, role, region }),
     });
     try { body = await resp.json(); } catch(e) {}
     if (!resp.ok || body.ok === false) {
@@ -1043,7 +953,7 @@ document.getElementById('reg-form').addEventListener('submit', async function(e)
   } catch (err) {
     return showError('Could not reach the server. Please check your connection and try again.');
   }
-  const member = { firstName: first, lastName: last, email, phoneCode, phoneNumber, company, role, region, registeredAt: new Date().toISOString(), id: 'fop_' + Date.now() };
+  const member = { firstName: first, lastName: last, email, company, role, region, registeredAt: new Date().toISOString(), id: 'fop_' + Date.now() };
   try {
     const list = JSON.parse(localStorage.getItem('fop_members_list') || '[]');
     const idx = list.findIndex(m => m.email === member.email);
