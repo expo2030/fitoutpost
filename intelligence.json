@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-25T04:53:15Z",
+  "last_updated": "2026-07-01T11:18:30Z",
   "total_datapoints": 109,
   "periods": [
     {
@@ -2392,6 +2392,13 @@
           "summary": "Cushman & Wakefield's 2026 UK guide reports Manchester all-in office fit-out costs at £128–310/sq ft (£210/sq ft medium spec), reflecting continued post-2022 cost-base reset, labour pressure and rising M&E/specification standards."
         }
       ]
+    },
+    {
+      "id": "2026-Q3",
+      "label": "Q3 2026 (Jul–Sep)",
+      "start": "2026-07-01",
+      "end": "2026-09-30",
+      "datapoints": []
     }
   ]
 }
