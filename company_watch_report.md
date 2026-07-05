@@ -1,26 +1,19 @@
-# Company Watch Report — 2026-06-28
+# Company Watch Report — 2026-07-05
 
-**Signals scanned:** 408 (last 14 days)  
+**Signals scanned:** 361 (last 14 days)  
 **Mentions extracted:** 15  
-**Existing companies enriched:** 4  
+**Existing companies enriched:** 2  
 **New candidates flagged:** 0  
 
 ---
 
 ## Existing Companies — New Projects Added
 
-### Marcon Fit-Out
-- Museum of Watford interior fit-out
+### Overbury
+- Flexible office fit-out services via Morgan Sindall Group
 
 ### Morgan Sindall Group
-- Overbury flexible office refits service
-
-### Havelock One Interiors
-- The Avenues Khobar front-of-house fit-out
-- The Avenues shopping centre fit-out in Khobar, Saudi Arabia
-
-### Willmott Dixon Interiors
-- Multiple commercial fit-out projects
+- Flexible office refits for city locations
 
 ---
 
