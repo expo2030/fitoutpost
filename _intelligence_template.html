@@ -347,6 +347,8 @@
   }
   .period-pill:hover { border-color: var(--black); color: var(--black); }
   .period-pill.active { background: var(--black); border-color: var(--black); color: #fff; }
+  .period-pill-empty { font-style: italic; color: var(--mid-gray); }
+  .period-pill-empty.active { background: var(--mid-gray); border-color: var(--mid-gray); }
 
   /* ══════════════════════════════════════════════════════════════════════════
      MAIN CONTENT
@@ -1058,8 +1060,9 @@ function buildPeriodPills() {
 
   for (const p of [...periods].reverse()) {
     const btn = document.createElement('button');
-    btn.className = 'period-pill' + (activePeriod === p.id ? ' active' : '');
-    btn.textContent = p.label || p.id;
+    const isEmptyPeriod = !(p.datapoints && p.datapoints.length);
+    btn.className = 'period-pill' + (activePeriod === p.id ? ' active' : '') + (isEmptyPeriod ? ' period-pill-empty' : '');
+    btn.textContent = (p.label || p.id) + (isEmptyPeriod ? ' \u00b7 in progress' : '');
     btn.onclick = () => selectPeriod(p.id);
     wrap.appendChild(btn);
   }
@@ -1237,6 +1240,27 @@ function sortDPs(dps) {
 function renderTable(dps) {
   const tbody = document.getElementById('table-body');
   if (!dps.length) {
+    const periods  = DATA.periods || [];
+    const activeP  = periods.find(p => p.id === activePeriod);
+    const periodTrulyEmpty = !!activePeriod && !!activeP && !(activeP.datapoints && activeP.datapoints.length);
+    if (periodTrulyEmpty) {
+      const idx = periods.findIndex(p => p.id === activePeriod);
+      let prevWithData = null;
+      for (let i = idx - 1; i >= 0; i--) {
+        if (periods[i].datapoints && periods[i].datapoints.length) { prevWithData = periods[i]; break; }
+      }
+      tbody.innerHTML =
+        '<tr><td colspan="6" style="padding:0">' +
+        '<div class="intel-empty">' +
+        '<div class="intel-empty-title">In progress</div>' +
+        '<div class="intel-empty-body">' +
+          esc(activeP.label || activeP.id) + ' cost data has not been published by our sources yet. ' +
+          (prevWithData
+            ? 'Refer to <a href="#" onclick="selectPeriod(\'' + prevWithData.id + '\'); return false;">' + esc(prevWithData.label || prevWithData.id) + ' (previous quarter)</a> below.'
+            : 'Refer to the previous quarter below.') +
+        '</div></div></td></tr>';
+      return;
+    }
     tbody.innerHTML =
       '<tr><td colspan="6" style="padding:0">' +
       '<div class="intel-empty">' +
@@ -1287,8 +1311,10 @@ function renderTable(dps) {
 // ─────────────────────────────────────────────────────────────────────────────
 function boot() {
   const periods = DATA.periods || [];
-  if (periods.length && activePeriod === '')
-    activePeriod = periods[periods.length - 1].id;
+  if (periods.length && activePeriod === '') {
+    const withData = [...periods].reverse().find(p => p.datapoints && p.datapoints.length);
+    activePeriod = (withData || periods[periods.length - 1]).id;
+  }
 
   // Masthead counts
   const countEl = document.getElementById('meta-count');
