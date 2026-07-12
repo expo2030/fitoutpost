@@ -1,5 +1,43 @@
 [
   {
+    "name": "Snøhetta",
+    "type": "Design & Build",
+    "hq": "Oslo, Norway",
+    "country": "Norway",
+    "continent": "Europe",
+    "sectors": [
+      "Architecture",
+      "Interior Design",
+      "Cultural Institutions",
+      "Commercial"
+    ],
+    "description": "Snøhetta is an international architecture and design firm renowned for landmark projects including the Shanghai Grand Opera House. The practice specializes in cultural, institutional, and commercial fit-out and interior design.",
+    "website": "https://snohetta.com",
+    "employees": "200-500",
+    "tags": [
+      "Architecture",
+      "Cultural Design",
+      "International"
+    ],
+    "id": "sn-hetta",
+    "source": "auto-discovered",
+    "review_needed": true,
+    "notable_projects": [],
+    "revenue_gbp_m": null,
+    "revenue_year": null,
+    "founded": null,
+    "parent": null,
+    "listed": false,
+    "contact": {},
+    "locations": [],
+    "services": [],
+    "_appearances": 2,
+    "_contexts": [
+      "Snøhetta's Shanghai Grand Opera House Nears Completion Ahead of October Opening",
+      "Gallery of Snøhetta's Shanghai Grand Opera House Nears Completion Ahead of October Opening - 1"
+    ]
+  },
+  {
     "name": "FDC",
     "type": "Fit-Out Contractor",
     "hq": "Australia",
