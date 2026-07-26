@@ -1,5 +1,42 @@
 [
   {
+    "name": "Leighton Asia",
+    "type": "Fit-Out Contractor",
+    "hq": "Bangkok, Thailand",
+    "country": "Thailand",
+    "continent": "Asia",
+    "sectors": [
+      "Data Centers",
+      "Technology",
+      "Infrastructure"
+    ],
+    "description": "Leighton Asia is a Hochtief unit specializing in fit-out and construction services across Asia. The company has secured major contracts including data center fit-out projects for global technology operators.",
+    "website": null,
+    "employees": null,
+    "tags": [
+      "data centers",
+      "fit-out",
+      "Asia-Pacific"
+    ],
+    "id": "leighton-asia",
+    "source": "auto-discovered",
+    "review_needed": true,
+    "notable_projects": [],
+    "revenue_gbp_m": null,
+    "revenue_year": null,
+    "founded": null,
+    "parent": null,
+    "listed": false,
+    "contact": {},
+    "locations": [],
+    "services": [],
+    "_appearances": 2,
+    "_contexts": [
+      "Leighton Asia wins NTT Global Data Centers fit-out contract at Bangkok campus in Thailand",
+      "Hochtief unit Leighton Asia wins NTT contract for Bangkok data center fit-out works - Bitget"
+    ]
+  },
+  {
     "name": "Snøhetta",
     "type": "Design & Build",
     "hq": "Oslo, Norway",
