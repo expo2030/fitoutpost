@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-25T08:18:31.322995+00:00",
-  "total_articles": 398,
+  "last_updated": "2026-07-26T08:36:16.951739+00:00",
+  "total_articles": 397,
   "articles": [
     {
       "id": "530b72a6a4",
@@ -495,6 +495,20 @@
       "signal_type": "Industry News",
       "quality": 0,
       "accessed_at": "2026-07-21T08:39:51.688707+00:00",
+      "matched_companies": []
+    },
+    {
+      "id": "9f6f777c0b",
+      "title": "FC Longin Innenausbau Ligist II (1.W) - SV Kainach / Bärnbach II (GLW) - oefb.at",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPWWlUZElKN1kyR1l1WnFNbFVGVS0zdkZWVDdFbUw0eHZlZGZMUVFUeEFBcXQweVpFSk5wRV9fbmxxR0haTkxaTGdpLVlZQTFKS2xYdDBkTEQ1Z2g0Wmo1NlN4N29JSVFxUmhzeG1BcjFsT2tobk9DWHRlSzdzdkJLWGM1b1BqeWloY3lzY1lFTXZ3X3kwXzJaekF6OHRxRllfb2ExRkVPSnZGbkFVTS04Z0xwMDh6dnBiNlV4YlVVTXBhUQ?oc=5",
+      "source": "oefb.at",
+      "published": "2026-07-20T07:00:00+00:00",
+      "description": "FC Longin Innenausbau Ligist II (1.W) - SV Kainach / Bärnbach II (GLW)",
+      "country": "Austria",
+      "continent": "Europe",
+      "signal_type": "Industry News",
+      "quality": 0,
+      "accessed_at": "2026-07-26T08:35:55.401403+00:00",
       "matched_companies": []
     },
     {
@@ -1520,6 +1534,20 @@
       "matched_companies": []
     },
     {
+      "id": "33363f0893",
+      "title": "ZAWYA: Luxe Developers awards $41mln interior fit-out contract for Oceano development in Ras Al Khaimah - TradingView",
+      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNMjNyaUFQSnpPMnNvZGJiMUFfREtWazdxYjNwOTdMT1FDVlJieXNFcUVOZTBuTl8tYkdKUDlYRnlmTkVRa3FXOGgxaWVzRktscmZyWFVJelpHZXJ5Z0lTUHlmeWtDZ1Y0V2tmaDVrUW1Pd2t4Y3lWM0M5dFhvaVM2SDNJWm5FLW9JcjdtdWdWOWd1U1BaM2NfRkE2ZzlhLWlXNXZWc3drZXBzamtnamRvQ21TVG1WU01wZnZsaWkxWmlKX2lFU0sxTjQ5WG1qYy1MZXB3SHZXeC1pYlNkTWNZOGg4TVRqRkZWdE9Nang2anBRZW83bHRtcjVTODZfc3pINnlfSkNmMTI?oc=5",
+      "source": "TradingView",
+      "published": "2026-06-30T08:47:07+00:00",
+      "description": "ZAWYA: Luxe Developers awards $41mln interior fit-out contract for Oceano development in Ras Al Khaimah",
+      "country": "United Arab Emirates",
+      "continent": "Middle East",
+      "signal_type": "Contract Win",
+      "quality": 0,
+      "accessed_at": "2026-06-30T09:54:53.342532+00:00",
+      "matched_companies": []
+    },
+    {
       "id": "da930a36af",
       "title": "Luxe awards fit-out contract for major RAK residential tower - TradeArabia",
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxObkt0cnp0aUh4NkNLQmtkZ2N1WXdkdFZ1UHprenpjell4M2xXNzdLQlpQa3ZjMjZDbUdOV1VRcWlQeTJCQ1hwYmIyQWNKNl92Q3g4TUJmeWlMNGVjR0huZWRBXzg5bzJReFliT3l4em5vREZ6YzBmQjRjcmx5dzJBYzV3YzNrQmtrSGYwWHJ3VmtZa1BydUVxempTa2R2bElfdlE?oc=5",
@@ -1587,20 +1615,6 @@
       "signal_type": "Market Data",
       "quality": 0,
       "accessed_at": "2026-07-02T09:26:47.166125+00:00",
-      "matched_companies": []
-    },
-    {
-      "id": "33363f0893",
-      "title": "ZAWYA: Luxe Developers awards $41mln interior fit-out contract for Oceano development in Ras Al Khaimah - TradingView",
-      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNMjNyaUFQSnpPMnNvZGJiMUFfREtWazdxYjNwOTdMT1FDVlJieXNFcUVOZTBuTl8tYkdKUDlYRnlmTkVRa3FXOGgxaWVzRktscmZyWFVJelpHZXJ5Z0lTUHlmeWtDZ1Y0V2tmaDVrUW1Pd2t4Y3lWM0M5dFhvaVM2SDNJWm5FLW9JcjdtdWdWOWd1U1BaM2NfRkE2ZzlhLWlXNXZWc3drZXBzamtnamRvQ21TVG1WU01wZnZsaWkxWmlKX2lFU0sxTjQ5WG1qYy1MZXB3SHZXeC1pYlNkTWNZOGg4TVRqRkZWdE9Nang2anBRZW83bHRtcjVTODZfc3pINnlfSkNmMTI?oc=5",
-      "source": "TradingView",
-      "published": "2026-06-30T08:47:07+00:00",
-      "description": "ZAWYA: Luxe Developers awards $41mln interior fit-out contract for Oceano development in Ras Al Khaimah",
-      "country": "United Arab Emirates",
-      "continent": "Middle East",
-      "signal_type": "Contract Win",
-      "quality": 0,
-      "accessed_at": "2026-06-30T09:54:53.342532+00:00",
       "matched_companies": []
     },
     {
@@ -3179,6 +3193,20 @@
       "signal_type": "Market Data",
       "quality": 0,
       "accessed_at": "2026-06-04T10:08:15.371511+00:00",
+      "matched_companies": []
+    },
+    {
+      "id": "f8d1301673",
+      "title": "Past informs present for new directions in workplace design - Building Design + Construction",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPblExclJvSGk1Y2dUQURNaUd0WHBRc2Y0cW5CNFpkUEVHcXp3ZmZ2LWd4ZHJwbXdfMnpoTnROV09ZdU1sRWdoMHFwaHA1TnlzbXJIWmtSSGFPem5BN1hwQUYxaWl3VGFWN2xTaEZvakJDbXdaU0FKdUtqNWNveFBOT3o3djI1OWlDaGlscWV3bWJ2YjJQMGJFeFdrZ2pZUldJVHBXeUUxbGsyN2VpTFVXcDA5Rkg5ci05b0VtZ084WGlTUW5lRm5CaG1IS1NzVm1tdWE2OGg1TlM?oc=5",
+      "source": "Building Design + Construction",
+      "published": "2026-06-03T07:00:00+00:00",
+      "description": "Past informs present for new directions in workplace design",
+      "country": "United Kingdom",
+      "continent": "Europe",
+      "signal_type": "Industry News",
+      "quality": 0,
+      "accessed_at": "2026-07-26T08:35:55.401403+00:00",
       "matched_companies": []
     },
     {
@@ -5601,48 +5629,6 @@
       "country": "Global",
       "continent": "Global",
       "_feed_label": "Core",
-      "signal_type": "Industry News",
-      "quality": 0,
-      "matched_companies": []
-    },
-    {
-      "id": "61680ea883",
-      "title": "Amazon Begins $32M Fit-Out At One Boston Wharf - Hoodline",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQaERha0Uzdi1aOUUxeEJISUxOMTJhekJhQUZoZXd3Tzhqa3BEUEZZYU0tR2R2bVAxbzg1cWg0R1o0R1lva2dlNHhRZHY3OVFBaUFqalJHQmZldWNqYXh2eUZFUmM5eTNqWl9ieG4yMXhKUjRCcUh0T01KakthNU95YXd0YTRLSFBfbkJTNng1Q3FnSlowSUUwWGtHelI0NE14YVIydDdNWXJhRmRx?oc=5",
-      "source": "Hoodline",
-      "published": "2026-04-27T07:00:00+00:00",
-      "description": "Amazon Begins $32M Fit-Out At One Boston Wharf",
-      "country": "United States",
-      "continent": "Americas",
-      "signal_type": "Industry News",
-      "quality": 0,
-      "accessed_at": "2026-05-22T09:42:39.933966+00:00",
-      "matched_companies": []
-    },
-    {
-      "id": "296ccee9dc",
-      "title": "Geopolitical Tensions, AI Demands to Drive Up Costs of Corporate Office Fit-Outs - Supply & Demand Chain Executive",
-      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxQRmw1V3pEVXhaQkNTSDFBNnI3RVdtcDNnS19MeTFQT0JKX3RsSWNuZXRrZ2JBTVVCc3FXbWdjRHdXRVVncGRqLURhdUdnYXktSDg0WmVmdHVTeEpNZW80UmhkN2xrWmpmWkk5VmJCcmU2M1pPdmpyRGx4VnpmSXR0MV9GVVlCV1d2ZGY2V09RMGpPcm9qdU9XNGpiR3NfT2xTTjJ3Q1F0aFRhTmZXajhZTldpdmtMbjh2ZElVR0pqSWktSFJCeDBfaFhncnRXQ2JBb3R4cjBIZTJFbkxzNUZrSVVSS3BUdnVUdk8wWC1KY3R6SEg1QUNWai1JOEZqaDJjeVA4cg?oc=5",
-      "source": "Supply & Demand Chain Executive",
-      "published": "2026-04-26T16:39:32+00:00",
-      "description": "Geopolitical Tensions, AI Demands to Drive Up Costs of Corporate Office Fit-Outs",
-      "country": "Global",
-      "continent": "Global",
-      "_feed_label": "Core",
-      "signal_type": "Industry News",
-      "quality": 0,
-      "matched_companies": []
-    },
-    {
-      "id": "0e676df025",
-      "title": "Warum fugenlose Betonsysteme aus Italien den Innenausbau prägen - buildingnet.de",
-      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxObkJwQlFEYnY0eGUwZV9NY3J5bTh6bEZ2WXpaZm1rcHJMcmNFR01zWUFiYXJIQ0Jrd0o0LXNFWUgteVNERnFMSmJ4cWJONlFndUJtUkYtaDZjNzMtckFlVW1acU1kbVlTNEsxdWozSUQwZkxYb2xkc19DZ1dmenJnQzd3bGw4T3NEV1VXUUZuSkxZTEItWDk4dDNVTHJxSGszeFNpOWZSZ05TNUJIV1FhOHBjaDlUbnJmNm5yekFJZU9JeUNCaVJZcWJWTDFjLURxc0xqaHhkRWYwRVExaEE?oc=5",
-      "source": "buildingnet.de",
-      "published": "2026-04-26T15:00:05+00:00",
-      "description": "Warum fugenlose Betonsysteme aus Italien den Innenausbau prägen",
-      "country": "Germany",
-      "continent": "Europe",
-      "accessed_at": "2026-04-30T16:56:47.616962+00:00",
       "signal_type": "Industry News",
       "quality": 0,
       "matched_companies": []
