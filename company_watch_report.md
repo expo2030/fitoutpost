@@ -1,28 +1,17 @@
-# Company Watch Report — 2026-07-26
+# Company Watch Report — 2026-08-02
 
-**Signals scanned:** 305 (last 14 days)  
+**Signals scanned:** 381 (last 14 days)  
 **Mentions extracted:** 25  
-**Existing companies enriched:** 5  
-**New candidates flagged:** 1  
+**Existing companies enriched:** 1  
+**New candidates flagged:** 2  
 
 ---
 
 ## Existing Companies — New Projects Added
 
 ### Morgan Sindall Group
-- Multiple fit-out workloads
-
-### Havelock One Interiors
-- Kuwait mall interior renovation
-
-### Creation Ltd
-- Fit-out order book of S$144 million
-
-### Skanska
-- Bevel Mass Timber Office Tower, Bellevue
-
-### Swinerton
-- Armstrong Ceiling Project at office space
+- Multiple fit-out projects
+- Fit out and construction services
 
 ---
 
@@ -31,22 +20,33 @@
 > Edit `company_candidates.json`, remove any false positives, then run:
 > `python approve_candidates.py` to merge approved stubs into `companies.json`.
 
-### Leighton Asia ⚠ REVIEW NEEDED
+### ALEC FITOUT ⚠ REVIEW NEEDED
 - **Type:** Fit-Out Contractor
-- **HQ:** Bangkok, Thailand
-- **Sectors:** Data Centers, Technology, Infrastructure
-- **Description:** Leighton Asia is a Hochtief unit specializing in fit-out and construction services across Asia. The company has secured major contracts including data center fit-out projects for global technology operators.
+- **HQ:** Dubai, United Arab Emirates
+- **Sectors:** Hospitality, Luxury Renovation, Interior Construction
+- **Description:** ALEC FITOUT is a fit-out contractor specializing in renovation and interior construction projects in the Middle East. They have been appointed for major hospitality projects including Jumeirah Zabeel Saray renovation works.
 - **Website:** None
 - **Appearances:** 2x in signals
-- **Contexts:** Leighton Asia wins NTT Global Data Centers fit-out contract at Bangkok campus in Thailand | Hochtief unit Leighton Asia wins NTT contract for Bangkok data center fit-out works - Bitget
+- **Contexts:** ALEC FITOUT appointed as main contractor for renovation works on Zabeel Saray - Middle East Construction News | Shamal Holding accelerates the transformation of Jumeirah Zabeel Saray with the appointment of ALEC FITOUT - Zawya
+
+### Montane Building Group ⚠ REVIEW NEEDED
+- **Type:** Fit-Out Contractor
+- **HQ:** Nevada, United States
+- **Sectors:** Tenant Improvement, Commercial Construction, Interior Fit-Out
+- **Description:** Montane Building Group is a fit-out contractor specializing in tenant improvement projects. The company completes commercial interior construction work across Northern Nevada.
+- **Website:** None
+- **Appearances:** 2x in signals
+- **Contexts:** Montane Building Group completes West Coast Boats tenant improvement - Northern Nevada Business Weekly | Montane Building Group announces completion of Belimo Aircontrols Tenant Improvement - Northern Nevada Business Weekly
 
 ---
 
 ## All Pending Candidates
 
-Total in `company_candidates.json`: **5**
+Total in `company_candidates.json`: **7**
 
-- Leighton Asia (Bangkok, Thailand) ⭐ NEW
+- ALEC FITOUT (Dubai, United Arab Emirates) ⭐ NEW
+- Montane Building Group (Nevada, United States) ⭐ NEW
+- Leighton Asia (Bangkok, Thailand)
 - Snøhetta (Oslo, Norway)
 - FDC (Australia)
 - Abanos (None)

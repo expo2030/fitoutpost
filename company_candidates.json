@@ -1,5 +1,79 @@
 [
   {
+    "name": "ALEC FITOUT",
+    "type": "Fit-Out Contractor",
+    "hq": "Dubai, United Arab Emirates",
+    "country": "United Arab Emirates",
+    "continent": "Middle East",
+    "sectors": [
+      "Hospitality",
+      "Luxury Renovation",
+      "Interior Construction"
+    ],
+    "description": "ALEC FITOUT is a fit-out contractor specializing in renovation and interior construction projects in the Middle East. They have been appointed for major hospitality projects including Jumeirah Zabeel Saray renovation works.",
+    "website": null,
+    "employees": null,
+    "tags": [
+      "Dubai-based",
+      "Luxury hospitality",
+      "Main contractor"
+    ],
+    "id": "alec-fitout",
+    "source": "auto-discovered",
+    "review_needed": true,
+    "notable_projects": [],
+    "revenue_gbp_m": null,
+    "revenue_year": null,
+    "founded": null,
+    "parent": null,
+    "listed": false,
+    "contact": {},
+    "locations": [],
+    "services": [],
+    "_appearances": 2,
+    "_contexts": [
+      "ALEC FITOUT appointed as main contractor for renovation works on Zabeel Saray - Middle East Construction News",
+      "Shamal Holding accelerates the transformation of Jumeirah Zabeel Saray with the appointment of ALEC FITOUT - Zawya"
+    ]
+  },
+  {
+    "name": "Montane Building Group",
+    "type": "Fit-Out Contractor",
+    "hq": "Nevada, United States",
+    "country": "United States",
+    "continent": "Americas",
+    "sectors": [
+      "Tenant Improvement",
+      "Commercial Construction",
+      "Interior Fit-Out"
+    ],
+    "description": "Montane Building Group is a fit-out contractor specializing in tenant improvement projects. The company completes commercial interior construction work across Northern Nevada.",
+    "website": null,
+    "employees": null,
+    "tags": [
+      "Tenant Improvement",
+      "Northern Nevada",
+      "Commercial Fit-Out"
+    ],
+    "id": "montane-building-group",
+    "source": "auto-discovered",
+    "review_needed": true,
+    "notable_projects": [],
+    "revenue_gbp_m": null,
+    "revenue_year": null,
+    "founded": null,
+    "parent": null,
+    "listed": false,
+    "contact": {},
+    "locations": [],
+    "services": [],
+    "_appearances": 2,
+    "_contexts": [
+      "Montane Building Group completes West Coast Boats tenant improvement - Northern Nevada Business Weekly",
+      "Montane Building Group announces completion of Belimo Aircontrols Tenant Improvement - Northern Nevada Business Weekly"
+    ]
+  },
+  {
     "name": "Leighton Asia",
     "type": "Fit-Out Contractor",
     "hq": "Bangkok, Thailand",
