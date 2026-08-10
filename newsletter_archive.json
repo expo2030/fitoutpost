@@ -1,6 +1,19 @@
 {
-  "last_updated": "2026-08-03T12:50:14Z",
+  "last_updated": "2026-08-10T10:58:37Z",
   "newsletters": [
+    {
+      "id": "2026-W32",
+      "week_label": "3 Aug – 9 Aug 2026",
+      "sent_at": "2026-08-10T10:58:37Z",
+      "editorial": "Data centre infrastructure dominates this week's contract landscape, with Malaysia's Sunway Construction securing a RM1.02 billion fit-out award for a Johor facility from a US client—a deal that crystallises Asia-Pacific's gravitational pull for hyperscale projects. The broader picture shows energy-intensive developments reshaping regional economics, particularly across Southeast Asia and the Middle East, where capital deployment has accelerated markedly.\n\nPipeline momentum centres on hospitality and tourism-anchored projects. Saudi Arabia's Misk City campus progresses towards its autumn 2026 opening, whilst Riyadh and Medina hotel developments signal sustained pilgrimage-driven investment. Ireland remains a secondary growth vector, with Hilton expanding its portfolio and Dublin grappling with cost pressures on cultural infrastructure—a tension worth monitoring as public funding constraints bite.\n\nProcurement activity clusters around transportation and public-sector refurbishment. Ireland's Department of Social Protection tender for Dunfanaghy office fit-out, coupled with stadium renovation opportunities, suggests government agencies are moving beyond budget holding patterns. Hong Kong's Zensitive IPO filing—a rare specialist fit-out operator seeking public capital—hints at consolidation appetites within the sector.\n\nThe critical question facing fit-out specialists: can regional supply chains match the volume and velocity of data centre demand, or will margin compression from hyperscaler pricing discipline force margin-hungry mid-market operators toward niche hospitality and workplace segments?",
+      "stats": {
+        "total": 178,
+        "news": 32,
+        "pipeline": 134,
+        "tenders": 9,
+        "awards": 3
+      }
+    },
     {
       "id": "2026-W31",
       "week_label": "27 Jul – 2 Aug 2026",
