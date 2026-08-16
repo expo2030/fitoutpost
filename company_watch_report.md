@@ -1,22 +1,15 @@
-# Company Watch Report — 2026-08-09
+# Company Watch Report — 2026-08-16
 
-**Signals scanned:** 335 (last 14 days)  
+**Signals scanned:** 265 (last 14 days)  
 **Mentions extracted:** 21  
-**Existing companies enriched:** 3  
+**Existing companies enriched:** 0  
 **New candidates flagged:** 0  
 
 ---
 
 ## Existing Companies — New Projects Added
 
-### Structure Tone
-- Fit Out Awards 2026 Gold Sponsor
-
-### Morgan Sindall Group
-- Fit-out delivery across multiple sectors
-
-### Balfour Beatty
-- 800-Room Grand Hyatt Miami Beach Hotel
+_No new projects added this week._
 
 ---
 
