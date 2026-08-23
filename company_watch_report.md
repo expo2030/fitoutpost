@@ -1,15 +1,16 @@
-# Company Watch Report — 2026-08-16
+# Company Watch Report — 2026-08-23
 
-**Signals scanned:** 265 (last 14 days)  
+**Signals scanned:** 264 (last 14 days)  
 **Mentions extracted:** 21  
-**Existing companies enriched:** 0  
-**New candidates flagged:** 0  
+**Existing companies enriched:** 1  
+**New candidates flagged:** 1  
 
 ---
 
 ## Existing Companies — New Projects Added
 
-_No new projects added this week._
+### Morgan Sindall Group
+- Plymouth retrofit project, UK
 
 ---
 
@@ -18,14 +19,22 @@ _No new projects added this week._
 > Edit `company_candidates.json`, remove any false positives, then run:
 > `python approve_candidates.py` to merge approved stubs into `companies.json`.
 
-_No new candidates this week._
+### Beno ⚠ REVIEW NEEDED
+- **Type:** Design & Build
+- **HQ:** None
+- **Sectors:** Hospitality, Luxury Interiors, Guest Lounges
+- **Description:** Beno specializes in premium fit-out and interior construction for luxury hospitality projects. The company has completed high-end guest lounge projects in partnership with luxury brands like Jumeirah Group.
+- **Website:** None
+- **Appearances:** 2x in signals
+- **Contexts:** Beno opens premium guest lounge at Marsa Al Arab | Beno Opens Luxury Waterfront Guest Lounge at Marsa Al Arab in Partnership with Jumeirah Group
 
 ---
 
 ## All Pending Candidates
 
-Total in `company_candidates.json`: **7**
+Total in `company_candidates.json`: **8**
 
+- Beno (None) ⭐ NEW
 - ALEC FITOUT (Dubai, United Arab Emirates)
 - Montane Building Group (Nevada, United States)
 - Leighton Asia (Bangkok, Thailand)

@@ -1,5 +1,42 @@
 [
   {
+    "name": "Beno",
+    "type": "Design & Build",
+    "hq": null,
+    "country": "United Arab Emirates",
+    "continent": "Middle East",
+    "sectors": [
+      "Hospitality",
+      "Luxury Interiors",
+      "Guest Lounges"
+    ],
+    "description": "Beno specializes in premium fit-out and interior construction for luxury hospitality projects. The company has completed high-end guest lounge projects in partnership with luxury brands like Jumeirah Group.",
+    "website": null,
+    "employees": null,
+    "tags": [
+      "Luxury Hospitality",
+      "Premium Fit-Out",
+      "UAE"
+    ],
+    "id": "beno",
+    "source": "auto-discovered",
+    "review_needed": true,
+    "notable_projects": [],
+    "revenue_gbp_m": null,
+    "revenue_year": null,
+    "founded": null,
+    "parent": null,
+    "listed": false,
+    "contact": {},
+    "locations": [],
+    "services": [],
+    "_appearances": 2,
+    "_contexts": [
+      "Beno opens premium guest lounge at Marsa Al Arab",
+      "Beno Opens Luxury Waterfront Guest Lounge at Marsa Al Arab in Partnership with Jumeirah Group"
+    ]
+  },
+  {
     "name": "ALEC FITOUT",
     "type": "Fit-Out Contractor",
     "hq": "Dubai, United Arab Emirates",
