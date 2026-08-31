@@ -1,6 +1,19 @@
 {
-  "last_updated": "2026-08-24T10:28:38Z",
+  "last_updated": "2026-08-31T17:18:35Z",
   "newsletters": [
+    {
+      "id": "2026-W35",
+      "week_label": "24 Aug – 30 Aug 2026",
+      "sent_at": "2026-08-31T17:18:35Z",
+      "editorial": "Germany and Ireland are shaping the week's momentum, though in markedly different ways. German outlets are circulating interior fit-out content with domestic focus—maritime refurbishment, bespoke kitchens—signalling steady workload but limited export dynamism. Ireland's story is far sharper: the mandatory integration of BIM into public-sector fit-out contracts represents a systemic shift in procurement standards, whilst W2W and Optima's Gold sponsorship of the Fit Out Awards suggests the sector is consolidating around quality-certified operators. This regulatory tightening is beginning to separate established players from smaller competitors.\n\nCapital is flowing toward hospitality and mixed-use development across the Commonwealth and Americas. Australia's Gold Coast hotel pipeline, the Caribbean's expansion trajectory (cruise terminals, health facilities), and Mexico's luxury theme park signal sustained F&B and leisure investment. Meanwhile, the US market remains fragmented: SunCon's RM1.04bn MEP contract from a tech major underscores the resilience of corporate fit-out demand, yet most US activity remains episodic—individual office renovations rather than regional scalability. European commercial development is comparatively muted.\n\nProcurement remains sparse. Two Irish architectural and quantity surveying tenders hint at government-backed monitoring frameworks rather than major execution work. The standout award is Willmott Dixon's £20m contract for the John Pawson Design Museum in London—a high-profile cultural project that validates premium fit-out expertise but represents an outlier rather than market trend. UK contractors are broadly benefitting from fit-out demand, yet specificity on contract value and sector distribution is limited.\n\nThe emergence of BIM-as-standard in Ireland raises an uncomfortable question for the broader industry: how many fit-out contractors are genuinely prepared for mandatory digital compliance, and will this accelerate consolidation or trigger a capability gap?",
+      "stats": {
+        "total": 182,
+        "news": 29,
+        "pipeline": 145,
+        "tenders": 6,
+        "awards": 2
+      }
+    },
     {
       "id": "2026-W34",
       "week_label": "17 Aug – 23 Aug 2026",
