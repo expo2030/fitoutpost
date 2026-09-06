@@ -1,5 +1,43 @@
 [
   {
+    "name": "MVRDV",
+    "type": "Interior Designer",
+    "hq": "Rotterdam, Netherlands",
+    "country": "Netherlands",
+    "continent": "Europe",
+    "sectors": [
+      "Architecture",
+      "Interior Design",
+      "Mixed-Use Development",
+      "Urban Design"
+    ],
+    "description": "MVRDV is a renowned Dutch architecture and design firm specializing in innovative interior and spatial design solutions. They create distinctive mixed-use developments and interior environments across residential, commercial, and cultural sectors.",
+    "website": "https://www.mvrdv.nl",
+    "employees": "100-250",
+    "tags": [
+      "Dutch Design",
+      "Mixed-Use Development",
+      "Contemporary Architecture"
+    ],
+    "id": "mvrdv",
+    "source": "auto-discovered",
+    "review_needed": true,
+    "notable_projects": [],
+    "revenue_gbp_m": null,
+    "revenue_year": null,
+    "founded": null,
+    "parent": null,
+    "listed": false,
+    "contact": {},
+    "locations": [],
+    "services": [],
+    "_appearances": 2,
+    "_contexts": [
+      "Renderings Reveal MVRDV-Designed WOMA Mixed-Use Development In Wynwood Norte, Miami",
+      "MVRDV Reveals WOMA Mixed-Use Development in Miami's Wynwood Norte"
+    ]
+  },
+  {
     "name": "Beno",
     "type": "Design & Build",
     "hq": null,
