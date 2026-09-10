@@ -1,36 +1,35 @@
 {
-  "last_updated": "2026-09-09T11:12:23.971150+00:00",
-  "total": 107,
+  "last_updated": "2026-09-10T11:09:13.722493+00:00",
+  "total": 122,
   "by_continent": {
-    "Europe": 56,
-    "Other": 23,
-    "Middle East": 7,
-    "Asia Pacific": 13,
-    "Americas": 5,
+    "Europe": 69,
+    "Other": 29,
+    "Middle East": 6,
+    "Asia Pacific": 12,
+    "Americas": 3,
     "Africa": 3
   },
   "by_status": {
-    "open": 105,
+    "open": 120,
     "closing_soon": 2,
     "closed": 0,
     "unknown": 0
   },
   "by_category": {
-    "Office": 16,
-    "Commercial": 47,
-    "Retail": 3,
+    "Office": 15,
+    "Commercial": 45,
+    "Retail": 5,
     "Public": 2,
-    "Healthcare": 28,
-    "Industrial": 1,
-    "Residential": 2,
-    "Hospitality": 8
+    "Healthcare": 41,
+    "Hospitality": 10,
+    "Industrial": 2,
+    "Residential": 2
   },
   "by_source": {
     "TED EU": 25,
-    "Contracts Finder": 1,
-    "fitoutawards.ie": 19,
+    "Fit Out Awards 2026": 39,
     "Galway Advertiser": 1,
-    "guineenews.org": 1,
+    "Guinéenews": 1,
     "The Star": 3,
     "MEP Middle East": 5,
     "Construction Week Online": 2,
@@ -39,32 +38,30 @@
     "BusinessToday Malaysia": 2,
     "Yahoo Finance Singapore": 1,
     "The Edge Singapore": 1,
-    "Gulf Daily News (Bahrain)": 2,
+    "Gulf Daily News (Bahrain)": 1,
+    "The Malaysian Reserve": 2,
     "Construction World": 1,
-    "insidermedia.com": 1,
+    "Insider Media Ltd": 1,
     "TradeArabia": 2,
     "KLSE Screener": 1,
     "Projects Today": 1,
     "The Edge Malaysia": 2,
     "EdgeProp": 2,
-    "The Malaysian Reserve": 1,
     "The Economic Times": 1,
-    "Indianmasterminds": 1,
     "Building Better Healthcare": 1,
     "scanx.trade": 1,
     "Construction News": 1,
-    "BDC Magazine": 1,
+    "bdcmagazine.com": 1,
     "The Times": 1,
-    "newsletter.co.uk": 1,
+    "Belfast News Letter": 1,
     "Catering Insight": 1,
-    "find-tender.service.gov.uk": 12,
-    "bottomline.seattle.gov": 1,
+    "find-tender.service.gov.uk": 11,
+    "Seattle.gov": 1,
     "The Citizen": 1,
     "Mjengo Hub": 1,
     "وكالة وام": 1,
-    "UNGM": 2,
+    "ungm.org": 1,
     "Coral Springs Talk": 1,
-    "Made in Britain": 1,
     "JLL": 2
   },
   "tenders": [
@@ -79,7 +76,7 @@
       "category": "Office",
       "published": "2026-08-14",
       "deadline": "2026-09-16",
-      "deadline_days": 6,
+      "deadline_days": 5,
       "value_min": 0,
       "value_max": 0,
       "value_currency": "EUR",
@@ -90,7 +87,7 @@
       "status": "closing_soon",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-15bc63fe",
@@ -103,7 +100,7 @@
       "category": "Commercial",
       "published": "",
       "deadline": "2026-09-16",
-      "deadline_days": 6,
+      "deadline_days": 5,
       "value_min": 0,
       "value_max": 0,
       "value_currency": "EUR",
@@ -114,7 +111,7 @@
       "status": "closing_soon",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-c3e9a3b3",
@@ -127,7 +124,7 @@
       "category": "Office",
       "published": "2026-09-02",
       "deadline": "2026-10-01",
-      "deadline_days": 21,
+      "deadline_days": 20,
       "value_min": 0,
       "value_max": 0,
       "value_currency": "EUR",
@@ -138,31 +135,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
-    },
-    {
-      "id": "cf-b2b4a8fa",
-      "title": "Drummond Community Centre Refurbishment",
-      "issuer": "Hedge End Town Council",
-      "issuer_country": "GB",
-      "issuer_country_name": "United Kingdom",
-      "issuer_flag": "🇬🇧",
-      "continent": "Europe",
-      "category": "Commercial",
-      "published": "2026-09-09",
-      "deadline": "2026-10-19",
-      "deadline_days": 39,
-      "value_min": 120000.0,
-      "value_max": 120000.0,
-      "value_currency": "GBP",
-      "value_display": "£120K",
-      "source": "Contracts Finder",
-      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/f78c89a1-2b81-496b-bf07-44e76e0245eb",
-      "reference": "ocds-b5fd17-f78c89a1-2b81-496b-bf07-44e76e0245eb",
-      "status": "open",
-      "description_preview": "Drummond Community Centre is an important community facility serving residents across Grange Park and the wider Hedge End area. The proposed improvement works will enhance the building both internally and externally, ensuring it remains a welcoming, functional and well-maintained facility for the co",
-      "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-dfa4cd27",
@@ -175,7 +148,7 @@
       "category": "Commercial",
       "published": "2024-07-08",
       "deadline": "2028-09-09",
-      "deadline_days": 730,
+      "deadline_days": 729,
       "value_min": 0,
       "value_max": 0,
       "value_currency": "EUR",
@@ -186,7 +159,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-4c90a879",
@@ -199,7 +172,7 @@
       "category": "Commercial",
       "published": "",
       "deadline": "2028-12-31",
-      "deadline_days": 843,
+      "deadline_days": 842,
       "value_min": 0,
       "value_max": 0,
       "value_currency": "EUR",
@@ -210,7 +183,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-cdb56763",
@@ -223,7 +196,7 @@
       "category": "Commercial",
       "published": "2024-08-29",
       "deadline": "2029-09-30",
-      "deadline_days": 1116,
+      "deadline_days": 1115,
       "value_min": 0,
       "value_max": 0,
       "value_currency": "EUR",
@@ -234,7 +207,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-690bcc8b",
@@ -258,7 +231,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-f9f30e76",
@@ -282,7 +255,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-f03e35da",
@@ -306,7 +279,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-c51cd35f",
@@ -330,7 +303,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-185a3cae",
@@ -354,7 +327,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-d7d2c85a",
@@ -378,7 +351,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-fdc7c7f6",
@@ -402,7 +375,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-71319e3a",
@@ -426,7 +399,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-7d1fde99",
@@ -450,7 +423,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-be9c15d6",
@@ -474,7 +447,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-4d9f29c3",
@@ -498,7 +471,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-2084a7d1",
@@ -522,7 +495,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-29ac74fc",
@@ -546,7 +519,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-580de21e",
@@ -570,7 +543,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-19f811d9",
@@ -594,7 +567,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-6049420a",
@@ -618,7 +591,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-d48ef25d",
@@ -642,7 +615,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-3719be71",
@@ -666,7 +639,7 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "ted-bef3466e",
@@ -690,11 +663,11 @@
       "status": "open",
       "description_preview": "",
       "is_premium": true,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-7182d34a",
-      "title": "Flynn Management and Contractors wins Galway City Council civic office fit-out at Crown Square - fitoutawards.ie",
+      "title": "Flynn Management and Contractors wins Galway City Council civic office fit-out at Crown Square - Fit Out Awards 2026",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
@@ -708,13 +681,13 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "fitoutawards.ie",
+      "source": "Fit Out Awards 2026",
       "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOaGlSYURmZHgwSDNwN2hyaXY3WGdJX1pfeDBRdTdrd0tWdXBIWDZRRFgyUWZKR1VOLU5BZWJGbV92Y3FySzhRclZ1WXM5NXJNSkw0N0c4bjROaWhKbnlDeFBUN0ZYblU1RVVMT3RYTHNGTEJCajNKbUZGdDFxZnN0ajJDZjVNTkdVSFJxSy00TFhYN2kzanNjUGdrSHJGc3h2V1RKT0JjNXpUS0lEQXFTdFBTNG9GMnRpVjJaZXpjRmI?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " Flynn Management and Contractors wins Galway City Council civic office fit-out at Crown Square &nbsp;&nbsp; fitoutawards.ie ",
+      "description_preview": " Flynn Management and Contractors wins Galway City Council civic office fit-out at Crown Square &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-c094a5f0",
@@ -738,11 +711,11 @@
       "status": "open",
       "description_preview": " Galway City Council awards contract for fit-out of Crown Square offices &nbsp;&nbsp; Galway Advertiser ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-f9205677",
-      "title": "Advertisement for the Request for Expression of Interest (REI)Fit-Out works for WBG Offices in Conakry, Guinea (April 2026) - guineenews.org",
+      "title": "Advertisement for the Request for Expression of Interest (REI)Fit-Out works for WBG Offices in Conakry, Guinea (April 2026) - Guinéenews",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
@@ -756,17 +729,65 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "guineenews.org",
+      "source": "Guinéenews",
       "source_url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNWXZkblVsN2ZjNUZPWnZVZ2FiQW9mbGVINTcxc0ZObVBkUVAyNG40Z1drTVJqVHNpX0pMRUlQeUlJbWlqc3UwaVN0QXJzVUw0aDJrYy1TOTBNeG04S3JxRFRTbEtKR1U1OC1KQzVQaHVMcUtHcDlnNDViTUxJRURxeFR1R3I2UjVocmlteDllU3pkMWhQdTB5alI5SFFwekxQbVcxWTRtaWRSNEZ6MFhVZ1NNTzJlWkJhNjRzVWc1Y01rNGFsOHo2SVc5cklKa0tDY254UjNjUDBvdXRqU1FCQjhxd2dUNDB10gHoAUFVX3lxTE1ZdmRuVWw3ZmM1Rk9adlVnYWJBb2ZsZUg1NzFzRk5tUGRRUDI0bjRnV2tNUmpUc2lfSkxFSVB5SUltaWpzdTBpU3RBcnNVTDRoMmtjLVM5ME14bThLcnFEVFNsS0pHVTU4LUpDNVBodUxxS0dwOWc0NWJNTElFRHF4VHVHcjZSNWhyaW14OWVTemQxaFB1MHlqUjlIUXB6TFBtVzFZNG1pZFI0RnowWFVnU01PMmVaQmE2NHNVZzVjTWs0YWw4ejZJVzlySUprS0NjbnhSM2NQMG91dGpTUUJCOHF3Z1Q0MHU?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " Advertisement for the Request for Expression of Interest (REI)Fit-Out works for WBG Offices in Conakry, Guinea (April 2026) &nbsp;&nbsp; guineenews.org ",
+      "description_preview": " Advertisement for the Request for Expression of Interest (REI)Fit-Out works for WBG Offices in Conakry, Guinea (April 2026) &nbsp;&nbsp; Guinéenews ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-65b3051c",
+      "title": "Dublin's Fitout Cost Advantage Is Real, But Only If Ireland Solves Its Skills Crisis - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "IE",
+      "issuer_country_name": "Ireland",
+      "issuer_flag": "🇮🇪",
+      "continent": "Europe",
+      "category": "Healthcare",
+      "published": "2026-03-31",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPZy1fQk9mVV9NNFdpUWI4Vm50UmFLZUlSNWx1b1NqU1c4REpnVGZhSlhmYkdXVkRXZE5LQnd3TnNTaXZlbElReWFtdVpodXdHeTRPMllYbVFqTHRnZGNEVWdraWdtOE56YzFCUGROWEZRZmhtd3dNSzdVM05LdDVjS1Awc1pJUWRVckpEMlR1eWpiSTlqWFRSejBFVW9IZ3BiUXVseU1WNEZMQVM5cEtlVmR3a0UxQQ?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Dublin's Fitout Cost Advantage Is Real, But Only If Ireland Solves Its Skills Crisis &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-3e6f6a1c",
+      "title": "Fit Out Conference 2026 partners celebrated following June 11 sector forum - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Other",
+      "category": "Healthcare",
+      "published": "2026-06-17",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNQ1hVNENFbjJXbnIxdktHR3RfY1E1MjVLU1lFUFhtRGZDbTRPYmZDNkJ4RkpadE1RTTVmUkZLWks2bXVmQnllcUI5S1JVa0xnbVZTaWEzcW1XWENGTlZRYWpiaHp2MXR2enRucmwtbXBEaE5GVTA5eWlNTFM4R2N3TVZoVXUzTjhCYTNEZWVoaTBrRnFRQ2pYNDFiYUtna2lRNW9pNS0zaC1tZ2s?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Fit Out Conference 2026 partners celebrated following June 11 sector forum &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-34d78d24",
-      "title": "W2W & Optima join Fit Out Awards 2026 as Gold Sponsor - fitoutawards.ie",
+      "title": "W2W & Optima join Fit Out Awards 2026 as Gold Sponsor - Fit Out Awards 2026",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
@@ -780,13 +801,37 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "fitoutawards.ie",
+      "source": "Fit Out Awards 2026",
       "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxObHFHcE9BUE5OMVpGOGZCZF9xOXJkbVB5WWhLeFRYNjhNLUxXLVRRa3FvMm9jM3M1dzY3WG9SOHZvUU9IZ2VWTVRmRTBpU3pBc1BCcUktRTlLMk9jMFo2UG9QS2VmS2szUkdZNDJIbElZckFDMk1tbDVudC1EMkJqNnBBZnJ2cTQ?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " W2W & Optima join Fit Out Awards 2026 as Gold Sponsor &nbsp;&nbsp; fitoutawards.ie ",
+      "description_preview": " W2W & Optima join Fit Out Awards 2026 as Gold Sponsor &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-95dec3b9",
+      "title": "Ireland’s Data Centre Pipeline Is Reopening: What the White Space Fitout Opportunity Means for Specialist Contractors - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "IE",
+      "issuer_country_name": "Ireland",
+      "issuer_flag": "🇮🇪",
+      "continent": "Europe",
+      "category": "Hospitality",
+      "published": "2026-07-14",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPVGZPZWdPdXVKUFZDdVRLS0pGZlVEVUlCRmxsQ0dxdGtZN19EOWJUQXE4X2xxOUlOMlpUaDF6czR0bVZneDNXSWR2bmZrT0NYU3FqdGVFd0xxVVFGdlVrNHdxUEViUUhiQS1FamFOTWkydmlIVnMyYnlOeUlUWlM0UTQwSTlCeXRucUlVb3otcW1TRTBwYjJJSDM1UEVwZGpGcU5QVzhuWTBRQnBnRWNaNVlBSl9jSlZqTzR0QUY0VmZpeUdfZElrVVJFakZRb0pkT1BPSmhibzZwb2JURzdxb1hB?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Ireland’s Data Centre Pipeline Is Reopening: What the White Space Fitout Opportunity Means for Specialist Contractors &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-3717b680",
@@ -810,7 +855,7 @@
       "status": "open",
       "description_preview": " SunCon unit secures RM1.02bil fit-out job for Johor data centre &nbsp;&nbsp; The Star ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-1b2745f5",
@@ -834,7 +879,7 @@
       "status": "open",
       "description_preview": " The Luxe Developers Awards AED150M Interior Fit-Out Contract &nbsp;&nbsp; MEP Middle East ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-d0a1af0d",
@@ -858,7 +903,7 @@
       "status": "open",
       "description_preview": " SunCon secures RM1.04bil MEP fit-out works from US tech firm &nbsp;&nbsp; The Star ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-abe4c13b",
@@ -882,7 +927,7 @@
       "status": "open",
       "description_preview": " LSI wins fit-out contract for major La Mer residential project &nbsp;&nbsp; Construction Week Online ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-33363f08",
@@ -906,7 +951,7 @@
       "status": "open",
       "description_preview": " ZAWYA: Luxe Developers awards $41mln interior fit-out contract for Oceano development in Ras Al Khaimah &nbsp;&nbsp; TradingView ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-f9e3a254",
@@ -930,7 +975,7 @@
       "status": "open",
       "description_preview": " Luxe Developers awards fit-out work for Oceano &nbsp;&nbsp; Middle East Construction News ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-807141e9",
@@ -954,7 +999,7 @@
       "status": "open",
       "description_preview": " Sunway Construction Awarded RM1.02 Billion Johor Data Centre Fit Out Contract From US Client &nbsp;&nbsp; BusinessToday Malaysia ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-48228c39",
@@ -978,11 +1023,11 @@
       "status": "open",
       "description_preview": " Attika Group secures interior-fit out contracts worth a total of $38 mil &nbsp;&nbsp; Yahoo Finance Singapore ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-2f652c5e",
-      "title": "Attika Group wins $38 million interior fit-out projects - fitoutawards.ie",
+      "title": "Attika Group wins $38 million interior fit-out projects - Fit Out Awards 2026",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
@@ -996,13 +1041,13 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "fitoutawards.ie",
+      "source": "Fit Out Awards 2026",
       "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQakFpNjdtdzkwT2R6eTlpN3NQVEZibEdVNVpNWk56TElsRmdBOGZkSDFaUl9meWwwejktb2hnWWUtTjEteERQaUVhY0JmNkV4b0ZnVFpjLUd4dXEwTmMxeHhJMGJkTkZEdEZ6ZjRDWGt2ZExjbFpMSVEwbVVKOFVWSnplRVlCVy1yemNzTWJ0bFo?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " Attika Group wins $38 million interior fit-out projects &nbsp;&nbsp; fitoutawards.ie ",
+      "description_preview": " Attika Group wins $38 million interior fit-out projects &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-467e5141",
@@ -1026,7 +1071,7 @@
       "status": "open",
       "description_preview": " Abanos Wins Fit Out Contract For Palace Residences Creek Blue &nbsp;&nbsp; MEP Middle East ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-23d07a2e",
@@ -1050,7 +1095,7 @@
       "status": "open",
       "description_preview": " Adnex Group Secures RM11 Million Interior Design Contract For Hilti Asia &nbsp;&nbsp; BusinessToday Malaysia ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-af2f5089",
@@ -1074,7 +1119,7 @@
       "status": "open",
       "description_preview": " Boustead Projects secures Phase 2 fit-out contract exceeding $50 mil from repeat Fortune 500 client &nbsp;&nbsp; The Edge Singapore ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-503b3c0c",
@@ -1098,7 +1143,55 @@
       "status": "open",
       "description_preview": " UAE Business: Abanos snaps up Palace Residences Creek Blue fit-out contract &nbsp;&nbsp; Gulf Daily News (Bahrain) ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-d419a7f6",
+      "title": "Lum Chang Creations moves to SGX mainboard as fit-out order book reaches S$144 million - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Other",
+      "category": "Healthcare",
+      "published": "2026-07-14",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOMEJfSnlDRzlsWkxNamQza2k3VVM1OFdzUjdJcW5pdGNQcHdXNlVVZkY1TnFsTTVvdzRUZlN0eTVNckdGYzlRcS1EQnBYZVZnM24tcGlaT2dOZUQyVkFqRzRtWTRaZkxFMzcteHJJN2V6aTc0VHN0cEJEM05MY19hSkM5OFpxaWRfQlV5TGwzTW1ONENDb3VCRkp5cTNlNHhCMEszOWQ2OU1nM0pGblhicFRLVmw?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Lum Chang Creations moves to SGX mainboard as fit-out order book reaches S$144 million &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-7261c458",
+      "title": "SunCon wins RM1b data centre fit-out job in Johor, lifts YTD order wins to RM5.8b - The Malaysian Reserve",
+      "issuer": "",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Other",
+      "category": "Industrial",
+      "published": "2026-08-03",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "The Malaysian Reserve",
+      "source_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQMmtPdDgxN0lqeVR0TGpJaFk3czVoc1k5Rk5wcFVodzZ5dmpkZ093ZWpVRU1NS1BMTkRGSGZERFBYN1dkODZSNXlqb0V1R0RPS1BFZnFKeFhqRGY4TFpWamVKeWFCNjlublZ4S1ZRcUFHVVlTNzE4eHM4MEZHbHlSa08yR1NKTFBDY3hWeW8yVjJOM2hDWXZDNGtSc0FnbElDWnQtQW1taFlXOXFEQTd0Wlc4OXR0VUh6bnIxcllJNTFIUQ?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " SunCon wins RM1b data centre fit-out job in Johor, lifts YTD order wins to RM5.8b &nbsp;&nbsp; The Malaysian Reserve ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-301d4723",
@@ -1122,11 +1215,107 @@
       "status": "open",
       "description_preview": " EFC Secures Rs 57 Cr Interior Fit-Out Contract from MNC &nbsp;&nbsp; Construction World ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-2642b830",
+      "title": "Why Ireland’s Data Centre Pipeline Is The Fitout Sector’s Most Decisive Opening In A Decade - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "IE",
+      "issuer_country_name": "Ireland",
+      "issuer_flag": "🇮🇪",
+      "continent": "Europe",
+      "category": "Healthcare",
+      "published": "2026-04-08",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNa25IU21hSzBWeGVlNDg2OEtfdkdmMER1d2lDNE1BMjJLc3FNUHdaTTZvQ1piblVtMkVVYTM3UWFZM2VSNGhQZ29lY3FncURXQ0J5MF9SaWt2STNJTm12Z3M0c3RsbG1ad1NDYkZaaU1WaDlaM3hhNmRaQjkwaVQ0bFlfeTRwOWdWUDF0LUdkTE4wQzVtczVLbWlZT0pkWnFkcVJXUElmcUFDeXQ3cUQ4bDFmTm13S2l1aDIySENLVQ?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Why Ireland’s Data Centre Pipeline Is The Fitout Sector’s Most Decisive Opening In A Decade &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-15c1a9d9",
+      "title": "The Fitout Market Inside Ireland’s Logistics Boom: What Every Warehouse Hides Behind the Loading Dock - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "IE",
+      "issuer_country_name": "Ireland",
+      "issuer_flag": "🇮🇪",
+      "continent": "Europe",
+      "category": "Healthcare",
+      "published": "2026-08-11",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxObFBDNHBHRm1GQkZWbTZNcWU5MjBUZk4wbzlLWGxDMXlqMEVlWWNMSHlCV1JOLUlFWlE4cGdvVHJxaVd4VE00N2RLV0JOSlNRQTVDMmJfY3dLSDFxM1oxV3JpMG1YMVBVY2dMdXllcHdRalRlSmxJSDNaOHJYVGNQNzE0Z21jRlVraXItS2VmZWZVWEFsMDdxUGRCa3NIYVdicnAxUW5TMk9kTDA5MmJaZ0htNFRPa21nQnN2cGRZbnRxRDVVT2xj?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " The Fitout Market Inside Ireland’s Logistics Boom: What Every Warehouse Hides Behind the Loading Dock &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-526dc592",
+      "title": "The Pre-Flight Interior Is Now a Commercial Asset: What Ireland’s Airport Fitout Programmes Mean for the Sector - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "IE",
+      "issuer_country_name": "Ireland",
+      "issuer_flag": "🇮🇪",
+      "continent": "Europe",
+      "category": "Healthcare",
+      "published": "2026-07-29",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNYkhlbk43ZG95Ykh1SmpLUXREWnV3bDUxY0NYV0lWUkRfSmNWLTJfeXhrUzdGN012Q21QeVdoSmtOcUlIaUZmM1A4SnI1TWtTbnBIU21fZHYwNXUzdlZMTzRNcHpIZTZhMnBkM2dOb3hPMERSNmNFUHJRS0dRZVlTcnBRM3FUcVlKNWV6SjJDc2o2NFRWeDRKMEtyV0FaMXBoUWZXZzh6aUJ0Rno1SlpQUzVQUUthX1pEd0lpUjNIZGxxQmlrRllqM0FRaFhxLWlsajZiRw?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " The Pre-Flight Interior Is Now a Commercial Asset: What Ireland’s Airport Fitout Programmes Mean for the Sector &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-b4ade72b",
+      "title": "The HSE’s €1.3 Billion Capital Plan Is the Most Stable Fitout Pipeline in Ireland: Here Is How to Access It - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "IE",
+      "issuer_country_name": "Ireland",
+      "issuer_flag": "🇮🇪",
+      "continent": "Europe",
+      "category": "Healthcare",
+      "published": "2026-06-30",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOREZ0Mzk2RWp0aEZjRFkxUVpDdUJ0M2FSY2RDU3dhV01wWENjTGVBd3Jvb3ZuNTVXakpGUjZIVEY0QzN4dVpKVDlTY3FYUjl5OXZPNHdtanZrV2dTWTBYVkliOTVkaTB0cmdtS3RzQTRLTm5EbmhabmpfM1lVR3VqNldwd0ltMFhhRWFDQ0NYUjVwQThMQV9UWUt4V3FjekdaN2pLYjJ4UnlZU25XU1RfaXdrWjJhY0NlSFVHbUF1Z3ZaZm1MM0FxNDk4ZFkyYnVFVDZMSUNB?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " The HSE’s €1.3 Billion Capital Plan Is the Most Stable Fitout Pipeline in Ireland: Here Is How to Access It &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-5139f6c3",
-      "title": "Historic interior fit-out firm eyes “significantly increased” revenues and profits after being hit by contract delays - insidermedia.com",
+      "title": "Historic interior fit-out firm eyes “significantly increased” revenues and profits after being hit by contract delays - Insider Media Ltd",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
@@ -1140,17 +1329,17 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "insidermedia.com",
+      "source": "Insider Media Ltd",
       "source_url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPVl9lY2ZUY2liQmZhRzlxakNjQW1YbDVRdG9ERFRycUZKRnVLNEV0WnZfTmVfTFdiZllLYklwd19GTHBPWlNtdEFYVW53T1A3dHVTYVhLYWtPNlRQWGRKYnlVNUlkTTZ4YlRrTTQxb1RQRTk3NERwMmJaaXpNVDlxdmNydnhqekF4cmFZS0lBdkhvTTNlQkh1R1B6eTNZY1pLdTNEcFM2VmdhcExmdTYwblFTUEpxTmV1aWNQUkRibEJLVjBxX0NjekhmUEpHU25MQjQzdXBfVjBfTlhQajFwb01MVGVCTG14MlEwc2paWQ?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " Historic interior fit-out firm eyes “significantly increased” revenues and profits after being hit by contract delays &nbsp;&nbsp; insidermedia.com ",
+      "description_preview": " Historic interior fit-out firm eyes “significantly increased” revenues and profits after being hit by contract delays &nbsp;&nbsp; Insider Media Ltd ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-6d5ad8cd",
-      "title": "MJF Interiors confirmed as Gold Sponsor of Fit Out Awards 2026 - fitoutawards.ie",
+      "title": "MJF Interiors confirmed as Gold Sponsor of Fit Out Awards 2026 - Fit Out Awards 2026",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
@@ -1164,13 +1353,13 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "fitoutawards.ie",
+      "source": "Fit Out Awards 2026",
       "source_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPdWk5S2FLQnRyMlpDNTh0WTNGZ0F0RXBsQklqY1piQkMyaFYzWkRPWkY1cExiNUl5MDR5LWlVVXF5eFFlb2VYdF9YLXVBRjd0Y0Z5ejJBQUJUZnFUcDhqMkxCMGd6dVo5bWhhbXQ3WTJwQjV1UFd2NUlDeTNMT19JZUtnQmpHY3hHSlRiSzBUWmhnc3lXclE?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " MJF Interiors confirmed as Gold Sponsor of Fit Out Awards 2026 &nbsp;&nbsp; fitoutawards.ie ",
+      "description_preview": " MJF Interiors confirmed as Gold Sponsor of Fit Out Awards 2026 &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-639a26fa",
@@ -1194,7 +1383,7 @@
       "status": "open",
       "description_preview": " Havelock One secures fit-out contract for The Avenues - Khobar &nbsp;&nbsp; TradeArabia ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-0b90ad8a",
@@ -1218,31 +1407,7 @@
       "status": "open",
       "description_preview": " Adnex unit secures RM10.96mil interior design contract for Hilti &nbsp;&nbsp; The Star ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
-    },
-    {
-      "id": "gn-0bca3b31",
-      "title": "LSI Wins Interior Fit-Out Work For La Mer Residential Project - MEP Middle East",
-      "issuer": "",
-      "issuer_country": "",
-      "issuer_country_name": "",
-      "issuer_flag": "🌍",
-      "continent": "Other",
-      "category": "Residential",
-      "published": "2026-04-03",
-      "deadline": "",
-      "deadline_days": null,
-      "value_min": 0,
-      "value_max": 0,
-      "value_currency": "",
-      "value_display": "",
-      "source": "MEP Middle East",
-      "source_url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFA1V2pkSkNuMEpJbDB5MTVDeDZqTVNEOE5ZVVVPcWg2VTVHUnlpZEZMZEg0QUd0cWNPZVhoZTR1dTNTWmtLNy1DcVdNb1JaY09ldFdPRzRSa2F3TlRGVWpCZGptdkJoZVpmNkVYektUc2Znc0ZFbE9JcDJJVGw?oc=5",
-      "reference": "",
-      "status": "open",
-      "description_preview": " LSI Wins Interior Fit-Out Work For La Mer Residential Project &nbsp;&nbsp; MEP Middle East ",
-      "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-2cd9cd0a",
@@ -1266,7 +1431,55 @@
       "status": "open",
       "description_preview": " Adnex unit secures RM10.96mil interior design contract for Hilti &nbsp;&nbsp; KLSE Screener ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-0bca3b31",
+      "title": "LSI Wins Interior Fit-Out Work For La Mer Residential Project - MEP Middle East",
+      "issuer": "",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Other",
+      "category": "Residential",
+      "published": "2026-04-03",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "MEP Middle East",
+      "source_url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFA1V2pkSkNuMEpJbDB5MTVDeDZqTVNEOE5ZVVVPcWg2VTVHUnlpZEZMZEg0QUd0cWNPZVhoZTR1dTNTWmtLNy1DcVdNb1JaY09ldFdPRzRSa2F3TlRGVWpCZGptdkJoZVpmNkVYektUc2Znc0ZFbE9JcDJJVGw?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " LSI Wins Interior Fit-Out Work For La Mer Residential Project &nbsp;&nbsp; MEP Middle East ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-923a6c4e",
+      "title": "Exsim Hospitality delivers high-end interior fit-out for Kuala Lumpur mixed-use tower - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "MY",
+      "issuer_country_name": "Malaysia",
+      "issuer_flag": "🇲🇾",
+      "continent": "Asia Pacific",
+      "category": "Hospitality",
+      "published": "2026-02-03",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPdlBFYWN1RW9pNXlXV0IwbHdsUXpHZDFmakpKUVo3c0FNenpIUE5qbU5wRmZqT0NwQlp6cVYtdGJsRF9RZ3ViaFptVVlPUU5pUWJqZ21HdVhLTzl5cjd3c2IzYXdaZklmbFFuWnd2LTF3R2YtNG5zYXFEWWJ1SkxPWXVCTzZGQ0lDT2R4b3FPYmhIWHRVaHFKYVBOWldIUElvSlRQbndvdUFVWThIOXhFVlRuR2NkOFFCWEE?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Exsim Hospitality delivers high-end interior fit-out for Kuala Lumpur mixed-use tower &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-1b004123",
@@ -1290,7 +1503,7 @@
       "status": "open",
       "description_preview": " EFC bags Rs 57-cr worth interior, fit-out contract &nbsp;&nbsp; Projects Today ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-780ea9da",
@@ -1314,7 +1527,7 @@
       "status": "open",
       "description_preview": " Exsim Hospitality wins interior works job for KL apartment project &nbsp;&nbsp; The Edge Malaysia ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-d9312e51",
@@ -1338,7 +1551,7 @@
       "status": "open",
       "description_preview": " Exsim Hospitality wins interior works job for KL apartment project &nbsp;&nbsp; EdgeProp ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-6df876da",
@@ -1362,7 +1575,7 @@
       "status": "open",
       "description_preview": " Exsim Hospitality lands RM46m interior fit-out contract for Port Dickson hotel &nbsp;&nbsp; The Malaysian Reserve ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-05ca4252",
@@ -1386,7 +1599,7 @@
       "status": "open",
       "description_preview": " Exsim Hospitality secures RM17 mil interior design contract &nbsp;&nbsp; The Edge Malaysia ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-73281905",
@@ -1410,35 +1623,11 @@
       "status": "open",
       "description_preview": " NBCC gets Rs 161.55-crore contract from PFC for office interior works in Delhi &nbsp;&nbsp; The Economic Times ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
-    },
-    {
-      "id": "gn-c09cd16f",
-      "title": "NBCC Bags ₹161.55 Crore Interior Works Contract from PFC for Office at World Trade Centre, Delhi - Full Details Inside - Indianmasterminds",
-      "issuer": "",
-      "issuer_country": "IN",
-      "issuer_country_name": "India",
-      "issuer_flag": "🇮🇳",
-      "continent": "Asia Pacific",
-      "category": "Office",
-      "published": "2025-05-23",
-      "deadline": "",
-      "deadline_days": null,
-      "value_min": 0,
-      "value_max": 0,
-      "value_currency": "",
-      "value_display": "",
-      "source": "Indianmasterminds",
-      "source_url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQ2dEX25UMEtaSzMwNk02Tmg2XzQzUXhGaG5YTExYclRIVHU5dTJMcnZOOVBqZUh5cVBjUGlNNmZGR3BrSGpHOENfcmFMUEk1RzZ4aVU3dVdOZUZxZS1nc0duM2s1OHpzU3VXNlVoTzYyWVBNTWdEeVVtdE1VRkwtOTNKMzJvOGJtZFNWd3RUY0dqdVBtdGdTeEg5NXJpRUpaMjlaZFVzNS1SZGVyS085ZVlmNllYdkxSY0sxX2lMM0Fkd0dvLVY1VkZtdXBmcEc4WDZmNWF3?oc=5",
-      "reference": "",
-      "status": "open",
-      "description_preview": " NBCC Bags ₹161.55 Crore Interior Works Contract from PFC for Office at World Trade Centre, Delhi - Full Details Inside &nbsp;&nbsp; Indianmasterminds ",
-      "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-fd43734d",
-      "title": "Vanessa Brady confirmed as judge for Fit Out Awards UK 2026 - fitoutawards.ie",
+      "title": "Vanessa Brady confirmed as judge for Fit Out Awards UK 2026 - Fit Out Awards 2026",
       "issuer": "",
       "issuer_country": "GB",
       "issuer_country_name": "United Kingdom",
@@ -1452,13 +1641,13 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "fitoutawards.ie",
+      "source": "Fit Out Awards 2026",
       "source_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPY2V3TmkwcC1iUzRFRGhkV3owakdfZzh2bXNmaG1USjJXYm1NMHg0SVlxREswbU52ejQtcDdGUkNNd0phOGNkSFVoekplamtvVV9hRjJ3MEJTbUw1SFB0TE9zd2hob1pYMndWSHlZdWFab3U3WjVKaGs3czA0YS16VEh3QXVRZXlIUW1tT1VpVG55RlVNcmw0?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " Vanessa Brady confirmed as judge for Fit Out Awards UK 2026 &nbsp;&nbsp; fitoutawards.ie ",
+      "description_preview": " Vanessa Brady confirmed as judge for Fit Out Awards UK 2026 &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-b5ccbef9",
@@ -1482,7 +1671,7 @@
       "status": "open",
       "description_preview": " J.E.T Construction wins Northampton General Hospital ITU refurbishment project &nbsp;&nbsp; Building Better Healthcare ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-af5def7e",
@@ -1506,7 +1695,7 @@
       "status": "open",
       "description_preview": " SunCon secures RM1.04b MEP fit-out jobs from US tech company &nbsp;&nbsp; EdgeProp ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-985a494c",
@@ -1530,7 +1719,7 @@
       "status": "open",
       "description_preview": " NBCC Secures ₹103 Crore Order for Lokpal of India Office Renovation &nbsp;&nbsp; scanx.trade ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-329f5a48",
@@ -1554,7 +1743,7 @@
       "status": "open",
       "description_preview": " Havelock One Interior wins Kuwait mall interior renovation contract &nbsp;&nbsp; TradeArabia ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-02edef4c",
@@ -1578,31 +1767,31 @@
       "status": "open",
       "description_preview": " Havelock One Secures Fit-Out Contract For The Avenues – Khobar &nbsp;&nbsp; MEP Middle East ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
-      "id": "gn-70a46e11",
-      "title": "Middle East Business: Havelock One Interior wins Kuwait mall interior renovation contract - Gulf Daily News (Bahrain)",
+      "id": "gn-b84e5b47",
+      "title": "Inco Contracts opens fifth regional office in Glasgow - Fit Out Awards 2026",
       "issuer": "",
-      "issuer_country": "KW",
-      "issuer_country_name": "Kuwait",
-      "issuer_flag": "🇰🇼",
-      "continent": "Middle East",
-      "category": "Retail",
-      "published": "2026-07-22",
+      "issuer_country": "GB",
+      "issuer_country_name": "United Kingdom",
+      "issuer_flag": "🇬🇧",
+      "continent": "Europe",
+      "category": "Office",
+      "published": "2026-08-26",
       "deadline": "",
       "deadline_days": null,
       "value_min": 0,
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "Gulf Daily News (Bahrain)",
-      "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQZ0lnNFNFWVUwaU1aa1BwZTJ1bnpNZVNUTFQtdmFHVzZleUQ5TlE1djdWRFlmdFRBOG1JVHJYVTgtZ2Q0MTdVX1dubU9MNDZfc0ZEMUZ6VmxBczJ2NVlhY1VrQWZNWWVDbl9sZVVDbnVGWVdVTzRoNUFJelc3YUtDVmx5NXpnWldudHlOaUY5UlVxUlIyUl9nMmE5b2FvWWpJQUtIQUZUVGJNc29Namc?oc=5",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPbFJOLXBjY1RqTEhxRks2WHMtd3oxMHVPSklfYTlxLTl4NzNkY2xkN2p2eWRjNEZmbFpOenpDVm5mR3dWbE1kdC1VOTJQem1yRzRMeW1OTDZlNVk3MUhlaFZ6dFJURWxvUUFaWE1GS3cyaHdqejNxdFdJX295VEtWOVp1eUlqWEhuQ01sWE5KMA?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " Middle East Business: Havelock One Interior wins Kuwait mall interior renovation contract &nbsp;&nbsp; Gulf Daily News (Bahrain) ",
+      "description_preview": " Inco Contracts opens fifth regional office in Glasgow &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-81599673",
@@ -1626,7 +1815,7 @@
       "status": "open",
       "description_preview": " The Luxe Developers awards AED150 mn interior fit-out contract for Oceano &nbsp;&nbsp; Construction Week Online ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-c7866ddb",
@@ -1650,7 +1839,7 @@
       "status": "open",
       "description_preview": " ALEC FITOUT Accelerates Regional Growth With Project Wins And New Production Hub &nbsp;&nbsp; MEP Middle East ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-00dcb7dd",
@@ -1674,11 +1863,35 @@
       "status": "open",
       "description_preview": " Wates Smartspace secures £33m Manchester fit-out job &nbsp;&nbsp; Construction News ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-788c8b01",
+      "title": "Carraig Donn reopens refurbished Crescent Shopping Centre store as part of nationwide expansion - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Europe",
+      "category": "Retail",
+      "published": "2026-06-16",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNLXdRaHk5MzEzZExkTGttTldvbGxyT1MzdDBHUU9vdTgtRUh6TkVPb2ljVW8xbWxlZHo0YnNVQVN2eFlQT1hZOUZVaGo4VHc3UTliYmFRZ3gzSFEzbVFUZnlWeExLVkhZdnZ1ODVEZ1VOV2k3akJDNmViQjdndXZEVWgtcTBUNjZrQlN4UVgySE1oQWd5MUczdEI4NkRnU3BmYTBUTk1tcmYtUGROZ1ZzUzdJN1FCeTFVV09XcUNRT1hQOVM4d3Fn?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Carraig Donn reopens refurbished Crescent Shopping Centre store as part of nationwide expansion &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-914eab57",
-      "title": "Overbury Secures £13m BBC Fit-Out at Landmark Digbeth Development - BDC Magazine",
+      "title": "Overbury Secures £13m BBC Fit-Out at Landmark Digbeth Development - bdcmagazine.com",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
@@ -1692,17 +1905,65 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "BDC Magazine",
+      "source": "bdcmagazine.com",
       "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQaDlvc3ZmUG5ZVmFtVmhiZmNrUWJMbFpXZEh6TDhxTzBxcHgzYkRkSDEtR0ZNN2ItdlVQOWxjNHlNSmh1ZU1lZk9DMWhNTkR5ZGJyRTN0TndYdEp1dlEwdEozYkJrMXV6S1E1SkRCdVJSTnpmRUpFS0Fsc1UySzVXaHdCcHl3UGtXZXo0VndOblhLNzJlT1pyRmg0Y0JTQQ?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " Overbury Secures £13m BBC Fit-Out at Landmark Digbeth Development &nbsp;&nbsp; BDC Magazine ",
+      "description_preview": " Overbury Secures £13m BBC Fit-Out at Landmark Digbeth Development &nbsp;&nbsp; bdcmagazine.com ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-e8708c38",
+      "title": "Ireland’s €4.55 Billion Campus Capital Programme Is a Fit Out Opportunity That Runs to 2030 - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "IE",
+      "issuer_country_name": "Ireland",
+      "issuer_flag": "🇮🇪",
+      "continent": "Europe",
+      "category": "Healthcare",
+      "published": "2026-07-07",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOd1ZBZzhGVjZKTDdjMDhDOVNTdzVRTzhsd1VaNEwxODMtWmFMdXppaG9BWmwzTUUyZ19GTXRHaFFpaUtHVnhjUzNhLWVLajAzb0sxT1o1eVI5VTlZQTVGZUFIVUpJYjNrQXVJS0VJTFBQak9xTER3OWtWcUZ0UG5CQWZzQkVaUTBJRzBqNmYzRXp2azlpWFkwVHhlTzd5WmhLRUxfSHRxeFVjclBZYzhwak1Gd0hidU5UcnBCbW5Cd1VYdw?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Ireland’s €4.55 Billion Campus Capital Programme Is a Fit Out Opportunity That Runs to 2030 &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-4d3e6c39",
+      "title": "Fit Out Conference 2026 highlights now available - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Europe",
+      "category": "Healthcare",
+      "published": "2026-06-24",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQcDVrUjJKUy1pQTJENzZVZjFYSWtMZnBuRmwyc2hIdnd4RVZQV3NLU2w2N2EydjJjM3RmMEdOSURtOFEyUVFTVExIdVdVU1B4ckFwUU5xajdGa25MMjZHZGxPRlYtRnZic3ZEQk1GLXpXM0hNcXRaOFg0cWdOODZaV01IU0taNDZv?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Fit Out Conference 2026 highlights now available &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-11b05e49",
-      "title": "Fit Out Awards 2026 now accepting entries - fitoutawards.ie",
+      "title": "Fit Out Awards 2026 now accepting entries - Fit Out Awards 2026",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
@@ -1716,17 +1977,65 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "fitoutawards.ie",
+      "source": "Fit Out Awards 2026",
       "source_url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5aTElzeEZMRVlhYzVpMjA0NENBdjVfUnVVYUM2OWxQWDhGVHNsTzdHcHZkZ3dZSWlMZFRQallxUXBIYVlOZUp6czJzNlNLRkpaOUpRTmljWkNjbEdEREl2c2xPTDJ6M0FjMWdQZGs3TVFRbVhldEJKbm93?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " Fit Out Awards 2026 now accepting entries &nbsp;&nbsp; fitoutawards.ie ",
+      "description_preview": " Fit Out Awards 2026 now accepting entries &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-9e131b6c",
+      "title": "IKEA launches first Northern Ireland outlet with flexible fit-out - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "IE",
+      "issuer_country_name": "Ireland",
+      "issuer_flag": "🇮🇪",
+      "continent": "Europe",
+      "category": "Retail",
+      "published": "2026-01-20",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNMXM0SjNJanVJdlhWNmFpZTJUcmhVQTAzcEY5Uko5S2J4bm9tSDUxR2U1aUNHNnJqYUN1SW1RUmFHOXFnLUwxQnVMTjJvR2Y1NmN3VHlaQ1pxbUZiWEpWVHhWLVBtZWRNbmVuXzlhcjdYMkdJZ1dNYzlqQzVISnloY05KNzlRU2dhNVdvMkdkLTEwUkZVVTVhUjNNR1BGNlE?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " IKEA launches first Northern Ireland outlet with flexible fit-out &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-60014f3c",
+      "title": "Irish contractor Designer Group advances 10 Heathrow projects - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Europe",
+      "category": "Healthcare",
+      "published": "2026-09-07",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNRjRYeVBJOHNXZWI1UEtpVFcxSzBIcEkyMmVWeDhtQzItZ0JmeW9wOXNNLVFQMDhDbWpTdld2WUx5dlp0T3pHOWhFLTRjRnhPVnREOHAxc25UUTM3eHVmd18xQmZocTBna0E1MmhfMlRWV0ZVbGtYWS1JeVozZFFhdDhZU1FVWWgzTXB0MEZEaUFibzZn?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Irish contractor Designer Group advances 10 Heathrow projects &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-34a0d2dd",
-      "title": "T&I Fitouts named as Gold Sponsor of Fit Out Awards 2026 - fitoutawards.ie",
+      "title": "T&I Fitouts named as Gold Sponsor of Fit Out Awards 2026 - Fit Out Awards 2026",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
@@ -1740,13 +2049,13 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "fitoutawards.ie",
+      "source": "Fit Out Awards 2026",
       "source_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNc3hucURNRjg3dUJ6amI0SkhpS1N5d2ExTFF3Umg2bDNhd1JGVWF6ZEJOc2lkdGlEYVRIYXVCM2tFOVpfV3VQdmMwT0lHQml3aTJOVF9vWVIzbE9hNTEwRmwxdGVOaDN5WHVzWDBYTzAzXy1rc2VFYzVPR0FyUmxmaEp2Yy1vUkFMazRmc1M1dUpsUQ?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " T&I Fitouts named as Gold Sponsor of Fit Out Awards 2026 &nbsp;&nbsp; fitoutawards.ie ",
+      "description_preview": " T&I Fitouts named as Gold Sponsor of Fit Out Awards 2026 &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-782132ff",
@@ -1770,59 +2079,35 @@
       "status": "open",
       "description_preview": " Castlebrook claims top honours at Fit Out Awards UK 2025 &nbsp;&nbsp; The Times ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-a5ec95cd",
-      "title": "Lumen Search announced as Gold Sponsor of Fit Out Awards 2026 - fitoutawards.ie",
+      "title": "Lumen Search announced as Gold Sponsor of Fit Out Awards 2026 - Fit Out Awards 2026",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
       "issuer_flag": "🌍",
       "continent": "Europe",
       "category": "Healthcare",
-      "published": "2026-08-19",
+      "published": "2026-08-21",
       "deadline": "",
       "deadline_days": null,
       "value_min": 0,
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "fitoutawards.ie",
+      "source": "Fit Out Awards 2026",
       "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOQUxkX1VUejU5QjNhaUNlMEZvUnRvZ0Y1dHFZWHl1alZSSnNERE1Fbms3T1BGMkg2N0M0SGJhM05mcncyc1ZvWDVfbUk3V0dlYklHRk9wc2JXRG96MmUyNm1EYld3bFRJaU1lbzVnbk1qYnowdXQxMkhRRTl0SzZ6NHM3bkJLeU8wLXhRQTNyS0ZFQTJOVHB4OUlB?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " Lumen Search announced as Gold Sponsor of Fit Out Awards 2026 &nbsp;&nbsp; fitoutawards.ie ",
+      "description_preview": " Lumen Search announced as Gold Sponsor of Fit Out Awards 2026 &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
-    },
-    {
-      "id": "gn-56174a81",
-      "title": "Structure Tone confirmed as Gold Sponsor of Fit Out Awards 2026 - fitoutawards.ie",
-      "issuer": "",
-      "issuer_country": "",
-      "issuer_country_name": "",
-      "issuer_flag": "🌍",
-      "continent": "Europe",
-      "category": "Healthcare",
-      "published": "2026-08-07",
-      "deadline": "",
-      "deadline_days": null,
-      "value_min": 0,
-      "value_max": 0,
-      "value_currency": "",
-      "value_display": "",
-      "source": "fitoutawards.ie",
-      "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOUmVuaVRrdHYwNURYTEt6YzRTNURTY1Y1bzRkV3otckRma05ER3g5ZUhCRmhMTWRWN1JHTzlpV2NoYWFtVlAwSXBfVXZZcWt2WG9UN0FHLTJxdlhGc3dqWktSQjBNV24yU0RNc2tqek13eWFscmNNV2JRVGpKZzU0MmVCRmFHZlZuUldPNUlfd1BPNE94VjAzLWFsTno?oc=5",
-      "reference": "",
-      "status": "open",
-      "description_preview": " Structure Tone confirmed as Gold Sponsor of Fit Out Awards 2026 &nbsp;&nbsp; fitoutawards.ie ",
-      "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-32f3433e",
-      "title": "SAS International joins Fit Out Awards 2026 as Gold Sponsor - fitoutawards.ie",
+      "title": "SAS International joins Fit Out Awards 2026 as Gold Sponsor - Fit Out Awards 2026",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
@@ -1836,65 +2121,17 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "fitoutawards.ie",
+      "source": "Fit Out Awards 2026",
       "source_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOaVpqZTl2dnFMWTA0TnBYTm9BQTc5RjlWUURXZGFmWVhtUm1JcmxCWmFXVUpxTXQzVjlXUFF4U1hTbExzREtiSWNkczBXQXZXMzFvVXJkVWQ1ODJHaUkweHdBelk2WkRNd0lMTFVPWWU1MXhqclRJM2JfYWhrUFdiZVlhYXg4NWQtWXJtMWpFazlkUFBrVVVR?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " SAS International joins Fit Out Awards 2026 as Gold Sponsor &nbsp;&nbsp; fitoutawards.ie ",
+      "description_preview": " SAS International joins Fit Out Awards 2026 as Gold Sponsor &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
-    },
-    {
-      "id": "gn-582f9cca",
-      "title": "SIG Workplace named Gold Sponsor of Fit Out Awards 2026 - fitoutawards.ie",
-      "issuer": "",
-      "issuer_country": "",
-      "issuer_country_name": "",
-      "issuer_flag": "🌍",
-      "continent": "Europe",
-      "category": "Healthcare",
-      "published": "2026-08-11",
-      "deadline": "",
-      "deadline_days": null,
-      "value_min": 0,
-      "value_max": 0,
-      "value_currency": "",
-      "value_display": "",
-      "source": "fitoutawards.ie",
-      "source_url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxORWt5R25wWG1SbEVvWUFMcEpWd1o5UktfUGFpSy1pcmtSb2RaWGtXYzNKb0FBVzhqcmFrbmw0c0lfTEQ5RjR1UEJrVUJxMDRJRkFSOE5yNGJqcW5QTjd6UVFaX21hRlFwaldKNHJNVTlZQlRYMGxXT2RYWVhCejV3c0p4N0lSWGRBdUhTeVBzN2l6amZTV3UzdVdiZ2ZkOHhYWXc?oc=5",
-      "reference": "",
-      "status": "open",
-      "description_preview": " SIG Workplace named Gold Sponsor of Fit Out Awards 2026 &nbsp;&nbsp; fitoutawards.ie ",
-      "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
-    },
-    {
-      "id": "gn-eed6619a",
-      "title": "Manning & Buckley Electrical wins Fit Out Sub-Contractor of the Year at the Fit Out Awards 2025 - fitoutawards.ie",
-      "issuer": "",
-      "issuer_country": "",
-      "issuer_country_name": "",
-      "issuer_flag": "🌍",
-      "continent": "Europe",
-      "category": "Healthcare",
-      "published": "2026-02-03",
-      "deadline": "",
-      "deadline_days": null,
-      "value_min": 0,
-      "value_max": 0,
-      "value_currency": "",
-      "value_display": "",
-      "source": "fitoutawards.ie",
-      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOM0xQdl9WS0liOHE3eld0MmJfVmFzbHBrQ0E4TUswbE9qdzFOa2ZfemhtTkNvOXlreGJ1WlAwUG1UTlJLRW1lRXNFM3dwWVRZRjJaMFMxMjB2TW82ZldKbDIxOG5XMDJMV1ZUeHBsNHZqelg3d2lVa0RfWnpRZDNIdVpUZkNLa3Q3NEVwejNsV3ZZcFdUdGdXVFUxcmFUWUpEYzFfUXIzelg2VXVMT2FGVW4wQmxpN2NqMEM1eldMNXc3d3dC?oc=5",
-      "reference": "",
-      "status": "open",
-      "description_preview": " Manning & Buckley Electrical wins Fit Out Sub-Contractor of the Year at the Fit Out Awards 2025 &nbsp;&nbsp; fitoutawards.ie ",
-      "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-91b68b98",
-      "title": "FKM Fit Out joins Fit Out Awards 2026 as Gold Sponsor - fitoutawards.ie",
+      "title": "FKM Fit Out joins Fit Out Awards 2026 as Gold Sponsor - Fit Out Awards 2026",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
@@ -1908,41 +2145,113 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "fitoutawards.ie",
+      "source": "Fit Out Awards 2026",
       "source_url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQLUFTc0JMSzZBa3hkeFZMYzlBMUd2MjlFVzZIdDlaZWJDR1ItS0J4R2xDTEJ3THhueWs0Z3pNeUVYdFFMX1A5UWgwNW5HZ3pCZjVlN3lyQi14SU8xZHJDdVhZZC1Jb2xWQ0RTWnZEQlFOMjAtOW9tVEJSQWdzRnF2cGVUNUtnLTRDTkE?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " FKM Fit Out joins Fit Out Awards 2026 as Gold Sponsor &nbsp;&nbsp; fitoutawards.ie ",
+      "description_preview": " FKM Fit Out joins Fit Out Awards 2026 as Gold Sponsor &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
-      "id": "gn-e0f409c6",
-      "title": "COADY Architects and Flynn win Fit Out Project of the Year – Large Office over €7.5 million at the Fit Out Awards - fitoutawards.ie",
+      "id": "gn-773d8ec8",
+      "title": "The Interiors Group named as Platinum Sponsor of Fit Out Awards 2026 - Fit Out Awards 2026",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
       "issuer_flag": "🌍",
       "continent": "Europe",
-      "category": "Office",
-      "published": "2026-01-27",
+      "category": "Healthcare",
+      "published": "2026-07-14",
       "deadline": "",
       "deadline_days": null,
       "value_min": 0,
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "fitoutawards.ie",
-      "source_url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNTW8yYTQ5cFRyRkJoa3BpY1Y1TkFHRHZ5WjFtSHVOcl9wMVBQaXR5aFhIQ2x3eU40a0VJYVdIeTJVOEdtWkpIVzRrSFhPRDYzaE5XQ1h1UTVGTGJ0OC1Xb0ZtdURqd0UtQjh2eG1JS3dDc1JRTlJVY2FQdUxxdkhUM2hxaVo0U1VxMXNNUTFOTG14cDNxVmp2VzdYeVVqZ3AyZUhIOWJ6enhsLTdJTkRvWWQ0a3p6Mk5NaXFZSWRwLU1uZGxfMG02MEhaYzJyZFVwOV90dEZ4a1dQc2FzRXc?oc=5",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPLXNhRDdhbmo5LVcwS1JnN1FzWHVtaUZ4UWtfclpEMHN2WEV6X1hGMHhBbEtPX3RjSTRmNVNoRjcwWTVjZ3pOMGZvQndveDdyQktIc2huMXNwU3RPaHNpd29CVGtrVGxWNWttcGdDd0hrNWtyaUR6WnpaMDhKRGRrVFJLWjJSeHRUMFA4bXdkVnNLOVlPNDJIRmNtTm1KUi1zZDRF?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " COADY Architects and Flynn win Fit Out Project of the Year – Large Office over €7.5 million at the Fit Out Awards &nbsp;&nbsp; fitoutawards.ie ",
+      "description_preview": " The Interiors Group named as Platinum Sponsor of Fit Out Awards 2026 &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-e81d8b25",
+      "title": "Structure Tone joins Fit Out Conference 2026 as Panel Partner - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Europe",
+      "category": "Healthcare",
+      "published": "2026-06-02",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOMGNsNWVvRHF5OER4VERGN2taN1Zsb1JLTmMyVzlscExXbUlEeG12REZ5RllEaUpGbHNXQ3NYc3JZZFl3RjJXSkZpaEc3Szh5QkZFV2tCdERKZXgwak5FY2FJa1ZmSHlneVZ1R3Ywem5KenNRenBUVndTN25LNWNpVk5lMzJURW5ESXBFck02eGZUUmtB?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Structure Tone joins Fit Out Conference 2026 as Panel Partner &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-eed6619a",
+      "title": "Manning & Buckley Electrical wins Fit Out Sub-Contractor of the Year at the Fit Out Awards 2025 - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Europe",
+      "category": "Healthcare",
+      "published": "2026-02-03",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOM0xQdl9WS0liOHE3eld0MmJfVmFzbHBrQ0E4TUswbE9qdzFOa2ZfemhtTkNvOXlreGJ1WlAwUG1UTlJLRW1lRXNFM3dwWVRZRjJaMFMxMjB2TW82ZldKbDIxOG5XMDJMV1ZUeHBsNHZqelg3d2lVa0RfWnpRZDNIdVpUZkNLa3Q3NEVwejNsV3ZZcFdUdGdXVFUxcmFUWUpEYzFfUXIzelg2VXVMT2FGVW4wQmxpN2NqMEM1eldMNXc3d3dC?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Manning & Buckley Electrical wins Fit Out Sub-Contractor of the Year at the Fit Out Awards 2025 &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-c96ccbcf",
+      "title": "Fit Out Conference 2026 convenes Ireland's design and construction leadership to address sector strategy - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "IE",
+      "issuer_country_name": "Ireland",
+      "issuer_flag": "🇮🇪",
+      "continent": "Europe",
+      "category": "Healthcare",
+      "published": "2026-03-10",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPcTBLdElrZHE5bm1hT04wNlJ0ZXhCMHlGRTRya1JaTTFIaW5vd0JWTXQ3T2tpcjM3S3hYa1VBMTdZcDRZb0pFeTJkWnhKMkw0czZsRzNVVGFuaXFRcEl3Z2x4WE11NkVoQ1AwYXR5Q3hXRkxveGJIRS05WHZWc3ZjTTJmemVZUTM3X3NKeU5NSVlJRThWUk1KSmdLUG9oTEhka090Yld0NkY2ZGh4RTRteDR3Mjd2TlFuMkRWU1lfS0R4QXA0UmR1eGpBMHR0N1pvaFE?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Fit Out Conference 2026 convenes Ireland's design and construction leadership to address sector strategy &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-57b042c8",
-      "title": "'Our people are at the heart of everything we do': Northern Ireland construction and fit-out firm secures another place on prestigious UK's Best Places to Work list - newsletter.co.uk",
+      "title": "'Our people are at the heart of everything we do': Northern Ireland construction and fit-out firm secures another place on prestigious UK's Best Places to Work list - Belfast News Letter",
       "issuer": "",
       "issuer_country": "GB",
       "issuer_country_name": "United Kingdom",
@@ -1956,17 +2265,41 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "newsletter.co.uk",
+      "source": "Belfast News Letter",
       "source_url": "https://news.google.com/rss/articles/CBMirwJBVV95cUxOMDB4YnBUZURwZU5HQ1V5NE1pQmwtVTBVR3BPY1RqWnYtMUVQeV9Nc1BRS2JPU0RkWnhFa0Zwc2szbmpzbTVzMVB5SFhDeFIxOWZqRW0xdmpPQmFUcGg5dGJwbTAyT2xpVEFwUlBhQTFIMGYtc01BVWx3TFdGQU15cW9EOTh0VnlGOElZUHZJUlRmNUZOYVphR3lzOG4xY01VVTJxRXFNVk1MSkpJejdKXzdSR2c2QmJlY1d4XzRudmVXalZDTnlCck5WTHVIclYwTnFaTFZDSWZQR1hwa3U2OEZwWEw0eXM2NVd2SGg4T19ENnNEQlVHNWNRSVZDVGJzTS1Va3VPNUZRYmN1aTBkVnh1NkJfUE1YdWw0WkFfOFhaeWU1SWV6dG5WR2g5SUk?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " 'Our people are at the heart of everything we do': Northern Ireland construction and fit-out firm secures another place on prestigious UK's Best Places to Work list &nbsp;&nbsp; newsletter.co.uk ",
+      "description_preview": " 'Our people are at the heart of everything we do': Northern Ireland construction and fit-out firm secures another place on prestigious UK's Best Places to Work list &nbsp;&nbsp; Belfast News Letter ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-e0f409c6",
+      "title": "COADY Architects and Flynn win Fit Out Project of the Year – Large Office over €7.5 million at the Fit Out Awards - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Europe",
+      "category": "Office",
+      "published": "2026-01-27",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNTW8yYTQ5cFRyRkJoa3BpY1Y1TkFHRHZ5WjFtSHVOcl9wMVBQaXR5aFhIQ2x3eU40a0VJYVdIeTJVOEdtWkpIVzRrSFhPRDYzaE5XQ1h1UTVGTGJ0OC1Xb0ZtdURqd0UtQjh2eG1JS3dDc1JRTlJVY2FQdUxxdkhUM2hxaVo0U1VxMXNNUTFOTG14cDNxVmp2VzdYeVVqZ3AyZUhIOWJ6enhsLTdJTkRvWWQ0a3p6Mk5NaXFZSWRwLU1uZGxfMG02MEhaYzJyZFVwOV90dEZ4a1dQc2FzRXc?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " COADY Architects and Flynn win Fit Out Project of the Year – Large Office over €7.5 million at the Fit Out Awards &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-9cedcede",
-      "title": "Fit Out Awards UK 2026 reveals shortlist ahead of September ceremony - fitoutawards.ie",
+      "title": "Fit Out Awards UK 2026 reveals shortlist ahead of September ceremony - Fit Out Awards 2026",
       "issuer": "",
       "issuer_country": "GB",
       "issuer_country_name": "United Kingdom",
@@ -1980,13 +2313,13 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "fitoutawards.ie",
+      "source": "Fit Out Awards 2026",
       "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPT1lQOUdLbXFiMWZMeTRfTHNROC1oMHlqWmNWalp3UTF4UklDUkZaMTFvT240TFJSOE5kZVpMUFBYU2QxS0taNzlYcnZvWDRpMzZOejRGVlh2d1ltOWppekVXY29mNERaeF9xMWtsR3U4VHVzVVltM3ZqR2RjSlZsYTdHd3JsR1RXRGlNNUFacWZJX0IycUV6enlIMkEyNDJxelJR?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " Fit Out Awards UK 2026 reveals shortlist ahead of September ceremony &nbsp;&nbsp; fitoutawards.ie ",
+      "description_preview": " Fit Out Awards UK 2026 reveals shortlist ahead of September ceremony &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-75644b45",
@@ -2010,35 +2343,11 @@
       "status": "open",
       "description_preview": " Dawnvale retains catering fit-out contract with Manchester City &nbsp;&nbsp; Catering Insight ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
-    },
-    {
-      "id": "gn-b5846be5",
-      "title": "Giuseppe Parito named as judge for Fit Out Awards UK 2026 - fitoutawards.ie",
-      "issuer": "",
-      "issuer_country": "GB",
-      "issuer_country_name": "United Kingdom",
-      "issuer_flag": "🇬🇧",
-      "continent": "Europe",
-      "category": "Healthcare",
-      "published": "2026-07-07",
-      "deadline": "",
-      "deadline_days": null,
-      "value_min": 0,
-      "value_max": 0,
-      "value_currency": "",
-      "value_display": "",
-      "source": "fitoutawards.ie",
-      "source_url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNbVZqZTRmOHA4QUlzSTFSR1lvdzlsdVZ3Y1pMa1hCU2liTVZpSmVyVkdwYlEtM0pTUHJoV25sbk1YcVZFWnYzT0w3U3lBM3Nicy11aFlTYTRQekdOaTJmM2VDbU9PVE45MjlQM0wtbldLbTdFelVYZ3JRUTBzTWNFYS1BcF9tR29CTnVWYkFWdENZT1d0?oc=5",
-      "reference": "",
-      "status": "open",
-      "description_preview": " Giuseppe Parito named as judge for Fit Out Awards UK 2026 &nbsp;&nbsp; fitoutawards.ie ",
-      "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-8f6b9806",
-      "title": "Fit Out Awards UK calls for 2026 entries as submission deadline approaches - fitoutawards.ie",
+      "title": "Fit Out Awards UK calls for 2026 entries as submission deadline approaches - Fit Out Awards 2026",
       "issuer": "",
       "issuer_country": "GB",
       "issuer_country_name": "United Kingdom",
@@ -2052,13 +2361,85 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "fitoutawards.ie",
+      "source": "Fit Out Awards 2026",
       "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNdzdGWlh4YXRCRGRZWlREbmNfNFllMEdtZzh4MzU2WnFlYklzM3RFQUMzT3RnaldrRzBPXzRhNVZSNUdxcXNHZEFQZmVqTko0S19meW5mQlIwempLV2tXZEJmenltVmVSS2FrZGZPeV9mMnZWdnZzNjdrUEIwTmRhczYwc3VPcUpNUmhGUUd5TkJfam9jc3FZeVA4eWc0dHRvX1hob1Zn?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " Fit Out Awards UK calls for 2026 entries as submission deadline approaches &nbsp;&nbsp; fitoutawards.ie ",
+      "description_preview": " Fit Out Awards UK calls for 2026 entries as submission deadline approaches &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-b3353c2c",
+      "title": "MJM Marine secures Azamara Quest cruise ship refit contract as part of Azamara Forward programme - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Europe",
+      "category": "Healthcare",
+      "published": "2026-04-21",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQb3ZMeTZCQmN0dVJQbl9sTzR5Sk5ZNDYwVHlzVF9sUzFmRkl6N1pNZW9tek5yVVdEZTVNempCTVA4MWZVVy1TNzBzdk8xbTE3ZThDalQwWXJoX25TQUVyU0FKQ2ZqRy16TU5SVmxEOEtaMHN4MVk0NlppS2tBTl95aGlmTFFxNktxOWhXbGR2WG1KZzNJMlgwcDg3VHcxR2d3WTRfamthNWlGZURhTGIxc0F0YnNyeFNYUXg2YnVvR2xPcUNWWkl3Qg?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " MJM Marine secures Azamara Quest cruise ship refit contract as part of Azamara Forward programme &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-4e577f46",
+      "title": "Doyle Shipping Group to refurbish Passage West homes for contractor use - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Europe",
+      "category": "Healthcare",
+      "published": "2025-11-24",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOZDdYVUc3SlZiX01CNWpMUXhiUnBrUFlmREJDS2VOWFd6Q0cwQ1JJempRZnI5ajRqV0loTjEwWl9YZlU3cDY5eFRaMUFnbmJOX1ZMbWNRTnBYTWtNNDNidHVSRnFXY25GRVhCc3dBV3ZYeHp2cGFuMUNBNVRMcVNRWU9WdjV5Z0tyU3VJOWxER1N4ZlBQUk0xTWJfOFB5MUVSbGt0anFYUQ?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Doyle Shipping Group to refurbish Passage West homes for contractor use &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-e3b808cd",
+      "title": "Purcell Construction gets €173.2 million Parnell Square contract as Dublin's north inner city regeneration finally reaches site - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "IE",
+      "issuer_country_name": "Ireland",
+      "issuer_flag": "🇮🇪",
+      "continent": "Europe",
+      "category": "Healthcare",
+      "published": "2026-08-19",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxObVdCaTE3TUNXQ0IxdU1tZGxlMUxUWWg2NDU2d2RoN3ZJdFJId3RMWURZR0otcEFDQ0E2blA1MEd6RFpMa0QxaF9UQjF6c2VjX3ZOUXlpdml6eFFVSWFVamxmc1pLdHlUNEVBSWdjQVp5RWdKQnNMSTlieVFkc09PSlZVUFB2T2RiY3NoV1F4TUNpeGJjWW5vbU1mREs1NzM3aUYwNjB3VFdhMUZORm5kVG1sRGljcGFlY1Z0R1VrRWttcGJxWW9ZX1p1eDM4T0E3enhQc1lzamZVMFMtRXljWFYwNVNRVTBmV2syZg?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Purcell Construction gets €173.2 million Parnell Square contract as Dublin's north inner city regeneration finally reaches site &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-27cfc34d",
@@ -2082,7 +2463,7 @@
       "status": "open",
       "description_preview": " Head Office Fit Out &nbsp;&nbsp; find-tender.service.gov.uk ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-1860e242",
@@ -2106,7 +2487,7 @@
       "status": "open",
       "description_preview": " Exhibition design and fit out &nbsp;&nbsp; find-tender.service.gov.uk ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-5d9c82bb",
@@ -2130,7 +2511,7 @@
       "status": "open",
       "description_preview": " Fit-Out Contractor for Charles Carter Refurbishment &nbsp;&nbsp; find-tender.service.gov.uk ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-d9c35b1c",
@@ -2154,31 +2535,7 @@
       "status": "open",
       "description_preview": " Tomorrow Gallery Exhibition Fit Out Main Contractor &nbsp;&nbsp; find-tender.service.gov.uk ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
-    },
-    {
-      "id": "gn-c5184439",
-      "title": "National Gallery Research Centre Fit Out - find-tender.service.gov.uk",
-      "issuer": "",
-      "issuer_country": "GB",
-      "issuer_country_name": "United Kingdom",
-      "issuer_flag": "🇬🇧",
-      "continent": "Europe",
-      "category": "Commercial",
-      "published": "2026-08-02",
-      "deadline": "",
-      "deadline_days": null,
-      "value_min": 0,
-      "value_max": 0,
-      "value_currency": "",
-      "value_display": "",
-      "source": "find-tender.service.gov.uk",
-      "source_url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1sMjBnUmdtUTVQelR3Wm9jU2ZORHhWLUVhbTBzS2JlaW9mblBiX2tHaFFlR0RiR2tRa202OEFCVExOQU9ZSE1QU1ZmLUY5bnphUU9YM0c3VTdJN250YjFMQTZuemV3YzlRTzdLYlVYUGc3U3Bremt3Vw?oc=5",
-      "reference": "",
-      "status": "open",
-      "description_preview": " National Gallery Research Centre Fit Out &nbsp;&nbsp; find-tender.service.gov.uk ",
-      "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-72b43f40",
@@ -2202,7 +2559,7 @@
       "status": "open",
       "description_preview": " Lead Architect - Evelina Expansion (Triangle) Design and Fit Out &nbsp;&nbsp; find-tender.service.gov.uk ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-d7aa16b5",
@@ -2226,7 +2583,7 @@
       "status": "open",
       "description_preview": " UKREiiF 2026 West Midlands Pavillion - Temporary Structure Build & Internal Design & Fit Out &nbsp;&nbsp; find-tender.service.gov.uk ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-b71f84b5",
@@ -2250,7 +2607,7 @@
       "status": "open",
       "description_preview": " RBGE - Bespoke and specialist exhibition display production design & fitout services &nbsp;&nbsp; find-tender.service.gov.uk ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-7f1eedb4",
@@ -2274,7 +2631,7 @@
       "status": "open",
       "description_preview": " British Council Coventry Cat A+ / Cat B Fit-Out &nbsp;&nbsp; find-tender.service.gov.uk ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-f1f26bdd",
@@ -2298,7 +2655,7 @@
       "status": "open",
       "description_preview": " The provision of Internal Fit Out for YMCA Hub & NHS Treatment Rooms &nbsp;&nbsp; find-tender.service.gov.uk ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-b54b22dd",
@@ -2322,7 +2679,7 @@
       "status": "open",
       "description_preview": " AT1376 Refurbishment of Bury Park Community Resource Centre &nbsp;&nbsp; find-tender.service.gov.uk ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-61068c8c",
@@ -2346,11 +2703,11 @@
       "status": "open",
       "description_preview": " V&A Fashion Gallery Refurbishment: Showcase Contractor &nbsp;&nbsp; find-tender.service.gov.uk ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-f444c38f",
-      "title": "Nearly $1.3 million awarded to 43 local businesses through 2026 Tenant Improvement Program - bottomline.seattle.gov",
+      "title": "Nearly $1.3 million awarded to 43 local businesses through 2026 Tenant Improvement Program - Seattle.gov",
       "issuer": "",
       "issuer_country": "US",
       "issuer_country_name": "United States",
@@ -2364,13 +2721,13 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "bottomline.seattle.gov",
+      "source": "Seattle.gov",
       "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQa0lxbkJUMG1aZC1oRFpkUzdLSlJaS1RCN0dZTndYak9aTGgzYm1fRl9qODBTOWk5X3hFeGthckV4MDdyb3hGd0ZvUEtVbFo5N3o5MkNkZmRMVnJ6dnFGTmkxaXU4WDRtUDV3aGlaczgxb3NxaVY4NVNxNW1hNzRkaUlrSEJibWVzTUNr?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " Nearly $1.3 million awarded to 43 local businesses through 2026 Tenant Improvement Program &nbsp;&nbsp; bottomline.seattle.gov ",
+      "description_preview": " Nearly $1.3 million awarded to 43 local businesses through 2026 Tenant Improvement Program &nbsp;&nbsp; Seattle.gov ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-9d7dfd67",
@@ -2394,7 +2751,7 @@
       "status": "open",
       "description_preview": " Moses Mabhida Stadium’s refurbishment contract extended &nbsp;&nbsp; The Citizen ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-f01aeffe",
@@ -2418,7 +2775,7 @@
       "status": "open",
       "description_preview": " Court Deals Blow to Government Over Sh50m Office Renovation Tender &nbsp;&nbsp; Mjengo Hub ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-e56b7b15",
@@ -2442,35 +2799,83 @@
       "status": "open",
       "description_preview": " Drydocks World secures FPSO Baobab Ivoirien refurbishment project &nbsp;&nbsp; وكالة وام ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
-      "id": "gn-3acfc4cd",
-      "title": "Invitation to Bid (ITB): Interior Renovation and Office Improvement Works – FAO REDD Project Office in Jakarta-Indonesia - UNGM",
+      "id": "gn-5f474d34",
+      "title": "Circle K reopens refurbished Shannon store after €900,000 investment in expanded retail fit-out - Fit Out Awards 2026",
       "issuer": "",
-      "issuer_country": "ID",
-      "issuer_country_name": "Indonesia",
-      "issuer_flag": "🇮🇩",
-      "continent": "Asia Pacific",
-      "category": "Office",
-      "published": "2026-03-04",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Other",
+      "category": "Retail",
+      "published": "2026-07-07",
       "deadline": "",
       "deadline_days": null,
       "value_min": 0,
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "UNGM",
-      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5kejRhX09BdHdtYmRSMXFQS0tfcTVxbHplTUtnOU1qWGRPeUhfR1Z4cm1Dd2dxOWlhZ1k2NE5rNmFLVE9DcS02cUNka1ExamRlMmhN?oc=5",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNdXB6cDAzd1FWbW91ZXh4R0pVRFh1SkU3SnhjdnozM2h4VUwwOGNBSVRZbnlHYXFFanRTM0xtTnZ1V0hsSTVfalRwVFJzaXY0WU5fY3RxMTBrUWlYSWMtLUVJTENER05ubTlWTDRkczRlM0FRY3JOcUdwZVg1RGFmQVdMejJDN21idEFzZDJWclplcFp5MnBmVDA0UUROcllsMVVmMVVKR05zSXhOLWtXWklPVF9YV1NGUWcxRnZ1R2ZJLTA?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " Invitation to Bid (ITB): Interior Renovation and Office Improvement Works – FAO REDD Project Office in Jakarta-Indonesia &nbsp;&nbsp; UNGM ",
+      "description_preview": " Circle K reopens refurbished Shannon store after €900,000 investment in expanded retail fit-out &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-4d9c4488",
+      "title": "Mivan secures £2bn 1 Mayfair super-prime contract - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Other",
+      "category": "Healthcare",
+      "published": "2025-09-30",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOZ284ZDdmSU9KTHhsZ2QtY3hwUVFodjZXNExwUjM5Nk80Si1MUU9PXzIzOXd3djFScllFZ1pZczZ0VTdqbGRJMk9scWdyTzZNS1czM28wbHdyeVFlQkZ1UFJ6a3ZCblhjX01KNlg5UTBZLS12bVlvTVNubFRXZy1HZVNTaUxSZGRfcG9n?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Mivan secures £2bn 1 Mayfair super-prime contract &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
+    },
+    {
+      "id": "gn-b200764f",
+      "title": "Middle East luxury fit-out market set to double by 2030 - Fit Out Awards 2026",
+      "issuer": "",
+      "issuer_country": "",
+      "issuer_country_name": "",
+      "issuer_flag": "🌍",
+      "continent": "Other",
+      "category": "Healthcare",
+      "published": "2025-05-29",
+      "deadline": "",
+      "deadline_days": null,
+      "value_min": 0,
+      "value_max": 0,
+      "value_currency": "",
+      "value_display": "",
+      "source": "Fit Out Awards 2026",
+      "source_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQT0ZzNFJkX3dGSGpLRUU2R2w1MXhoU2FsUVBZR1NuOWpiM0NvWGFrclctSXk3RnlyMVZKYjNMbk5nQVBmeW9ZYkhiOVpqY2VpWTUwSmo0M2lLV3pJYnQ1X0dmS01PS3djUlVsS09TT3huZDBocFlmYlBnMm1EMWxvdW1WWGNfSy10ckc4eUZrcWgzdw?oc=5",
+      "reference": "",
+      "status": "open",
+      "description_preview": " Middle East luxury fit-out market set to double by 2030 &nbsp;&nbsp; Fit Out Awards 2026 ",
+      "is_premium": false,
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-1b1e528f",
-      "title": "REQUEST FOR PROPOSAL UNHCR RFP 3208 FOR THE ESTABLISHMENT OF A REFUGEE DIGITAL INNOVATION HUB (DESIGN, SUPPLY, FIT-OUT AND COMMISSIONING) - UNGM",
+      "title": "REQUEST FOR PROPOSAL UNHCR RFP 3208 FOR THE ESTABLISHMENT OF A REFUGEE DIGITAL INNOVATION HUB (DESIGN, SUPPLY, FIT-OUT AND COMMISSIONING) - ungm.org",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
@@ -2484,13 +2889,13 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "UNGM",
+      "source": "ungm.org",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9HTDEyb0pEaFgtUU4xTkJ0NFUtRzZjNkpOU1NOaHhQWG5qNVVDOXVPZVpCQmZMWVY2Y1NmZlFQcE1PME5DSktDZHh0TDZPQjFpenpj?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " REQUEST FOR PROPOSAL UNHCR RFP 3208 FOR THE ESTABLISHMENT OF A REFUGEE DIGITAL INNOVATION HUB (DESIGN, SUPPLY, FIT-OUT AND COMMISSIONING) &nbsp;&nbsp; UNGM ",
+      "description_preview": " REQUEST FOR PROPOSAL UNHCR RFP 3208 FOR THE ESTABLISHMENT OF A REFUGEE DIGITAL INNOVATION HUB (DESIGN, SUPPLY, FIT-OUT AND COMMISSIONING) &nbsp;&nbsp; ungm.org ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-3ee78daa",
@@ -2514,59 +2919,11 @@
       "status": "open",
       "description_preview": " Coral Springs Commission to Vote on $3.4 Million Contract for Build-Out of New Coral Springs Museum of Art &nbsp;&nbsp; Coral Springs Talk ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
-    },
-    {
-      "id": "gn-09245877",
-      "title": "Dynamic contract furniture - British Institute of Interior Design Awards 2026: Regional shortlist recognition - Made in Britain",
-      "issuer": "",
-      "issuer_country": "",
-      "issuer_country_name": "",
-      "issuer_flag": "🌍",
-      "continent": "Americas",
-      "category": "Healthcare",
-      "published": "2026-08-23",
-      "deadline": "",
-      "deadline_days": null,
-      "value_min": 0,
-      "value_max": 0,
-      "value_currency": "",
-      "value_display": "",
-      "source": "Made in Britain",
-      "source_url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQOUhiaFpGbU1udWpVMEcyWkFXY0Uwd0FhUHBzVjI4SDlsQnczNG5wU3FnWEF0WGE0Z05sUUEweFUyeU9BOUQ2VEp6Y1I3M3ZrZ0R2OEdjMUg0OTJGM1ctLURONm5razJvcEJIS0hxQV9GRjRwUko4MVgtcXZlRjNEcHplVEdzYlhNQXBMNXo5RkZOb0tIMW82S3ZiVlRzTmtuamZmTGdpSDNsN21UY2VRWFExelBXR1BLb2RKVFBZQ1RzcXFkUWh0VWZrN3Jhc1J1b1I4d3ZfTVhfd3hhanZoVmhR?oc=5",
-      "reference": "",
-      "status": "open",
-      "description_preview": " Dynamic contract furniture - British Institute of Interior Design Awards 2026: Regional shortlist recognition &nbsp;&nbsp; Made in Britain ",
-      "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
-    },
-    {
-      "id": "gn-773d8ec8",
-      "title": "The Interiors Group named as Platinum Sponsor of Fit Out Awards 2026 - fitoutawards.ie",
-      "issuer": "",
-      "issuer_country": "",
-      "issuer_country_name": "",
-      "issuer_flag": "🌍",
-      "continent": "Americas",
-      "category": "Healthcare",
-      "published": "2026-07-14",
-      "deadline": "",
-      "deadline_days": null,
-      "value_min": 0,
-      "value_max": 0,
-      "value_currency": "",
-      "value_display": "",
-      "source": "fitoutawards.ie",
-      "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPLXNhRDdhbmo5LVcwS1JnN1FzWHVtaUZ4UWtfclpEMHN2WEV6X1hGMHhBbEtPX3RjSTRmNVNoRjcwWTVjZ3pOMGZvQndveDdyQktIc2huMXNwU3RPaHNpd29CVGtrVGxWNWttcGdDd0hrNWtyaUR6WnpaMDhKRGRrVFJLWjJSeHRUMFA4bXdkVnNLOVlPNDJIRmNtTm1KUi1zZDRF?oc=5",
-      "reference": "",
-      "status": "open",
-      "description_preview": " The Interiors Group named as Platinum Sponsor of Fit Out Awards 2026 &nbsp;&nbsp; fitoutawards.ie ",
-      "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "gn-35c95b5a",
-      "title": "Dlight joins Fit Out Awards 2026 as Gold Sponsor - fitoutawards.ie",
+      "title": "Dlight joins Fit Out Awards 2026 as Gold Sponsor - Fit Out Awards 2026",
       "issuer": "",
       "issuer_country": "",
       "issuer_country_name": "",
@@ -2580,13 +2937,13 @@
       "value_max": 0,
       "value_currency": "",
       "value_display": "",
-      "source": "fitoutawards.ie",
+      "source": "Fit Out Awards 2026",
       "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPbkNIZmpWX0hwR3hMd0ZudWZhYktDM2pHT3ZoWlc1azBOYlZmYmlTblZtbHVkN3dqUXlGVDZadTByWjdiWnR0NDJMT19IVDJNdUt4cl9rRkxFZHQ4czFyeUdRS0hfWXhjMjN5Sm9QU2pmMlhlZkdWTkNnSHZIWllnd2YxTm85Vmct?oc=5",
       "reference": "",
       "status": "open",
-      "description_preview": " Dlight joins Fit Out Awards 2026 as Gold Sponsor &nbsp;&nbsp; fitoutawards.ie ",
+      "description_preview": " Dlight joins Fit Out Awards 2026 as Gold Sponsor &nbsp;&nbsp; Fit Out Awards 2026 ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "sg-08b855a0",
@@ -2610,7 +2967,7 @@
       "status": "open",
       "description_preview": " Embodied carbon in office interiors &nbsp;&nbsp; JLL ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     },
     {
       "id": "sg-e8bc37fa",
@@ -2634,7 +2991,7 @@
       "status": "open",
       "description_preview": " Navigating Singapore's premium fit-out costs &nbsp;&nbsp; JLL ",
       "is_premium": false,
-      "accessed_at": "2026-09-09T11:12:23Z"
+      "accessed_at": "2026-09-10T11:09:13Z"
     }
   ]
 }
