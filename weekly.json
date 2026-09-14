@@ -1,6 +1,2245 @@
 {
-  "last_updated": "2026-09-13T11:39:25Z",
+  "last_updated": "2026-09-14T12:33:31Z",
   "weeks": [
+    {
+      "id": "2026-W37",
+      "week_start": "2026-09-07",
+      "week_end": "2026-09-13",
+      "label": "7 Sep – 13 Sep 2026",
+      "generated": "2026-09-14T12:33:31Z",
+      "total": 199,
+      "news_total": 23,
+      "pipeline_total": 170,
+      "tenders_total": 6,
+      "awards_total": 0,
+      "groups": [
+        {
+          "continent": "Europe",
+          "items": [
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "Belgium",
+              "continent": "Europe",
+              "headline": "Industrial Warmth Office, Brussels commercial interior - e-architect.com",
+              "source": "e-architect.com",
+              "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPQ0tPQ081MHVueEdaYjJsb2F4ak9TWkZaZFpYRjQwSktpOVhVdFRpZEJlS1RSbFJQMTBCRmdMM0prajdZM2szc1NkTkNaLUxKaVVXODB0SGk4Sy1ZNE1YZl9uVjFFa29UeHlfaTBWVXo2Y2RtcnplNFdCenZtTk05MWx2MVlsSTJ4amIxR0lYVUxCNVk?oc=5"
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Germany",
+              "continent": "Europe",
+              "headline": "Erweiterung der Gesamtschule in Nordkirchen: Innenausbau der neuen Räume startet - Ruhr Nachrichten",
+              "source": "Ruhr Nachrichten",
+              "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQV2Y2SGNkclBKbU9uZ1JUQjRONnByM3NmUnYzd3F5NVotOVdGX1ZWT1JzWnJfYU9zX2gxZEZ4WUoxWGlMekNleVZSNFZqcklBeDUxblBLQUxkT0lyRGQ1RkZHaEcxVE92SmJ4aUdjRm1JMHV6cFA2cHc2RkZMcldIalNVZHFSSnB4M0lrVXNvdWlXV1VjUnBfOTVMeW1peUJQc1JpTzZKcU1MVjlUTmJQOHhhTnRwYjN3R0VjSWs4M3A0UnZRNkVZSEZFWklMTG5tbGZUeUxobzJ2LXFP?oc=5"
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "Germany",
+              "continent": "Europe",
+              "headline": "Innenausbau startet – Anbau der JCS kommt gut voran - Werne Plus",
+              "source": "Werne Plus",
+              "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPOURwTkdWOTJrQ3Rtbkl3RkRZWXBuUDQ3cWlaNWpJcUpGc3Rxc1pTSUE1b1BBY0JQbDdIOFNBSWhkXzJmV0R6NWY5U3Z3a0ZTako5X0tSVnhCMl9kWW1KaUJ2RWo5R0xQa2pQYjRRUjJOZ0xYOEx5enUtd2J0bE91Wmlfa2FZSGZqUFV6MnRCYl9pZGZSMjVnUnlXVmlySHdvM2Y1SjZPNW02UQ?oc=5"
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "Germany",
+              "continent": "Europe",
+              "headline": "Nautitech 41 Type S: Smart Room und Innenausbau - yacht.de",
+              "source": "yacht.de",
+              "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPSGt5LVMyNzdNbHNsd256dkhjV1Z2TUNzc1IxWFgxUjIxMk1xYWppNnNxTUZYcUNLZWs1ZkFqcGdqZ0ZXbjY2RTlTa0t1cUdqTE5XSGJjM2dSdld6RW4tV05GQkxHQkcyRk9uQVBjOUJydXZWMUc3TFBRQXVXMS1zOEpZN09tRmY1WjNr?oc=5"
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Ireland",
+              "continent": "Europe",
+              "headline": "JD Wetherspoon plans £464k refurbishment of George Hotel - Fit Out Awards 2026",
+              "source": "Fit Out Awards 2026",
+              "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPY1FFYzNIRTdsTXZOaGNBdk1BdmRxWngzY1lDclNjVmNENTBSS3pMZ2ViQlFleEpENlJPWUFybnBuY0lMOERuOVFLZmYtVkJPb1NEV2NUYXpFYVFWaEowREdsMkFicjd6YzYzUHFMQ0w5ZTlJZlFqYUlNTkt6WGNNRHdPM1FCRURKSmcwQWNUaw?oc=5"
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Ireland",
+              "continent": "Europe",
+              "headline": "BMI Redland modernises Coventry clay tile plant with £6.3m spend - Fit Out Awards 2026",
+              "source": "Fit Out Awards 2026",
+              "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdGJHN0tzeVJFSUdfQkFyeGtxeGhaRmphaFFYR2JSZmxqYmZVZWxuQmd4a01OVDVzRXU2UVhadk5YNkxzdkdHaFh4VmRjU3RwVmVfLWQycGVrSXViUEJXN1Q1VzlwclBVMjZBODU5LTBmVkNTNEEtY2ItQjduTlR0ckZsRHJYTnpfWXpTMXdJV2tTTnlsaWw0cA?oc=5"
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Ireland",
+              "continent": "Europe",
+              "headline": "Irish contractor Designer Group advances 10 Heathrow projects - Fit Out Awards 2026",
+              "source": "Fit Out Awards 2026",
+              "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNRjRYeVBJOHNXZWI1UEtpVFcxSzBIcEkyMmVWeDhtQzItZ0JmeW9wOXNNLVFQMDhDbWpTdld2WUx5dlp0T3pHOWhFLTRjRnhPVnREOHAxc25UUTM3eHVmd18xQmZocTBna0E1MmhfMlRWV0ZVbGtYWS1JeVozZFFhdDhZU1FVWWgzTXB0MEZEaUFibzZn?oc=5"
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Ireland",
+              "continent": "Europe",
+              "headline": "The Perfume Shop revamps flagship Dublin Blanchardstown store - Fit Out Awards 2026",
+              "source": "Fit Out Awards 2026",
+              "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNMFdKRXdGdkh5UVJPN0F0QUZmbEdSeWtDRFdNQ0ZjR2ExVkJ2cEg4dy1NOUJDTTNKSzlwdU5jOTdsOHBoZnRZMEh4cV82UWtQekVKa0MwVWRxLUFyRDJOREVrNGFDSHVaQ2ZwaDVPRUlKMUtkUW44aExVT21fMGRzWWpDazdKSTcwTVJFMGowVjdNaU5L?oc=5"
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "Ireland",
+              "continent": "Europe",
+              "headline": "Private Healthcare Is Investing at Scale in Ireland’s Built Environment: What the Fitout Sector Needs to Deliver It - Fit Out Awards 2026",
+              "source": "Fit Out Awards 2026",
+              "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQZGZpQk14Z2FSLVptVGZwbHFBMGRNZDNLcTdyaEJUQ1FKdWxRbkJWeEFqWmlFNldQNTI4blA1V1Joa193NUxjdU55bUpFc09LdlpySGtmYUM3TTR1M3g1dUJILVNOZVBtTjZ1cV8wUFk2M0ZMYy1DOEZwbXB0b0ZqTDNkSkVGN0lGTlBHMXIxMl9jVnRnMmdPdEk2ODhiT3IxeXA1S1AtZ0tuRDBsVHZVczJKWGFQUkJPUlFiMlNzOF81RUV1c05kbGJzZDFuaVczWEdnMkdtTTZDb2ZTQVpz?oc=5"
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "Ireland",
+              "continent": "Europe",
+              "headline": "T&I Fitouts named as Gold Sponsor of Fit Out Awards 2026 - Fit Out Awards 2026",
+              "source": "Fit Out Awards 2026",
+              "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNc3hucURNRjg3dUJ6amI0SkhpS1N5d2ExTFF3Umg2bDNhd1JGVWF6ZEJOc2lkdGlEYVRIYXVCM2tFOVpfV3VQdmMwT0lHQml3aTJOVF9vWVIzbE9hNTEwRmwxdGVOaDN5WHVzWDBYTzAzXy1rc2VFYzVPR0FyUmxmaEp2Yy1vUkFMazRmc1M1dUpsUQ?oc=5"
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "Ireland",
+              "continent": "Europe",
+              "headline": "New Waterford train station at ‘final fit-out stage’ as council issues major update - waterfordlive.ie",
+              "source": "waterfordlive.ie",
+              "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPTWhUdFgwaXdtcWxtbDI0TENBSF9TNEZ3T09SazctOWtvNmZTZXdoQ0duZ0FMR2NITHdaLWNkMjRxVkc4LUxYZnVncERWbkdsQmZaMHl6aWZHVVZHelAzOXNyTzhYTnR6U2lDTUFYUGVZblFBZEktVGllTWNteUFIVDM0WHR4Qlh3Z1RpRUU4eURCV0RETlJkSUtFREI4UUZ2WnUtMkxoOHRQbkN3SDdPNW9DWEJjYUd3WEpzRjVLQVhLX2RuZ3J2QUlwQnpJWWRCRjR5cA?oc=5"
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "United Kingdom",
+              "continent": "Europe",
+              "headline": "Pacific to showcase firm's starring role in hotel fit-out sector - Trending Now Infrastructure",
+              "source": "Trending Now Infrastructure",
+              "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPcXVfY2NGLVFCSUxLc052WnFwRFJMaWtWMkQyY3Bjdnc0d3hoaUkxcmQ2bGtZWE80NmRwUThqMjlZcW5sd0F5NFlqeFlwVlZpWi1DNmN1NmJTY2xPUmhsdklvNGNIXzZidVk2VlQwX1JDNEk0SDBvZFRvY0lUUkJkSDBXVDdITXpkQTN6dmZHSVJlZ2wwNTROeGRlazZWTTV4aHdkOFAtWkpYUERMZGN2YnpMcFc?oc=5"
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "United Kingdom",
+              "continent": "Europe",
+              "headline": "Historic interior fit-out firm eyes “significantly increased” revenues and profits after being hit by contract delays - Insider Media Ltd",
+              "source": "Insider Media Ltd",
+              "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPVl9lY2ZUY2liQmZhRzlxakNjQW1YbDVRdG9ERFRycUZKRnVLNEV0WnZfTmVfTFdiZllLYklwd19GTHBPWlNtdEFYVW53T1A3dHVTYVhLYWtPNlRQWGRKYnlVNUlkTTZ4YlRrTTQxb1RQRTk3NERwMmJaaXpNVDlxdmNydnhqekF4cmFZS0lBdkhvTTNlQkh1R1B6eTNZY1pLdTNEcFM2VmdhcExmdTYwblFTUEpxTmV1aWNQUkRibEJLVjBxX0NjekhmUEpHU25MQjQzdXBfVjBfTlhQajFwb01MVGVCTG14MlEwc2paWQ?oc=5"
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "United Kingdom",
+              "continent": "Europe",
+              "headline": "Estilo Completes Redevelopment of 35 Newhall Street and Secures CAT A+ Fit Out Appointment - Colmore Business District",
+              "source": "Colmore Business District",
+              "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOM3V3dkZlMlEtNFBkbGcySlljRXpNYnJqLThNbWNyREkxRjNGdTYzdVhrQVN3VUZPVEE0Z08zZWVuWHJjRGNNOGdaQVV2SmFvVGZqWHNHRnA0WS1ZWjNqelFQajlSQ1M2UVVzSWZEeV9LUHVWRk5pNWlyZ2MzVHBVcWs5UzZENjUycnFMMkFrLVlOaTFMSkN3VTBJdEF0aFk1UWpiQUlZWExlbFdIZVlzS0JHVW02OU0?oc=5"
+            }
+          ]
+        },
+        {
+          "continent": "Asia Pacific",
+          "items": [
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "India",
+              "continent": "Asia Pacific",
+              "headline": "Air India Expands A320 Cabin Retrofit Program as Fleet Interior Refurbishment and Hygiene Services Market Grows - openPR.com",
+              "source": "openPR.com",
+              "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOcXVkZWx0X2lneUJOdHFlSWxrYTVoT0E4Q0Myd1NTbGFQZHRIcDZQZjhEbUx1M3NJQktuYlRlMWdLOEtDY05tNDh2ZHhUUHRrR0dxdnJkaEFRLVhHQjlRS2Q3a2F2aUtPVnE4T2x5eWpFbnRjMTM5cGtTWUpnQlg4TmZWVEhzc0g5UUl5R2pyQVhBUTZFU3dDNmpZLTZJbV9G?oc=5"
+            }
+          ]
+        },
+        {
+          "continent": "Americas",
+          "items": [
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "headline": "Mitsubishi pours $26M into new Houston office renovation - The Real Deal",
+              "source": "The Real Deal",
+              "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQVzZ4QTdZeTBNb3lGYUNuU3hmX3M3Umpaam44RDI2YWJZM0lieEZZeUl0VDVISldUVkdjMk9VQVFPYmlEU1Y0RUh1TW1lb2gyd09qb1RRVkdxWGtUbFZraUFYcUx3UnBvODNvWE5Ha0cyNkFNVElUS1ZuOURFbDQxTjdQQ0Jva3YtMU5pVHNqVVVyRV9rS1NyZQ?oc=5"
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "headline": "Moncler Retail - MONCLER opens new store in Boston AN Shopfitting Magazine - defensorianna.gob.ar",
+              "source": "defensorianna.gob.ar",
+              "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9oOVRoRVVSWFBDd0hwNGd4Mm1BSERhYmU3dXhqXzN1NTNKamV1VkZGM2tNZU11VDVBcHR0YTJnTG5YcHZTb0xWRi1ycWwyaEdWYlY0S3VVTks?oc=5"
+            }
+          ]
+        },
+        {
+          "continent": "Africa",
+          "items": [
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Nigeria",
+              "continent": "Africa",
+              "headline": "From shell to operational facility: Lessons learnt from delivering the interior fit-out of NRS Headquarters - The Sun Nigeria",
+              "source": "The Sun Nigeria",
+              "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOX1Znd29Zbl9FY252OUFFeEhKUVVGVjg4NUdzbjQ2VWV5TXBGRURiX2I4NXF5RjVQY1VaNHF4MFZjYUZ0R0ZDNDI4eDJ6dXN0LVhseUpDSThYQ29YY3Y2amkyMzI3T09KMUZrdlVSWjhHYTJhQjdSdGNqOWd5M05aVU1oWkV3VEF3ckQ2NEN0bjdQNzRYWWN1TnFmR3V6YnV4ZFRpQXdRTVRhZkxrYjZqUmZDM2dDbmhhUUJOZ2lYWVF3MHc?oc=5"
+            }
+          ]
+        },
+        {
+          "continent": "Global",
+          "items": [
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Global",
+              "continent": "Global",
+              "headline": "Galeria de Museum Fit-Out - 2 - ArchDaily",
+              "source": "ArchDaily",
+              "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOQWJtSkc0SU0zRnFSU2JJMmEzWTV0cDRtbHkzWnVhbTY3d3h4ckR3QmlPR1hhczlocGJnNWdJclhfMkZkamZnYXpLaDFzbHZ6NnlzRVVDNVlyeTlVYnpyMHNMbUlKeW9YNzE2X1BkWlhHa0dleHBWNmxqUzc5ekxneUZJSXUybGVmZFFqNnJlOERGUGo0Z0QwbE41WE5GVFEzMVZOSXNFUkNsT3psUHNZaldXemUwV2ktZURLeUx1TXg0NnFORWt3OTF0M1F6b1dPclhjU09aazVieEJkNF82ZG9oYw?oc=5"
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "Global",
+              "continent": "Global",
+              "headline": "Galeria de Edifício Fit-Out / Praeger Richter Architekten - 13 - ArchDaily 中文版",
+              "source": "ArchDaily 中文版",
+              "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPc2NadF9YbVp0Q0s1S256NU1vVU5RZmEybG96LUE5QktfT3dnYy1HUTJNOFd3enlHRUZhWWg4Sk9ibXB6LUhwNnpJMzNPR0hpal9sbkZIcFdTR1ItN0x0ZThBek41X2Y0RmsxRVBuQm5DSTBBaWRDcnhINnFvOXQydTh4anRLS04wNi1Ibk9CLU52T0p3T2tpMmE1UjlQdTc2R3cyLTRpQ1BweHE1TzVpMmtBY1d4ckJFQUw0ZGw3OTZNNDg5amdIcjhnUDhYanRlTFFva2t2YV9MY3pPYTltM01EZmpaOThlZVE?oc=5"
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "Global",
+              "continent": "Global",
+              "headline": "ROOM’s New Identity Puts People at the Center of Workplace Design",
+              "source": "Design MilkDesign Milk",
+              "url": "https://design-milk.com/room-new-brand-identity-workplace-design/"
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "Global",
+              "continent": "Global",
+              "headline": "'Reweaving What Matters' Offers Practical Tools for Workplace Transformation - EIN Presswire",
+              "source": "EIN Presswire",
+              "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNWm1qSnBGWU1jelU2S3FSWEJKbVM3eUI1bXlNai1iUWVRX2hsb1RCdXVlUHphWEZjbEpZUU0wS1hlVkJhWUZhd2V1dzhLSVFRZl9BRktjQzZER2wwZkh1MFVsLWlFYml3UEdRRi1LR3JXcWpOS3Q3Um5iLW9CQ1NHTXlnekkwZ2kxUnRvdDQ0eTdBejVSQW5nMTF6ZFo3RmhmbWxXWVRyNmxkYy1FRUNXUnpaYmtxeDZ6SWx5b2ZR?oc=5"
+            },
+            {
+              "date": "2026-09-12",
+              "date_display": "12 Sep",
+              "country": "Global",
+              "continent": "Global",
+              "headline": "$2.88 Million Fitout Permit Issued for New Germantown Preschool - The MoCo Show -",
+              "source": "The MoCo Show -",
+              "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSlBuXzBCSmd6bC12clRSQkk5UHE4MG1kVHAzSzJDSDRNenM1SjRTQm44NWZzY3hOZUhFRGlxRWNwbXE0OV9oZHdfUkxyQXdvLWZ2QkdHVkEwQjdueFRMbEV1NE5qZ1lXb3VNYjBPMDBOR3dYLURiOHhJRHB1bklZZ3BGbmd4VnJYT1B1ckQzSUh5ZXYtV1p6MHA4bw?oc=5"
+            }
+          ]
+        }
+      ],
+      "pipeline_groups": [
+        {
+          "continent": "Europe",
+          "items": [
+            {
+              "date": "2026-09-12",
+              "date_display": "12 Sep",
+              "country": "Spain",
+              "continent": "Europe",
+              "title": "Ferrari continues SF-26 development at Madrid with suspension and aero changes",
+              "sector": "Commercial Development",
+              "source": "Scuderia Ferrari Fans",
+              "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPSXAwemtBc2pjZlRtV2NZeGM2aHZ3b01feWpLTHhEMHd4dmtYU3VUSHROSEg1THRiWFZYZlVQZXlMTTJUOXZHaWh6OThUSXh4RjZncm1SaGpjVUUzc2s5Sk9LdEt6OTU1UVZuZ2tKZnZKaTRDdFp2X0lMS2pLSjFpdkJhZ3RRX1J1TWNGd1BnNS1WYVhEalpQVklyRGhxZW9qU2Z0M2Ryaw?oc=5",
+              "summary": " Ferrari continues SF-26 development at Madrid with suspension and aero changes &nbsp;&nbsp; Scuderia Ferrari Fans "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "United Kingdom",
+              "continent": "Europe",
+              "title": "Inception Group to Open The Admiral’s Mess at Waldorf Astoria London – Admiralty Arch",
+              "sector": "Hospitality",
+              "source": "Hospitality & Catering News",
+              "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNNTV0aUhOeWlQVGxtVm9xWlJ1WVB3S2JaR0ZyUWVoZkgtWFhoTWtqVmZsUGc4VjRqRHNwcDdCNHNUYmY0NDRqVGo2LVpGYXVyeE1CSkZMRVJ5TGZsVUppM3RRRXZyVTE5aDdtcUc1QXYtU2lYU19idGtmQU1qM2RJWF9GSG1TeG1EQnlldHBicGZ0REwyUnRaTm5ybFpidllyVkR4LWZZenhuSUJhaGJ3VzBPdUhRUXZHWEVNaFk3Z3NaVTYzaUJDMzVneFdTLTg?oc=5",
+              "summary": " Inception Group to Open The Admiral’s Mess at Waldorf Astoria London – Admiralty Arch &nbsp;&nbsp; Hospitality & Catering News "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "United Kingdom",
+              "continent": "Europe",
+              "title": "Hilton opens first Curio Collection hotel in Wuxi, Jiangsu",
+              "sector": "Hospitality",
+              "source": "travellingforbusiness.co.uk",
+              "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNMHN3cHVhdUZDbEhWUFZoZFdRcXJuck1PbEdsWHczc2NkbE54ODM0bllzNDc5cG11c1VNd2dUcmhNMmlzeDlwVVlVZk5ON0I5Njl4eHBWejFNcUJnVWc5OFVXS1p2Wm5janVqS0cyWEdnb29iVjBVd0hKdnRrMWI1cUhB?oc=5",
+              "summary": " Hilton opens first Curio Collection hotel in Wuxi, Jiangsu &nbsp;&nbsp; travellingforbusiness.co.uk "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "United Kingdom",
+              "continent": "Europe",
+              "title": "The Admiral’s Mess: Inception Group opens a 60-seat bar at Waldorf Astoria London Admiralty Arch",
+              "sector": "Hospitality",
+              "source": "La Revue des Hôtels",
+              "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZE1LM3JSVDh1N3ctU1JITUpwa1RNY2p3eW5iVzl5RWV2WVZaQl9POHBWbGlXaFB1SmthaVBKM2NXVm5wdDhjbF8xZGQ1V3hfWFpYcXRNNVEyR1NfUkQ2MlMwQjZpYUhKLWgwbjhRRUQ1Q3I1R0RjZ1p5MWtHdG1zTzFaNnJIU3hIYXUtUWFNLVVSdnBSdlJSWmsxbnRpQWFtR0F6dA?oc=5",
+              "summary": " The Admiral’s Mess: Inception Group opens a 60-seat bar at Waldorf Astoria London Admiralty Arch &nbsp;&nbsp; La Revue des Hôtels "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "United Kingdom",
+              "continent": "Europe",
+              "title": "First details and lands of the new Harry Potter theme park opening in 2029",
+              "sector": "Sports & Leisure",
+              "source": "Gamereactor UK",
+              "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNVkxWTTduMFM3NmtEcFFwNlBYX3B6UDhXRHB3QmdMV3RVbjFCSzNJeXlEVndpUmhpQ1R6UXE5YVpwbHVnckZpazlPUVFQd2R6aVpka2o1aFAzLUNQUmI5UkdWVVVTaVhDNXI2LWtpaDhSWlBOMFZ2NUpEZDJ4R0ZDVFpWZ0szS3BCQ0xZWkljeWl6MWt4REhKUW1zeGljbkEwdy1ZaC1BeGJyeUJkVy1R?oc=5",
+              "summary": " First details and lands of the new Harry Potter theme park opening in 2029 &nbsp;&nbsp; Gamereactor UK "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "United Kingdom",
+              "continent": "Europe",
+              "title": "Waldorf Astoria London Unveils The Admiral’s Mess, a New Landmark Bar at Admiralty Arch",
+              "sector": "Hospitality",
+              "source": "travellingforbusiness.co.uk",
+              "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQRnlkN2FQTkF0ZWV1ZmFIemtoYmM1NV9MSjlHMl9aWE9NT01QR2VEczdhd05Velp1N1ozVDJxQkxtcUtvZmRxdnRPYVVkcEZGMHFnZjB2Rk9mWk9XTkR6WlRjZjZwTkRFSjVoWnNsTEpHYlBYcFZTZjlZeWN4VXVmWHJqOXB4LXRBQWtxS2RpbThwQUdQQndzVXgwTlFRSnp5cXAzb1pyaDBCaGN3elUxZDBoa0FBVUFJUkZBQWEzb2NhamM1T29yYTd0TQ?oc=5",
+              "summary": " Waldorf Astoria London Unveils The Admiral’s Mess, a New Landmark Bar at Admiralty Arch &nbsp;&nbsp; travellingforbusiness.co.uk "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "United Kingdom",
+              "continent": "Europe",
+              "title": "New England Aquarium offers discounted admission for college students in September",
+              "sector": "Hospitality",
+              "source": "New England Aquarium",
+              "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOb3MxVzZQaklxTU4zVFFZeWxEODN4Tk9TLWVJQWtCNXhtaTJTaHFHc1JzUFRNMnVEZmg1OWxjVlRGZ2tDUDhXRFFyNjdVZDRJb0N1bS1PVEZqd3dDeFpwRWpTVnlINFBfM0FndS1vSVRKaWpyanBlZThjS0ZOS3NLOW5yT2ctSnNMYmpMVjhwSWhhR2YzWklsSm9Kak1yZVF5Y1RhZXN1ekVuZ2dvRnFSUnUySmtDNFZRTVZuZDlaVmxkMEhuSTJzd3c5MElkRGNxX2hWVjdB?oc=5",
+              "summary": " New England Aquarium offers discounted admission for college students in September &nbsp;&nbsp; New England Aquarium "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "United Kingdom",
+              "continent": "Europe",
+              "title": "Picardy Place hotel development in Edinburgh",
+              "sector": "Hospitality",
+              "source": "Boutique Hotelier",
+              "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPeTJhUFY5X0ItWklZaDZma2t0WkJvZGw3YWpzR2FlMjFJVHZmd0VGMFFpWFJIb2Zjb3NBbHg2RmlkMUV6Nms5SnE5eXg2TVhZUjhXdy1HSkpDTmNydmJxaEFOODNDZDE1Z1hCNHdta01STFpwRHpYbjBWUEpTejE5Ug?oc=5",
+              "summary": " Picardy Place hotel development in Edinburgh &nbsp;&nbsp; Boutique Hotelier "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "United Kingdom",
+              "continent": "Europe",
+              "title": "A new hotel in London had 75 rooms booked within just an hour due to flight disruptions across the UK",
+              "sector": "Hospitality",
+              "source": "travellingforbusiness.co.uk",
+              "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPWFlnd0hZaldrSjJ3akZvTnlzZWZBc0xnbEF5S0JzUUVYazBxWmxqYld6T2g4Y015bkVxZWI5WDVPZk1qY1FPOWFMNzJHd3k4NGFaY05lZ1FBSkpaN3pyQVQ0SzQ5VmJ2WktraTAzczNIXzhqMkxXSkR1a29IVW1SM1dSclhBd0d0R2FZMF80Y1VkMVB6VVh3Q0FDVWtEYkc5NnlRQVdqWjYydVlkTEVvaFVucVJHU2MyWDBfeHlUMmdrLVVZb25vWktUaDNSbGJUTkhwTERVRzdCYTg?oc=5",
+              "summary": " A new hotel in London had 75 rooms booked within just an hour due to flight disruptions across the UK &nbsp;&nbsp; travellingforbusiness.co.uk "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "United Kingdom",
+              "continent": "Europe",
+              "title": "The Russia-tied French billionaires opening UK's first historical theme park – explainer",
+              "sector": "Sports & Leisure",
+              "source": "The Guardian",
+              "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQQmNqakNmMTlrZ3Zqa1JheTF0RmlONnNIbnM1Q3ZPTzQ0UWkyRnFpdU1KZE03X2JqSnlYQnlDZ0ZxYWN4RlQ1V0VFMHRrN3V5SXFseTJ1Z2VyOEpZQ0Q5NjMxalRzMkpVYnlHUWJoQW8xUTFvaWxkakJXbVVuVVVRaWlXSjlhaHhPRHFBckZwV2pwb29KekF6ZnZsdXctNnRDSlZqYzFIWGNOUTRsSzdBZ1ZKTTdlUEFMU2Q4T1BidGh4cHUzMzdWaHRub0JLZlp2em5j?oc=5",
+              "summary": " The Russia-tied French billionaires opening UK's first historical theme park – explainer &nbsp;&nbsp; The Guardian "
+            },
+            {
+              "date": "2026-09-12",
+              "date_display": "12 Sep",
+              "country": "United Kingdom",
+              "continent": "Europe",
+              "title": "Inside Nick Jones’s New London Hotel",
+              "sector": "Hospitality",
+              "source": "Air Mail",
+              "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1zdm5wY1lZdEhoN3QzNEZnUXJuOVdTOXNpZExJTk8xYmxDOFVUaHZzWlkxM3hVaTdsY25OTzV4ZzdQLTI3LVphMlZqdjRQc2IxRzJwVjFaY1lzZ0ttamxSalp2VXJJbWc3eTc0bEJn?oc=5",
+              "summary": " Inside Nick Jones’s New London Hotel &nbsp;&nbsp; Air Mail "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Europe",
+              "title": "Comprehensive Procurement Network Launched for Hotel Development: Integrating Nine Direct-to-Factory Platforms",
+              "sector": "Hospitality",
+              "source": "openPR.com",
+              "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQRzRIU0pPMEh0OGpQR0Z1cXhqMjkzdWUzU0NiZGtFQ21OdlRCSUpLRlMtOEdrYWVpWVl5aEp5WS0tX2pFdUppNWFXV29CZkZLenBVTFZYb3phU2xMTzdSaUNUUjM1WE0yVVpFcEtTTGhxQkVBMVZhaXJFVlR6ejVFSUtwR0NJQUZiczB1ZUFFWHUwZw?oc=5",
+              "summary": " Comprehensive Procurement Network Launched for Hotel Development: Integrating Nine Direct-to-Factory Platforms &nbsp;&nbsp; openPR.com "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Europe",
+              "title": "New hotel in Chipiona with 420 rooms and Atlantic views",
+              "sector": "Hospitality",
+              "source": "Idealista",
+              "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPUFZ3eV9SLW1WbjFGaGNJOEtHTnZDUHNGSkVqUU9aQU1GbWhyNUZnVjlTME9RMDRFTk5GaWR3b3dJVm9oTGxqOE1mWnBXb1ZOb0t6TFhpZS1WTFdwMlZVNWZWb0FaOHFtWVM3Ymg5UjJhV1YwY3pOSGFDdEdiVHZEbmdaM1pMcjd0d0s3MXBUZWhjem55NmZBNC1aQkhrR3MwNzRWVjJjVWpGR2x6R0phck1PRHEyZ1VQcnUxV3R6WjhXVnFS0gHKAUFVX3lxTE5rQmc1V3VWVm14RTlkOTBLOEQtaHlEanBvcU9LM2sxc00xMVJWNUNtYy1pLUptX3Y5WlFHdWpGbkpielpTZlp5cjV1b1BvM0c2ZnVCaVRFRlpCcjBDaDFac1RmM2dERWs1U3lkaDNQOHEzR0x4WjdOcFBsNjI2b01mU0xCVUI4S0xFYXRHa0dkQmdSaDJVdGptY0tRbG1EdTUyclh6c0Y1UVZYY2RHRkg5Y2hlVFU2NTNSYVZJWXZCZmpEenpvZUFKREE?oc=5",
+              "summary": " New hotel in Chipiona with 420 rooms and Atlantic views &nbsp;&nbsp; Idealista "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Europe",
+              "title": "Google’s New Hotel Search in Europe: What it Looks Like Now",
+              "sector": "Hospitality",
+              "source": "Skift",
+              "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPaVRXWjNxX0EzclRtc0k2WHoyRHlIckJSRUtiUWhVb2dRZnBoNVZpXzZ2MlN1ZGhCaGJaN1lTWlhTMTRIQnlNbDUtU21PdGxiVGtuYWxYNXJ5UEswNGRtcWh2amlVLU9uRlZYVzNVTkROVFVraHJjdVhZcGVLUFRzTUVCS0k?oc=5",
+              "summary": " Google’s New Hotel Search in Europe: What it Looks Like Now &nbsp;&nbsp; Skift "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Europe",
+              "title": "Costa del Sol accommodation records one million overnight stays up to July",
+              "sector": "Commercial Development",
+              "source": "Sur in English",
+              "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQTWpLeFdPVXJPNTZpYmpEaTk0YlZpZGlpLVVPX3FUaHVCQVloVmpiTVF5b0lqUDYzdV9GS0sxcmMzOFAtSHVFU1hwWXNPakpYaVVCd0R3b1p5VkVJS0VJSGZkWnBwZFBTb1JXd1BSeVpQd3UwYWJIS0xwb2EwZVFzZGlYNzc1VTlRYTZFc0piX1c?oc=5",
+              "summary": " Costa del Sol accommodation records one million overnight stays up to July &nbsp;&nbsp; Sur in English "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "—",
+              "continent": "Europe",
+              "title": "Verde secures €31m loan for Riga office development",
+              "sector": "Offices & Workplace",
+              "source": "Green Street News",
+              "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOcVdJZVBsUjJ1UXZieDlXUTdYVHA4bEVKMDJ0QjM5Q0c1R1VMenI2Rnh6TU92RlJFbnVpZW9YY1pUeHZuamx4Yk9pNnByb2phOXk4R0dOUlpCVDI0WFp1OUFQQjc5M2ZLYmZFTExGbFZIVjhNakhuUlluN2JaakdwMHVYamRBTnlweTlYYXN3Y2pGQQ?oc=5",
+              "summary": " Verde secures €31m loan for Riga office development &nbsp;&nbsp; Green Street News "
+            },
+            {
+              "date": "2026-09-12",
+              "date_display": "12 Sep",
+              "country": "—",
+              "continent": "Europe",
+              "title": "First Glance: our reports on opening day",
+              "sector": "Infrastructure & Transport",
+              "source": "La Revue des Hôtels",
+              "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBxVHVRc2xVek1WZW9uLTc1VHdXcVRQMFp2VEdLVFN2QmtGVFlGUlRSbXdXZHJiS215YmpTNVZveW9vV3gzYVdqT3FlT1JLckRrcUd5aXNFbw?oc=5",
+              "summary": " First Glance: our reports on opening day &nbsp;&nbsp; La Revue des Hôtels "
+            },
+            {
+              "date": "2026-09-12",
+              "date_display": "12 Sep",
+              "country": "—",
+              "continent": "Europe",
+              "title": "The Clayfield hotel opens on September 17 in the Niagara-on-the-Lake vineyards",
+              "sector": "Hospitality",
+              "source": "La Revue des Hôtels",
+              "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQVElXZ2ZHR25tbTdvZjhodExKYnRxVGt3bDFSdjdkSHkxYnZZRmJUVkZQdVFfMEhzTUpGVTZBWEw0WlhNcllWYzNXZENpcVJxajhYM2FKdjI5X2I5Sm9ON1pvanJOTS1jMHlCbzFfQndOd0kxWlY1OUoxNk1mVGM1VmxvT1FGcG9KQWJEajNfel9idDA?oc=5",
+              "summary": " The Clayfield hotel opens on September 17 in the Niagara-on-the-Lake vineyards &nbsp;&nbsp; La Revue des Hôtels "
+            },
+            {
+              "date": "2026-09-12",
+              "date_display": "12 Sep",
+              "country": "—",
+              "continent": "Europe",
+              "title": "Tivoli Palazzo 1880 opens in Lecce: 48 keys in a historic palace since 1880",
+              "sector": "Commercial Development",
+              "source": "La Revue des Hôtels",
+              "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPb0tiU2xldmZPRHVFZnp4c1hhcEpuRWhScjZ5bFpsSDNaQTM2cGptX29IUThsbGI4aGtjU1NTVUJPRU9rU3N1dHZXamRMN3VOTlF6cHNWN1VvQS03Zi1YTHhoOFk0RGNmRFFKZHlVNDJmVjJlWGZfUWktb1RaRUo1TUxPV3dYZGpJeTZWclFiVnV5cmFHaFVvWUxHSEhjQjQ?oc=5",
+              "summary": " Tivoli Palazzo 1880 opens in Lecce: 48 keys in a historic palace since 1880 &nbsp;&nbsp; La Revue des Hôtels "
+            }
+          ]
+        },
+        {
+          "continent": "Middle East",
+          "items": [
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "Bahrain",
+              "continent": "Middle East",
+              "title": "Oman Business: VA Group to develop key mixed-use project in Oman’s historic Muttrah waterfront",
+              "sector": "Retail & Mixed-Use",
+              "source": "Gulf Daily News (Bahrain)",
+              "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNUzRvUHZIOVBfUEc0TmFJSndpdXRHaEhCclo3VU42Y21PMDZENnN6R2ZfUXhUb0ZhdzlrQjBYcGF1aXlFRWZ2Wi1pT0M5MFNmaGJ1bmlrUEVxSWxvOXhmRnpjQ1NFRFdsSmpLN3pRWTJJMFNSdzdRVW9BcHJZNkhPeU9WQzhhUDhOaTJOWkw1cnVicHhZUFpzVHlfUGtYYTY2ZndhOWEyQXVvZUZqYzAzSW4yYmQzR2pFbVVhQlhwck4zeVkyeVEtMQ?oc=5",
+              "summary": " Oman Business: VA Group to develop key mixed-use project in Oman’s historic Muttrah waterfront &nbsp;&nbsp; Gulf Daily News (Bahrain) "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "Oman",
+              "continent": "Middle East",
+              "title": "Oman ratifies EPSA for new offshore Block 80",
+              "sector": "Commercial Development",
+              "source": "omanobserver.om",
+              "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQVTd6LVdGcUU3Y1ctNWs0ak1KWFFSQVRUZEtPQkp0dEJyMm56S1ZKVUVKdWpKYVdkT2V1MGhhcjltVzI0bkNUdjF0blgtQmlJcHhpNHNNU0lxbVBZeXZKcEs2SHlxbjJfUl92cUM5NHgtVTFmTXZEQzl0RlVZbk5pWi0xZzNEQUdRbGx3akU3YTFFTDFfX1JIUk9RbDVDaUhzUnhtaDMya9IBWkFVX3lxTE1yRHRkTTBOTVl2ZGlIU3hpZGNjMkNFTHpsbEVBTk8wdnpvT2h1UktVNW9KSTlkLUh4M2ZMNktHZ1pQbm02eW9pZUJNLTZ4b3RobTVteUtXdGIwdw?oc=5",
+              "summary": " Oman ratifies EPSA for new offshore Block 80 &nbsp;&nbsp; omanobserver.om "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "Oman",
+              "continent": "Middle East",
+              "title": "VA Group Wins Land Rights for Muttrah Waterfront Mixed-Use Project in Oman - News and Statistics",
+              "sector": "Retail & Mixed-Use",
+              "source": "IndexBox",
+              "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQaDFVVUkwMU1BNmFzWU9lMUt0RV9ndktRYW9qNTluZ2dNbk1VN0JZU2xkRE83TzFTWGl6MjdhMHZERk1EQS03eklWZzlXY21wYXFiN051Q01DWTh6S1RnMDZvMEt1cS1kLUdQUGkzOW1LbktuU2VxQy1PX2NpdWxBclpQSG1icEZGa2s0cWFwcGdoQURBc19tMlBlRjhMOXJLSjlVNVhlNWxFQ0xvRkxN?oc=5",
+              "summary": " VA Group Wins Land Rights for Muttrah Waterfront Mixed-Use Project in Oman - News and Statistics &nbsp;&nbsp; IndexBox "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Qatar",
+              "continent": "Middle East",
+              "title": "Qatar Development Bank named 'Development Partner' for QMED 2026 | Gulf Times",
+              "sector": "Commercial Development",
+              "source": "Gulf Times",
+              "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOU0g3LTQzWXczamEzU1FUYXc4NFhFQjQzUHoxS2xFV0Z0NG1oV3Rxd3pWNzdJSW82RkhUZjM3VHR0alY3TTZmT0ZaNmVaOXpEX21yd2xYOWVFUHNFQl9JZHlKWFIwYTZWR2dieFUtcEY1cU9BelVoRE5fXzA1eW1uczJYcUFyV3h1RC1qRm5iU2JRWWlOaWlIREhsdzRnYVhFVi14TngyQkZMT0tGd1dXMTJPc9IBuAFBVV95cUxPLVRJNzd2OEFUcWViUmNlWGw2OGdfUG80SFdpUDVYaElON1dZaC1CcXhvZUVYWlozX1lpYnMteUdwUEtwOWlPcDNvbkltR1ZqZkhEeDZ6WktNeXp4c1ctX2JYeDdsZHZfa2tvNTdyQjd6UUJDVzFuVGk0VWNwVEU3UjZ3eHRrbzkzYVhoalpaZlVMa0E4ZW4xOTFucExQc3dFWUZRQjZhRVBWckNieWRpblgtRlJMMjlx?oc=5",
+              "summary": " Qatar Development Bank named 'Development Partner' for QMED 2026 | Gulf Times &nbsp;&nbsp; Gulf Times "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "Qatar",
+              "continent": "Middle East",
+              "title": "Dawraty Receives Investment From Qatar Development Bank",
+              "sector": "Commercial Development",
+              "source": "FinSMEs",
+              "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOUmFyQ29vc1lxOU9KQllmSHJ1bmI0eGJ1ZGl5eEE4Rl9lX3RSMFdLb3N2VVp5WVN1WDgtREwxWHV0YjRfYUpjcjc2clQ2OGJsSTJzejBocjA4V3Q2NEJMWGFTMWtJN2tGRGd4ekZYTDRUdmlDNEtSdktValpIU2t6QUpLUmIya0ZGNUpocHMzMVM5SjZKZ00w?oc=5",
+              "summary": " Dawraty Receives Investment From Qatar Development Bank &nbsp;&nbsp; FinSMEs "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "Qatar",
+              "continent": "Middle East",
+              "title": "MSHEIREB PROPERTIES",
+              "sector": "Commercial Development",
+              "source": "Construction Week Online",
+              "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1PTTBobm9SeGZoaFc5NVktUDBBRzQ0akgwM005eDF4aEVjWWlpTzB5VTV2a0IxeWlob2dleTY0LVdVQld6WmIzUXpFb1RuZGRfYVJIQXRXUFk5T01lTjNkNDNRZXFlR0hqV0s4bTRFOXAtQQ?oc=5",
+              "summary": " MSHEIREB PROPERTIES &nbsp;&nbsp; Construction Week Online "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "Qatar",
+              "continent": "Middle East",
+              "title": "Qatar Development Bank invests in Kuwait edtech Dawraty",
+              "sector": "Commercial Development",
+              "source": "TradingView",
+              "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOZmtOOHJ3dTZVWko3U2FPZ0pKX0JrWUlPQWV4b3c2NkE3WVoycURhekRtdFZSeDBLZEdRZ0tTTlhuRTUwdG0tLURvMW9jeDg5MklpVXNtMGJ6MXA2aFByeGQ1Y3dRYm1UQXlIOEFMeldkdnR1MDFHYzlGN3JnakpzbWYyVHZ1VGRzLUNPNEFKZmVSbzROWl8xWWUtUFNDdG5SRkEzT3ROY2ZUeWVjSkh5eVdjU0dQSjVvNW16RFpqTzFRWWlOZDhraEhHSQ?oc=5",
+              "summary": " Qatar Development Bank invests in Kuwait edtech Dawraty &nbsp;&nbsp; TradingView "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "Qatar",
+              "continent": "Middle East",
+              "title": "Qatar Affirms that the Right to Development is a Fundamental Human Right",
+              "sector": "Commercial Development",
+              "source": "وزارة الخارجية القطرية",
+              "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQTDJ6VVJhcTJ4SnNPLUQ4Mkp4amdEd2tGM2EyZzB2R0Y3ckhNSUpZUk4zNEpvdGxNM1lsdlFVbEhZdnZweC1GOXpZLWtmcVBweGN1SVNqRmNvZmRTSjFKSnFpQzBaLTBQSnpnMmFNaVZyZG56ZVJqUmxzMXE0YXl5bUJjN2s0SGVDYnl5alQwaW0tZGxrVWlaTXR3ZGVScVdFQzNJVW40aDQ4QjROUlRhcjFNdTZxVG1neHhNNUVOOHo5LXFNS0dxa1h2MlZXVkhfVnRYY1Z4TnNjWndwVW1FM2hn?oc=5",
+              "summary": " Qatar Affirms that the Right to Development is a Fundamental Human Right &nbsp;&nbsp; وزارة الخارجية القطرية "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "Qatar",
+              "continent": "Middle East",
+              "title": "Right to Development Is a Fundamental Human Right, Qatar Affirms",
+              "sector": "Commercial Development",
+              "source": "qna.org.qa",
+              "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPZEpWd05QQXNwZlJaSlRoV09YQlJGZUlZbXBtMGhBcTkwZU9yYVpxSnVTanQ4amJsNV9McW1nTDRLOTlyUDlMbjZ6OE9hd2kzbk1VcG80VHZhb3YwVVByY193WWwyNTNOU21MM0Z4U0taTkpEbUdDZ2xKYWpiWVN0bWNQeU9QR2psa3FISnJCRklrTnR1SGNLSWk5TFd6U3VENzVXd0JrVlNmMWhHY2hF?oc=5",
+              "summary": " Right to Development Is a Fundamental Human Right, Qatar Affirms &nbsp;&nbsp; qna.org.qa "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Saudi Arabia",
+              "continent": "Middle East",
+              "title": "WTM Spotlight Riyadh opens tomorrow to connect Saudi tourism with global markets",
+              "sector": "Commercial Development",
+              "source": "Travel & Tourism News Middle East",
+              "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNMmd4QXdRRDJWenhYenlsQ3U4YlBuTGZ2RmdveU1mTmZsbEVGdXo4V2tPU1BvZEV6VGdLSFRubUg3Z0VvTUJfX2JQMzV2eXFGWlBGTkRpcHUyYVlHajBRdW5uaUFtVlA2Q0taRGxxNXY4VTBUclpGY0JSMzh2T2xGNGRMX2hCSUhqemRDa3phby1yS092dENmVS14U19sQXkxY3pkOFotMElOcVJZWGJpczVfVHlhWDczWTBHQmxuaFFVQ3FG?oc=5",
+              "summary": " WTM Spotlight Riyadh opens tomorrow to connect Saudi tourism with global markets &nbsp;&nbsp; Travel & Tourism News Middle East "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Saudi Arabia",
+              "continent": "Middle East",
+              "title": "Hyatt to launch branded residences in Riyadh",
+              "sector": "Hospitality",
+              "source": "Hotelier Middle East",
+              "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOZXAyM2pUY2NiM2UtQ1JMdE5KTUR0b3ppZkpBdUNEQTl5U3B2RUs0Mkh3QTNLWkZpUDVtRnA1eHVvMXJ1SndwOXhCY0RqME0xQVc1cmlXbnl1a0dsYTRrSmZvQll6MmpiX3hvb05yQWl1ZFZWU20xTTg5UkRlNWNXOGZJdWpnMjAyNFZmY05rdVlncklWenNz?oc=5",
+              "summary": " Hyatt to launch branded residences in Riyadh &nbsp;&nbsp; Hotelier Middle East "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Saudi Arabia",
+              "continent": "Middle East",
+              "title": "'Maldives of the Middle East': Saudi's Red Sea project takes shape",
+              "sector": "Commercial Development",
+              "source": "Euronews.com",
+              "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE8wU3NvcmV4eVlkYV9tOGQ0SzJuS1BkbDhrOVBLQ2J4ZGdYYS1LX3JqbjRQNEx3eVlHY0xXcjV4T1k3VjktZWtWS1J3X2ZNNVgybjBSOEJ2TllPQ0lIZ1llTHdaeWJYeWdlNlpDSEZrampVejRnMmh3UGRkV0Y?oc=5",
+              "summary": " 'Maldives of the Middle East': Saudi's Red Sea project takes shape &nbsp;&nbsp; Euronews.com "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Saudi Arabia",
+              "continent": "Middle East",
+              "title": "WTM Spotlight Riyadh 2026: New Platform for Saudi Tourism Growth | Vision 2030 - News and Statistics",
+              "sector": "Commercial Development",
+              "source": "IndexBox",
+              "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPUHp2UnFEWVRhbVBxQ2N1NVhTVFFTNDlkZXpRb01YblYwbWRGdDhabDMzUXZqZEM4WG1JenhYa1NROTNhZXVNandONXdFN25RVzVxM1c5NUpLNVVnNUN5YUNhZXQtZks4bzhIMTZKRC1tdWpTTjA0VnVKNXduckV1TXpaOXBySTZaWVNCX0xDZFN2ekgycUZFRUZzNHRCajVkRF93SldzSVEtNkJFNGc?oc=5",
+              "summary": " WTM Spotlight Riyadh 2026: New Platform for Saudi Tourism Growth | Vision 2030 - News and Statistics &nbsp;&nbsp; IndexBox "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "Saudi Arabia",
+              "continent": "Middle East",
+              "title": "Saudi Tourism Authority appoints new CEO",
+              "sector": "Commercial Development",
+              "source": "Travel & Tourism News Middle East",
+              "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPbGhVeElabHgyd2w3N2hfVWhxOEpBQUJhUXV3S3R0Yi1WVWZxT1phMEhwVXN2SXNOOEdReUU5ZjZpYk5QRjZiQ1M4R1VFLWtBbVB4NGtOelRDM1QxUFlHUkFKb1ZCNEZZWEVwZXFhSk94Z3VoUlp1SWpQSWNtQUdlbURkUjV6MmlvUXpmNUkyaw?oc=5",
+              "summary": " Saudi Tourism Authority appoints new CEO &nbsp;&nbsp; Travel & Tourism News Middle East "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "Saudi Arabia",
+              "continent": "Middle East",
+              "title": "KSA Business: Saudi Tourism Authority appoints new CEO",
+              "sector": "Commercial Development",
+              "source": "Gulf Daily News (Bahrain)",
+              "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNUkNnMTdqVDBGbDN3VFJibDdUWnBFVEtPYXdGNUZWcXQ3cnVMelVzbjNaNEhWR0paenhjcEstSlp3bVdFSDcyeDRiZWxIZi1xeUhDaHZqTG5qdm9OOExCcWRLV3NYMFptRXVMX3BKUmxUeEp1UkE3dEpMVlctOGtoREwyMjVzWFpQWUE?oc=5",
+              "summary": " KSA Business: Saudi Tourism Authority appoints new CEO &nbsp;&nbsp; Gulf Daily News (Bahrain) "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "Saudi Arabia",
+              "continent": "Middle East",
+              "title": "Primark to open in the Kingdom of Saudi Arabia in partnership with Alshaya Group",
+              "sector": "Commercial Development",
+              "source": "Primark Corporate",
+              "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPel9qd1dKd2J4UHpwV20xUUh0bGJRZE41dmR1bktpQ3lONDd0V2tzREs2YXBPQUdSTld3MGtpeXltUkw1Z0VGVHF0T0hxeVVlRkVfUHRnNWNWUHhIRUM4SzRTN1RTdXJSY0FUOEFsSThLZHo1RkFfM1A4QzVOWUk3T1kyU1diM1BvcXBEcjltVEF5TXhuV0hXSEI0XzMtNHhXS2tpNFdhNWJ3UU8zbEdDRG56RkI4ZVpkQ1MwQmJlc01LTVQweWlEbUR1aUNpc0N2T0ZEMQ?oc=5",
+              "summary": " Primark to open in the Kingdom of Saudi Arabia in partnership with Alshaya Group &nbsp;&nbsp; Primark Corporate "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "Saudi Arabia",
+              "continent": "Middle East",
+              "title": "NEOM SC lead Saudi Arabia for young-player development",
+              "sector": "Commercial Development",
+              "source": "VAVEL.com",
+              "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQaVJFSDAyOUp4NEZuR1MtMUU0YnowTTlYY3dGWmp2ZDZvdlJxSXlpUjNPU0REMXoyMkkxc0lfNzhQQXRhQ3pIT0tKb29JeDduMDAxaWlxSTB3UWRLVHMyOGJhUGljOTBzYW5pN0lhVXBueWhGQTM3UjV1aC1HWUluRktRSmViSU5hQURhNDN2VXFFYjgxYkNUOUVpNEdTSUp6ZTQ1SElZd1k0T0lIelJKa3ZR0gG3AUFVX3lxTE1nNGlkLV9jaWh1N3hGV0FkNkF4Q3Zfd1k1dmRoSUxScVNCWDJBenRZbWxIYTNORndFOW51T1hHcGR5Z2pmMXRVc0VUZUxobTdzdkdIZ0djYmhIaHdGc3htWm5OU3NpOWFJN1N6cFVYaTlxTHQ0WDJHNmNHM0p4UlBPTXd5ZzlCR1Fnd0tSMHZRM2ItXzV2dzBhbVR0ejdQbWlxdHFoamk0ZHg0V1NvRGNjMHhpejNzOA?oc=5",
+              "summary": " NEOM SC lead Saudi Arabia for young-player development &nbsp;&nbsp; VAVEL.com "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "UAE",
+              "continent": "Middle East",
+              "title": "Abu Dhabi’s new hotel rules: How your next stay will feature authentic Emirati culture",
+              "sector": "Hospitality",
+              "source": "Arabian Business",
+              "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNVThwbS1GaW9TMXFkckpJdE40dW55OUIyS1UtSVBZZDNlR19qX0dJLS1mcS1pM3ZPZy1GUmZzTExfRzRZbVhTdW55cmEtbVk0OWwyRHk0N0FSVHF1OTNXQThoaWVUelpyZzBrSGcwQUluMWdlWjZNMzNudEZLYjZlVUNqdGxpQjVMTVRPOWE2ZndnbVB0Z3VFSHlfV1FmVUU?oc=5",
+              "summary": " Abu Dhabi’s new hotel rules: How your next stay will feature authentic Emirati culture &nbsp;&nbsp; Arabian Business "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "UAE",
+              "continent": "Middle East",
+              "title": "UAE billionaire Mohamed Alabbar moves closer to major luxury hotel investment in Zimbabwe",
+              "sector": "Hospitality",
+              "source": "Billionaires.Africa",
+              "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQQlFZLVo1d0hGRjNNb1RwcVJ1UEFHYUpfNy0yQjF0TUowY2d4ZWxfN0dwMnpCLTEtNHVORG5wZGFHWEFuZzBRQ1lUdlEzX2lfeF9CMDd0dHdWWGlaY0ZBVUVTVWRQcG5sTXRwZmNwWk9xUUx1OGMxRGJ2QTd1ODhTN3ZBRGV4ejB6QUY3VGctTldKZDBWZHZoWnkwV21RWXhFZzRvQXg5aFo5RWxJZFR4TFgyWjNSTGM4N2lNZUNpeTFjX21JRm93eQ?oc=5",
+              "summary": " UAE billionaire Mohamed Alabbar moves closer to major luxury hotel investment in Zimbabwe &nbsp;&nbsp; Billionaires.Africa "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "UAE",
+              "continent": "Middle East",
+              "title": "Abu Dhabi gets new hotel rules: Here’s what changes",
+              "sector": "Hospitality",
+              "source": "gulfbusiness.com",
+              "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNekhJUzFkbkFjX3lZSkk1LURZR2l3YTZwNXExT2UxNXBINlF3aHlzaVdUeFdDQV9BUmlFRnVuR3VEZzZva0lsdWNiMGw2SzF6RzNSdnlVME54UHRYdU9IZzdGRnpzampMU3JQR1RZOEVla3N3bVVuUXFoSjduZG5lZXdKYmNkUVZobXZDNUhsT3ltdGhHRUcxeFp3MA?oc=5",
+              "summary": " Abu Dhabi gets new hotel rules: Here’s what changes &nbsp;&nbsp; gulfbusiness.com "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "UAE",
+              "continent": "Middle East",
+              "title": "Warner Bros. World Abu Dhabi Announces Three New Harry Potter Lands",
+              "sector": "Commercial Development",
+              "source": "Retail & Leisure International",
+              "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQa2JvWnA1UXRRa09nS2gwMUE1MFc1cU1tRWFZb3FFeGhjRTFKSHE5OFNGV2NONENBeUVXQUNsdUFYZElOUWNCcE1pbEhYRHFFdEtDOEJuVDUyTDNfN3F5MkJLY2ZTbGFpc2NmSXNtdzkzcnZhS21ZWTdqNWZqZ3VMclhBMUdsMktWRXNmaFZJaXpkTURS?oc=5",
+              "summary": " Warner Bros. World Abu Dhabi Announces Three New Harry Potter Lands &nbsp;&nbsp; Retail & Leisure International "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "UAE",
+              "continent": "Middle East",
+              "title": "Dubai Healthcare City breaks ground on AED3 bn Dubai Creek Gardens",
+              "sector": "Commercial Development",
+              "source": "Construction Week Online",
+              "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPTDZVRm0ydDlDU05ZcnI3ZGJQSFRqUmk3YjJFa015bmxjcUwxT2JCakZsYjJ0T1V4aXNqSlZyam1FNEt1TVA5Y3JBZ3RTci11YlFBMUtocDVJMVpWaHRYanowMFBaZ3cya1RaZkh1UE02QkotZ1E2b1RKOTFIUnBNY2M4Um1fZw?oc=5",
+              "summary": " Dubai Healthcare City breaks ground on AED3 bn Dubai Creek Gardens &nbsp;&nbsp; Construction Week Online "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "UAE",
+              "continent": "Middle East",
+              "title": "Dubai Healthcare City breaks ground on Dhs3bn Dubai Creek Gardens project",
+              "sector": "Commercial Development",
+              "source": "gulfbusiness.com",
+              "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOQll3VlJZMUIyQXlnTTNFcE54VmY5clZTN0hYb1NxR1NlTmdJTDd4UUY1d2lQWWR1eXNlTlNWV3VsMG5FSlc4dGhNdnRmZW1xcU5SaHhZRHBILTZJZURpdVNpQmFGNzBuWlpGX1hxZWJYVFZXSndVZ0ZMUjhjOWw5Tnd3dXc2b0R2MVdGa2pVR2VjM1EwdHVIWjFUQUotSVN4dl9CbTI3QVA0X1BkZ3hxc21WQThxV1NsZ1Yw?oc=5",
+              "summary": " Dubai Healthcare City breaks ground on Dhs3bn Dubai Creek Gardens project &nbsp;&nbsp; gulfbusiness.com "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "UAE",
+              "continent": "Middle East",
+              "title": "The best new Dubai restaurants to try in September",
+              "sector": "Commercial Development",
+              "source": "cntravellerme.com",
+              "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE94SWN5Ni1SUTRtZTFzVVd5Zng3dy1adXFzVFRGVFFDSzZOTThoeVhwMmE5SHFsVWlYbHlCS1VCYUVQSUxPRU9uVXhMbTAxNVNRZ1czVmdiNUl5M2JVZGdxaVNrRF9RSWt4NmN3?oc=5",
+              "summary": " The best new Dubai restaurants to try in September &nbsp;&nbsp; cntravellerme.com "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "UAE",
+              "continent": "Middle East",
+              "title": "flydubai to launch dedicated freighter operations from Dubai on October 1",
+              "sector": "Commercial Development",
+              "source": "gulfbusiness.com",
+              "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQQnlfanFZREY0dVRoOVJOWmxFakVIRUd3NUtJRW85cW1XNmg2bHRXdUdBd3FIekV2RDRrU1E0WW4yVWxGSmFuYkZsMl82Q0J0V1JFdWZ0VHRwaExNaWdKYmN6ekN4M1FfYV9ndGZHUmJQQmlhQVR3Qi1EaUxYdExQamptUWdwWWlpd0FKUXF4OWRnUjRjTGd2bFREcnVnV3A2LVRrYXN3TUdGQm1yb05sUkpvNHpUZw?oc=5",
+              "summary": " flydubai to launch dedicated freighter operations from Dubai on October 1 &nbsp;&nbsp; gulfbusiness.com "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "UAE",
+              "continent": "Middle East",
+              "title": "10 exciting new malls set to open in Dubai",
+              "sector": "Commercial Development",
+              "source": "Time Out Dubai",
+              "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQbmdvc3ExY0hfenBOMm16Z21kbjJYWnJ0TjB1TmZnTlNtOXJIbDdVTWtfelBjbzYyOVN6bjFPVnJ6N19ETGZVZVd1THhFRFRrcUpHVnI5Y1dpb00tYTZVT0FocWo5aVBoREVYb3hqS2JKZHQ0R2gzQ2JUMC1UY1Y5UDJn?oc=5",
+              "summary": " 10 exciting new malls set to open in Dubai &nbsp;&nbsp; Time Out Dubai "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Middle East",
+              "title": "All you need to know about New Murabba so far: Leadership, construction progress, and more",
+              "sector": "Commercial Development",
+              "source": "Construction Week Online",
+              "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5CdWM1bTMxZEhXaHlTRnB0bkswRnZHOXhVSXIwaG42cnRxQ2ZmRXlNdlhwM0JyWHQwb2hlSTFIRzFURWxYQ0hmREwzWWFEaXdDaGRzRnNKTlZsTkhXcExZMElFMDZpSUZQYlJR?oc=5",
+              "summary": " All you need to know about New Murabba so far: Leadership, construction progress, and more &nbsp;&nbsp; Construction Week Online "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "—",
+              "continent": "Middle East",
+              "title": "ACWA Power Launches World's Largest Off-Grid Renewables Project at the Red Sea",
+              "sector": "Commercial Development",
+              "source": "IndexBox",
+              "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPY3F6WE5qUUE0eUVSLUsySFYyRmpWX1o4LTJieXFXZHhUTTlUNHROWHpaTjQ2NWRRV0pVYV9pZmljUVFwd0d5cWlmSzZFS21qNFMwOVBqRk9kVE50RDN3c2dYLU5ZRUZCRjVDcGpaQ0t5MkU5aTl2MTVyZlYyVmtkRFljQ1A4WkhTdk9od1RUNHVtcUdqZ3E0R2tJbWttODV6WDYyWXUtTzhXMmM?oc=5",
+              "summary": " ACWA Power Launches World's Largest Off-Grid Renewables Project at the Red Sea &nbsp;&nbsp; IndexBox "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "—",
+              "continent": "Middle East",
+              "title": "Sei Saadiyat: Aldar’s new 778-home wellness-focused development",
+              "sector": "Commercial Development",
+              "source": "Construction Week Online",
+              "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE84M3FWTUwyenN5bXEyU1hCNWk3UVNaTVo1WmJQNWhmbno3TllFSzl2amJUZzNDdG0xc082TklEdEVFM2lmMk5nTGwtdU9mUGhCS1Z0YWltRXRPemx1U3RrRThlSTNHSXVUNnU0UkMxdG43b25WdGxDWHlZekV3c2s?oc=5",
+              "summary": " Sei Saadiyat: Aldar’s new 778-home wellness-focused development &nbsp;&nbsp; Construction Week Online "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Middle East",
+              "title": "PIF launches company to develop Al-Khafji as Kingdom’s mega coastal tourism hub",
+              "sector": "Commercial Development",
+              "source": "internationalfinance.com",
+              "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPcUFWby01Z2c4Sm52MTd5Y28tdEp2R25PNzFvQUlTbnlwek9hdXROb0JhY3JtcFUtbjh1Y3VpVVQ0MU1yZGRnUHJSZ2E2alktd3R1RDlmNEdPUEN4MHdxbDFxTjBCWjl1NlFBUEVsa01xLXhhZUJHNzFCYVN1S3BBNjNYOVlzbHV2VkpoSEhsaXFTWDRnSzlVY1NHMDJNS3lmRzdxTG5yTk02d0Vxdnp1TVlPNF8yTTdLTWlsRVBDODNRQQ?oc=5",
+              "summary": " PIF launches company to develop Al-Khafji as Kingdom’s mega coastal tourism hub &nbsp;&nbsp; internationalfinance.com "
+            }
+          ]
+        },
+        {
+          "continent": "Asia Pacific",
+          "items": [
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "China",
+              "continent": "Asia Pacific",
+              "title": "IHG Hotels & Resorts Announces New Hotel Openings in Greater China",
+              "sector": "Hospitality",
+              "source": "safariindia.com",
+              "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE41TEEyV3dBUEFCX3U3ZWgydFM4cFcxNlZ4aUtKaGdEbXloaWluTmpwb2s2bU1aV1JWckdhMEMycWFjQUdRMHBxRlRhUG5pNWhvZmFXNTl3ck44TXNSZmdtS3JtNmtQZnc4QjA4XzZ0cXpmTmwwRHpmT2xIQQ?oc=5",
+              "summary": " IHG Hotels & Resorts Announces New Hotel Openings in Greater China &nbsp;&nbsp; safariindia.com "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "China",
+              "continent": "Asia Pacific",
+              "title": "Shanghai Peppa Pig Park to open in 2027 with a themed hotel designed for three generations",
+              "sector": "Hospitality",
+              "source": "La Revue des Hôtels",
+              "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNLThtdkJZcXBSbWxzNndfOVhtc0hYVGRYQThlWGtNOFlESW8tdWI4OVJxNDRJOTlVRkl3TXBzRFBVTk9US1gtaXBtOTRySHQ1NUU5NnRuTkNpVHI1d0xlMGoyLUFXX2RwNGxKcE0zVWRUNU1yRmEwNVRkNFl2ZXhXZEZwcWE2cWdXcEpyLTRMRnU3QnJjMER1NGxHaS1KZ3N5NHB1NA?oc=5",
+              "summary": " Shanghai Peppa Pig Park to open in 2027 with a themed hotel designed for three generations &nbsp;&nbsp; La Revue des Hôtels "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "China",
+              "continent": "Asia Pacific",
+              "title": "Must-see fall 2026 art exhibitions and a new museum on our radar",
+              "sector": "Cultural & Museums",
+              "source": "South China Morning Post",
+              "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPQW5Rd3kxdENsMDI2WUFXV2hfM0drS1JGa2dHN19MRUtiT3hPMDlFLXNacUpyUXhleEJLRW5jRzQzemdBTnZlTUZJR2gyMUtKeHc5eVFVMWVHLUxwT2xSTkYxR1N4LWxqSTZqUmE5NzVHRmZEMWpWV0JReWlpUWgxS1ZxZ2I1clZvTVVPaGlwaVRkWlRnMEtQVXdUcmYxOGthbk5RVUt4NDY0Y0t4TzBiNnlid28wejZ0UUJTeXRHNV9qV05hZzlkd3hjdnlvYlAzOHZWU1Q4UkpHaDNxUWfSAd4BQVVfeXFMT0dZNGUySjFXcVJpWG9IdW5oT0FGQWhDTl9jN0tER3VNc3REQnVuN2pqb3JzMmhPcFdjeXlLa1hfd1VScXVPWVpVd01KYzBUUG15eklSYkdYQ3JsR241TFBsb1VrNzhIQ1J2NE5mM3NaaWRTVWMzeDFxSTVJMnd1Q2YzUnQ0eGllcThIVGh1eUNkdjg4LUN2dUhlMHNqN25nYmIxS3Z2R2ZTUXNDdmJoTlNlZE5YZnpCdHRlUHh3dFhOZ2VqeWFfSlo1bUl2Y2t0cHRlOGc5TDVhWWdraUFR?oc=5",
+              "summary": " Must-see fall 2026 art exhibitions and a new museum on our radar &nbsp;&nbsp; South China Morning Post "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "India",
+              "continent": "Asia Pacific",
+              "title": "Nexus Select Trust Expands Footprint with strategic Northeast India Mall and Hotel Development",
+              "sector": "Hospitality",
+              "source": "Devdiscourse",
+              "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOdG1ObnRiamN5MU4yN2Q1cHJPa0NQMk1XMTc1ZlliaEJnbDhnRjJrTnNMRVlkRFp0MkxGVnFOdFdyQXY1bTRCQzlxTEJfS3RkTTNIb2JHV1JteHJHNFlUSFk0SkNOYS1YTjVXekRTeVk1ZGxPTTVXZUtLbDhSMkVDaENIbWZtUnpFRjU4RUItT0hQN3J1cFlSNXVWbFJUTVZmcl9PdS16bjBtcEFkOHl4aUE5aUJCT2FqM0RCNlZva3A1NmVkeHhRZ25KejNWMHl0emZPVE02Tmhpd2hDemREYUpR0gHnAUFVX3lxTFBnaXlPRERNREQ0amdCUFpGbWVFN3ZSS3Y4bmFMVXg0QlZ5WUx2b2NJcnc0QVprc2Q0UHFMaWFYNGJWdkdjcl9rNkdqb0VVeWZQZlM5cDNEdlJlSkZHNm9tRHpFNnVCWDhtV0FYcDl3XzlyVUlnRlBJX2dJdUk2XzFjX052bEVQSTM4Vlh5SHg2U3c2REdQV3NRZGtqaFRUWjJOcFhEa2hZMjhfU1dERHQ0VlFrYVViU2pnZUFSVTE1dnc0TXdfNEhRYVYyTGNJMnpKRkl2bEFaUWRQeGxxbHVHQVk1VzFsRQ?oc=5",
+              "summary": " Nexus Select Trust Expands Footprint with strategic Northeast India Mall and Hotel Development &nbsp;&nbsp; Devdiscourse "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "India",
+              "continent": "Asia Pacific",
+              "title": "Tamil Nadu Plans Olympic City and Motor Sports City in Chennai, Eyes Global Sports Tourism",
+              "sector": "Sports & Leisure",
+              "source": "eventfaqs",
+              "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQYlpKY1plVFlyLUM5SXpBbjBnOFBLaGRfN2Q4YWp3YmZOM0lqMUlBb3drQkhUZjhtSFRDSFJWLUFjMTlDd294eU1nOGZJLXJhR2V3Q0R0ZVR0V25KUHNNTk5Cb1A3a0lxWXFvTVc3UGd5QXVOZGJZSmlSVzF1ZWxQdTdkUTlPOTRnb1VqMmpoTlhMWWs5SU9CS1QySTJKMDl1OVNFN2Y2OGlySzZhRzJRSEY5d2c1eFh6QmNUb1hKaGhhbEtX?oc=5",
+              "summary": " Tamil Nadu Plans Olympic City and Motor Sports City in Chennai, Eyes Global Sports Tourism &nbsp;&nbsp; eventfaqs "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "Indonesia",
+              "continent": "Asia Pacific",
+              "title": "Indonesia plans Sheikh Yusuf museum in South Africa from 2027",
+              "sector": "Cultural & Museums",
+              "source": "en.antaranews.com",
+              "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQYXJHcDlZUzdwSEhNeGNMb0dGeTQzeU9QUkwwNkdMaGZrWV9ITU9LRDZWSWRiaE1Tb1FpZUVyZ3BKRGlzRzcwcTZoQjZmT2RLNTdObzBoLXBzSk9oa2p0UmlrTnFWTGpCSUJGaU9rWUlmN2lrNDJYUWp5ZWZxeV8xeEtRNGpLcUcySFBaenF3NThwU2preUduazYyTDBlWTDSAaQBQVVfeXFMTUpicE1WZ2prekpZUmRvV0JjUzdOUHAwZDlkQlpYZWFyYS1vWmRGZG5RLWFZcWFjLWg5NGlJWWFHSEdzZlNjSDdBVUtCUWJqMlBYa3NNUmtxNHY0VTR1aUUtNGJKMFQyZTMxTGlDbUF3ZjNKQThrWWhiR0ZIbHVuN01icVktSmRoN0sxTTNfTUwzc0dXZFpWOG1md0VRREJiVUxOVl8?oc=5",
+              "summary": " Indonesia plans Sheikh Yusuf museum in South Africa from 2027 &nbsp;&nbsp; en.antaranews.com "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "Japan",
+              "continent": "Asia Pacific",
+              "title": "Japan hotel sector enters new era of ‘quality growth’ as leaders gather for record AHICE Far East Asia",
+              "sector": "Hospitality",
+              "source": "hotelmanagement.com.au",
+              "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNamlDbjlzVEhwNTU4ZXZSV3NzcS1BQkU0Z1hNRDBkcmw3Nkl6ZVdseDFLNUJXSnF3Ni1zWXVjc201T0N6MjVPbWJNcENoUU1hMW5STll1SGdPUUk0RDQ1NjBwVUtMUXZ1bkZSaGhGd0xQaGl4QTFmcnliSEhwY0VHV2RXMk9GUFVSa0g2a3J5Nk5yZy1VVk1IejhMbl9VOVZpcU9KNWxmejZ1NVMtOUNfR2JJdUY4RXBCV0lUaS15UjNiQXdROUhzY2pKc2N2cEhUZ1Jaay1Eam13R1ZuVXRwOA?oc=5",
+              "summary": " Japan hotel sector enters new era of ‘quality growth’ as leaders gather for record AHICE Far East Asia &nbsp;&nbsp; hotelmanagement.com.au "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "Japan",
+              "continent": "Asia Pacific",
+              "title": "Tokyo’s latest must-book pizza spot just opened at The Bulgari Bar",
+              "sector": "Hospitality",
+              "source": "Time Out Worldwide",
+              "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPVjdtdkRJRXl1eE51VkJta09lMldjZ0p1RVZJVG9tc0dJTDNzMG9xSnRCSkdOaWs1b3hvMFZ1T3ZtT1Bob1k3RTdsX1JGeGtDcFpzSmVWd19qMUZNeXB4VGgzVXhCMTZGeEJqVmFxZUlfQWlybXpRcjRwOEVqdFlsTk1MOUZBOXkwSU1CQjFCaURoSmRyYU9ka2tRYlRlVWV1MXh6VGZoZnZHY00?oc=5",
+              "summary": " Tokyo’s latest must-book pizza spot just opened at The Bulgari Bar &nbsp;&nbsp; Time Out Worldwide "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "Malaysia",
+              "continent": "Asia Pacific",
+              "title": "Sunway Construction could bag RM1b mixed-use development contracts near Bukit Chagar — Maybank IB",
+              "sector": "Retail & Mixed-Use",
+              "source": "The Edge Malaysia",
+              "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFA2VG90NGpmYmFSWGxnNHR1Q2E4NWs1VnlBaUtUM2R5Tm9IZ041aklwY0ozZmtWR2Q4ZGJUNEVVLVBodVVXamM4cGxiSWxDR0ZG?oc=5",
+              "summary": " Sunway Construction could bag RM1b mixed-use development contracts near Bukit Chagar — Maybank IB &nbsp;&nbsp; The Edge Malaysia "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "Malaysia",
+              "continent": "Asia Pacific",
+              "title": "Vestland bags RM410 mil contract for mixed-use development on Jalan Ampang; second win in under a week",
+              "sector": "Retail & Mixed-Use",
+              "source": "The Edge Malaysia",
+              "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5iZVBIWDlCNG4ySjl0cDdOMjA1X01xMHRPeDNkM2FwSExpQUswclotNnEzbUFKWkd4X2VCamNYRlB1VkRtMWUwZENGa0FPZkEt?oc=5",
+              "summary": " Vestland bags RM410 mil contract for mixed-use development on Jalan Ampang; second win in under a week &nbsp;&nbsp; The Edge Malaysia "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "New Zealand",
+              "continent": "Asia Pacific",
+              "title": "Auckland's City Rail Link finally opens - what you need to know",
+              "sector": "Commercial Development",
+              "source": "1News",
+              "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOSnpVOFIyZUZIR01rNGJOOGN3aGNmQ2RSeTVuOXlNbHNycmVtQkxWYzZ5QzctUktDUHBxX0RZT3poOWZxZEkzRExJMmE5QWpzNk1tZzVzbzVZb1Q1WFFlM01kbGtVcnB6ZUZfb0lyTU13ZmxpVHRCS3ZUZ29Xd2g1YURaVURyb0hVSUw4MFFUdXUzU0tiQ1otWmFCWWY?oc=5",
+              "summary": " Auckland's City Rail Link finally opens - what you need to know &nbsp;&nbsp; 1News "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "Singapore",
+              "continent": "Asia Pacific",
+              "title": "Phuket’s New Hotel Clinics Are Redefining Wellness Travel - Prestige Online",
+              "sector": "Hospitality",
+              "source": "Prestige Online - Singapore",
+              "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOaVBjdVEwTV90ZzdIMDhrSmd5aTBpQUVXZ1VXaTExVGh4eDdPY2REVS0yU1RSM1pVNFZhUEtwWERSSEluNl9UZkJyN2tWUGFjMWVTZWlVWFdubktlaHNielJJR0VIRlpKY1hjVFcxNXJmNFpESUNyNHZVY3BVdEFjVjVKTTQ2b1p1NUl0dExWemotcUNnWnlTdHFqc2Nxd1B6aWhUQThDREljcE10bm52cWlsUnJuWnZ0b0HSAb8BQVVfeXFMTklGZXdGODRXSEtiSkFOTjczeDFQLUNEY0lHWE15QlJQeW5URkZrUmlvaGJQQ3dTdFdCZWJPTkZEWUVSRkVVVmstQVVGVGFQWUZQLXh0Um50eGdtajM3Uks2ZnpUU1Q2M3FGcmwtaTMwRjlGZkhtSnhpd0pROVFWYl9rWm9FenAyRU1CVHFyZV9uUERnd0NkYXBVYWoydWc4ZEZzX051dUl1ZVNucTR0Rm5BdTkwRjJpLVAtTmJSX2M?oc=5",
+              "summary": " Phuket’s New Hotel Clinics Are Redefining Wellness Travel &nbsp;&nbsp; Prestige Online - Singapore "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "Singapore",
+              "continent": "Asia Pacific",
+              "title": "Pandora establishes Asia headquarters in Singapore to drive regional expansion",
+              "sector": "Offices & Workplace",
+              "source": "Singapore Economic Development Board (EDB)",
+              "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQQ0NSaTB5RlFfMzRTdDJvV1ZiRHVJRU5vRE5EOC1QUzh4U2xvbzNkNDdQd05sTVdLSFctSDJSVFVLTFVzZXdXOFVyWjJId1RxellKejdzMG1GT25TMU5Id0Y1bEdELWZoNTFVYTExMUZGRDBlTmItVEJXeERxQ29iS005U1J1MHVaNTNYSFRTN18?oc=5",
+              "summary": " Pandora establishes Asia headquarters in Singapore to drive regional expansion &nbsp;&nbsp; Singapore Economic Development Board (EDB) "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "Thailand",
+              "continent": "Asia Pacific",
+              "title": "Rixos to open its first all-inclusive resort in Thailand",
+              "sector": "Hospitality",
+              "source": "TTG Asia",
+              "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOdEVMS2g3ekpWcmsxVGxJb01NaUtQb1VObTJQckZBNHFESlpYYTR0c0ZhbVdUQ0RJb2E0SkVKTEZFS2d6OXRWZmpnNkJZREtWY0hURjhucHZwemwyLUN4WXJ1MFJGdUh2Qy0tYWRFLU8yQXZ0N3pLR19RNDdPeDlQRzBPNlY4LUQySV80cU90d2p0ZVk0SFJR?oc=5",
+              "summary": " Rixos to open its first all-inclusive resort in Thailand &nbsp;&nbsp; TTG Asia "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Asia Pacific",
+              "title": "COMO Hotels and Resorts Opens New Hotel in Bordeaux",
+              "sector": "Hospitality",
+              "source": "epicure Magazine",
+              "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPNnZUNUtsazNBWGxlUFpNaV9RdjJLRGRhay0zZVBBOWhwZUk1NG44dDVWeTZfOEU4Xy1IQTkzVzN4QVlaWk4yWVk4aXdsUU5ZaTVIeDQ4NEtUSVhybnQ5d1lza0h3QTExRVl5S3F4M2Y3TzRlclFpMFlKOW1FNjlMakJB?oc=5",
+              "summary": " COMO Hotels and Resorts Opens New Hotel in Bordeaux &nbsp;&nbsp; epicure Magazine "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "—",
+              "continent": "Asia Pacific",
+              "title": "Nine Hours Smart Place Inn Opens Near Haneda Airport",
+              "sector": "Infrastructure & Transport",
+              "source": "Nomad Lawyer",
+              "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNeklKcGxEQ0pxcXVSSS1JVTJnQzlJRUlPbGlybjRZSVMySmhTYWVWb2VJN1dISllQMElUdVIzVW1ZdGtoTEVaLWVtYVNkRHFYZEU1OER2QU1MQTVMUnA2WDZKWVRRR3dYYjRCeEhLWUswMFJwaW1lVVg0WWNDRXBrajQ4a0tkX3lnYktQYlVFdlZQNUd3Sjh0SHJqWllSdXcx?oc=5",
+              "summary": " Nine Hours Smart Place Inn Opens Near Haneda Airport &nbsp;&nbsp; Nomad Lawyer "
+            }
+          ]
+        },
+        {
+          "continent": "Americas",
+          "items": [
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "Barbados",
+              "continent": "Americas",
+              "title": "UWI researchers win world’s largest education prize for transforming early childhood development",
+              "sector": "Commercial Development",
+              "source": "Barbados Today",
+              "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNZTFZcVpEX3ZRcF9ydmpLck1jMmo3MTJpQ1JMYmJVVjV5NHdCTlRMenBhelVhWWNrNWhVMVpUZVpGTXk2aTREeG52eW5sYWpGUjdPMFdxRVZTZ1ByT1h2WS1BRVZOVjVveFZfdnNVT2cwWEVyVGVDeDdSUFdfSms3N3JQbVJOa29vT21DUENZS3MzYk5semVsbS16U2JzYVZMLUR3N3lpZjFxb2poOTBxdFIwU25PeWtxcUhtZ1N3NDh2Wk9DWUNvWVFGQWbSAdIBQVVfeXFMTTd6X0JpTkt4bkNvYWFEWnJOVWF2SUx1ek9OSVNGeHlFU25JZmxTMUczdWVtNFg1MGxlSmJyNnozMWpYZG1ESVhOamRrNVE3a05aSUkwYnpGQllIU3ZKS3F5MVNSaEY4Yjl4TjlYZlMwZFVwY2Z0OWc3LWY3YTFfb0c5WGlqZnFTQ0E1aUkxZUh6TXN6Z0F4MGJiSnpfMk5DeFF2NkRSVFA4eUpSM0ppMGFvRm9JTXhCWkpteHU4TmZIcC1La1dPd1dHZ2J6RlZJYnd3?oc=5",
+              "summary": " UWI researchers win world’s largest education prize for transforming early childhood development &nbsp;&nbsp; Barbados Today "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "Canada",
+              "continent": "Americas",
+              "title": "Five players to watch when Canadiens’ rookie camp opens on Friday",
+              "sector": "Commercial Development",
+              "source": "Montreal Gazette",
+              "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQNmNjQzVETEN6dGFkc0hsMnNHTWcwMU5tSFBnWkd0SU9OX1l0R2FSVXVNYTgxcU11bEMwNDhvLUhCU3ZqU2Z5b283V0xMWnZHVklMUlBRRWFEZWhrTm1zTTAyUzRpZXRTX3dyREc4TzVQTGRFaU15a2FoV2lYMlJwcXZQSHUybDROTGsxRFhGMlRSVGNQMW13UkNtTUpLMDM3bGVRQ0J1Tm1oY3pGemJqRW9tWXU3cGpUaVZrZnVGTXhPZzRONkFVQVBNbTFRa2M?oc=5",
+              "summary": " Five players to watch when Canadiens’ rookie camp opens on Friday &nbsp;&nbsp; Montreal Gazette "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "Cayman Islands",
+              "continent": "Americas",
+              "title": "Grand Hyatt Grand Cayman opens on 28 November: 382 keys on Seven Mile Beach",
+              "sector": "Hospitality",
+              "source": "La Revue des Hôtels",
+              "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNRmdDVHQ5NnFQb1ZPT01oZnUzY2RTV2wxTThiaTJWTkd0LW5qVHVXNmFIdmU5OVZ5Z2lxYjlJY0xVelJOd0RQVXdQVVpiYlpXUDJjUHRIMUphMk1Xc0RCSE1sOW1TVmF6T1pWaWQ3WnNHTUtzdGxPLWs0cFNSOUd6X2lIMjhESHdfY2E1SVBlOTRUQWhqWWJHR0dWLVJGNV8yRmc?oc=5",
+              "summary": " Grand Hyatt Grand Cayman opens on 28 November: 382 keys on Seven Mile Beach &nbsp;&nbsp; La Revue des Hôtels "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "Cayman Islands",
+              "continent": "Americas",
+              "title": "A \"Grand\" New Hotel Is Coming to Grand Cayman, With 382 Rooms, Oceanfront Pools and 900 Feet of Waterfront",
+              "sector": "Hospitality",
+              "source": "Caribbean Journal",
+              "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBlYm1YcVljZ2tNNHZiajdtU3pzSXF1eFRZcjV2eWFEcVJJWGpoaS14QU4zWlZWdTdnUDJQaXhmWEJwU2JFSXZTTGVvbkdPLVcwem1tMnFMeDVmWjN2c2lkTWFtTjZXRWxGTmJraVBCa1lIaDl6RDJuVkpoeFlFdw?oc=5",
+              "summary": " A \"Grand\" New Hotel Is Coming to Grand Cayman, With 382 Rooms, Oceanfront Pools and 900 Feet of Waterfront &nbsp;&nbsp; Caribbean Journal "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Dominican Republic",
+              "continent": "Americas",
+              "title": "Marriott-Branded Hotel Planned for Major Punta Cana Mixed-Use Development",
+              "sector": "Hospitality",
+              "source": "Caribbean Journal",
+              "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1JbFBBRTRwY0s4N0pCamg5ZGppc1hYbHBBTFljM2RHUjN6ZFkzd2Z2YV9kVy1hdTl6cEN2SllldGliNHJFckY2YzFETVJZLThjLWl4SjJpRlNvR3VXX0RsVEkzSkllcFY1clZoMTVFZG1qV1lv?oc=5",
+              "summary": " Marriott-Branded Hotel Planned for Major Punta Cana Mixed-Use Development &nbsp;&nbsp; Caribbean Journal "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Jamaica",
+              "continent": "Americas",
+              "title": "UNESCO Launches WINGS Caribbean to Advance Science, Women and Caribbean Transformation",
+              "sector": "Commercial Development",
+              "source": "UNESCO",
+              "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxORTRBWllKeEp5eTNZUGtlVUJzdUlxS0xZSzB5MklMaFY1QU1kdHFmRVJkeEFuNjlmczM2U0pyYTFXRDhCb1ZTNk9lRFNkb0FSc1ZmempRS2l6LXA4dnlSdDZRTmttTTZzNWpqNnZ5Q3pJS0NVRHVRenJ5bEo3SE9MU1Bjdi0wYk1mU2ZvYzBjVjZTM0ZaV3g0VHZ1Y1FFNkNMVGxlLXVuRFlFbHRJY2JFaHlIOUJkMXcz?oc=5",
+              "summary": " UNESCO Launches WINGS Caribbean to Advance Science, Women and Caribbean Transformation &nbsp;&nbsp; UNESCO "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "Mexico",
+              "continent": "Americas",
+              "title": "Hyatt to Open Two All-Inclusive Resorts in Mexico by Late 2026",
+              "sector": "Hospitality",
+              "source": "safariindia.com",
+              "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE55OXgzcVpvaTNpQXEtRTR1MFY1UVF5UDNSdWhNaktJR3pqYmI5bXVyb2tYZUg2bVNwVmtfeGlyZ2E3WXNHRlpfaTdUN0dNOVUwQ2FGSFNDR1l3RW1LWl9KMUN6eC1wa1pOUGJnd1hsRQ?oc=5",
+              "summary": " Hyatt to Open Two All-Inclusive Resorts in Mexico by Late 2026 &nbsp;&nbsp; safariindia.com "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "Mexico",
+              "continent": "Americas",
+              "title": "Kimpton Tres Rios opens on 22 September in Mexico: 355 suites in a nature reserve",
+              "sector": "Commercial Development",
+              "source": "La Revue des Hôtels",
+              "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPRnV6Vk5WdXNiNmdTWGt1N0RYblBySjZBWjU4VVFBY25PVUlIRFQyVEtSSzBJTXplMlpVanZfUVZIUkMwNTZGS3B6S0dLc08wNkM0LTZ4U0s5T3Rna2p2a1B4YjFFRTl6R3pwdUlPUVVOcWcyVnhfcmxiZnlVcDF2aDVsbGczMG9uTUk0UU0xcERDak1RRWpHLXB3SzBzd3hsRnZz?oc=5",
+              "summary": " Kimpton Tres Rios opens on 22 September in Mexico: 355 suites in a nature reserve &nbsp;&nbsp; La Revue des Hôtels "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "16 New Miami Luxury Hotels (2026)",
+              "sector": "Hospitality",
+              "source": "Markets of Tomorrow",
+              "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE4wQ3VpUy1fczJ3ZjcxOTJTZkgwN0NGZkludDJUVVRVb1IwRWJabklLbm5TRjhyQlBwR3ZzUHdoSFdrTXo5dEtZejNTbUxYQnZMbTRUeg?oc=5",
+              "summary": " 16 New Miami Luxury Hotels (2026) &nbsp;&nbsp; Markets of Tomorrow "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "Broncos’ expectations are a mile high under Walton-Penner group with opening of gleaming new headquarters",
+              "sector": "Offices & Workplace",
+              "source": "The Denver Post",
+              "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNUWcwSHNKUmZmcVJ1Mi1ZLXlKMkY1WFppRmtvRWFNZkxYcGhma0tvYWprQkNsYmpmUENJeDUwYWdFZHB4emVETnhsN0hEVmY1TXpHZm5SOWtoMmNfaGdSWUN5MHEydkdkSzJDZURqNXVzTmtLdU1Vakw3WmZhaGZ5RWpVZUcxSzFyWXllcE9ORQ?oc=5",
+              "summary": " Broncos’ expectations are a mile high under Walton-Penner group with opening of gleaming new headquarters &nbsp;&nbsp; The Denver Post "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "Waldorf Astoria New York Remains One of the City’s Great Icons",
+              "sector": "Hospitality",
+              "source": "AFAR",
+              "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPd2Z0TldTdGNTOTRSb19lSnZZNjZsaU1rQnNLb0RTVlJOSDZKZGI3d3ZrN0tNUDlQRFplSTk2ODZySy1sOGVvMnpCT0V2NEZNLVdNcGx5ZVphbHpsaTNFVTB0NWNJTjZvSThJMjhKdVZOQzY0UjE0UFBWRGdORmRYT3k5UzJYNXAwTXc?oc=5",
+              "summary": " Waldorf Astoria New York Remains One of the City’s Great Icons &nbsp;&nbsp; AFAR "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "‘Love letter to Nashville’: Dolly Parton’s hotel and museum to open",
+              "sector": "Hospitality",
+              "source": "Euronews.com",
+              "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPY211Q1BlYkxKSUdjaGNjV0s4MXQzRUxvUTBqQzI0cTZwdFc0ekNOR3FEb1lwU09xdXlVb042cUtXelI5WFhpcVQ0N29KSmRFelZhVGIzVFkyNFFZUkl2dVN3aHI4SzNiWWMtaHhrNjR3MUtHVklhd0FQaUItLWhMd0pORUxDUGFmcldicnhfMzBVeUNjelJ1ODZ2YXdfNGFiamtyQXI4QjloVnlQV050RWoyUnhCT3RyOGp1cWZxdTVVdw?oc=5",
+              "summary": " ‘Love letter to Nashville’: Dolly Parton’s hotel and museum to open &nbsp;&nbsp; Euronews.com "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "How a 1931 church became Silver Lake’s glamorous new boutique hotel",
+              "sector": "Hospitality",
+              "source": "Los Angeles Times",
+              "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOakQ1NmVTb1dxVUpKczNLV0V3bXR6X29BSHR1QTZGekNPZllNaDk3MW5PUXlub1BlOEJObDluZnZwNzJFeGY0Zk4xNjc4MV92WDZQZWxKOVQxQk5JVVBzNVNfYzVqYnpFWF9UaHljRDV3d2k2SnhndjlWVmJnblBqTlE3V2lWdnJPaXl1OVdyaw?oc=5",
+              "summary": " How a 1931 church became Silver Lake’s glamorous new boutique hotel &nbsp;&nbsp; Los Angeles Times "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "A Nation Gripped by ‘Bayeux Fever’ Finally Gets to See the Tapestry",
+              "sector": "Commercial Development",
+              "source": "The New York Times",
+              "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNR296RmY1VW5penA3MjdpblYta1ZCWW1Ib3NUWnFCMW5aVzRqOEdiTDNRc3lvRDFkaXBuR3BMdTNaNWVGaUpmQVJCbkhuWDlZbEJvWkVXeGZIaUxrOEJBSmNaYmppc2ZXRUJpenVyNFFvQlFEeENBeWZkWmsxSGJleGhuLWkwSVhjMWVGS3FGbkZ4NUta?oc=5",
+              "summary": " A Nation Gripped by ‘Bayeux Fever’ Finally Gets to See the Tapestry &nbsp;&nbsp; The New York Times "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "Target By Design Opening Night in New York City",
+              "sector": "Commercial Development",
+              "source": "Target Corporation",
+              "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOdnd1U3Y3RDg0TDE2YjlFOVd6OVI2WHltdEp3ME1Ca0taY2NYZTlIay0tRTRubFZJV1MtZVY3dDlaSEwyWUwtamZfUE1ocXFyeHZ5cUd4Y1VsaERWb3d6Z1VyektzOXdzM0lHRG9td2ZxckVPZXhpczNjOUFHN3Y2S1pVQXhwa25JWWxld2tLOEd6VXhIQjhKeUJyZ1BrTTQ?oc=5",
+              "summary": " Target By Design Opening Night in New York City &nbsp;&nbsp; Target Corporation "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "Exclusive | 25 years after 9/11, the World Trade Center’s last tower finally rises",
+              "sector": "Commercial Development",
+              "source": "New York Post",
+              "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbFhfSGVRanduc2JTajJvR0lrQ2t3Y2VXYm1SV05FNEllQWl4TTdwX2hKYXZDeGlZT3VncXAzSk1qZEVjbVdYeGNtTm85VVByWjFLZ3AwT0hfYUNWeEFaZmhmRzlEamZmWlB6UkpTSzBuNld4SUNac0h0ZnltLVY4cWViRlFtUlFkM3kzdnBMNndEb0NUMzBEcVlvTmlFU0VhRVk0akUtRmJFSGg2YTJWSA?oc=5",
+              "summary": " Exclusive | 25 years after 9/11, the World Trade Center’s last tower finally rises &nbsp;&nbsp; New York Post "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "New York's Pied-à-Terre Tax: Implications for Real Estate",
+              "sector": "Cultural & Museums",
+              "source": "Holland & Knight",
+              "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOd0Q4ckhKSF9GRUxPbTVuWUxaUl9Mc2xfVTBiZlgxcmlMM1N4c3VhRzBlak9FZWRoSFRTQkFpdjFubEw2M1lEemdIdnNOM3BleHZpYzlKYVVfejYyeFlDZTV5b0NZVVZ4SnAycUVHMUNHTmpSTWZuLWl3NmE1NGlyaXFVTEZ3aFJBdDY3eHJsVGl4b1VGVmZzcUllYi1nOEZ3NUU0YmY3anhKZ3BaVGJ1NTlB?oc=5",
+              "summary": " New York's Pied-à-Terre Tax: Implications for Real Estate &nbsp;&nbsp; Holland & Knight "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "Take a look inside Fidelity’s new headquarters. Workers are full time in office starting this week.",
+              "sector": "Offices & Workplace",
+              "source": "Boston.com",
+              "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNRTJxMUpZOHBqZjkwNVlIUEExOWw4QXU0S0Y1V2taeXdLSVhuY2NEbmRSMlloclhVakEwMWlJTWRLblZ3R1BUVlVhWlRWWlBESHViQjJDTGdSdmF2LXJRTkttTmViMzNQU0hBZXd2Yzk2ZmtPX1lEc1J2N21Rai15RGE4MTcxMlVFVlBIMm93dl80WDBtekxpeEhIM29EdXVfeVdaUnJhb05ISU9ndGRiYVViTU5GSlRtbmI3VXU2VWpWb19GOHpCN01tamRwRlZzcWluLUY4bDBLYVNDMzkxVTZVb1doa0Rr?oc=5",
+              "summary": " Take a look inside Fidelity’s new headquarters. Workers are full time in office starting this week. &nbsp;&nbsp; Boston.com "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "Developer plans 16-story mixed-use building in North Miami",
+              "sector": "Retail & Mixed-Use",
+              "source": "The Business Journals",
+              "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQX1RDeV81NER4N09VMXlUb040ZG5TRngtSTlXV1E2S2hRbHZvYzhNTlFLT2M2RG05RGZ3TE9nZ1c2WDlVeUNKdmtBRFNFVXZ5R21UcWpJY2ZKU0NKYUdaSUJsUFlqVUwtS0NPaHJ2cWJOenBrcDBfcXFQeWx4Z0JXWWk3c2sxc2NGaGxZSXE1ZW9jZi1ncUd0ZVlQZWdMRjVfeVlYVW1yYms1dw?oc=5",
+              "summary": " Developer plans 16-story mixed-use building in North Miami &nbsp;&nbsp; The Business Journals "
+            },
+            {
+              "date": "2026-09-12",
+              "date_display": "12 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "Plans Revealed For Mixed-Use Development At 920 West Diversey Parkway",
+              "sector": "Retail & Mixed-Use",
+              "source": "Chicago YIMBY",
+              "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSXlLdjVPR3hfM1VNWFNWUTdUR1FlYl91TDNPQkc5M2JiYWtmYVk2SzIyNXgyRmxqVUd4WGhTSjFINHVNQVVIZHh2b2ZUakxRYjY3eThFcWo4SV9wSmRZM3o1MVUyeDd4YjY1STBNdWcyZEtfc24xNlJfdFhkNzd0UnJtbmZjU1VZVnBjVEZiUVBLWkl6R05rSFN5bnItcV8xd2c4VTk5N1hnWXc?oc=5",
+              "summary": " Plans Revealed For Mixed-Use Development At 920 West Diversey Parkway &nbsp;&nbsp; Chicago YIMBY "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "San Francisco opera musicians, orchestra go on strike, delaying opening night of 'Simon Boccanegra'",
+              "sector": "Commercial Development",
+              "source": "ABC7 Bay Area",
+              "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNMEpGLTAxYUNhUlFDSDctY3F6bkJPMVRYSFlPek9Ra1VXcVhPbGFxVWJHLVhreUdCRU82TWtVRldoRHloR0FQcHl4US10UmZtOTd0RkxSR3FJNU12SWl6WGFBT284a183SjFzRmo5dWFLbFBEeXpIb0pjWHZvcFI4X29YeFJKT0Z4Umt1WWpTdnBvc24xMEJQMWxsZGhZanh2ZFJhM0tFS3E0SmR6LUFicjljcHhJMnQ2Z3ZSVlJYYnFISkHSAcgBQVVfeXFMT3VBUTFaMjNaa0EwaWJlN0R4TzRhM0gzYUh0Ym1UU0ZZZFNVOHBNa19fdzVqWVhlM1BmdVdTdWRFc3d0cXVkdlM1aUdpZzlJb1VhWlJoRWNlN0hKd3RvOTRyYjN5c1JPa295ZHNENWxNSjhaZFFZdjJJd2M2VEh4QXBDUFYwRlU0QXlpM2xfRUw1ZzNqRWhoX1hmd3lucW8wdC1wVmtFOWxoaG9lalRUZExQb3lFV19wUTNJczlrVDZqR243ODdVWk4?oc=5",
+              "summary": " San Francisco opera musicians, orchestra go on strike, delaying opening night of 'Simon Boccanegra' &nbsp;&nbsp; ABC7 Bay Area "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "San Francisco Opera cancels opening night after orchestra goes on strike",
+              "sector": "Commercial Development",
+              "source": "San Francisco Chronicle",
+              "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQVWFYbWtfN2MwSXM2NFZpbXhYZXVyOUkyQkxHeHo2N1MtTzg5Um02NlVyNS1UVWdBcWdsMm5HZ0hOZHpNMnBLaXRYOTJ3cHVTYnBrdXo4S01nN2FaV3JITXN2OG55dmh6ZnRJd28xQXF3alM5SGlhU2tENFBvQWNXWmUzV2JFRjVLOHVaTU5kTkFjNWk1ak52c1BSdDR6QQ?oc=5",
+              "summary": " San Francisco Opera cancels opening night after orchestra goes on strike &nbsp;&nbsp; San Francisco Chronicle "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "San Francisco Opera Orchestra strikes ahead of opening night",
+              "sector": "Commercial Development",
+              "source": "KRON4",
+              "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQc0RSNGdqLTE2QmdqdkpqcmdTLVJvTnZHb3hhbW9RMzZBRTIwQ1dsNGUyQll3b0FBN2tmcHlHYkFZT0ZKdnZrSDEwZE1hbi0ya3dxX2szWm1rc24wWkE4bEFlejA3eVcxYURYZndJUEg1NWcwOTI0VTQyM1Rfd0VETXdETFVXVjR3YXJsWW9BY1lNczQ0N0NrSVFONUFYb2RqT0VvN2ZXT1Q1d9IBrwFBVV95cUxOYzZUV0JtUE51S2RFZkVFRG1ZM2hHOTE5cTlZQ1JYQTFFNE5lR1RjelN2UHZaTGFXaDNyREJ2V1hETUttdVBwV3dWX1Z1RFhRdmlFRU9KT3BtdHFJMFNxSTIyeTNNQXk0c0lrWmFfekZheXUxYWp4clliTmtrOHc4SEYzUGZ4XzhTU25TNFMzeVNob1lVUXN2SnI5WHM1SkM0UTBaWTl0bzZiRFpITzF3?oc=5",
+              "summary": " San Francisco Opera Orchestra strikes ahead of opening night &nbsp;&nbsp; KRON4 "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "United States",
+              "continent": "Americas",
+              "title": "New Charlie Kirk statue vandalized at Turning Point USA headquarters",
+              "sector": "Offices & Workplace",
+              "source": "The Guardian",
+              "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQM25FWlJjS3hkbW9kblRwYzAtTUNOUVY0cnFIdHlFTE4xX0p3Ml9pNGtMT0wwRHdhYlBfTERfR1A5RkxkakM3M2x5YmpybzV5UmFNQ0lTbXBVeEx0b1lpcVUyeVdzaDZBQWgySVlrUzhBR0UxckJNWTJnSmVxakNiNnpFUUZjN2VWMm05cGlkV3Ruc0xwYkVr?oc=5",
+              "summary": " New Charlie Kirk statue vandalized at Turning Point USA headquarters &nbsp;&nbsp; The Guardian "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "—",
+              "continent": "Americas",
+              "title": "Dolly Parton's SongTeller Hotel, museum set to open Sept. 29",
+              "sector": "Hospitality",
+              "source": "The Tennessean",
+              "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxObHRjT0JVbk5sNWZ0NVlwZTBINDlCVUlGTVZYUmJRSVEwZ1NQMzMzSWxsTlpleE9VYmdTc1hySVlWRjdyNERhN0MxYW5vb2NUQ2ZlWmxtWWVLVmZrUlpwSTN4TktRUXdkT1JmTlJLaGtHSlhqOG5LYVF5X0ZJc3g0V3NNS054aXBBZW5VMlFnLWhzMlp5TnRKVWNqaVBYMHBZSmpTWmRWY25TNFdxdFAxMDF4bUdzVmNHQlpwMHB4cm14Tk54aldXXw?oc=5",
+              "summary": " Dolly Parton's SongTeller Hotel, museum set to open Sept. 29 &nbsp;&nbsp; The Tennessean "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "—",
+              "continent": "Americas",
+              "title": "Dolly Parton's Songteller Hotel and museum set to open this month",
+              "sector": "Hospitality",
+              "source": "The Business Journals",
+              "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNeEdnVEMwcVJ4djJJMzNUd0FETlZRQjg4Z014ODFhTVltYjFZQmtXczJmMkl2OXNnUU52UzdvajF6cTBqODRuVzZzcTNJYTVfWlpjNGFQRTRRMHloS1cwdFFvakFVd0tjVzU3VmFzMlpZajlzVFBjSGZZekJwTkxJc2plSUZ6UjZJOGZ6RmZFeGtGNUFnM1Q5dllHQ0g?oc=5",
+              "summary": " Dolly Parton's Songteller Hotel and museum set to open this month &nbsp;&nbsp; The Business Journals "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Americas",
+              "title": "Dolly Parton's SongTeller Hotel to Open in Late September",
+              "sector": "Hospitality",
+              "source": "Daily Lodging Report",
+              "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQaVZPLV9vczVCOFg5UjFKT0Vob0xNNS1hSDZwWmxOUnZueU5RYTEzRVZzWUN4anIzcmZPbXc0OUNsYmhYc3RGRW9ONGp0QTJuLVgzbDlvUUlZYVdjX0dUVmNReVpIOFNXUVZPaGRVZkh0aHR6ZTNLLVFwY0dTX0EwUFFfdHBROTRkXzVra1NIQmZ1ZHBL?oc=5",
+              "summary": " Dolly Parton's SongTeller Hotel to Open in Late September &nbsp;&nbsp; Daily Lodging Report "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Americas",
+              "title": "Vestar pitches $3 billion Legacy Park mixed-use project as Mesa seeks to halt tax revenue leakage",
+              "sector": "Retail & Mixed-Use",
+              "source": "The Business Journals",
+              "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPMFN0QU9GcnhkWVVxaV9BTlpqMHR5Rmw2V1EtUHJ0aUhoLXdsUVV6TmcybkdpMXVBNjRBSjNmeFhFVll4WUFLbkFzelQwRUdqZzVrQmU4bGJ5Y0hiUnVqdDN0Vm94emI3SVZLWlJPRl80WWx0bEFYdFdZcjQ1cXN2ZkhoYjh1S09nZXM3OUM2Z0NWejEzOXY0?oc=5",
+              "summary": " Vestar pitches $3 billion Legacy Park mixed-use project as Mesa seeks to halt tax revenue leakage &nbsp;&nbsp; The Business Journals "
+            },
+            {
+              "date": "2026-09-12",
+              "date_display": "12 Sep",
+              "country": "—",
+              "continent": "Americas",
+              "title": "Nippon Ski Resort Development (TSE:6040) Stock Grapples With Fresh Loss Despite Higher Revenue",
+              "sector": "Hospitality",
+              "source": "simplywall.st",
+              "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOUk84Tkh2MmpyTjdBeVFIeklHMHIxa1RXSExfQ0piMHFTN05EYWR6UGNvbDdLX3FlMlA1RXctSGVJMDBvRzZNemNTX3RUVXFmNFBrWUxvN2hEd3Z0d0xZeGZ4b2pjX2Y0MF9ldDd6TXJoUHE1YlY0cDFEUkZCVkJaZ1JKaG41ZTBCZXplb21jWWtDcEVNRWEtU0lLYkxtWlJqLUtXWHBMQ3JYNnBCSVhVUVQ1VTNsRHV4N3A5Q3lIVlFOdjFlUlhwQjhiSVU4R3ItYVNET3ZBYTdPRGxLckh5VGhqeFVIM3Y3bHNfd1dfQmwzbGJjeGJ5aG1lcm7SAfwBQVVfeXFMTlJPOE5IdjJqck43QXlRSHpJRzByMWtUV0hMX0NKYjBxUzdORGFkelBjb2w3S19xZTJQNUV3LUhlSTAwb0c2TXpjU190VFVxZjRQa1lMbzdoRHd2dHdMWXhmeG9qY19mNDBfZXQ3ek1yaFBxNWJWNHAxRFJGQlZCWmdSSmhuNWUwQmV6ZW9tY1lrQ3BFTUVhLVNJS2JMbVpSai1LV1hwTENyWDZwQklYVVFUNVUzbER1eDdwOUN5SFZRTnYxZVJYcEI4YklVOEdyLWFTRE92QWE3T0RsS3JIeVRoanhVSDN2N2xzX3dXX0JsM2xiY3hieWhtZXJu?oc=5",
+              "summary": " Nippon Ski Resort Development (TSE:6040) Stock Grapples With Fresh Loss Despite Higher Revenue &nbsp;&nbsp; simplywall.st "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "—",
+              "continent": "Americas",
+              "title": "This British Columbia Ski Resort Has a New Long-Term Expansion Plan",
+              "sector": "Hospitality",
+              "source": "unofficialnetworks.com",
+              "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPVUJRZFIwTFVDQ056dE9OenNnTi00clhqSnpqaHlieHVSUW1iTGlkZkpqVXpPMWZIV05HRU8tY3dLZDFpd3dmTEtZZW9WRFFCa1ZOX2xUTFZLY2dzQzQ2NDFVRWVoOFJtSFM2NzRCZFFwbVVRNThMTEIwZHR1YUJWT0RoTEh3dXRJN0E?oc=5",
+              "summary": " This British Columbia Ski Resort Has a New Long-Term Expansion Plan &nbsp;&nbsp; unofficialnetworks.com "
+            }
+          ]
+        },
+        {
+          "continent": "Africa",
+          "items": [
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "Egypt",
+              "continent": "Africa",
+              "title": "Tourism revenues reach $8 billion in the first 6 months of 2026",
+              "sector": "Commercial Development",
+              "source": "Egypt Today",
+              "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPeWRqM2JJRnp2WUZoLWpsRmEyVWd4TVEtZUU0ZUl3LUdfRS1qMjdvWkplYUZZQTRTRzZVYWIxVlRVNUZIVDdJQ19JZ3E0N1VLbXQ2dGZqdXhDUS1zSWhSbDItUlh3dGpRSkdHQXNvOVpLX05rTy1LY0pjUVhMN1VWSDViWFdVVkpJbGI5LWJ3T1lkMGlHQ3hlRTZKMzNkT1U?oc=5",
+              "summary": " Tourism revenues reach $8 billion in the first 6 months of 2026 &nbsp;&nbsp; Egypt Today "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "Egypt",
+              "continent": "Africa",
+              "title": "ZAWYA: Accor targets 25,000 new hotel rooms in Egypt over 3 years",
+              "sector": "Hospitality",
+              "source": "TradingView",
+              "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOcExLRmYxaVlacGNrYmxnRFhnaTJWQnBibUxLX081VWctZVZMTWlvX0RNVXNOM1FiRmRkVGlfak9mWG41UWczVS1BTlQ4VU1TZV96NXVxT3Mwdld3MHdPVXBfbTNKY1M3UWJkc3NNZ0ZxTUIxTnRYc0dUSm11TzVacG0wZXFfYklFeGxZYk9RVmpJd3pJUnhKTUtpUUxEeHZMSE1YVEluWGZzQ2F3bW1jU3dVYUVXck9MUHFnWV8xVERNLVlqTFJISTJfd1J4dHBnRG1oRnJKMA?oc=5",
+              "summary": " ZAWYA: Accor targets 25,000 new hotel rooms in Egypt over 3 years &nbsp;&nbsp; TradingView "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "Egypt",
+              "continent": "Africa",
+              "title": "Egypt, France’s Accor discuss major hotel expansion plans",
+              "sector": "Hospitality",
+              "source": "Egypt Independent",
+              "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQOGsxVlZ2ZFhrSHM0aXMwazNqRzQ2aFlvUmF6dGVmTTlJY2c0bkxmdzI1aVdJbFZGS1BMeWluZWt5a1MwMEdIUEh2LVZFZF9OcDI2bVZMRnItdzJLclhkV1ZTOFRnZngxRkRSN2xleEZiTUt6MjQyU1dTR1FSUlp1MGFRVmh1dXZPUUFaVmJUWnZlLU0?oc=5",
+              "summary": " Egypt, France’s Accor discuss major hotel expansion plans &nbsp;&nbsp; Egypt Independent "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "Ghana",
+              "continent": "Africa",
+              "title": "Africa Medical City project to create jobs, boost healthcare, skills development in Ada",
+              "sector": "Healthcare",
+              "source": "Ghana News Agency",
+              "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOMjBMdV9yRUQ5YXNoZzByZU8ybGVPVUpfY05FY3FtNXQtajJrT1FaLTNLTmhYWG13UEFlRmVlQnRlWkg4S0s3eUhEYWotNnc5YWxRMW0tUHpGSEY4Qm1KeFM5YUdIQlNobGUzRjVDWW03ZzRkZk9yZC1KRXhReHFjQTZQQjVJbTBETGRGSkpQUzZhVUMyZGhQZFJaT2NEenQzaDRKaF9nMWxfbk1wT2M5TGFvOA?oc=5",
+              "summary": " Africa Medical City project to create jobs, boost healthcare, skills development in Ada &nbsp;&nbsp; Ghana News Agency "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "Kenya",
+              "continent": "Africa",
+              "title": "GIZ Kenya Jobs 2026: 4 New Opportunities in Nairobi Across Migration, Sustainable Livestock and Value Chain Development",
+              "sector": "Infrastructure & Transport",
+              "source": "Global South Opportunities",
+              "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1BYU4wZXFMYURnbkxrSFItcmN6SUhJT3g1eHpXc3RoZ3J4VjJvR25Zd0hjZ2xJSHdwelg3ay1BT1RjNE5iZVVkbG5FYTA2TjlKLUl2Z3VyMnBQQ08xb0xoRTFBYlh3d0RuN1hv?oc=5",
+              "summary": " GIZ Kenya Jobs 2026: 4 New Opportunities in Nairobi Across Migration, Sustainable Livestock and Value Chain Development &nbsp;&nbsp; Global South Opportunities "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "Nigeria",
+              "continent": "Africa",
+              "title": "Development partners, investors, policymakers, and pioneering Women-Led Businesses convene in Lagos for W.O.M.A.N. 2026",
+              "sector": "Commercial Development",
+              "source": "africaprivateequitynews.com",
+              "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxORy1QRWZ1aU1Hbll3aWtHWWFUMjlLRjJZem5odnkyZk5nNkZhaFJnZEVrSjNESkpwNVFPMGVrbkVXX21nVXktRFlJeGVSTTFfMVRGa2ZWOUF3eUZ3WXM0MTRQS2h0cEFXbnltTE5LVy1ldTk2QzdxQkxaZW1pbHltS19rVFRMMnZ1dmMwVlZ3?oc=5",
+              "summary": " Development partners, investors, policymakers, and pioneering Women-Led Businesses convene in Lagos for W.O.M.A.N. 2026 &nbsp;&nbsp; africaprivateequitynews.com "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "Nigeria",
+              "continent": "Africa",
+              "title": "Hamzat Promises Decentralised Government Services, Stronger Economic Development across Lagos",
+              "sector": "Commercial Development",
+              "source": "PM News Nigeria",
+              "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQdUxndDgtd3ZqUS03NEwzVVAzcjJiazJTSHNaTGxfQXpxSmowN09JUGJRQUNPMll2V0NjSWFLbGFIQ1lWa0xwdHdzZ21HZENaVHM0OTE2REdCNTNMQkEzOXpsR2FreklENkNDT3hPRWlsQjg1Q3lHZ01ITTIxTENCbHFOZldfa3lJa3VmMzhDY1FiQUctMl8yS0k1QTdQangzVkhLRkRGOTJfUjNWdEtrR19id2lJWVVSbnNrTEp1dmxwWTNaLXl0YnJB?oc=5",
+              "summary": " Hamzat Promises Decentralised Government Services, Stronger Economic Development across Lagos &nbsp;&nbsp; PM News Nigeria "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "Nigeria",
+              "continent": "Africa",
+              "title": "Senator Adeola promises to develop Ogun-Lagos border towns, mulls 30 year development plan",
+              "sector": "Commercial Development",
+              "source": "Nigerian NewsDirect",
+              "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOc18tb1hDOUtYWWhaVlFiTEoxMTVlZkl2TGwxc3lmMVpRajZwdkdmNTBNTVprOFZHd05pX2o1dTI5NWRtTzVON2gwb2VfNnNPOGVjaHRrMWJsWW1QSU5RcnltelQ0ZnVtX2NUOHBxQUJDSkZCc3hoc3poZ21qcDhQQlpsNXZPRExnenFBaHMwaFBRNXU4T184MFd5RkFEMHBadDhBaVFmZzZhV1FLV1FheUZ6V0RvTkxCSGE5bUN3?oc=5",
+              "summary": " Senator Adeola promises to develop Ogun-Lagos border towns, mulls 30 year development plan &nbsp;&nbsp; Nigerian NewsDirect "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "South Africa",
+              "continent": "Africa",
+              "title": "ANTHONY BUTLER | Cape Town faces tough questions about inclusive urban development",
+              "sector": "Commercial Development",
+              "source": "Business Day",
+              "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxORVF5c25DSXQwX294a2l0NW1CRVEtUGxpODZOSkljazhIYUlxd0lPNjNISVFBejc2NEpnalo4bGhnNUdTOVd6ZUVVV1Uxd3YyeFNJekVNTUhFVlg3R1ZqWnhqT0ZLM01vbkt1RjlOVmhEeXNQQlhWRDB5ZkRja3N6RlhBWkhvVHhLV1RsWGYtaGxzdUVoaC1BOEtITDE0T3d6dUxtV0ZRYWtCWUVRc0xVRjdKeEdlN1pRazd1WFBIYXdTTF9pOFJxVFZB?oc=5",
+              "summary": " ANTHONY BUTLER | Cape Town faces tough questions about inclusive urban development &nbsp;&nbsp; Business Day "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "South Africa",
+              "continent": "Africa",
+              "title": "Just 31 rooms, but Africa’s top new hotel is in Johannesburg",
+              "sector": "Hospitality",
+              "source": "African Insider",
+              "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOZ3N0SWx4c2dTSG5nQlVCRmJTbFZFTlhMYzRnS3psSFdKZU96MmJqM09EYnhWUElxZllSOGxXd2ItaVdIVWRZdGVidUZmX2FHVHhVX2J4Z3BBTmtGWlFJTEM4VFFMal9uTE1QLU54TVd2ckFQdWh4aFpFUDktelgwV3RJTjdBOHNNNWdmU0tZOWpjRVRYSkFuNE9taHdHX2h3?oc=5",
+              "summary": " Just 31 rooms, but Africa’s top new hotel is in Johannesburg &nbsp;&nbsp; African Insider "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Africa",
+              "title": "African Union Commission Receives South African Delegation for Mission on the AU Archives and Repository Project",
+              "sector": "Cultural & Museums",
+              "source": "African Union",
+              "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQQVB2dEpVSUJUZ2J1dkZEWHpNaEVCaFRoeGpoVnYxdDI4N3hidWVwYjF6Mm03bHVsWEFiWUIzVkpDMlBQQklvUlh1REtFU2hzVXZUYVVUVXVfY2EtS0dMaGoyRjVhRy1TcVJLUE1aMEF0cE4yVkppaFVMY1hNQUpzVjN4blBCQkpSQWFvSEc5dnZCdUdJZUlGa3c0OEYzS3VxYzl1Z3pzbV9ncm5HSkN1bzVCTQ?oc=5",
+              "summary": " African Union Commission Receives South African Delegation for Mission on the AU Archives and Repository Project &nbsp;&nbsp; African Union "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Africa",
+              "title": "Africa’s Ambitions Are Growing. So Is the Need for Project Professionals",
+              "sector": "Commercial Development",
+              "source": "CNBC Africa",
+              "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOQ1RScExGRXRQNi1Oci1Wc19CQkxqYUE1QVhDS1ppMDNRbU5JeHBTUW5TWnNRbnpydWNWUWxzN2I5bnFNM09UbVBENHQ2VlVnRlB0blRGbHRueFRYRjQ0N0dnSHVIeXM3TVRaWFRmNmxyU1pqUVE3VmpGMHo1ZjVBaDNEcEtzdTZMdEU5WDhCR3hzZXBjMFp6cXlYZkdfTFk1SERuRQ?oc=5",
+              "summary": " Africa’s Ambitions Are Growing. So Is the Need for Project Professionals &nbsp;&nbsp; CNBC Africa "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Africa",
+              "title": "Gender Development Centre (CCDG) And International Society Of Obstetric Fistula Surgeons (ISOFS) Forge A",
+              "sector": "Commercial Development",
+              "source": "newstrends.co.ke",
+              "url": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxNMlpFbER3T251LUxwY3RpdzZvdUVWZ2dsNWo0b045ZG41emhLY1RrUmhWZmFKYjYwdmZ0akFPc0Q1UHIzRkpBNi1kbHRWRjc4WTZ4dnZNLVYzemF2QzlidFNPdnNCN2ZNdTJGczR0NFQtZVkxVVdmQlR0VnM1Z3l2UVh2UTBUd2hnekk5ZmY3NG01alFTZ0RKdF9rR0Q4b0I1YlRZZVowbmRJZ0loakJvSENuZTZsN3ZlLTVMNFNEcW1MMjg3ZkJFRkFWYW9DRzQ0bEhkN2M5bkZrMlJEVU5kUUhKX2lRVHJJbmt0aHluUl9NWmtUa0VnaGdYZ0hTR3VFTzJBcGZoTlZzUFFGZUxuMlZmR2N5QlVsOHppeHhNN1kxTllzUEt4QzcxQWp4UTg4VjVGSC1XSVFfMzVqWDR0TEdJb9IBywJBVV95cUxNOE16QjN6UU9mYU93aFVFc2Z4eDR0YUlIVnJfT1RNakxhSFVaX1Z0UjFQMVV0cTBjUUNSTk13MmQ3dUxqLXhZMEJCTEtUQUl4WlNaTXRhazZaa0ZMaGpLYXppMEN0OEF5VHZ2Q3dZQi1ucFoybUlWS0JyN3F0UW02MXZUdkp1MVZwZmU3ZkZzUm5aLVRIT1puY1czT3ZUMWt5QVQwZmg4SFhHelI4ZlVIMVNJYVhPOTZkUks1TjR3VzhYUlN2LWhJOFRST2NBRDB1RXpSUGthT3JpNlRpLTRhVjM1VjZ2SkdKSjB3UHdMakFtR2xuNWZpRVdDYTdFVDJJYTVxa0ZNb1R3dzRGQTdQX0RIbkM4RFB3WmZQT24tU2NQajRfVU10cVR5VjIteEpReU9qMHlyQW1zX3VQWVFpRHNMbWNXcXNUQjVV?oc=5",
+              "summary": " Gender Development Centre (CCDG) And International Society Of Obstetric Fistula Surgeons (ISOFS) Forge A &nbsp;&nbsp; newstrends.co.ke "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Africa",
+              "title": "KOAFEC: The African Development Bank presents five regional projects on critical minerals to Korean investors",
+              "sector": "Commercial Development",
+              "source": "African Development Bank Group",
+              "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNUmFWTE14Wmxkb3VsdEVud3NlVjdQSlZGYkR6V29KamVZb1BOeWNUam8tTjdZWmxTb2RIeEVTV0VZTDhhQVBrYUhJcXB1ZUI3TjRVVjdya1dDZHVjdWJWQklFQ1NseHRvMmZLTlkzNkRQOEZNOUlFMFdUOEg5NXZLMWhSbXV2WTd4cThmMWFIWUhiREhsVVJDZUJMeVdGWGtlb0VuSi1qOTV3cjJ0NWxhTG9HclFGa1RNV2tzN294ZFp5Z0N3ak9EcDNFdi02S0p3aTIyMWdLUXN2NDBySnRGdWtpM0xpZXJxMDQyRno5ck4?oc=5",
+              "summary": " KOAFEC: The African Development Bank presents five regional projects on critical minerals to Korean investors &nbsp;&nbsp; African Development Bank Group "
+            }
+          ]
+        },
+        {
+          "continent": "Global",
+          "items": [
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Bain Capital and Omnam Group announce the sale of the Lake Como Edition Hotel to Sansiri Capital",
+              "sector": "Hospitality",
+              "source": "hospitalitynet.org",
+              "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNeEZqby1FQzl5MFRibWdud3ZrSk5tUnM5eW1KajBIX2FmRGsyd3ROTWduZHRjNHNHMGZJd3ZhNDlBdDZnVVc3SnB5RUNITVVNTnNkalBrYVE5cFZ6XzNNTEdzaldWQ1Q1R2syOG1pYnRDdk9LWURaRTVuWnoyRjczb29mMW1tM0N0X2FCMVJhWE9FdmxuQjRwOTU2d3NTOUtiVEhKcjRTTUdtOEdJWTgzdE4tSEpDaUJZYlF5dThnYmlkZndEa1ZCQjZINjZxS1JxVlh2RklzWQ?oc=5",
+              "summary": " Bain Capital and Omnam Group announce the sale of the Lake Como Edition Hotel to Sansiri Capital &nbsp;&nbsp; hospitalitynet.org "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "The Admiral's Mess to open at Waldorf Astoria Admiralty Arch",
+              "sector": "Hospitality",
+              "source": "Boutique Hotelier",
+              "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNVElrbFUtcW5SaHpqTzBkYVRxRnJVV1VaenBhc0V1MnkxVkp2MHFmMU45WEVCVUJCMHlpYWRPZWFOcXFUaTAtY0kwc0piTXMwQzkxOWlPdzNMazNXNnB6TVB0eVRIal85TXN1TnJuQk9iQno1NWk0OTdfQ2g4YzRpcA?oc=5",
+              "summary": " The Admiral's Mess to open at Waldorf Astoria Admiralty Arch &nbsp;&nbsp; Boutique Hotelier "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "A new literary‑inspired Hilton hotel has opened in northern Iceland",
+              "sector": "Hospitality",
+              "source": "Euronews.com",
+              "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNSGJMS0JLdnB3QVJ0NW9ZRjgzNjRCYnBWbm9hblAyR3YwTndTOGE4dmVZU016cndTemlJcHk2Qm55MGhmbzVHOEhMMDBLNUNYLWI2cjhRT05SVnMxenNBdTJzRWpYN3Q5bEJoTjh6a0ttc1dNSy1ucEo0dDRINDF0U3FNSFFlWTlVMm1yX1VOWW9ya2h4Y1pYZVJKX1I1aE5Db2lBRndzVXZYVFNnakE?oc=5",
+              "summary": " A new literary‑inspired Hilton hotel has opened in northern Iceland &nbsp;&nbsp; Euronews.com "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Nirema Hotel & Spa Samos - MGallery Collection | Opening September 2026 - News and Statistics",
+              "sector": "Hospitality",
+              "source": "IndexBox",
+              "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPc0p2OUdtMjFhZGtJMl9fMlZ3MkRiN0ZXSE1TdGdpYURYcEs4RVBoU05JQUJDakd6cnVabFJtUjNfSURUckVEczV4eGNjc0dUOURLU1ZqdmZjTlRpR2w3Zkd1cGdqZE5EZWlYSVpWVXJFNHVsdGJ4NWxGcWdLTVRGdDdpczdwalNuWGF2dA?oc=5",
+              "summary": " Nirema Hotel & Spa Samos - MGallery Collection | Opening September 2026 - News and Statistics &nbsp;&nbsp; IndexBox "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Larrakia Cultural Centre opens after ’20 years of vision, leadership and advocacy’",
+              "sector": "Cultural & Museums",
+              "source": "National Indigenous Times",
+              "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUWFyYU5zaVpXUDJLam5LU19qU0h1eGxhUU9VMGs2Zm1EU2JUamdYZGtlTkd0MnFsTWp6cXlWMmFZMTZwWnpHVjNvUGw3dXotOGlyRW84ZXZQT01oaXdRcmtkTXQzVjVkaEJrSXRYdUlxTmlyTmxheWxNc2N3bGtOd2tVMHVCQXVUbjBZd2dRcHMyVjJwZmFPRzVXOWh6X2tQRnYzNVRRTEd3V2Mybkx6aWxlOFoxZw?oc=5",
+              "summary": " Larrakia Cultural Centre opens after ’20 years of vision, leadership and advocacy’ &nbsp;&nbsp; National Indigenous Times "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "$58m Aboriginal cultural centre opens at Darwin Waterfront",
+              "sector": "Cultural & Museums",
+              "source": "ABC News & Headlines – Australian Broadcasting Corporation",
+              "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxONEo1VzV1VTNWSVZwdFptTzJSYWdHajhHRjJ0TjhCRnljRjlYVjZkYWtnMjZqNF84Nll2VkQ4blVVcGRxZ05oWW0wNzFDZk80MExVRmZxYmtKb3VkWEdtY2Y1SUVXREhfdXpyR3ROZEdDQWJkaGNOVUxsemFyWGNFUkV2Z21uX1B6R3BVVXhLZkhWMUUtXy1CSmRmTFVTZHY5LXpiVUFB?oc=5",
+              "summary": " $58m Aboriginal cultural centre opens at Darwin Waterfront &nbsp;&nbsp; ABC News & Headlines – Australian Broadcasting Corporation "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Aldar Properties Launches Sei Saadiyat Residential Project in Saadiyat Cultural District - News and Statistics",
+              "sector": "Cultural & Museums",
+              "source": "IndexBox",
+              "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNcUh5RGVTSkN0UmlDODBlajB6SFJTcHk2a1poS1NkQlVFdU9KeGFVNTAwMF9ta2ZoTW53NGYwMHNscWlJeUZsTUFIN055MVRFSExEN2wwNDd1by1NN3NZc0NNaTVOREtoU2QwRlpPY21zR2pYbzdMNEdYUDYyY0F0WDljbHhSN1haLUhoVmExZ2FWcTcxTkEyOUpCSTNMRXltbkVlSWNUQ3pJMXo4?oc=5",
+              "summary": " Aldar Properties Launches Sei Saadiyat Residential Project in Saadiyat Cultural District - News and Statistics &nbsp;&nbsp; IndexBox "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Relocation of Headquarters and Development Center",
+              "sector": "Offices & Workplace",
+              "source": "Axelspace",
+              "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBmWFAyR0hBWHNFMEpTMlZ1OERFdUZuX0EyYzUzS2xZME05dkJOTHFwejJDdG9MSW90aXZCYVZ2N2lEazM5dkxySFdjVWNZc29UUXNWeW5TWVlnMkg0V0FTdW5rVFFFUQ?oc=5",
+              "summary": " Relocation of Headquarters and Development Center &nbsp;&nbsp; Axelspace "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "NEXTASIA Land plans 32-ha Laguna mixed-use project",
+              "sector": "Retail & Mixed-Use",
+              "source": "BusinessWorld Online",
+              "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOVERxbm9KZ0Y4Z0trMnZaUThNc3J0N0d1MFhOQWotQXdRYS1NTWxQWHlJQnhudk1oR0lKTnI2cDdYd2R2NHh5Qlp5TTc3dnAyaWRXOGh6TDVCMUtjem9RRFpCa2ZiMkI0R1hsYTdyT3VFNzNKRlM1UE9Rbnk4Y2UydFVMVkpMQ1M0NVpNYU91MXo3cXl1U0I5aDltNjdfdlgxRnFXdE5B?oc=5",
+              "summary": " NEXTASIA Land plans 32-ha Laguna mixed-use project &nbsp;&nbsp; BusinessWorld Online "
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "The Biggest Challenge for Universities to Expand Campuses to County-Level Locations: Not Building Construction",
+              "sector": "Education",
+              "source": "36 Kr",
+              "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE0yT3E3aFROeVBJQTZVZVhwT0ptNUFTTnNPRGNidUtzVHNZTFdaTTJQV0JkbVhLWU9SdUZJNjUxT09qNGdlN2thT0V1dU5EMWk2U3RJ?oc=5",
+              "summary": " The Biggest Challenge for Universities to Expand Campuses to County-Level Locations: Not Building Construction &nbsp;&nbsp; 36 Kr "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Oswestry School opens new £1.5m state-of-the-art performing arts centre",
+              "sector": "Cultural & Museums",
+              "source": "shropshirestar.com",
+              "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdi0ydGVFVTFub3lyR1NhUzYzS1hZRS02SDd6Y2Q3a1paRFNnWk90aFFQNjNUWTIxNEVMQXBVNndpN2RkYTJPVWk3VklKNmZKSl8xTHJpeUdHaUFLNXo4WkFrc2hrUDlHYWVQMEtIVFNoZ1hIS0kweTZKWUZkaFNCZHFrZzMtUWNKWERxb3pyUzlBcGFGT1dDbUx3bE1iajIwNnNVcks1T1BHRm5WNG1QTWlyOV9IQQ?oc=5",
+              "summary": " Oswestry School opens new £1.5m state-of-the-art performing arts centre &nbsp;&nbsp; shropshirestar.com "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "New \"Suburban Village Centers\" Could Reshape Mixed-Use Development Across Fairfax County",
+              "sector": "Retail & Mixed-Use",
+              "source": "Holland & Knight",
+              "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOSVlZNy1oZWNMQjVoaVh4R05DOEstMlpNd2JPNGRrQXRLQ1c2OE04Mnp6VjlSSy1EZmhwQ0t0Y0I4MkNqazFBYU8xVnlGTFhPTWh2X3dLckJHTVNRTFJxUF9USV9GdDVPMEVnRXRMWVBWTmZ2UDZXd0MzbzlZS2ctUlR4eUtObk9FbHZVYkFKRWRSSDhSTXdFdUFDQkp0WkFVOEVBZnVR?oc=5",
+              "summary": " New \"Suburban Village Centers\" Could Reshape Mixed-Use Development Across Fairfax County &nbsp;&nbsp; Holland & Knight "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Downtown Cary mixed-use development on pause; transit facility chugs forward",
+              "sector": "Retail & Mixed-Use",
+              "source": "The Business Journals",
+              "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOX19NV3VyOEp6YXZxZzdzN2dWSF9aN0VtQTZNSjhhVjAtQjkwcXBUUVM4VUhqcHZ5X1R6U2EwN0otNFF3VmhuUUVDNnJjcWZJQWF1QVJKZkZjOFdYa0dJcWk1UjFQb3BZSUxDZzBHUW9UeEZtcng4RHlVNVlBVlNWSG9MRk5kSGE4RnpBblk4R29LQlNUQmxnQVVweGthM0RwMUpEQw?oc=5",
+              "summary": " Downtown Cary mixed-use development on pause; transit facility chugs forward &nbsp;&nbsp; The Business Journals "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "USF breaks ground on nearly $500M mixed-use project",
+              "sector": "Retail & Mixed-Use",
+              "source": "Business Observer",
+              "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPUUxXejk0bEtLdms4VjgxZmxTd3l3cmY3QkE5NUlEWlV5Ull5S1p1ejBRX1YzUFJqSWllcVpvd2V0ZW5zVkNTZHVfUGQwQ0NFZHpraG5MeHNYelZ1SFVJc2dFY1ZDRlRyaHlUTl9rMC1xVDhfbklGQmZGMmd3VUNCbEY2eDdtRVdsUHlXeHVlUkotQQ?oc=5",
+              "summary": " USF breaks ground on nearly $500M mixed-use project &nbsp;&nbsp; Business Observer "
+            },
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Apicius Armenia Opens New, Fully Equipped Hospitality School Building in Dilijan",
+              "sector": "Hospitality",
+              "source": "Arka.am",
+              "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdTdCdlRXTS1feDFVZzRqMFlTQlZRakczYjRYaGJ6SjBSalE0ZGVJQ1gzSXNuaUJJRk44N1ppZ3N6azRJS1VpR295T2VRN2RRTDVfc0VKODBqczg1eldRcFVlRXU5MllqUEswZXZHQVk2RnpQeWF1MndueXRTamg2aEVQcEpyTV8yeGhIeW11UjZNcExQSUJTQjd3bUVjSWRFOFRjeF9IeU8yVng3bm91YUZpSQ?oc=5",
+              "summary": " Apicius Armenia Opens New, Fully Equipped Hospitality School Building in Dilijan &nbsp;&nbsp; Arka.am "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Accor plans 250-key Sofitel hotel in Ahmedabad, opening in 2030",
+              "sector": "Hospitality",
+              "source": "BW Hotelier",
+              "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNd0VpUjJvdml1WXBhMEJJdm5FYVJ1UEFNNFFWR004NnJId2RGWVBEakU4RXA0R0xFdlBKU3ZBX3NCUjNrRTBqMVZHYlk4bUVrRVJrb0xNVFFaOUc0MzAxS1pjb0lhUk5yUzhUUklFamFiM1h0a1JKV3FuVXQ0OEdXaFd3cmJsVFB1dXdzSnZxX1Y1WUd5d0cwQTBjRjJfbVVQenhpamtkOA?oc=5",
+              "summary": " Accor plans 250-key Sofitel hotel in Ahmedabad, opening in 2030 &nbsp;&nbsp; BW Hotelier "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Xi Zhe Wuxi, Curio Collection by Hilton Opens, Marking the Brand’s First Property in Jiangsu Province",
+              "sector": "Hospitality",
+              "source": "Hotel Online",
+              "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPUm9zRGVOMXkzSWZjSkFYRDRfb0tnWkdUdEJiNDFDNnBId3dPODFTaF85cW9MZENSTUR1WmZKWGhlQ1VZMDJQQnNFQnNUZzJSTEtTazVaaTIxajFmQUExbWVfZ3ZYeDhDSHgzQjBLSV81YW0wRW5hRVhZN3Zudm5mZGY1WlgwdHlaemNUYkpYQm1MSVBXN2wxR05qLUJHMnpWcXN0aVFHR3BqcDlMbGZrNzREM3pTM3ZSU3l4LWlJWXVLcEtQTXFueUhub04?oc=5",
+              "summary": " Xi Zhe Wuxi, Curio Collection by Hilton Opens, Marking the Brand’s First Property in Jiangsu Province &nbsp;&nbsp; Hotel Online "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Soho Ranch House Sonoma Leads New Hotel Pipeline Across Sonoma County",
+              "sector": "Hospitality",
+              "source": "Hospitality & Catering News",
+              "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQZlNERmhhU24wUnBfM1QzX09ubkIxRnB6dnRiblAyRTR5VFpsUUVTZEc1OU9QbEI5M2JRaktscVpJWUItNHpWSXJZS1pXN2tXT0pWUHhoNm1nd2VITUo3ajFEUktTSXNLbEdPZDY1SUtzRm5LQ0pEMVFJNGNLTVdSeEt5eFl4Qmd1aVZZOXNlUXpscmRUdFV2VGotV2VhVVpQZld3cXZUQVhiWVNIR1lkekkteGF1dWVDQVpDZHhB?oc=5",
+              "summary": " Soho Ranch House Sonoma Leads New Hotel Pipeline Across Sonoma County &nbsp;&nbsp; Hospitality & Catering News "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Opening date for new Museum of Science exhibit announced",
+              "sector": "Cultural & Museums",
+              "source": "WGRZ",
+              "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNMnJSTkZEdUQ1ZGl4VUpvMVhXdGhGRUxNUm1jbUpCSkZnVmNJN1Nic195ZTdBYXhmZHg5YTVnUzFldWFDZ0JmUzY4TFZBVjBnREJsYXdMUWQtbEhDV3Ytai1GOFo0X01jZlNFV1VwcW9JLWdsVlAxcWcxMzNzTkZjSVViYzVNb0d3Q1lFUEZJTFVWZ19YN21sYXNWVjdxNC1yUndlZllaRkRXNk81dE9vM1lydmp4QU85dmVQYWc0eG14V1NnakFtcG9oY2Y5QQ?oc=5",
+              "summary": " Opening date for new Museum of Science exhibit announced &nbsp;&nbsp; WGRZ "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Wrendale plans new sustainable headquarters in Scunthorpe",
+              "sector": "Offices & Workplace",
+              "source": "North Lincolnshire Council",
+              "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNcGR3R3NjTU5hZ1ltWnJ0VWVhRjJsQk5aTFhGZkNqU3FjeWFOZ19wRGxtbEtnaHBaZUduUXNIYjFNVHlzaEtOTzJ6X3lkcnZLd3h5Sjg3Vmh3VDRkOGRVWG1nV2pwUk54TjN6TW1nX3ZoUmdaTFFqV3R3SEtSZERYMEw1b3ZzcU1pTzRRd0t1SXpCNWtNVkw2Yg?oc=5",
+              "summary": " Wrendale plans new sustainable headquarters in Scunthorpe &nbsp;&nbsp; North Lincolnshire Council "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "RIVM unable to move into new headquarters until after 2026 due to grid congestion",
+              "sector": "Offices & Workplace",
+              "source": "NL Times",
+              "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQYkdIb3hkSkdVSjE4SWh5TUNFSEpJMG1tT2F6XzBscEFGclJlRmNWN1pCbUNiajM0cGdMaVFfY0loc0J5eXhpOXdtdm5nNXhEYVpuYURIaVhqYzRBWDg1bE5tekVZSTZ5M2J6Uk1Mcktoa2lRaGNKdHhvRUVnSi1vYWZzelUwMGp2cXZQVW9tVmtmUQ?oc=5",
+              "summary": " RIVM unable to move into new headquarters until after 2026 due to grid congestion &nbsp;&nbsp; NL Times "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Governor Moore Announces New Saval Foods Headquarters and Distribution Center in Howard County",
+              "sector": "Offices & Workplace",
+              "source": "The Office of Governor Wes Moore (.gov)",
+              "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNUTQyX0hGM294TnJsVUFfa2Q0dkFVczRpNGYtRl9TN2txQl9vMW9jYVEwNUJjRTdPUm0tYnpWTWctcmhTMDVqSTVJSXdPSlc1ZXEtODNENFUyMVNLbzdIUVpIMkFmck16MGVNXzdnSFlwS05scXh4Y0E1RDlla0dvbjJZNFlCYUhNNkFqaThvZ3pQSFB4aURIVFlYUUxTa0xUdldIaEo5S21TczRHa3pSTzhoLS03Q2wxS1l2YjQ5VF9BdndWM29VbTlvWU02LXI0SmNWZFZ6amY?oc=5",
+              "summary": " Governor Moore Announces New Saval Foods Headquarters and Distribution Center in Howard County &nbsp;&nbsp; The Office of Governor Wes Moore (.gov) "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Gallery: Fort Lauderdale celebrates opening of new $165M police headquarters | PHOTOS",
+              "sector": "Cultural & Museums",
+              "source": "Sun Sentinel",
+              "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNOGlGWDA5MHF3LU5nLW1YRWRVNlZFOTIxSmlHbE9Dd1U4N1JoaWZhbkZTSU5EQU96UnpZTnMwNTNwZWU5UUJjd3JxRGRrR2F6ZnlRNUp3TUpvTjBCb0dNNUJFbFVuUXJlYzdLRURvNXFwS0xhcE9PUGpoMVhxWUY0VWZKQXhJcHJfZjY1aWt3T1RGa0hFRExLa2FJLW1BYTVGeDl5NUVBc19DV1hTdlRGRG1mbDg?oc=5",
+              "summary": " Gallery: Fort Lauderdale celebrates opening of new $165M police headquarters | PHOTOS &nbsp;&nbsp; Sun Sentinel "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Mixed-use development to honor late developer",
+              "sector": "Retail & Mixed-Use",
+              "source": "talkbusiness.net",
+              "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOWUMzQm9HcjV3RnFOaHhNRFVVMjVBa2lfYTJmb3ZnQk1EUzAtT25qNkNtd3lQc2VYY000QzJ2cnJqcEhYOWtpWjFOcEdMUTBuVlZDM3RQSzRxd0xORG92MVVrUmp6LXROVXBkaTF0ckpTcDRjazV5YlRkNElyS0pjLURockVWUQ?oc=5",
+              "summary": " Mixed-use development to honor late developer &nbsp;&nbsp; talkbusiness.net "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Trammell Crow arm moves ahead with $123 million mixed-use development in downtown Arlington",
+              "sector": "Retail & Mixed-Use",
+              "source": "The Business Journals",
+              "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOR19EQmp3QV9UMjZDQTRNR1M3bnVuT0VIbnV4MGdBVWh0SDNzTjBpQmlWb1lHb0tUVGVZdHRqTDRPUnNyUkZNQ0RIemVaMDZILWpDN0JCclFqTjJMbHc2X0JRbmZWMFhuSm1ncGVpXzEyRVFKM1IyVXMtanhwUkVKMlFDVWVxNXE2Sk56QzFOeXQyZFZVemtCVE44RUg1bENH?oc=5",
+              "summary": " Trammell Crow arm moves ahead with $123 million mixed-use development in downtown Arlington &nbsp;&nbsp; The Business Journals "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Mixed-use affordable housing development marked complete in Johnson City",
+              "sector": "Retail & Mixed-Use",
+              "source": "WBNG",
+              "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPbmtuZk14MFRPYnNpZDJXRDdlN1l4NWNyNFJ6MFFKSXlZV2I0T044X0J6SzRQUGM2S3hjeVdJTWV0ODVQYVpXUnJ2U25ETzNHLVVmTTR4SkFCMkxaQVZpMHA5dkRwOThLN3ZsV0pYSG5WYmoxNDIwQlVVeTYzQURvcnRHX3hLVWFLREpEN0ZneFlkRkt6c2tRUXZmRGItZnBQdE1UZNIBuAFBVV95cUxPd1ozblloV1FwVHlnQ2JEUTI2ck5LME85S1R6UDhSbFZ1X3ZlY2tmRW9pTWlud1RlcWVLZk9DX1ZVdXRTY0xJZlA2LTNGVjh3V25hSUZOVlZ1VS1ILXNiYUVXYXpYYjV0NjNNY2hQSWtXU2Z5bDdyY2FBeTRwSTk0bXMzMkU1WVpwZEs2bmw1dXRQMkZLMzdMV3JSeXM5aGRsSV9EY3pRN0JCdmh0dlIzUHhkOXdESnl4?oc=5",
+              "summary": " Mixed-use affordable housing development marked complete in Johnson City &nbsp;&nbsp; WBNG "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "$37M music themed apartment community opens in Huber Heights entertainment district",
+              "sector": "Retail & Mixed-Use",
+              "source": "The Business Journals",
+              "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPb1J0ZzV1dllEaWdCRkNpMmFzN09PN3dUYjBmQ29hV2VZQ3RRZFNNMkFGbDhGS3gxUzlsM1B6eFJwbzZEQzZmSDBSa0VQSHFHZm4tVlRHd0s2eWNhU0hoQjdIVGdubTBYQ1E0TmN5VFROR3FFd004OE9RdVBtc1RKb1lOUkl2YVVJUFhESjZzanZpbHJSc0hRdjlXVkd0V0IxZlJvRQ?oc=5",
+              "summary": " $37M music themed apartment community opens in Huber Heights entertainment district &nbsp;&nbsp; The Business Journals "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Campus Development Services Market Size, Share & Forecast 2036",
+              "sector": "Education",
+              "source": "factmr.com",
+              "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9yOFRyZTA0VHYtY0pDWDFiYmsyUTBKZEt0Y0FOVUJwelBOeU84U2xXMFhxMmtGTUgweFVlTVJZRlg3cXNOTVNaTkpxNUpPSEFKNmdGMWhDZzZwWDl2NU1VMW55TFNyQTFmVHQtZWUyVjl4Zw?oc=5",
+              "summary": " Campus Development Services Market Size, Share & Forecast 2036 &nbsp;&nbsp; factmr.com "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "'Wrong decision': New babies' hospital plans slammed by doctors",
+              "sector": "Healthcare",
+              "source": "ABC News & Headlines – Australian Broadcasting Corporation",
+              "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNLVNNQndvcU0zOWVzNG5ZYVBKTDJ3djNQYzN5MEdPQ1J5TDNQYng0dGNNbGVQVnZVU0c2bi1VVnJFSWdmZm04dHJJRnhEdU9fQUNVNVZrTzE0eGVmc2phS0hzU0lKcjFDNU9fZ3lDMHUxLWhVeVE0NVd5b1VYdEtHWmRQNkUySm9qS3cyZTk3b3RpUWdzYk5YNm5VV1FzRE5Z?oc=5",
+              "summary": " 'Wrong decision': New babies' hospital plans slammed by doctors &nbsp;&nbsp; ABC News & Headlines – Australian Broadcasting Corporation "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Stanford pitches ambitious new plan for campus growth",
+              "sector": "Education",
+              "source": "Palo Alto Online",
+              "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNMFlIYU1OTTlxZmlMeE1Xd3Rqb3ZTcmJENEdJTHVwaUNNSkFYOEYzRDU4WjgxQ0p6b0dVSG5lVGFvbTNNdUs5MzBZeDRnS0QxcTF1ZmpxRFFvZkRmcVV6bG9EazdJYzJmSUIwUThUZDN6ZHdJMmp2dDU5bGVQTGFITnZrSThYQWVJM0RTQURVTG43RkNXRWFBclpkYmFnUjNCWUlZ?oc=5",
+              "summary": " Stanford pitches ambitious new plan for campus growth &nbsp;&nbsp; Palo Alto Online "
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "2775 & 2785 Palladium: Zoning By-law Amendment and Site Plan control (UPDATE)",
+              "sector": "Commercial Development",
+              "source": "Glen Gower",
+              "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQLXlsQ0drajBsUml0UWZKamdfc01sc1QtV3BxZkVHenpzenNrdWtaLUpBM3FwUWF5TTlTaGF1ZGdrbW1qWVczM1NwTzI4OFVQYUZUNG03ejExLTd1OUlMU3UtTURtV1MyVHUxR3ZIUEFIbnIwTXRkRjJ3VjVFT3ZJdTdMN012Y1Nud3JjR29zdXZmb1N5MTR6YWtZM203QmxBOGY0ZnhYcVB6Zw?oc=5",
+              "summary": " 2775 & 2785 Palladium: Zoning By-law Amendment and Site Plan control (UPDATE) &nbsp;&nbsp; Glen Gower "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Spandrel Development Partners to bring W Hotels to uptown Charlotte",
+              "sector": "Hospitality",
+              "source": "Mecklenburg Times",
+              "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNWjZNbENDaGo0d3dOX1hHLXZPV245UXQ3SzV6THNIS1JSbDQ2RzJSYUZSSWVRY2hZX3QtODQ1MnloeWxYcDg4bTB5OHRIdGpIc3hwVnJmaWhpZkt2eTBWblVyeXpEU3ZZYkNfSlZ6b21FWDhlUVZ3ZFk2anNDa0pueGNxel9SeW5IMGtISFM5TFd3d3E1eHlYdS1R?oc=5",
+              "summary": " Spandrel Development Partners to bring W Hotels to uptown Charlotte &nbsp;&nbsp; Mecklenburg Times "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "S.F. Ritz-Carlton unveils lavish new lobby cocktail lounge and salon",
+              "sector": "Hospitality",
+              "source": "The Business Journals",
+              "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPR2czQ2Y0WFVJSURycjkzWGxXZVFXamVrNmxfZTcwVkVVRDg3eTFONkc5U2U2bk5jQ21VTHRna0NMYlhmS1BJY1dLYnlSY0NhMHdTN1NvN0VEd1d6OE9FSU5odEV6M1BUYXE2TmlkZGJ3VDZmVnAzQVpwMVlTOTU3NkFhc1JVOTNsVi1xSFNmWUh2d09WMHdHSnhoUFVFcURUb2EzRV9xMXc4eVU?oc=5",
+              "summary": " S.F. Ritz-Carlton unveils lavish new lobby cocktail lounge and salon &nbsp;&nbsp; The Business Journals "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "New Monterey Bay Aquarium exhibit will aim to build empathy in kids",
+              "sector": "Hospitality",
+              "source": "The Mercury News",
+              "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQWVlEVU1LcDFPZjZyT3NQVGJWR2dfdVRocVJQTWRqRkdUejFBYkpGZU5iVkxKSC15ajdVdXpnclhLVV9LYWpUTHRxRUdwWTh0MC1hdVhWSVNtbHZCRW0xeXhNZmhxTHRmMllmbDdEMGxVY194MHZkdDJSSkVrSzdDa2xLMGdlRWJxUUhJbVR5N0VBaEdmcHR1a25vel9xVEdGNndNQ29oT1RHZjjSAbABQVVfeXFMTzlDV1ZoMEFtZ09ad0pWSTk2QTFmZDNZT0xwdmYxUk1xX2d1d01YN1BJWEtBMzFVZ3BTR0tPNWtXYnBaMkVxclU5dnEwaXhUMTZkZ0hNYmNxUVgySjRqdDdVckxuZDdzU3FadWdScVhZcExyZGhIdmR1eGlSc0puRVVlZ1I5UGVCS1VLb1h1T0pYWnI5RzYxZV9SUXF5d1huanI5RmF1TEU2cmhRNU0zdjA?oc=5",
+              "summary": " New Monterey Bay Aquarium exhibit will aim to build empathy in kids &nbsp;&nbsp; The Mercury News "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "One Golden Lane launches to market, delivering 120,000 sq ft of premium office space",
+              "sector": "Commercial Development",
+              "source": "BeBeez International",
+              "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQcE9IaUYxT0V5bElMTVBOenZqcXJ1OFZpUE42MjBVSXZHYmM4aE1HS3lLTUVHQjdYZEo4WUJHZjgyQU1RSE9jMDJPRXh0WVBMVl9zVXZSdkJfa2ZTY1RLb1BWYkVEUzM4OEhqTlNnTDliNUhlbUNlWC1uVDltSVlpYmdLSFJYQU9lZHFudU9jSkFoZWtLYUNYeV9yQ1Njc3lYdHFQN1UwNE1KSUZLYy1WVUlB?oc=5",
+              "summary": " One Golden Lane launches to market, delivering 120,000 sq ft of premium office space &nbsp;&nbsp; BeBeez International "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Change in development plan accelerates timeline for Camden's tallest office tower",
+              "sector": "Offices & Workplace",
+              "source": "The Business Journals",
+              "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPalpYYWRldldsZWhIc244OGdGR29WYUYxSE1yS0NZWWxVVDAzbF93UlVvZTN4dXllN2RlVm1BckJNZnNzbkJYV1dFZF9pWkF0TnlnVVNTOEllUUV2OFQ0Q0Z5X3NEQlA5RFBvUU5BM1k4SE5PQnp0NDVGdlMyVDdMTURPMm1ySkZ6V2NVNm1WQ2dEN1lNS29tMVRuSGthYVVnQVJGNkxLZmFoa0REanc?oc=5",
+              "summary": " Change in development plan accelerates timeline for Camden's tallest office tower &nbsp;&nbsp; The Business Journals "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Atlantic Union Conference Dedicates New Headquarters With Grand Opening - North American Division of Seventh",
+              "sector": "Offices & Workplace",
+              "source": "North American Division of Seventh-day Adventists",
+              "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPZ3BvM21ydWpqdGpWTlJpazlXOUlYaU5Fd0VYeE1TaUk0TFpXaHNnWmZOU0RXMFl5RlZHVHlUVUVfWUs1RExlSjU1RTBWZFJKd3NsLUY3enVHNmFxME5MRjhPVmdKMzFVemlrN2RGUVJmazFuYWlPbDMxT1c1Zmp2ZkJLTklObEhXWnhKMl9UbnZxWU93MGphLWxkZTFxbzJteHdPSmtlV1p4Zw?oc=5",
+              "summary": " Atlantic Union Conference Dedicates New Headquarters With Grand Opening &nbsp;&nbsp; North American Division of Seventh-day Adventists "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "After Amazon deal, Wayne developer buys remaining AC Race Course land for mixed-use project",
+              "sector": "Retail & Mixed-Use",
+              "source": "The Business Journals",
+              "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQNC1scHM0QkhrVV8yU3dxd0FTZV9iRElwcTlJLUdLdWlOV1M0UE93OEl4TkpHVndvbjJwVHJpemJydlV5eUJRLVNHM0NpVTlvanFtWU5teDUtb3l6cS1MT09RYkxvaXhmcXRTUDc4Y3hoZFZkV2JWZ0M4T19raDdGbWlaRHNnR0RpRzJFNzQtZGtCR2g2dUgzMFg4V0hQNEd0eXBGb3BDMldKeVVsd2Jj?oc=5",
+              "summary": " After Amazon deal, Wayne developer buys remaining AC Race Course land for mixed-use project &nbsp;&nbsp; The Business Journals "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Hotel and major retailers springing up along the interstate at new Hollywood Casino Joliet development",
+              "sector": "Hospitality",
+              "source": "chicagotribune.com",
+              "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWHJXeXZQd1oxdkE5Rk9QTGJDaGhIRjRHN2h0NXhmczdaVVBleHpNZG5qTmlMbGtNS1ltT0ttNVZoRjQ4X1NYazNZeGVodVhnS2M4WlNDWkFfNWNBT3lKd3VHTTVJTEg2bE1jQklwa2JYNkY4UEcydkgtemhOeHpjRGpKNHY?oc=5",
+              "summary": " Hotel and major retailers springing up along the interstate at new Hollywood Casino Joliet development &nbsp;&nbsp; chicagotribune.com "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Developer withdraws plan for large mixed-used development near Eastern State Hospital",
+              "sector": "Cultural & Museums",
+              "source": "Daily Press",
+              "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNR1N0cDdJMVhTUTZaMHNZaUE3UUhqRXJ5NFhUNmZjX19oOHkwTmxkblRsd19uOUJTdjV2aDBEVGRZRl93eHh5ZXJMT01OTDRoWTNPdklTSVJhczFJU0R0aVgteVhwVmh1LXNlNkNxX2VZR2xWOFNqLTI5a3FRUWFYZXhUMlBQcWtRV05zU1IwcG5QYldyZXhYeUlOdmFnd0FGeC0xeVJ0YTlid0hHRENEbmd1R2pNZnNs?oc=5",
+              "summary": " Developer withdraws plan for large mixed-used development near Eastern State Hospital &nbsp;&nbsp; Daily Press "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Magic Mountain reveals next roller coaster opening in 2027",
+              "sector": "Sports & Leisure",
+              "source": "Theme Park Tribune",
+              "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPTmoyb20yOWxZcHo2dkVzX3NWRVRkZ1pJb1RwNWlWN2Fkb19NQ0JhYWE1QXRxa2N0U1A0RUJBczloSzc1WURJWVRBRjRZdG5sSkxQeUNwSnpGcHV2a0ZJb3BmelVuWElFX0RXSWlaOWktcmZkMkF6bmhuX3p1Y1dTMDlqVllXcWl4ZjRsYmdWd1E3SHF4ejM0?oc=5",
+              "summary": " Magic Mountain reveals next roller coaster opening in 2027 &nbsp;&nbsp; Theme Park Tribune "
+            },
+            {
+              "date": "2026-09-10",
+              "date_display": "10 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Disney Quietly Cancels Opening of Tropical Americas at Animal Kingdom",
+              "sector": "Commercial Development",
+              "source": "insidethemagic.net",
+              "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQekdRTVVaaTVBOXRzampxV1pVdmVHOEF5ckp5MDFkOHYxQzJ2NTZSMzdSVWFfbm9wb2VjS2hGdF9BYkVBb0I3OXNZRUVhbEpKTVd0Sm1TUnp2cTFLX1p6dXB1OXZnMVVmQjdlYjhaTHhQY1g1RmRhbmhtMzdTZ1R0OVVmQlBiVkdBeHBoWXFRUTJoNzJ4b213?oc=5",
+              "summary": " Disney Quietly Cancels Opening of Tropical Americas at Animal Kingdom &nbsp;&nbsp; insidethemagic.net "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Hoosier Village veterans part of National World War II Museum project",
+              "sector": "Cultural & Museums",
+              "source": "Current Publishing",
+              "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQVHFGOWpCOVc5V0NwMFdkcUVqVzFwSkF1YzhpcGRQekNZcFBNbUlheHJuYU1lR0RLSDNpcW9GWHpIcG0xNkJOQjMxVXR0THZ2TTluTU9RSjY1dF9CYUtmQmxXVURfXzEycnRPSlRaNVl3TWZqQmtmc2xLVExkQ0RwSThGZVRpTzR4SGFwNXV2bE9zVG13NEtUeVFYWk5TYUNweDI5UG1Rbkg3TWc?oc=5",
+              "summary": " Hoosier Village veterans part of National World War II Museum project &nbsp;&nbsp; Current Publishing "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "President Shavkat Mirziyoyev reviews National Museum construction in Tashkent",
+              "sector": "Cultural & Museums",
+              "source": "Kun.uz",
+              "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPTWthdHlRTjFnQ3VPR0tUT0xiVTBLQmhMRW94QmRwWUlKU3BRWUdSaXNSUlJVRzlRbkZHcDdyVG5TbVJzeUgzQWtVQ1NhVWNpeUJpZFVidm9NclhaamlfSnh1dEpmU2djeGtmSWprblZIdXA4Z0xYak9nT0tYMGJWTEVpcUpad19FcHdIb3duMThDWjZzUTNILXBBOTJ1MkNYcWYwV2tPeWR4OUsxRlZpNw?oc=5",
+              "summary": " President Shavkat Mirziyoyev reviews National Museum construction in Tashkent &nbsp;&nbsp; Kun.uz "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Construction of National Museum of Uzbekistan continues at a rapid pace",
+              "sector": "Cultural & Museums",
+              "source": "UZA.uz",
+              "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNc25jUTMyOHl5QzhtN0JUSUt1bXZPSldfbjBuVkE1cHVkOXJveVJkTzcxc18zN1lQRGR5ZVNacEJrYXdsUTliUElGSm9Ca1ZpVGpBczY0X1Z5WWVvdS1vZmpva2ExTHZnN2Vqa2k2OW9IU090aUg3NW92UXlYNjZUazd3bHBRRmc2eXJpR193M3ZmUWM5SERnNlJDLVRhS2pDbnY0Qw?oc=5",
+              "summary": " Construction of National Museum of Uzbekistan continues at a rapid pace &nbsp;&nbsp; UZA.uz "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Macau targets 2029 opening for first phase of national museum of culture",
+              "sector": "Cultural & Museums",
+              "source": "macau daily times 澳門每日時報",
+              "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOd25Dc3pBR2JieThJRHA1anFNT3o4TjlZVGY4aVlOd2ZaSlNxUlE1RFVLczNFaWVvZ2NyMkNycXBrSXBlNFk5Tl9pYXlIbVBmZzJuWmZ5RjdxbDU4MWIzOE9uT2FhUzJXSnhzc2VOVUF1YzJlYUp1dkpYY0tTMWlGczg0NnpZem04WTZicllueC0wd0ZRaWN6ZXhLQVIwekhpRDRHSlRtclY3T2tR?oc=5",
+              "summary": " Macau targets 2029 opening for first phase of national museum of culture &nbsp;&nbsp; macau daily times 澳門每日時報 "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "New Hertfordshire Police Headquarters building officially opened",
+              "sector": "Offices & Workplace",
+              "source": "Hertfordshire Constabulary",
+              "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNcXlsVlNQNHNRRFNwVHRkNE5pT1VHR25RUEZQTWJCcDhieHJnNjBfYi1DTmx4MnAyeTU2eUx0Q0tPYUFBcFRXLU9MVEZQNDh1TWpJcWpwT0VTaldyVmxTc1ExTEljUFc4NnNEWWRXYUNxci1nYWI3dTJmeEJNeHcxLTFra21KQlJ3MUJMZFN0YWltbG1lWHVGTHNNcldSWFJXTFJWd3pxWHJPaENnNkdvNHBXaS1GWGtsakFzeW5nU2J2ZUZzMTFFSHV0aXJfTnRmbzY5ag?oc=5",
+              "summary": " New Hertfordshire Police Headquarters building officially opened &nbsp;&nbsp; Hertfordshire Constabulary "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Palo Alto pays $8M settlement to builder of new police headquarters",
+              "sector": "Offices & Workplace",
+              "source": "Palo Alto Online",
+              "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxONnhDM2d1Ri1OUDd2bjhKMkl2ZnFmbXJpanVDVXlXZ1hIakhSdVM2SVFkQ2wzck5pX3FsTzdvOFBpRlJBcFAzekZZTHNqYmdycmNtTDBhMGY1dTNQOWNqekM5SVhRVEluekpfNFNMYjBnQ3RHa1hRZEVBd3lHTEhqSzdxS0ZhaWJiRmlVSHdlRXd3RXVYMGtjbC1QQkdsaFBnSjV5ajBwbkRSMmdPSzNPbWNBUQ?oc=5",
+              "summary": " Palo Alto pays $8M settlement to builder of new police headquarters &nbsp;&nbsp; Palo Alto Online "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Fairfax City Council gets preview of three mixed-use development proposals",
+              "sector": "Retail & Mixed-Use",
+              "source": "FFXnow",
+              "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPM01va29VLTFOaUFPU1Y2OGJsSExEbzktLTRvRjIwRnNGcGIxN1R6OVNRc2VGY3JPVTJoM2VNR2tienBCYUZWTWcxazB6YkFyaEpIYy0wblJkRVEyNEdzR2tLRThZY2s4c0tsVFh3OTI5MmlZOVVqMDdmOFZSZnlneXlBS2lQRnVSejhWcXZsZUh2Smo3LVZtNXlaTzktRWpsOEEtdS1n?oc=5",
+              "summary": " Fairfax City Council gets preview of three mixed-use development proposals &nbsp;&nbsp; FFXnow "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Evergreen Development plans mixed-use project in Eastmark",
+              "sector": "Retail & Mixed-Use",
+              "source": "AZ Big Media",
+              "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNLXBkTHViRFVMa3dpZ0JqXzMyRi1Qc3pzQUJwY3BZdEtXTUktQkM1MVBiemhkRjZkT1phZ3F3U0ctMUMxeGdyY3ZDRkFSLUpqZ0R5N0dZd1Vka3E2c3psTVRpbUlVeTBMUjR2U2IwUHBBbkdtVGlwaTZsblhpQXVOX3hzazlMQTk4M2lSd2pTWFByQ2txcjBHTA?oc=5",
+              "summary": " Evergreen Development plans mixed-use project in Eastmark &nbsp;&nbsp; AZ Big Media "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Apartments Kick Off New Era Of Mixed-Use Activity In Philly Navy Yard",
+              "sector": "Retail & Mixed-Use",
+              "source": "Bisnow",
+              "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQSlcwVGlsMnhqckVzY3FMbmI3bkh2TjFvdmpjaHpLbEhqUE9kMzhnVE02OUNraHdVOFdJdjRMSXVWeHYzdmZ5QXlDRzZfaWlsdmotSGFQRjNqZi1RWG1idEFtMmV6SzJHdFh3NEM3di1uX19fVVNaemFaUGtyMGRlYXczSVNydHVXbVZMeWFHbFlrY05E?oc=5",
+              "summary": " Apartments Kick Off New Era Of Mixed-Use Activity In Philly Navy Yard &nbsp;&nbsp; Bisnow "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Suncheon mayor launches three-pronged education push, eyes science high school and new-town campuses",
+              "sector": "Education",
+              "source": "헤럴드경제",
+              "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBPaVZKRDBzald0YW16amxnT2hmSTF6QTBsdVlPTVM5ZjZxVUlLalVia0dRUmVydXNFZ2ktY0ROaFZSOWk4YmlTZWdRQ0FTM3h4YldsS044SQ?oc=5",
+              "summary": " Suncheon mayor launches three-pronged education push, eyes science high school and new-town campuses &nbsp;&nbsp; 헤럴드경제 "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Natchez-Adams County Airport commercial terminal project rec...",
+              "sector": "Infrastructure & Transport",
+              "source": "The Natchez Democrat",
+              "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPQjN3UHhnRlIzV0tmMEY5SzdQeVFFNkJDWC1qUVAtdDhHUWlEVmEtcDI3X19Rd0s0Zy1Xdmtjb2RwdkNfQVpRN2tzYmFuNmNYalZmc0luWDlmalFuYUZVTjVFUERkSWJGT0Z1VE5SSkdjQmVJWU5LSHNKYklyd2ZqTTU3Q1dOd3JyakU5eDY1c0JrRkFGRXZXcDlXblJPak5QZlF6Tm45R0RxTWJfZzhDMnJqQXpkbmd6R2Y3NHgyRGFnY2p5dmJsWktTcXRMWHNIOWdWUnA0czBHcGgyVXVadDF3?oc=5",
+              "summary": " Natchez-Adams County Airport commercial terminal project rec... &nbsp;&nbsp; The Natchez Democrat "
+            },
+            {
+              "date": "2026-09-11",
+              "date_display": "11 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "CONFIRMED: 11 New Theme Park Coasters Are Opening in 2027",
+              "sector": "Sports & Leisure",
+              "source": "AllEars.Net",
+              "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPVWt4ZUNoM21lRmE4ODJiNHgyM1pCQW9aRm9qeWdPZFVscWctQmVxTEkxSzF2ZW94NFJZQlM1dWhPeUpNWGF4MTQxaHR5UEJCbXVTeThFOWtwMi1xb2JSVzktXzFPamRDakxMdV80aEE2dmdXNUd2VmRqWmFvN0lIQllHUGJmdk5RakZMa2dETjd4QQ?oc=5",
+              "summary": " CONFIRMED: 11 New Theme Park Coasters Are Opening in 2027 &nbsp;&nbsp; AllEars.Net "
+            },
+            {
+              "date": "2026-09-12",
+              "date_display": "12 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "‘More than just a structure': Fla. police unveil new $165M headquarters",
+              "sector": "Offices & Workplace",
+              "source": "Police1",
+              "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPbENiVGtXcUxwaE5VX3p5NG9uMXVMTzZodnRwdlVWY0xjRmxPM0gwVVJOd3FUV2hmQU5RX1oxZ2htT1RES0ttenFqX2docWNFVkNta21tS0M0OERHVDMtTW02NlpqalpwNGh2eVpydVJWaEp6SlpSeTNnSF9YY0RwOW1ma2x0aEZjUlRlNGQ5aV9wZEFPd2xYNl9FdTVQWVhldVZ4X2NoQUc5aTZ4dEE?oc=5",
+              "summary": " ‘More than just a structure': Fla. police unveil new $165M headquarters &nbsp;&nbsp; Police1 "
+            },
+            {
+              "date": "2026-09-12",
+              "date_display": "12 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Jonesville football plays first game in its new stadium",
+              "sector": "Sports & Leisure",
+              "source": "MLive.com",
+              "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOZUsyWDdvLXJ6LWUzUlN6R1RjQ3N0V2s5cTBCcnFsNkJWYXlvR0libzloR3BkV2VkX2czQnNSX0FBZ1BQTUh0UF9mWWkzaFh5YkxDOTFWT2Zmc2NfUkw4UzI3TC03aGZXbnVFc0haMXNuMUZvdUpZSUxUM25WMExMbWI2Q1lGU2ttV0pmQy0xZWo4cmdaWHVhOGs4TGM4dUZxUWsxdzgwZVducjg?oc=5",
+              "summary": " Jonesville football plays first game in its new stadium &nbsp;&nbsp; MLive.com "
+            },
+            {
+              "date": "2026-09-12",
+              "date_display": "12 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Central Catholic christens new stadium by pulling away from Pine-Richland in 2nd half",
+              "sector": "Sports & Leisure",
+              "source": "TribLIVE.com",
+              "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQZDhzczlfcTk2Q2h1dTQtNG9Nbjh2Z0dqZHFwd3o2TUlrTFBLNjFoTWVKcTlmY19IcnNZcTNxOUpPUzhRdF9CNTYwRGNqX21ISEg1dnVFcEJDdGtqNHFZeG93NVlFb2x2M1FFbWxGcEg1WGlUWkJsY3c0NkY1R0w3UkJOVEs4d2xDTnE0VFlYam9UY1N6R29BTkFOcmVlRXdwbDRYSXVYM0FtUTRNYV9VOEg5V00?oc=5",
+              "summary": " Central Catholic christens new stadium by pulling away from Pine-Richland in 2nd half &nbsp;&nbsp; TribLIVE.com "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "WIU prepared to mark grand opening of new center for performing arts",
+              "sector": "Cultural & Museums",
+              "source": "Tri States Public Radio | TSPR | WIUM",
+              "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNLUhmVDNHUm1nX2Utemdhb2JidC1aU0ZicEZUalM5MlZoRFVHbFFPZ0N0c3FodFhmVFlyNUhaUk9RYzhwa2JYU29ZcU1zaWZfWDQ2djNvbGxWMmJMN2plZl9ZX0lkNVc4MktrekVkX05ETFM2MjQ3dThWcGFsWGJIZWc4bHFSWXZXU0NaOHFvOFJ4Ni14LS01VURVaG5leTlKNkZyX1B1b0haam44OUkzMFJSLUQ0Z3c?oc=5",
+              "summary": " WIU prepared to mark grand opening of new center for performing arts &nbsp;&nbsp; Tri States Public Radio | TSPR | WIUM "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Bossier City councilman withdraws proposed entertainment development district",
+              "sector": "Commercial Development",
+              "source": "ksla.com",
+              "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNY2gtcGx4VUVxa2NmM1ZROWlQTm44Y0RpaFB6SjhfUFB5b1VqbF81SU9kOGFlc2hJYnlkM2IxbTI5VjNPcllxZS1VSE44MG0zc25QU1VLVmJzNzh1T1lpWU5NLTkwbW42cjhLTkQ1Rl85RzBSRFNuLVFIYm5ZNmIxYmcwZzBlSTM1djMtNWIzLVEtSU92c1RnSV9UVTAzcm5SVW14WFlBX2ZidXFvblRn?oc=5",
+              "summary": " Bossier City councilman withdraws proposed entertainment development district &nbsp;&nbsp; ksla.com "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Gov. Hochul and other democratic leaders unveil new Buffalo campaign headquarters",
+              "sector": "Offices & Workplace",
+              "source": "WKBW",
+              "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxObVg2VFZITFZqc1d1RzdBM003TlVycDdEMG1wOEpjQ2NWcmtGUWtmRXZFenNrQ2RLMWx5dlVCVnNaQlpLZTZJcS1EdE5DM1plTFdUS0JaeFZqWUVjN1pLcXptbnpWbmN1UDhULUlKc1lhU1VoU3RrLWxXYk9lZTY3M1Q2WGdnT0x1Y2VaSGh1bV9rZEpObEF1RHM1emZlWTRkNG1pYWpFbVpYRGVoMjFXUXVPLU9UX1U1VlhOZkVvX2tTNzg?oc=5",
+              "summary": " Gov. Hochul and other democratic leaders unveil new Buffalo campaign headquarters &nbsp;&nbsp; WKBW "
+            },
+            {
+              "date": "2026-09-13",
+              "date_display": "13 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Mixed-use project could rise in Deerfield Beach",
+              "sector": "Retail & Mixed-Use",
+              "source": "The Business Journals",
+              "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQTzJvYmducU8zNnQzX1BiSjJYYkFmTkc5eU85amhabGxMdkRzVWNQbXJwbnFqQ0xMbTFOWklZTkJvNFhrNV96cEIwWlc4ckJwN1o3bEh0ZXYzaVRIUVpzTlM5UnRZT0g3dE1QX1FsVFlVMi1WNXlUb0RmeGtWOVdQN3JMeHh6VFR4SklScVRObndzWkpaTnBWeUpkX2hBS0szQVlZTHdRdFlEUGY0UWc?oc=5",
+              "summary": " Mixed-use project could rise in Deerfield Beach &nbsp;&nbsp; The Business Journals "
+            }
+          ]
+        }
+      ],
+      "tenders_groups": [
+        {
+          "continent": "Europe",
+          "items": [
+            {
+              "date": "2026-09-08",
+              "date_display": "8 Sep",
+              "country": "Ireland",
+              "continent": "Europe",
+              "title": "Ireland – Motor vehicle conversion services – Vehicle Conversions / Vehicle Fit Out of Defence Forces vehicles",
+              "issuer": "Irish Defence Forces_1144",
+              "category": "Commercial",
+              "deadline": "",
+              "deadline_days": null,
+              "source": "TED EU",
+              "url": "https://ted.europa.eu/en/notice/-/detail/618398-2026"
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "Ireland",
+              "continent": "Europe",
+              "title": "Ireland – Construction work – TR3015 - ESB Project 26 Fitout Works Contractor",
+              "issuer": "Electricity Supply Board ( ESB )",
+              "category": "Commercial",
+              "deadline": "",
+              "deadline_days": null,
+              "source": "TED EU",
+              "url": "https://ted.europa.eu/en/notice/-/detail/620793-2026"
+            },
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Europe",
+              "title": "Irish contractor Designer Group advances 10 Heathrow projects - Fit Out Awards 2026",
+              "issuer": "",
+              "category": "Healthcare",
+              "deadline": "",
+              "deadline_days": null,
+              "source": "Fit Out Awards 2026",
+              "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNRjRYeVBJOHNXZWI1UEtpVFcxSzBIcEkyMmVWeDhtQzItZ0JmeW9wOXNNLVFQMDhDbWpTdld2WUx5dlp0T3pHOWhFLTRjRnhPVnREOHAxc25UUTM3eHVmd18xQmZocTBna0E1MmhfMlRWV0ZVbGtYWS1JeVozZFFhdDhZU1FVWWgzTXB0MEZEaUFibzZn?oc=5"
+            },
+            {
+              "date": "2026-09-09",
+              "date_display": "9 Sep",
+              "country": "—",
+              "continent": "Europe",
+              "title": "T&I Fitouts named as Gold Sponsor of Fit Out Awards 2026 - Fit Out Awards 2026",
+              "issuer": "",
+              "category": "Healthcare",
+              "deadline": "",
+              "deadline_days": null,
+              "source": "Fit Out Awards 2026",
+              "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNc3hucURNRjg3dUJ6amI0SkhpS1N5d2ExTFF3Umg2bDNhd1JGVWF6ZEJOc2lkdGlEYVRIYXVCM2tFOVpfV3VQdmMwT0lHQml3aTJOVF9vWVIzbE9hNTEwRmwxdGVOaDN5WHVzWDBYTzAzXy1rc2VFYzVPR0FyUmxmaEp2Yy1vUkFMazRmc1M1dUpsUQ?oc=5"
+            }
+          ]
+        },
+        {
+          "continent": "Global",
+          "items": [
+            {
+              "date": "2026-09-07",
+              "date_display": "7 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "Historic interior fit-out firm eyes “significantly increased” revenues and profits after being hit by contract delays - Insider Media Ltd",
+              "issuer": "",
+              "category": "Commercial",
+              "deadline": "",
+              "deadline_days": null,
+              "source": "Insider Media Ltd",
+              "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPVl9lY2ZUY2liQmZhRzlxakNjQW1YbDVRdG9ERFRycUZKRnVLNEV0WnZfTmVfTFdiZllLYklwd19GTHBPWlNtdEFYVW53T1A3dHVTYVhLYWtPNlRQWGRKYnlVNUlkTTZ4YlRrTTQxb1RQRTk3NERwMmJaaXpNVDlxdmNydnhqekF4cmFZS0lBdkhvTTNlQkh1R1B6eTNZY1pLdTNEcFM2VmdhcExmdTYwblFTUEpxTmV1aWNQUkRibEJLVjBxX0NjekhmUEpHU25MQjQzdXBfVjBfTlhQajFwb01MVGVCTG14MlEwc2paWQ?oc=5"
+            },
+            {
+              "date": "2026-09-12",
+              "date_display": "12 Sep",
+              "country": "—",
+              "continent": "Global",
+              "title": "RfQ for finalization of the NIC s interior renovation and furniture installation - UNGM",
+              "issuer": "",
+              "category": "Commercial",
+              "deadline": "",
+              "deadline_days": null,
+              "source": "UNGM",
+              "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE04SXZUUnVHcWJ6MEF4aGJQd3Z4VDRtcUxUQnZtSUg1MWN2d2dXV0JOVHhuY3pOR3BDX2V5NUkydGR0T2RiNW9xU1RXQ1A3NTREbTBr?oc=5"
+            }
+          ]
+        }
+      ],
+      "awards_groups": []
+    },
     {
       "id": "2026-W36",
       "week_start": "2026-08-31",
